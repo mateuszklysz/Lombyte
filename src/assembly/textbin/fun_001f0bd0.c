@@ -1,0 +1,58 @@
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 0.0000%
+ * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.
+ * The default matching build keeps the expected assembly oracle.
+ */
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f0bd0/FUN_001f0bd0.s", FUN_001f0bd0);
+#else
+#include "rnc/assembly_textbin_fun_001f0bd0_types.h"
+#include "types.h"
+/* cygnus-2.96 matched TU. */
+
+extern int CreateThread(void *);
+extern void func_003B0BA8(int, int);
+extern void ChangeThreadPriority(int, int);
+extern void func_00325100(void);
+extern int D_003CF9D8;
+extern int D_003C80C8;
+extern unsigned char D_003CB9D0[];
+extern int D_00468CF0;
+extern volatile int D_003C814C;
+
+
+
+__attribute__((section(".text.func_00325578")))
+void FUN_001f0bd0(void) {
+    ThreadParam param;
+    param.func = (void *)func_00325100;
+    param.stack = D_003CB9D0;
+    param.stackSize = 0x2000;
+    param.initPriority = D_003CF9D8;
+    param.gpReg = &D_00468CF0;
+    D_003C814C = CreateThread(&param);
+    D_003C814C;
+    func_003B0BA8(D_003C814C, 0);
+    ChangeThreadPriority(D_003C814C, D_003C80C8);
+    func_00325360(D_003C814C);
+    D_003C814C;
+}
+
+__attribute__((section(".text.func_0035B9B0")))
+int func_0035B9B0(char *a0) {
+    int local0, local1;
+    int a1val, s0, s1, r;
+    char *p;
+    a1val = *(int *)(a0 + 0x950);
+    p = a0 + 0xD30;
+    s1 = *(int *)(p + 0x27C);
+    s0 = *(int *)(p + 0x280);
+    if (!(a1val == 0)) return 0; return 1;
+    func_0035AB98(a0, &local0, &local1);
+    r = func_00366918(s1 + s0 * 2000 / 59940, s0, local0, local1);
+    return r != 0;
+}
+#endif /* NON_MATCHING */

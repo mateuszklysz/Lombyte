@@ -1,0 +1,57 @@
+#include "types.h"
+struct M2c_arg0 {
+    u8 pad_0[0x150];
+    s32 unk150;
+    u8 pad_154[0x20];
+    s32 unk174;
+    u8 pad_178[0x38];
+    s32 unk1B0;
+    u8 pad_1B4[0x65C];
+    s32 unk810;
+};
+
+struct M2c_arg1 {
+    s32 unk0;
+    s32 unk4;
+    u8 pad_8[0x8];
+    s32 unk10;
+    s32 unk14;
+};
+
+struct M2c_arg3 {
+    s32 unk0;
+    s32 unk4;
+};
+
+extern u8 D_00153868[];
+extern s32 _Error(struct M2c_arg0 *a0, u8 *a1);
+s32 _skipMB0(struct M2c_arg0 *arg0, struct M2c_arg1 *arg1, s32 *arg2, struct M2c_arg3 *arg3, s32 *arg4) {
+    s32 temp_10_11;
+    s32 temp_2_32;
+    s32 var_9_6;
+
+    var_9_6 = 1;
+    temp_10_11 = arg0->unk810 * 0x140;
+    *(s32 *)((u8 *)(((u8 *)arg0 + (temp_10_11))) + 0x6CC) = 1;
+    arg0->unk1B0 = 1;
+    if (arg0->unk150 == 2) {
+        arg1->unk14 = 0;
+        arg1->unk10 = 0;
+        arg1->unk4 = 0;
+        arg1->unk0 = 0;
+    }
+    if (arg0->unk174 == 3) {
+        *arg2 = 2;
+    } else {
+        *arg2 = 1;
+        temp_2_32 = arg0->unk174 == 2;
+        arg3->unk4 = temp_2_32;
+        arg3->unk0 = temp_2_32;
+    }
+    if (arg0->unk150 == 1) {
+        _Error(arg0, D_00153868);
+        var_9_6 = 0;
+    }
+    *arg4 &= ~1;
+    return var_9_6;
+}

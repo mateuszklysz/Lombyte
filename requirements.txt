@@ -1,0 +1,16 @@
+# Build dependencies for rebuilding the boot ELF and patching an ISO.
+# Usage:
+#   python3 -m venv .venv
+#   .venv/bin/pip install -r requirements.txt
+#
+# spimdisasm is pinned to the version whose R5900 output is accepted by the
+# EE assembler without the `nonmatching` stub lines.
+splat64==0.34.1
+PyYAML==6.0.3
+ninja==1.13.0
+ninja_syntax==1.7.2
+spimdisasm==1.35.0
+pyelftools==0.33
+n64img
+pygfxd
+crunch64

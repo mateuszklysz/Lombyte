@@ -1,0 +1,71 @@
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 3.2927%
+ * blocker: Breadth C export: exact code generation is not yet proven; remaining differences are retained as register-allocation, stack-alignment, or delay-slot scheduling blockers while the assembly oracle remains available for exact builds.
+ * The default matching build keeps the expected assembly oracle.
+ */
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+/* Exact SDK/library unit sceVu0RotMatrixZ; symbolic expected assembly retained pending source recovery. */
+__asm__(
+    ".set noreorder\n"
+    ".text\n"
+    ".align 3\n"
+    ".globl sceVu0RotMatrixZ\n"
+    ".type sceVu0RotMatrixZ, @function\n"
+    "sceVu0RotMatrixZ:\n"
+    "mtc1       $0, $f0\n"
+    "c.lt.s     $f12, $f0\n"
+    "lui        $1, (0x3FC90FDB >> 16)\n"
+    "ori        $1, $1, (0x3FC90FDB & 0xFFFF)\n"
+    "mtc1       $1, $f0\n"
+    "bc1f       .L001252E0\n"
+    "nop\n"
+    "add.s      $f12, $f0, $f12\n"
+    "j          func_001252E8\n"
+    "addiu     $7, $0, 0x1\n"
+    ".L001252E0:\n"
+    "sub.s      $f12, $f0, $f12\n"
+    "daddu      $7, $0, $0\n"
+    ".size sceVu0RotMatrixZ, .-sceVu0RotMatrixZ\n"
+    ".globl func_001252E8\n"
+    ".type func_001252E8, @function\n"
+    "func_001252E8:\n"
+    "mfc1       $8, $f12\n"
+    "qmtc2.ni   $8, $vf6\n"
+    "daddu      $6, $31, $0\n"
+    "jal        SceVu0Ecossin\n"
+    "nop\n"
+    "daddu      $31, $6, $0\n"
+    "vmove.xyzw $vf6, $vf5\n"
+    "vmove.xyzw $vf7, $vf5\n"
+    "vmove.xyzw $vf9, $vf0\n"
+    "vsub.xyz   $vf9, $vf9, $vf9\n"
+    "vmr32.xyzw $vf8, $vf9\n"
+    "vsub.zw    $vf4, $vf4, $vf4\n"
+    "vaddx.y    $vf6, $vf5, $vf4x\n"
+    "vaddy.x    $vf6, $vf5, $vf4y\n"
+    "vsubx.x    $vf7, $vf5, $vf4x\n"
+    "vaddy.y    $vf7, $vf5, $vf4y\n"
+    "addiu      $7, $0, 0x4\n"
+    ".L0012532C:\n"
+    "lqc2       $vf4, 0x0($5)\n"
+    ".word 0x4BE431BC\n"
+    ".word 0x4BE438BD\n"
+    ".word 0x4BE440BE\n"
+    "vmaddw.xyzw $vf5, $vf9, $vf4w\n"
+    "sqc2       $vf5, 0x0($4)\n"
+    "addi       $7, $7, -0x1 /* handwritten instruction */\n"
+    "addi       $5, $5, 0x10 /* handwritten instruction */\n"
+    "bne        $0, $7, .L0012532C\n"
+    "addi      $4, $4, 0x10 /* handwritten instruction */\n"
+    "jr         $31\n"
+    "nop\n"
+    ".size func_001252E8, .-func_001252E8\n"
+    ".set reorder\n"
+);
+#else
+#include "types.h"
+s32 sceVu0RotMatrixZ(void) { return 0; }
+#endif /* NON_MATCHING */

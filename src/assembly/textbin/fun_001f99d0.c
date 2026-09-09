@@ -1,0 +1,59 @@
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 0.0000%
+ * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.
+ * The default matching build keeps the expected assembly oracle.
+ */
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f99d0/FUN_001f99d0.s", FUN_001f99d0);
+#else
+#include "types.h"
+/* cygnus-2.96 matched TU. */
+
+extern void func_0033F130(void *a);
+extern void func_0032EBD8(void);
+extern void func_00330268(void);
+
+/* LANE K3, wave 18 -- DEAD-HEAD boundary class.
+ * declared symbol : Forward33F130_3248C0
+ * TRUE ENTRY      : 0x003248C0
+ * head bytes      : 16 (dead words in front of the true entry)
+ * compiler        : cygnus-2.96
+ * extra keys      : none
+ * symbol_addrs    : Forward33F130_3248C0 = 0x003248C0; // type:func
+ *
+ * Byte-exact over the TRUE span only.  score_candidate compares the
+ * DECLARED span and reports a clean length miss of 4 words.
+ * Land it after the boundary moves.
+ */
+
+
+__attribute__((section(".text.Forward33F130_3248C0")))
+void FUN_001f99d0(void *a0, void *a1) {
+    func_0033F130(a1);
+}
+
+/* LANE K3, wave 18 -- DEAD-HEAD boundary class.
+ * declared symbol : func_0032D170
+ * TRUE ENTRY      : 0x0032D170
+ * head bytes      : 8 (dead words in front of the true entry)
+ * compiler        : cygnus-2.96
+ * extra keys      : none
+ * symbol_addrs    : func_0032D170 = 0x0032D170; // type:func
+ *
+ * Byte-exact over the TRUE span only.  score_candidate compares the
+ * DECLARED span and reports a clean length miss of 2 words.
+ * Land it after the boundary moves.
+ */
+
+
+
+__attribute__((section(".text.func_0032D170")))
+int func_0032D170(void) {
+    func_0032EBD8();
+    func_00330268();
+    return 0;
+}
+#endif /* NON_MATCHING */

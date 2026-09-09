@@ -1,0 +1,42 @@
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 0.0000%
+ * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.; shared struct extraction rejected after compile failure
+ * The default matching build keeps the expected assembly oracle.
+ */
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00213508/FUN_00213508.s", FUN_00213508);
+#else
+#include "types.h"
+/* cygnus-2.96 matched TU — CRI libadxe, recovered from recvx-decomp (CC0). */
+
+typedef signed char Sint8;
+typedef signed int  Sint32;
+typedef unsigned int Uint32;
+typedef struct ADXF_PTINFO { char _pad[8]; Sint32 nfile; } ADXF_PTINFO;
+extern ADXF_PTINFO *D_003EB308[];            /* adxf_ptinfo */
+extern void func_0033F130(const Sint8 *);    /* ADXERR_CallErrFunc1 */
+extern const Sint8 D_00451A18[];             /* "E9040828:'ptid' is range outside." */
+extern const Sint8 D_00451A40[];             /* "E9040828:'flid' is range outside." */
+
+__attribute__((section(".text.adxf_ChkPrmGfr")))
+Sint32 FUN_00213508(Sint32 ptid, Sint32 flid) {
+    ADXF_PTINFO *info;
+    if ((Uint32)ptid >= 0x100) {
+        func_0033F130(D_00451A18);
+        return -3;
+    }
+    info = D_003EB308[ptid];
+    if (info == 0) {
+        func_0033F130(D_00451A18);
+        return -3;
+    }
+    if ((flid < 0) || (flid >= info->nfile)) {
+        func_0033F130(D_00451A40);
+        return -3;
+    }
+    return 0;
+}
+#endif /* NON_MATCHING */

@@ -1,0 +1,40 @@
+# Large binaries - never commit
+*.iso
+*.bin
+*.chd
+*.zso
+config/us/SCUS_971.99
+
+# Disc images / build output (drop a legally owned dump into dumps/)
+dumps/
+build/
+config/output/
+config/us/.splache
+config/us/build.ninja
+config/us/SCUS_971.99.ld
+config/us/asm/
+config/us/undefined_syms_auto.txt
+
+# Vendored tools: ignore the compiler/binary components, keep small scripts
+tools/
+!tools/
+tools/*
+!tools/compilers/*/bin/README.md
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Runtime logs and UI state
+ps2_log.txt
+imgui.ini
+
+# OS noise
+Thumbs.db
+desktop.ini
+next_steps.txt
+report.txt

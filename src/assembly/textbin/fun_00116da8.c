@@ -1,0 +1,34 @@
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 87.6000%
+ * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.
+ * The default matching build keeps the expected assembly oracle.
+ */
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00116da8/FUN_00116da8.s", FUN_00116da8);
+#else
+#include "rnc/assembly_textbin_fun_00116da8_types.h"
+#include "types.h"
+
+
+
+
+extern u32 D_0012F76C[];
+extern s32 func_00113AE0();
+extern s32 func_00116E20();
+void FUN_00116da8(struct M2c_arg0 *arg0, s32 arg1, s32 arg2) {
+    struct M2c_var_3_12 *var_3_12;
+
+    var_3_12 = arg0->unk54;
+    if (var_3_12 == NULL) {
+        var_3_12 = D_0012F76C[0];
+        arg0->unk54 = var_3_12;
+    }
+    if (var_3_12->unk38 == 0) {
+        func_00113AE0(var_3_12);
+    }
+    func_00116E20(arg0->unk54, arg0, arg1, arg2);
+}
+#endif /* NON_MATCHING */

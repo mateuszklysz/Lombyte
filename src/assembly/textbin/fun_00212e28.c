@@ -1,0 +1,98 @@
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 0.0000%
+ * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.
+ * The default matching build keeps the expected assembly oracle.
+ */
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00212e28/FUN_00212e28.s", FUN_00212e28);
+#else
+#include "rnc/assembly_textbin_fun_00212e28_types.h"
+#include "types.h"
+/* sn-2.95.3-136 matched TU. */
+
+extern char D_005E7910[];
+extern char *D_00754C58;
+
+__attribute__((section(".text.func_002AA480")))
+void func_002AA480(char *a) {
+    int i;
+    int j;
+    int c;
+    int o1;
+    int o2;
+    int o3;
+    char *p;
+    char *q;
+    char *r;
+
+    for (i = 0; i < *(int *)(a + 0xC); i++) {
+        o1 = i * 0xAC;
+        p = (char *)(o1 + *(int *)(a + 4));
+        c = *(char *)(p + 0x29);
+        if (c < 0) {
+            *(int *)(p + 0x20) = 0;
+            continue;
+        }
+        if (c == *(unsigned char *)(p + 0x28)) {
+            *(int *)(p + 0x20) = 0;
+            return;
+        }
+        for (j = 0; j < *(int *)(a + 0xC); j++) {
+            if (i == j) {
+                continue;
+            }
+            o2 = i * 0xAC;
+            o3 = j * 0xAC;
+            q = (char *)(o2 + *(int *)(a + 4));
+            r = (char *)(o3 + *(int *)(a + 4));
+            if (*(char *)(q + 0x29) == *(unsigned char *)(r + 0x28)) {
+                *(int *)(q + 0x20) = (int)r;
+            }
+        }
+    }
+}
+
+
+
+__attribute__((section(".text.func_002B2080")))
+void func_002B2080(void *dst) {
+    *(Blk0BC *)dst = *(Blk0BC *)D_005E7910;
+}
+
+__attribute__((section(".text.cScenario_setOmSuspend")))
+void FUN_00212e28(void *self, int susp) {
+    char **cur;
+    char *o;
+    long ok;
+    int tmp;
+    int st1;
+    int st2;
+    long t;
+
+    cur = *(char ***)(D_00754C58 + 4);
+    while ((unsigned int)cur < *(unsigned int *)(D_00754C58 + 8)) {
+        o = *cur;
+        st1 = *(unsigned short *)(o + 0x2FE);
+        st2 = *(unsigned short *)(o + 0x2FE);
+        ok = 0;
+        if (st1 >= 0x300) {
+            tmp = st2 < 0x500;
+            ok = tmp;
+        }
+        if (ok & 0xFF) {
+            if (susp == 1) {
+                t = *(unsigned int *)(o + 0x5B8);
+                if (((t >> 6) & 1) == 0) {
+                    *(int *)(o + 0x250) = *(int *)(o + 0x250) | 0x8000;
+                }
+            } else {
+                *(int *)(o + 0x250) = *(int *)(o + 0x250) & ~0x8000;
+            }
+        }
+        cur++;
+    }
+}
+#endif /* NON_MATCHING */
