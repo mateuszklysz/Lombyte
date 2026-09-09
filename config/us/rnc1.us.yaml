@@ -351,7 +351,7 @@ segments:
           - [0x1d240, c, assembly/sdk/library/sceRead]
           - [0x1d4a0, c, assembly/sdk/library/scewrite]
           - [0x1d760, textbin, text_gap_0011c520_post_sdk_worker]
-          - [0x1d7c0, c, assembly/sdk/sif_rpc/sce_sif_init_iop_heap]
+          - [0x1d7c0, c, sdk/sif_rpc/sce_sif_init_iop_heap]
           - [0x1d848, c, assembly/sdk/sif_rpc/sce_sif_alloc_iop_heap]
           - [0x1d8b8, c, assembly/textbin/fun_0011c938]
           - [0x1d930, c, core/invoke_state_initializer]

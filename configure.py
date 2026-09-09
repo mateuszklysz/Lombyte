@@ -134,6 +134,23 @@ RODATA_OVERLAYS = {
     "_dtoa_r": (0x152330, 0x532B0),
 }
 
+# Per-unit extra compiler flags for the Himuro (native EE-GCC 2.9) units whose
+# exact codegen requires a different scheduling model.  Keyed by unit-name
+# suffix so both the assembly-backed and the normalized/promoted name match.
+# sce_sif_init_iop_heap: retail tail (lui v0; sw; move v0) is byte-exact only
+# under -fno-schedule-insns; applying it globally to all Himuro units changes
+# scePad2Read and other already-exact siblings.
+HIMURO_FLAG_UNITS = {
+    "sce_sif_init_iop_heap": "-fno-schedule-insns",
+}
+
+
+def _unit_flag(unit: str) -> str:
+    for suffix, flags in HIMURO_FLAG_UNITS.items():
+        if unit.endswith(suffix):
+            return flags
+    return ""
+
 
 def _unit_uses_sn(unit: str) -> bool:
     if unit in SDK_COMPILER_UNITS:
@@ -362,7 +379,7 @@ def build_stuff(
     ninja.rule(
         "cc",
         description="cc $in",
-        command=f"{compile_cmd} $in -o $out && {CROSS}strip $out -N dummy-symbol-name",
+        command=f"{compile_cmd} $in $extra -o $out && {CROSS}strip $out -N dummy-symbol-name",
     )
 
     if sn_compiler_configured():
@@ -438,7 +455,9 @@ def build_stuff(
                     "sn_work_win": _win_path(sn_work),
                 })
             else:
-                build(entry.object_path, entry.src_paths, "cc")
+                extra = _unit_flag(unit)
+                variables = {"extra": f"{extra} "} if extra else {}
+                build(entry.object_path, entry.src_paths, "cc", variables=variables)
 
         elif isinstance(
             seg,
