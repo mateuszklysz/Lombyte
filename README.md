@@ -30,8 +30,8 @@ You will need your own copy of the game to supply the original executable and di
 
 | Measure | Status |
 | :--- | :--- |
-| Matching C functions | **312** — approximately **23.0%** of configured functions |
-| Matching C code size | **29,984 bytes** — **6.962%** of configured code bytes |
+| Matching C functions | **325** — approximately **24.0%** of configured functions |
+| Matching C code size | **33,976 bytes** — **7.889%** of configured code bytes |
 | Boot executable reconstruction | **Byte-identical to the supported retail ELF** |
 | Disc rebuild smoke check | **Byte-identical to the input disc image** |
 
