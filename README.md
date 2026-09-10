@@ -28,7 +28,7 @@ You will need your own copy of the game to supply the original executable and di
 
 <img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
 
-Each tile is one configured C unit, sized by its share of the executable's code bytes. **Green** tiles are matching C; **dark grey** tiles are still backed by assembly oracles or intentional low-level asm. Units below 256 bytes are grouped per class so the map stays readable. The map is regenerated at the end of every decompilation pipeline run; regenerate it locally with:
+Each tile is one configured C unit, sized by its share of the executable's code bytes. **Green** tiles are matching C; **blue** tiles are intentional low-level asm (SIMD/VU0 helpers kept as assembly and excluded from the C goal); **dark grey** tiles are C still pending. The map is regenerated at the end of every decompilation pipeline run; regenerate it locally with:
 
 ```sh
 .venv/bin/python scripts/generate_treemap.py
@@ -191,8 +191,10 @@ python3 rebuild-iso.py \
 | [`src/assembly/`](src/assembly/) | Assembly-backed units that preserve the original code |
 | [`include/`](include/) | Shared types, structures, and declarations |
 | [`config/`](config/) | Executable layout, symbol maps, and analysis exports |
-| [`scripts/`](scripts/) | Build-support helpers |
-| `tools/` | Locally installed compilers and comparison tools |
+| [`scripts/`](scripts/) | Build-support helpers and the progress-map generator |
+| [`analysis/`](analysis/) | Audit snapshots and progress evidence |
+| [`assets/`](assets/) | README logo and generated progress map |
+| `tools/` | Locally installed compilers and comparison tools (not tracked by Git) |
 | `dumps/` | Local input disc images, ignored by Git |
 | `build/` | Local ISO output, ignored by Git |
 

@@ -13,8 +13,10 @@ What the map shows
       ``src/assembly/``) with a source file in ``src/``. Promotions retag the
       config, so the map keeps up automatically; the audit covers legacy
       exact units that still live under ``src/assembly/``.
-    * dark grey (#313244) - everything else: still assembly-backed or an
-      intentional low-level asm unit.
+    * blue (#1f6feb) - intentional low-level asm: hand-written SIMD/VU0/MMI
+      code that is kept as assembly and excluded from the C goal.
+    * dark grey (#313244) - C still pending: assembly-backed units whose
+      readable C is not byte-exact yet.
 
   Units below ``--min-bytes`` are grouped per class so a compact map stays
   readable; the default (0) draws every configured C unit as its own tile and
@@ -42,6 +44,7 @@ from pathlib import Path
 import sys
 
 GREEN = "#40a02b"
+BLUE = "#1f6feb"
 GREY = "#313244"
 BACKGROUND = "#0d1117"
 STROKE = "#0d1117"
@@ -165,26 +168,37 @@ def newest_audit(repo: Path):
     return candidates[-1] if candidates else None
 
 
-def audit_exact(audit: Path | None):
+def audit_categories(audit: Path | None):
     if audit is None or not audit.is_file():
-        return set()
+        return {}
     try:
         payload = json.loads(audit.read_text())
     except (OSError, json.JSONDecodeError):
-        return set()
+        return {}
     records = payload.get("records", payload if isinstance(payload, list) else [])
-    return {record.get("name") for record in records if record.get("category") == "C_EXACT"}
+    return {
+        record.get("name"): record.get("category")
+        for record in records
+        if record.get("name")
+    }
 
 
 def build_units(repo: Path, config: Path, audit: Path | None):
-    exact = audit_exact(audit)
+    categories = audit_categories(audit)
     result = []
     for owner, address, size in parse_units(config):
         source = repo / "src" / f"{owner}.c"
-        matching = owner in exact or (
+        if categories.get(owner) == "C_EXACT" or (
             not owner.startswith("assembly/") and source.is_file()
-        )
-        result.append({"owner": owner, "address": address, "size": size, "green": matching})
+        ):
+            category = "exact"
+        elif categories.get(owner) == "INTENTIONAL_LOW_LEVEL_ASM":
+            category = "asm"
+        else:
+            category = "pending"
+        result.append({
+            "owner": owner, "address": address, "size": size, "category": category,
+        })
     return result
 
 
@@ -209,7 +223,11 @@ def base_name(tile) -> str:
 
 
 def match_percent(tile) -> str:
-    return "100.00%" if tile["green"] else "0.00%"
+    if tile["category"] == "exact":
+        return "100.00%"
+    if tile["category"] == "asm":
+        return "asm"
+    return "0.00%"
 
 
 def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
@@ -272,25 +290,31 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     small = [unit for unit in units if unit["size"] < min_bytes]
     tiles = [
         {"owner": unit["owner"], "address": unit["address"], "size": unit["size"],
-         "green": unit["green"], "group": False}
+         "category": unit["category"], "group": False}
         for unit in big
     ]
-    for color in (True, False):
-        group = [unit for unit in small if unit["green"] is color]
+    for category in ("exact", "asm", "pending"):
+        group = [unit for unit in small if unit["category"] == category]
         if group:
             tiles.append({
                 "owner": f"{len(group)} units < {min_bytes} B",
                 "address": min(unit["address"] for unit in group),
                 "size": sum(unit["size"] for unit in group),
-                "green": color, "group": True, "count": len(group),
+                "category": category, "group": True, "count": len(group),
                 "threshold": min_bytes,
             })
 
     total_units = len(units)
     total_bytes = sum(unit["size"] for unit in units)
-    green_units = [unit for unit in units if unit["green"]]
-    green_bytes = sum(unit["size"] for unit in green_units)
-    green_percent = (100.0 * green_bytes / total_bytes) if total_bytes else 0.0
+    exact = [unit for unit in units if unit["category"] == "exact"]
+    asm = [unit for unit in units if unit["category"] == "asm"]
+    pending = [unit for unit in units if unit["category"] == "pending"]
+    exact_bytes = sum(unit["size"] for unit in exact)
+    asm_bytes = sum(unit["size"] for unit in asm)
+    pending_bytes = total_bytes - exact_bytes - asm_bytes
+    recoverable = total_bytes - asm_bytes
+    exact_percent = (100.0 * exact_bytes / total_bytes) if total_bytes else 0.0
+    recoverable_percent = (100.0 * exact_bytes / recoverable) if recoverable else 0.0
 
     # Stable order: biggest first, then by address, so tiles keep their place.
     order = sorted(tiles, key=lambda tile: (-tile["size"], tile["address"], tile["owner"]))
@@ -315,14 +339,15 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     lines.append(
         f'<text x="{margin_px}" y="{round(41 * scale)}" font-family="{esc(FONT)}" '
         f'font-size="{10 * text_scale:.1f}" '
-        f'fill="{MUTED}">{green_units.__len__()} of {total_units} configured C units '
-        f'matching &#183; {green_bytes:,} of {total_bytes:,} bytes '
-        f'({green_percent:.1f}%)</text>'
+        f'fill="{MUTED}">{len(exact)} matching C &#183; {len(asm)} intentional asm '
+        f'&#183; {len(pending)} pending &#183; {exact_bytes:,} of {total_bytes:,} bytes '
+        f'({exact_percent:.1f}%; {recoverable_percent:.1f}% of recoverable C)</text>'
     )
     legend_x = width - margin_px - round(250 * scale)
     for offset, (color, text) in enumerate((
-        (GREEN, f"matching C &#183; {green_bytes:,} B"),
-        (GREY, f"remaining &#183; {total_bytes - green_bytes:,} B"),
+        (GREEN, f"matching C &#183; {exact_bytes:,} B"),
+        (BLUE, f"intentional asm &#183; {asm_bytes:,} B"),
+        (GREY, f"pending C &#183; {pending_bytes:,} B"),
     )):
         y = round(14 * scale) + offset * round(17 * scale)
         swatch = round(10 * scale)
@@ -337,7 +362,7 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
         dx, dy = max(rect["dx"], 0.0), max(rect["dy"], 0.0)
         if dx <= 0 or dy <= 0:
             continue
-        color = GREEN if tile["green"] else GREY
+        color = {"exact": GREEN, "asm": BLUE, "pending": GREY}[tile["category"]]
         dash = ' stroke-dasharray="3 2"' if tile.get("group") else ""
         lines.append(
             f'<rect x="{x:.2f}" y="{y:.2f}" width="{dx:.2f}" height="{dy:.2f}" rx="1" '
@@ -403,12 +428,18 @@ def main(argv=None) -> int:
     output.write_text(svg)
 
     total = sum(unit["size"] for unit in units)
-    green = [unit for unit in units if unit["green"]]
-    green_bytes = sum(unit["size"] for unit in green)
+    exact = [unit for unit in units if unit["category"] == "exact"]
+    asm = [unit for unit in units if unit["category"] == "asm"]
+    pending = [unit for unit in units if unit["category"] == "pending"]
+    exact_bytes = sum(unit["size"] for unit in exact)
+    asm_bytes = sum(unit["size"] for unit in asm)
     shown = sum(1 for unit in units if unit["size"] >= args.min_bytes)
     print(f"wrote {output}")
-    print(f"  units: {len(green)}/{len(units)} matching, "
-          f"{green_bytes:,}/{total:,} bytes ({100.0 * green_bytes / total:.2f}%)")
+    print(f"  matching C: {len(exact)}/{len(units)} units, {exact_bytes:,}/{total:,} bytes "
+          f"({100.0 * exact_bytes / total:.2f}%; "
+          f"{100.0 * exact_bytes / (total - asm_bytes):.2f}% of recoverable C)")
+    print(f"  intentional asm: {len(asm)} units, {asm_bytes:,} B")
+    print(f"  pending C: {len(pending)} units, {total - exact_bytes - asm_bytes:,} B")
     print(f"  tiles: {shown} individual + grouped units below {args.min_bytes} B" if args.min_bytes > 0
           else f"  tiles: {shown} individual (no grouping)")
     print(f"  layout: {'squarify' if _squarify_pkg is not None else 'bundled fallback'}")
