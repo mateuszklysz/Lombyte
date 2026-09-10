@@ -42,8 +42,8 @@ import sys
 
 GREEN = "#40a02b"
 GREY = "#313244"
-BACKGROUND = "#1e1e2e"
-STROKE = "#11111b"
+BACKGROUND = "#0d1117"
+STROKE = "#0d1117"
 TEXT = "#cdd6f4"
 MUTED = "#a6adc8"
 FONT = "ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
@@ -194,10 +194,61 @@ def esc(value) -> str:
     return html.escape(str(value), quote=True)
 
 
-def tile_label(tile) -> str:
+def unit_name(tile) -> str:
+    """Full unit path (assembly/ prefix dropped); groups have no single name."""
     if tile.get("group"):
-        return f"{tile['count']} units < {tile['threshold']} B"
-    return tile["owner"].split("/")[-1]
+        return f"{tile['count']} units"
+    return tile["owner"].removeprefix("assembly/")
+
+
+def base_name(tile) -> str:
+    if tile.get("group"):
+        return f"{tile['count']} units"
+    return tile["owner"].rsplit("/", 1)[-1]
+
+
+def match_percent(tile) -> str:
+    return "100.00%" if tile["green"] else "0.00%"
+
+
+def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
+    """Draw `name · sizekB · percent`, degrading gracefully on small tiles."""
+    name = unit_name(tile)
+    short = base_name(tile)
+    kb = f"{tile['size'] / 1000:.2f}kB"
+    pct = match_percent(tile)
+
+    def fits(text: str, size: float) -> bool:
+        return len(text) * size * 0.56 <= dx - 8
+
+    options = [
+        (name, f"{kb} · {pct}"),          # two lines: path, then size + percent
+        (f"{name} · {kb} · {pct}", None),  # single line, full detail
+        (f"{name} · {kb}", None),
+        (short, f"{kb} · {pct}"),          # compact two-line: name, then details
+        (f"{short} · {kb} · {pct}", None),
+        (f"{short} · {kb}", None),
+        (short, None),
+    ]
+    for line1, line2 in options:
+        for size in (10, 9, 8, 7):
+            needed = size * 3.3 if line2 else size + 6
+            if dy < needed or not fits(line1, size):
+                continue
+            if line2 and not fits(line2, size - 1.5):
+                continue
+            lines.append(
+                f'<text x="{x + 4:.2f}" y="{y + size + 3:.2f}" '
+                f'font-family="{esc(FONT)}" font-size="{size}" fill="{TEXT}" '
+                f'opacity="0.92">{esc(line1)}</text>'
+            )
+            if line2:
+                lines.append(
+                    f'<text x="{x + 4:.2f}" y="{y + size + 15:.2f}" '
+                    f'font-family="{esc(FONT)}" font-size="{size - 1.5}" fill="{MUTED}">'
+                    f'{esc(line2)}</text>'
+                )
+            return
 
 
 def render_svg(units, *, width, height, margin, header, footer, min_bytes, title) -> str:
@@ -278,31 +329,13 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
             f'fill="{color}" stroke="{STROKE}" stroke-width="0.6"{dash} '
             f'shape-rendering="geometricPrecision"/>'
         )
-        label = tile_label(tile)
-        font_size = 10 if dx >= 120 else 9
-        if dx >= 56 and dy >= 14 and len(label) * font_size * 0.58 < dx - 6:
-            lines.append(
-                f'<text x="{x + 4:.2f}" y="{y + font_size + 3:.2f}" '
-                f'font-family="{esc(FONT)}" font-size="{font_size}" fill="{TEXT}" '
-                f'opacity="0.92">{esc(label)}</text>'
-            )
-            if dx >= 96 and dy >= 26:
-                lines.append(
-                    f'<text x="{x + 4:.2f}" y="{y + font_size + 15:.2f}" '
-                    f'font-family="{esc(FONT)}" font-size="8.5" fill="{MUTED}">'
-                    f'{tile["size"]:,} B</text>'
-                )
+        draw_tile_label(lines, tile, x, y, dx, dy)
 
     generated = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     separator_y = height - footer
     lines.append(
         f'<line x1="{margin}" y1="{separator_y:.1f}" x2="{width - margin}" '
         f'y2="{separator_y:.1f}" stroke="{GREY}" stroke-width="1" opacity="0.8"/>'
-    )
-    lines.append(
-        f'<text x="{margin}" y="{height - 8}" font-family="{esc(FONT)}" font-size="9" '
-        f'fill="{MUTED}" opacity="0.85">tile area &#8733; executable bytes &#183; '
-        f'units below {min_bytes} B grouped</text>'
     )
     lines.append(
         f'<text x="{width - margin}" y="{height - 8}" text-anchor="end" '
