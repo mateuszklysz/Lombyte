@@ -1,4 +1,4 @@
-/* ROLE: recovered function `snd_SetGroupVoiceRange` (snd989, 0x50 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `snd_SetGroupVoiceRange` starts here; this unit covers only its beginning. */
 #include "types.h"
 extern s32 func_0012E6E0(s32 cmd, s32 size, void *buf, s32 a, s32 b);
 void FUN_0012e2b8(s32 arg0, s32 arg1, s32 arg2) {

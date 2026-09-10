@@ -1,4 +1,4 @@
-/* ROLE: recovered function `DeleteMoby` (mobyfunc, 0x2e8 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `DeleteMoby` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 15.0909%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

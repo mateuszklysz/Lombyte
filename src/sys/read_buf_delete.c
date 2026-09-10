@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `readBufDelete__FP7ReadBuf` (movie/readbuf.cpp). */
+/* ROLE: recovered whole function `readBufDelete__FP7ReadBuf`. */
 /* This callback intentionally leaves the state unchanged. */
 void NoOpStateCallback(void) __asm__("func_0023B958");
 

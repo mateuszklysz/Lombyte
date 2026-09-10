@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `viBufDelete__FP5ViBuf` (movie/vibuf.cpp). */
+/* ROLE: recovered whole function `viBufDelete__FP5ViBuf`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 70.9091%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

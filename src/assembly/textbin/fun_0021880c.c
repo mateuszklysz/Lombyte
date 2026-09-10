@@ -1,4 +1,4 @@
-/* ROLE: recovered function `_part_load_tex` (game/initonce.cpp, 0x1afa4 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `_part_load_tex` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

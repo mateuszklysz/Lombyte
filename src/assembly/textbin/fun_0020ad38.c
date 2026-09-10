@@ -1,4 +1,4 @@
-/* ROLE: recovered function `memcard_TestChecksum` (game/initonce.cpp, 0x40 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `memcard_TestChecksum` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 38.3333%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

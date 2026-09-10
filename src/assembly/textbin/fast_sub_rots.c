@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `FastSubRots__Fff` (fastfunc.s). */
+/* ROLE: recovered whole function `FastSubRots__Fff`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 32.7778%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

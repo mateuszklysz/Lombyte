@@ -1,4 +1,4 @@
-/* ROLE: recovered function `readBufEndGet__FP7ReadBufi` (movie/readbuf.cpp) starts here; recovered extent unknown. */
+/* ROLE: recovered function `readBufEndGet__FP7ReadBufi` starts here. */
 #include "types.h"
 struct M2c_arg0 {
     u8 pad_0[0x50004];

@@ -1,4 +1,4 @@
-/* ROLE: recovered function `videoDecCreate__FP8VideoDecPUciPUxT3iP9TimeStampi` (movie/videodec.cpp, 0x108 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `videoDecCreate__FP8VideoDecPUciPUxT3iP9TimeStampi` starts here; this unit covers only its beginning. */
 #include "types.h"
 extern u8 D_0023D080[];
 extern u8 D_0023D0A8[];

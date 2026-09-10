@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `InitMobyClassDists__Fv` (mobyfunc). */
+/* ROLE: recovered whole function `InitMobyClassDists__Fv`. */
 /* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
  * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
  */

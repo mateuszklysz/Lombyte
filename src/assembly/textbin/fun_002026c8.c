@@ -1,4 +1,4 @@
-/* ROLE: recovered function `ParseParticleTexs` (loaders.cpp, 0x3d0 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `ParseParticleTexs` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 21.6282%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

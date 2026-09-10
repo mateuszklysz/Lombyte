@@ -1,4 +1,4 @@
-/* ROLE: recovered function `ParseOcclGrid` (game/initonce.cpp, 0xd8 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `ParseOcclGrid` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 59.2830%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

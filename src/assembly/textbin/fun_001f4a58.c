@@ -1,4 +1,4 @@
-/* ROLE: recovered function `FadeToBlack__FiUi` (game/initonce.cpp, 0x9f8 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `FadeToBlack__FiUi` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 60.2959%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

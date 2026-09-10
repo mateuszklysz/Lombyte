@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `audioDecStart` (movie/audiodec.cpp). */
+/* ROLE: recovered whole function `audioDecStart`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 45.6364%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

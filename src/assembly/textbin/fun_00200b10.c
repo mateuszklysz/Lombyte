@@ -1,4 +1,4 @@
-/* ROLE: recovered function `Hud_sendTexture__FPciiiii` (hud.cpp) starts here; recovered extent unknown. */
+/* ROLE: recovered function `Hud_sendTexture__FPciiiii` starts here. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 10.5870%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

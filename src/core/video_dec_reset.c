@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `videoDecReset__FP8VideoDec` (movie/videodec.cpp). */
+/* ROLE: recovered whole function `videoDecReset__FP8VideoDec`. */
 /* Clear the state field used by the small state helpers. */
 void ClearStateField(int *state_fields) __asm__("func_0023CC30");
 

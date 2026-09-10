@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `snd_StreamSafeCdGetError` (snd989). */
+/* ROLE: recovered whole function `snd_StreamSafeCdGetError`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 72.0000%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

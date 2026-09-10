@@ -1,4 +1,4 @@
-/* ROLE: recovered function `viBufModifyPts__FP5ViBufP9TimeStamp` (movie/vibuf.cpp, 0x158 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `viBufModifyPts__FP5ViBufP9TimeStamp` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 25.7647%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

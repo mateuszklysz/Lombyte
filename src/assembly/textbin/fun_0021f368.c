@@ -1,4 +1,4 @@
-/* ROLE: recovered function `DrawMissionsMenu` (game/pause.cpp, 0x320 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `DrawMissionsMenu` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 46.9018%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

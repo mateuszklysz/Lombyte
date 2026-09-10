@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `FastVectorFromPackedChars__FR4vec4i` (fastfunc.s). */
+/* ROLE: recovered whole function `FastVectorFromPackedChars__FR4vec4i`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 23.3333%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

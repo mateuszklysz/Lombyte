@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `writeGSHeader` (drawquad). */
+/* ROLE: recovered whole function `writeGSHeader`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 38.5625%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

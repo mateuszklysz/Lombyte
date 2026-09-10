@@ -1,4 +1,4 @@
-/* ROLE: recovered function `Transition_DrawSky__Fv` (transition, 0xd78 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `Transition_DrawSky__Fv` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 56.7727%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

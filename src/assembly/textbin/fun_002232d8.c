@@ -1,4 +1,4 @@
-/* ROLE: recovered function `LoadingDataMenu` (game/pause.cpp, 0x2e0 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `LoadingDataMenu` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 77.4809%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

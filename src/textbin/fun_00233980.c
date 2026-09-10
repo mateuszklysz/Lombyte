@@ -1,4 +1,4 @@
-/* ROLE: recovered function `VU1_addGSregister__FUiUlb` (vuchain.cpp, 0xc0 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `VU1_addGSregister__FUiUlb` starts here; this unit covers only its beginning. */
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
  * SYMBOL: FUN_00233980 (alias func_00233980)
  * UNIT: textbin/fun_00233980 (retagged from assembly/textbin/fun_00233980)

@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `sendToSPU__FP9_AudioDecPUcii` (movie/audiodec.cpp). */
+/* ROLE: recovered whole function `sendToSPU__FP9_AudioDecPUcii`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 47.2143%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

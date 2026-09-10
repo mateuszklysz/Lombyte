@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `mpegError__FP7sceMpegP18sceMpegCbDataErrorPv` (movie/videodec.cpp). */
+/* ROLE: recovered whole function `mpegError__FP7sceMpegP18sceMpegCbDataErrorPv`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

@@ -1,4 +1,4 @@
-/* ROLE: recovered function `sendADPCM__FP9_AudioDec` (movie/audiodec.cpp) starts here; recovered extent unknown. */
+/* ROLE: recovered function `sendADPCM__FP9_AudioDec` starts here. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

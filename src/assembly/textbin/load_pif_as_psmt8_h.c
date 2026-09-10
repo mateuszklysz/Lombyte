@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `LoadPifAsPSMT8H` (bloaders). */
+/* ROLE: recovered whole function `LoadPifAsPSMT8H`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 39.8534%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

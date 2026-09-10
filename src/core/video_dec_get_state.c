@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `videoDecGetState` (movie/videodec.cpp). */
+/* ROLE: recovered whole function `videoDecGetState`. */
 /* Return the state field at byte offset 0xA8. */
 int GetStateField(int *state_fields) __asm__("func_0023CC80");
 

@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `videoDecFlush__FP8VideoDec` (movie/videodec.cpp). */
+/* ROLE: recovered whole function `videoDecFlush__FP8VideoDec`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 57.5556%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

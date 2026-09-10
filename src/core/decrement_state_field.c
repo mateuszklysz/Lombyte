@@ -1,4 +1,4 @@
-/* ROLE: recovered function `voBufDecCount__FP5VoBuf` (movie/vobuf.cpp) starts here; recovered extent unknown. */
+/* ROLE: recovered function `voBufDecCount__FP5VoBuf` starts here. */
 /* Decrement the state field at byte offset 0x0C when it is positive. */
 void DecrementStateFieldIfPositive(volatile int *state_fields)
     __asm__("func_0023D340");

@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `snd_StreamSafeCdRead` (snd989). */
+/* ROLE: recovered whole function `snd_StreamSafeCdRead`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

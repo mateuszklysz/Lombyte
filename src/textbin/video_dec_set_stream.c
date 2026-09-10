@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `videoDecSetStream__FP8VideoDeciiPFP7sceMpegP13sceMpegCbDataPv_iPv` (movie/videodec.cpp). */
+/* ROLE: recovered whole function `videoDecSetStream__FP8VideoDeciiPFP7sceMpegP13sceMpegCbDataPv_iPv`. */
 /* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
  * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
  */

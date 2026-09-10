@@ -1,4 +1,4 @@
-/* ROLE: recovered function `voBufIsFull__FP5VoBuf` (movie/vobuf.cpp, 0x18 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `voBufIsFull__FP5VoBuf` starts here; this unit covers only its beginning. */
 /* Report whether the two state fields contain the same value. */
 int CompareStateFields(int *state_fields) __asm__("func_0023D1F8");
 

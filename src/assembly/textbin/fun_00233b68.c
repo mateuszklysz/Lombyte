@@ -1,4 +1,4 @@
-/* ROLE: recovered function `VU1_texFlush__Fv` (vuchain.cpp, 0x60 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `VU1_texFlush__Fv` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 35.8261%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

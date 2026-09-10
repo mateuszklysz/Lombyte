@@ -1,4 +1,4 @@
-/* ROLE: recovered function `viBufEndPut__FP5ViBufi` (movie/vibuf.cpp, 0x58 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `viBufEndPut__FP5ViBufi` starts here; this unit covers only its beginning. */
 /* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
  * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
  */

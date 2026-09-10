@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `music_Stop__Fv` (music.cpp). */
+/* ROLE: recovered whole function `music_Stop__Fv`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 60.9333%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

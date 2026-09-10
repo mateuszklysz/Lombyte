@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `videoDecIsFlushed__FP8VideoDec` (movie/videodec.cpp). */
+/* ROLE: recovered whole function `videoDecIsFlushed__FP8VideoDec`. */
 #include "types.h"
 extern s32 func_0012BA58();
 extern s32 func_0023CCE0(s32 arg0);

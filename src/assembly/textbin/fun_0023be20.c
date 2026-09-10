@@ -1,4 +1,4 @@
-/* ROLE: recovered function `viBufBeginPut__FP5ViBufPPUcPiT1T2` (movie/vibuf.cpp, 0xf8 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `viBufBeginPut__FP5ViBufPPUcPiT1T2` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 80.9016%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

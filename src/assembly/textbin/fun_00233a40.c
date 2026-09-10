@@ -1,4 +1,4 @@
-/* ROLE: recovered function `VU1_setScissor__Fiiii` (vuchain.cpp, 0x128 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `VU1_setScissor__Fiiii` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 29.4366%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `InitMemSlots__Fv` (game/initonce.cpp). */
+/* ROLE: recovered whole function `InitMemSlots__Fv`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 67.5333%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

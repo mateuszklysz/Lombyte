@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `FastVecCross` (fastfunc.s). */
+/* ROLE: recovered whole function `FastVecCross`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 23.3333%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

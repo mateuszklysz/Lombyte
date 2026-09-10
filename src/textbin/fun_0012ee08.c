@@ -1,4 +1,4 @@
-/* ROLE: recovered function `snd_StreamSafeCdSync` (snd989, 0xa0 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `snd_StreamSafeCdSync` starts here; this unit covers only its beginning. */
 /* STATE: C_EXACT
  * SYMBOL: FUN_0012ee08 (alias func_0012EE08)
  * SCORE: code=100 functions=100 data=100 complete_data=100

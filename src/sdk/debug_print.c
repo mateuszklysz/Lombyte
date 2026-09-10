@@ -1,4 +1,4 @@
-/* ROLE: recovered function `STUB_printf` (mobyproc, 0x28e0 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `STUB_printf` starts here; this unit covers only its beginning. */
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
  * SYMBOL: DebugPrint
  * UNIT: sdk/debug_print (retagged from assembly/sdk/debug_print)

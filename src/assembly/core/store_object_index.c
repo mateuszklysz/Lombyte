@@ -1,4 +1,4 @@
-/* ROLE: recovered function `snd_PrepareReturnBuffer` (snd989, 0x28 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `snd_PrepareReturnBuffer` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth C export: exact code generation is not yet proven; remaining differences are retained as register-allocation, stack-alignment, or delay-slot scheduling blockers while the assembly oracle remains available for exact builds.

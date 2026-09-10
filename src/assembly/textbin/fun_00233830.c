@@ -1,4 +1,4 @@
-/* ROLE: recovered function `VU1_addDataRef__FPvi` (vuchain.cpp, 0x150 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `VU1_addDataRef__FPvi` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 50.6316%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

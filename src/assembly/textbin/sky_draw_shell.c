@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `SkyDrawShell__Fi` (skyfunc). */
+/* ROLE: recovered whole function `SkyDrawShell__Fi`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 53.3636%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `audioDecBeginPut__FP9_AudioDecPPUcPiT1T2` (movie/audiodec.cpp). */
+/* ROLE: recovered whole function `audioDecBeginPut__FP9_AudioDecPPUcPiT1T2`. */
 /*
 STATE: C_EXACT
 SYMBOL: FUN_0023ad58 (alias func_0023AD58)

@@ -1,4 +1,4 @@
-/* ROLE: recovered function `wad_GetSectors_FiiPv` (snd989, 0xc47c8 bytes) starts here; this unit covers only its first fragment. */
+/* ROLE: recovered function `wad_GetSectors_FiiPv` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 66.9302%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

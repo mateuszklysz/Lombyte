@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `mode_freezeInit` (game/freeze.cpp). */
+/* ROLE: recovered whole function `mode_freezeInit`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 56.9902%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

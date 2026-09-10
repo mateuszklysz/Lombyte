@@ -1,4 +1,4 @@
-/* ROLE: recovered whole function `memcard_Init` (game/initonce.cpp). */
+/* ROLE: recovered whole function `memcard_Init`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.
