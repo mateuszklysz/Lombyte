@@ -109,3 +109,21 @@ justify a change in behavior.
   descriptive C is the deliverable.
 - Keep game data, disc images, and proprietary compiler binaries out of the
   repository.
+
+## 12. Configuration choices
+
+- Segment boundaries and the undefined-function list are maintained by hand.
+  A matching build must place every byte at its retail address, so automatic
+  boundary detection or symbol inference is a starting point, never the
+  authority; a wrong entry fails the full-image gate instead of silently
+  changing the output.
+- Compiler routing is explicit (`SN_COMPILER_UNITS`, per-unit flags) because
+  the textbin range mixes SN and EE-GCC 2.9 code; a wrong route shows up as a
+  byte difference at the gate.
+- The build targets the boot executable and its embedded DVP overlay blobs;
+  other disc files are out of scope.
+- `verify-baseline.sh` only rebuilds a directory it owns: the staging root
+  must contain its `.rnc-baseline-root` marker, so pointing `BASELINE_ROOT` at
+  unrelated data cannot delete it.
+- Public regression tests for the build scripts live in
+  `scripts/test_public_tools.py`.

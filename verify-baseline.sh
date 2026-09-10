@@ -32,12 +32,20 @@ case "$_RESOLVED_ROOT" in
   "$HOME") die "BASELINE_ROOT must not be the home directory ($HOME)" ;;
 esac
 
+# Refuse to delete an existing directory that is not a baseline workspace.
+# The marker below is created by this script; any other directory may hold
+# unrelated user data.
+if [[ -e "$BASELINE_ROOT" && ! -f "$BASELINE_ROOT/.rnc-baseline-root" ]]; then
+  die "refusing to remove a directory that is not a baseline workspace: $BASELINE_ROOT (delete it manually if intended, or choose another BASELINE_ROOT)"
+fi
+
 [[ -x "$VENV/bin/python" ]] || die "missing virtual environment: $VENV (create it with: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt)"
 [[ -d "$COMPILER_ROOT/ee-gcc2.9-991111-01" ]] || die "missing frozen EE compiler under $COMPILER_ROOT"
 [[ -x "$SN_TOOLCHAIN_ROOT/bin/ee-gcc.exe" ]] || die "missing textbin ee-gcc under $SN_TOOLCHAIN_ROOT"
 
 rm -rf "$BASELINE_ROOT"
 mkdir -p "$BASELINE_ROOT"
+touch "$BASELINE_ROOT/.rnc-baseline-root"
 cp -a "$PROJECT_ROOT/configure.py" "$BASELINE_ROOT/configure.py"
 mkdir -p "$BASELINE_ROOT/scripts"
 cp "$PROJECT_ROOT/scripts/fix-report.py" "$BASELINE_ROOT/scripts/fix-report.py"
