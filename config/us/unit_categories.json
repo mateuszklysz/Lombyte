@@ -123,6 +123,7 @@
     "assembly/sdk/library/udivdi3",
     "assembly/sdk/library/umoddi3",
     "assembly/sdk/sif_rpc/sce_sif_cmd_intr_hdlr",
-    "assembly/sdk/sif_rpc/sce_sif_write_back_d_cache"
+    "assembly/sdk/sif_rpc/sce_sif_write_back_d_cache",
+    "assembly/textbin/moby_anim_proc"
   ]
 }
