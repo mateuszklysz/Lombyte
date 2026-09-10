@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/it/3/32/Ratchet_%26_Clank_logo.png?utm_source=it.wikipedia.org&amp;utm_campaign=index&amp;utm_content=original" alt="Ratchet &amp; Clank" width="480">
+  <img src="assets/ratchet-and-clank-logo.png" alt="Ratchet &amp; Clank" width="480">
 </p>
 
 <h1 align="center">Ratchet &amp; Clank Decompilation</h1>
@@ -26,7 +26,7 @@ You will need your own copy of the game to supply the original executable and di
 
 ## Decompilation Progress
 
-![Decompilation progress map](decomp_map.svg)
+![Decompilation progress map](assets/decomp_map.svg)
 
 Each tile is one configured C unit, sized by its share of the executable's code bytes. **Green** tiles are matching C; **dark grey** tiles are still backed by assembly oracles or intentional low-level asm. Units below 256 bytes are grouped per class so the map stays readable. The map is regenerated at the end of every decompilation pipeline run; regenerate it locally with:
 

@@ -27,7 +27,7 @@ Layout
 
 Usage
   python3 scripts/generate_treemap.py
-  python3 scripts/generate_treemap.py --min-bytes 512 --output decomp_map.svg
+  python3 scripts/generate_treemap.py --min-bytes 512 --output assets/decomp_map.svg
   python3 scripts/generate_treemap.py --width 800 --height 400
 """
 from __future__ import annotations
@@ -200,9 +200,10 @@ def tile_label(tile) -> str:
     return tile["owner"].split("/")[-1]
 
 
-def render_svg(units, *, width, height, margin, header, min_bytes, title) -> str:
+def render_svg(units, *, width, height, margin, header, footer, min_bytes, title) -> str:
     map_x, map_y = margin, header
-    map_dx, map_dy = width - 2 * margin, height - header - margin
+    map_dx = width - 2 * margin
+    map_dy = height - header - footer - margin
 
     big = [unit for unit in units if unit["size"] >= min_bytes]
     small = [unit for unit in units if unit["size"] < min_bytes]
@@ -244,11 +245,11 @@ def render_svg(units, *, width, height, margin, header, min_bytes, title) -> str
 
     # Header: title and totals on the left, legend on the right.
     lines.append(
-        f'<text x="{margin}" y="21" font-family="{esc(FONT)}" font-size="13" '
+        f'<text x="{margin}" y="24" font-family="{esc(FONT)}" font-size="14" '
         f'font-weight="600" fill="{TEXT}">{esc(title)}</text>'
     )
     lines.append(
-        f'<text x="{margin}" y="37" font-family="{esc(FONT)}" font-size="10" '
+        f'<text x="{margin}" y="41" font-family="{esc(FONT)}" font-size="10" '
         f'fill="{MUTED}">{green_units.__len__()} of {total_units} configured C units '
         f'matching &#183; {green_bytes:,} of {total_bytes:,} bytes '
         f'({green_percent:.1f}%)</text>'
@@ -258,7 +259,7 @@ def render_svg(units, *, width, height, margin, header, min_bytes, title) -> str
         (GREEN, f"matching C &#183; {green_bytes:,} B"),
         (GREY, f"remaining &#183; {total_bytes - green_bytes:,} B"),
     )):
-        y = 12 + offset * 16
+        y = 14 + offset * 17
         lines.append(f'<rect x="{legend_x}" y="{y}" width="10" height="10" rx="2" fill="{color}"/>')
         lines.append(
             f'<text x="{legend_x + 15}" y="{y + 9}" font-family="{esc(FONT)}" '
@@ -271,9 +272,10 @@ def render_svg(units, *, width, height, margin, header, min_bytes, title) -> str
         if dx <= 0 or dy <= 0:
             continue
         color = GREEN if tile["green"] else GREY
+        dash = ' stroke-dasharray="3 2"' if tile.get("group") else ""
         lines.append(
-            f'<rect x="{x:.2f}" y="{y:.2f}" width="{dx:.2f}" height="{dy:.2f}" '
-            f'fill="{color}" stroke="{STROKE}" stroke-width="0.6" '
+            f'<rect x="{x:.2f}" y="{y:.2f}" width="{dx:.2f}" height="{dy:.2f}" rx="1" '
+            f'fill="{color}" stroke="{STROKE}" stroke-width="0.6"{dash} '
             f'shape-rendering="geometricPrecision"/>'
         )
         label = tile_label(tile)
@@ -292,9 +294,19 @@ def render_svg(units, *, width, height, margin, header, min_bytes, title) -> str
                 )
 
     generated = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    separator_y = height - footer
     lines.append(
-        f'<text x="{width - margin}" y="{height - 3}" text-anchor="end" '
-        f'font-family="{esc(FONT)}" font-size="8" fill="{MUTED}" opacity="0.8">'
+        f'<line x1="{margin}" y1="{separator_y:.1f}" x2="{width - margin}" '
+        f'y2="{separator_y:.1f}" stroke="{GREY}" stroke-width="1" opacity="0.8"/>'
+    )
+    lines.append(
+        f'<text x="{margin}" y="{height - 8}" font-family="{esc(FONT)}" font-size="9" '
+        f'fill="{MUTED}" opacity="0.85">tile area &#8733; executable bytes &#183; '
+        f'units below {min_bytes} B grouped</text>'
+    )
+    lines.append(
+        f'<text x="{width - margin}" y="{height - 8}" text-anchor="end" '
+        f'font-family="{esc(FONT)}" font-size="9" fill="{MUTED}" opacity="0.85">'
         f'generated {generated} &#183; scripts/generate_treemap.py</text>'
     )
     lines.append("</svg>")
@@ -309,11 +321,12 @@ def main(argv=None) -> int:
                         help="linker config (default: <repo>/config/us/rnc1.us.yaml)")
     parser.add_argument("--audit", type=Path,
                         help="audit JSON (default: newest the private evidence archive/source-quality-audit-*.json)")
-    parser.add_argument("--output", type=Path, help="SVG path (default: <repo>/decomp_map.svg)")
+    parser.add_argument("--output", type=Path, help="SVG path (default: <repo>/assets/decomp_map.svg)")
     parser.add_argument("--width", type=int, default=800)
     parser.add_argument("--height", type=int, default=400)
-    parser.add_argument("--margin", type=int, default=8)
-    parser.add_argument("--header", type=int, default=44)
+    parser.add_argument("--margin", type=int, default=10)
+    parser.add_argument("--header", type=int, default=48)
+    parser.add_argument("--footer", type=int, default=22)
     parser.add_argument("--min-bytes", type=int, default=256,
                         help="units below this size are grouped per class (0 disables grouping)")
     parser.add_argument("--title", default="Ratchet & Clank - decompilation progress")
@@ -327,7 +340,7 @@ def main(argv=None) -> int:
     audit = (args.audit or newest_audit(repo))
     if audit is not None:
         audit = Path(audit).resolve()
-    output = (args.output or repo / "decomp_map.svg").resolve()
+    output = (args.output or repo / "assets" / "decomp_map.svg").resolve()
 
     units = build_units(repo, config, audit)
     if not units:
@@ -335,7 +348,9 @@ def main(argv=None) -> int:
         return 1
 
     svg = render_svg(units, width=args.width, height=args.height, margin=args.margin,
-                     header=args.header, min_bytes=args.min_bytes, title=args.title)
+                     header=args.header, footer=args.footer, min_bytes=args.min_bytes,
+                     title=args.title)
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(svg)
 
     total = sum(unit["size"] for unit in units)
