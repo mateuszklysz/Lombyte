@@ -16,8 +16,9 @@ What the map shows
     * dark grey (#313244) - everything else: still assembly-backed or an
       intentional low-level asm unit.
 
-  Units below ``--min-bytes`` are grouped per class so the 1000+ tiny units do
-  not drown the map; each group tile reports how many units it contains.
+  Units below ``--min-bytes`` are grouped per class so a compact map stays
+  readable; the default (0) draws every configured C unit as its own tile and
+  relies on the tall default canvas for label room.
 
 Layout
   The treemap is laid out with the ``squarify`` package when it is installed
@@ -28,7 +29,7 @@ Layout
 Usage
   python3 scripts/generate_treemap.py
   python3 scripts/generate_treemap.py --min-bytes 512 --output assets/decomp_map.svg
-  python3 scripts/generate_treemap.py --width 800 --height 400
+  python3 scripts/generate_treemap.py --width 800 --height 400   # compact variant
 """
 from __future__ import annotations
 
@@ -252,9 +253,20 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
 
 
 def render_svg(units, *, width, height, margin, header, footer, min_bytes, title) -> str:
-    map_x, map_y = margin, header
-    map_dx = width - 2 * margin
-    map_dy = height - header - footer - margin
+    # Chrome (margins, header, footer, legend) scales with the canvas, while
+    # tile label fonts stay at a fixed readable size so a larger map fits
+    # names on many more tiles.
+    scale = max(1.0, min(width / 800.0, height / 400.0))
+    # Keep the chrome compact on large canvases so tiles stay as big as
+    # possible and more unit names fit.
+    chrome_scale = 1.0 + (scale - 1.0) * 0.1
+    text_scale = chrome_scale
+    margin_px = round(margin * chrome_scale)
+    header_px = round(header * chrome_scale)
+    footer_px = round(footer * chrome_scale)
+    map_x, map_y = margin_px, header_px
+    map_dx = width - 2 * margin_px
+    map_dy = height - header_px - footer_px - margin_px
 
     big = [unit for unit in units if unit["size"] >= min_bytes]
     small = [unit for unit in units if unit["size"] < min_bytes]
@@ -296,25 +308,28 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
 
     # Header: title and totals on the left, legend on the right.
     lines.append(
-        f'<text x="{margin}" y="24" font-family="{esc(FONT)}" font-size="14" '
+        f'<text x="{margin_px}" y="{round(24 * scale)}" font-family="{esc(FONT)}" '
+        f'font-size="{14 * text_scale:.1f}" '
         f'font-weight="600" fill="{TEXT}">{esc(title)}</text>'
     )
     lines.append(
-        f'<text x="{margin}" y="41" font-family="{esc(FONT)}" font-size="10" '
+        f'<text x="{margin_px}" y="{round(41 * scale)}" font-family="{esc(FONT)}" '
+        f'font-size="{10 * text_scale:.1f}" '
         f'fill="{MUTED}">{green_units.__len__()} of {total_units} configured C units '
         f'matching &#183; {green_bytes:,} of {total_bytes:,} bytes '
         f'({green_percent:.1f}%)</text>'
     )
-    legend_x = width - margin - 250
+    legend_x = width - margin_px - round(250 * scale)
     for offset, (color, text) in enumerate((
         (GREEN, f"matching C &#183; {green_bytes:,} B"),
         (GREY, f"remaining &#183; {total_bytes - green_bytes:,} B"),
     )):
-        y = 14 + offset * 17
-        lines.append(f'<rect x="{legend_x}" y="{y}" width="10" height="10" rx="2" fill="{color}"/>')
+        y = round(14 * scale) + offset * round(17 * scale)
+        swatch = round(10 * scale)
+        lines.append(f'<rect x="{legend_x}" y="{y}" width="{swatch}" height="{swatch}" rx="2" fill="{color}"/>')
         lines.append(
-            f'<text x="{legend_x + 15}" y="{y + 9}" font-family="{esc(FONT)}" '
-            f'font-size="10" fill="{MUTED}">{text}</text>'
+            f'<text x="{legend_x + round(15 * scale)}" y="{y + round(9 * scale)}" '
+            f'font-family="{esc(FONT)}" font-size="{10 * text_scale:.1f}" fill="{MUTED}">{text}</text>'
         )
 
     for tile, rect in zip(order, rects):
@@ -332,14 +347,14 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
         draw_tile_label(lines, tile, x, y, dx, dy)
 
     generated = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
-    separator_y = height - footer
+    separator_y = height - footer_px
     lines.append(
-        f'<line x1="{margin}" y1="{separator_y:.1f}" x2="{width - margin}" '
+        f'<line x1="{margin_px}" y1="{separator_y:.1f}" x2="{width - margin_px}" '
         f'y2="{separator_y:.1f}" stroke="{GREY}" stroke-width="1" opacity="0.8"/>'
     )
     lines.append(
-        f'<text x="{width - margin}" y="{height - 8}" text-anchor="end" '
-        f'font-family="{esc(FONT)}" font-size="9" fill="{MUTED}" opacity="0.85">'
+        f'<text x="{width - margin_px}" y="{height - round(8 * scale)}" text-anchor="end" '
+        f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}" opacity="0.85">'
         f'generated {generated} &#183; scripts/generate_treemap.py</text>'
     )
     lines.append("</svg>")
@@ -356,12 +371,13 @@ def main(argv=None) -> int:
                         help="audit JSON (default: newest the private evidence archive/source-quality-audit-*.json)")
     parser.add_argument("--output", type=Path, help="SVG path (default: <repo>/assets/decomp_map.svg)")
     parser.add_argument("--width", type=int, default=800)
-    parser.add_argument("--height", type=int, default=400)
+    parser.add_argument("--height", type=int, default=1600)
     parser.add_argument("--margin", type=int, default=10)
     parser.add_argument("--header", type=int, default=48)
     parser.add_argument("--footer", type=int, default=22)
-    parser.add_argument("--min-bytes", type=int, default=256,
-                        help="units below this size are grouped per class (0 disables grouping)")
+    parser.add_argument("--min-bytes", type=int, default=0,
+                        help="units below this size are grouped per class; 0 (default) "
+                             "draws every unit as its own tile")
     parser.add_argument("--title", default="Ratchet & Clank - decompilation progress")
     args = parser.parse_args(argv)
 
@@ -393,7 +409,8 @@ def main(argv=None) -> int:
     print(f"wrote {output}")
     print(f"  units: {len(green)}/{len(units)} matching, "
           f"{green_bytes:,}/{total:,} bytes ({100.0 * green_bytes / total:.2f}%)")
-    print(f"  tiles: {shown} individual + grouped units below {args.min_bytes} B")
+    print(f"  tiles: {shown} individual + grouped units below {args.min_bytes} B" if args.min_bytes > 0
+          else f"  tiles: {shown} individual (no grouping)")
     print(f"  layout: {'squarify' if _squarify_pkg is not None else 'bundled fallback'}")
     if audit:
         print(f"  audit: {audit.relative_to(repo) if audit.is_relative_to(repo) else audit}")
