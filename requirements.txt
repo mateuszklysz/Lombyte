@@ -14,3 +14,6 @@ pyelftools==0.33
 n64img
 pygfxd
 crunch64
+
+# Decompilation progress map (scripts/generate_treemap.py)
+squarify==0.4.4

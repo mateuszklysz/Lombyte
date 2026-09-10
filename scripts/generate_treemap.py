@@ -1,0 +1,356 @@
+#!/usr/bin/env python3
+"""Generate decomp_map.svg - a treemap of decompilation progress.
+
+What the map shows
+  Every configured C unit from the linker config
+  (``config/us/rnc1.us.yaml`` rows ``- [0xADDR, c, owner]``) is one tile whose
+  area is proportional to the unit's executable byte size (the distance to the
+  next configured row).
+
+    * green (#40a02b) - unit is matching C. A unit is matching when the newest
+      committed audit (``the private evidence archive/source-quality-audit-*.json``) marks
+      it ``C_EXACT``, or when it is a promoted path (not under
+      ``src/assembly/``) with a source file in ``src/``. Promotions retag the
+      config, so the map keeps up automatically; the audit covers legacy
+      exact units that still live under ``src/assembly/``.
+    * dark grey (#313244) - everything else: still assembly-backed or an
+      intentional low-level asm unit.
+
+  Units below ``--min-bytes`` are grouped per class so the 1000+ tiny units do
+  not drown the map; each group tile reports how many units it contains.
+
+Layout
+  The treemap is laid out with the ``squarify`` package when it is installed
+  (``pip install squarify``), otherwise with the bundled equivalent
+  implementation. The tile order is stable across runs, so a unit's rectangle
+  keeps its place and flips grey -> green when it is promoted.
+
+Usage
+  python3 scripts/generate_treemap.py
+  python3 scripts/generate_treemap.py --min-bytes 512 --output decomp_map.svg
+  python3 scripts/generate_treemap.py --width 800 --height 400
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import html
+import json
+import re
+from pathlib import Path
+import sys
+
+GREEN = "#40a02b"
+GREY = "#313244"
+BACKGROUND = "#1e1e2e"
+STROKE = "#11111b"
+TEXT = "#cdd6f4"
+MUTED = "#a6adc8"
+FONT = "ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+
+ROW_RE = re.compile(
+    r"^\s*-\s*\[(0x[0-9A-Fa-f]+)\s*,\s*([A-Za-z_][A-Za-z0-9_]*)\s*,\s*([^\]]+?)\s*\]\s*$"
+)
+
+
+# --------------------------------------------------------------------------
+# squarify: use the package when available, otherwise the same algorithm
+# bundled here (MIT, https://github.com/laserson/squarify).
+# --------------------------------------------------------------------------
+def _layoutrow(sizes, x, y, dx, dy):
+    covered = sum(sizes)
+    width = covered / dy if dy else 0.0
+    rects = []
+    for size in sizes:
+        height = size / width if width else 0.0
+        rects.append({"x": x, "y": y, "dx": width, "dy": height})
+        y += height
+    return rects
+
+
+def _layoutcol(sizes, x, y, dx, dy):
+    covered = sum(sizes)
+    height = covered / dx if dx else 0.0
+    rects = []
+    for size in sizes:
+        width = size / height if height else 0.0
+        rects.append({"x": x, "y": y, "dx": width, "dy": height})
+        x += width
+    return rects
+
+
+def _layout(sizes, x, y, dx, dy):
+    return _layoutrow(sizes, x, y, dx, dy) if dx >= dy else _layoutcol(sizes, x, y, dx, dy)
+
+
+def _leftover(sizes, x, y, dx, dy):
+    if dx >= dy:
+        width = sum(sizes) / dy if dy else 0.0
+        return (x + width, y, dx - width, dy)
+    height = sum(sizes) / dx if dx else 0.0
+    return (x, y + height, dx, dy - height)
+
+
+def _worst_ratio(sizes, x, y, dx, dy):
+    ratios = []
+    for rect in _layout(sizes, x, y, dx, dy):
+        if rect["dx"] <= 0 or rect["dy"] <= 0:
+            continue
+        ratios.append(max(rect["dx"] / rect["dy"], rect["dy"] / rect["dx"]))
+    return max(ratios) if ratios else float("inf")
+
+
+def _squarify(sizes, x, y, dx, dy):
+    if not sizes:
+        return []
+    if len(sizes) == 1:
+        return _layout(sizes, x, y, dx, dy)
+    index = 1
+    while index < len(sizes) and _worst_ratio(sizes[:index], x, y, dx, dy) >= _worst_ratio(
+        sizes[: index + 1], x, y, dx, dy
+    ):
+        index += 1
+    current, remaining = sizes[:index], sizes[index:]
+    leftover = _leftover(current, x, y, dx, dy)
+    return _layout(current, x, y, dx, dy) + _squarify(remaining, *leftover)
+
+
+try:  # pragma: no cover - exercised by whichever branch is installed
+    import squarify as _squarify_pkg
+except ImportError:  # pragma: no cover
+    _squarify_pkg = None
+
+
+def treemap(sizes, x, y, dx, dy):
+    sizes = [float(size) for size in sizes]
+    total = sum(sizes)
+    if total <= 0 or dx <= 0 or dy <= 0:
+        return []
+    # squarify (both the package and the bundled copy) expects areas, not raw
+    # byte weights.
+    normalized = [size * dx * dy / total for size in sizes]
+    if _squarify_pkg is not None:
+        return _squarify_pkg.squarify(normalized, x, y, dx, dy)
+    return _squarify(normalized, x, y, dx, dy)
+
+
+# --------------------------------------------------------------------------
+# Data
+# --------------------------------------------------------------------------
+def parse_units(config: Path):
+    """Configured C units as (owner, address, size) sorted by address."""
+    rows = []
+    for line in config.read_text().splitlines():
+        match = ROW_RE.match(line)
+        if match:
+            rows.append((int(match.group(1), 16), match.group(2), match.group(3)))
+    rows.sort(key=lambda row: row[0])
+    units = []
+    for index, (address, kind, owner) in enumerate(rows):
+        if kind != "c":
+            continue
+        end = rows[index + 1][0] if index + 1 < len(rows) else address
+        size = end - address
+        if size > 0:
+            units.append((owner, address, size))
+    return units
+
+
+def newest_audit(repo: Path):
+    candidates = sorted(
+        (repo / "the private evidence archive").glob("source-quality-audit-*.json"),
+        key=lambda path: (path.stat().st_mtime, path.name),
+    )
+    return candidates[-1] if candidates else None
+
+
+def audit_exact(audit: Path | None):
+    if audit is None or not audit.is_file():
+        return set()
+    try:
+        payload = json.loads(audit.read_text())
+    except (OSError, json.JSONDecodeError):
+        return set()
+    records = payload.get("records", payload if isinstance(payload, list) else [])
+    return {record.get("name") for record in records if record.get("category") == "C_EXACT"}
+
+
+def build_units(repo: Path, config: Path, audit: Path | None):
+    exact = audit_exact(audit)
+    result = []
+    for owner, address, size in parse_units(config):
+        source = repo / "src" / f"{owner}.c"
+        matching = owner in exact or (
+            not owner.startswith("assembly/") and source.is_file()
+        )
+        result.append({"owner": owner, "address": address, "size": size, "green": matching})
+    return result
+
+
+# --------------------------------------------------------------------------
+# SVG
+# --------------------------------------------------------------------------
+def esc(value) -> str:
+    return html.escape(str(value), quote=True)
+
+
+def tile_label(tile) -> str:
+    if tile.get("group"):
+        return f"{tile['count']} units < {tile['threshold']} B"
+    return tile["owner"].split("/")[-1]
+
+
+def render_svg(units, *, width, height, margin, header, min_bytes, title) -> str:
+    map_x, map_y = margin, header
+    map_dx, map_dy = width - 2 * margin, height - header - margin
+
+    big = [unit for unit in units if unit["size"] >= min_bytes]
+    small = [unit for unit in units if unit["size"] < min_bytes]
+    tiles = [
+        {"owner": unit["owner"], "address": unit["address"], "size": unit["size"],
+         "green": unit["green"], "group": False}
+        for unit in big
+    ]
+    for color in (True, False):
+        group = [unit for unit in small if unit["green"] is color]
+        if group:
+            tiles.append({
+                "owner": f"{len(group)} units < {min_bytes} B",
+                "address": min(unit["address"] for unit in group),
+                "size": sum(unit["size"] for unit in group),
+                "green": color, "group": True, "count": len(group),
+                "threshold": min_bytes,
+            })
+
+    total_units = len(units)
+    total_bytes = sum(unit["size"] for unit in units)
+    green_units = [unit for unit in units if unit["green"]]
+    green_bytes = sum(unit["size"] for unit in green_units)
+    green_percent = (100.0 * green_bytes / total_bytes) if total_bytes else 0.0
+
+    # Stable order: biggest first, then by address, so tiles keep their place.
+    order = sorted(tiles, key=lambda tile: (-tile["size"], tile["address"], tile["owner"]))
+    sizes = [tile["size"] for tile in order]
+    rects = treemap(sizes, map_x, map_y, map_dx, map_dy)
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" role="img" '
+        f'aria-label="Decompilation progress treemap">',
+        f'<title>{esc(title)}</title>',
+        f'<rect width="{width}" height="{height}" fill="{BACKGROUND}"/>',
+    ]
+
+    # Header: title and totals on the left, legend on the right.
+    lines.append(
+        f'<text x="{margin}" y="21" font-family="{esc(FONT)}" font-size="13" '
+        f'font-weight="600" fill="{TEXT}">{esc(title)}</text>'
+    )
+    lines.append(
+        f'<text x="{margin}" y="37" font-family="{esc(FONT)}" font-size="10" '
+        f'fill="{MUTED}">{green_units.__len__()} of {total_units} configured C units '
+        f'matching &#183; {green_bytes:,} of {total_bytes:,} bytes '
+        f'({green_percent:.1f}%)</text>'
+    )
+    legend_x = width - margin - 250
+    for offset, (color, text) in enumerate((
+        (GREEN, f"matching C &#183; {green_bytes:,} B"),
+        (GREY, f"remaining &#183; {total_bytes - green_bytes:,} B"),
+    )):
+        y = 12 + offset * 16
+        lines.append(f'<rect x="{legend_x}" y="{y}" width="10" height="10" rx="2" fill="{color}"/>')
+        lines.append(
+            f'<text x="{legend_x + 15}" y="{y + 9}" font-family="{esc(FONT)}" '
+            f'font-size="10" fill="{MUTED}">{text}</text>'
+        )
+
+    for tile, rect in zip(order, rects):
+        x, y = rect["x"], rect["y"]
+        dx, dy = max(rect["dx"], 0.0), max(rect["dy"], 0.0)
+        if dx <= 0 or dy <= 0:
+            continue
+        color = GREEN if tile["green"] else GREY
+        lines.append(
+            f'<rect x="{x:.2f}" y="{y:.2f}" width="{dx:.2f}" height="{dy:.2f}" '
+            f'fill="{color}" stroke="{STROKE}" stroke-width="0.6" '
+            f'shape-rendering="geometricPrecision"/>'
+        )
+        label = tile_label(tile)
+        font_size = 10 if dx >= 120 else 9
+        if dx >= 56 and dy >= 14 and len(label) * font_size * 0.58 < dx - 6:
+            lines.append(
+                f'<text x="{x + 4:.2f}" y="{y + font_size + 3:.2f}" '
+                f'font-family="{esc(FONT)}" font-size="{font_size}" fill="{TEXT}" '
+                f'opacity="0.92">{esc(label)}</text>'
+            )
+            if dx >= 96 and dy >= 26:
+                lines.append(
+                    f'<text x="{x + 4:.2f}" y="{y + font_size + 15:.2f}" '
+                    f'font-family="{esc(FONT)}" font-size="8.5" fill="{MUTED}">'
+                    f'{tile["size"]:,} B</text>'
+                )
+
+    generated = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    lines.append(
+        f'<text x="{width - margin}" y="{height - 3}" text-anchor="end" '
+        f'font-family="{esc(FONT)}" font-size="8" fill="{MUTED}" opacity="0.8">'
+        f'generated {generated} &#183; scripts/generate_treemap.py</text>'
+    )
+    lines.append("</svg>")
+    return "\n".join(lines) + "\n"
+
+
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--config", type=Path,
+                        help="linker config (default: <repo>/config/us/rnc1.us.yaml)")
+    parser.add_argument("--audit", type=Path,
+                        help="audit JSON (default: newest the private evidence archive/source-quality-audit-*.json)")
+    parser.add_argument("--output", type=Path, help="SVG path (default: <repo>/decomp_map.svg)")
+    parser.add_argument("--width", type=int, default=800)
+    parser.add_argument("--height", type=int, default=400)
+    parser.add_argument("--margin", type=int, default=8)
+    parser.add_argument("--header", type=int, default=44)
+    parser.add_argument("--min-bytes", type=int, default=256,
+                        help="units below this size are grouped per class (0 disables grouping)")
+    parser.add_argument("--title", default="Ratchet & Clank - decompilation progress")
+    args = parser.parse_args(argv)
+
+    repo = args.repo.resolve()
+    config = (args.config or repo / "config/us/rnc1.us.yaml").resolve()
+    if not config.is_file():
+        print(f"error: linker config not found: {config}", file=sys.stderr)
+        return 2
+    audit = (args.audit or newest_audit(repo))
+    if audit is not None:
+        audit = Path(audit).resolve()
+    output = (args.output or repo / "decomp_map.svg").resolve()
+
+    units = build_units(repo, config, audit)
+    if not units:
+        print("error: no configured C units found", file=sys.stderr)
+        return 1
+
+    svg = render_svg(units, width=args.width, height=args.height, margin=args.margin,
+                     header=args.header, min_bytes=args.min_bytes, title=args.title)
+    output.write_text(svg)
+
+    total = sum(unit["size"] for unit in units)
+    green = [unit for unit in units if unit["green"]]
+    green_bytes = sum(unit["size"] for unit in green)
+    shown = sum(1 for unit in units if unit["size"] >= args.min_bytes)
+    print(f"wrote {output}")
+    print(f"  units: {len(green)}/{len(units)} matching, "
+          f"{green_bytes:,}/{total:,} bytes ({100.0 * green_bytes / total:.2f}%)")
+    print(f"  tiles: {shown} individual + grouped units below {args.min_bytes} B")
+    print(f"  layout: {'squarify' if _squarify_pkg is not None else 'bundled fallback'}")
+    if audit:
+        print(f"  audit: {audit.relative_to(repo) if audit.is_relative_to(repo) else audit}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
