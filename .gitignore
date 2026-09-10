@@ -6,8 +6,10 @@
 config/us/SCUS_971.99
 
 # Disc images / build output (drop a legally owned dump into dumps/)
-dumps/
-build/
+dumps/*
+!dumps/README.md
+build/*
+!build/README.md
 config/output/
 config/us/.splache
 config/us/build.ninja
@@ -19,6 +21,7 @@ config/us/undefined_syms_auto.txt
 tools/
 !tools/
 tools/*
+!tools/README.md
 !tools/compilers/*/bin/README.md
 
 # Python

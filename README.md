@@ -5,7 +5,8 @@
 <h1 align="center">Ratchet &amp; Clank Decompilation</h1>
 
 <p align="center">
-  A work-in-progress matching decompilation of Ratchet &amp; Clank (2002) for PlayStation 2.
+  A work-in-progress matching decompilation of Ratchet &amp; Clank (2002) for PlayStation 2.<br>
+  The project is under active development: incomplete areas and bugs are expected.
 </p>
 
 <p align="center">
@@ -192,15 +193,16 @@ python3 rebuild-iso.py \
 | [`include/`](include/) | Shared types, structures, and declarations |
 | [`config/`](config/) | Executable layout, symbol maps, and analysis exports |
 | [`scripts/`](scripts/) | Build-support helpers and the progress-map generator |
+| [`docs/`](docs/) | Matching workflow and acceptance discipline |
 | [`analysis/`](analysis/) | Audit snapshots and progress evidence |
 | [`assets/`](assets/) | README logo and generated progress map |
-| `tools/` | Locally installed compilers and comparison tools (not tracked by Git) |
-| `dumps/` | Local input disc images, ignored by Git |
-| `build/` | Local ISO output, ignored by Git |
+| [`tools/`](tools/) | Locally installed compilers and comparison tools (not tracked by Git) |
+| [`dumps/`](dumps/) | Local input disc images, ignored by Git |
+| [`build/`](build/) | Local ISO output, ignored by Git |
 
 ## Contributing
 
-Contributions are welcome, from matching functions and recovering names to improving types, documentation, and build reproducibility.
+Contributions are welcome, from matching functions and recovering names to improving types, documentation, and build reproducibility. See [docs/decompilation-tips.md](docs/decompilation-tips.md) for a step-by-step walkthrough of the matching workflow.
 
 For code contributions:
 
@@ -214,6 +216,7 @@ For build issues, include your operating system, tool versions, command, and rel
 ## Credits
 
 - **Insomniac Games** — the original Ratchet & Clank.
+- **Himuro** — for insight into the PS2 decompilation process and the reference EE-GCC toolchain work this project's matching compiler profiles build on.
 - **[splat](https://github.com/ethteck/splat)** and **[spimdisasm](https://github.com/Decompollaborate/spimdisasm)** — executable splitting and disassembly.
 - **[objdiff](https://github.com/encounter/objdiff)** — object-level comparison.
 - The PS2 reverse-engineering and decompilation communities for the tools and research that make matching projects possible.
@@ -222,4 +225,4 @@ For build issues, include your operating system, tool versions, command, and rel
 
 Repository code is distributed under the [MIT License](LICENSE). The original game's assets, logo, and trademarks belong to their respective owners and are not covered by this license. This is an independent community project, unaffiliated with Insomniac Games or Sony Interactive Entertainment.
 
-Logo image hosted by [Wikimedia](https://upload.wikimedia.org/wikipedia/it/3/32/Ratchet_%26_Clank_logo.png).
+Logo artwork is stored under [`assets/`](assets/) for project identification only; the original game's assets, logo, and trademarks belong to their respective owners.
