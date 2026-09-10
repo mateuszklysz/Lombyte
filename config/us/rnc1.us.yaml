@@ -1385,7 +1385,7 @@ segments:
           - [0x10d958, textbin, text_gap_0020c9d8_after_fun_0020c940]
           - [0x10d960, c, assembly/textbin/fun_0020c9e0]
           - [0x10da54, textbin, text_gap_0020cad4_before_fun_0020cb10]
-          - [0x10da90, c, assembly/textbin/attach_manipulator]
+          - [0x10da90, c, textbin/attach_manipulator]
           - [0x10db08, c, assembly/textbin/fun_0020cb88]
           - [0x10db98, c, assembly/textbin/fun_0020cc18]
           - [0x10dbdc, textbin, text_gap_0020cc5c_before_fun_0020cc60]

@@ -128,6 +128,10 @@ SN_COMPILER_UNITS = {
     "assembly/textbin/fun_002220f0",
     "assembly/textbin/fun_00238520",
     "assembly/ee/clear_dma_queue_entry",
+    # AttachManipulator is a save-less leaf (no sq/lq fingerprint), so the
+    # retail-save-style routing would send it to EE-GCC 2.9; SN -O2 reproduces
+    # the retail schedule byte-exactly.
+    "textbin/attach_manipulator",
 }
 
 SDK_COMPILER_UNITS = {
