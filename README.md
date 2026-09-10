@@ -194,7 +194,6 @@ python3 rebuild-iso.py \
 | [`config/`](config/) | Executable layout, symbol maps, and analysis exports |
 | [`scripts/`](scripts/) | Build-support helpers and the progress-map generator |
 | [`docs/`](docs/) | Matching workflow and acceptance discipline |
-| [`analysis/`](analysis/) | Audit snapshots and progress evidence |
 | [`assets/`](assets/) | README logo and generated progress map |
 | [`tools/`](tools/) | Locally installed compilers and comparison tools (not tracked by Git) |
 | [`dumps/`](dumps/) | Local input disc images, ignored by Git |

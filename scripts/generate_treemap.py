@@ -7,14 +7,13 @@ What the map shows
   area is proportional to the unit's executable byte size (the distance to the
   next configured row).
 
-    * green (#40a02b) - unit is matching C. A unit is matching when the newest
-      committed audit (``the private evidence archive/source-quality-audit-*.json``) marks
-      it ``C_EXACT``, or when it is a promoted path (not under
-      ``src/assembly/``) with a source file in ``src/``. Promotions retag the
-      config, so the map keeps up automatically; the audit covers legacy
-      exact units that still live under ``src/assembly/``.
+    * green (#40a02b) - unit is matching C: either a promoted path (not under
+      ``src/assembly/``) with a source file in ``src/``, or a legacy exact
+      unit listed in ``config/us/unit_categories.json``. Promotions retag the
+      linker config, so the map keeps up automatically.
     * blue (#1f6feb) - intentional low-level asm: hand-written SIMD/VU0/MMI
-      code that is kept as assembly and excluded from the C goal.
+      code that is kept as assembly and excluded from the C goal, listed in
+      ``config/us/unit_categories.json``.
     * dark grey (#313244) - C still pending: assembly-backed units whose
       readable C is not byte-exact yet.
 
@@ -160,39 +159,30 @@ def parse_units(config: Path):
     return units
 
 
-def newest_audit(repo: Path):
-    candidates = sorted(
-        (repo / "the private evidence archive").glob("source-quality-audit-*.json"),
-        key=lambda path: (path.stat().st_mtime, path.name),
-    )
-    return candidates[-1] if candidates else None
-
-
-def audit_categories(audit: Path | None):
-    if audit is None or not audit.is_file():
-        return {}
+def load_categories(path: Path | None):
+    """Return (exact under assembly, intentional asm) name sets."""
+    if path is None or not path.is_file():
+        return set(), set()
     try:
-        payload = json.loads(audit.read_text())
+        payload = json.loads(path.read_text())
     except (OSError, json.JSONDecodeError):
-        return {}
-    records = payload.get("records", payload if isinstance(payload, list) else [])
-    return {
-        record.get("name"): record.get("category")
-        for record in records
-        if record.get("name")
-    }
+        return set(), set()
+    return (
+        set(payload.get("exact_under_assembly", [])),
+        set(payload.get("intentional_asm", [])),
+    )
 
 
-def build_units(repo: Path, config: Path, audit: Path | None):
-    categories = audit_categories(audit)
+def build_units(repo: Path, config: Path, categories: Path | None):
+    exact_assembly, intentional = load_categories(categories)
     result = []
     for owner, address, size in parse_units(config):
         source = repo / "src" / f"{owner}.c"
-        if categories.get(owner) == "C_EXACT" or (
+        if owner in exact_assembly or (
             not owner.startswith("assembly/") and source.is_file()
         ):
             category = "exact"
-        elif categories.get(owner) == "INTENTIONAL_LOW_LEVEL_ASM":
+        elif owner in intentional:
             category = "asm"
         else:
             category = "pending"
@@ -392,8 +382,8 @@ def main(argv=None) -> int:
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--config", type=Path,
                         help="linker config (default: <repo>/config/us/rnc1.us.yaml)")
-    parser.add_argument("--audit", type=Path,
-                        help="audit JSON (default: newest the private evidence archive/source-quality-audit-*.json)")
+    parser.add_argument("--categories", type=Path,
+                        help="derived categories JSON (default: <repo>/config/us/unit_categories.json)")
     parser.add_argument("--output", type=Path, help="SVG path (default: <repo>/assets/decomp_map.svg)")
     parser.add_argument("--width", type=int, default=800)
     parser.add_argument("--height", type=int, default=1600)
@@ -411,12 +401,10 @@ def main(argv=None) -> int:
     if not config.is_file():
         print(f"error: linker config not found: {config}", file=sys.stderr)
         return 2
-    audit = (args.audit or newest_audit(repo))
-    if audit is not None:
-        audit = Path(audit).resolve()
+    categories = (args.categories or repo / "config/us/unit_categories.json").resolve()
     output = (args.output or repo / "assets" / "decomp_map.svg").resolve()
 
-    units = build_units(repo, config, audit)
+    units = build_units(repo, config, categories)
     if not units:
         print("error: no configured C units found", file=sys.stderr)
         return 1
@@ -443,8 +431,8 @@ def main(argv=None) -> int:
     print(f"  tiles: {shown} individual + grouped units below {args.min_bytes} B" if args.min_bytes > 0
           else f"  tiles: {shown} individual (no grouping)")
     print(f"  layout: {'squarify' if _squarify_pkg is not None else 'bundled fallback'}")
-    if audit:
-        print(f"  audit: {audit.relative_to(repo) if audit.is_relative_to(repo) else audit}")
+    if categories.is_file():
+        print(f"  categories: {categories.relative_to(repo) if categories.is_relative_to(repo) else categories}")
     return 0
 
 
