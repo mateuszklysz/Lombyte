@@ -47,6 +47,16 @@ LANG_DEFINE = "-DBUILD_US_VERSION"
 SN_TOOLCHAIN_ROOT = os.environ.get("SN_TOOLCHAIN_ROOT", "").strip()
 # Promoted textbin units matched byte-exact under the SN compiler.
 SN_COMPILER_UNITS = {
+    # sdk/debug_print: the EE-GCC 2.9 tree ships no stdarg.h, and the SN
+    # stdarg va_start reproduces the retail varargs save prologue byte-exactly
+    # (100/100/100/100 direct objdiff).
+    "sdk/debug_print",
+    # fun_00233980 is a save-less leaf, so the sq/lq fingerprint classifies it
+    # as "none" and sends it to EE-GCC 2.9, which hoists the bump-pointer load
+    # and diverges from retail. Fresh SN -O2 -g2 -mno-split-addresses reproduces
+    # the retail reload schedule exactly (100/100/100/100 direct objdiff and
+    # linked-byte comparison against the retail ELF).
+    "textbin/fun_00233980",
     # fun_002172c0 has no callee saves (retail style "none"), so the sq/lq
     # fingerprint cannot classify it; retail branch-delay scheduling matches
     # SN exactly (fresh SN -O2 -g2 object = 100% four-way; EE-GCC 2.9 = 95.2%
@@ -142,11 +152,34 @@ RODATA_OVERLAYS = {
 # scePad2Read and other already-exact siblings.
 HIMURO_FLAG_UNITS = {
     "sce_sif_init_iop_heap": "-fno-schedule-insns",
+    # Absolute-store macros and the final GP store's delay-slot placement.
+    "initialize_global_state_entry": "-mno-split-addresses -fno-schedule-insns",
+}
+
+
+# Per-unit extra compiler flags for SN-routed textbin units whose exact
+# codegen requires a non-default option.  fun_00225530 retail loads the global
+# with a non-split address sequence (`lui v1,%hi; lw v1,%lo(v1)`), which the SN
+# driver only reproduces with -mno-split-addresses; the default emits a split
+# base register and scores 87.65% instead of 100%.
+SN_FLAG_UNITS = {
+    # Keep the loop's address register separate from the mode's live range.
+    "fun_0012ee08": "-fno-gcse",
+    "fun_00225490": "-fno-schedule-insns",
+    "fun_00225530": "-mno-split-addresses",
+    "fun_00233980": "-mno-split-addresses",
 }
 
 
 def _unit_flag(unit: str) -> str:
     for suffix, flags in HIMURO_FLAG_UNITS.items():
+        if unit.endswith(suffix):
+            return flags
+    return ""
+
+
+def _unit_sn_flag(unit: str) -> str:
+    for suffix, flags in SN_FLAG_UNITS.items():
         if unit.endswith(suffix):
             return flags
     return ""
@@ -401,7 +434,7 @@ def build_stuff(
                 f"mkdir -p $sn_work && cp $in $sn_work/cand.c && "
                 f"'{sn_driver}' -c '-B{sn_lib}\\' '-B{sn_eebin}\\' "
                 f"-I'{sn_inc}' -I'{sn_repo_inc}' "
-                f"-DBUILD_US_VERSION -DMATCHING_DECOMP -O2 -g2 "
+                f"-DBUILD_US_VERSION -DMATCHING_DECOMP -O2 -g2 $extra "
                 f"'$sn_work_win/cand.c' -o '$sn_work_win/cand.o' && "
                 f"cp $sn_work/cand.o $out && {CROSS}strip $out -N dummy-symbol-name"
             ),
@@ -450,10 +483,15 @@ def build_stuff(
             )
             if use_sn:
                 sn_work = str(sn_repo / "build/sn-work/units" / unit)
-                build(entry.object_path, entry.src_paths, "cc_sn", variables={
+                sn_extra = _unit_sn_flag(unit)
+                variables = {
                     "sn_work": sn_work,
                     "sn_work_win": _win_path(sn_work),
-                })
+                }
+                if sn_extra:
+                    variables["extra"] = f"{sn_extra} "
+                build(entry.object_path, entry.src_paths, "cc_sn",
+                      variables=variables)
             else:
                 extra = _unit_flag(unit)
                 variables = {"extra": f"{extra} "} if extra else {}
