@@ -1,3 +1,4 @@
+/* ROLE: recovered function `SetupGifPaging__Fi` (game/initonce.cpp, 0x118 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 56.9420%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

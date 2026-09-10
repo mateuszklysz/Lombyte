@@ -1,3 +1,4 @@
+/* ROLE: recovered function `Camera_Exit__FP9UpdateCam` (camera, 0x48 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.; shared struct extraction rejected after compile failure

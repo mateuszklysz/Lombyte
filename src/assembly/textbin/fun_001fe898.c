@@ -1,3 +1,4 @@
+/* ROLE: recovered function `Help_DrawPrompt` (game/help.cpp) starts here; recovered extent unknown. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 63.9649%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

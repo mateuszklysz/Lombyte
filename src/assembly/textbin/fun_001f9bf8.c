@@ -1,3 +1,4 @@
+/* ROLE: recovered function `FastVecNormalize` (fastfunc.s, 0x158 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 10.0000%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

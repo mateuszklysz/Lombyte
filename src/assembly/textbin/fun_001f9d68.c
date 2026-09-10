@@ -1,3 +1,4 @@
+/* ROLE: recovered function `FastVectorToPackedChars__FR4vec4` (fastfunc.s, 0x30 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

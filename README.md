@@ -216,6 +216,7 @@ For build issues, include your operating system, tool versions, command, and rel
 
 - **Insomniac Games** — the original Ratchet & Clank.
 - **Himuro** — for insight into the PS2 decompilation process and the reference EE-GCC toolchain work this project's matching compiler profiles build on.
+- **[bordplate/RC1](https://codeberg.org/bordplate/RC1)** — a dormant matching-decompilation skeleton for the same game; its recovered symbol names and structure were used as reference, with attribution. The derived mapping lives in [`config/us/recovered_names.json`](config/us/recovered_names.json), [`config/us/symbol_addrs_recovered.txt`](config/us/symbol_addrs_recovered.txt), and [`docs/recovered-names.md`](docs/recovered-names.md).
 - **[splat](https://github.com/ethteck/splat)** and **[spimdisasm](https://github.com/Decompollaborate/spimdisasm)** — executable splitting and disassembly.
 - **[objdiff](https://github.com/encounter/objdiff)** — object-level comparison.
 - The PS2 reverse-engineering and decompilation communities for the tools and research that make matching projects possible.

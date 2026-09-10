@@ -1,3 +1,4 @@
+/* ROLE: recovered function `viBufFlush__FP5ViBuf` (movie/vibuf.cpp, 0x58 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 58.2381%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

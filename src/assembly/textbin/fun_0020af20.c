@@ -1,3 +1,4 @@
+/* ROLE: recovered function `memcard_RestoreData__FPcT0iP7mc_data` (game/initonce.cpp, 0x258 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

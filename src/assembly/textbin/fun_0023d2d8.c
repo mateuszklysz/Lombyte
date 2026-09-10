@@ -1,3 +1,4 @@
+/* ROLE: recovered function `voBufGetTag__FP5VoBuf` (movie/vobuf.cpp, 0x68 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 99.5200%
  * blocker: The SN branch is an order-only near-match: the two independent field loads are emitted in the opposite order, while the raw textbin oracle remains authoritative.

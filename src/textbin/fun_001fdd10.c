@@ -1,3 +1,4 @@
+/* ROLE: recovered function `msg_string__Fi` (game/help.cpp, 0x180 bytes) starts here; this unit covers only its first fragment. */
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
  * SYMBOL: FUN_001fdd10 (alias func_001FDD10)
  * UNIT: textbin/fun_001fdd10 (retagged from assembly/textbin/fun_001fdd10)

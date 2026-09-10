@@ -1,3 +1,4 @@
+/* ROLE: recovered function `CreatePart` (game/initonce.cpp, 0x158 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 10.8690%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

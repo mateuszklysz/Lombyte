@@ -1,3 +1,4 @@
+/* ROLE: recovered function `getFIFOindex__FP5ViBufPv` (movie/vibuf.cpp, 0x48 bytes) starts here; this unit covers only its first fragment. */
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;

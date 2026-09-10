@@ -1,3 +1,4 @@
+/* ROLE: recovered function `Hud_HeapAlloc__FUiPcT1i` (hud.cpp, 0x6d8 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 74.6897%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

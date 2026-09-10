@@ -1,3 +1,4 @@
+/* ROLE: recovered function `PutDispBuffer__Fv` (game/framebuf.cpp, 0x28 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 14.8889%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

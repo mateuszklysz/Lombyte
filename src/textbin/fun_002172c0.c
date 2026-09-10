@@ -1,3 +1,4 @@
+/* ROLE: recovered function `ClearPadInput__FR3PAD` (pad.cpp, 0x68 bytes) starts here; this unit covers only its first fragment. */
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED
  * SYMBOL: FUN_002172c0 (alias func_002172C0)
  * UNIT: textbin/fun_002172c0 (retagged from assembly/textbin/fun_002172c0)

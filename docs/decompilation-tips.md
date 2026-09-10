@@ -65,6 +65,10 @@ Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
 - Remove the oracle only after the transaction succeeds, and update the
   record.
 - Refresh the audit from fresh evidence; counters are derived, never edited.
+- Recovered names (see `docs/recovered-names.md`) are context: keep the
+  canonical symbol, record the recovered name as a `ROLE:` comment, and declare
+  it as an alias only when the unit is the whole recovered function and the
+  name is not already used elsewhere.
 
 ## 8. Evidence discipline
 

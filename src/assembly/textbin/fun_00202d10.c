@@ -1,3 +1,4 @@
+/* ROLE: recovered function `LoadCompressedHudBank__FiPc` (loaders.cpp, 0x2c0 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 80.0400%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

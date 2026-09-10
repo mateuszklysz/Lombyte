@@ -1,3 +1,4 @@
+/* ROLE: recovered function `AA_BlurPass__Fv` (game/framebuf.cpp) starts here; recovered extent unknown. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 35.8261%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

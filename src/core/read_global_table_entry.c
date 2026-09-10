@@ -1,3 +1,4 @@
+/* ROLE: recovered function `snd_UnkFunction_0012eaf0` (snd989, 0x10 bytes) starts here; this unit covers only its first fragment. */
 typedef int s32;
 
 extern s32 GlobalTableStatus __asm__("D_0015ECC4");

@@ -1,3 +1,4 @@
+/* ROLE: recovered function `InitViewContext__Fv` (game/initonce.cpp, 0x138 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 16.3766%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

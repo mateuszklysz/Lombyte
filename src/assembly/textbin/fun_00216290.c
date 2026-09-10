@@ -1,3 +1,4 @@
+/* ROLE: recovered function `music_Update__Fv` (music.cpp) starts here; recovered extent unknown. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 62.8051%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

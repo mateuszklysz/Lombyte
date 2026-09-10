@@ -1,3 +1,4 @@
+/* ROLE: recovered function `FontSetWindow` (fonts.cpp //) starts here; recovered extent unknown. */
 typedef unsigned short u16;
 typedef unsigned int u32;
 

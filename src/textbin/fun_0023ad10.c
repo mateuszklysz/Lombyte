@@ -1,3 +1,4 @@
+/* ROLE: recovered function `audioDecReset__FP9_AudioDec` (movie/audiodec.cpp, 0x48 bytes) starts here; this unit covers only its first fragment. */
 /* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2). */
 #include "types.h"
 

@@ -1,3 +1,4 @@
+/* ROLE: recovered function `setD3_CHCR__FUi` (movie/vibuf.cpp, 0x70 bytes) starts here; this unit covers only its first fragment. */
 #include "types.h"
 
 extern void DIntr(void);

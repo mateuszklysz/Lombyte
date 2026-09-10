@@ -1,3 +1,4 @@
+/* ROLE: recovered function `GetFrameTex__Fi` (hud.cpp, 0x1100 bytes) starts here; this unit covers only its first fragment. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 46.6912%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

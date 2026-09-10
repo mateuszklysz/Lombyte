@@ -7,7 +7,7 @@
     "assembly/textbin/fun_002220f0",
     "assembly/textbin/fun_00225dd8",
     "assembly/textbin/fun_00238520",
-    "assembly/textbin/fun_0023ad58"
+    "assembly/textbin/audio_dec_begin_put"
   ],
   "intentional_asm": [
     "assembly/core/fill_transfer_words",

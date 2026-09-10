@@ -1,3 +1,4 @@
+/* ROLE: recovered function `startlevel__Fv` (game/bmain.cpp) starts here; recovered extent unknown. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.5018%
  * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.

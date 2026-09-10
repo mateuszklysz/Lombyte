@@ -1,3 +1,4 @@
+/* ROLE: recovered function `music_Unpause__Fv` (music.cpp, 0x20 bytes) starts here; this unit covers only its first fragment. */
 typedef unsigned short u16;
 
 typedef struct RenderState {

@@ -1,3 +1,4 @@
+/* ROLE: recovered function `scTag2` (movie/vibuf.cpp, 0x28 bytes) starts here; this unit covers only its first fragment. */
 /* Packs three 32-bit components into the game's 64-bit state value. */
 void PackStateValue(unsigned long long *output, unsigned int high_word,
                     unsigned int middle_word, unsigned int low_word)

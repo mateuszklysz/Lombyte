@@ -1,0 +1,3953 @@
+{
+ "schema": "rnc-recovered-names-v2",
+ "retrieved": "2026-09-10",
+ "notes": "Recovered original symbol names mapped onto configured units by address. The recovered symbol list is grouped by original source file; sizes here are the distance to the next symbol in the same file (so never cross a named symbol of the same file). full = our unit is exactly the recovered function; fragment = the recovered function starts at our unit and continues past it; entry_size_unknown = the symbol is last in its source-file group; no_unit = the recovered symbol is not inside a configured non-matching C unit. Reference data only; not consumed by the build.",
+ "match_counts": {
+  "full": 103,
+  "fragment": 206,
+  "entry_size_unknown": 42,
+  "no_unit": 43
+ },
+ "symbols": [
+  {
+   "name": "FlushCache",
+   "size": "0x46b84",
+   "group": "game/help.cpp",
+   "unit": "assembly/kernel/flush_cache",
+   "unit_size": "0x10",
+   "match": "fragment",
+   "address": "0x118a80",
+   "unit_address": "0x118a80"
+  },
+  {
+   "name": "__main",
+   "size": "0xfa60",
+   "group": null,
+   "unit": "assembly/kernel/update_rfu_dispatch_state",
+   "unit_size": "0x20",
+   "match": "fragment",
+   "address": "0x11dcc8",
+   "unit_address": "0x11dcc8"
+  },
+  {
+   "name": "scePad2Read",
+   "size": "0xf24f0",
+   "group": "pad.cpp",
+   "unit": "sdk/sce_pad2_read",
+   "unit_size": "0xd4",
+   "match": "fragment",
+   "address": "0x124bd8",
+   "unit_address": "0x124bd8"
+  },
+  {
+   "name": "_start",
+   "size": "0x1c0",
+   "group": null,
+   "unit": "assembly/sdk/library/entry",
+   "unit_size": "0x1c0",
+   "match": "full",
+   "address": "0x12d728",
+   "unit_address": "0x12d728"
+  },
+  {
+   "name": "_exit",
+   "size": "0xf0",
+   "group": null,
+   "unit": "assembly/kernel/jump_to_rfu_status",
+   "unit_size": "0x8",
+   "match": "fragment",
+   "address": "0x12d8e8",
+   "unit_address": "0x12d8e8"
+  },
+  {
+   "name": "ParseBin__Fv",
+   "size": "0xbbd60",
+   "group": "game/bmain.cpp",
+   "unit": "assembly/textbin/fun_0012d8f8",
+   "unit_size": "0xdc",
+   "match": "fragment",
+   "address": "0x12d8f8",
+   "unit_address": "0x12d8f8"
+  },
+  {
+   "name": "main",
+   "size": null,
+   "group": null,
+   "unit": "assembly/textbin/fun_0012d9d8",
+   "unit_size": "0x4c",
+   "match": "entry_size_unknown",
+   "address": "0x12d9d8",
+   "unit_address": "0x12d9d8"
+  },
+  {
+   "name": "snd_StartSoundSystem",
+   "size": "0x258",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_start_sound_system",
+   "unit_size": "0x258",
+   "match": "full",
+   "address": "0x12da28",
+   "unit_address": "0x12da28"
+  },
+  {
+   "name": "snd_FlushSoundCommands",
+   "size": "0x1f0",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012dc80",
+   "unit_size": "0x1e0",
+   "match": "fragment",
+   "address": "0x12dc80",
+   "unit_address": "0x12dc80"
+  },
+  {
+   "name": "snd_GotReturns",
+   "size": "0x88",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_got_returns",
+   "unit_size": "0x88",
+   "match": "full",
+   "address": "0x12de70",
+   "unit_address": "0x12de70"
+  },
+  {
+   "name": "snd_PrepareReturnBuffer",
+   "size": "0x28",
+   "group": "snd989",
+   "unit": "assembly/core/store_object_index",
+   "unit_size": "0x1c",
+   "match": "fragment",
+   "address": "0x12def8",
+   "unit_address": "0x12def8"
+  },
+  {
+   "name": "snd_BankLoadByLoc",
+   "size": "0x168",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012df20",
+   "unit_size": "0x154",
+   "match": "fragment",
+   "address": "0x12df20",
+   "unit_address": "0x12df20"
+  },
+  {
+   "name": "snd_BankLoadFromEE_CB",
+   "size": "0x120",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e088",
+   "unit_size": "0x110",
+   "match": "fragment",
+   "address": "0x12e088",
+   "unit_address": "0x12e088"
+  },
+  {
+   "name": "snd_ResolveBankXREFS",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e1a8",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x12e1a8",
+   "unit_address": "0x12e1a8"
+  },
+  {
+   "name": "snd_UnloadBank",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "textbin/snd_unload_bank",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x12e1d8",
+   "unit_address": "0x12e1d8"
+  },
+  {
+   "name": "snd_SetMasterVolume",
+   "size": "0x38",
+   "group": "snd989",
+   "unit": "textbin/fun_0012e208",
+   "unit_size": "0x34",
+   "match": "fragment",
+   "address": "0x12e208",
+   "unit_address": "0x12e208"
+  },
+  {
+   "name": "snd_SetPlaybackMode",
+   "size": "0x40",
+   "group": "snd989",
+   "unit": "textbin/fun_0012e240",
+   "unit_size": "0x30",
+   "match": "fragment",
+   "address": "0x12e240",
+   "unit_address": "0x12e240"
+  },
+  {
+   "name": "snd_SetMixerMode",
+   "size": "0x38",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e280",
+   "unit_size": "0x34",
+   "match": "fragment",
+   "address": "0x12e280",
+   "unit_address": "0x12e280"
+  },
+  {
+   "name": "snd_SetGroupVoiceRange",
+   "size": "0x50",
+   "group": "snd989",
+   "unit": "textbin/fun_0012e2b8",
+   "unit_size": "0x3c",
+   "match": "fragment",
+   "address": "0x12e2b8",
+   "unit_address": "0x12e2b8"
+  },
+  {
+   "name": "snd_PlaySoundVolPanPMPB",
+   "size": "0x60",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e308",
+   "unit_size": "0x48",
+   "match": "fragment",
+   "address": "0x12e308",
+   "unit_address": "0x12e308"
+  },
+  {
+   "name": "snd_StopSound",
+   "size": "0x50",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e368",
+   "unit_size": "0x30",
+   "match": "fragment",
+   "address": "0x12e368",
+   "unit_address": "0x12e368"
+  },
+  {
+   "name": "snd_StopAllSounds",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e3b8",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x12e3b8",
+   "unit_address": "0x12e3b8"
+  },
+  {
+   "name": "snd_PauseAllSoundsInGroup",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "textbin/snd_pause_all_sounds_in_group",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x12e3e8",
+   "unit_address": "0x12e3e8"
+  },
+  {
+   "name": "snd_ContinueAllSoundsInGroup",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "textbin/snd_continue_all_sounds_in_group",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x12e418",
+   "unit_address": "0x12e418"
+  },
+  {
+   "name": "snd_SoundIsStillPlaying_CB",
+   "size": "0x78",
+   "group": "snd989",
+   "unit": "textbin/fun_0012e448",
+   "unit_size": "0x30",
+   "match": "fragment",
+   "address": "0x12e448",
+   "unit_address": "0x12e448"
+  },
+  {
+   "name": "snd_SetSoundParams_CB",
+   "size": "0x88",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e4c0",
+   "unit_size": "0x48",
+   "match": "fragment",
+   "address": "0x12e4c0",
+   "unit_address": "0x12e4c0"
+  },
+  {
+   "name": "snd_SendIOPCommandAndWait",
+   "size": "0x198",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e548",
+   "unit_size": "0x194",
+   "match": "fragment",
+   "address": "0x12e548",
+   "unit_address": "0x12e548"
+  },
+  {
+   "name": "snd_SendIOPCommandNoWait",
+   "size": "0x2c0",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_send_iop_command_no_wait",
+   "unit_size": "0x2c0",
+   "match": "full",
+   "address": "0x12e6e0",
+   "unit_address": "0x12e6e0"
+  },
+  {
+   "name": "snd_PostMessage",
+   "size": "0x38",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_post_message",
+   "unit_size": "0x38",
+   "match": "full",
+   "address": "0x12e9a0",
+   "unit_address": "0x12e9a0"
+  },
+  {
+   "name": "snd_SendCurrentBatch",
+   "size": "0x118",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012e9d8",
+   "unit_size": "0x114",
+   "match": "fragment",
+   "address": "0x12e9d8",
+   "unit_address": "0x12e9d8"
+  },
+  {
+   "name": "snd_UnkFunction_0012eaf0",
+   "size": "0x10",
+   "group": "snd989",
+   "unit": "core/read_global_table_entry",
+   "unit_size": "0xc",
+   "match": "fragment",
+   "address": "0x12eaf0",
+   "unit_address": "0x12eaf0"
+  },
+  {
+   "name": "snd_UnkFunction_0012eb00",
+   "size": "0x20",
+   "group": "snd989",
+   "unit": "textbin/snd_unk_function_0012eb00",
+   "unit_size": "0x20",
+   "match": "full",
+   "address": "0x12eb00",
+   "unit_address": "0x12eb00"
+  },
+  {
+   "name": "snd_InitVAGStreamingEx",
+   "size": "0xb0",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012eb20",
+   "unit_size": "0xac",
+   "match": "fragment",
+   "address": "0x12eb20",
+   "unit_address": "0x12eb20"
+  },
+  {
+   "name": "snd_StopAllStreams",
+   "size": "0x38",
+   "group": "snd989",
+   "unit": "textbin/fun_0012ebd0",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x12ebd0",
+   "unit_address": "0x12ebd0"
+  },
+  {
+   "name": "snd_PlayVAGStreamByLocEx_CB",
+   "size": "0x68",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012ec08",
+   "unit_size": "0x64",
+   "match": "fragment",
+   "address": "0x12ec08",
+   "unit_address": "0x12ec08"
+  },
+  {
+   "name": "snd_PauseVAGStream",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "textbin/snd_pause_vag_stream",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x12ec70",
+   "unit_address": "0x12ec70"
+  },
+  {
+   "name": "snd_ContinueVAGStream",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "textbin/snd_continue_vag_stream",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x12eca0",
+   "unit_address": "0x12eca0"
+  },
+  {
+   "name": "snd_GetVAGStreamTimeRemaining_CB",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "textbin/snd_get_vag_stream_time_remaining_cb",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x12ecd0",
+   "unit_address": "0x12ecd0"
+  },
+  {
+   "name": "snd_IsVAGStreamBuffered_CB",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "textbin/snd_is_vag_stream_buffered_cb",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x12ed00",
+   "unit_address": "0x12ed00"
+  },
+  {
+   "name": "snd_StreamSafeCheckCDIdle",
+   "size": "0x28",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_stream_safe_check_cd_idle",
+   "unit_size": "0x28",
+   "match": "full",
+   "address": "0x12ed30",
+   "unit_address": "0x12ed30"
+  },
+  {
+   "name": "snd_StreamSafeCdRead",
+   "size": "0xb0",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_stream_safe_cd_read",
+   "unit_size": "0xb0",
+   "match": "full",
+   "address": "0x12ed58",
+   "unit_address": "0x12ed58"
+  },
+  {
+   "name": "snd_StreamSafeCdSync",
+   "size": "0xa0",
+   "group": "snd989",
+   "unit": "textbin/fun_0012ee08",
+   "unit_size": "0x9c",
+   "match": "fragment",
+   "address": "0x12ee08",
+   "unit_address": "0x12ee08"
+  },
+  {
+   "name": "snd_StreamSafeCdBreak",
+   "size": "0x48",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012eea8",
+   "unit_size": "0x44",
+   "match": "fragment",
+   "address": "0x12eea8",
+   "unit_address": "0x12eea8"
+  },
+  {
+   "name": "snd_StreamSafeCdGetError",
+   "size": "0x38",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_stream_safe_cd_get_error",
+   "unit_size": "0x38",
+   "match": "full",
+   "address": "0x12eef0",
+   "unit_address": "0x12eef0"
+  },
+  {
+   "name": "snd_StreamSafeCdCallback",
+   "size": "0x40",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012ef28",
+   "unit_size": "0x30",
+   "match": "fragment",
+   "address": "0x12ef28",
+   "unit_address": "0x12ef28"
+  },
+  {
+   "name": "snd_SetReverbEx",
+   "size": "0x40",
+   "group": "snd989",
+   "unit": "assembly/textbin/snd_set_reverb_ex",
+   "unit_size": "0x40",
+   "match": "full",
+   "address": "0x12ef68",
+   "unit_address": "0x12ef68"
+  },
+  {
+   "name": "snd_PreAllocReverbWorkArea",
+   "size": "0x38",
+   "group": "snd989",
+   "unit": "textbin/fun_0012efa8",
+   "unit_size": "0x34",
+   "match": "fragment",
+   "address": "0x12efa8",
+   "unit_address": "0x12efa8"
+  },
+  {
+   "name": "snd_AutoReverb",
+   "size": "0x88",
+   "group": "snd989",
+   "unit": "textbin/fun_0012efe0",
+   "unit_size": "0x3c",
+   "match": "fragment",
+   "address": "0x12efe0",
+   "unit_address": "0x12efe0"
+  },
+  {
+   "name": "snd_InitMovieSound",
+   "size": "0x40",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012f068",
+   "unit_size": "0x3c",
+   "match": "fragment",
+   "address": "0x12f068",
+   "unit_address": "0x12f068"
+  },
+  {
+   "name": "snd_ResetMovieSound",
+   "size": "0x38",
+   "group": "snd989",
+   "unit": "textbin/fun_0012f0a8",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x12f0a8",
+   "unit_address": "0x12f0a8"
+  },
+  {
+   "name": "snd_CloseMovieSound",
+   "size": "0x28",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012f0e0",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x12f0e0",
+   "unit_address": "0x12f0e0"
+  },
+  {
+   "name": "snd_StartMovieSound",
+   "size": "0x40",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012f108",
+   "unit_size": "0x38",
+   "match": "fragment",
+   "address": "0x12f108",
+   "unit_address": "0x12f108"
+  },
+  {
+   "name": "snd_UpdateMovieADPCM",
+   "size": "0x30",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012f148",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x12f148",
+   "unit_address": "0x12f148"
+  },
+  {
+   "name": "snd_GetMovieNAX",
+   "size": "0x28",
+   "group": "snd989",
+   "unit": "textbin/fun_0012f178",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x12f178",
+   "unit_address": "0x12f178"
+  },
+  {
+   "name": "snd_GetDopplerPitchMod",
+   "size": "0x28",
+   "group": "snd989",
+   "unit": "assembly/math/compute_sector_index",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x12f1a0",
+   "unit_address": "0x12f1a0"
+  },
+  {
+   "name": "vsync_callback__Fi",
+   "size": "0x40",
+   "group": "snd989",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x12f1c8",
+   "unit_address": null
+  },
+  {
+   "name": "wad_GetSectors_FiiPv",
+   "size": "0xc47c8",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_0012f208",
+   "unit_size": "0xac",
+   "match": "fragment",
+   "address": "0x12f208",
+   "unit_address": "0x12f208"
+  },
+  {
+   "name": "D_152078",
+   "size": "0xcd08",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x152078",
+   "unit_address": null
+  },
+  {
+   "name": "frm_clock_time",
+   "size": "0x8",
+   "group": "mobyproc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ed40",
+   "unit_address": null
+  },
+  {
+   "name": "frm_vsync_cnt",
+   "size": "0x244",
+   "group": "mobyproc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ed48",
+   "unit_address": null
+  },
+  {
+   "name": "NTSCProgressive",
+   "size": "0x88c",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ed80",
+   "unit_address": null
+  },
+  {
+   "name": "DAT_0015EE4C",
+   "size": "0x8ac6c",
+   "group": "transition",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ee4c",
+   "unit_address": null
+  },
+  {
+   "name": "CamPostUpdRoutineCnt",
+   "size": "0x2a324",
+   "group": "mobyproc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ef8c",
+   "unit_address": null
+  },
+  {
+   "name": "GameMode",
+   "size": "0x9c",
+   "group": "game/help.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15f604",
+   "unit_address": null
+  },
+  {
+   "name": "worldUpdateTime",
+   "size": "0x38",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15f60c",
+   "unit_address": null
+  },
+  {
+   "name": "OcclOct",
+   "size": "0x4",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15f644",
+   "unit_address": null
+  },
+  {
+   "name": "OcclMode",
+   "size": "0x4",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15f648",
+   "unit_address": null
+  },
+  {
+   "name": "OcclInvalidGrid",
+   "size": "0x8b0",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15f64c",
+   "unit_address": null
+  },
+  {
+   "name": "HelpMsgs",
+   "size": "0x3a05c",
+   "group": "game/help.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15f6a0",
+   "unit_address": null
+  },
+  {
+   "name": "numSpawnableMobys",
+   "size": "0x20",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15fefc",
+   "unit_address": null
+  },
+  {
+   "name": "MobyInstanceEnd",
+   "size": "0x4",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ff1c",
+   "unit_address": null
+  },
+  {
+   "name": "MobyInstancePermEnd",
+   "size": "0x8",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ff20",
+   "unit_address": null
+  },
+  {
+   "name": "MobyVars",
+   "size": "0x27158",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x15ff28",
+   "unit_address": null
+  },
+  {
+   "name": "ActuatorWave",
+   "size": "0x2eb40",
+   "group": "game/actuator.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x165480",
+   "unit_address": null
+  },
+  {
+   "name": "Camera",
+   "size": "0x52b4",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x187080",
+   "unit_address": null
+  },
+  {
+   "name": "GameCamera",
+   "size": "0x64cd4",
+   "group": "camera",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x187194",
+   "unit_address": null
+  },
+  {
+   "name": "CamPostUpdRoutines",
+   "size": "0x60100",
+   "group": "mobyproc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1892b0",
+   "unit_address": null
+  },
+  {
+   "name": "OcclUpdate",
+   "size": "0x7d90",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x18c334",
+   "unit_address": null
+  },
+  {
+   "name": "OcclVisibility",
+   "size": "0x54d48",
+   "group": "game/actuator.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x193fc0",
+   "unit_address": null
+  },
+  {
+   "name": "MemSlots",
+   "size": "0xc3fc",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1940c4",
+   "unit_address": null
+  },
+  {
+   "name": "CollOutput",
+   "size": "0x235e0",
+   "group": "collproc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x194100",
+   "unit_address": null
+  },
+  {
+   "name": "Help",
+   "size": "0x26c",
+   "group": "game/help.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1996fc",
+   "unit_address": null
+  },
+  {
+   "name": "s_Paradox_this_message_does_not",
+   "size": "0x5fe80",
+   "group": "game/help.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x199968",
+   "unit_address": null
+  },
+  {
+   "name": "Hud",
+   "size": "0x64a44",
+   "group": "hud.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x19a3f4",
+   "unit_address": null
+  },
+  {
+   "name": "ViewerGsRegs",
+   "size": "0x180",
+   "group": "loaders.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x19e540",
+   "unit_address": null
+  },
+  {
+   "name": "ChromeGsRegs",
+   "size": "0x18",
+   "group": "loaders.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x19e6c0",
+   "unit_address": null
+  },
+  {
+   "name": "GlassGsRegs",
+   "size": "0x63ff0",
+   "group": "loaders.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x19e6d8",
+   "unit_address": null
+  },
+  {
+   "name": "mc_gamedata",
+   "size": "0x300",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1a04c0",
+   "unit_address": null
+  },
+  {
+   "name": "mc_leveldata",
+   "size": "0x12a40",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1a07c0",
+   "unit_address": null
+  },
+  {
+   "name": "MobyClasses",
+   "size": "0x2b80",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1b3200",
+   "unit_address": null
+  },
+  {
+   "name": "MobyGsLocStash",
+   "size": "0x780",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1b5d80",
+   "unit_address": null
+  },
+  {
+   "name": "MobyClassRectify",
+   "size": "0x31ec0",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1b6500",
+   "unit_address": null
+  },
+  {
+   "name": "MobyGrids",
+   "size": "0x38388",
+   "group": "collproc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1b76e0",
+   "unit_address": null
+  },
+  {
+   "name": "s_tried_to_create_moby",
+   "size": "0xa1c8",
+   "group": "game/initonce.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1e83c0",
+   "unit_address": null
+  },
+  {
+   "name": "actuator_CalcPower",
+   "size": null,
+   "group": "game/actuator.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x1e8d08",
+   "unit_address": null
+  },
+  {
+   "name": "LoadPifAsPSMT8H",
+   "size": "0x1d0",
+   "group": "bloaders",
+   "unit": "assembly/textbin/load_pif_as_psmt8_h",
+   "unit_size": "0x1d0",
+   "match": "full",
+   "address": "0x1e9168",
+   "unit_address": "0x1e9168"
+  },
+  {
+   "name": "LoadDebugFont",
+   "size": null,
+   "group": "bloaders",
+   "unit": "assembly/textbin/fun_001e9338",
+   "unit_size": "0x6c",
+   "match": "entry_size_unknown",
+   "address": "0x1e9338",
+   "unit_address": "0x1e9338"
+  },
+  {
+   "name": "STUB_printf",
+   "size": "0x28e0",
+   "group": "mobyproc",
+   "unit": "sdk/debug_print",
+   "unit_size": "0x38",
+   "match": "fragment",
+   "address": "0x1e93b0",
+   "unit_address": "0x1e93b0"
+  },
+  {
+   "name": "startlevel__Fv",
+   "size": null,
+   "group": "game/bmain.cpp",
+   "unit": "assembly/textbin/fun_001e9658",
+   "unit_size": "0x45c",
+   "match": "entry_size_unknown",
+   "address": "0x1e9658",
+   "unit_address": "0x1e9658"
+  },
+  {
+   "name": "Transition_DrawSky__Fv",
+   "size": "0xd78",
+   "group": "transition",
+   "unit": "assembly/textbin/fun_001e9ab8",
+   "unit_size": "0x58",
+   "match": "fragment",
+   "address": "0x1e9ab8",
+   "unit_address": "0x1e9ab8"
+  },
+  {
+   "name": "Transition_LoadWad",
+   "size": "0x758",
+   "group": "transition",
+   "unit": "assembly/textbin/fun_001ea830",
+   "unit_size": "0x71c",
+   "match": "fragment",
+   "address": "0x1ea830",
+   "unit_address": "0x1ea830"
+  },
+  {
+   "name": "Transition_UpdateMovieCamera__Fv",
+   "size": "0x120",
+   "group": "transition",
+   "unit": "assembly/textbin/fun_001eaf88",
+   "unit_size": "0x11c",
+   "match": "fragment",
+   "address": "0x1eaf88",
+   "unit_address": "0x1eaf88"
+  },
+  {
+   "name": "Transition_FUN_001eb0a8",
+   "size": "0x368",
+   "group": "transition",
+   "unit": "assembly/textbin/fun_001eb0a8",
+   "unit_size": "0x364",
+   "match": "fragment",
+   "address": "0x1eb0a8",
+   "unit_address": "0x1eb0a8"
+  },
+  {
+   "name": "Transition_DefaultDraw__Fb",
+   "size": "0x388",
+   "group": "transition",
+   "unit": "assembly/textbin/fun_001eb410",
+   "unit_size": "0x330",
+   "match": "fragment",
+   "address": "0x1eb410",
+   "unit_address": "0x1eb410"
+  },
+  {
+   "name": "Transition_DoTransition__Fv",
+   "size": null,
+   "group": "transition",
+   "unit": "assembly/textbin/fun_001eb798",
+   "unit_size": "0x238",
+   "match": "entry_size_unknown",
+   "address": "0x1eb798",
+   "unit_address": "0x1eb798"
+  },
+  {
+   "name": "BackupCurrentCam",
+   "size": "0x60",
+   "group": "mobyproc",
+   "unit": "textbin/fun_001ebc90",
+   "unit_size": "0x5c",
+   "match": "fragment",
+   "address": "0x1ebc90",
+   "unit_address": "0x1ebc90"
+  },
+  {
+   "name": "ExecuteCamPostUpdFuncs",
+   "size": "0x25a38",
+   "group": "mobyproc",
+   "unit": "assembly/textbin/fun_001ebcf0",
+   "unit_size": "0x6c",
+   "match": "fragment",
+   "address": "0x1ebcf0",
+   "unit_address": "0x1ebcf0"
+  },
+  {
+   "name": "Cam_InterpValues__FffPffff",
+   "size": "0x20780",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/fun_001ebd78",
+   "unit_size": "0xe4",
+   "match": "fragment",
+   "address": "0x1ebd78",
+   "unit_address": "0x1ebd78"
+  },
+  {
+   "name": "Camera_handleCollWithHero__FiP9UpdateCam",
+   "size": "0x60",
+   "group": "camera",
+   "unit": "assembly/textbin/camera_handle_coll_with_hero",
+   "unit_size": "0x60",
+   "match": "full",
+   "address": "0x1ebe68",
+   "unit_address": "0x1ebe68"
+  },
+  {
+   "name": "Camera_runSetupToNewCam__FP9UpdateCam",
+   "size": "0x348",
+   "group": "camera",
+   "unit": "assembly/textbin/fun_001ebec8",
+   "unit_size": "0x44",
+   "match": "fragment",
+   "address": "0x1ebec8",
+   "unit_address": "0x1ebec8"
+  },
+  {
+   "name": "Camera_ActivationCheckPriority",
+   "size": "0x1c8",
+   "group": "camera",
+   "unit": "assembly/textbin/fun_001ec210",
+   "unit_size": "0x1c4",
+   "match": "fragment",
+   "address": "0x1ec210",
+   "unit_address": "0x1ec210"
+  },
+  {
+   "name": "Camera_Exit__FP9UpdateCam",
+   "size": "0x48",
+   "group": "camera",
+   "unit": "assembly/textbin/fun_001ec3d8",
+   "unit_size": "0x44",
+   "match": "fragment",
+   "address": "0x1ec3d8",
+   "unit_address": "0x1ec3d8"
+  },
+  {
+   "name": "UpdateAllCameras__Fi",
+   "size": null,
+   "group": "camera",
+   "unit": "assembly/textbin/fun_001ec420",
+   "unit_size": "0x110",
+   "match": "entry_size_unknown",
+   "address": "0x1ec420",
+   "unit_address": "0x1ec420"
+  },
+  {
+   "name": "CollLine_Fix",
+   "size": "0x252420",
+   "group": "collproc",
+   "unit": "assembly/textbin/fun_001efa68",
+   "unit_size": "0x10f0",
+   "match": "fragment",
+   "address": "0x1efa68",
+   "unit_address": "0x1efa68"
+  },
+  {
+   "name": "UpdateFog__Fi",
+   "size": "0x108",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f2588",
+   "unit_size": "0x104",
+   "match": "fragment",
+   "address": "0x1f2588",
+   "unit_address": "0x1f2588"
+  },
+  {
+   "name": "ParseOcclGrid",
+   "size": "0xd8",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f2690",
+   "unit_size": "0xd4",
+   "match": "fragment",
+   "address": "0x1f2690",
+   "unit_address": "0x1f2690"
+  },
+  {
+   "name": "GetOcclGridFromPair__Fiiiiiif",
+   "size": "0xb8",
+   "group": "game/initonce.cpp",
+   "unit": "textbin/get_occl_grid_from_pair",
+   "unit_size": "0xb8",
+   "match": "full",
+   "address": "0x1f2768",
+   "unit_address": "0x1f2768"
+  },
+  {
+   "name": "BuildOcclVisibility__Fv",
+   "size": "0x3f0",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/build_occl_visibility",
+   "unit_size": "0x3f0",
+   "match": "full",
+   "address": "0x1f2820",
+   "unit_address": "0x1f2820"
+  },
+  {
+   "name": "UpdateOcclusion__Fv",
+   "size": "0x50",
+   "group": "game/initonce.cpp",
+   "unit": "textbin/update_occlusion",
+   "unit_size": "0x50",
+   "match": "full",
+   "address": "0x1f2c10",
+   "unit_address": "0x1f2c10"
+  },
+  {
+   "name": "InitViewContext__Fv",
+   "size": "0x138",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f2c60",
+   "unit_size": "0x134",
+   "match": "fragment",
+   "address": "0x1f2c60",
+   "unit_address": "0x1f2c60"
+  },
+  {
+   "name": "UpdateViewContext__Fv",
+   "size": "0x750",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f2d98",
+   "unit_size": "0x61c",
+   "match": "fragment",
+   "address": "0x1f2d98",
+   "unit_address": "0x1f2d98"
+  },
+  {
+   "name": "SetPalMode__Fi",
+   "size": "0x300",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/set_pal_mode",
+   "unit_size": "0x300",
+   "match": "full",
+   "address": "0x1f34e8",
+   "unit_address": "0x1f34e8"
+  },
+  {
+   "name": "ResetDrawGlobals",
+   "size": "0x80",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f37e8",
+   "unit_size": "0x7c",
+   "match": "fragment",
+   "address": "0x1f37e8",
+   "unit_address": "0x1f37e8"
+  },
+  {
+   "name": "ResetGsRegisters__Fv",
+   "size": "0xf0",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f3868",
+   "unit_size": "0xec",
+   "match": "fragment",
+   "address": "0x1f3868",
+   "unit_address": "0x1f3868"
+  },
+  {
+   "name": "ResetGsRegistersPr__Fv",
+   "size": "0x928",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f3958",
+   "unit_size": "0x78",
+   "match": "fragment",
+   "address": "0x1f3958",
+   "unit_address": "0x1f3958"
+  },
+  {
+   "name": "DrawDebugProfiler",
+   "size": "0x18d0",
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_001f39d0",
+   "unit_size": "0x878",
+   "match": "fragment",
+   "address": "0x1f39d0",
+   "unit_address": "0x1f39d0"
+  },
+  {
+   "name": "SetupGifPaging__Fi",
+   "size": "0x118",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f4280",
+   "unit_size": "0x114",
+   "match": "fragment",
+   "address": "0x1f4280",
+   "unit_address": "0x1f4280"
+  },
+  {
+   "name": "DoGifPaging__Fv",
+   "size": "0x120",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f4398",
+   "unit_size": "0x11c",
+   "match": "fragment",
+   "address": "0x1f4398",
+   "unit_address": "0x1f4398"
+  },
+  {
+   "name": "GetEffectTex__Fii",
+   "size": "0x5a0",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f44b8",
+   "unit_size": "0x148",
+   "match": "fragment",
+   "address": "0x1f44b8",
+   "unit_address": "0x1f44b8"
+  },
+  {
+   "name": "FadeToBlack__FiUi",
+   "size": "0x9f8",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f4a58",
+   "unit_size": "0x188",
+   "match": "fragment",
+   "address": "0x1f4a58",
+   "unit_address": "0x1f4a58"
+  },
+  {
+   "name": "DrawRectOverlay_FiiiiUl",
+   "size": null,
+   "group": "snd989",
+   "unit": "assembly/textbin/fun_001f52a0",
+   "unit_size": "0x1a8",
+   "match": "entry_size_unknown",
+   "address": "0x1f52a0",
+   "unit_address": "0x1f52a0"
+  },
+  {
+   "name": "DrawTexturedQuad",
+   "size": "0xac8",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f5450",
+   "unit_size": "0x184",
+   "match": "fragment",
+   "address": "0x1f5450",
+   "unit_address": "0x1f5450"
+  },
+  {
+   "name": "DrawUIFrame",
+   "size": "0xb6c0",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_001f5f18",
+   "unit_size": "0x144",
+   "match": "fragment",
+   "address": "0x1f5f18",
+   "unit_address": "0x1f5f18"
+  },
+  {
+   "name": "FontPrint",
+   "size": "0x280",
+   "group": "fonts.cpp //",
+   "unit": "assembly/textbin/font_print",
+   "unit_size": "0x280",
+   "match": "full",
+   "address": "0x1f62b0",
+   "unit_address": "0x1f62b0"
+  },
+  {
+   "name": "FontPrintLarge",
+   "size": "0x80",
+   "group": "fonts.cpp //",
+   "unit": "textbin/fun_001f6530",
+   "unit_size": "0x7c",
+   "match": "fragment",
+   "address": "0x1f6530",
+   "unit_address": "0x1f6530"
+  },
+  {
+   "name": "FontPrintSmall",
+   "size": "0x540",
+   "group": "fonts.cpp //",
+   "unit": "textbin/fun_001f65b0",
+   "unit_size": "0x7c",
+   "match": "fragment",
+   "address": "0x1f65b0",
+   "unit_address": "0x1f65b0"
+  },
+  {
+   "name": "FontPrintCenter",
+   "size": "0x98",
+   "group": "fonts.cpp //",
+   "unit": "assembly/textbin/fun_001f6af0",
+   "unit_size": "0x94",
+   "match": "fragment",
+   "address": "0x1f6af0",
+   "unit_address": "0x1f6af0"
+  },
+  {
+   "name": "FontPrintCenterSmall",
+   "size": "0x98",
+   "group": "fonts.cpp //",
+   "unit": "assembly/textbin/fun_001f6b88",
+   "unit_size": "0x94",
+   "match": "fragment",
+   "address": "0x1f6b88",
+   "unit_address": "0x1f6b88"
+  },
+  {
+   "name": "FontPrintCenterLarge",
+   "size": "0x470",
+   "group": "fonts.cpp //",
+   "unit": "assembly/textbin/fun_001f6c20",
+   "unit_size": "0x94",
+   "match": "fragment",
+   "address": "0x1f6c20",
+   "unit_address": "0x1f6c20"
+  },
+  {
+   "name": "FontPrintWindow",
+   "size": "0x5d8",
+   "group": "fonts.cpp //",
+   "unit": "assembly/textbin/fun_001f7090",
+   "unit_size": "0x4f0",
+   "match": "fragment",
+   "address": "0x1f7090",
+   "unit_address": "0x1f7090"
+  },
+  {
+   "name": "FontSetWindow",
+   "size": null,
+   "group": "fonts.cpp //",
+   "unit": "ee/initialize_dma_packet",
+   "unit_size": "0x38",
+   "match": "entry_size_unknown",
+   "address": "0x1f7668",
+   "unit_address": "0x1f7668"
+  },
+  {
+   "name": "FastIntersectVert",
+   "size": "0x298",
+   "group": "drawquad",
+   "unit": "assembly/textbin/fun_001f7a98",
+   "unit_size": "0x178",
+   "match": "fragment",
+   "address": "0x1f7a98",
+   "unit_address": "0x1f7a98"
+  },
+  {
+   "name": "FastDrawQuadReal",
+   "size": "0x5b4",
+   "group": "drawquad",
+   "unit": "assembly/textbin/fast_draw_quad_real",
+   "unit_size": "0x5b4",
+   "match": "full",
+   "address": "0x1f7d30",
+   "unit_address": "0x1f7d30"
+  },
+  {
+   "name": "writeSetupBlock",
+   "size": "0x80",
+   "group": "drawquad",
+   "unit": "assembly/textbin/write_setup_block",
+   "unit_size": "0x80",
+   "match": "full",
+   "address": "0x1f82e4",
+   "unit_address": "0x1f82e4"
+  },
+  {
+   "name": "writeGSHeader",
+   "size": "0x40",
+   "group": "drawquad",
+   "unit": "assembly/textbin/write_gs_header",
+   "unit_size": "0x40",
+   "match": "full",
+   "address": "0x1f8364",
+   "unit_address": "0x1f8364"
+  },
+  {
+   "name": "ScisAndRender",
+   "size": null,
+   "group": "drawquad",
+   "unit": "assembly/textbin/fun_001f83a4",
+   "unit_size": "0x5fc",
+   "match": "entry_size_unknown",
+   "address": "0x1f83a4",
+   "unit_address": "0x1f83a4"
+  },
+  {
+   "name": "FastDecTimer__FRi",
+   "size": "0x30",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_dec_timer",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x1f9740",
+   "unit_address": "0x1f9740"
+  },
+  {
+   "name": "FastDecTimer__FRs",
+   "size": "0x50",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001f9770",
+   "unit_size": "0x30",
+   "match": "fragment",
+   "address": "0x1f9770",
+   "unit_address": "0x1f9770"
+  },
+  {
+   "name": "FastSitAndSpin__Fi",
+   "size": "0x50",
+   "group": "fastfunc.s",
+   "unit": "assembly/core/spin_wait",
+   "unit_size": "0x28",
+   "match": "fragment",
+   "address": "0x1f97c0",
+   "unit_address": "0x1f97c0"
+  },
+  {
+   "name": "FastMemSet",
+   "size": "0xe8",
+   "group": "game/help.cpp",
+   "unit": "assembly/core/fill_transfer_words",
+   "unit_size": "0x28",
+   "match": "fragment",
+   "address": "0x1f97e8",
+   "unit_address": "0x1f97e8"
+  },
+  {
+   "name": "FastMemZero16__FPvi",
+   "size": "0x218",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001f9810",
+   "unit_size": "0x28",
+   "match": "fragment",
+   "address": "0x1f9810",
+   "unit_address": "0x1f9810"
+  },
+  {
+   "name": "FastMemCopy",
+   "size": "0x43d0",
+   "group": "game/help.cpp",
+   "unit": "assembly/textbin/fun_001f98d0",
+   "unit_size": "0x28",
+   "match": "fragment",
+   "address": "0x1f98d0",
+   "unit_address": "0x1f98d0"
+  },
+  {
+   "name": "FastVecSub",
+   "size": "0x88",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001f9a28",
+   "unit_size": "0x18",
+   "match": "fragment",
+   "address": "0x1f9a28",
+   "unit_address": "0x1f9a28"
+  },
+  {
+   "name": "FastVecDot",
+   "size": "0x28",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_vec_dot",
+   "unit_size": "0x28",
+   "match": "full",
+   "address": "0x1f9ab0",
+   "unit_address": "0x1f9ab0"
+  },
+  {
+   "name": "FastVecCross",
+   "size": "0x18",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_vec_cross",
+   "unit_size": "0x18",
+   "match": "full",
+   "address": "0x1f9ad8",
+   "unit_address": "0x1f9ad8"
+  },
+  {
+   "name": "FastVecLength",
+   "size": "0x108",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001f9af0",
+   "unit_size": "0x30",
+   "match": "fragment",
+   "address": "0x1f9af0",
+   "unit_address": "0x1f9af0"
+  },
+  {
+   "name": "FastVecNormalize",
+   "size": "0x158",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001f9bf8",
+   "unit_size": "0x50",
+   "match": "fragment",
+   "address": "0x1f9bf8",
+   "unit_address": "0x1f9bf8"
+  },
+  {
+   "name": "FastVectorFromPackedChars__FR4vec4i",
+   "size": "0x18",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_vector_from_packed_chars",
+   "unit_size": "0x18",
+   "match": "full",
+   "address": "0x1f9d50",
+   "unit_address": "0x1f9d50"
+  },
+  {
+   "name": "FastVectorToPackedChars__FR4vec4",
+   "size": "0x30",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001f9d68",
+   "unit_size": "0x28",
+   "match": "fragment",
+   "address": "0x1f9d68",
+   "unit_address": "0x1f9d68"
+  },
+  {
+   "name": "FastCountChars__FPvi",
+   "size": "0x30",
+   "group": "fastfunc.s",
+   "unit": "assembly/math/fast_count_chars",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x1f9d98",
+   "unit_address": "0x1f9d98"
+  },
+  {
+   "name": "FastCos",
+   "size": "0x18",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_cos",
+   "unit_size": "0x18",
+   "match": "full",
+   "address": "0x1f9dc8",
+   "unit_address": "0x1f9dc8"
+  },
+  {
+   "name": "FastSin__Ff",
+   "size": "0x18",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_sin",
+   "unit_size": "0x18",
+   "match": "full",
+   "address": "0x1f9de0",
+   "unit_address": "0x1f9de0"
+  },
+  {
+   "name": "FastArcSin__Ff",
+   "size": "0x98",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_arc_sin",
+   "unit_size": "0x98",
+   "match": "full",
+   "address": "0x1f9df8",
+   "unit_address": "0x1f9df8"
+  },
+  {
+   "name": "FastArcTan__Fff",
+   "size": "0x6f0",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001f9e90",
+   "unit_size": "0x110",
+   "match": "fragment",
+   "address": "0x1f9e90",
+   "unit_address": "0x1f9e90"
+  },
+  {
+   "name": "FastAddRots__Fff",
+   "size": "0x48",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_add_rots",
+   "unit_size": "0x48",
+   "match": "full",
+   "address": "0x1fa580",
+   "unit_address": "0x1fa580"
+  },
+  {
+   "name": "FastSubRots__Fff",
+   "size": "0x48",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_sub_rots",
+   "unit_size": "0x48",
+   "match": "full",
+   "address": "0x1fa5c8",
+   "unit_address": "0x1fa5c8"
+  },
+  {
+   "name": "FastNormalizeAngle",
+   "size": "0x78",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_normalize_angle",
+   "unit_size": "0x78",
+   "match": "full",
+   "address": "0x1fa610",
+   "unit_address": "0x1fa610"
+  },
+  {
+   "name": "FastDiffRots__Fff",
+   "size": "0x58",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001fa688",
+   "unit_size": "0x38",
+   "match": "fragment",
+   "address": "0x1fa688",
+   "unit_address": "0x1fa688"
+  },
+  {
+   "name": "FastTweenColor",
+   "size": "0x48",
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fast_tween_color",
+   "unit_size": "0x48",
+   "match": "full",
+   "address": "0x1fa6e0",
+   "unit_address": "0x1fa6e0"
+  },
+  {
+   "name": "FastBSphereCheck",
+   "size": null,
+   "group": "fastfunc.s",
+   "unit": "assembly/textbin/fun_001fa728",
+   "unit_size": "0xf8",
+   "match": "entry_size_unknown",
+   "address": "0x1fa728",
+   "unit_address": "0x1fa728"
+  },
+  {
+   "name": "SetupFS_AA_buffer__Fiiiiii",
+   "size": "0x908",
+   "group": "game/framebuf.cpp",
+   "unit": "assembly/textbin/fun_001fa978",
+   "unit_size": "0x904",
+   "match": "fragment",
+   "address": "0x1fa978",
+   "unit_address": "0x1fa978"
+  },
+  {
+   "name": "SetBackgroundColor__Fiii",
+   "size": "0x28",
+   "group": "game/framebuf.cpp",
+   "unit": "assembly/ee/set_background_color",
+   "unit_size": "0x28",
+   "match": "full",
+   "address": "0x1fb280",
+   "unit_address": "0x1fb280"
+  },
+  {
+   "name": "PutDispBuffer__Fv",
+   "size": "0x28",
+   "group": "game/framebuf.cpp",
+   "unit": "assembly/textbin/fun_001fb2a8",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x1fb2a8",
+   "unit_address": "0x1fb2a8"
+  },
+  {
+   "name": "PutDrawBufferLarge__Fv",
+   "size": "0x100",
+   "group": "game/framebuf.cpp",
+   "unit": "assembly/textbin/fun_001fb2d0",
+   "unit_size": "0x94",
+   "match": "fragment",
+   "address": "0x1fb2d0",
+   "unit_address": "0x1fb2d0"
+  },
+  {
+   "name": "PutDrawBufferSmall__Fv",
+   "size": "0x2b0",
+   "group": "game/framebuf.cpp",
+   "unit": "assembly/textbin/fun_001fb3d0",
+   "unit_size": "0x6c",
+   "match": "fragment",
+   "address": "0x1fb3d0",
+   "unit_address": "0x1fb3d0"
+  },
+  {
+   "name": "AA_BlurPass__Fv",
+   "size": null,
+   "group": "game/framebuf.cpp",
+   "unit": "assembly/textbin/fun_001fb680",
+   "unit_size": "0x5c",
+   "match": "entry_size_unknown",
+   "address": "0x1fb680",
+   "unit_address": "0x1fb680"
+  },
+  {
+   "name": "mode_freezeInit",
+   "size": "0x198",
+   "group": "game/freeze.cpp",
+   "unit": "assembly/textbin/mode_freeze_init",
+   "unit_size": "0x198",
+   "match": "full",
+   "address": "0x1fbab8",
+   "unit_address": "0x1fbab8"
+  },
+  {
+   "name": "DrawDialogText__Fv",
+   "size": "0x11d8",
+   "group": "game/freeze.cpp",
+   "unit": "assembly/textbin/fun_001fbc50",
+   "unit_size": "0x11d4",
+   "match": "fragment",
+   "address": "0x1fbc50",
+   "unit_address": "0x1fbc50"
+  },
+  {
+   "name": "UpdateModeFreeze__Fv",
+   "size": null,
+   "group": "game/freeze.cpp",
+   "unit": "assembly/textbin/fun_001fce28",
+   "unit_size": "0x8b8",
+   "match": "entry_size_unknown",
+   "address": "0x1fce28",
+   "unit_address": "0x1fce28"
+  },
+  {
+   "name": "Help_FindIndex",
+   "size": "0x70",
+   "group": "game/help.cpp",
+   "unit": "assembly/textbin/fun_001fdca0",
+   "unit_size": "0x6c",
+   "match": "fragment",
+   "address": "0x1fdca0",
+   "unit_address": "0x1fdca0"
+  },
+  {
+   "name": "msg_string__Fi",
+   "size": "0x180",
+   "group": "game/help.cpp",
+   "unit": "textbin/fun_001fdd10",
+   "unit_size": "0x40",
+   "match": "fragment",
+   "address": "0x1fdd10",
+   "unit_address": "0x1fdd10"
+  },
+  {
+   "name": "Help_Update",
+   "size": "0xa08",
+   "group": "game/help.cpp",
+   "unit": "assembly/textbin/fun_001fde90",
+   "unit_size": "0xa04",
+   "match": "fragment",
+   "address": "0x1fde90",
+   "unit_address": "0x1fde90"
+  },
+  {
+   "name": "Help_DrawPrompt",
+   "size": null,
+   "group": "game/help.cpp",
+   "unit": "assembly/textbin/fun_001fe898",
+   "unit_size": "0xe4",
+   "match": "entry_size_unknown",
+   "address": "0x1fe898",
+   "unit_address": "0x1fe898"
+  },
+  {
+   "name": "Hud_GetIconIndex__Fi",
+   "size": "0x188",
+   "group": "hud.cpp",
+   "unit": "assembly/textbin/fun_001fee38",
+   "unit_size": "0x4c",
+   "match": "fragment",
+   "address": "0x1fee38",
+   "unit_address": "0x1fee38"
+  },
+  {
+   "name": "LinkHudBank__FiPc",
+   "size": "0x168",
+   "group": "hud.cpp",
+   "unit": "assembly/textbin/fun_001fefc0",
+   "unit_size": "0x160",
+   "match": "fragment",
+   "address": "0x1fefc0",
+   "unit_address": "0x1fefc0"
+  },
+  {
+   "name": "Hud_SendResidentBank__FiPcb",
+   "size": "0x138",
+   "group": "hud.cpp",
+   "unit": "assembly/textbin/hud_send_resident_bank",
+   "unit_size": "0x138",
+   "match": "full",
+   "address": "0x1ff128",
+   "unit_address": "0x1ff128"
+  },
+  {
+   "name": "Hud_HeapReset__Fv",
+   "size": "0x28",
+   "group": "hud.cpp",
+   "unit": "core/hud_heap_reset",
+   "unit_size": "0x28",
+   "match": "full",
+   "address": "0x1ff260",
+   "unit_address": "0x1ff260"
+  },
+  {
+   "name": "Hud_HeapAlloc__FUiPcT1i",
+   "size": "0x6d8",
+   "group": "hud.cpp",
+   "unit": "assembly/textbin/fun_001ff288",
+   "unit_size": "0x74",
+   "match": "fragment",
+   "address": "0x1ff288",
+   "unit_address": "0x1ff288"
+  },
+  {
+   "name": "GetIconFrame__Fii",
+   "size": "0xb0",
+   "group": "hud.cpp",
+   "unit": "assembly/textbin/fun_001ff960",
+   "unit_size": "0xac",
+   "match": "fragment",
+   "address": "0x1ff960",
+   "unit_address": "0x1ff960"
+  },
+  {
+   "name": "GetFrameTex__Fi",
+   "size": "0x1100",
+   "group": "hud.cpp",
+   "unit": "assembly/textbin/fun_001ffa10",
+   "unit_size": "0x220",
+   "match": "fragment",
+   "address": "0x1ffa10",
+   "unit_address": "0x1ffa10"
+  },
+  {
+   "name": "Hud_sendTexture__FPciiiii",
+   "size": null,
+   "group": "hud.cpp",
+   "unit": "assembly/textbin/fun_00200b10",
+   "unit_size": "0x170",
+   "match": "entry_size_unknown",
+   "address": "0x200b10",
+   "unit_address": "0x200b10"
+  },
+  {
+   "name": "LoadIRXModule",
+   "size": null,
+   "group": "init",
+   "unit": "assembly/textbin/fun_00201520",
+   "unit_size": "0xb4",
+   "match": "entry_size_unknown",
+   "address": "0x201520",
+   "unit_address": "0x201520"
+  },
+  {
+   "name": "InitMemSlots__Fv",
+   "size": "0x78",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/init_mem_slots",
+   "unit_size": "0x78",
+   "match": "full",
+   "address": "0x2015d8",
+   "unit_address": "0x2015d8"
+  },
+  {
+   "name": "InitOnce__Fv",
+   "size": "0x79e0",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_00201650",
+   "unit_size": "0x3cc",
+   "match": "fragment",
+   "address": "0x201650",
+   "unit_address": "0x201650"
+  },
+  {
+   "name": "UpdateAllPointLights",
+   "size": "0x180",
+   "group": "lights",
+   "unit": "assembly/textbin/update_all_point_lights",
+   "unit_size": "0x180",
+   "match": "full",
+   "address": "0x201a28",
+   "unit_address": "0x201a28"
+  },
+  {
+   "name": "CreatePointLight",
+   "size": "0x3b0",
+   "group": "lights",
+   "unit": "assembly/textbin/create_point_light",
+   "unit_size": "0x3b0",
+   "match": "full",
+   "address": "0x201ba8",
+   "unit_address": "0x201ba8"
+  },
+  {
+   "name": "RefreshPointLight",
+   "size": "0x30",
+   "group": "lights",
+   "unit": "textbin/fun_00201f58",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x201f58",
+   "unit_address": "0x201f58"
+  },
+  {
+   "name": "DetachPointLight__Fi",
+   "size": null,
+   "group": "lights",
+   "unit": "assembly/textbin/fun_00201f88",
+   "unit_size": "0x2e8",
+   "match": "entry_size_unknown",
+   "address": "0x201f88",
+   "unit_address": "0x201f88"
+  },
+  {
+   "name": "ParseParticleTexs",
+   "size": "0x3d0",
+   "group": "loaders.cpp",
+   "unit": "assembly/textbin/fun_002026c8",
+   "unit_size": "0x138",
+   "match": "fragment",
+   "address": "0x2026c8",
+   "unit_address": "0x2026c8"
+  },
+  {
+   "name": "LoadHudBanks__Fv",
+   "size": "0x278",
+   "group": "loaders.cpp",
+   "unit": "assembly/textbin/fun_00202a98",
+   "unit_size": "0x274",
+   "match": "fragment",
+   "address": "0x202a98",
+   "unit_address": "0x202a98"
+  },
+  {
+   "name": "LoadCompressedHudBank__FiPc",
+   "size": "0x2c0",
+   "group": "loaders.cpp",
+   "unit": "assembly/textbin/fun_00202d10",
+   "unit_size": "0x64",
+   "match": "fragment",
+   "address": "0x202d10",
+   "unit_address": "0x202d10"
+  },
+  {
+   "name": "SetUpVisGifViewer__FPiiiiii",
+   "size": "0x1a20",
+   "group": "loaders.cpp",
+   "unit": "assembly/textbin/fun_00202fd0",
+   "unit_size": "0x14c",
+   "match": "fragment",
+   "address": "0x202fd0",
+   "unit_address": "0x202fd0"
+  },
+  {
+   "name": "ParseSpaceSceneChunk__Fi",
+   "size": null,
+   "group": "loaders.cpp",
+   "unit": "assembly/textbin/fun_002049f0",
+   "unit_size": "0x50",
+   "match": "entry_size_unknown",
+   "address": "0x2049f0",
+   "unit_address": "0x2049f0"
+  },
+  {
+   "name": "UNK_NoMapAvailable",
+   "size": null,
+   "group": "game/map.cpp",
+   "unit": "assembly/textbin/fun_00205640",
+   "unit_size": "0x10cc",
+   "match": "entry_size_unknown",
+   "address": "0x205640",
+   "unit_address": "0x205640"
+  },
+  {
+   "name": "memcard_GetName",
+   "size": "0x268",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_00209030",
+   "unit_size": "0x134",
+   "match": "fragment",
+   "address": "0x209030",
+   "unit_address": "0x209030"
+  },
+  {
+   "name": "memcard_RestoreGame",
+   "size": "0x140",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_00209298",
+   "unit_size": "0xd4",
+   "match": "fragment",
+   "address": "0x209298",
+   "unit_address": "0x209298"
+  },
+  {
+   "name": "memcard_Update",
+   "size": "0x17d8",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_002093d8",
+   "unit_size": "0x17d4",
+   "match": "fragment",
+   "address": "0x2093d8",
+   "unit_address": "0x2093d8"
+  },
+  {
+   "name": "memcard_MakeWholeSave",
+   "size": "0xa8",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/memcard_make_whole_save",
+   "unit_size": "0xa8",
+   "match": "full",
+   "address": "0x20abb0",
+   "unit_address": "0x20abb0"
+  },
+  {
+   "name": "memcard_Init",
+   "size": "0x30",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/memcard_init",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x20ac58",
+   "unit_address": "0x20ac58"
+  },
+  {
+   "name": "memcard_GetDataSize",
+   "size": "0x38",
+   "group": "game/initonce.cpp",
+   "unit": "ee/memcard_get_data_size",
+   "unit_size": "0x38",
+   "match": "full",
+   "address": "0x20ac88",
+   "unit_address": "0x20ac88"
+  },
+  {
+   "name": "memcard_Checksum",
+   "size": "0x78",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_0020acc0",
+   "unit_size": "0x74",
+   "match": "fragment",
+   "address": "0x20acc0",
+   "unit_address": "0x20acc0"
+  },
+  {
+   "name": "memcard_TestChecksum",
+   "size": "0x40",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_0020ad38",
+   "unit_size": "0x3c",
+   "match": "fragment",
+   "address": "0x20ad38",
+   "unit_address": "0x20ad38"
+  },
+  {
+   "name": "memcard_PrepData",
+   "size": "0xe8",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/memcard_prep_data",
+   "unit_size": "0xe8",
+   "match": "full",
+   "address": "0x20ad78",
+   "unit_address": "0x20ad78"
+  },
+  {
+   "name": "memcard_RestoreInfo__FPcii",
+   "size": "0xc0",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_0020ae60",
+   "unit_size": "0xbc",
+   "match": "fragment",
+   "address": "0x20ae60",
+   "unit_address": "0x20ae60"
+  },
+  {
+   "name": "memcard_RestoreData__FPcT0iP7mc_data",
+   "size": "0x258",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_0020af20",
+   "unit_size": "0x254",
+   "match": "fragment",
+   "address": "0x20af20",
+   "unit_address": "0x20af20"
+  },
+  {
+   "name": "memcard_Save__Fii",
+   "size": "0x1c78",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_0020b178",
+   "unit_size": "0x244",
+   "match": "fragment",
+   "address": "0x20b178",
+   "unit_address": "0x20b178"
+  },
+  {
+   "name": "DmaToSpr",
+   "size": "0x20",
+   "group": "miscproc",
+   "unit": "assembly/ee/dma_to_spr",
+   "unit_size": "0x20",
+   "match": "full",
+   "address": "0x20b3c0",
+   "unit_address": "0x20b3c0"
+  },
+  {
+   "name": "DmaToSprSync",
+   "size": "0x38",
+   "group": "miscproc",
+   "unit": "assembly/textbin/dma_to_spr_sync",
+   "unit_size": "0x38",
+   "match": "full",
+   "address": "0x20b3e0",
+   "unit_address": "0x20b3e0"
+  },
+  {
+   "name": "InitDma",
+   "size": "0x200",
+   "group": "miscproc",
+   "unit": "assembly/textbin/fun_0020b418",
+   "unit_size": "0x8c",
+   "match": "fragment",
+   "address": "0x20b418",
+   "unit_address": "0x20b418"
+  },
+  {
+   "name": "FastDecompress",
+   "size": null,
+   "group": "miscproc",
+   "unit": "assembly/textbin/fun_0020b618",
+   "unit_size": "0x334",
+   "match": "entry_size_unknown",
+   "address": "0x20b618",
+   "unit_address": "0x20b618"
+  },
+  {
+   "name": "CreateMoby__Fi",
+   "size": "0xf8",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/create_moby",
+   "unit_size": "0xf8",
+   "match": "full",
+   "address": "0x20c4f8",
+   "unit_address": "0x20c4f8"
+  },
+  {
+   "name": "InitMobyInstance__FP12MobyInstancei",
+   "size": "0x238",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/init_moby_instance",
+   "unit_size": "0x238",
+   "match": "full",
+   "address": "0x20c5f0",
+   "unit_address": "0x20c5f0"
+  },
+  {
+   "name": "DeleteMoby",
+   "size": "0x2e8",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/fun_0020c828",
+   "unit_size": "0x58",
+   "match": "fragment",
+   "address": "0x20c828",
+   "unit_address": "0x20c828"
+  },
+  {
+   "name": "AttachManipulator",
+   "size": "0x78",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/attach_manipulator",
+   "unit_size": "0x78",
+   "match": "full",
+   "address": "0x20cb10",
+   "unit_address": "0x20cb10"
+  },
+  {
+   "name": "DetachManipulator",
+   "size": "0x620",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/fun_0020cb88",
+   "unit_size": "0x90",
+   "match": "fragment",
+   "address": "0x20cb88",
+   "unit_address": "0x20cb88"
+  },
+  {
+   "name": "DmaMobyTextures",
+   "size": "0x108",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/dma_moby_textures",
+   "unit_size": "0x108",
+   "match": "full",
+   "address": "0x20cdf0",
+   "unit_address": "0x20cdf0"
+  },
+  {
+   "name": "PatchMobyGifs",
+   "size": "0xab38",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_0020cef8",
+   "unit_size": "0xd8",
+   "match": "fragment",
+   "address": "0x20cef8",
+   "unit_address": "0x20cef8"
+  },
+  {
+   "name": "ProcessMobyAnimData__Fv",
+   "size": "0x48",
+   "group": "mobyfunc",
+   "unit": "textbin/fun_0020d1a8",
+   "unit_size": "0x44",
+   "match": "fragment",
+   "address": "0x20d1a8",
+   "unit_address": "0x20d1a8"
+  },
+  {
+   "name": "InitMobyClassDists__Fv",
+   "size": "0x28",
+   "group": "mobyfunc",
+   "unit": "textbin/init_moby_class_dists",
+   "unit_size": "0x28",
+   "match": "full",
+   "address": "0x20d1f0",
+   "unit_address": "0x20d1f0"
+  },
+  {
+   "name": "StashMobyClassDists__Fv",
+   "size": "0x30",
+   "group": "mobyfunc",
+   "unit": "textbin/fun_0020d218",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x20d218",
+   "unit_address": "0x20d218"
+  },
+  {
+   "name": "RestoreMobyClassDists__Fv",
+   "size": "0x30",
+   "group": "mobyfunc",
+   "unit": "textbin/fun_0020d248",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x20d248",
+   "unit_address": "0x20d248"
+  },
+  {
+   "name": "DrawMobysSetup__Fv",
+   "size": "0xb8",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/draw_mobys_setup",
+   "unit_size": "0xb8",
+   "match": "full",
+   "address": "0x20d278",
+   "unit_address": "0x20d278"
+  },
+  {
+   "name": "DrawMobyList",
+   "size": "0x80",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/draw_moby_list",
+   "unit_size": "0x80",
+   "match": "full",
+   "address": "0x20d330",
+   "unit_address": "0x20d330"
+  },
+  {
+   "name": "DrawMobysCleanUp",
+   "size": "0xb0",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/fun_0020d3b0",
+   "unit_size": "0xac",
+   "match": "fragment",
+   "address": "0x20d3b0",
+   "unit_address": "0x20d3b0"
+  },
+  {
+   "name": "DrawMobys",
+   "size": "0x7c0",
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/fun_0020d460",
+   "unit_size": "0x80",
+   "match": "fragment",
+   "address": "0x20d460",
+   "unit_address": "0x20d460"
+  },
+  {
+   "name": "UpdateMobyGrids",
+   "size": null,
+   "group": "mobyfunc",
+   "unit": "assembly/textbin/fun_0020dc20",
+   "unit_size": "0x2d8",
+   "match": "entry_size_unknown",
+   "address": "0x20dc20",
+   "unit_address": "0x20dc20"
+  },
+  {
+   "name": "MobyAnimProc",
+   "size": "0xe0",
+   "group": "mobyproc",
+   "unit": "assembly/textbin/moby_anim_proc",
+   "unit_size": "0xe0",
+   "match": "full",
+   "address": "0x211728",
+   "unit_address": "0x211728"
+  },
+  {
+   "name": "MobyProc",
+   "size": null,
+   "group": "mobyproc",
+   "unit": "assembly/textbin/fun_00211808",
+   "unit_size": "0x1420",
+   "match": "entry_size_unknown",
+   "address": "0x211808",
+   "unit_address": "0x211808"
+  },
+  {
+   "name": "music_PreseekTrack__Fiii",
+   "size": "0xd8",
+   "group": "music.cpp",
+   "unit": "assembly/textbin/fun_00215b68",
+   "unit_size": "0xd4",
+   "match": "fragment",
+   "address": "0x215b68",
+   "unit_address": "0x215b68"
+  },
+  {
+   "name": "music_StartTrack__Fiii",
+   "size": "0xd8",
+   "group": "music.cpp",
+   "unit": "assembly/textbin/fun_00215c40",
+   "unit_size": "0xd4",
+   "match": "fragment",
+   "address": "0x215c40",
+   "unit_address": "0x215c40"
+  },
+  {
+   "name": "music_StartTrackBody__Fiii",
+   "size": "0xe8",
+   "group": "music.cpp",
+   "unit": "assembly/textbin/fun_00215d18",
+   "unit_size": "0xe4",
+   "match": "fragment",
+   "address": "0x215d18",
+   "unit_address": "0x215d18"
+  },
+  {
+   "name": "music_Transition__Fiiii",
+   "size": "0xe8",
+   "group": "music.cpp",
+   "unit": "assembly/textbin/fun_00215e00",
+   "unit_size": "0xe0",
+   "match": "fragment",
+   "address": "0x215e00",
+   "unit_address": "0x215e00"
+  },
+  {
+   "name": "music_Stop__Fv",
+   "size": "0x168",
+   "group": "music.cpp",
+   "unit": "assembly/textbin/music_stop",
+   "unit_size": "0x168",
+   "match": "full",
+   "address": "0x215ee8",
+   "unit_address": "0x215ee8"
+  },
+  {
+   "name": "music_Pause__Fi",
+   "size": "0x38",
+   "group": "music.cpp",
+   "unit": "assembly/gs/initialize_render_state",
+   "unit_size": "0x34",
+   "match": "fragment",
+   "address": "0x216050",
+   "unit_address": "0x216050"
+  },
+  {
+   "name": "music_Unpause__Fv",
+   "size": "0x20",
+   "group": "music.cpp",
+   "unit": "gs/update_render_state_command",
+   "unit_size": "0x1c",
+   "match": "fragment",
+   "address": "0x216088",
+   "unit_address": "0x216088"
+  },
+  {
+   "name": "music_UpdateStream__FR13music_Playing",
+   "size": "0x1e8",
+   "group": "music.cpp",
+   "unit": "assembly/textbin/music_update_stream",
+   "unit_size": "0x1e8",
+   "match": "full",
+   "address": "0x2160a8",
+   "unit_address": "0x2160a8"
+  },
+  {
+   "name": "music_Update__Fv",
+   "size": null,
+   "group": "music.cpp",
+   "unit": "assembly/textbin/fun_00216290",
+   "unit_size": "0x454",
+   "match": "entry_size_unknown",
+   "address": "0x216290",
+   "unit_address": "0x216290"
+  },
+  {
+   "name": "Load",
+   "size": null,
+   "group": "stream.cpp",
+   "unit": "textbin/fun_00216828",
+   "unit_size": "0x7c",
+   "match": "entry_size_unknown",
+   "address": "0x216828",
+   "unit_address": "0x216828"
+  },
+  {
+   "name": "UpdatePad__FR3PAD",
+   "size": "0x1f8",
+   "group": "pad.cpp",
+   "unit": "assembly/textbin/fun_002170c8",
+   "unit_size": "0x1f4",
+   "match": "fragment",
+   "address": "0x2170c8",
+   "unit_address": "0x2170c8"
+  },
+  {
+   "name": "ClearPadInput__FR3PAD",
+   "size": "0x68",
+   "group": "pad.cpp",
+   "unit": "textbin/fun_002172c0",
+   "unit_size": "0x64",
+   "match": "fragment",
+   "address": "0x2172c0",
+   "unit_address": "0x2172c0"
+  },
+  {
+   "name": "ProcessPadInput__FR3PADPUci",
+   "size": "0x6e8",
+   "group": "pad.cpp",
+   "unit": "assembly/textbin/process_pad_input",
+   "unit_size": "0x6e8",
+   "match": "full",
+   "address": "0x217328",
+   "unit_address": "0x217328"
+  },
+  {
+   "name": "UpdatePad__Fv",
+   "size": null,
+   "group": "pad.cpp",
+   "unit": "textbin/fun_00217a10",
+   "unit_size": "0x20",
+   "match": "entry_size_unknown",
+   "address": "0x217a10",
+   "unit_address": "0x217a10"
+  },
+  {
+   "name": "CreatePart",
+   "size": "0x158",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_00217a30",
+   "unit_size": "0x150",
+   "match": "fragment",
+   "address": "0x217a30",
+   "unit_address": "0x217a30"
+  },
+  {
+   "name": "UpdateParts",
+   "size": "0x90",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_00217b88",
+   "unit_size": "0x8c",
+   "match": "fragment",
+   "address": "0x217b88",
+   "unit_address": "0x217b88"
+  },
+  {
+   "name": "PartProc",
+   "size": "0xbf4",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/part_proc",
+   "unit_size": "0xbf4",
+   "match": "full",
+   "address": "0x217c18",
+   "unit_address": "0x217c18"
+  },
+  {
+   "name": "_part_load_tex",
+   "size": "0x1afa4",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_0021880c",
+   "unit_size": "0x70",
+   "match": "fragment",
+   "address": "0x21880c",
+   "unit_address": "0x21880c"
+  },
+  {
+   "name": "PauseAllSounds",
+   "size": "0x30e8",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_00218d78",
+   "unit_size": "0x1d4",
+   "match": "fragment",
+   "address": "0x218d78",
+   "unit_address": "0x218d78"
+  },
+  {
+   "name": "DrawMapScreen",
+   "size": "0xcd0",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_0021be60",
+   "unit_size": "0x5bc",
+   "match": "fragment",
+   "address": "0x21be60",
+   "unit_address": "0x21be60"
+  },
+  {
+   "name": "SoundOptionsMenu",
+   "size": "0x2d0",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/sound_options_menu",
+   "unit_size": "0x2d0",
+   "match": "full",
+   "address": "0x21cb30",
+   "unit_address": "0x21cb30"
+  },
+  {
+   "name": "DrawSoundMenu",
+   "size": "0x1a90",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_0021ce00",
+   "unit_size": "0x368",
+   "match": "fragment",
+   "address": "0x21ce00",
+   "unit_address": "0x21ce00"
+  },
+  {
+   "name": "DrawQuitGameMenu",
+   "size": "0x290",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_0021e890",
+   "unit_size": "0x1b8",
+   "match": "fragment",
+   "address": "0x21e890",
+   "unit_address": "0x21e890"
+  },
+  {
+   "name": "DrawItemsMenu",
+   "size": "0x458",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_0021eb20",
+   "unit_size": "0x454",
+   "match": "fragment",
+   "address": "0x21eb20",
+   "unit_address": "0x21eb20"
+  },
+  {
+   "name": "DrawGBsShipMenu__maybe",
+   "size": "0x3f0",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_0021ef78",
+   "unit_size": "0x1a8",
+   "match": "fragment",
+   "address": "0x21ef78",
+   "unit_address": "0x21ef78"
+  },
+  {
+   "name": "DrawMissionsMenu",
+   "size": "0x320",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_0021f368",
+   "unit_size": "0x28c",
+   "match": "fragment",
+   "address": "0x21f368",
+   "unit_address": "0x21f368"
+  },
+  {
+   "name": "DrawMissionsMenu2",
+   "size": "0xcc0",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_0021f688",
+   "unit_size": "0x260",
+   "match": "fragment",
+   "address": "0x21f688",
+   "unit_address": "0x21f688"
+  },
+  {
+   "name": "DrawCheckingMemoryCardDataMenu",
+   "size": "0xce8",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_00220348",
+   "unit_size": "0x2fc",
+   "match": "fragment",
+   "address": "0x220348",
+   "unit_address": "0x220348"
+  },
+  {
+   "name": "DrawCheatsMenu",
+   "size": "0x1918",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_00221030",
+   "unit_size": "0x284",
+   "match": "fragment",
+   "address": "0x221030",
+   "unit_address": "0x221030"
+  },
+  {
+   "name": "ObtainAllGoldWeaponsMenu",
+   "size": "0x150",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/obtain_all_gold_weapons_menu",
+   "unit_size": "0x150",
+   "match": "full",
+   "address": "0x222948",
+   "unit_address": "0x222948"
+  },
+  {
+   "name": "DrawEndScreenMenuMaybe",
+   "size": "0x4f0",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_00222a98",
+   "unit_size": "0x2fc",
+   "match": "fragment",
+   "address": "0x222a98",
+   "unit_address": "0x222a98"
+  },
+  {
+   "name": "SavingDataMenu",
+   "size": "0x350",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/saving_data_menu",
+   "unit_size": "0x350",
+   "match": "full",
+   "address": "0x222f88",
+   "unit_address": "0x222f88"
+  },
+  {
+   "name": "LoadingDataMenu",
+   "size": "0x2e0",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_002232d8",
+   "unit_size": "0x2dc",
+   "match": "fragment",
+   "address": "0x2232d8",
+   "unit_address": "0x2232d8"
+  },
+  {
+   "name": "SavingDataMenu2",
+   "size": "0xdb0",
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_002235b8",
+   "unit_size": "0x428",
+   "match": "fragment",
+   "address": "0x2235b8",
+   "unit_address": "0x2235b8"
+  },
+  {
+   "name": "LoadHandGadget",
+   "size": null,
+   "group": "game/pause.cpp",
+   "unit": "assembly/textbin/fun_00224368",
+   "unit_size": "0x7f8",
+   "match": "entry_size_unknown",
+   "address": "0x224368",
+   "unit_address": "0x224368"
+  },
+  {
+   "name": "DmaShrubTextures",
+   "size": "0x248",
+   "group": "game/shrub something",
+   "unit": "assembly/textbin/fun_002288f0",
+   "unit_size": "0x13c",
+   "match": "fragment",
+   "address": "0x2288f0",
+   "unit_address": "0x2288f0"
+  },
+  {
+   "name": "DrawShrubs",
+   "size": "0xb0",
+   "group": "game/shrub something",
+   "unit": "assembly/textbin/draw_shrubs",
+   "unit_size": "0xb0",
+   "match": "full",
+   "address": "0x228b38",
+   "unit_address": "0x228b38"
+  },
+  {
+   "name": "ShrubProc",
+   "size": "0x1748",
+   "group": "game/shrub something",
+   "unit": "assembly/textbin/fun_00228be8",
+   "unit_size": "0x1744",
+   "match": "fragment",
+   "address": "0x228be8",
+   "unit_address": "0x228be8"
+  },
+  {
+   "name": "BuildShrubTextureDma",
+   "size": null,
+   "group": "game/shrub something",
+   "unit": "assembly/textbin/fun_0022a330",
+   "unit_size": "0x2ac",
+   "match": "entry_size_unknown",
+   "address": "0x22a330",
+   "unit_address": "0x22a330"
+  },
+  {
+   "name": "SkyFunc_UNK_FUN_0022AC30",
+   "size": "0x240",
+   "group": "skyfunc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x22ac30",
+   "unit_address": null
+  },
+  {
+   "name": "SkyLevelGeneric___maybe",
+   "size": "0x658",
+   "group": "skyfunc",
+   "unit": "assembly/textbin/fun_0022ae70",
+   "unit_size": "0x414",
+   "match": "fragment",
+   "address": "0x22ae70",
+   "unit_address": "0x22ae70"
+  },
+  {
+   "name": "SetupSkyGifPaging__Fv",
+   "size": "0x90",
+   "group": "skyfunc",
+   "unit": "assembly/textbin/fun_0022b4c8",
+   "unit_size": "0x8c",
+   "match": "fragment",
+   "address": "0x22b4c8",
+   "unit_address": "0x22b4c8"
+  },
+  {
+   "name": "DoSkyGifPaging__Fv",
+   "size": "0x138",
+   "group": "skyfunc",
+   "unit": "assembly/textbin/fun_0022b558",
+   "unit_size": "0x12c",
+   "match": "fragment",
+   "address": "0x22b558",
+   "unit_address": "0x22b558"
+  },
+  {
+   "name": "SkyDrawShell__Fi",
+   "size": "0x58",
+   "group": "skyfunc",
+   "unit": "assembly/textbin/sky_draw_shell",
+   "unit_size": "0x58",
+   "match": "full",
+   "address": "0x22b690",
+   "unit_address": "0x22b690"
+  },
+  {
+   "name": "SkyDrawShellTextured",
+   "size": "0x240",
+   "group": "skyfunc",
+   "unit": "assembly/textbin/fun_0022b6e8",
+   "unit_size": "0x23c",
+   "match": "fragment",
+   "address": "0x22b6e8",
+   "unit_address": "0x22b6e8"
+  },
+  {
+   "name": "SkyDrawShellGouraud",
+   "size": null,
+   "group": "skyfunc",
+   "unit": "assembly/textbin/fun_0022b928",
+   "unit_size": "0x274",
+   "match": "entry_size_unknown",
+   "address": "0x22b928",
+   "unit_address": "0x22b928"
+  },
+  {
+   "name": "SkySpriteProc",
+   "size": "0x324",
+   "group": "skyproc",
+   "unit": "assembly/textbin/sky_sprite_proc",
+   "unit_size": "0x324",
+   "match": "full",
+   "address": "0x22bba0",
+   "unit_address": "0x22bba0"
+  },
+  {
+   "name": "_ssp_load_tex",
+   "size": "0x604",
+   "group": "skyproc",
+   "unit": "assembly/textbin/fun_0022bec4",
+   "unit_size": "0xd0",
+   "match": "fragment",
+   "address": "0x22bec4",
+   "unit_address": "0x22bec4"
+  },
+  {
+   "name": "SkyBsphereCheck",
+   "size": null,
+   "group": "skyproc",
+   "unit": "assembly/textbin/fun_0022c4c8",
+   "unit_size": "0xe0",
+   "match": "entry_size_unknown",
+   "address": "0x22c4c8",
+   "unit_address": "0x22c4c8"
+  },
+  {
+   "name": "sound_update",
+   "size": "0x1280",
+   "group": "sound",
+   "unit": "assembly/textbin/fun_0022ca50",
+   "unit_size": "0xcb4",
+   "match": "fragment",
+   "address": "0x22ca50",
+   "unit_address": "0x22ca50"
+  },
+  {
+   "name": "sound_StopAllSounds__Fv",
+   "size": "0x140",
+   "group": "sound",
+   "unit": "assembly/textbin/fun_0022dcd0",
+   "unit_size": "0xa8",
+   "match": "fragment",
+   "address": "0x22dcd0",
+   "unit_address": "0x22dcd0"
+  },
+  {
+   "name": "FUN_0022de10_rename",
+   "size": null,
+   "group": "sound",
+   "unit": "assembly/textbin/fun_0022de10",
+   "unit_size": "0x130",
+   "match": "entry_size_unknown",
+   "address": "0x22de10",
+   "unit_address": "0x22de10"
+  },
+  {
+   "name": "DoSpaceTransition",
+   "size": null,
+   "group": "space.cpp",
+   "unit": "assembly/textbin/fun_00231ff0",
+   "unit_size": "0x7b0",
+   "match": "entry_size_unknown",
+   "address": "0x231ff0",
+   "unit_address": "0x231ff0"
+  },
+  {
+   "name": "Stash_SendData",
+   "size": null,
+   "group": "stash",
+   "unit": "assembly/textbin/fun_00232e40",
+   "unit_size": "0xe0",
+   "match": "entry_size_unknown",
+   "address": "0x232e40",
+   "unit_address": "0x232e40"
+  },
+  {
+   "name": "SetTfragDists__Fv",
+   "size": "0x158",
+   "group": "tfragfunc.cpp",
+   "unit": "assembly/textbin/set_tfrag_dists",
+   "unit_size": "0x158",
+   "match": "full",
+   "address": "0x233068",
+   "unit_address": "0x233068"
+  },
+  {
+   "name": "DmaTfragTextures__Fv",
+   "size": "0x148",
+   "group": "tfragfunc.cpp",
+   "unit": "assembly/textbin/fun_002331c0",
+   "unit_size": "0x144",
+   "match": "fragment",
+   "address": "0x2331c0",
+   "unit_address": "0x2331c0"
+  },
+  {
+   "name": "PatchTfragGifs__Fv",
+   "size": "0xa0",
+   "group": "tfragfunc.cpp",
+   "unit": "assembly/textbin/fun_00233308",
+   "unit_size": "0x9c",
+   "match": "fragment",
+   "address": "0x233308",
+   "unit_address": "0x233308"
+  },
+  {
+   "name": "DrawTfrag",
+   "size": null,
+   "group": "tfragfunc.cpp",
+   "unit": "assembly/textbin/fun_002333a8",
+   "unit_size": "0x128",
+   "match": "entry_size_unknown",
+   "address": "0x2333a8",
+   "unit_address": "0x2333a8"
+  },
+  {
+   "name": "VU0_loadMicroProgram__FPl",
+   "size": "0xf8",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_002334d8",
+   "unit_size": "0xc8",
+   "match": "fragment",
+   "address": "0x2334d8",
+   "unit_address": "0x2334d8"
+  },
+  {
+   "name": "VU1_initChain__Fv",
+   "size": "0x60",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_002335d0",
+   "unit_size": "0x5c",
+   "match": "fragment",
+   "address": "0x2335d0",
+   "unit_address": "0x2335d0"
+  },
+  {
+   "name": "VU1_swapChain__Fv",
+   "size": "0x70",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/vu1_swap_chain",
+   "unit_size": "0x70",
+   "match": "full",
+   "address": "0x233630",
+   "unit_address": "0x233630"
+  },
+  {
+   "name": "VU1_sendChain__Fv",
+   "size": "0x190",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_002336a0",
+   "unit_size": "0x110",
+   "match": "fragment",
+   "address": "0x2336a0",
+   "unit_address": "0x2336a0"
+  },
+  {
+   "name": "VU1_syncChain__Fi",
+   "size": "0x800",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_002337b0",
+   "unit_size": "0x80",
+   "match": "fragment",
+   "address": "0x2337b0",
+   "unit_address": "0x2337b0"
+  },
+  {
+   "name": "VU1_addDataRef__FPvi",
+   "size": "0x150",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_00233830",
+   "unit_size": "0x4c",
+   "match": "fragment",
+   "address": "0x233830",
+   "unit_address": "0x233830"
+  },
+  {
+   "name": "VU1_addGSregister__FUiUlb",
+   "size": "0xc0",
+   "group": "vuchain.cpp",
+   "unit": "textbin/fun_00233980",
+   "unit_size": "0xb4",
+   "match": "fragment",
+   "address": "0x233980",
+   "unit_address": "0x233980"
+  },
+  {
+   "name": "VU1_setScissor__Fiiii",
+   "size": "0x128",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_00233a40",
+   "unit_size": "0x11c",
+   "match": "fragment",
+   "address": "0x233a40",
+   "unit_address": "0x233a40"
+  },
+  {
+   "name": "VU1_texFlush__Fv",
+   "size": "0x60",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_00233b68",
+   "unit_size": "0x5c",
+   "match": "fragment",
+   "address": "0x233b68",
+   "unit_address": "0x233b68"
+  },
+  {
+   "name": "VU1_gsRegsNormal__Fv",
+   "size": "0x138",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_00233bc8",
+   "unit_size": "0x5c",
+   "match": "fragment",
+   "address": "0x233bc8",
+   "unit_address": "0x233bc8"
+  },
+  {
+   "name": "DMAC_VIF1_Enable__Fv",
+   "size": "0x90",
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/dmac_vif1_enable",
+   "unit_size": "0x90",
+   "match": "full",
+   "address": "0x233d00",
+   "unit_address": "0x233d00"
+  },
+  {
+   "name": "DMAC_VIF1_Disable__Fv",
+   "size": null,
+   "group": "vuchain.cpp",
+   "unit": "assembly/textbin/fun_00233d90",
+   "unit_size": "0x70",
+   "match": "entry_size_unknown",
+   "address": "0x233d90",
+   "unit_address": "0x233d90"
+  },
+  {
+   "name": "TfragProc",
+   "size": "0xc28",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/tfrag_proc",
+   "unit_size": "0xc28",
+   "match": "full",
+   "address": "0x233fb0",
+   "unit_address": "0x233fb0"
+  },
+  {
+   "name": "ComputeTfragTextureUsage",
+   "size": "0x170",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_00234bd8",
+   "unit_size": "0x16c",
+   "match": "fragment",
+   "address": "0x234bd8",
+   "unit_address": "0x234bd8"
+  },
+  {
+   "name": "BuildTfragTextureDma",
+   "size": "0x250",
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/build_tfrag_texture_dma",
+   "unit_size": "0x250",
+   "match": "full",
+   "address": "0x234d48",
+   "unit_address": "0x234d48"
+  },
+  {
+   "name": "LightTfrags",
+   "size": null,
+   "group": "game/initonce.cpp",
+   "unit": "assembly/textbin/fun_00234f98",
+   "unit_size": "0x6a4",
+   "match": "entry_size_unknown",
+   "address": "0x234f98",
+   "unit_address": "0x234f98"
+  },
+  {
+   "name": "DmaTieTextures__Fv",
+   "size": "0x140",
+   "group": "tiefunc",
+   "unit": "assembly/textbin/fun_00235640",
+   "unit_size": "0x13c",
+   "match": "fragment",
+   "address": "0x235640",
+   "unit_address": "0x235640"
+  },
+  {
+   "name": "PatchTieGifs",
+   "size": "0x148",
+   "group": "tiefunc",
+   "unit": "assembly/textbin/fun_00235780",
+   "unit_size": "0xc0",
+   "match": "fragment",
+   "address": "0x235780",
+   "unit_address": "0x235780"
+  },
+  {
+   "name": "DrawTies_1",
+   "size": "0xc8",
+   "group": "tiefunc",
+   "unit": "assembly/textbin/draw_ties_1",
+   "unit_size": "0xc8",
+   "match": "full",
+   "address": "0x2358c8",
+   "unit_address": "0x2358c8"
+  },
+  {
+   "name": "DrawTies_2",
+   "size": null,
+   "group": "tiefunc",
+   "unit": "assembly/textbin/fun_00235990",
+   "unit_size": "0x258",
+   "match": "entry_size_unknown",
+   "address": "0x235990",
+   "unit_address": "0x235990"
+  },
+  {
+   "name": "TieProc",
+   "size": "0x14d8",
+   "group": "tieproc",
+   "unit": "assembly/textbin/fun_00235be8",
+   "unit_size": "0x14d4",
+   "match": "fragment",
+   "address": "0x235be8",
+   "unit_address": "0x235be8"
+  },
+  {
+   "name": "BuildTieTextureDma",
+   "size": "0x2b0",
+   "group": "tieproc",
+   "unit": "assembly/textbin/fun_002370c0",
+   "unit_size": "0x2ac",
+   "match": "fragment",
+   "address": "0x2370c0",
+   "unit_address": "0x2370c0"
+  },
+  {
+   "name": "LightTies",
+   "size": null,
+   "group": "tieproc",
+   "unit": "assembly/textbin/fun_00237370",
+   "unit_size": "0x6fc",
+   "match": "entry_size_unknown",
+   "address": "0x237370",
+   "unit_address": "0x237370"
+  },
+  {
+   "name": "readMpeg__FP8VideoDecP7ReadBufP7StrFile",
+   "size": "0x310",
+   "group": "movie/movie.cpp",
+   "unit": "assembly/textbin/read_mpeg",
+   "unit_size": "0x310",
+   "match": "full",
+   "address": "0x23a460",
+   "unit_address": "0x23a460"
+  },
+  {
+   "name": "switchThread",
+   "size": "0x20",
+   "group": "movie/movie.cpp",
+   "unit": "textbin/fun_0023a770",
+   "unit_size": "0x1c",
+   "match": "fragment",
+   "address": "0x23a770",
+   "unit_address": "0x23a770"
+  },
+  {
+   "name": "isAudioOK",
+   "size": "0x30",
+   "group": "movie/movie.cpp",
+   "unit": "assembly/textbin/fun_0023a790",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x23a790",
+   "unit_address": "0x23a790"
+  },
+  {
+   "name": "initAll__Fiii",
+   "size": "0x2a8",
+   "group": "movie/movie.cpp",
+   "unit": "assembly/textbin/fun_0023a7c0",
+   "unit_size": "0x2a4",
+   "match": "fragment",
+   "address": "0x23a7c0",
+   "unit_address": "0x23a7c0"
+  },
+  {
+   "name": "termAll__Fv",
+   "size": "0x110",
+   "group": "movie/movie.cpp",
+   "unit": "assembly/textbin/fun_0023aa68",
+   "unit_size": "0x10c",
+   "match": "fragment",
+   "address": "0x23aa68",
+   "unit_address": "0x23aa68"
+  },
+  {
+   "name": "ErrMessage",
+   "size": "0x28",
+   "group": "movie/movie.cpp",
+   "unit": "assembly/textbin/fun_0023ab78",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x23ab78",
+   "unit_address": "0x23ab78"
+  },
+  {
+   "name": "proceedAudio__Fv",
+   "size": "0x2b4ab8",
+   "group": "movie/movie.cpp",
+   "unit": "assembly/textbin/fun_0023aba0",
+   "unit_size": "0x2c",
+   "match": "fragment",
+   "address": "0x23aba0",
+   "unit_address": "0x23aba0"
+  },
+  {
+   "name": "audioDecCreate__FP9_AudioDecPUci14sceMpegStrType",
+   "size": "0xc0",
+   "group": "movie/audiodec.cpp",
+   "unit": "assembly/textbin/fun_0023abd0",
+   "unit_size": "0xbc",
+   "match": "fragment",
+   "address": "0x23abd0",
+   "unit_address": "0x23abd0"
+  },
+  {
+   "name": "audioDecDelete__FP9_AudioDec",
+   "size": "0x28",
+   "group": "movie/audiodec.cpp",
+   "unit": "textbin/fun_0023ac90",
+   "unit_size": "0x20",
+   "match": "fragment",
+   "address": "0x23ac90",
+   "unit_address": "0x23ac90"
+  },
+  {
+   "name": "audioDecStart",
+   "size": "0x58",
+   "group": "movie/audiodec.cpp",
+   "unit": "assembly/textbin/audio_dec_start",
+   "unit_size": "0x58",
+   "match": "full",
+   "address": "0x23acb8",
+   "unit_address": "0x23acb8"
+  },
+  {
+   "name": "audioDecReset__FP9_AudioDec",
+   "size": "0x48",
+   "group": "movie/audiodec.cpp",
+   "unit": "textbin/fun_0023ad10",
+   "unit_size": "0x44",
+   "match": "fragment",
+   "address": "0x23ad10",
+   "unit_address": "0x23ad10"
+  },
+  {
+   "name": "audioDecBeginPut__FP9_AudioDecPPUcPiT1T2",
+   "size": "0xd0",
+   "group": "movie/audiodec.cpp",
+   "unit": "assembly/textbin/audio_dec_begin_put",
+   "unit_size": "0xd0",
+   "match": "full",
+   "address": "0x23ad58",
+   "unit_address": "0x23ad58"
+  },
+  {
+   "name": "audioDecEndPut__FP9_AudioDeci",
+   "size": "0xc8",
+   "group": "movie/audiodec.cpp",
+   "unit": "assembly/textbin/fun_0023ae28",
+   "unit_size": "0xb4",
+   "match": "fragment",
+   "address": "0x23ae28",
+   "unit_address": "0x23ae28"
+  },
+  {
+   "name": "audioDecSend",
+   "size": "0x28",
+   "group": "movie/audiodec.cpp",
+   "unit": "textbin/fun_0023aef0",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x23aef0",
+   "unit_address": "0x23aef0"
+  },
+  {
+   "name": "sendToSPU__FP9_AudioDecPUcii",
+   "size": "0xa8",
+   "group": "movie/audiodec.cpp",
+   "unit": "assembly/textbin/send_to_spu",
+   "unit_size": "0xa8",
+   "match": "full",
+   "address": "0x23af18",
+   "unit_address": "0x23af18"
+  },
+  {
+   "name": "sendADPCM__FP9_AudioDec",
+   "size": null,
+   "group": "movie/audiodec.cpp",
+   "unit": "assembly/textbin/fun_0023afc0",
+   "unit_size": "0x24c",
+   "match": "entry_size_unknown",
+   "address": "0x23afc0",
+   "unit_address": "0x23afc0"
+  },
+  {
+   "name": "setImageTag",
+   "size": "0x1c8",
+   "group": "movie/disp.cpp",
+   "unit": "assembly/textbin/fun_0023b210",
+   "unit_size": "0x1c4",
+   "match": "fragment",
+   "address": "0x23b210",
+   "unit_address": "0x23b210"
+  },
+  {
+   "name": "vblankHandler",
+   "size": "0x168",
+   "group": "movie/disp.cpp",
+   "unit": "assembly/textbin/vblank_handler",
+   "unit_size": "0x168",
+   "match": "full",
+   "address": "0x23b3d8",
+   "unit_address": "0x23b3d8"
+  },
+  {
+   "name": "handler_endimage",
+   "size": "0x50",
+   "group": "movie/disp.cpp",
+   "unit": "assembly/textbin/fun_0023b540",
+   "unit_size": "0x4c",
+   "match": "fragment",
+   "address": "0x23b540",
+   "unit_address": "0x23b540"
+  },
+  {
+   "name": "startDisplay__Fi",
+   "size": "0x50",
+   "group": "movie/disp.cpp",
+   "unit": "assembly/textbin/fun_0023b590",
+   "unit_size": "0x4c",
+   "match": "fragment",
+   "address": "0x23b590",
+   "unit_address": "0x23b590"
+  },
+  {
+   "name": "endDisplay__Fv",
+   "size": null,
+   "group": "movie/disp.cpp",
+   "unit": "assembly/core/clear_stage_state_flag",
+   "unit_size": "0x10",
+   "match": "entry_size_unknown",
+   "address": "0x23b5e0",
+   "unit_address": "0x23b5e0"
+  },
+  {
+   "name": "videoCallback",
+   "size": "0x138",
+   "group": "movie/read.cpp",
+   "unit": "assembly/textbin/video_callback",
+   "unit_size": "0x138",
+   "match": "full",
+   "address": "0x23b5f0",
+   "unit_address": "0x23b5f0"
+  },
+  {
+   "name": "pcmCallback__FP7sceMpegP16sceMpegCbDataStrPv",
+   "size": "0xe8",
+   "group": "movie/read.cpp",
+   "unit": "assembly/textbin/fun_0023b728",
+   "unit_size": "0xe4",
+   "match": "fragment",
+   "address": "0x23b728",
+   "unit_address": "0x23b728"
+  },
+  {
+   "name": "cpy2area__FPUciT0iT0iT0i",
+   "size": null,
+   "group": "movie/read.cpp",
+   "unit": "assembly/textbin/fun_0023b810",
+   "unit_size": "0x130",
+   "match": "entry_size_unknown",
+   "address": "0x23b810",
+   "unit_address": "0x23b810"
+  },
+  {
+   "name": "readBufCreate__FP7ReadBuf",
+   "size": "0x18",
+   "group": "movie/readbuf.cpp",
+   "unit": "core/read_buf_create",
+   "unit_size": "0x18",
+   "match": "full",
+   "address": "0x23b940",
+   "unit_address": "0x23b940"
+  },
+  {
+   "name": "readBufDelete__FP7ReadBuf",
+   "size": "0x8",
+   "group": "movie/readbuf.cpp",
+   "unit": "sys/read_buf_delete",
+   "unit_size": "0x8",
+   "match": "full",
+   "address": "0x23b958",
+   "unit_address": "0x23b958"
+  },
+  {
+   "name": "readBufBeginPut__FP7ReadBufPPUc",
+   "size": "0x30",
+   "group": "movie/readbuf.cpp",
+   "unit": "core/read_buf_begin_put",
+   "unit_size": "0x30",
+   "match": "full",
+   "address": "0x23b960",
+   "unit_address": "0x23b960"
+  },
+  {
+   "name": "readBufEndPut__FP7ReadBufi",
+   "size": "0x48",
+   "group": "movie/readbuf.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x23b990",
+   "unit_address": null
+  },
+  {
+   "name": "readBufBeginGet__FP7ReadBufPPUc",
+   "size": "0x48",
+   "group": "movie/readbuf.cpp",
+   "unit": "assembly/textbin/read_buf_begin_get",
+   "unit_size": "0x48",
+   "match": "full",
+   "address": "0x23b9d8",
+   "unit_address": "0x23b9d8"
+  },
+  {
+   "name": "readBufEndGet__FP7ReadBufi",
+   "size": null,
+   "group": "movie/readbuf.cpp",
+   "unit": "core/get_state_table_word",
+   "unit_size": "0x24",
+   "match": "entry_size_unknown",
+   "address": "0x23ba20",
+   "unit_address": "0x23ba20"
+  },
+  {
+   "name": "getFIFOindex__FP5ViBufPv",
+   "size": "0x48",
+   "group": "movie/vibuf.cpp",
+   "unit": "textbin/fun_0023baf8",
+   "unit_size": "0x44",
+   "match": "fragment",
+   "address": "0x23baf8",
+   "unit_address": "0x23baf8"
+  },
+  {
+   "name": "setD3_CHCR__FUi",
+   "size": "0x70",
+   "group": "movie/vibuf.cpp",
+   "unit": "textbin/fun_0023bb40",
+   "unit_size": "0x6c",
+   "match": "fragment",
+   "address": "0x23bb40",
+   "unit_address": "0x23bb40"
+  },
+  {
+   "name": "setD4_CHCR__FUi",
+   "size": "0x70",
+   "group": "movie/vibuf.cpp",
+   "unit": "textbin/fun_0023bbb0",
+   "unit_size": "0x6c",
+   "match": "fragment",
+   "address": "0x23bbb0",
+   "unit_address": "0x23bbb0"
+  },
+  {
+   "name": "scTag2",
+   "size": "0x28",
+   "group": "movie/vibuf.cpp",
+   "unit": "core/pack_state_value",
+   "unit_size": "0x24",
+   "match": "fragment",
+   "address": "0x23bc20",
+   "unit_address": "0x23bc20"
+  },
+  {
+   "name": "viBufCreate",
+   "size": "0x78",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/vi_buf_create",
+   "unit_size": "0x78",
+   "match": "full",
+   "address": "0x23bc48",
+   "unit_address": "0x23bc48"
+  },
+  {
+   "name": "viBufReset__FP5ViBuf",
+   "size": "0x160",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/vi_buf_reset",
+   "unit_size": "0x160",
+   "match": "full",
+   "address": "0x23bcc0",
+   "unit_address": "0x23bcc0"
+  },
+  {
+   "name": "viBufBeginPut__FP5ViBufPPUcPiT1T2",
+   "size": "0xf8",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/fun_0023be20",
+   "unit_size": "0xf4",
+   "match": "fragment",
+   "address": "0x23be20",
+   "unit_address": "0x23be20"
+  },
+  {
+   "name": "viBufEndPut__FP5ViBufi",
+   "size": "0x58",
+   "group": "movie/vibuf.cpp",
+   "unit": "textbin/fun_0023bf18",
+   "unit_size": "0x54",
+   "match": "fragment",
+   "address": "0x23bf18",
+   "unit_address": "0x23bf18"
+  },
+  {
+   "name": "viBufAddDMA__FP5ViBuf",
+   "size": "0x200",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/fun_0023bf70",
+   "unit_size": "0x1fc",
+   "match": "fragment",
+   "address": "0x23bf70",
+   "unit_address": "0x23bf70"
+  },
+  {
+   "name": "viBufStopDMA__FP5ViBuf",
+   "size": "0x110",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/vi_buf_stop_dma",
+   "unit_size": "0x110",
+   "match": "full",
+   "address": "0x23c170",
+   "unit_address": "0x23c170"
+  },
+  {
+   "name": "viBufRestartDMA__FP5ViBuf",
+   "size": "0x338",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/vi_buf_restart_dma",
+   "unit_size": "0x338",
+   "match": "full",
+   "address": "0x23c280",
+   "unit_address": "0x23c280"
+  },
+  {
+   "name": "viBufDelete__FP5ViBuf",
+   "size": "0x58",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/vi_buf_delete",
+   "unit_size": "0x58",
+   "match": "full",
+   "address": "0x23c5b8",
+   "unit_address": "0x23c5b8"
+  },
+  {
+   "name": "viBufCount__FP5ViBuf",
+   "size": "0x50",
+   "group": "movie/vibuf.cpp",
+   "unit": "textbin/fun_0023c610",
+   "unit_size": "0x4c",
+   "match": "fragment",
+   "address": "0x23c610",
+   "unit_address": "0x23c610"
+  },
+  {
+   "name": "viBufFlush__FP5ViBuf",
+   "size": "0x58",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/fun_0023c660",
+   "unit_size": "0x54",
+   "match": "fragment",
+   "address": "0x23c660",
+   "unit_address": "0x23c660"
+  },
+  {
+   "name": "viBufModifyPts__FP5ViBufP9TimeStamp",
+   "size": "0x158",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/fun_0023c6b8",
+   "unit_size": "0x154",
+   "match": "fragment",
+   "address": "0x23c6b8",
+   "unit_address": "0x23c6b8"
+  },
+  {
+   "name": "viBufPutTs__FP5ViBufP9TimeStamp",
+   "size": "0x110",
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/vi_buf_put_ts",
+   "unit_size": "0x110",
+   "match": "full",
+   "address": "0x23c810",
+   "unit_address": "0x23c810"
+  },
+  {
+   "name": "viBufGetTs__FP5ViBufP9TimeStamp",
+   "size": null,
+   "group": "movie/vibuf.cpp",
+   "unit": "assembly/textbin/fun_0023c920",
+   "unit_size": "0x1a4",
+   "match": "entry_size_unknown",
+   "address": "0x23c920",
+   "unit_address": "0x23c920"
+  },
+  {
+   "name": "videoDecCreate__FP8VideoDecPUciPUxT3iP9TimeStampi",
+   "size": "0x108",
+   "group": "movie/videodec.cpp",
+   "unit": "textbin/fun_0023cac8",
+   "unit_size": "0x100",
+   "match": "fragment",
+   "address": "0x23cac8",
+   "unit_address": "0x23cac8"
+  },
+  {
+   "name": "videoDecSetStream__FP8VideoDeciiPFP7sceMpegP13sceMpegCbDataPv_iPv",
+   "size": "0x20",
+   "group": "movie/videodec.cpp",
+   "unit": "textbin/video_dec_set_stream",
+   "unit_size": "0x20",
+   "match": "full",
+   "address": "0x23cbd0",
+   "unit_address": "0x23cbd0"
+  },
+  {
+   "name": "videoDecBeginPut__FP8VideoDecPPUcPiT1T2",
+   "size": "0x20",
+   "group": "movie/videodec.cpp",
+   "unit": "textbin/fun_0023cbf0",
+   "unit_size": "0x1c",
+   "match": "fragment",
+   "address": "0x23cbf0",
+   "unit_address": "0x23cbf0"
+  },
+  {
+   "name": "videoDecEndPut__FP8VideoDec",
+   "size": "0x20",
+   "group": "movie/videodec.cpp",
+   "unit": "textbin/fun_0023cc10",
+   "unit_size": "0x1c",
+   "match": "fragment",
+   "address": "0x23cc10",
+   "unit_address": "0x23cc10"
+  },
+  {
+   "name": "videoDecReset__FP8VideoDec",
+   "size": "0x8",
+   "group": "movie/videodec.cpp",
+   "unit": "core/video_dec_reset",
+   "unit_size": "0x8",
+   "match": "full",
+   "address": "0x23cc30",
+   "unit_address": "0x23cc30"
+  },
+  {
+   "name": "videoDecDelete__FP8VideoDec",
+   "size": "0x38",
+   "group": "movie/videodec.cpp",
+   "unit": "textbin/fun_0023cc38",
+   "unit_size": "0x34",
+   "match": "fragment",
+   "address": "0x23cc38",
+   "unit_address": "0x23cc38"
+  },
+  {
+   "name": "videoDecAbort__FP8VideoDec",
+   "size": "0x10",
+   "group": "movie/videodec.cpp",
+   "unit": "core/set_state_field",
+   "unit_size": "0xc",
+   "match": "fragment",
+   "address": "0x23cc70",
+   "unit_address": "0x23cc70"
+  },
+  {
+   "name": "videoDecGetState",
+   "size": "0x8",
+   "group": "movie/videodec.cpp",
+   "unit": "core/video_dec_get_state",
+   "unit_size": "0x8",
+   "match": "full",
+   "address": "0x23cc80",
+   "unit_address": "0x23cc80"
+  },
+  {
+   "name": "videoDecSetState__FP8VideoDecUi",
+   "size": "0x10",
+   "group": "movie/videodec.cpp",
+   "unit": "core/replace_state_field",
+   "unit_size": "0xc",
+   "match": "fragment",
+   "address": "0x23cc88",
+   "unit_address": "0x23cc88"
+  },
+  {
+   "name": "videoDecPutTs__FP8VideoDecllPUci",
+   "size": "0x48",
+   "group": "movie/videodec.cpp",
+   "unit": "assembly/textbin/video_dec_put_ts",
+   "unit_size": "0x48",
+   "match": "full",
+   "address": "0x23cc98",
+   "unit_address": "0x23cc98"
+  },
+  {
+   "name": "videoDecInputCount__FP8VideoDec",
+   "size": "0x28",
+   "group": "movie/videodec.cpp",
+   "unit": "textbin/fun_0023cce0",
+   "unit_size": "0x1c",
+   "match": "fragment",
+   "address": "0x23cce0",
+   "unit_address": "0x23cce0"
+  },
+  {
+   "name": "videoDecFlush__FP8VideoDec",
+   "size": "0xd8",
+   "group": "movie/videodec.cpp",
+   "unit": "assembly/textbin/video_dec_flush",
+   "unit_size": "0xd8",
+   "match": "full",
+   "address": "0x23cd08",
+   "unit_address": "0x23cd08"
+  },
+  {
+   "name": "videoDecIsFlushed__FP8VideoDec",
+   "size": "0x48",
+   "group": "movie/videodec.cpp",
+   "unit": "textbin/video_dec_is_flushed",
+   "unit_size": "0x48",
+   "match": "full",
+   "address": "0x23cde0",
+   "unit_address": "0x23cde0"
+  },
+  {
+   "name": "videoDecMain__FPv",
+   "size": "0xa0",
+   "group": "movie/videodec.cpp",
+   "unit": "assembly/textbin/fun_0023ce28",
+   "unit_size": "0x9c",
+   "match": "fragment",
+   "address": "0x23ce28",
+   "unit_address": "0x23ce28"
+  },
+  {
+   "name": "decBs0__FP8VideoDec",
+   "size": "0x1b8",
+   "group": "movie/videodec.cpp",
+   "unit": "assembly/textbin/fun_0023cec8",
+   "unit_size": "0x1b4",
+   "match": "fragment",
+   "address": "0x23cec8",
+   "unit_address": "0x23cec8"
+  },
+  {
+   "name": "mpegError__FP7sceMpegP18sceMpegCbDataErrorPv",
+   "size": "0x28",
+   "group": "movie/videodec.cpp",
+   "unit": "assembly/textbin/mpeg_error",
+   "unit_size": "0x28",
+   "match": "full",
+   "address": "0x23d080",
+   "unit_address": "0x23d080"
+  },
+  {
+   "name": "mpegNodata__FP7sceMpegP13sceMpegCbDataPv",
+   "size": null,
+   "group": "movie/videodec.cpp",
+   "unit": "assembly/textbin/fun_0023d0a8",
+   "unit_size": "0x38",
+   "match": "entry_size_unknown",
+   "address": "0x23d0a8",
+   "unit_address": "0x23d0a8"
+  },
+  {
+   "name": "voBufCreate__FP5VoBufP6VoDataP5VoTagi",
+   "size": "0x50",
+   "group": "movie/vobuf.cpp",
+   "unit": "assembly/textbin/fun_0023d190",
+   "unit_size": "0x4c",
+   "match": "fragment",
+   "address": "0x23d190",
+   "unit_address": "0x23d190"
+  },
+  {
+   "name": "voBufDelete__FP5VoBuf",
+   "size": "0x8",
+   "group": "movie/vobuf.cpp",
+   "unit": "sys/vo_buf_delete",
+   "unit_size": "0x8",
+   "match": "full",
+   "address": "0x23d1e0",
+   "unit_address": "0x23d1e0"
+  },
+  {
+   "name": "voBufReset__FP5VoBuf",
+   "size": "0x10",
+   "group": "movie/vobuf.cpp",
+   "unit": "core/vo_buf_reset",
+   "unit_size": "0x10",
+   "match": "full",
+   "address": "0x23d1e8",
+   "unit_address": "0x23d1e8"
+  },
+  {
+   "name": "voBufIsFull__FP5VoBuf",
+   "size": "0x18",
+   "group": "movie/vobuf.cpp",
+   "unit": "core/compare_state_fields",
+   "unit_size": "0x14",
+   "match": "fragment",
+   "address": "0x23d1f8",
+   "unit_address": "0x23d1f8"
+  },
+  {
+   "name": "voBufIncCount__FP5VoBuf",
+   "size": "0x78",
+   "group": "movie/vobuf.cpp",
+   "unit": "assembly/textbin/vo_buf_inc_count",
+   "unit_size": "0x78",
+   "match": "full",
+   "address": "0x23d210",
+   "unit_address": "0x23d210"
+  },
+  {
+   "name": "voBufGetData__FP5VoBuf",
+   "size": "0x40",
+   "group": "movie/vobuf.cpp",
+   "unit": "textbin/vo_buf_get_data",
+   "unit_size": "0x40",
+   "match": "full",
+   "address": "0x23d288",
+   "unit_address": "0x23d288"
+  },
+  {
+   "name": "voBufIsEmpty",
+   "size": "0x10",
+   "group": "movie/vobuf.cpp",
+   "unit": "core/is_state_field_zero",
+   "unit_size": "0xc",
+   "match": "fragment",
+   "address": "0x23d2c8",
+   "unit_address": "0x23d2c8"
+  },
+  {
+   "name": "voBufGetTag__FP5VoBuf",
+   "size": "0x68",
+   "group": "movie/vobuf.cpp",
+   "unit": "assembly/textbin/fun_0023d2d8",
+   "unit_size": "0x64",
+   "match": "fragment",
+   "address": "0x23d2d8",
+   "unit_address": "0x23d2d8"
+  },
+  {
+   "name": "voBufDecCount__FP5VoBuf",
+   "size": null,
+   "group": "movie/vobuf.cpp",
+   "unit": "core/decrement_state_field",
+   "unit_size": "0x20",
+   "match": "entry_size_unknown",
+   "address": "0x23d340",
+   "unit_address": "0x23d340"
+  },
+  {
+   "name": "_lookup_grid_pointer",
+   "size": null,
+   "group": "collproc",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x441e88",
+   "unit_address": null
+  },
+  {
+   "name": "movie__FiiPFUiUi_Pvii",
+   "size": null,
+   "group": "movie/movie.cpp",
+   "unit": null,
+   "unit_size": null,
+   "match": "no_unit",
+   "address": "0x4ef658",
+   "unit_address": null
+  }
+ ]
+}

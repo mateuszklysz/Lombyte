@@ -1,3 +1,4 @@
+/* ROLE: recovered function `snd_SoundIsStillPlaying_CB` (snd989, 0x78 bytes) starts here; this unit covers only its first fragment. */
 #include "types.h"
 extern s32 func_0012E6E0(s32 cmd, s32 size, void *buf, s32 a, s32 b);
 void FUN_0012e448(s32 arg0, s32 arg1, s32 arg2) {
