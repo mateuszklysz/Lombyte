@@ -83,7 +83,7 @@ python3 -m venv .venv
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
 ```
 
-Use the versions in [requirements.txt](requirements.txt), including the pinned spimdisasm version, to reproduce the expected disassembly output.
+Use the versions in [requirements.txt](requirements.txt), including the pinned spimdisasm version, to match the expected disassembly output.
 
 ### 2. Supply the original game files
 
@@ -137,7 +137,7 @@ The output is written to:
 build/Ratchet & Clank (USA) - rebuilt.iso
 ```
 
-The original disc image is preserved. With a byte-identical boot ELF, the rebuilt ISO is also byte-identical to the input image.
+The original disc image is preserved. With a byte-identical boot ELF, the rebuilt image matches your original.
 
 <details>
 <summary><strong>Build configuration</strong></summary>
