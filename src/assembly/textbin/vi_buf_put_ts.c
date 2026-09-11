@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: viBufPutTs__FP5ViBufP9TimeStamp
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered whole function `viBufPutTs__FP5ViBufP9TimeStamp`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%

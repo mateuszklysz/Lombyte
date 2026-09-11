@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_001f9d20
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 11.6667%
  * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.

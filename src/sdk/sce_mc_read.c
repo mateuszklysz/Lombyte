@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceMcRead
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 struct MemoryCardRpcClient {
     u8 reserved_00[0x24];

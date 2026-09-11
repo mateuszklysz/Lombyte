@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceMcMkdir
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef signed int s32;
 
 extern s32 sceMcOpen(s32 port, s32 slot, const char *name, s32 flags);

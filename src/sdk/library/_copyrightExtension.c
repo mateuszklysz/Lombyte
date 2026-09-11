@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: _copyrightExtension
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 extern s32 _nextBit();
 void _copyrightExtension(s32 arg0) {

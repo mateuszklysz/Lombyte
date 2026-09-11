@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: supplement_crt0
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 extern int CreateSema(int *parameters) __asm__("CreateSema");
 extern int FirstSemaphore __asm__("D_00130320")
     __attribute__((section(".data")));

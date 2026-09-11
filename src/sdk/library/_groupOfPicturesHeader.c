@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: _groupOfPicturesHeader
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef struct GroupOfPicturesContext GroupOfPicturesContext;
 struct GroupOfPicturesContext {
     unsigned char opaque;

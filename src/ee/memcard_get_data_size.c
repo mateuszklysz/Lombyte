@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: memcard_GetDataSize
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered whole function `memcard_GetDataSize`. */
 #include "types.h"
 

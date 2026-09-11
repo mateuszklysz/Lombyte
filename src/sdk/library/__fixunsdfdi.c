@@ -5,8 +5,6 @@
  * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
  * BLOCKER: none
  * ROLE: GCC 2.95.2 libgcc2 DF-to-UDI conversion
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-11-5/final-promotion.json
- *           the private evidence archive/source-quality-audit-2026-09-11-pipeline5.json
  */
 
 /* __fixunsdfdi: libgcc2 L_fixunsdfdi, verbatim arithmetic. */

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_002168a8
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 #include "rnc/assembly_textbin_fun_002168a8_types.h"
 extern struct M2c_D_001516D0 D_001516D0;

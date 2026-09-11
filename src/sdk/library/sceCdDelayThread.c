@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceCdDelayThread
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 extern int CreateSema(int *parameters) __asm__("CreateSema");
 extern void SetAlarm(int delay, void *callback, int semaphore)
     __asm__("SetAlarm");

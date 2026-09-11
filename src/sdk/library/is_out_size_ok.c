@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: _isOutSizeOK
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* C_EXACT (byte-proven) under the inherited SCE ee-gcc (EE-GCC 2.9 pin, -O2). */
 #include "types.h"
 

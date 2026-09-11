@@ -5,7 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 COMPILER: SN ee-gcc-2.95.2 -O2 -g2
 DECISION: promoted (pipeline-2026-09-08-3, wrapper-branch scan)
 BLOCKER: none
-EVIDENCE: campaign tasks/wrapper-scan probes/clear_dma_queue_entry (sn-O2 100/100/100)
 NOTE: existing NON_MATCHING #else branch compiled byte-identical under SN; oracle wrapper stripped.
 */
 #include "types.h"

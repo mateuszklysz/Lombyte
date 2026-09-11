@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: Hud_HeapReset__Fv
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered whole function `Hud_HeapReset__Fv`. */
 typedef unsigned int u32;
 

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: GetStateResourceWrapper
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 struct GlobalStatePointer {
     int *value;
     char padding[0x100];

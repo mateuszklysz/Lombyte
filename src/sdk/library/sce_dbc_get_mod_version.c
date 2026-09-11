@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceDbcGetModVersion
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Query the Deci2 module and return the version written to its work buffer. */
 extern unsigned char RpcQueueData[1] __asm__("D_0015B008")
     __attribute__((section(".data")));

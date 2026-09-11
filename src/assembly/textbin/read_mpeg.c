@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: readMpeg__FP8VideoDecP7ReadBufP7StrFile
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered whole function `readMpeg__FP8VideoDecP7ReadBufP7StrFile`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 76.1735%

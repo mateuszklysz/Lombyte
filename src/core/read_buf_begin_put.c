@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: readBufBeginPut__FP7ReadBufPPUc
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered whole function `readBufBeginPut__FP7ReadBufPPUc`. */
 /* Returns the active range and resolves its current address when requested. */
 int GetStateOffsetAddress(int *state_fields, int **address_out)

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: _hi0bits
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 
 s32 CountLeadingZeroBits(s32 word) __asm__("_hi0bits");

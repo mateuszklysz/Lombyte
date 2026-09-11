@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: _Error1
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 extern int FormatErrorMessage(char *buffer, const char *format, ...)
     __asm__("sprintf");
 extern void ReportError(void *error_state, char *message) __asm__("_Error");

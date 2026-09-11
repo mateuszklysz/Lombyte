@@ -5,8 +5,6 @@
  * COMPILER: himuro-O2 (-O2 -g2)
  * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
  * BLOCKER: none
- * EVIDENCE: analysis/research/tier2-source-recovery-20260909.md;
- * build/workspace/rnc-refval/campaigns/pipeline-2026-09-08-3/tier2-20260909/finalists/_multiply/validation.json
  */
 /****************************************************************
  *

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: ComputeCrossProductSign
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "rnc1_functions.h"
 
 int Func00208818(int a0, int a1, int a2, int a3, int t0, int t1)

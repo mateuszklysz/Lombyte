@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: CallDebugCharacter
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef signed char s8;
 
 int Deci2Call(int function, void *args) __asm__("Deci2Call");

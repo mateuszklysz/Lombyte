@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: videoDecIsFlushed__FP8VideoDec
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered whole function `videoDecIsFlushed__FP8VideoDec`. */
 #include "types.h"
 extern s32 func_0012BA58();

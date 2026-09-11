@@ -5,8 +5,6 @@
  * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
  * BLOCKER: none
  * ROLE: GCC 2.95.2 libgcc2 unsigned 64-bit modulo
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-11-5/final-report-batch3-promotion.json
- *           the private evidence archive/source-quality-audit-2026-09-11-pipeline5.json
  */
 
 /* libgcc2 umoddi3 (GCC 2.95.2, W_TYPE_SIZE 32, little endian, MIPS) — self-contained.

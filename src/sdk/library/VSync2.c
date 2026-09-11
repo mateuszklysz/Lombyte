@@ -5,7 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
 COMPILER: himuro-O2 -O2 -g2 -gstabs
 DECISION: promoted (pipeline-2026-09-10-4)
 BLOCKER: none
-EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-10-4/tasks/assembly_sdk_library_VSync2/probes/score/a0cdcfaa35bb4ba88630141344fa8c90/000-s6/seed.c; patha-verify byte-equal
 */
 #include "types.h"
 

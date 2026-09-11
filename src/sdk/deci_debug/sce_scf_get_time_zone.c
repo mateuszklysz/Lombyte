@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceScfGetTimeZone
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 extern int IsT10K(void);
 extern void GetOsdConfigParam(int *config);
 extern short D_001330D0[] __attribute__((section(".data")));

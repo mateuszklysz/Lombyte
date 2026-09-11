@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: snd_StreamSafeCdGetError
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered whole function `snd_StreamSafeCdGetError`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 72.0000%

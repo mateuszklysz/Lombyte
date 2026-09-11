@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceFsReset
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Reset the filesystem status word and clear its shared reset buffer. */
 extern int FsResetState __asm__("D_0012FC94")
     __attribute__((section(".data")));

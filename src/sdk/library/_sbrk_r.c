@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: _sbrk_r
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 extern int SbrkErrno __asm__("D_0015EC10")
     __attribute__((section(".data")));
 extern void *Sbrk(int increment) __asm__("sbrk");

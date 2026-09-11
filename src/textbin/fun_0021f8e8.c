@@ -5,7 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
 COMPILER: SN ee-gcc2.95.2-v2.73a -O2 -g2 -gstabs
 DECISION: promoted (pipeline-2026-09-08-2)
 BLOCKER: none
-EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-08-2/ (refinement/FUN_0021f8e8/attempt-1 receipt); audit source-quality-audit-2026-09-08-pipeline-run3.json; full-ELF PASS 2026-09-08T09:11:53Z
 */
 
 #include "types.h"

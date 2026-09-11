@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceDeci2Open
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef int s32;
 typedef unsigned int u32;
 typedef unsigned short u16;

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: InitializeDmaPacket
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `FontSetWindow` starts here. */
 typedef unsigned short u16;
 typedef unsigned int u32;

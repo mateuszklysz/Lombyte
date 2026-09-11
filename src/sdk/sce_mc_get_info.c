@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceMcGetInfo
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 struct M2c_D_00159A00 {
     u8 pad_0[0x24];

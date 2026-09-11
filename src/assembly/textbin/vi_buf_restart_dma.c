@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: viBufRestartDMA__FP5ViBuf
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered whole function `viBufRestartDMA__FP5ViBuf`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 51.6699%

@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: viBufCreate
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered whole function `viBufCreate`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 46.9333%

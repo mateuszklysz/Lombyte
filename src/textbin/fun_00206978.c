@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_00206978
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 
 extern void func_00208818(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4,

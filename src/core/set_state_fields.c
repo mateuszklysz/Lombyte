@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: SetStateFields
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Set the two leading state fields and report success. */
 int SetStateFields(int *state_fields, int first_field, int second_field)
     __asm__("func_0023BA48");

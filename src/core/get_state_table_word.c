@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: GetStateTableWord
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `readBufEndGet__FP7ReadBufi` starts here. */
 #include "types.h"
 struct M2c_arg0 {

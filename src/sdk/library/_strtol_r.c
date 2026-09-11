@@ -5,8 +5,6 @@
  * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
  * BLOCKER: none
  * ROLE: newlib-2000-02-17 reentrant string-to-long
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-11-5/final-promotion.json
- *           the private evidence archive/source-quality-audit-2026-09-11-pipeline5.json
  */
 
 /* _strtol_r: newlib-2000-02-17 strtol.c adapted to the game's 64-bit long and

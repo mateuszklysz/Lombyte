@@ -5,8 +5,6 @@
  * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
  * BLOCKER: none
  * ROLE: GCC 2.95.2 fp-bit double division
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-11-5/final-promotion.json
- *           the private evidence archive/source-quality-audit-2026-09-11-pipeline5.json
  */
 
 /* dpdiv: fp-bit divide (bitfield-era variant) with _fpdiv_parts inlined. */

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: scePad2SetButtonOrder
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 struct M2c_var_5_0 { s32 unk0; s32 unk4; s32 unk8; s32 unkC; };
 s32 scePad2SetButtonOrder(u8 *arg0, s32 *arg1) {

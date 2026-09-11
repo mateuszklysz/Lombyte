@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: write
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 extern u32 D_0012FBF0[];
 extern s32 sceTtyInit();

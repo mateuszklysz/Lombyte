@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: ftoi
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 84.5556%
  * blocker: logic is correct above 80%; breadth-first fallback preserves the C logic while register allocation, stack/frame layout, and delay-slot scheduling remain compiler blockers

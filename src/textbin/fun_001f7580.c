@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_001f7580
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
  * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
  */

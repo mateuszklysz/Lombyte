@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: _InitSys
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 void supplement_crt0(void) __asm__("supplement_crt0");
 void InitSystemCallTableAddress(void) __asm__("InitSystemCallTableAddress");
 void InitAlarm(void) __asm__("InitAlarm");

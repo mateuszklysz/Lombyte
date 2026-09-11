@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: scTag2
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `scTag2` starts here; this unit covers only its beginning. */
 /* Packs three 32-bit components into the game's 64-bit state value. */
 void PackStateValue(unsigned long long *output, unsigned int high_word,

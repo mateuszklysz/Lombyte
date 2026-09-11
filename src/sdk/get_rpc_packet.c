@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: GetRpcPacket
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
  * SYMBOL: GetRpcPacket
  * UNIT: sdk/get_rpc_packet (retagged from assembly/sdk/get_rpc_packet)
@@ -11,8 +18,6 @@
  *   window and returns the base pointer plus slot*64.
  * NOTE: the two pointer aliases preserve the retail register allocation
  *   (dividend a1 / divisor v1 / remainder v0); removing them regresses.
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-10-4/tasks/assembly_sdk_get_rpc_packet/
- *   (permuter zero-penalty candidate; independent 100/100/100 recompile; linked .text byte-equal)
  */
 #include "types.h"
 struct M2c_arg0 {

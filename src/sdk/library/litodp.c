@@ -5,8 +5,6 @@
  * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
  * BLOCKER: none
  * ROLE: GCC 2.95.2 fp-bit si_to_float
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-11-5/final-promotion.json
- *           the private evidence archive/source-quality-audit-2026-09-11-pipeline5.json
  */
 
 /* litodp: fp-bit si_to_float (bitfield-era variant); composes via __pack_d. */

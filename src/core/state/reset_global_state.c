@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: ResetGlobalState
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Reset the paired global fields used by the frame state. */
 struct GlobalState {
     unsigned char padding[0x18e];

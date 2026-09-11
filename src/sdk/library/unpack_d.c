@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: __unpack_d
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Descriptive C recovery of the GCC fp-bit __unpack_d runtime helper. */
 #include "types.h"
 

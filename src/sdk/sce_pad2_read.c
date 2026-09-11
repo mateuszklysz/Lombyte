@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: scePad2Read
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 #include "rnc/assembly_sdk_sce_pad2_read_types.h"
 

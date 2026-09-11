@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: PackRenderCommandFields
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "eetypes.h"
 
 void PackRenderCommandFields(u64 *command_words, u64 upper_field,

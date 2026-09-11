@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_002053d8
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 void FUN_002053d8(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     s32 outer = 0;

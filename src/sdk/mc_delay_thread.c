@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: mcDelayThread
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 extern int GetThreadId(void);
 extern int SetAlarm(int delay, void *callback, int thread_id);
 extern void SleepThread(void);

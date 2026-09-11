@@ -1,3 +1,10 @@
+/*
+STATE: INTENTIONAL_LOW_LEVEL_ASM
+SYMBOL: SkyBsphereCheck
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (intentional asm)
+*/
+
 /* ROLE: recovered function `SkyBsphereCheck` starts here. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 13.6786%

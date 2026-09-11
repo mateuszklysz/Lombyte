@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: ResolveResourceIndex
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef struct Resource Resource;
 struct Resource {
     unsigned char pad0[14];

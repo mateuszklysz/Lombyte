@@ -5,7 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 COMPILER: SN ee-gcc-2.95.2 -O2 -g2
 DECISION: promoted (pipeline-2026-09-08-3)
 BLOCKER: none
-EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-08-3/refinement/FUN_002220f0/attempt-2/finalist.json
 NOTE: re-verified 100/100/100 fresh SN on 2026-09-08 resume; wrapper INCLUDE_ASM oracle replaced by matching C.
 */
 #include "types.h"

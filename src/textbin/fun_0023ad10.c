@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: audioDecReset__FP9_AudioDec
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `audioDecReset__FP9_AudioDec` starts here; this unit covers only its beginning. */
 /* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2). */
 #include "types.h"

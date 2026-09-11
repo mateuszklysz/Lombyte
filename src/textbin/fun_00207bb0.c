@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_00207bb0
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 extern s32 D_001A0118 __attribute__((section(".data")));
 extern s32 func_00207C28();

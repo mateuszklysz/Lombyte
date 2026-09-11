@@ -5,7 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs
 DECISION: promoted (pipeline-2026-09-07-1)
 BLOCKER: none
-EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-07-1/; audit source-quality-audit-2026-09-07-pipeline-run1.json; full-ELF PASS 2026-09-07T21:19:07Z
 */
 #include "types.h"
 struct M2c_arg0 {

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: GetCoreDataTable
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Return the fixed core-data table address used by parser helpers. */
 typedef unsigned char u8;
 

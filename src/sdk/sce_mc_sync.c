@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceMcSync
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 extern u32 D_00132DA8[];
 extern u32 D_00132DAC[];

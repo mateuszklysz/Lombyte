@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: IsT10K
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef signed char s8;
 
 /* The target keeps this ROM-name record out of the EE small-data area. */

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceDmaSend
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 struct M2c_arg0 { s32 unk0; u8 pad_4[0x1C]; s32 unk20; u8 pad_24[0xC]; s32 unk30; };
 extern s32 CheckAddress();

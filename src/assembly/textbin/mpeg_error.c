@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: mpegError__FP7sceMpegP18sceMpegCbDataErrorPv
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered whole function `mpegError__FP7sceMpegP18sceMpegCbDataErrorPv`. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%

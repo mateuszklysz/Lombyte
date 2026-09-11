@@ -5,7 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs (Himuro routing; unit under assembly/textbin)
 DECISION: promoted (pipeline-2026-09-08-3, wrapper-branch wide scan)
 BLOCKER: none
-EVIDENCE: campaign wrapper-scan probes/wide/assembly_textbin_fun_00225dd8 (himuro-O2 100/100/100)
 NOTE: existing NON_MATCHING #else branch (a2-pinned register loop) compiled byte-identical under Himuro; oracle wrapper stripped.
 */
 #include "rnc/assembly_textbin_fun_00225dd8_types.h"

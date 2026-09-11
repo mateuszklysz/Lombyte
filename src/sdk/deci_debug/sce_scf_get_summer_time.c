@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceScfGetSummerTime
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 extern u8 D_001330D6[];
 extern s32 GetOsdConfigParam();

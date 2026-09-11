@@ -1,11 +1,17 @@
 /*
+STATE: C_EXACT
+SYMBOL: FUN_0022d798
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
+/*
  * STATE: C_EXACT
  * SYMBOL: FUN_0022D798
  * SCORE: code=100.0000 functions=100.0000 data=100.0000 complete_data=100.0000
  * COMPILER: SN ee-gcc2.95.2-v2.73a, -O2 -g2
  * DECISION: promoted
  * BLOCKER: staged and full-ELF gates passed; retail image identity retained
- * EVIDENCE: analysis/benchmarks/near-exact-autofinish-2026-09-05.json, the private evidence archive/full-elf-gate.json
  */
 #include "types.h"
 struct M2c_temp_3_11 {

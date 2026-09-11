@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: ClearStateBits
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Clear the active field and reset its associated state word. */
 typedef unsigned int u32;
 

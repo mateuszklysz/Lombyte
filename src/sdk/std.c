@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: std
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

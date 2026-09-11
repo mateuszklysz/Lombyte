@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_00225530
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
  * SYMBOL: FUN_00225530 (alias func_00225530)
  * UNIT: textbin/fun_00225530 (retagged from assembly/textbin/fun_00225530)
@@ -13,7 +20,6 @@
  *   and scores 87.65%. The global is declared as a 4-element array so the
  *   compiler treats it as non-small-data and emits absolute addressing.
  * DECISION: promoted.
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-08-3/refinement/pathA/probe-225530n/measurement.json
  */
 #include "types.h"
 

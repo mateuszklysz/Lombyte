@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: msg_string__Fi
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `msg_string__Fi` starts here; this unit covers only its beginning. */
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
  * SYMBOL: FUN_001fdd10 (alias func_001FDD10)
@@ -14,7 +21,6 @@
  *   vs retail e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9);
  *   baseline report 100% matched code/functions and complete data.
  * DECISION: promoted.
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-08-3/refinement/pathA/probe-1fdd10b/measurement.json
  */
 #include "types.h"
 

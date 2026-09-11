@@ -5,8 +5,6 @@
  * COMPILER: himuro-O2 (-O2 -g2)
  * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
  * BLOCKER: none
- * EVIDENCE: analysis/research/tier2-source-recovery-20260909.md;
- * tier2-20260909/finalists/sce_sif_alloc_iop_heap/validation.json
  */
 #include "types.h"
 extern s32 D_0012FCAC __attribute__((section(".data")));

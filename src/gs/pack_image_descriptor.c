@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: PackImageDescriptor
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef signed int s32;

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: ClearPadInput__FR3PAD
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `ClearPadInput__FR3PAD` starts here; this unit covers only its beginning. */
 /* C_EXACT (byte-proven): staged and full-ELF gates PASSED
  * SYMBOL: FUN_002172c0 (alias func_002172C0)
@@ -12,13 +19,6 @@
  * DECISION: promoted (transactional --apply-exact, batch of 1)
  * GATE: staged object 100/100/100/100 + direct .text equality + full baseline
  *   PASS 2026-09-07T15:54:13Z (audit 300 / 23,652 B / 5.492%).
- * EVIDENCE: build/workspace/rnc-refval/campaigns/2026-09-07-6/promotion-fun002172c0/;
- *   the private evidence archive/source-quality-audit-2026-09-07.json;
- *   the private evidence archive/full-elf-gate.json
- * FIX HISTORY: retained partial winner stored the tail loop 16 bytes per step
- *   (`var_3_8 += 4` on a 4-byte struct) and a rotated store order; retail walks
- *   4 bytes per step (`addiu v1,v1,4`) and stores in a specific order. Final
- *   source uses `var_3_8 += 1` and the retail store order that SN reproduces.
  */
 #include "types.h"
 #include "rnc/assembly_textbin_fun_002172c0_types.h"

@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: LinkHudBank__FiPc
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered function `LinkHudBank__FiPc` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 82.2614%

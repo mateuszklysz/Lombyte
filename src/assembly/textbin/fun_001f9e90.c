@@ -1,3 +1,10 @@
+/*
+STATE: INTENTIONAL_LOW_LEVEL_ASM
+SYMBOL: FastArcTan__Fff
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (intentional asm)
+*/
+
 /* ROLE: recovered function `FastArcTan__Fff` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 0.0000%

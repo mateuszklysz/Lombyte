@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: sceSifInitIopHeap
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* C_EXACT - promoted 2026-09-09 (per-unit -fno-schedule-insns routing)
  * SYMBOL: sceSifInitIopHeap
  * COMPILER: Himuro ee-gcc2.9-991111-01 -O2 -g2 -gstabs -fno-schedule-insns
@@ -6,8 +13,6 @@
  * SCORE: code=100 functions=100 data=100 complete_data=100
  * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
  * BLOCKER: none
- * EVIDENCE: pipeline campaign sdk-pair-20260909/iopheap-finalist/
- *   (measurement evidence.json; full-elf-gate.json)
  */
 #include "types.h"
 struct SifClient { u8 pad_0[0x24]; s32 unk24; };

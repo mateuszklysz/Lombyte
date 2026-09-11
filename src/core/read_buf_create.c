@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: readBufCreate__FP7ReadBuf
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered whole function `readBufCreate__FP7ReadBuf`. */
 /* Rebase the state pointer and clear its first fields. */
 void InitializeStateFields(int *state_fields)

@@ -1,3 +1,10 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: VU0_loadMicroProgram__FPl
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: retained (pending)
+*/
+
 /* ROLE: recovered function `VU0_loadMicroProgram__FPl` starts here; this unit covers only its beginning. */
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 63.2400%

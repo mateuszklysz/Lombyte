@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: videoDecAbort__FP8VideoDec
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `videoDecAbort__FP8VideoDec` starts here; this unit covers only its beginning. */
 /* Set the state field to one and report success. */
 int SetStateField(int *state_fields) __asm__("func_0023CC70");

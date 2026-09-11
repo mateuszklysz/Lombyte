@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: CopyObjectFieldForward
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Copy object field 2 into field 3 and return the copied value. */
 int Func0012BC00(int *object) __asm__("func_0012BC00");
 

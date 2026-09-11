@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: ProcessMobyAnimData__Fv
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `ProcessMobyAnimData__Fv` starts here; this unit covers only its beginning. */
 #include "types.h"
 extern s32 D_0015F63C;

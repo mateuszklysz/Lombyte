@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: PowerOffCB
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 extern u8 D_00120960[];
 extern u32 D_001312E4[];

@@ -4,8 +4,6 @@
  * COMPILER: himuro-O2 (-O2 -g2 -gstabs)
  * DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
  * BLOCKER: none
- * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-11-6/final-report-batch2-promotion.json
- *           the private evidence archive/source-quality-audit-2026-09-11-pipeline6.json
  */
 /* _free_r f1: newlib mallocr.c free with the game's arena/globals. */
 #include "types.h"

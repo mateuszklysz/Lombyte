@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: InitializeMemoryCardDirectory
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 
 extern s32 InitializeMpegDecoder(s32 command, s32 mode) __asm__("_ipuVdec");

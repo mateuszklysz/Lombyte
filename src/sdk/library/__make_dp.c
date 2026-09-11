@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: __make_dp
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 typedef unsigned long long u64;
 
 extern void PackDouble(void *parameters) __asm__("__pack_d");

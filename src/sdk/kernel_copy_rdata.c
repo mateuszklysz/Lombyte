@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: KernelCopyRdata
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 #include "types.h"
 
 s32 KernelCopyRdata(u32 *destination, const u32 *source, s32 byte_count)

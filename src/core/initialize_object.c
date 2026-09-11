@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: InitializeObject
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Initialize the object header fields at the original game entry point. */
 int InitializeObject(int unused, int *object) __asm__("func_00118EC8");
 

@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: GetGlobalStatePointer
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* Return the pointer to the shared state record. */
 struct GlobalStatePointer {
     int *value;

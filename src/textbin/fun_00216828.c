@@ -1,3 +1,10 @@
+/*
+STATE: C_EXACT
+SYMBOL: Load
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
+*/
+
 /* ROLE: recovered function `Load` starts here. */
 #include "types.h"
 #include "rnc/assembly_textbin_fun_00216828_types.h"
