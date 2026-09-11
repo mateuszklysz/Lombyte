@@ -15,7 +15,8 @@ Every configured source file carries a short provenance block at the top:
 ``STATE`` is ``C_EXACT``, ``C_NON_MATCHING`` or ``INTENTIONAL_LOW_LEVEL_ASM``.
 ``SYMBOL`` is the objdiff/audit identity; ``SCORE`` carries the measured
 percentages; ``DECISION`` is ``promoted``, ``retained``, ``rejected`` or
-``stuck``. ``COMPILER`` and ``BLOCKER`` are optional.
+``stuck``. ``COMPILER``, ``BLOCKER`` and ``NOTE`` are optional; ``NOTE`` is a
+short implementation note for future readers (no run IDs or private paths).
 
 Do not put evidence paths in this block. ``EVIDENCE:`` is rejected by the
 validator because those artifacts live with the maintainers, not in this
@@ -37,7 +38,7 @@ import argparse
 import re
 from pathlib import Path
 
-FIELD_ORDER = ("STATE", "SYMBOL", "SCORE", "COMPILER", "DECISION", "BLOCKER")
+FIELD_ORDER = ("STATE", "SYMBOL", "SCORE", "COMPILER", "DECISION", "BLOCKER", "NOTE")
 REQUIRED_FIELDS = ("STATE", "SYMBOL", "SCORE", "DECISION")
 FORBIDDEN_FIELDS = ("EVIDENCE",)
 LEAD_CHARS = 4000
@@ -220,6 +221,7 @@ def main(argv=None) -> int:
     parser.add_argument("--compiler")
     parser.add_argument("--decision")
     parser.add_argument("--blocker")
+    parser.add_argument("--note", help="short implementation note for future readers")
     parser.add_argument("--remove", action="append", default=[], metavar="FIELD",
                         help="drop a field (repeatable), e.g. --remove EVIDENCE")
     mode = parser.add_mutually_exclusive_group()
@@ -230,7 +232,8 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
 
     fields = {"STATE": args.state, "SYMBOL": args.symbol, "SCORE": args.score,
-              "COMPILER": args.compiler, "DECISION": args.decision, "BLOCKER": args.blocker}
+              "COMPILER": args.compiler, "DECISION": args.decision, "BLOCKER": args.blocker,
+              "NOTE": args.note}
     updates = {key: value for key, value in fields.items() if value is not None}
 
     failures = 0

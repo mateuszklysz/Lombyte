@@ -10,6 +10,7 @@ SCORE: code=95 functions=100 data=100 complete_data=100
 COMPILER: himuro-O2 -O2 -g2 -gstabs
 DECISION: retained
 BLOCKER: none
+NOTE: pointer aliases preserve the retail register allocation
 */
 ```
 
@@ -21,9 +22,10 @@ BLOCKER: none
 | `COMPILER` | Compiler profile and flags that produced the measurement |
 | `DECISION` | `promoted`, `retained`, `rejected`, or `stuck` |
 | `BLOCKER` | One short reason, or `none` |
+| `NOTE` | Optional implementation note for future readers (no run IDs or private paths) |
 
-`COMPILER` and `BLOCKER` may be omitted when no measurement exists, such as
-headers backfilled from an audit snapshot.
+`COMPILER`, `BLOCKER` and `NOTE` may be omitted when no measurement or note
+exists, such as headers backfilled from an audit snapshot.
 
 ## Rules
 
