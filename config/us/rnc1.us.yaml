@@ -1291,7 +1291,7 @@ segments:
           - [0x105ee0, c, assembly/textbin/fun_00204f60]
           - [0x105f80, c, assembly/textbin/fun_00205000]
           - [0x10601c, textbin, text_gap_0020509c_before_fun_002050a0]
-          - [0x106020, c, assembly/textbin/fun_002050a0]
+          - [0x106020, c, textbin/fun_002050a0]
           - [0x106064, textbin, text_gap_002050e4_after_fun_002050a0]
           - [0x106068, c, assembly/textbin/fun_002050e8]
           - [0x1061a0, c, assembly/textbin/fun_00205220]

@@ -3,13 +3,13 @@
 <title>Ratchet &amp; Clank - decompilation progress</title>
 <rect width="800" height="1600" fill="#0d1117"/>
 <text x="10" y="24" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="14.0" font-weight="600" fill="#cdd6f4">Ratchet &amp; Clank - decompilation progress</text>
-<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">357 matching C &#183; 135 intentional asm &#183; 843 pending &#183; 36,736 of 430,720 bytes (8.5%; 9.6% of recoverable C)</text>
+<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">358 matching C &#183; 135 intentional asm &#183; 842 pending &#183; 36,804 of 430,720 bytes (8.5%; 9.6% of recoverable C)</text>
 <rect x="540" y="14" width="10" height="10" rx="2" fill="#40a02b"/>
-<text x="555" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 36,736 B</text>
+<text x="555" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 36,804 B</text>
 <rect x="540" y="31" width="10" height="10" rx="2" fill="#1f6feb"/>
 <text x="555" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 47,012 B</text>
 <rect x="540" y="48" width="10" height="10" rx="2" fill="#313244"/>
-<text x="555" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 346,972 B</text>
+<text x="555" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 346,904 B</text>
 <rect x="10.00" y="48.00" width="141.95" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="14.00" y="61.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">textbin/fun_002093d8</text>
 <text x="14.00" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.10kB · 0.00%</text>
@@ -1103,7 +1103,7 @@
 <rect x="763.64" y="1373.54" width="13.18" height="14.20" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="776.82" y="1373.54" width="13.18" height="14.20" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="600.04" y="1387.74" width="13.25" height="14.12" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="600.04" y="1401.86" width="13.25" height="14.12" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="600.04" y="1401.86" width="13.25" height="14.12" rx="1" fill="#40a02b" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="600.04" y="1415.98" width="13.25" height="14.12" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="600.04" y="1430.10" width="13.25" height="14.12" rx="1" fill="#40a02b" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="600.04" y="1444.23" width="13.25" height="14.12" rx="1" fill="#40a02b" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
