@@ -12,6 +12,24 @@ DECISION: retained
 BLOCKER: none
 NOTE: pointer aliases preserve the retail register allocation
 */
+
+/* ROLE: recovered function `FUN_XXXXXXXX` starts here (optional). */
+```
+
+The canonical layout is:
+
+1. The plain `/*` block first, fields in the order above
+   (`STATE`/`SYMBOL`/`SCORE`/`COMPILER`/`DECISION`/`BLOCKER`/`NOTE`).
+2. One blank line.
+3. Optional `/* ROLE: … */` lines, one per line.
+4. One blank line, then the code.
+
+Legacy metadata comments (`NON_MATCHING FALLBACK`, `C_EXACT (byte-proven)`,
+`UNIT`, `GATE`) are not part of the standard and are dropped by the
+normalizer:
+
+```sh
+python3 scripts/stamp_source_header.py --normalize src/ --apply
 ```
 
 | Field | Meaning |
@@ -44,11 +62,12 @@ exists, such as headers backfilled from an audit snapshot.
 - Validate before opening a pull request:
 
   ```sh
-  python3 scripts/stamp_source_header.py --check src/ee/example.c
+  python3 scripts/stamp_source_header.py --check --normalize src/ee/example.c
   ```
 
   `--check` fails on a missing block, a missing
-  `STATE`/`SYMBOL`/`SCORE`/`DECISION` field, or a forbidden `EVIDENCE` field.
+  `STATE`/`SYMBOL`/`SCORE`/`DECISION` field, or a forbidden `EVIDENCE` field;
+  with `--normalize` it also fails when the layout is not canonical.
   Pass the same field options to also check values.
 
 The stamper (`scripts/stamp_source_header.py`) is the single writer for the

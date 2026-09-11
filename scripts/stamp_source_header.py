@@ -31,6 +31,14 @@ Usage:
 
     # structural / value check (exit 1 when a file needs work)
     python3 scripts/stamp_source_header.py --check src/
+
+    # rewrite the leading comments to the canonical shape
+    python3 scripts/stamp_source_header.py --normalize src/ --apply
+
+The canonical layout is the plain ``/*`` block first, one blank line, optional
+``/* ROLE: ... */`` lines, one blank line, then the code. Legacy metadata
+comments (NON_MATCHING FALLBACK, C_EXACT (byte-proven), UNIT, GATE) are dropped
+by ``--normalize``.
 """
 from __future__ import annotations
 
@@ -41,6 +49,7 @@ from pathlib import Path
 FIELD_ORDER = ("STATE", "SYMBOL", "SCORE", "COMPILER", "DECISION", "BLOCKER", "NOTE")
 REQUIRED_FIELDS = ("STATE", "SYMBOL", "SCORE", "DECISION")
 FORBIDDEN_FIELDS = ("EVIDENCE",)
+LEGACY_PREFIXES = ("NON_MATCHING FALLBACK", "C_EXACT (byte-proven")
 LEAD_CHARS = 4000
 
 COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)
@@ -201,6 +210,112 @@ def validate(text: str) -> list[str]:
     return problems
 
 
+def _comment_body_lines(comment: str) -> list[str]:
+    """Comment lines with the ``/* */`` markers and leading ``*`` decoration removed."""
+    body = comment
+    if body.startswith("/*"):
+        body = body[2:]
+    if body.endswith("*/"):
+        body = body[:-2]
+    lines = []
+    for raw in body.splitlines():
+        line = raw.strip()
+        if line.startswith("*"):
+            line = line[1:].strip()
+        lines.append(line)
+    return lines
+
+
+def _flatten(comment: str) -> str:
+    return " ".join(" ".join(_comment_body_lines(comment)).split())
+
+
+def _parse_state_block(comment: str) -> tuple[dict[str, str], list[str]]:
+    """Field values (continuations flattened) plus in-block ROLE texts."""
+    fields: dict[str, str] = {}
+    roles: list[str] = []
+    key = None
+    for line in _comment_body_lines(comment):
+        match = re.match(r"^([A-Z][A-Z_]+)\s*:(.*)$", line)
+        if match:
+            key = match.group(1)
+            value = match.group(2).strip()
+            if key == "ROLE":
+                if value:
+                    roles.append(value)
+                key = None
+            elif key in FIELD_ORDER:
+                fields[key] = value
+            else:
+                key = None
+        elif key and line:
+            fields[key] = f"{fields[key]} {line}".strip()
+    decision = fields.get("DECISION", "")
+    if "; BLOCKER:" in decision:
+        value, _, blocker = decision.partition("; BLOCKER:")
+        fields["DECISION"] = value.strip()
+        blocker = blocker.strip().rstrip(".")
+        if blocker and "BLOCKER" not in fields:
+            fields["BLOCKER"] = blocker
+    return fields, roles
+
+
+def normalize(text: str) -> str:
+    """Rewrite the leading comments to the canonical shape.
+
+    Keeps the STATE block fields, moves every ROLE to ``/* ROLE: ... */``
+    lines after the block, drops the legacy NON_MATCHING FALLBACK and
+    C_EXACT (byte-proven) metadata comments, and keeps any other leading
+    comment text below them. Parts are separated by one blank line.
+    """
+    comments: list[tuple[int, int, str]] = []
+    position = 0
+    for match in COMMENT_RE.finditer(text):
+        if text[position:match.start()].strip():
+            break
+        comments.append((match.start(), match.end(), match.group(0)))
+        position = match.end()
+    state = next(((s, e, c) for s, e, c in comments if STATE_FIELD_RE.search(c)), None)
+    if state is None:
+        return text
+
+    fields, _ = _parse_state_block(state[2])
+    roles: list[str] = []
+    kept: list[str] = []
+    for start, end, comment in comments:
+        if (start, end) == (state[0], state[1]):
+            _, block_roles = _parse_state_block(comment)
+            roles.extend(block_roles)
+            continue
+        flat = _flatten(comment)
+        if flat.startswith(LEGACY_PREFIXES):
+            continue
+        if flat.startswith("ROLE:"):
+            value = flat[len("ROLE:"):].strip()
+            if value:
+                roles.append(value)
+            continue
+        kept.append(comment.strip())
+
+    seen: set[str] = set()
+    unique_roles: list[str] = []
+    for role in roles:
+        if role not in seen:
+            seen.add(role)
+            unique_roles.append(role)
+    roles = unique_roles
+
+    block_lines = ["/*"]
+    block_lines.extend(f"{key}: {fields[key]}" for key in FIELD_ORDER if fields.get(key))
+    block_lines.append("*/")
+    parts = ["\n".join(block_lines)]
+    parts.extend(f"/* ROLE: {role} */" for role in roles)
+    parts.extend(kept)
+    header = "\n\n".join(parts)
+    code = text[comments[-1][1]:].lstrip("\n")
+    return header + "\n\n" + code
+
+
 def _collect(paths: list[Path]) -> list[Path]:
     files: list[Path] = []
     for path in paths:
@@ -224,6 +339,8 @@ def main(argv=None) -> int:
     parser.add_argument("--note", help="short implementation note for future readers")
     parser.add_argument("--remove", action="append", default=[], metavar="FIELD",
                         help="drop a field (repeatable), e.g. --remove EVIDENCE")
+    parser.add_argument("--normalize", action="store_true",
+                        help="rewrite the leading comments to the canonical shape")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--apply", action="store_true", help="write changes")
     mode.add_argument("--check", action="store_true",
@@ -240,11 +357,11 @@ def main(argv=None) -> int:
     changed = 0
     for path in _collect(args.paths):
         text = path.read_text()
-        new = update(text, updates, tuple(args.remove))
+        new = normalize(text) if args.normalize else update(text, updates, tuple(args.remove))
         if args.check:
             problems = validate(text)
-            if (updates or args.remove) and new != text:
-                problems.append("header out of date")
+            if (updates or args.remove or args.normalize) and new != text:
+                problems.append("header not normalized" if args.normalize else "header out of date")
             if problems:
                 failures += 1
                 print(f"FAIL {path}: {'; '.join(problems)}")

@@ -1,6 +1,6 @@
 ## What changed
 
-<!-- In detail if possible. -->
+<!-- What changed and why; list affected units or files. -->
 
 ## Type
 
@@ -19,5 +19,5 @@
 ## Checklist
 
 - [ ] Promoted
-- [ ] Changed `src/` files pass the state-header check (`python3 scripts/stamp_source_header.py --check <files>`)
+- [ ] Changed `src/` files pass the state-header check (`python3 scripts/stamp_source_header.py --check --normalize <files>`)
 - [ ] No game data, disc images, or compiler binaries

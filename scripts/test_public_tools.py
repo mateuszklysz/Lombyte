@@ -83,6 +83,79 @@ class TreemapClassificationTests(unittest.TestCase):
         self.assertTrue(any(u["owner"] == "textbin/promoted" for u in units))
 
 
+class SourceHeaderTests(unittest.TestCase):
+    """stamp_source_header.py must write, normalize and validate the block."""
+
+    BLOCK = (
+        "/*\n"
+        "STATE: C_EXACT\n"
+        "SYMBOL: Foo\n"
+        "SCORE: code=100 functions=100 data=100 complete_data=100\n"
+        "DECISION: promoted\n"
+        "*/\n\n"
+    )
+
+    @classmethod
+    def setUpClass(cls):
+        cls.stamp = load_module("rnc_stamp_source_header",
+                                ROOT / "scripts" / "stamp_source_header.py")
+
+    def test_insert_block_at_top(self):
+        fields = {"STATE": "C_EXACT", "SYMBOL": "Foo",
+                  "SCORE": "code=100 functions=100 data=100 complete_data=100",
+                  "DECISION": "promoted"}
+        self.assertEqual(self.stamp.update("int Foo(void) { return 1; }\n", fields),
+                         self.BLOCK + "int Foo(void) { return 1; }\n")
+
+    def test_render_uses_canonical_field_order(self):
+        block = self.stamp.render_block({
+            "NOTE": "pinned register", "DECISION": "promoted", "SCORE": "1",
+            "SYMBOL": "Foo", "STATE": "C_NON_MATCHING", "BLOCKER": "none"})
+        keys = [line.split(":")[0] for line in block.splitlines()[1:-1]]
+        self.assertEqual(keys, ["STATE", "SYMBOL", "SCORE", "DECISION",
+                                "BLOCKER", "NOTE"])
+
+    def test_update_removes_evidence_and_keeps_fields(self):
+        text = ("/*\nSTATE: C_EXACT\nSYMBOL: Foo\nSCORE: 1\n"
+                "DECISION: promoted\nEVIDENCE: analysis/foo.json\n*/\ncode\n")
+        out = self.stamp.update(text, {}, ("EVIDENCE",))
+        self.assertNotIn("EVIDENCE", out)
+        self.assertIn("STATE: C_EXACT", out)
+        self.assertIn("code\n", out)
+
+    def test_validate_required_and_forbidden_fields(self):
+        self.assertEqual(self.stamp.validate(self.BLOCK + "code\n"), [])
+        self.assertIn("missing STATE block", self.stamp.validate("int x;\n"))
+        with_evidence = self.BLOCK.replace("DECISION: promoted",
+                                           "DECISION: promoted\nEVIDENCE: x")
+        self.assertTrue(any("EVIDENCE" in problem
+                            for problem in self.stamp.validate(with_evidence)))
+
+    def test_normalize_drops_legacy_and_moves_role(self):
+        text = (
+            "/* STATE: C_EXACT\n * SYMBOL: Foo\n * ROLE: does foo\n"
+            " * SCORE: code=1 functions=2 data=3 complete_data=4\n"
+            " * DECISION: promoted; BLOCKER: none.\n * GATE: private/log\n */\n"
+            "/* NON_MATCHING FALLBACK (descriptive C)\n * blocker: y\n */\ncode\n")
+        expected = ("/*\nSTATE: C_EXACT\nSYMBOL: Foo\n"
+                    "SCORE: code=1 functions=2 data=3 complete_data=4\n"
+                    "DECISION: promoted\nBLOCKER: none\n*/\n\n"
+                    "/* ROLE: does foo */\n\ncode\n")
+        out = self.stamp.normalize(text)
+        self.assertEqual(out, expected)
+        self.assertEqual(self.stamp.normalize(out), out)
+
+    def test_check_cli_fails_on_missing_block(self):
+        with tempfile.TemporaryDirectory() as name:
+            path = Path(name) / "x.c"
+            path.write_text("int x;\n")
+            proc = subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "stamp_source_header.py"),
+                 "--check", str(path)], capture_output=True, text=True)
+            self.assertEqual(proc.returncode, 1)
+            self.assertIn("missing STATE block", proc.stdout)
+
+
 class BaselineGuardTests(unittest.TestCase):
     """verify-baseline.sh must never delete a non-baseline directory."""
 
