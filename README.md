@@ -39,8 +39,8 @@ Each tile is one configured C unit, sized by its share of the executable's code 
 
 | Measure | Status |
 | :--- | :--- |
-| Matching C functions | **358** — approximately **26.4%** of configured functions |
-| Matching C code size | **36,804 bytes** — **8.54%** of configured code bytes |
+| Matching C functions | **360** — approximately **26.6%** of configured functions |
+| Matching C code size | **37,112 bytes** — **8.62%** of configured code bytes |
 | Boot executable reconstruction | **Byte-identical to the supported retail ELF** |
 | Disc rebuild smoke check | **Byte-identical to the input disc image** |
 
