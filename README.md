@@ -18,19 +18,13 @@
 </p>
 
 > [!WARNING]
-> Do not use this decompilation project without your own legally purchased copy of the game. Lombyte includes no assets from the original game, so you must provide your own legitimately obtained PS2 copy. The project targets the **USA / NTSC-U** release (`SCUS_971.99`) only — PAL, NTSC-J, and the later PS3 remaster are not supported.
-
-## Purpose
-
-Lombyte is a non-commercial research and preservation project. It studies the retail USA `SCUS_971.99` executable and reconstructs it as matching C so that owners of the game can read, verify, and rebuild it from their own legally obtained copy. No game data, executables, disc images, or proprietary toolchains are distributed here.
+> Do not use this decompilation project without your own legally purchased copy of the game. Lombyte includes no game data, executables, or proprietary toolchains, so you must provide your own legitimately obtained PS2 copy. Only the **USA / NTSC-U** release (`SCUS_971.99`) is supported — PAL, NTSC-J, and the later PS3 remaster are not.
 
 ## About
 
-**Lombyte** aims to reconstruct the game's Emotion Engine (EE) executable as readable C that compiles to the same machine code as the original release. Matching source, recovered symbols, shared types, and assembly-backed code are developed together, with byte-for-byte verification against the original executable.
+**Lombyte** is a non-commercial research and preservation project. It reconstructs the game's Emotion Engine (EE) executable as readable C that compiles to the same machine code as the original USA release (`SCUS_971.99`), verified byte-for-byte against retail.
 
-The current target is the **USA / NTSC-U boot executable, `SCUS_971.99`**. The build reconstructs this executable and can patch it into a copy of an original disc image, preserving the remaining disc data.
-
-You will need your own copy of the game to supply the original executable and disc image. Game images and compiler binaries are not included in this repository.
+Matching source, recovered symbols, shared types, and assembly-backed code are developed together. The rebuilt executable can be patched into a copy of your own disc image, preserving the rest of the disc; a native PC port is outside the current scope.
 
 ## Decompilation Progress
 
@@ -59,8 +53,6 @@ Expected **SHA-256 of the boot executable** (not the ISO):
 ```text
 e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9
 ```
-
-This is a matching reconstruction project targeting the original PS2 executable. A native PC port is outside the current scope.
 
 ## Building
 
