@@ -112,6 +112,11 @@ def main() -> int:
 
     lba, size = find_boot_extent(iso)
     extent_off = lba * 2048
+    if extent_off + size > len(iso):
+        raise SystemExit(
+            f"REFUSING: boot extent LBA {lba} ({size} bytes at offset 0x{extent_off:X}) "
+            f"lies outside the ISO image ({len(iso)} bytes)"
+        )
     if size != len(built):
         print(f"WARNING: built ELF size {len(built)} != ISO record size {size}; "
               "the ISO record must be resized in the directory (not supported yet)")
