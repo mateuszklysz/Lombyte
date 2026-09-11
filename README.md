@@ -29,7 +29,7 @@ You will need your own copy of the game to supply the original executable and di
 
 <img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
 
-Each tile is one configured C unit, sized by its share of the executable's code bytes. **Green** tiles are matching C; **blue** tiles are intentional low-level asm (SIMD/VU0 helpers kept as assembly and excluded from the C goal); **dark grey** tiles are C still pending. The map is regenerated at the end of every decompilation pipeline run; regenerate it locally with:
+Each tile is one configured C unit, sized by its share of the executable's code bytes. **Orange** tiles are matching C; **chrome** tiles are intentional low-level asm (SIMD/VU0 helpers kept as assembly and excluded from the C goal); **dark steel** tiles are C still pending. The palette follows the game's logo — Ratchet's bolt orange, Clank's chrome, and the logo's dark riveted plate. The map is regenerated at the end of every decompilation pipeline run; regenerate it locally with:
 
 ```sh
 .venv/bin/python scripts/generate_treemap.py

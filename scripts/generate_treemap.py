@@ -7,15 +7,18 @@ What the map shows
   area is proportional to the unit's executable byte size (the distance to the
   next configured row).
 
-    * green (#40a02b) - unit is matching C: either a promoted path (not under
-      ``src/assembly/``) with a source file in ``src/``, or a legacy exact
-      unit listed in ``config/us/unit_categories.json``. Promotions retag the
-      linker config, so the map keeps up automatically.
-    * blue (#1f6feb) - intentional low-level asm: hand-written SIMD/VU0/MMI
+    * bolt orange (#dd8b30) - unit is matching C: either a promoted path (not
+      under ``src/assembly/``) with a source file in ``src/``, or a legacy
+      exact unit listed in ``config/us/unit_categories.json``. Promotions retag
+      the linker config, so the map keeps up automatically.
+    * chrome (#c3cbd8) - intentional low-level asm: hand-written SIMD/VU0/MMI
       code that is kept as assembly and excluded from the C goal, listed in
       ``config/us/unit_categories.json``.
-    * dark grey (#313244) - C still pending: assembly-backed units whose
+    * dark plate (#2e3644) - C still pending: assembly-backed units whose
       readable C is not byte-exact yet.
+
+  The palette follows the *Ratchet & Clank* (2002) logo: Ratchet's bolt
+  orange, Clank's chrome, and the dark riveted plate behind them.
 
   Units below ``--min-bytes`` are grouped per class so a compact map stays
   readable; the default (0) draws every configured C unit as its own tile and
@@ -42,14 +45,32 @@ import re
 from pathlib import Path
 import sys
 
-GREEN = "#40a02b"
-BLUE = "#1f6feb"
-GREY = "#313244"
+# Ratchet & Clank (2002) logo palette: Ratchet's bolt orange, Clank's chrome,
+# and the dark riveted plate behind them. The canvas stays GitHub dark.
+ORANGE = "#dd8b30"
+CHROME = "#c3cbd8"
+PLATE = "#2e3644"
 BACKGROUND = "#0d1117"
 STROKE = "#0d1117"
-TEXT = "#cdd6f4"
+TEXT = "#e8edf5"
 MUTED = "#a6adc8"
 FONT = "ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+
+# 12x12 hex-nut "bolt" mark (the series' currency) used as the title glyph.
+BOLT_PATH = (
+    "M6 0.7 L11.3 3.5 L11.3 8.5 L6 11.3 L0.7 8.5 L0.7 3.5 Z "
+    "M3.8 6 A2.2 2.2 0 1 1 8.2 6 A2.2 2.2 0 1 1 3.8 6 Z"
+)
+# Tile label inks: dark ink on the bright orange and chrome plates, light ink
+# on the dark pending plate.
+LABEL_FILLS = {
+    "exact": ("#2b1604", "#5d3512"),
+    "asm": ("#10161e", "#4d5768"),
+    "pending": (TEXT, MUTED),
+}
+# Flat plate fills per class; a single soft sheen is laid over the whole map
+# instead of repeating a gradient inside every tile.
+TILE_FILLS = {"exact": ORANGE, "asm": CHROME, "pending": PLATE}
 
 ROW_RE = re.compile(
     r"^\s*-\s*\[(0x[0-9A-Fa-f]+)\s*,\s*([A-Za-z_][A-Za-z0-9_]*)\s*,\s*([^\]]+?)\s*\]\s*$"
@@ -226,6 +247,7 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
     short = base_name(tile)
     kb = f"{tile['size'] / 1000:.2f}kB"
     pct = match_percent(tile)
+    name_fill, detail_fill = LABEL_FILLS.get(tile["category"], (TEXT, MUTED))
 
     def fits(text: str, size: float) -> bool:
         return len(text) * size * 0.56 <= dx - 8
@@ -248,13 +270,13 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
                 continue
             lines.append(
                 f'<text x="{x + 4:.2f}" y="{y + size + 3:.2f}" '
-                f'font-family="{esc(FONT)}" font-size="{size}" fill="{TEXT}" '
-                f'opacity="0.92">{esc(line1)}</text>'
+                f'font-family="{esc(FONT)}" font-size="{size}" fill="{name_fill}">'
+                f'{esc(line1)}</text>'
             )
             if line2:
                 lines.append(
                     f'<text x="{x + 4:.2f}" y="{y + size + 15:.2f}" '
-                    f'font-family="{esc(FONT)}" font-size="{size - 1.5}" fill="{MUTED}">'
+                    f'font-family="{esc(FONT)}" font-size="{size - 1.5}" fill="{detail_fill}">'
                     f'{esc(line2)}</text>'
                 )
             return
@@ -318,66 +340,104 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
         f'aria-label="Decompilation progress treemap">',
         f'<title>{esc(title)}</title>',
         f'<rect width="{width}" height="{height}" fill="{BACKGROUND}"/>',
+        '<defs><linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>'
+        '<stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>'
+        '<stop offset="1" stop-color="#000000" stop-opacity="0.16"/>'
+        '</linearGradient></defs>',
     ]
 
-    # Header: title and totals on the left, legend on the right.
+    # Header: bolt mark and two-tone title on the left, legend on the right.
+    head, separator, tail = title.partition(" - ")
+    ratchet, ampersand, clank = head.partition(" & ")
+    title_spans = f'<tspan fill="{ORANGE}">{esc(ratchet)}</tspan>'
+    if ampersand:
+        title_spans += f'<tspan fill="{CHROME}"> &amp; {esc(clank)}</tspan>'
+    if separator:
+        title_spans += f'<tspan fill="{MUTED}" font-weight="500"> - {esc(tail)}</tspan>'
+    mark = round(10 * text_scale)
     lines.append(
-        f'<text x="{margin_px}" y="{round(24 * scale)}" font-family="{esc(FONT)}" '
-        f'font-size="{14 * text_scale:.1f}" '
-        f'font-weight="600" fill="{TEXT}">{esc(title)}</text>'
+        f'<path d="{BOLT_PATH}" fill="{ORANGE}" fill-rule="evenodd" '
+        f'transform="translate({margin_px} {round(24 * scale) - mark}) scale({mark / 12:.3f})"/>'
+    )
+    lines.append(
+        f'<text x="{margin_px + round(16 * text_scale)}" y="{round(24 * scale)}" '
+        f'font-family="{esc(FONT)}" font-size="{14 * text_scale:.1f}" '
+        f'font-weight="700" letter-spacing="0.2">{title_spans}</text>'
     )
     lines.append(
         f'<text x="{margin_px}" y="{round(41 * scale)}" font-family="{esc(FONT)}" '
         f'font-size="{10 * text_scale:.1f}" '
         f'fill="{MUTED}">{len(exact)} matching C &#183; {len(asm)} intentional asm '
-        f'&#183; {len(pending)} pending &#183; {exact_bytes:,} of {total_bytes:,} bytes '
-        f'({exact_percent:.1f}%; {recoverable_percent:.1f}% of recoverable C)</text>'
+        f'&#183; {len(pending)} pending</text>'
     )
-    legend_x = width - margin_px - round(250 * scale)
     legend_font = 10 * text_scale
     swatch = round(10 * scale)
     gap = round(15 * scale)
     legend_rows = (
-        (GREEN, f"matching C &#183; {exact_bytes:,} B", True),
-        (BLUE, f"intentional asm &#183; {asm_bytes:,} B", True),
-        (GREY, f"pending C &#183; {pending_bytes:,} B", False),
+        (ORANGE, f"matching C &#183; {exact_bytes:,} B"),
+        (CHROME, f"intentional asm &#183; {asm_bytes:,} B"),
+        (PLATE, f"pending C &#183; {pending_bytes:,} B"),
     )
-    # The first two rows share a left edge and hug the right edge as a block;
-    # pending C keeps the column x. 0.56em/char is the same width estimate the
-    # tile labels use.
-    widest = max(
-        len(html.unescape(text)) * legend_font * 0.56
-        for _, text, right_edge in legend_rows if right_edge
-    )
-    group_x = width - margin_px - round(widest) - gap
-    for offset, (color, text, right_edge) in enumerate(legend_rows):
+    # All rows share a left edge and hug the right edge as one block.
+    # 0.56em/char is the same width estimate the tile labels use.
+    widest = max(len(html.unescape(text)) * legend_font * 0.56 for _, text in legend_rows)
+    row_x = width - margin_px - round(widest) - gap
+    for offset, (color, text) in enumerate(legend_rows):
         y = round(14 * scale) + offset * round(17 * scale)
-        row_x = group_x if right_edge else legend_x
         lines.append(f'<rect x="{row_x}" y="{y}" width="{swatch}" height="{swatch}" rx="2" fill="{color}"/>')
         lines.append(
             f'<text x="{row_x + gap}" y="{y + round(9 * scale)}" '
             f'font-family="{esc(FONT)}" font-size="{legend_font:.1f}" fill="{MUTED}">{text}</text>'
         )
 
+    # Hero stat: the goal-tracking percentage, HUD-style.
+    status_x = row_x - round(10 * chrome_scale)
+    lines.append(
+        f'<text x="{status_x}" y="{round(38 * scale)}" text-anchor="end" '
+        f'font-family="{esc(FONT)}" font-size="{28 * text_scale:.1f}" font-weight="800" '
+        f'fill="{ORANGE}">{recoverable_percent:.1f}%</text>'
+    )
+    lines.append(
+        f'<text x="{status_x}" y="{round(52 * scale)}" text-anchor="end" '
+        f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}">'
+        f'of recoverable C decompiled</text>'
+    )
+
+    placed = []
     for tile, rect in zip(order, rects):
         x, y = rect["x"], rect["y"]
         dx, dy = max(rect["dx"], 0.0), max(rect["dy"], 0.0)
         if dx <= 0 or dy <= 0:
             continue
-        color = {"exact": GREEN, "asm": BLUE, "pending": GREY}[tile["category"]]
+        fill = TILE_FILLS[tile["category"]]
         dash = ' stroke-dasharray="3 2"' if tile.get("group") else ""
         lines.append(
             f'<rect x="{x:.2f}" y="{y:.2f}" width="{dx:.2f}" height="{dy:.2f}" rx="1" '
-            f'fill="{color}" stroke="{STROKE}" stroke-width="0.6"{dash} '
+            f'fill="{fill}" stroke="{STROKE}" stroke-width="0.6"{dash} '
             f'shape-rendering="geometricPrecision"/>'
         )
+        placed.append((tile, x, y, dx, dy))
+
+    # One soft light across the whole plate: a single gradient reads as depth,
+    # where a gradient inside every tile reads as noise.
+    lines.append(
+        f'<rect x="{map_x}" y="{map_y}" width="{map_dx}" height="{map_dy}" fill="url(#sheen)"/>'
+    )
+    for tile, x, y, dx, dy in placed:
         draw_tile_label(lines, tile, x, y, dx, dy)
 
     generated = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     separator_y = height - footer_px
     lines.append(
         f'<line x1="{margin_px}" y1="{separator_y:.1f}" x2="{width - margin_px}" '
-        f'y2="{separator_y:.1f}" stroke="{GREY}" stroke-width="1" opacity="0.8"/>'
+        f'y2="{separator_y:.1f}" stroke="{PLATE}" stroke-width="1" opacity="0.8"/>'
+    )
+    lines.append(
+        f'<text x="{margin_px}" y="{height - round(20 * scale)}" '
+        f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}" opacity="0.85">'
+        f'{exact_bytes:,} of {total_bytes:,} configured bytes are matching C &#183; '
+        f'{exact_percent:.1f}% of all configured code, {recoverable_percent:.1f}% of recoverable C</text>'
     )
     lines.append(
         f'<text x="{width - margin_px}" y="{height - round(8 * scale)}" text-anchor="end" '
@@ -400,8 +460,10 @@ def main(argv=None) -> int:
     parser.add_argument("--width", type=int, default=800)
     parser.add_argument("--height", type=int, default=1600)
     parser.add_argument("--margin", type=int, default=10)
-    parser.add_argument("--header", type=int, default=48)
-    parser.add_argument("--footer", type=int, default=22)
+    parser.add_argument("--header", type=int, default=62,
+                        help="header band above the map; must fit the three legend rows")
+    parser.add_argument("--footer", type=int, default=34,
+                        help="footer band below the map; fits the two footer lines")
     parser.add_argument("--min-bytes", type=int, default=0,
                         help="units below this size are grouped per class; 0 (default) "
                              "draws every unit as its own tile")
