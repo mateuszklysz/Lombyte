@@ -1,34 +1,31 @@
 /*
-STATE: C_NON_MATCHING
+STATE: C_EXACT
 SYMBOL: FUN_0023a3b8
 SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+DECISION: promoted
 */
 
 #include "types.h"
-#include "asm.h"
 
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0023a3b8/FUN_0023a3b8.s", FUN_0023a3b8);
-#else
-#include "types.h"
-extern s32 D_00161208;
+extern s32 D_00161208[];
 extern s32 D_0016120C;
-extern s32 func_001188A0();
-extern s32 func_001188E0();
+extern s32 ChangeThreadPriority();
+extern s32 GetThreadId();
 extern s32 func_0023A460();
 extern s32 func_0023A7C0();
 extern s32 func_0023AA68();
+
 s32 FUN_0023a3b8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    D_00161208 = arg2;
+    D_00161208[0] = arg2;
     D_0016120C = arg3;
-    func_001188A0(func_001188E0(), 1);
+    ChangeThreadPriority(GetThreadId(), 1);
     if (func_0023A7C0(arg0, arg1, arg4) != 0) {
         func_0023A460(D_0016120C + 0xD9048, D_0016120C, D_0016120C + 0xD9040);
     }
     func_0023AA68();
-    D_00161208 = 0;
-    D_0016120C = 0;
+    *(s32 *)0x161208 = 0;
+    *(s32 *)0x16120C = 0;
     return 0;
 }
-#endif /* NON_MATCHING */
+
+extern s32 func_0023A3B8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) __attribute__((alias("FUN_0023a3b8")));

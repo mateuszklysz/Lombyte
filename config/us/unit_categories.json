@@ -1,7 +1,7 @@
 {
   "schema": "rnc-unit-categories-v1",
   "description": "Derived unit categories needed by scripts/generate_treemap.py. Canonical audits live in the tooling repository.",
-  "generated": "{'config':",
+  "generated": "2026-09-11",
   "exact_under_assembly": [
     "assembly/ee/clear_dma_queue_entry",
     "assembly/textbin/audio_dec_begin_put",
@@ -137,7 +137,6 @@
     "assembly/textbin/fun_00234f98",
     "assembly/textbin/fun_00235be8",
     "assembly/textbin/fun_002370c0",
-    "assembly/textbin/fun_0023b540",
     "assembly/textbin/sub_00233e00",
     "assembly/textbin/tfrag_proc",
     "assembly/textbin/vblank_handler"

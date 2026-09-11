@@ -185,6 +185,16 @@ SN_FLAG_UNITS = {
     # Two independent tiny-FPU field loads must stay in retail's order; the
     # prepass scheduler swaps them under default SN.
     "fun_0022c7e8": "-fno-schedule-insns",
+    # 0x160Exx/0x1612xx video-decoder globals: retail folds absolute loads as
+    # `lui rd,%hi; lw rd,%lo(rd)` and absolute $at stores; the default split
+    # sequence differs. Non-small (array) declarations pin the absolute form.
+    "fun_0023a790": "-mno-split-addresses",
+    "fun_0023aba0": "-mno-split-addresses",
+    "fun_0023a3b8": "-mno-split-addresses",
+    "fun_0023d0a8": "-mno-split-addresses",
+    "fun_001f4248": "-mno-split-addresses",
+    "fun_0023b540": "-mno-split-addresses",
+    "fun_001f21c0": "-mno-split-addresses",
 }
 
 
