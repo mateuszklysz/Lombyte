@@ -3,13 +3,13 @@
 <title>Ratchet &amp; Clank - decompilation progress</title>
 <rect width="800" height="1600" fill="#0d1117"/>
 <text x="10" y="24" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="14.0" font-weight="600" fill="#cdd6f4">Ratchet &amp; Clank - decompilation progress</text>
-<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">335 matching C &#183; 133 intentional asm &#183; 867 pending &#183; 34,936 of 430,720 bytes (8.1%; 9.2% of recoverable C)</text>
+<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">335 matching C &#183; 138 intentional asm &#183; 862 pending &#183; 34,936 of 430,720 bytes (8.1%; 9.2% of recoverable C)</text>
 <rect x="540" y="14" width="10" height="10" rx="2" fill="#40a02b"/>
 <text x="555" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 34,936 B</text>
 <rect x="540" y="31" width="10" height="10" rx="2" fill="#1f6feb"/>
-<text x="555" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 51,388 B</text>
+<text x="555" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 52,492 B</text>
 <rect x="540" y="48" width="10" height="10" rx="2" fill="#313244"/>
-<text x="555" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 344,396 B</text>
+<text x="555" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 343,292 B</text>
 <rect x="10.00" y="48.00" width="141.95" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="14.00" y="61.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">textbin/fun_002093d8</text>
 <text x="14.00" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.10kB · 0.00%</text>
@@ -506,7 +506,7 @@
 <rect x="672.93" y="991.72" width="29.27" height="31.22" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="702.20" y="991.72" width="29.27" height="31.22" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="731.46" y="991.72" width="29.27" height="31.22" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="760.73" y="991.72" width="29.27" height="31.22" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="760.73" y="991.72" width="29.27" height="31.22" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="226.51" y="1022.95" width="29.29" height="30.82" rx="1" fill="#40a02b" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="226.51" y="1053.77" width="29.29" height="30.82" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="226.51" y="1084.59" width="29.29" height="30.82" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -583,7 +583,7 @@
 <rect x="284.54" y="1106.58" width="27.30" height="27.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="284.54" y="1134.00" width="27.30" height="27.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="284.54" y="1161.43" width="27.30" height="27.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="284.54" y="1188.86" width="27.30" height="27.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="284.54" y="1188.86" width="27.30" height="27.43" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="284.54" y="1216.29" width="27.30" height="27.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="284.54" y="1243.71" width="27.30" height="27.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="284.54" y="1271.14" width="27.30" height="27.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -647,7 +647,7 @@
 <rect x="615.65" y="1105.47" width="24.97" height="24.69" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="640.62" y="1105.47" width="24.97" height="24.69" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="665.59" y="1105.47" width="24.97" height="24.69" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="690.56" y="1105.47" width="24.97" height="24.69" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="690.56" y="1105.47" width="24.97" height="24.69" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="715.53" y="1105.47" width="24.97" height="24.69" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="740.50" y="1105.47" width="24.97" height="24.69" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="765.48" y="1105.47" width="24.52" height="24.69" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -769,7 +769,7 @@
 <rect x="406.86" y="1343.71" width="21.70" height="20.81" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="406.86" y="1364.51" width="21.70" height="20.81" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="406.86" y="1385.32" width="21.70" height="20.30" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="406.86" y="1405.61" width="21.70" height="20.30" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="406.86" y="1405.61" width="21.70" height="20.30" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="406.86" y="1425.91" width="21.70" height="20.30" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="406.86" y="1446.21" width="21.70" height="20.30" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="406.86" y="1466.51" width="21.70" height="20.30" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -921,7 +921,7 @@
 <rect x="666.90" y="1275.91" width="17.76" height="17.98" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="684.66" y="1275.91" width="17.76" height="17.98" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="702.42" y="1275.91" width="17.76" height="17.98" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="720.18" y="1275.91" width="17.76" height="17.98" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="720.18" y="1275.91" width="17.76" height="17.98" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="737.94" y="1275.91" width="17.76" height="17.98" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="755.70" y="1275.91" width="17.15" height="17.98" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="772.85" y="1275.91" width="17.15" height="17.98" rx="1" fill="#40a02b" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
