@@ -20,7 +20,7 @@ diff: {"code_gap_percent": 88.529411, "current_instruction_mismatch_count": 16, 
 NON_MATCHING FALLBACK (Markdown):
 - direct code match: 0.0%
 - blocker classes: re-seeded wave-6
-- canonical source: /mnt/wsl/Projects/RncDecomp/src/textbin/fun_002050a0.c
+- canonical source: src/textbin/fun_002050a0.c
 - assembly oracle: config/us/expected/asm/assembly/textbin/fun_002050a0/FUN_002050a0.s
 */
 

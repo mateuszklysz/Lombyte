@@ -22,7 +22,7 @@ NON_MATCHING FALLBACK (Markdown):
 - direct code match: 87.3200% (threshold > 0.0%)
 - blocker classes: register-allocation, stack-alignment, delay-slot-scheduling
 - structural blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.
-- canonical source: /mnt/d/rncdecomp/src/assembly/textbin/fun_0023d2d8.c
+- canonical source: src/textbin/fun_0023d2d8.c
 - assembly oracle: config/us/expected/asm/assembly/textbin/fun_0023d2d8/FUN_0023d2d8.s
 */
 

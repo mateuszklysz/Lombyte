@@ -22,7 +22,7 @@ NON_MATCHING FALLBACK (Markdown):
 - direct code match: 48.5294% (threshold > 0.0%)
 - blocker classes: register-allocation, stack-alignment, delay-slot-scheduling
 - structural blocker: Breadth C export: exact code generation is not yet proven; remaining differences are retained as register-allocation, stack-alignment, or delay-slot scheduling blockers while the assembly oracle remains available for exact builds.
-- canonical source: /mnt/d/rncdecomp/src/assembly/sdk/library/_decodeOrSkip.c
+- canonical source: src/sdk/library/_decodeOrSkip.c
 - assembly oracle: config/us/expected/asm/assembly/sdk/library/_decodeOrSkip/_decodeOrSkip.s
 */
 
