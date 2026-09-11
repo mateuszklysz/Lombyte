@@ -158,6 +158,11 @@ HIMURO_FLAG_UNITS = {
     "sce_sif_init_iop_heap": "-fno-schedule-insns",
     # Absolute-store macros and the final GP store's delay-slot placement.
     "initialize_global_state_entry": "-mno-split-addresses -fno-schedule-insns",
+    # Retail writes the absolute global through the assembler `$at` macro
+    # (`lui $1,%hi; sw ...,%lo($1)`); the default split-address sequence uses a
+    # general register instead.  Validated 100/100/100 under Himuro + flag.
+    "clear_stage_state_flag": "-mno-split-addresses",
+    "initialize_streaming_state": "-mno-split-addresses",
 }
 
 
