@@ -7,18 +7,6 @@ DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gat
 BLOCKER: none
 */
 
-/*
-AUTO-DIAGNOSIS
-symbol: InitThread
-unit: assembly/sdk/library/InitThread
-code_percent: 99.8491
-function_percent: 99.8491
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "212", "object": "InitThread.c.o", "text_size": "212"}
-current: {"code_percent": 99.84906, "data_percent": 100.0, "function_percent": 99.84906, "function_size": "212", "object": "candidate.o", "text_size": "212"}
-diff: {"code_gap_percent": 0.15094, "current_instruction_mismatch_count": 8, "data_gap_percent": 0.0, "function_gap_percent": 0.15094, "instruction_mismatches": [{"current": "addiu sp, sp, -0x70", "expected": "addiu sp, sp, -0x80", "kind": "DIFF_ARG_MISMATCH"}, {"current": "sd s0, 0x40(sp)", "expected": "sd s0, 0x50(sp)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "sd ra, 0x60(sp)", "expected": "sd ra, 0x70(sp)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "sd s1, 0x50(sp)", "expected": "sd s1, 0x60(sp)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "ld ra, 0x60(sp)", "expected": "ld ra, 0x70(sp)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "ld s1, 0x50(sp)", "expected": "ld s1, 0x60(sp)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "ld s0, 0x40(sp)", "expected": "ld s0, 0x50(sp)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "addiu sp, sp, 0x70", "expected": "addiu sp, sp, 0x80", "kind": "DIFF_ARG_MISMATCH"}], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 8}
-*/
-
 /* InitThread i4: create the kernel patch sema and top-level thread. */
 
 #include "types.h"

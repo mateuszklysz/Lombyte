@@ -145,6 +145,20 @@ class SourceHeaderTests(unittest.TestCase):
         self.assertEqual(out, expected)
         self.assertEqual(self.stamp.normalize(out), out)
 
+    def test_normalize_drops_candidate_metadata(self):
+        text = (
+            self.BLOCK +
+            "/*\nAUTO-DIAGNOSIS\nsymbol: Foo\ncode_percent: 76.5\n*/\n\n"
+            "/*\nAUTO-REFINEMENT:\n- attempt: 1\n- objdiff: {}\n*/\n\n"
+            "/*\nAUTO-REFINEMENT:\n- attempt: 2\n*/\n\n"
+            "int Foo(void) { return 1; }\n")
+        out = self.stamp.normalize(text)
+        self.assertNotIn("AUTO-DIAGNOSIS", out)
+        self.assertNotIn("AUTO-REFINEMENT", out)
+        self.assertTrue(out.startswith("/*\nSTATE: C_EXACT"))
+        self.assertIn("int Foo(void) { return 1; }\n", out)
+        self.assertEqual(self.stamp.normalize(out), out)
+
     def test_check_cli_fails_on_missing_block(self):
         with tempfile.TemporaryDirectory() as name:
             path = Path(name) / "x.c"

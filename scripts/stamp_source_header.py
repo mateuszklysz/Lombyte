@@ -49,7 +49,13 @@ from pathlib import Path
 FIELD_ORDER = ("STATE", "SYMBOL", "SCORE", "COMPILER", "DECISION", "BLOCKER", "NOTE")
 REQUIRED_FIELDS = ("STATE", "SYMBOL", "SCORE", "DECISION")
 FORBIDDEN_FIELDS = ("EVIDENCE",)
-LEGACY_PREFIXES = ("NON_MATCHING FALLBACK", "C_EXACT (byte-proven")
+LEGACY_PREFIXES = (
+    "NON_MATCHING FALLBACK",
+    "C_EXACT (byte-proven",
+    # Candidate/refinement tooling metadata; never part of the public source.
+    "AUTO-DIAGNOSIS",
+    "AUTO-REFINEMENT",
+)
 LEAD_CHARS = 4000
 
 COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)

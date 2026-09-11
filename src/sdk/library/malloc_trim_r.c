@@ -15,18 +15,6 @@ BLOCKER: none
 
 /* Source: newlib / dlmalloc. */
 
-/*
-AUTO-DIAGNOSIS
-symbol: _malloc_trim_r
-unit: assembly/sdk/library/malloc_trim_r
-code_percent: 88.5714
-function_percent: 88.5714
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "364", "object": "malloc_trim_r.c.o", "text_size": "364"}
-current: {"code_percent": 88.57143, "data_percent": 100.0, "function_percent": 88.57143, "function_size": "352", "object": "candidate.o", "text_size": "352"}
-diff: {"code_gap_percent": 11.42857, "current_instruction_mismatch_count": 20, "data_gap_percent": 0.0, "function_gap_percent": 11.42857, "instruction_mismatches": [{"current": "lui v0, %hi(D_0012F788-0x6)", "expected": "lui v0, %hi(D_0012F788)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "addiu s4, v0, %lo(D_0012F788-0x6)", "expected": "addiu s4, v0, %lo(D_0012F788)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "lw a1, 0x8(s4)", "expected": "lw a2, 0x8(s4)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "daddu a0, v0, zero", "expected": "daddu a1, v0, zero", "kind": "DIFF_ARG_MISMATCH"}, {"current": "subu s1, a0, a1", "expected": "subu s1, a1, a2", "kind": "DIFF_ARG_MISMATCH"}, {"current": null, "expected": "lui a0, %hi(D_0012FBA0)", "kind": "DIFF_DELETE"}, {"current": null, "expected": "addiu v0, zero, 0x1", "kind": "DIFF_DELETE"}, {"current": "lw v1, %gp_rel(D_0012FBA0)(gp)", "expected": "lw v1, %lo(D_0012FBA0)(a0)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "addiu v0, zero, 0x1", "expected": null, "kind": "DIFF_INSERT"}, {"current": "subu v1, a0, v1", "expected": "lui a0, %hi(D_0012FBB8)", "kind": "DIFF_REPLACE"}, {"current": null, "expected": "subu v1, a1, v1", "kind": "DIFF_DELETE"}, {"current": "sw v1, %gp_rel(D_0012FBB8)(gp)", "expected": "sw v1, %lo(D_0012FBB8)(a0)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "sw v0, 0x4(a1)", "expected": "sw v0, 0x4(a2)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "lw v1, %gp_rel(D_0012FBB8)(gp)", "expected": null, "kind": "DIFF_INSERT"}, {"current": null, "expected": "lui v1, %hi(D_0012FBB8)", "kind": "DIFF_DELETE"}, {"current": null, "expected": "daddu a0, s2, zero", "kind": "DIFF_DELETE"}, {"current": null, "expected": "lw v0, %lo(D_0012FBB8)(v1)", "kind": "DIFF_DELETE"}, {"current": "subu v1, v1, s3", "expected": "subu v0, v0, s3", "kind": "DIFF_ARG_MISMATCH"}, {"current": "daddu a0, s2, zero", "expected": null, "kind": "DIFF_INSERT"}, {"current": "sw v1, %gp_rel(D_0012FBB8)(gp)", "expected": "sw v0, %lo(D_0012FBB8)(v1)", "kind": "DIFF_ARG_MISMATCH"}], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 20}
-*/
-
 /* _malloc_trim_r t2: newlib mallocr.c malloc_trim with array externs (absolute addressing). */
 
 #include "types.h"

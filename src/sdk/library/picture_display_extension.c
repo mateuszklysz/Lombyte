@@ -7,18 +7,6 @@ DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gat
 BLOCKER: none
 */
 
-/*
-AUTO-DIAGNOSIS
-symbol: _pictureDisplayExtension
-unit: assembly/sdk/library/picture_display_extension
-code_percent: 89.0984
-function_percent: 89.0984
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "244", "object": "picture_display_extension.c.o", "text_size": "244"}
-current: {"code_percent": 89.09836, "data_percent": 100.0, "function_percent": 89.09836, "function_size": "244", "object": "candidate.o", "text_size": "244"}
-diff: {"code_gap_percent": 10.90164, "current_instruction_mismatch_count": 8, "data_gap_percent": 0.0, "function_gap_percent": 10.90164, "instruction_mismatches": [{"current": "beqz v0, 0x68", "expected": "beqz v0, 0x58", "kind": "DIFF_ARG_MISMATCH"}, {"current": "bnel v1, v0, 0x6c", "expected": "beql v1, v0, 0x60", "kind": "DIFF_REPLACE"}, {"current": null, "expected": "lw v0, 0x184(s1)", "kind": "DIFF_DELETE"}, {"current": null, "expected": "b 0x68", "kind": "DIFF_DELETE"}, {"current": "lw v0, 0x184(s1)", "expected": null, "kind": "DIFF_INSERT"}, {"current": "b 0x6c", "expected": null, "kind": "DIFF_INSERT"}, {"current": "addiu s3, zero, 0x1", "expected": null, "kind": "DIFF_INSERT"}, {"current": null, "expected": "nop ", "kind": "DIFF_DELETE"}], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 8}
-*/
-
 /* _pictureDisplayExtension p5: MPEG2 picture display extension offsets. */
 
 #include "types.h"

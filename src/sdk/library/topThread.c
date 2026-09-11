@@ -7,18 +7,6 @@ DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gat
 BLOCKER: none
 */
 
-/*
-AUTO-DIAGNOSIS
-symbol: topThread
-unit: assembly/sdk/library/topThread
-code_percent: 100.0000
-function_percent: 100.0000
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "216", "object": "topThread.c.o", "text_size": "216"}
-current: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "216", "object": "candidate.o", "text_size": "216"}
-diff: {"code_gap_percent": 0.0, "current_instruction_mismatch_count": 0, "data_gap_percent": 0.0, "function_gap_percent": 0.0, "instruction_mismatches": [], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 0}
-*/
-
 /* topThread t1: kernel thread dispatcher loop. */
 
 #include "types.h"

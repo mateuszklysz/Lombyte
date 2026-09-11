@@ -15,18 +15,6 @@ BLOCKER: none
 
 /* Source: newlib / dlmalloc. */
 
-/*
-AUTO-DIAGNOSIS
-symbol: malloc_extend_top
-unit: assembly/sdk/library/malloc_extend_top
-code_percent: 96.4430
-function_percent: 96.4430
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "596", "object": "malloc_extend_top.c.o", "text_size": "596"}
-current: {"code_percent": 96.442955, "data_percent": 100.0, "function_percent": 96.442955, "function_size": "600", "object": "candidate.o", "text_size": "600"}
-diff: {"code_gap_percent": 3.557045, "current_instruction_mismatch_count": 15, "data_gap_percent": 0.0, "function_gap_percent": 3.557045, "instruction_mismatches": [{"current": "andi v1, v0, 0xf", "expected": "andi a1, v0, 0xf", "kind": "DIFF_ARG_MISMATCH"}, {"current": "beqz v1, 0x13c", "expected": "beqz a1, 0x134", "kind": "DIFF_ARG_MISMATCH"}, {"current": "dsubu v0, v0, v1", "expected": "subu s0, v0, a1", "kind": "DIFF_REPLACE"}, {"current": "dsll32 s0, v0, 0", "expected": null, "kind": "DIFF_INSERT"}, {"current": "dsra32 s0, s0, 0", "expected": null, "kind": "DIFF_INSERT"}, {"current": "lui a0, %hi(D_0012FBA8)", "expected": "lui a1, %hi(D_0012FBA8)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "lwu v1, %lo(D_0012FBB8)(s8)", "expected": "lw v1, %lo(D_0012FBB8)(s8)", "kind": "DIFF_REPLACE"}, {"current": "ld v0, %lo(D_0012FBA8)(a0)", "expected": "ld v0, %lo(D_0012FBA8)(a1)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "bnezl v0, 0x214", "expected": "beqz v0, 0x210", "kind": "DIFF_REPLACE"}, {"current": null, "expected": "daddu a0, v1, zero", "kind": "DIFF_DELETE"}, {"current": "sd v1, %lo(D_0012FBA8)(a0)", "expected": "sd v1, %lo(D_0012FBA8)(a1)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "lui a0, %hi(D_0012FBB0)", "expected": "lui v1, %hi(D_0012FBB0)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "ld v0, %lo(D_0012FBB0)(a0)", "expected": "ld v0, %lo(D_0012FBB0)(v1)", "kind": "DIFF_ARG_MISMATCH"}, {"current": "sltu v0, v0, v1", "expected": "sltu v0, v0, a0", "kind": "DIFF_ARG_MISMATCH"}, {"current": "sd v1, %lo(D_0012FBB0)(a0)", "expected": "sd a0, %lo(D_0012FBB0)(v1)", "kind": "DIFF_ARG_MISMATCH"}], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 15}
-*/
-
 /* malloc_extend_top e2: newlib mallocr.c malloc_extend_top adapted to the game ABI. */
 
 #include "types.h"

@@ -7,18 +7,6 @@ DECISION: promoted
 BLOCKER: none
 */
 
-/*
-AUTO-DIAGNOSIS
-symbol: _peepBit
-unit: assembly/sdk/library/_peepBit
-code_percent: 100.0000
-function_percent: 100.0000
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "264", "object": "_peepBit.c.o", "text_size": "264"}
-current: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "264", "object": "candidate.o", "text_size": "264"}
-diff: {"code_gap_percent": 0.0, "current_instruction_mismatch_count": 0, "data_gap_percent": 0.0, "function_gap_percent": 0.0, "instruction_mismatches": [], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 0}
-*/
-
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

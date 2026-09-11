@@ -5,14 +5,14 @@
 <defs><linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/><stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.16"/></linearGradient></defs>
 <path d="M6 0.7 L11.3 3.5 L11.3 8.5 L6 11.3 L0.7 8.5 L0.7 3.5 Z M3.8 6 A2.2 2.2 0 1 1 8.2 6 A2.2 2.2 0 1 1 3.8 6 Z" fill="#dd8b30" fill-rule="evenodd" transform="translate(10 14) scale(0.833)"/>
 <text x="26" y="24" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="14.0" font-weight="700" letter-spacing="0.2"><tspan fill="#dd8b30">Ratchet</tspan><tspan fill="#c3cbd8"> &amp; Clank</tspan><tspan fill="#a6adc8" font-weight="500"> - decompilation progress</tspan></text>
-<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">405 matching C &#183; 131 intentional asm &#183; 799 pending</text>
+<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">409 matching C &#183; 131 intentional asm &#183; 795 pending</text>
 <rect x="629" y="14" width="10" height="10" rx="2" fill="#dd8b30"/>
-<text x="644" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 53,172 B</text>
+<text x="644" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 54,328 B</text>
 <rect x="629" y="31" width="10" height="10" rx="2" fill="#c3cbd8"/>
 <text x="644" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 40,768 B</text>
 <rect x="629" y="48" width="10" height="10" rx="2" fill="#2e3644"/>
-<text x="644" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 336,780 B</text>
-<text x="619" y="38" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="28.0" font-weight="800" fill="#dd8b30">13.6%</text>
+<text x="644" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 335,624 B</text>
+<text x="619" y="38" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="28.0" font-weight="800" fill="#dd8b30">13.9%</text>
 <text x="619" y="52" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8">of recoverable C decompiled</text>
 <rect x="10.00" y="62.00" width="141.95" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="151.95" y="62.00" width="139.53" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -330,7 +330,7 @@
 <rect x="195.54" y="1402.77" width="32.56" height="30.91" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="195.54" y="1433.68" width="32.56" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="195.54" y="1464.26" width="32.56" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="195.54" y="1494.84" width="32.56" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="195.54" y="1494.84" width="32.56" height="30.58" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="195.54" y="1525.42" width="32.56" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="228.10" y="962.03" width="32.25" height="30.87" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="260.35" y="962.03" width="31.90" height="30.87" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -355,7 +355,7 @@
 <rect x="288.25" y="992.91" width="30.08" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="318.33" y="992.91" width="29.72" height="30.58" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="348.05" y="992.91" width="29.72" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="377.77" y="992.91" width="29.72" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="377.77" y="992.91" width="29.72" height="30.58" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="407.50" y="992.91" width="29.72" height="30.58" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="437.22" y="992.91" width="29.72" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="466.94" y="992.91" width="29.72" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -438,7 +438,7 @@
 <rect x="285.47" y="1390.75" width="26.85" height="27.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="285.47" y="1418.56" width="26.85" height="27.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="285.47" y="1446.37" width="26.85" height="27.41" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="285.47" y="1473.78" width="26.85" height="27.41" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="285.47" y="1473.78" width="26.85" height="27.41" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="285.47" y="1501.19" width="26.85" height="27.41" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="285.47" y="1528.59" width="26.85" height="27.41" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="312.32" y="1052.19" width="26.98" height="27.28" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -575,7 +575,7 @@
 <rect x="385.26" y="1266.61" width="21.84" height="22.79" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="385.26" y="1289.41" width="21.84" height="22.79" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="385.26" y="1312.20" width="21.84" height="22.30" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="385.26" y="1334.50" width="21.84" height="22.30" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="385.26" y="1334.50" width="21.84" height="22.30" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="385.26" y="1356.80" width="21.84" height="22.30" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="385.26" y="1379.10" width="21.84" height="22.30" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="385.26" y="1401.39" width="21.84" height="22.30" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -1496,6 +1496,6 @@
 <text x="199.54" y="1256.88" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#2b1604">lshift</text>
 <text x="455.39" y="973.03" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#2b1604">dpdiv</text>
 <line x1="10" y1="1566.0" x2="790" y2="1566.0" stroke="#2e3644" stroke-width="1" opacity="0.8"/>
-<text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">53,172 of 430,720 configured bytes are matching C &#183; 12.3% of all configured code, 13.6% of recoverable C</text>
+<text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">54,328 of 430,720 configured bytes are matching C &#183; 12.6% of all configured code, 13.9% of recoverable C</text>
 <text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-11 &#183; scripts/generate_treemap.py</text>
 </svg>

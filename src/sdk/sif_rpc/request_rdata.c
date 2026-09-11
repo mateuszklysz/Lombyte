@@ -7,18 +7,6 @@ DECISION: promoted
 BLOCKER: none
 */
 
-/*
-AUTO-DIAGNOSIS
-symbol: _request_rdata
-unit: assembly/sdk/sif_rpc/request_rdata
-code_percent: 100.0000
-function_percent: 100.0000
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "96", "object": "request_rdata.c.o", "text_size": "96"}
-current: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "96", "object": "candidate.o", "text_size": "96"}
-diff: {"code_gap_percent": 0.0, "current_instruction_mismatch_count": 0, "data_gap_percent": 0.0, "function_gap_percent": 0.0, "instruction_mismatches": [], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 0}
-*/
-
 typedef signed char s8; typedef unsigned char u8; typedef signed short s16; typedef unsigned short u16; typedef signed int s32; typedef unsigned int u32; typedef signed long long s64; typedef unsigned long long u64; typedef float f32; typedef double f64;
 struct M2c_arg0 {
     u8 pad_0[0x14];

@@ -146,6 +146,11 @@ SDK_COMPILER_UNITS = {
 # (normalized) unit names resolve to the same retail bytes.
 RODATA_OVERLAYS = {
     "_dtoa_r": (0x152330, 0x532B0),
+    # _getpic's switch emits a 5-entry jump table (0x14 bytes) that retail
+    # stored at 0x153AA0 inside core_rdata; the expected object references it
+    # as the splat symbol jtbl_00153AA0, so the compiled .rodata must land at
+    # the same VMA/file offset for the relocations to resolve content-equal.
+    "_getpic": (0x153AA0, 0x54A20),
 }
 
 # Per-unit extra compiler flags for the Himuro (native EE-GCC 2.9) units whose

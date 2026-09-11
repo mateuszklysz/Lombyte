@@ -7,21 +7,10 @@ DECISION: promoted
 BLOCKER: none
 */
 
-/*
-AUTO-DIAGNOSIS
-symbol: InitAlarm
-unit: assembly/sdk/library/init_alarm
-code_percent: 99.8113
-function_percent: 99.8113
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "212", "object": "init_alarm.c.o", "text_size": "212"}
-current: {"code_percent": 99.81132, "data_percent": 100.0, "function_percent": 99.81132, "function_size": "212", "object": "candidate.o", "text_size": "212"}
-diff: {"code_gap_percent": 0.18868, "current_instruction_mismatch_count": 2, "data_gap_percent": 0.0, "function_gap_percent": 0.18868, "instruction_mismatches": [{"current": "sltiu v1, s2, 0x8", "expected": "sltiu v0, s2, 0x8", "kind": "DIFF_ARG_MISMATCH"}, {"current": "bnezl v1, 0x98", "expected": "bnezl v0, 0x98", "kind": "DIFF_ARG_MISMATCH"}], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 2}
-*/
-
 /* InitAlarm a11: apply the timer/syscall patches when needed.
  * Hypothesis: declaring the return-ignored patch installer void frees v0
  * for the loop-test sltiu (retail v0; a2 ties at v1). */
+
 #include "types.h"
 
 extern void Rfu116SetSyscallTail();

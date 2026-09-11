@@ -7,18 +7,6 @@ DECISION: promoted
 BLOCKER: none
 */
 
-/*
-AUTO-DIAGNOSIS
-symbol: _request_bind
-unit: assembly/sdk/sif_rpc/request_bind
-code_percent: 100.0000
-function_percent: 100.0000
-data_percent: 100.0000
-expected: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "176", "object": "request_bind.c.o", "text_size": "176"}
-current: {"code_percent": 100.0, "data_percent": 100.0, "function_percent": 100.0, "function_size": "176", "object": "candidate.o", "text_size": "176"}
-diff: {"code_gap_percent": 0.0, "current_instruction_mismatch_count": 0, "data_gap_percent": 0.0, "function_gap_percent": 0.0, "instruction_mismatches": [], "order_only": false, "row_alignment": "independently filtered streams, not aligned instruction pairs", "scope": "selected-symbol; inspect raw report for siblings and data", "target_instruction_mismatch_count": 0}
-*/
-
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;
