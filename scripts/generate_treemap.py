@@ -334,17 +334,29 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
         f'({exact_percent:.1f}%; {recoverable_percent:.1f}% of recoverable C)</text>'
     )
     legend_x = width - margin_px - round(250 * scale)
-    for offset, (color, text) in enumerate((
-        (GREEN, f"matching C &#183; {exact_bytes:,} B"),
-        (BLUE, f"intentional asm &#183; {asm_bytes:,} B"),
-        (GREY, f"pending C &#183; {pending_bytes:,} B"),
-    )):
+    legend_font = 10 * text_scale
+    swatch = round(10 * scale)
+    gap = round(15 * scale)
+    legend_rows = (
+        (GREEN, f"matching C &#183; {exact_bytes:,} B", True),
+        (BLUE, f"intentional asm &#183; {asm_bytes:,} B", True),
+        (GREY, f"pending C &#183; {pending_bytes:,} B", False),
+    )
+    # The first two rows share a left edge and hug the right edge as a block;
+    # pending C keeps the column x. 0.56em/char is the same width estimate the
+    # tile labels use.
+    widest = max(
+        len(html.unescape(text)) * legend_font * 0.56
+        for _, text, right_edge in legend_rows if right_edge
+    )
+    group_x = width - margin_px - round(widest) - gap
+    for offset, (color, text, right_edge) in enumerate(legend_rows):
         y = round(14 * scale) + offset * round(17 * scale)
-        swatch = round(10 * scale)
-        lines.append(f'<rect x="{legend_x}" y="{y}" width="{swatch}" height="{swatch}" rx="2" fill="{color}"/>')
+        row_x = group_x if right_edge else legend_x
+        lines.append(f'<rect x="{row_x}" y="{y}" width="{swatch}" height="{swatch}" rx="2" fill="{color}"/>')
         lines.append(
-            f'<text x="{legend_x + round(15 * scale)}" y="{y + round(9 * scale)}" '
-            f'font-family="{esc(FONT)}" font-size="{10 * text_scale:.1f}" fill="{MUTED}">{text}</text>'
+            f'<text x="{row_x + gap}" y="{y + round(9 * scale)}" '
+            f'font-family="{esc(FONT)}" font-size="{legend_font:.1f}" fill="{MUTED}">{text}</text>'
         )
 
     for tile, rect in zip(order, rects):
