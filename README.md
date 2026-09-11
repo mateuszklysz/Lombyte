@@ -209,6 +209,6 @@ For build issues, include your operating system, tool versions, command, and rel
 
 ## License
 
-Repository code is distributed under the [MIT License](LICENSE). The original game's assets, logo, and trademarks belong to their respective owners and are not covered by this license. This is an independent community project, unaffiliated with Insomniac Games or Sony Interactive Entertainment.
+Repository code is distributed under the [MIT License](LICENSE); the license covers the project's own tooling and documentation. This is an independent community project, unaffiliated with Insomniac Games or Sony Interactive Entertainment.
 
-The Lombyte emblem in [`assets/`](assets/) is the project's original artwork; the original game's assets, logo, and trademarks belong to their respective owners.
+The Lombyte emblem in [`assets/`](assets/) is the project's original artwork.
