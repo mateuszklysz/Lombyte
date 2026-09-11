@@ -1,0 +1,47 @@
+/* STATE: C_EXACT
+ * SYMBOL: __sbprintf
+ * SCORE: code=100 functions=100 data=100 complete_data=100
+ * COMPILER: himuro-O2
+ * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+ * BLOCKER: none
+ * ROLE: newlib unbuffered-stream vfprintf fallback
+ * EVIDENCE: build/workspace/rnc-refval/campaigns/pipeline-2026-09-11-5/final-promotion.json
+ *           the private evidence archive/source-quality-audit-2026-09-11-pipeline5.json
+ */
+
+/* __sbprintf: newlib vfprintf.c fallback for unbuffered streams. */
+#include "types.h"
+#include "rnc/rnc_stdio.h"
+
+typedef char *va_list;
+
+extern s32 Vfprintf(RncFile *file, const s8 *format, va_list arguments)
+    __asm__("func_00116DA8");
+extern s32 fflush(RncFile *file);
+
+#define __SNBF 0x0002
+#define __SERR 0x0040
+
+s32 __sbprintf(RncFile *fp, const s8 *fmt, va_list ap)
+{
+    s32 ret;
+    RncFile fake;
+    u8 buf[1024];
+
+    fake._data = fp->_data;
+    fake._flags = (u16)(fp->_flags & ~__SNBF);
+    fake._file = fp->_file;
+    fake._cookie = fp->_cookie;
+    fake._write = fp->_write;
+    fake._bf._base = fake._p = buf;
+    fake._bf._size = fake._w = sizeof(buf);
+    fake._lbfsize = 0;
+    ret = Vfprintf(&fake, fmt, ap);
+    if (ret >= 0 && fflush(&fake)) {
+        ret = -1;
+    }
+    if (fake._flags & __SERR) {
+        fp->_flags |= __SERR;
+    }
+    return ret;
+}
