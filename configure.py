@@ -172,6 +172,9 @@ SN_FLAG_UNITS = {
     "fun_00225490": "-fno-schedule-insns",
     "fun_00225530": "-mno-split-addresses",
     "fun_00233980": "-mno-split-addresses",
+    # Two independent tiny-FPU field loads must stay in retail's order; the
+    # prepass scheduler swaps them under default SN.
+    "fun_0022c7e8": "-fno-schedule-insns",
 }
 
 
