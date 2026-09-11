@@ -1,14 +1,17 @@
-/* STATE: C_EXACT
- * SYMBOL: _fpadd_parts
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: GCC 2.95.2 fp-bit add/sub core
- */
+/*
+STATE: C_EXACT
+SYMBOL: _fpadd_parts
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: GCC 2.95.2 fp-bit add/sub core */
 
 /* _fpadd_parts: stock GCC 2.95.2 fp-bit.c body; `thenan` is the SDK's global
  * data object at 0x1596F0 (config name D_001596F0). */
+
 #include "types.h"
 
 typedef struct FpNumber {

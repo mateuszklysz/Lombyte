@@ -1,11 +1,14 @@
-/* STATE: C_EXACT
- * SYMBOL: fflush
- * ROLE: Flush one stream or all initialized streams
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2)
- * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: fflush
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2)
+DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
+BLOCKER: none
+*/
+
+/* ROLE: Flush one stream or all initialized streams */
+
 /*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.

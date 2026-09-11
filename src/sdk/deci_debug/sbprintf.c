@@ -1,13 +1,16 @@
-/* STATE: C_EXACT
- * SYMBOL: __sbprintf
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: newlib unbuffered-stream vfprintf fallback
- */
+/*
+STATE: C_EXACT
+SYMBOL: __sbprintf
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: newlib unbuffered-stream vfprintf fallback */
 
 /* __sbprintf: newlib vfprintf.c fallback for unbuffered streams. */
+
 #include "types.h"
 #include "rnc/rnc_stdio.h"
 

@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `snd_UnkFunction_0012eb00`. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 extern s32 D_0015ECC4;
 extern s32 FUN_0012dc80();

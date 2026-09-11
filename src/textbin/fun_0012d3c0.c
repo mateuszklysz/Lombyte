@@ -6,6 +6,7 @@ COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs
 DECISION: promoted (pipeline-2026-09-07-1)
 BLOCKER: none
 */
+
 #include "types.h"
 struct M2c_arg0 {
     u8 pad_0;

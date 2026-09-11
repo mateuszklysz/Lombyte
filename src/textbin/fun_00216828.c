@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `Load` starts here. */
+
 #include "types.h"
 #include "rnc/assembly_textbin_fun_00216828_types.h"
 extern struct M2c_D_001516D0 D_001516D0;

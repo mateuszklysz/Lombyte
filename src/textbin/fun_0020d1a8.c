@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `ProcessMobyAnimData__Fv` starts here; this unit covers only its beginning. */
+
 #include "types.h"
 extern s32 D_0015F63C;
 extern u8 D_00165500[];

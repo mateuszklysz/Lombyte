@@ -13,6 +13,7 @@ DECISION: promoted
  * DECISION: promoted
  * BLOCKER: staged and full-ELF gates passed; retail image identity retained
  */
+
 #include "types.h"
 struct M2c_temp_3_11 {
     u8 pad_0[0x74];

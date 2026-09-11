@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Return whether object->field40->field4 is zero. */
+
 int Func0012BA58(int *object) __asm__("func_0012BA58");
 
 int Func0012BA58(int *object) {

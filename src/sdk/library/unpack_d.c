@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Descriptive C recovery of the GCC fp-bit __unpack_d runtime helper. */
+
 #include "types.h"
 
 typedef struct FpNumber {

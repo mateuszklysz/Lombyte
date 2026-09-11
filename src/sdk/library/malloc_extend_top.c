@@ -1,10 +1,12 @@
-/* STATE: C_EXACT
- * SYMBOL: malloc_extend_top
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2 -gstabs)
- * DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: malloc_extend_top
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2 -gstabs)
+DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
 /*
 AUTO-DIAGNOSIS
 symbol: malloc_extend_top
@@ -18,6 +20,7 @@ diff: {"code_gap_percent": 3.557045, "current_instruction_mismatch_count": 15, "
 */
 
 /* malloc_extend_top e2: newlib mallocr.c malloc_extend_top adapted to the game ABI. */
+
 #include "types.h"
 
 struct _reent;

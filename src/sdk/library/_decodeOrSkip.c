@@ -6,6 +6,7 @@ COMPILER: himuro-O2 -O2 -g2 -gstabs
 DECISION: promoted (pipeline-2026-09-10-4)
 BLOCKER: none
 */
+
 /*
 AUTO-DIAGNOSIS
 symbol: _decodeOrSkip

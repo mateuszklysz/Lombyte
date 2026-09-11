@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `FontSetWindow` starts here. */
+
 typedef unsigned short u16;
 typedef unsigned int u32;
 

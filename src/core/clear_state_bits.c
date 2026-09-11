@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Clear the active field and reset its associated state word. */
+
 typedef unsigned int u32;
 
 void Func0011AD90(u32 *p) __asm__("func_0011AD90");

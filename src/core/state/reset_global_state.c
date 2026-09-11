@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Reset the paired global fields used by the frame state. */
+
 struct GlobalState {
     unsigned char padding[0x18e];
     short halfword;

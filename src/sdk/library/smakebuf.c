@@ -1,11 +1,14 @@
-/* STATE: C_EXACT
- * SYMBOL: __smakebuf
- * ROLE: Allocate a stream buffer or select unbuffered output
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2)
- * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: __smakebuf
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2)
+DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
+BLOCKER: none
+*/
+
+/* ROLE: Allocate a stream buffer or select unbuffered output */
+
 /* No user fns here.  Pesch 15apr92. */
 
 /*

@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `viBufEndPut__FP5ViBufi` starts here; this unit covers only its beginning. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 struct M2c_arg0 {
     u8 pad_0[0x14];

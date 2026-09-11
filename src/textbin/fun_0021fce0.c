@@ -5,12 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 DECISION: promoted
 */
 
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile.
- * direct code match: 100.0% (SN ee-gcc2.9-991111b/r4, -O2)
- * The retail game textbin range emits sq/lq callee saves; the EE-GCC 2.9 pin emits
- * sd/ld. This unit is compiled with SN_TOOLCHAIN_ROOT (see configure.py
- * SN_COMPILER_UNITS), which matches retail bytes exactly.
- */
 #include "types.h"
 #include "rnc/assembly_textbin_fun_0021fce0_types.h"
 

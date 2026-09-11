@@ -1,13 +1,16 @@
-/* STATE: C_EXACT
- * SYMBOL: deci2Putchar
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: buffered deci2 character output
- */
+/*
+STATE: C_EXACT
+SYMBOL: deci2Putchar
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: buffered deci2 character output */
 
 /* deci2Putchar: buffered deci2 character output. */
+
 #include "types.h"
 
 extern s32 D_0012FBFC[];

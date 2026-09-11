@@ -1,15 +1,18 @@
-/* STATE: C_EXACT
- * SYMBOL: __moddi3
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: GCC 2.95.2 libgcc2 signed 64-bit modulo
- */
+/*
+STATE: C_EXACT
+SYMBOL: __moddi3
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: GCC 2.95.2 libgcc2 signed 64-bit modulo */
 
 /* libgcc2 moddi3 (GCC 2.95.2, W_TYPE_SIZE 32, little endian, MIPS) — self-contained.
  * Machinery copied verbatim from stock libgcc2.c and longlong.h.
  */
+
 #include "types.h"
 
 #define BITS_PER_UNIT 8

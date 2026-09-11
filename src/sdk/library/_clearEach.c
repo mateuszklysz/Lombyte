@@ -1,10 +1,12 @@
-/* STATE: C_EXACT
- * SYMBOL: _clearEach
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2 -gstabs)
- * DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: _clearEach
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2 -gstabs)
+DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
 /*
 AUTO-DIAGNOSIS
 symbol: _clearEach
@@ -18,6 +20,7 @@ diff: {"code_gap_percent": 30.1, "current_instruction_mismatch_count": 31, "data
 */
 
 /* _clearEach c2: reset IPU/GS state registers and sync. */
+
 #include "types.h"
 
 extern s32 DIntr();

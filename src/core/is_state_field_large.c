@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Report whether the state field has reached the large-value threshold. */
+
 int IsStateFieldLarge(int *state_fields) __asm__("func_0023AEE0");
 
 int IsStateFieldLarge(int *state_fields) {

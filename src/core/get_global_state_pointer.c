@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Return the pointer to the shared state record. */
+
 struct GlobalStatePointer {
     int *value;
     char padding[0x100];

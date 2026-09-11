@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Pass the shared state object and caller arguments to the resource hook. */
+
 extern int GlobalStateResource __asm__("D_0012F76C")
     __attribute__((section(".data")));
 

@@ -1,13 +1,16 @@
-/* STATE: C_EXACT
- * SYMBOL: sprintf
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: newlib sprintf with the SDK FILE ABI
- */
+/*
+STATE: C_EXACT
+SYMBOL: sprintf
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: newlib sprintf with the SDK FILE ABI */
 
 /* sprintf: newlib sprintf.c with the recovered SDK FILE ABI. */
+
 #include "types.h"
 #include "rnc/rnc_stdio.h"
 

@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `audioDecDelete__FP9_AudioDec` starts here; this unit covers only its beginning. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 extern s32 FUN_0012f0e0();
 s32 FUN_0023ac90(s32 arg0) {

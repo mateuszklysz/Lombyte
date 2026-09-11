@@ -1,13 +1,16 @@
-/* STATE: C_EXACT
- * SYMBOL: cvt
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: newlib-2000-02-17 vfprintf float conversion helper
- */
+/*
+STATE: C_EXACT
+SYMBOL: cvt
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: newlib-2000-02-17 vfprintf float conversion helper */
 
 /* cvt: newlib-2000-02-17 vfprintf.c floating-point conversion helper. */
+
 #include "types.h"
 
 struct _reent;

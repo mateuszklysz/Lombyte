@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `UpdatePad__Fv` starts here. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 extern u8 D_0013C940[];
 extern s32 FUN_002170c8();

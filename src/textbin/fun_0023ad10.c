@@ -6,7 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `audioDecReset__FP9_AudioDec` starts here; this unit covers only its beginning. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2). */
+
 #include "types.h"
 
 struct M2c_arg0 {

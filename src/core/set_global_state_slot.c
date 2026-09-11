@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Store a value in the shared state record's third word. */
+
 struct GlobalStatePointer {
     int *value;
     char padding[0x100];

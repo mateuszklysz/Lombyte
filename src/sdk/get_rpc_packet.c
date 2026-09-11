@@ -5,20 +5,6 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 DECISION: promoted
 */
 
-/* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
- * SYMBOL: GetRpcPacket
- * UNIT: sdk/get_rpc_packet (retagged from assembly/sdk/get_rpc_packet)
- * SCORE: code=100.0 functions=100.0 data=100.0 complete_data=100.0
- * COMPILER: Himuro -O2 -g2 (production routing, no per-unit flags)
- * DECISION: promoted; BLOCKER: none.
- * GATE: full baseline PASS (built e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9
- *   vs retail e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9);
- *   baseline report 100% matched code/functions and complete data.
- * ROLE: ring-buffer packet slot lookup: advances the packet index modulo the
- *   window and returns the base pointer plus slot*64.
- * NOTE: the two pointer aliases preserve the retail register allocation
- *   (dividend a1 / divisor v1 / remainder v0); removing them regresses.
- */
 #include "types.h"
 struct M2c_arg0 {
     u8 pad_0[0x14];

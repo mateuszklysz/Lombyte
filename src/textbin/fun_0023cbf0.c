@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `videoDecBeginPut__FP8VideoDecPPUcPiT1T2` starts here; this unit covers only its beginning. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 extern s32 FUN_0023be20();
 void FUN_0023cbf0(s32 arg0) {

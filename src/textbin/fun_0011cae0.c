@@ -1,11 +1,10 @@
-/* STATE: C_EXACT
- * SYMBOL: FUN_0011cae0
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted (full-ELF hash gate)
- */
-
-
+/*
+STATE: C_EXACT
+SYMBOL: FUN_0011cae0
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted (full-ELF hash gate)
+*/
 
 typedef signed char s8;
 typedef unsigned char u8;

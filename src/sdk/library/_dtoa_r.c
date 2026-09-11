@@ -15,6 +15,7 @@ DECISION: promoted
  *   (vintage 2000-02-17 placement matching retail); recovers the original
  *   _dtoa_r floating-point-to-string algorithm and ABI.
  */
+
 /****************************************************************
  *
  * The author of this software is David M. Gay.

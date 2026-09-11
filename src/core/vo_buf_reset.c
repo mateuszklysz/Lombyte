@@ -6,7 +6,9 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `voBufReset__FP5VoBuf`. */
+
 /* Clear the two state fields used by the utility object. */
+
 void ClearStateFields(volatile int *state_fields) __asm__("func_0023D1E8");
 
 void ClearStateFields(volatile int *state_fields) {

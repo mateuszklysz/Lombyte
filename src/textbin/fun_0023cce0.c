@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `videoDecInputCount__FP8VideoDec` starts here; this unit covers only its beginning. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 extern s32 FUN_0023c610();
 void FUN_0023cce0(s32 arg0) {

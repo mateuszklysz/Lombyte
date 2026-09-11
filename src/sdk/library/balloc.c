@@ -1,11 +1,14 @@
-/* STATE: C_EXACT
- * SYMBOL: _Balloc
- * ROLE: Allocate an arbitrary-precision Bigint
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2)
- * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: _Balloc
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2)
+DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
+BLOCKER: none
+*/
+
+/* ROLE: Allocate an arbitrary-precision Bigint */
+
 /****************************************************************
  *
  * The author of this software is David M. Gay.

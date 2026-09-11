@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `memcard_GetDataSize`. */
+
 #include "types.h"
 
 /* Return the aligned byte span of a linked DMA packet chain. */

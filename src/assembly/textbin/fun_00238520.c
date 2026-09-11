@@ -7,6 +7,7 @@ DECISION: promoted (pipeline-2026-09-08-3)
 BLOCKER: none
 NOTE: re-verified 100/100/100 fresh SN on 2026-09-08 resume; wrapper INCLUDE_ASM oracle replaced by matching C.
 */
+
 #include "types.h"
 struct M2c_D_001E63C0 {
     u8 pad_0[0x2C];

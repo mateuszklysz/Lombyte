@@ -6,11 +6,7 @@ DECISION: retained (pending)
 */
 
 /* ROLE: recovered function `memcard_TestChecksum` starts here; this unit covers only its beginning. */
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 38.3333%
- * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.
- * The default matching build keeps the expected assembly oracle.
- */
+
 #include "types.h"
 #include "asm.h"
 

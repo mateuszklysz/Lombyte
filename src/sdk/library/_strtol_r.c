@@ -1,14 +1,17 @@
-/* STATE: C_EXACT
- * SYMBOL: _strtol_r
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: newlib-2000-02-17 reentrant string-to-long
- */
+/*
+STATE: C_EXACT
+SYMBOL: _strtol_r
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: newlib-2000-02-17 reentrant string-to-long */
 
 /* _strtol_r: newlib-2000-02-17 strtol.c adapted to the game's 64-bit long and
  * ctype table D_00152201 (= _ctype_ + 1). */
+
 #include "types.h"
 
 typedef struct _reent {

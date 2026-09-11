@@ -14,6 +14,7 @@ DECISION: promoted
  * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
  * BLOCKER: none
  */
+
 #include "types.h"
 struct SifClient { u8 pad_0[0x24]; s32 unk24; };
 extern u8 D_0012FCAC[];

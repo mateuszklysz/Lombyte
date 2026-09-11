@@ -1,11 +1,14 @@
-/* STATE: C_EXACT
- * SYMBOL: sceSifAllocIopHeap
- * ROLE: Allocate IOP heap memory over the sif heap RPC (game-patched ps2sdk SifAllocIopHeap)
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2)
- * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: sceSifAllocIopHeap
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2)
+DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
+BLOCKER: none
+*/
+
+/* ROLE: Allocate IOP heap memory over the sif heap RPC (game-patched ps2sdk SifAllocIopHeap) */
+
 #include "types.h"
 extern s32 D_0012FCAC __attribute__((section(".data")));
 extern u8 D_00158040[];

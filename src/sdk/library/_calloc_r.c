@@ -1,13 +1,16 @@
-/* STATE: C_EXACT
- * SYMBOL: _calloc_r
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: newlib mallocr.c calloc with 32-bit INTERNAL_SIZE_T
- */
+/*
+STATE: C_EXACT
+SYMBOL: _calloc_r
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: newlib mallocr.c calloc with 32-bit INTERNAL_SIZE_T */
 
 /* _calloc_r q5: exact mallocr.c else-form with p/csz locals. */
+
 #include "types.h"
 
 struct _reent;

@@ -6,6 +6,7 @@ COMPILER: SN ee-gcc2.95.2 -O2 -g2 -gstabs -fno-schedule-insns
 DECISION: promoted (pipeline-2026-09-10-4)
 BLOCKER: none
 */
+
 #include "types.h"
 
 extern f32 func_001F9B48(s32, u32);

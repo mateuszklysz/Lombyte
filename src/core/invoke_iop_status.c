@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* Exact low-cost entry recovered with target symbolic relocations. */
+
 #include "types.h"
 
 extern s32 LoadIopModuleBuffer(s32 module_id, s32 argument_count,

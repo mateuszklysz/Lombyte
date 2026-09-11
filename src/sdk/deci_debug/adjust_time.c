@@ -1,13 +1,16 @@
-/* STATE: C_EXACT
- * SYMBOL: AdjustTime
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: deci debug clock adjust
- */
+/*
+STATE: C_EXACT
+SYMBOL: AdjustTime
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: deci debug clock adjust */
 
 /* adjust_time: deci clock adjust; v0-pinned hour with void addhour(). */
+
 #include "types.h"
 
 struct AdjustTimeArg {

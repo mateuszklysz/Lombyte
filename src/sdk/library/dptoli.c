@@ -1,13 +1,16 @@
-/* STATE: C_EXACT
- * SYMBOL: dptoli
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2
- * DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
- * BLOCKER: none
- * ROLE: GCC 2.95.2 fp-bit float_to_si
- */
+/*
+STATE: C_EXACT
+SYMBOL: dptoli
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2
+DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
+/* ROLE: GCC 2.95.2 fp-bit float_to_si */
 
 /* dptoli: fp-bit float_to_si (bitfield-era variant). */
+
 #include "types.h"
 
 typedef struct FpNumber {

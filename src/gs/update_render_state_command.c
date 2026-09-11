@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `music_Unpause__Fv` starts here; this unit covers only its beginning. */
+
 typedef unsigned short u16;
 
 typedef struct RenderState {

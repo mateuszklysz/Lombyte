@@ -6,11 +6,7 @@ DECISION: retained (pending)
 */
 
 /* ROLE: recovered function `PutDrawBufferSmall__Fv` starts here; this unit covers only its beginning. */
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 39.4444%
- * blocker: Breadth textbin export: C branch is the measured target-symbol fallback; remaining differences are structural and register/stack scheduling blockers while the raw textbin oracle remains authoritative.
- * The default matching build keeps the expected assembly oracle.
- */
+
 #include "types.h"
 #include "asm.h"
 

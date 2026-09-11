@@ -6,11 +6,7 @@ DECISION: retained (pending)
 */
 
 /* ROLE: recovered function `mpegNodata__FP7sceMpegP13sceMpegCbDataPv` starts here. */
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 82.4286%
- * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.
- * The default matching build keeps the expected assembly oracle.
- */
+
 #include "types.h"
 #include "asm.h"
 

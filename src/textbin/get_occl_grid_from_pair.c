@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `GetOcclGridFromPair__Fiiiiiif`. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 extern s32 FUN_001f2690();
 void FUN_001f2768(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 fparg0) {

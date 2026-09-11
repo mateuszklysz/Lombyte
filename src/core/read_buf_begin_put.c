@@ -6,7 +6,9 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `readBufBeginPut__FP7ReadBufPPUc`. */
+
 /* Returns the active range and resolves its current address when requested. */
+
 int GetStateOffsetAddress(int *state_fields, int **address_out)
     __asm__("func_0023B960");
 

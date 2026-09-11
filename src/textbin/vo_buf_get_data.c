@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `voBufGetData__FP5VoBuf`. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;

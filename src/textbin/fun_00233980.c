@@ -6,24 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `VU1_addGSregister__FUiUlb` starts here; this unit covers only its beginning. */
-/* C_EXACT (byte-proven): staged and full-ELF gates PASSED 2026-09-10.
- * SYMBOL: FUN_00233980 (alias func_00233980)
- * UNIT: textbin/fun_00233980 (retagged from assembly/textbin/fun_00233980)
- * SCORE: code=100.0 functions=100.0 data=100.0 complete_data=100.0
- *   (fresh SN ee-gcc2.9-991111b/r4, -O2 -g2 -mno-split-addresses)
- * COMPILER: SN plus the per-unit flag SN_FLAG_UNITS["fun_00233980"]. The retail
- *   code loads the bump pointer with absolute addressing
- *   (`lui v1,0x16; lw v1,0xF00(v1)`) after every store, but updates the same
- *   global with a gp-relative store (`sw v0,-0x5D00(gp)`); the build pins
- *   _gp = 0x166C00, so 0x160F00 == D_00160F00 for both forms. The absolute
- *   loads need the non-small `s32 *D_00160F00[4]` declaration, the final store
- *   needs a small alias of the same assembler symbol (D_00160F00_store,
- *   defined at 0x00160F00).
- * GATE: full baseline PASS (built e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9
- *   vs retail e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9);
- *   baseline report 100% matched code/functions and complete data.
- * DECISION: promoted.
- */
+
 #include "types.h"
 
 extern s32 *D_00160F00[4];

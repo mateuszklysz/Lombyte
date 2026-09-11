@@ -6,11 +6,7 @@ DECISION: retained (pending)
 */
 
 /* ROLE: recovered whole function `Camera_handleCollWithHero__FiP9UpdateCam`. */
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 51.5417%
- * blocker: Breadth textbin export: descriptive logic retained; remaining differences are structural, register allocation, stack alignment, or delay-slot scheduling while the raw textbin oracle remains authoritative.
- * The default matching build keeps the expected assembly oracle.
- */
+
 #include "types.h"
 #include "asm.h"
 

@@ -6,9 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `UpdateOcclusion__Fv`. */
-/* C_EXACT (byte-proven) under the per-unit SN ee-gcc profile (-O2).
- * Promoted from the assembly/textbin oracle; full-ELF SHA gate verified.
- */
+
 #include "types.h"
 extern u32 D_0018C334[];
 extern u8 D_00193FC0[];

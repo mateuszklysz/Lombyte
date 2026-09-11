@@ -1,11 +1,14 @@
-/* STATE: C_EXACT
- * SYMBOL: _d2b
- * ROLE: Convert a double to an arbitrary-precision Bigint
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2)
- * DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: _d2b
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2)
+DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
+BLOCKER: none
+*/
+
+/* ROLE: Convert a double to an arbitrary-precision Bigint */
+
 /****************************************************************
  *
  * The author of this software is David M. Gay.

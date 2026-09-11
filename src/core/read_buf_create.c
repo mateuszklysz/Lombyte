@@ -6,7 +6,9 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `readBufCreate__FP7ReadBuf`. */
+
 /* Rebase the state pointer and clear its first fields. */
+
 void InitializeStateFields(int *state_fields)
     __asm__("func_0023B940");
 

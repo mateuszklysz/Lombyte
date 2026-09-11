@@ -7,6 +7,7 @@ DECISION: promoted (pipeline-2026-09-08-3, wrapper-branch scan)
 BLOCKER: none
 NOTE: existing NON_MATCHING #else branch compiled byte-identical under SN; oracle wrapper stripped.
 */
+
 #include "types.h"
 extern u8 D_0018A2B0[];
 void ClearDmaQueueEntry(void) {

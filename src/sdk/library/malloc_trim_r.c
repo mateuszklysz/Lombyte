@@ -1,10 +1,12 @@
-/* STATE: C_EXACT
- * SYMBOL: _malloc_trim_r
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2 -gstabs)
- * DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: _malloc_trim_r
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2 -gstabs)
+DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
 /*
 AUTO-DIAGNOSIS
 symbol: _malloc_trim_r
@@ -18,6 +20,7 @@ diff: {"code_gap_percent": 11.42857, "current_instruction_mismatch_count": 20, "
 */
 
 /* _malloc_trim_r t2: newlib mallocr.c malloc_trim with array externs (absolute addressing). */
+
 #include "types.h"
 
 struct _reent;

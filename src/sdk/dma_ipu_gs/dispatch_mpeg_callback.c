@@ -1,12 +1,14 @@
-/* STATE: C_EXACT
- * SYMBOL: _dispatchMpegCallback
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: Himuro -O2 -g2
- * DECISION: promoted; BLOCKER: none.
- * GATE: authoritative full baseline PASS 2026-09-10 (final-gate.log); built ELF
- *   == retail e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9.
- * ROLE: dispatches the registered MPEG callback for the event type.
- */
+/*
+STATE: C_EXACT
+SYMBOL: _dispatchMpegCallback
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: Himuro -O2 -g2
+DECISION: promoted
+BLOCKER: none
+*/
+
+/* ROLE: dispatches the registered MPEG callback for the event type. */
+
 #include "types.h"
 struct MpegContext;
 struct MpegEvent { s32 type; };

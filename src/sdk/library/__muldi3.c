@@ -1,10 +1,12 @@
-/* STATE: C_EXACT
- * SYMBOL: __muldi3
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: himuro-O2 (-O2 -g2 -gstabs)
- * DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
- * BLOCKER: none
- */
+/*
+STATE: C_EXACT
+SYMBOL: __muldi3
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 (-O2 -g2 -gstabs)
+DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
+BLOCKER: none
+*/
+
 /*
 AUTO-DIAGNOSIS
 symbol: __muldi3
@@ -26,6 +28,7 @@ diff: {"code_gap_percent": 100.0, "current_instruction_mismatch_count": 52, "dat
  * build/workspace/rnc-refval/config/us/expected/obj/assembly/sdk/library/__muldi3.c.o
  * (verified 2026-09-11, run pipeline-2026-09-11-6).
  */
+
 typedef int SItype __attribute__((mode(SI)));
 typedef unsigned int USItype __attribute__((mode(SI)));
 typedef int DItype __attribute__((mode(DI)));

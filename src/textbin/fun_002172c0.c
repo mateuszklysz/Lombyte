@@ -6,20 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered function `ClearPadInput__FR3PAD` starts here; this unit covers only its beginning. */
-/* C_EXACT (byte-proven): staged and full-ELF gates PASSED
- * SYMBOL: FUN_002172c0 (alias func_002172C0)
- * UNIT: textbin/fun_002172c0 (retagged from assembly/textbin/fun_002172c0)
- * SCORE: code=100.0 functions=100.0 data=100.0 complete_data=100.0
- *   (fresh SN ee-gcc2.9-991111b/r4, -O2 -g2, objdiff vs validated oracle,
- *    campaign 2026-09-07-6)
- * COMPILER: SN (per-unit textbin routing: added to SN_COMPILER_UNITS in
- *   configure.py with evidence; the retail no-save function has no sq/lq
- *   fingerprint, and its branch-delay scheduling matches SN exactly while
- *   EE-GCC 2.9 produces an order-only nop/addiu swap)
- * DECISION: promoted (transactional --apply-exact, batch of 1)
- * GATE: staged object 100/100/100/100 + direct .text equality + full baseline
- *   PASS 2026-09-07T15:54:13Z (audit 300 / 23,652 B / 5.492%).
- */
+
 #include "types.h"
 #include "rnc/assembly_textbin_fun_002172c0_types.h"
 

@@ -7,6 +7,7 @@ DECISION: promoted (pipeline-2026-09-08-3, wrapper-branch wide scan)
 BLOCKER: none
 NOTE: existing NON_MATCHING #else branch (a2-pinned register loop) compiled byte-identical under Himuro; oracle wrapper stripped.
 */
+
 #include "rnc/assembly_textbin_fun_00225dd8_types.h"
 #include "types.h"
 

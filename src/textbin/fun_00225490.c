@@ -1,11 +1,12 @@
-/* STATE: C_EXACT
- * SYMBOL: FUN_00225490 (alias func_00225490)
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: SN -O2 -g2 -fno-schedule-insns
- * DECISION: promoted; BLOCKER: none.
- * GATE: staged and authoritative full baseline PASS 2026-09-10 (final-gate.log);
- *   built ELF == retail e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9.
- */
+/*
+STATE: C_EXACT
+SYMBOL: FUN_00225490 (alias func_00225490)
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: SN -O2 -g2 -fno-schedule-insns
+DECISION: promoted
+BLOCKER: none
+*/
+
 #include "types.h"
 struct RenderResource {
     u8 pad0[6];

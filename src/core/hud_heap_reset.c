@@ -6,6 +6,7 @@ DECISION: promoted
 */
 
 /* ROLE: recovered whole function `Hud_HeapReset__Fv`. */
+
 typedef unsigned int u32;
 
 extern u32 D_001940CC[4] __asm__("D_001940CC");
