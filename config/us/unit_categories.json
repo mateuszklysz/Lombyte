@@ -125,6 +125,7 @@
     "assembly/sdk/sif_rpc/sce_sif_cmd_intr_hdlr",
     "assembly/sdk/sif_rpc/sce_sif_write_back_d_cache",
     "assembly/textbin/fun_001204b8",
+    "assembly/textbin/fun_00123bc0",
     "assembly/textbin/fun_001ee650",
     "assembly/textbin/fun_001f0b58",
     "assembly/textbin/fun_001f89a4",
@@ -147,7 +148,10 @@
     "assembly/textbin/fun_00235be8",
     "assembly/textbin/fun_002370c0",
     "assembly/textbin/fun_00237370",
+    "assembly/textbin/fun_0023b540",
     "assembly/textbin/moby_anim_proc",
-    "assembly/textbin/tfrag_proc"
+    "assembly/textbin/sub_00233e00",
+    "assembly/textbin/tfrag_proc",
+    "assembly/textbin/vblank_handler"
   ]
 }
