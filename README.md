@@ -17,6 +17,9 @@
   <a href="#credits">Credits</a>
 </p>
 
+> [!WARNING]
+> Do not use this decompilation project without your own legally purchased copy of the game. Lombyte includes no assets from the original game, so you must provide your own legitimately obtained PS2 copy. The project targets the **USA / NTSC-U** release (`SCUS_971.99`) only — PAL, NTSC-J, and the later PS3 remaster are not supported.
+
 ## About
 
 **Lombyte** aims to reconstruct the game's Emotion Engine (EE) executable as readable C that compiles to the same machine code as the original release. Matching source, recovered symbols, shared types, and assembly-backed code are developed together, with byte-for-byte verification against the original executable.
