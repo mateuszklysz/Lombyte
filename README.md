@@ -29,22 +29,17 @@ You will need your own copy of the game to supply the original executable and di
 
 <img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
 
-Each tile is one configured C unit, sized by its share of the executable's code bytes. **Orange** tiles are matching C; **chrome** tiles are intentional low-level asm (SIMD/VU0 helpers kept as assembly and excluded from the C goal); **dark steel** tiles are C still pending. The palette follows the game's logo — Ratchet's bolt orange, Clank's chrome, and the logo's dark riveted plate. The map is regenerated at the end of every decompilation pipeline run; regenerate it locally with:
+Each tile is one configured C unit, sized by its share of the executable's code bytes. **Orange** tiles are matching C, **chrome** tiles are intentional low-level asm (SIMD/VU0 helpers excluded from the C goal), and **dark steel** tiles are C still pending. The decompilation pipeline regenerates the map; rebuild it locally with:
 
 ```sh
 .venv/bin/python scripts/generate_treemap.py
 ```
 
-Percentages describe the configured code in the boot executable, not the entire disc or all game content.
+Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. The map's classification input is `config/us/unit_categories.json`.
 
-Scope note: the boot executable embeds its DVP overlay blobs, and those are rebuilt as raw data segments; overlays or executables stored elsewhere on the disc are outside this project's scope. The public classification input used by the progress map (matching C vs intentional assembly) is `config/us/unit_categories.json`; the maintainers keep the underlying evidence outside the repository.
+**A matching executable does not mean the decompilation is complete.** Unconverted units keep using assembly or raw machine-code *oracles* to preserve the original bytes; matching C replaces them over time.
 
-**A matching executable does not mean the decompilation is complete.** Unconverted units still use assembly or raw machine-code representations (called *oracles*) to preserve the original bytes. Progress increases as those units are replaced with matching, readable C.
-
-The build uses two complementary checks:
-
-- **Per-unit comparison:** objdiff compares compiled objects with their reference objects to inspect code and data matching.
-- **Whole-executable verification:** the build compares the reconstructed boot ELF with the original. The supported executable's SHA-256 is listed below.
+The build verifies matching at two levels: objdiff per compiled object, and a whole-ELF comparison against the original (SHA-256 below).
 
 ## Supported version
 
