@@ -3,31 +3,31 @@
 <title>Ratchet &amp; Clank - decompilation progress</title>
 <rect width="800" height="1600" fill="#0d1117"/>
 <text x="10" y="24" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="14.0" font-weight="600" fill="#cdd6f4">Ratchet &amp; Clank - decompilation progress</text>
-<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">335 matching C &#183; 115 intentional asm &#183; 885 pending &#183; 34,936 of 430,720 bytes (8.1%; 8.4% of recoverable C)</text>
+<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">335 matching C &#183; 133 intentional asm &#183; 867 pending &#183; 34,936 of 430,720 bytes (8.1%; 9.2% of recoverable C)</text>
 <rect x="540" y="14" width="10" height="10" rx="2" fill="#40a02b"/>
 <text x="555" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 34,936 B</text>
 <rect x="540" y="31" width="10" height="10" rx="2" fill="#1f6feb"/>
-<text x="555" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 16,384 B</text>
+<text x="555" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 51,388 B</text>
 <rect x="540" y="48" width="10" height="10" rx="2" fill="#313244"/>
-<text x="555" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 379,400 B</text>
+<text x="555" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 344,396 B</text>
 <rect x="10.00" y="48.00" width="141.95" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="14.00" y="61.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">textbin/fun_002093d8</text>
 <text x="14.00" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.10kB · 0.00%</text>
 <rect x="151.95" y="48.00" width="139.53" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="155.95" y="61.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">textbin/fun_0022f778</text>
 <text x="155.95" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.00kB · 0.00%</text>
-<rect x="291.47" y="48.00" width="138.59" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="291.47" y="48.00" width="138.59" height="118.29" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="295.47" y="61.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">textbin/fun_00228be8</text>
-<text x="295.47" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">5.96kB · 0.00%</text>
-<rect x="430.06" y="48.00" width="124.07" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<text x="295.47" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">5.96kB · asm</text>
+<rect x="430.06" y="48.00" width="124.07" height="118.29" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="434.06" y="61.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">textbin/fun_00235be8</text>
-<text x="434.06" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">5.33kB · 0.00%</text>
+<text x="434.06" y="73.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">5.33kB · asm</text>
 <rect x="554.14" y="48.00" width="119.89" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="558.14" y="60.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#cdd6f4" opacity="0.92">textbin/fun_00211808</text>
 <text x="558.14" y="72.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">5.15kB · 0.00%</text>
-<rect x="674.02" y="48.00" width="115.98" height="118.29" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="674.02" y="48.00" width="115.98" height="118.29" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="678.02" y="60.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#cdd6f4" opacity="0.92">textbin/fun_001ee650</text>
-<text x="678.02" y="72.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">4.98kB · 0.00%</text>
+<text x="678.02" y="72.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">4.98kB · asm</text>
 <rect x="10.00" y="166.29" width="127.38" height="98.63" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="14.00" y="179.29" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">textbin/fun_001fbc50</text>
 <text x="14.00" y="191.29" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">4.56kB · 0.00%</text>
@@ -58,15 +58,15 @@
 <rect x="207.77" y="264.92" width="96.75" height="90.36" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="211.77" y="274.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#cdd6f4" opacity="0.92">textbin/fun_0020fa90</text>
 <text x="211.77" y="286.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="5.5" fill="#a6adc8">3.18kB · 0.00%</text>
-<rect x="304.53" y="264.92" width="94.80" height="90.36" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="304.53" y="264.92" width="94.80" height="90.36" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="308.53" y="275.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">textbin/tfrag_proc</text>
-<text x="308.53" y="287.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">3.11kB · 0.00%</text>
+<text x="308.53" y="287.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">3.11kB · asm</text>
 <rect x="399.33" y="264.92" width="93.22" height="90.36" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="403.33" y="275.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">textbin/part_proc</text>
 <text x="403.33" y="287.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">3.06kB · 0.00%</text>
-<rect x="492.55" y="264.92" width="80.42" height="90.36" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="492.55" y="264.92" width="80.42" height="90.36" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="496.55" y="277.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">fun_002109b8</text>
-<text x="496.55" y="289.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">2.64kB · 0.00%</text>
+<text x="496.55" y="289.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">2.64kB · asm</text>
 <rect x="572.97" y="264.92" width="78.11" height="90.36" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="576.97" y="277.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">fun_001fde90</text>
 <text x="576.97" y="289.92" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">2.56kB · 0.00%</text>
@@ -103,9 +103,9 @@
 <rect x="594.78" y="355.27" width="65.46" height="75.52" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="598.78" y="366.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">_getAllRefs</text>
 <text x="598.78" y="378.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.80kB · 0.00%</text>
-<rect x="660.24" y="355.27" width="65.17" height="75.52" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="660.24" y="355.27" width="65.17" height="75.52" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="664.24" y="366.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">fun_00237370</text>
-<text x="664.24" y="378.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.79kB · 0.00%</text>
+<text x="664.24" y="378.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.79kB · asm</text>
 <rect x="725.41" y="355.27" width="64.59" height="75.52" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="729.41" y="367.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#cdd6f4" opacity="0.92">__divdi3</text>
 <text x="729.41" y="379.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">1.77kB · asm</text>
@@ -116,15 +116,15 @@
 <rect x="150.95" y="430.79" width="68.62" height="68.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="154.95" y="442.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#cdd6f4" opacity="0.92">fun_00230f60</text>
 <text x="154.95" y="454.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">1.70kB · 0.00%</text>
-<rect x="219.58" y="430.79" width="68.46" height="68.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="219.58" y="430.79" width="68.46" height="68.35" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="223.58" y="441.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">fun_00234f98</text>
-<text x="223.58" y="453.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.70kB · 0.00%</text>
+<text x="223.58" y="453.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.70kB · asm</text>
 <rect x="288.04" y="430.79" width="66.05" height="68.35" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="292.04" y="443.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">moddi3</text>
 <text x="292.04" y="455.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">1.64kB · asm</text>
-<rect x="354.09" y="430.79" width="64.92" height="68.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="354.09" y="430.79" width="64.92" height="68.35" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="358.09" y="441.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">fun_001f89a4</text>
-<text x="358.09" y="453.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.61kB · 0.00%</text>
+<text x="358.09" y="453.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.61kB · asm</text>
 <rect x="419.01" y="430.79" width="64.92" height="68.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="423.01" y="441.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">fun_00227ed0</text>
 <text x="423.01" y="453.79" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.61kB · 0.00%</text>
@@ -156,9 +156,9 @@
 <text x="217.30" y="510.14" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">fun_0021be60</text>
 <text x="217.30" y="522.14" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.47kB · 0.00%</text>
 <rect x="280.21" y="499.14" width="66.55" height="60.39" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="346.76" y="499.14" width="66.55" height="60.39" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="346.76" y="499.14" width="66.55" height="60.39" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="350.76" y="510.14" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">fun_0022a5e0</text>
-<text x="350.76" y="522.14" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.46kB · 0.00%</text>
+<text x="350.76" y="522.14" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.46kB · asm</text>
 <rect x="413.31" y="499.14" width="66.37" height="60.39" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="417.31" y="510.14" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">_PES_packet</text>
 <text x="417.31" y="522.14" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">1.46kB · 0.00%</text>
@@ -228,7 +228,7 @@
 <rect x="111.52" y="670.82" width="49.75" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="161.27" y="670.82" width="49.75" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="211.02" y="670.82" width="49.53" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="260.55" y="670.82" width="49.53" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="260.55" y="670.82" width="49.53" height="49.35" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="310.09" y="670.82" width="49.31" height="49.35" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="359.39" y="670.82" width="48.64" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="408.03" y="670.82" width="48.42" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -236,11 +236,11 @@
 <rect x="504.86" y="670.82" width="48.19" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="553.05" y="670.82" width="47.97" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="601.02" y="670.82" width="47.52" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="648.55" y="670.82" width="47.52" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="648.55" y="670.82" width="47.52" height="49.35" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="696.07" y="670.82" width="47.30" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="743.37" y="670.82" width="46.63" height="49.35" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="10.00" y="720.17" width="47.82" height="47.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="57.82" y="720.17" width="47.59" height="47.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="57.82" y="720.17" width="47.59" height="47.43" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="105.41" y="720.17" width="47.36" height="47.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="152.77" y="720.17" width="46.89" height="47.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="199.66" y="720.17" width="46.89" height="47.43" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -269,23 +269,23 @@
 <text x="342.13" y="777.60" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#cdd6f4" opacity="0.92">sceCdInit</text>
 <rect x="383.94" y="767.60" width="45.81" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="429.75" y="767.60" width="45.56" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="475.31" y="767.60" width="45.31" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="475.31" y="767.60" width="45.31" height="44.23" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="520.62" y="767.60" width="45.31" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="565.93" y="767.60" width="45.31" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="611.24" y="767.60" width="44.81" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="656.06" y="767.60" width="44.81" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="700.87" y="767.60" width="44.81" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="745.68" y="767.60" width="44.32" height="44.23" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="745.68" y="767.60" width="44.32" height="44.23" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="10.00" y="811.83" width="42.01" height="46.13" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="14.00" y="821.83" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#cdd6f4" opacity="0.92">scewrite</text>
 <rect x="10.00" y="857.96" width="42.01" height="46.13" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="10.00" y="904.09" width="42.01" height="45.87" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="10.00" y="949.96" width="42.01" height="45.61" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="10.00" y="995.56" width="42.01" height="45.34" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="10.00" y="1040.91" width="42.01" height="45.08" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="10.00" y="1040.91" width="42.01" height="45.08" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="10.00" y="1085.99" width="42.01" height="44.82" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="10.00" y="1130.81" width="42.01" height="44.82" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="10.00" y="1175.63" width="42.01" height="44.82" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="10.00" y="1130.81" width="42.01" height="44.82" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="10.00" y="1175.63" width="42.01" height="44.82" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="10.00" y="1220.45" width="42.01" height="44.56" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="14.00" y="1233.45" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#cdd6f4" opacity="0.92">dpmul</text>
 <rect x="10.00" y="1265.01" width="42.01" height="44.56" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
@@ -477,7 +477,7 @@
 <rect x="195.50" y="1154.70" width="31.01" height="32.31" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="195.50" y="1187.01" width="31.01" height="32.31" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="195.50" y="1219.32" width="31.01" height="32.31" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
-<rect x="195.50" y="1251.63" width="31.01" height="32.31" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
+<rect x="195.50" y="1251.63" width="31.01" height="32.31" rx="1" fill="#1f6feb" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="195.50" y="1283.94" width="31.01" height="31.96" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="195.50" y="1315.90" width="31.01" height="31.96" rx="1" fill="#313244" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <text x="199.50" y="1326.90" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#cdd6f4" opacity="0.92">dpdiv</text>
@@ -1491,5 +1491,5 @@
 <rect x="786.33" y="1558.99" width="3.67" height="6.01" rx="1" fill="#40a02b" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <rect x="782.67" y="1565.00" width="7.33" height="3.00" rx="1" fill="#40a02b" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"/>
 <line x1="10" y1="1578.0" x2="790" y2="1578.0" stroke="#313244" stroke-width="1" opacity="0.8"/>
-<text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-10 &#183; scripts/generate_treemap.py</text>
+<text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-11 &#183; scripts/generate_treemap.py</text>
 </svg>

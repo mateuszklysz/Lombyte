@@ -124,6 +124,24 @@
     "assembly/sdk/library/umoddi3",
     "assembly/sdk/sif_rpc/sce_sif_cmd_intr_hdlr",
     "assembly/sdk/sif_rpc/sce_sif_write_back_d_cache",
-    "assembly/textbin/moby_anim_proc"
+    "assembly/textbin/fun_001ee650",
+    "assembly/textbin/fun_001f89a4",
+    "assembly/textbin/fun_0020b618",
+    "assembly/textbin/fun_0020d868",
+    "assembly/textbin/fun_002109b8",
+    "assembly/textbin/fun_00211408",
+    "assembly/textbin/fun_00227740",
+    "assembly/textbin/fun_00227a08",
+    "assembly/textbin/fun_00228598",
+    "assembly/textbin/fun_00228be8",
+    "assembly/textbin/fun_0022a330",
+    "assembly/textbin/fun_0022a5e0",
+    "assembly/textbin/fun_00234bd8",
+    "assembly/textbin/fun_00234f98",
+    "assembly/textbin/fun_00235be8",
+    "assembly/textbin/fun_002370c0",
+    "assembly/textbin/fun_00237370",
+    "assembly/textbin/moby_anim_proc",
+    "assembly/textbin/tfrag_proc"
   ]
 }
