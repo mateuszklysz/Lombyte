@@ -393,7 +393,7 @@ segments:
           - [0x1e878, c, assembly/kernel/invoke_kernel_syscall_005a_rfu_worker]
           - [0x1e888, textbin, text_gap_0011d908]
           - [0x1e8c0, c, assembly/kernel/rfu_091_mid]
-          - [0x1e8d0, c, assembly/sdk/library/PatchIsNeeded]
+          - [0x1e8d0, c, sdk/library/PatchIsNeeded]
           - [0x1e938, c, assembly/sdk/library/InitExecPS2]
           - [0x1e9e4, textbin, text_gap_0011d9b8_post_sdk_worker]
           - [0x1ea18, c, assembly/kernel/jump_to_rfu_dispatch]
