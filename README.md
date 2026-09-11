@@ -26,6 +26,10 @@
 
 Matching source, recovered symbols, shared types, and assembly-backed code are developed together. The rebuilt executable can be patched into a copy of your own disc image, preserving the rest of the disc; a native PC port is outside the current scope.
 
+## Motivation
+
+The long-term goal is a **PC runtime**: a separate program that runs the original game on modern hardware, so it stays playable without relying on aging consoles or emulation. Reconstructing the executable's interfaces, data layouts, ABIs, and observable behavior provides the information needed to build that runtime; the matching decompilation in this repository is the groundwork for it.
+
 ## Decompilation Progress
 
 <img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
