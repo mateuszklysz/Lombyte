@@ -5,6 +5,13 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 DECISION: promoted
 */
 
+/*
+ * Derived from newlib, which is distributed under permissive BSD-style
+ * terms. See THIRD_PARTY_NOTICES.md and licenses/COPYING.NEWLIB.txt.
+ */
+
+/* Source: newlib. */
+
 extern int SbrkErrno __asm__("D_0015EC10")
     __attribute__((section(".data")));
 extern void *Sbrk(int increment) __asm__("sbrk");

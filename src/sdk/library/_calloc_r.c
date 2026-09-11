@@ -9,6 +9,14 @@ BLOCKER: none
 
 /* ROLE: newlib mallocr.c calloc with 32-bit INTERNAL_SIZE_T */
 
+/*
+ * A version of malloc/free/realloc written by Doug Lea and released to the
+ * public domain (dlmalloc 2.6.5), adapted by newlib. See
+ * THIRD_PARTY_NOTICES.md.
+ */
+
+/* Source: newlib / dlmalloc. */
+
 /* _calloc_r q5: exact mallocr.c else-form with p/csz locals. */
 
 #include "types.h"

@@ -7,6 +7,14 @@ DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gat
 BLOCKER: none
 */
 
+/*
+ * A version of malloc/free/realloc written by Doug Lea and released to the
+ * public domain (dlmalloc 2.6.5), adapted by newlib. See
+ * THIRD_PARTY_NOTICES.md.
+ */
+
+/* Source: newlib / dlmalloc. */
+
 /* _free_r f1: newlib mallocr.c free with the game's arena/globals. */
 
 #include "types.h"

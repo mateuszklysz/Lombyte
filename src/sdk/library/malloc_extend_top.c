@@ -8,6 +8,14 @@ BLOCKER: none
 */
 
 /*
+ * A version of malloc/free/realloc written by Doug Lea and released to the
+ * public domain (dlmalloc 2.6.5), adapted by newlib. See
+ * THIRD_PARTY_NOTICES.md.
+ */
+
+/* Source: newlib / dlmalloc. */
+
+/*
 AUTO-DIAGNOSIS
 symbol: malloc_extend_top
 unit: assembly/sdk/library/malloc_extend_top

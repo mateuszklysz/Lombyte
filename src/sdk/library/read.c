@@ -5,6 +5,13 @@ SCORE: code=100 functions=100 data=100 complete_data=100
 DECISION: promoted
 */
 
+/*
+ * Derived from newlib, which is distributed under permissive BSD-style
+ * terms. See THIRD_PARTY_NOTICES.md and licenses/COPYING.NEWLIB.txt.
+ */
+
+/* Source: newlib. */
+
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

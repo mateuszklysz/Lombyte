@@ -9,6 +9,13 @@ BLOCKER: none
 
 /* ROLE: newlib unbuffered-stream vfprintf fallback */
 
+/*
+ * Derived from newlib, which is distributed under permissive BSD-style
+ * terms. See THIRD_PARTY_NOTICES.md and licenses/COPYING.NEWLIB.txt.
+ */
+
+/* Source: newlib. */
+
 /* __sbprintf: newlib vfprintf.c fallback for unbuffered streams. */
 
 #include "types.h"

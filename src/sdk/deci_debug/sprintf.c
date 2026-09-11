@@ -9,6 +9,13 @@ BLOCKER: none
 
 /* ROLE: newlib sprintf with the SDK FILE ABI */
 
+/*
+ * Derived from newlib, which is distributed under permissive BSD-style
+ * terms. See THIRD_PARTY_NOTICES.md and licenses/COPYING.NEWLIB.txt.
+ */
+
+/* Source: newlib. */
+
 /* sprintf: newlib sprintf.c with the recovered SDK FILE ABI. */
 
 #include "types.h"
