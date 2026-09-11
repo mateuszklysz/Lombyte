@@ -19,4 +19,5 @@
 ## Checklist
 
 - [ ] Promoted
+- [ ] Changed `src/` files pass the state-header check (`python3 scripts/stamp_source_header.py --check <files>`)
 - [ ] No game data, disc images, or compiler binaries

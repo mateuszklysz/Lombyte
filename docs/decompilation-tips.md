@@ -74,8 +74,9 @@ Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
 
 - Every attempt keeps a unique set of artifacts: source hash, compiler
   invocation, object, raw comparison report, measures, decision, next action.
-- Worked files carry a short state header: state, symbol, measures, compiler,
-  decision, blocker, evidence path.
+- Worked files carry a short state header (state, symbol, measures, compiler,
+  decision, blocker); see [source-headers.md](source-headers.md). Evidence
+  paths stay with the maintainers' artifacts, not in this repository.
 - Raw reports are preserved; summaries do not replace them.
 - Parked work records the tested hypotheses, the blocker class, and a
   concrete revisit trigger.
