@@ -12,7 +12,10 @@ Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
 ## 2. Ownership and oracles
 
 - Every configured range has exactly one owner. Unfinished owners stay
-  assembly-backed so the image is always reconstructible.
+  assembly-backed so the image is always reconstructible. The oracle is
+  generated locally from your own retail ELF (`configure.py --make-asm`,
+  `config/us/expected/asm/`, gitignored) and included with `INCLUDE_ASM`; the
+  repository stores no transcribed assembly.
 - An owner becomes C only when its entire compiled range is byte-exact.
   Retagging ownership records progress.
 - The oracle is removed only after the replacement passes every gate.
