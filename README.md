@@ -211,6 +211,6 @@ For build issues, include your operating system, tool versions, command, and rel
 
 ## License
 
-Repository code is distributed under the [MIT License](LICENSE); the license covers the project's own tooling and documentation. Files reconstructed from third-party runtimes remain under their original licenses — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). This is an independent community project, unaffiliated with Insomniac Games or Sony Interactive Entertainment.
+Repository code is distributed under the [MIT License](LICENSE); the license covers the project's own tooling and documentation. Code reconstructed from third-party binaries remains the sole intellectual property of the respective copyright holders — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 The Lombyte emblem in [`assets/`](assets/) is the project's original artwork.

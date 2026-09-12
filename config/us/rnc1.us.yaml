@@ -1338,7 +1338,7 @@ segments:
           - [0x1097bc, textbin, text_gap_0020883c_before_fun_00208840]
           - [0x1097c0, c, assembly/textbin/fun_00208840]
           - [0x109824, textbin, text_gap_002088a4_after_fun_00208840]
-          - [0x109ea8, c, assembly/textbin/fun_00208f28]
+          - [0x109ea8, c, textbin/fun_00208f28]
           - [0x109f20, textbin, text_gap_00208fa0_after_fun_00208f28]
           - [0x109fb0, c, assembly/textbin/fun_00209030]
           - [0x10a0e4, textbin, text_gap_00209164_before_fun_00209168]

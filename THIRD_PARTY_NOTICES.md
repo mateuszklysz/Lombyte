@@ -2,8 +2,8 @@
 
 Most of this repository is covered by the MIT license. Parts of `src/`
 reconstruct runtime code that was statically linked into the retail
-executable; those files remain under their original licenses and are not
-covered by MIT.
+executable; code reconstructed from third-party binaries remains the sole
+intellectual property of the respective copyright holders.
 
 The set of such files changes as the decompilation progresses, so it is not
 enumerated here. Affected files carry the upstream attribution in their source
@@ -47,8 +47,3 @@ The AT&T permissive notice, reproduced in every affected file:
  ***************************************************************/
 ```
 
-## Sony and Insomniac code
-
-Files reconstructing Sony SDK, ps2sdk, and libmpeg routines, as well as the
-game's own code, are not distributed under the MIT license and no license is
-claimed over them; all rights remain with their respective owners.
