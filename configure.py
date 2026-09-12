@@ -45,6 +45,12 @@ LANG_DEFINE = "-DBUILD_US_VERSION"
 # libc/SDK/core units stay on EE-GCC 2.9 until their own profile is identified.
 # SDK_COMPILER_UNITS is the per-unit exception list for textbin.
 SN_TOOLCHAIN_ROOT = os.environ.get("SN_TOOLCHAIN_ROOT", "").strip()
+# Locally built patched public 991111 cc1 (R5900 quadword saves + classic
+# mult/mflo).  Not vendored: the environment points at the pinned build and the
+# tree falls back to the frozen compilers when it is absent.  Source patches
+# and provenance live in the tools repo
+# (build/workspace/astra-20260912/patches/).
+HIMURO_PATCHED_ROOT = os.environ.get("HIMURO_PATCHED_ROOT", "").strip()
 # Promoted textbin units matched byte-exact under the SN compiler.
 SN_COMPILER_UNITS = {
     # sdk/debug_print: the EE-GCC 2.9 tree ships no stdarg.h, and the SN
@@ -132,6 +138,15 @@ SN_COMPILER_UNITS = {
     # retail-save-style routing would send it to EE-GCC 2.9; SN -O2 reproduces
     # the retail schedule byte-exactly.
     "textbin/attach_manipulator",
+}
+
+# Units proven byte-exact under the patched 991111 build.  Keep the set
+# explicit: this compiler is a per-unit profile, not a replacement for the
+# frozen SN/Himuro trees (its SN-class controls do not reach 100).
+HIMURO_PATCHED_UNITS = {
+    # Retail uses classic mult/mflo; the frozen trees emit the R5900 rd-form.
+    # 100/100/100 + patha linked-byte equal (0x12D3A0), 2026-09-12.
+    "sdk/bcd_to_time",
 }
 
 SDK_COMPILER_UNITS = {
@@ -338,6 +353,10 @@ def make_compiler_cmd(config_dir: Path, src_path: Path) -> tuple[str, str]:
 
 def sn_compiler_configured() -> bool:
     return bool(SN_TOOLCHAIN_ROOT) and (Path(SN_TOOLCHAIN_ROOT) / "bin/ee-gcc.exe").is_file()
+
+
+def himuro_patched_configured() -> bool:
+    return bool(HIMURO_PATCHED_ROOT) and (Path(HIMURO_PATCHED_ROOT) / "xgcc").is_file()
 
 
 def _win_path(value: str) -> str:
@@ -643,6 +662,28 @@ def build_stuff(
             ),
         )
 
+        # Patched public 991111 cc1 (R5900 quad saves + classic mult/mflo) with
+        # the same alias normalization + Ps2EeAs + padless finish.  Native
+        # driver, so only the assembler step needs Windows paths.
+        if himuro_patched_configured():
+            patched_root = Path(HIMURO_PATCHED_ROOT)
+            patched_driver = str(patched_root / "xgcc")
+            patched_include = str(ROOT / "include")
+            ninja.rule(
+                "cc_himuro_patched",
+                description="cc_himuro_patched $in",
+                command=(
+                    f"mkdir -p $pat_work && cp $in $pat_work/cand.c && "
+                    f"'{patched_driver}' -S -B'{patched_root}/' -I'{patched_include}' "
+                    f"-DBUILD_US_VERSION -DMATCHING_DECOMP -O2 -g2 $extra "
+                    f"$pat_work/cand.c -o $pat_work/cand.s && "
+                    f"{sys.executable} padless-asm.py normalize $pat_work/cand.s $pat_work/cand-final.s && "
+                    f"'{ee_assembler}' -o '$pat_work_win/cand-padded.o' '$pat_work_win/cand-final.s' && "
+                    f"{sys.executable} padless-asm.py finish $pat_work/cand-padded.o $out && "
+                    f"{CROSS}strip $out -N dummy-symbol-name"
+                ),
+            )
+
     ninja.rule(
         "ld",
         description="link $out",
@@ -684,7 +725,21 @@ def build_stuff(
             use_sn = sn_compiler_configured() and (
                 unit in SN_COMPILER_UNITS or (_unit_uses_sn(unit) and style == "sq")
             )
-            if sn_compiler_configured() and unit in PADLESS_ASM_UNITS:
+            use_patched = (
+                himuro_patched_configured()
+                and sn_compiler_configured()
+                and unit in HIMURO_PATCHED_UNITS
+            )
+            if use_patched:
+                pat_work = str(ROOT / "build/patched-work/units" / unit)
+                variables = {
+                    "pat_work": pat_work,
+                    "pat_work_win": _win_path(pat_work),
+                    "extra": "",
+                }
+                build(entry.object_path, entry.src_paths, "cc_himuro_patched",
+                      variables=variables)
+            elif sn_compiler_configured() and unit in PADLESS_ASM_UNITS:
                 sn_work = str(sn_repo / "build/sn-work/units" / unit)
                 sn_extra = _unit_sn_flag(unit)
                 variables = {
