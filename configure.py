@@ -147,6 +147,10 @@ HIMURO_PATCHED_UNITS = {
     # Retail uses classic mult/mflo; the frozen trees emit the R5900 rd-form.
     # 100/100/100 + patha linked-byte equal (0x12D3A0), 2026-09-12.
     "sdk/bcd_to_time",
+    # Retail keeps the ORed value in v0 and the 0x15 constant in v1; the
+    # patched profile plus a v0 register pin reproduces all 30 instructions
+    # (98.67 without the pin). patha linked-byte equal, 2026-09-12.
+    "textbin/fun_00208f28",
 }
 
 SDK_COMPILER_UNITS = {
