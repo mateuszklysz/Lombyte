@@ -187,6 +187,13 @@ HIMURO_FLAG_UNITS = {
     # general register instead.  Validated 100/100/100 under Himuro + flag.
     "clear_stage_state_flag": "-mno-split-addresses",
     "initialize_streaming_state": "-mno-split-addresses",
+    # DIntr: Sony libkernel privileged-loop glue.  The ps2sdk glue.c shape
+    # (pinned eie/next/res + `.p2align 3`) matches retail only under the size
+    # optimization with the missing-cse-follow-jumps policy; the default
+    # -O2 compile picks `daddu a0,v1` for the out arm instead of $zero and
+    # schedules the return move out of the jr delay slot.  100/100/100 under
+    # Himuro with this flag pair (campaign pipeline-2026-09-11-7).
+    "DIntr": "-Os -fno-cse-follow-jumps",
 }
 
 

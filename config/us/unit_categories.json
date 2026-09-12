@@ -105,7 +105,6 @@
     "assembly/math/compute_sector_index",
     "assembly/sdk/dma_ipu_gs/do_csc2",
     "assembly/sdk/dma_ipu_gs/sce_gs_set_def_disp_env",
-    "assembly/sdk/library/DIntr",
     "assembly/sdk/library/_motionComp0",
     "assembly/sdk/library/domc_mmi",
     "assembly/sdk/library/entry",
