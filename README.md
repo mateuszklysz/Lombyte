@@ -42,7 +42,7 @@ Each tile is one configured C unit, sized by its share of the executable's code 
 
 Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. The map's classification input is `config/us/unit_categories.json`.
 
-**A matching executable does not mean the decompilation is complete.** Unconverted units keep using assembly or raw machine-code *oracles* to preserve the original bytes; matching C replaces them over time.
+**A matching executable does not mean the decompilation is complete.** Unconverted units keep using assembly or raw machine-code *oracles* to preserve the original bytes; matching C replaces them over time. The oracles are generated at build time from your own `config/us/SCUS_971.99` into the gitignored `config/us/expected/asm/` tree and are not stored in this repository.
 
 The build verifies matching at two levels: objdiff per compiled object, and a whole-ELF comparison against the original (SHA-256 below).
 
