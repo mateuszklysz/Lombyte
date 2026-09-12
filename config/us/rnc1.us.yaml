@@ -276,7 +276,7 @@ segments:
           - [0x1a878, c, assembly/sdk/deci_debug/sce_tty_read]
           - [0x1a948, c, assembly/sdk/deci_debug/sce_tty_init]
           - [0x1aa04, textbin, text_gap_001199c8_post_sdk_worker]
-          - [0x1aa08, c, assembly/sdk/kputchar]
+          - [0x1aa08, c, sdk/kputchar]
           - [0x1aa40, c, sdk/deci_debug/deci2_putchar]
           - [0x1aaf0, c, sdk/deci_debug/serial_putchar]
           - [0x1ab24, textbin, text_gap_00119b70_post_sdk_worker]
