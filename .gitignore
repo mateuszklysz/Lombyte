@@ -15,6 +15,7 @@ config/us/.splache
 config/us/build.ninja
 config/us/SCUS_971.99.ld
 config/us/asm/
+config/us/expected/
 config/us/undefined_syms_auto.txt
 
 # Vendored tools: ignore the compiler/binary components, keep small scripts
