@@ -199,6 +199,25 @@ SN_FLAG_UNITS = {
     "fun_0023abd0": "-mno-split-addresses",
 }
 
+# Units whose retail objects carry compiler-emitted hazard NOPs that the
+# bundled GNU assembler drops (FPU move-to-cop / compare hazards and the
+# load-delay filler).  They compile with the SN cc1 but assemble with the SN
+# toolchain's `ee/bin/Ps2EeAs.exe`, followed by a repo-owned normalization pass that removes only the
+# assembler's section tail padding.  The list is explicit per unit: the
+# assembler swap is proven per-object and must not drift to other units.
+PADLESS_ASM_UNITS = {
+    "textbin/fun_0020c9e0",
+    "textbin/fun_002132a8",
+    "textbin/fun_001ff480",
+    "textbin/fun_001eda60",
+    # padless-release sweep 2026-09-12: both banks keep a dropped hazard
+    # NOP/load-delay residual under the bundled GNU as and reach 100/100/100
+    # with the padless route (fun_00225660 also needed the build's canonical
+    # FUN_00225530 callee symbol).
+    "textbin/fun_00225660",
+    "textbin/fun_00233d90",
+}
+
 
 def _unit_flag(unit: str) -> str:
     for suffix, flags in HIMURO_FLAG_UNITS.items():
@@ -344,6 +363,134 @@ def _unit_from_object(object_path: Path) -> str:
     return joined
 
 
+PADLESS_ASM_HELPER = r'''#!/usr/bin/env python3
+"""Normalize SN cc1 output for Ps2EeAs and drop section tail padding.
+
+`normalize IN OUT` rewrites GNU `alias = function` assignments into
+co-located labels (Ps2EeAs rejects the assignment form).
+`finish PADDED OUT` removes only the `.text` section tail padding after the
+last sized function and adds empty `.data`/`.bss` sections so object
+comparison sees the GNU layout.  Every check fails closed; no target bytes,
+addresses or expected lengths are inputs.
+"""
+import re
+import struct
+import sys
+
+
+def normalize_aliases(text):
+    labels = set(re.findall(r"^\s*([\w.$]+):\s*$", text, re.M))
+    pattern = re.compile(r"^\s*([\w.$]+)\s*=\s*([\w.$]+)\s*$", re.M)
+    aliases = {}
+    for match in pattern.finditer(text):
+        alias, target = match.groups()
+        if target in labels:
+            aliases.setdefault(target, []).append(alias)
+    text = pattern.sub(lambda m: "" if m[2] in aliases else m[0], text)
+    for target, names in aliases.items():
+        text = re.sub(r"^(\s*)" + re.escape(target) + r":\s*$",
+                      lambda m: "".join(name + ":\n" for name in names) + target + ":",
+                      text, count=1, flags=re.M)
+    return text
+
+
+def unpad(data):
+    if data[:7] != b"\x7fELF\x01\x01\x01" or struct.unpack_from("<H", data, 16)[0] != 1:
+        raise ValueError("expected a little-endian ELF32 relocatable object")
+    shoff = struct.unpack_from("<I", data, 32)[0]
+    shsize, count, names_index = struct.unpack_from("<HHH", data, 46)
+    if shsize != 40 or shoff + count * shsize > len(data):
+        raise ValueError("invalid section table")
+    headers = [struct.unpack_from("<10I", data, shoff + i * shsize) for i in range(count)]
+    nh = headers[names_index]
+    names = data[nh[4]:nh[4] + nh[5]]
+    text_indices = [i for i, h in enumerate(headers)
+                    if names[h[0]:].split(b"\0")[0] == b".text"]
+    if len(text_indices) != 1:
+        raise ValueError("expected exactly one .text section")
+    index = text_indices[0]
+    text = headers[index]
+    if text[1] != 1 or text[2] & 6 != 6 or text[4] + text[5] > len(data):
+        raise ValueError("invalid executable .text section")
+    symbols = []
+    for h in headers:
+        if h[1] == 2:
+            if h[9] != 16 or h[5] % 16:
+                raise ValueError("invalid symbol table")
+            for offset in range(h[4], h[4] + h[5], 16):
+                sym = struct.unpack_from("<IIIBBH", data, offset)
+                if sym[5] == index:
+                    symbols.append(sym)
+    funcs = [s for s in symbols if s[3] & 15 == 2 and s[2]]
+    if not funcs:
+        raise ValueError("no sized function symbols; cannot infer code extent")
+    end = max(s[1] + s[2] for s in funcs)
+    padding = text[5] - end
+    if padding < 0 or padding >= max(text[8], 1) or end % 4:
+        raise ValueError("function extent does not explain section tail padding")
+    if any(data[text[4] + end:text[4] + text[5]]):
+        raise ValueError("nonzero bytes after final function")
+    if any(s[1] > end or (s[1] == end and s[3] & 15 not in (0, 3))
+           or (s[3] & 15 != 3 and s[1] + s[2] > end) for s in symbols):
+        raise ValueError("symbol refers to removed padding")
+    for h in headers:
+        if h[1] in (4, 9) and h[7] == index:
+            stride = 12 if h[1] == 4 else 8
+            if h[9] != stride or h[5] % stride:
+                raise ValueError("invalid relocation table")
+            if any(struct.unpack_from("<I", data, offset)[0] >= end
+                   for offset in range(h[4], h[4] + h[5], stride)):
+                raise ValueError("relocation refers to removed padding")
+    result = bytearray(data)
+    struct.pack_into("<I", result, shoff + index * shsize + 20, end)
+    return bytes(result)
+
+
+def add_empty_sections(data):
+    shoff = struct.unpack_from("<I", data, 32)[0]
+    shsize, count, names_index = struct.unpack_from("<HHH", data, 46)
+    headers = [list(struct.unpack_from("<10I", data, shoff + i * shsize)) for i in range(count)]
+    nh = headers[names_index]
+    names = bytearray(data[nh[4]:nh[4] + nh[5]])
+    present = {bytes(names[h[0]:]).split(b"\0")[0] for h in headers}
+    added = []
+    for name, kind in ((b".data", 1), (b".bss", 8)):
+        if name in present:
+            continue
+        headers.append([len(names), kind, 3, 0, len(data), 0, 0, 0, 1, 0])
+        names.extend(name + b"\0")
+        added.append(name.decode())
+    if not added:
+        return data
+    result = bytearray(data)
+    nh[4], nh[5] = len(result), len(names)
+    result.extend(names)
+    result.extend(b"\0" * (-len(result) % 4))
+    struct.pack_into("<I", result, 32, len(result))
+    struct.pack_into("<H", result, 48, len(headers))
+    for h in headers:
+        result.extend(struct.pack("<10I", *h))
+    return bytes(result)
+
+
+def main(argv):
+    if len(argv) != 4:
+        raise SystemExit("usage: padless-asm.py normalize|finish IN OUT")
+    mode, source, destination = argv[1:]
+    data = open(source, "rb").read()
+    if mode == "normalize":
+        open(destination, "w").write(normalize_aliases(data.decode()))
+    elif mode == "finish":
+        open(destination, "wb").write(add_empty_sections(unpad(data)))
+    else:
+        raise SystemExit("unknown mode: " + mode)
+
+
+if __name__ == "__main__":
+    main(sys.argv)
+'''
+
+
 def clean(config_dir: Path):
     for file in (
         ".splache",
@@ -352,6 +499,7 @@ def clean(config_dir: Path):
         "permuter_settings.toml",
         "objdiff.json",
         "undefined_syms_auto.txt",
+        "padless-asm.py",
         LD_PATH,
     ):
         (config_dir / file).unlink(missing_ok=True)
@@ -469,6 +617,28 @@ def build_stuff(
             ),
         )
 
+        # SN cc1 + Ps2EeAs: the bundled GNU assembler drops
+        # compiler-emitted hazard NOPs, while Ps2EeAs materializes them and
+        # pads `.text` to its section alignment.  The generated helper rewrites
+        # GNU alias assignments to labels and trims only that padding.
+        (config_dir / "padless-asm.py").write_text(PADLESS_ASM_HELPER)
+        ee_assembler = str(Path(SN_TOOLCHAIN_ROOT) / "ee/bin/Ps2EeAs.exe")
+        ninja.rule(
+            "cc_sn_padless",
+            description="cc_sn_padless $in",
+            command=(
+                f"mkdir -p $sn_work && cp $in $sn_work/cand.c && "
+                f"'{sn_driver}' -S '-B{sn_lib}\\' '-B{sn_eebin}\\' "
+                f"-I'{sn_inc}' -I'{sn_repo_inc}' "
+                f"-DBUILD_US_VERSION -DMATCHING_DECOMP -O2 -g2 $extra "
+                f"'$sn_work_win/cand.c' -o '$sn_work_win/cand.s' && "
+                f"{sys.executable} padless-asm.py normalize $sn_work/cand.s $sn_work/cand-final.s && "
+                f"'{ee_assembler}' -o '$sn_work_win/cand-padded.o' '$sn_work_win/cand-final.s' && "
+                f"{sys.executable} padless-asm.py finish $sn_work/cand-padded.o $out && "
+                f"{CROSS}strip $out -N dummy-symbol-name"
+            ),
+        )
+
     ninja.rule(
         "ld",
         description="link $out",
@@ -510,7 +680,18 @@ def build_stuff(
             use_sn = sn_compiler_configured() and (
                 unit in SN_COMPILER_UNITS or (_unit_uses_sn(unit) and style == "sq")
             )
-            if use_sn:
+            if sn_compiler_configured() and unit in PADLESS_ASM_UNITS:
+                sn_work = str(sn_repo / "build/sn-work/units" / unit)
+                sn_extra = _unit_sn_flag(unit)
+                variables = {
+                    "sn_work": sn_work,
+                    "sn_work_win": _win_path(sn_work),
+                }
+                if sn_extra:
+                    variables["extra"] = f"{sn_extra} "
+                build(entry.object_path, entry.src_paths, "cc_sn_padless",
+                      variables=variables)
+            elif use_sn:
                 sn_work = str(sn_repo / "build/sn-work/units" / unit)
                 sn_extra = _unit_sn_flag(unit)
                 variables = {
