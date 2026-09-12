@@ -216,6 +216,10 @@ PADLESS_ASM_UNITS = {
     # FUN_00225530 callee symbol).
     "textbin/fun_00225660",
     "textbin/fun_00233d90",
+    # padless-release sweep follow-up (run 7 resume): empty-asm barrier on the
+    # 64-bit call result pins the two outgoing spills (sd v0,8(sp)/sd v1,0(sp))
+    # ahead of the addiu pair, 100/100/100.
+    "textbin/fun_001fe898",
 }
 
 
