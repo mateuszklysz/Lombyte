@@ -737,7 +737,7 @@ segments:
           - [0x2e288, c, sdk/deci_debug/sce_scf_get_summer_time]
           - [0x2e2f0, c, sdk/time_to_bcd]
           - [0x2e31c, textbin, text_gap_0012c2f0_bcd_gap]
-          - [0x2e320, c, assembly/sdk/bcd_to_time]
+          - [0x2e320, c, sdk/bcd_to_time]
           - [0x2e340, c, textbin/fun_0012d3c0]
           - [0x2e3a8, c, textbin/fun_0012d428]
           - [0x2e410, c, sdk/library/adddate]
