@@ -60,7 +60,7 @@ SN_COMPILER_UNITS = {
     # fun_002172c0 has no callee saves (retail style "none"), so the sq/lq
     # fingerprint cannot classify it; retail branch-delay scheduling matches
     # SN exactly (fresh SN -O2 -g2 object = 100% four-way; EE-GCC 2.9 = 95.2%
-    # order-only nop/addiu swap). See the private evidence archive for evidence.
+    # order-only nop/addiu swap). See the private evidence archive for details.
     "textbin/fun_002172c0",
     "textbin/fun_001f6250",
     "textbin/fun_001f6270",

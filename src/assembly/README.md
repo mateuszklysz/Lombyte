@@ -7,7 +7,7 @@ descriptive C fallback lives under `#else NON_MATCHING`. Intentional
 kernel/ISA-low-level units use the same generated oracles.
 It is kept separate from descriptive C to make recovery scope obvious.
 
-The source-quality audit under `the private evidence archive/` is authoritative for whether
+The project's source-quality audit is authoritative for whether
 an individual unit is temporary, intentional low-level assembly, or C-exact.
 No unit should be promoted to descriptive C without the normal exact-match and
 full-baseline gates.
