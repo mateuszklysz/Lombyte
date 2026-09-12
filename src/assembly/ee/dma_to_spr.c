@@ -1,11 +1,14 @@
 /*
 STATE: C_NON_MATCHING
-SYMBOL: DmaToSpr
+SYMBOL: WriteDmaChannelRegisters
 SCORE: code=100 functions=100 data=100 complete_data=100
 DECISION: retained (pending)
 */
 
-/* ROLE: recovered whole function `DmaToSpr`. */
+/* ROLE: WriteDmaChannelRegisters: programs three EE DMA channel registers and
+ * arms the channel with 0x100. The configured unit path (`dma_to_spr`) is
+ * historical and predates the symbol identification; the expected object and
+ * the oracle carry `WriteDmaChannelRegisters`. */
 
 #include "types.h"
 #include "asm.h"
@@ -14,21 +17,13 @@ DECISION: retained (pending)
 /* Exact low-cost entry recovered with target symbolic relocations. */
 INCLUDE_ASM("config/us/expected/asm/assembly/ee/dma_to_spr/WriteDmaChannelRegisters.s", WriteDmaChannelRegisters);
 #else
-#include "rnc/assembly_ee_write_dma_channel_registers_types.h"
 #include "types.h"
-/* cygnus-2.96 matched TU. */
 
-typedef struct Obj_00290000 Obj_00290000;
-
-
-__attribute__((section(".text.func_00290000")))
-Obj_00290000* WriteDmaChannelRegisters(Obj_00290000 *o) {
-    *(int *)((char *)o + 0x0) = 0;
-    *(int *)((char *)o + 0xC) = -1;
-    *(int *)((char *)o + 0x4) = 0;
-    *(int *)((char *)o + 0x8) = 0;
-    *(char *)((char *)o + 0x10) = 0;
-    return o;
+void WriteDmaChannelRegisters(u32 arg0, u32 arg1, u32 arg2) {
+    *(volatile u32 *)0x1000D410 = arg0;
+    *(volatile u32 *)0x1000D420 = arg1;
+    *(volatile u32 *)0x1000D480 = arg2;
+    *(volatile u32 *)0x1000D400 = 0x100;
 }
-#endif /* NON_MATCHING */
 
+#endif /* NON_MATCHING */
