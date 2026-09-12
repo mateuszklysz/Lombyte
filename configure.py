@@ -574,6 +574,46 @@ def rename_locals(base_path: Path):
         asm_file.write_text(data)
 
 
+def fix_gp_rel_stores(asm_root: Path) -> int:
+    """Normalize the gp-relative store spelling for the frozen assembler.
+
+    Splat emits ``sw $r, %gp_rel(sym)($28)`` for small-data stores.  The
+    pinned EE 2.9 assembler rejects the ``%gp_rel`` operator on stores
+    ("Bad expression"), while the hand-written oracles used
+    ``.extern sym, 4`` plus a bare ``sym`` operand, which expands to the
+    same R_MIPS_GPREL16 relocation.  Only generated per-function
+    ``expected/asm`` files are touched; expected objects come from the
+    whole-unit ``.c.s`` output through binutils and are unaffected.
+    """
+    pattern = re.compile(
+        r"(?P<indent>[ \t]*)(?P<op>sw|swc1|sd|sdc1|sh|sb)(?P<spacing>\s+)"
+        r"(?P<reg>\$[a-z0-9]+),\s*%gp_rel\((?P<sym>[A-Za-z0-9_]+)\)\(\$28\)"
+    )
+    fixed = 0
+    for asm_file in asm_root.rglob("*.s"):
+        text = asm_file.read_text()
+        symbols: list[str] = []
+
+        def rewrite(match: re.Match[str]) -> str:
+            symbol = match.group("sym")
+            if symbol not in symbols:
+                symbols.append(symbol)
+            return (
+                f'{match.group("indent")}{match.group("op")}{match.group("spacing")}'
+                f'{match.group("reg")}, {symbol}'
+            )
+
+        updated = pattern.sub(rewrite, text)
+        if updated == text:
+            continue
+        missing = [symbol for symbol in symbols if f".extern {symbol}," not in updated]
+        if missing:
+            updated = "".join(f".extern {symbol}, 4\n" for symbol in missing) + updated
+        asm_file.write_text(updated)
+        fixed += 1
+    return fixed
+
+
 def make_asm(config_path: Path, config: dict[str, Any]):
     with tempfile.TemporaryDirectory(dir=config_path, prefix="tmp_") as tmp_dir:
         tmp_path = Path(tmp_dir)
@@ -633,6 +673,10 @@ def make_asm(config_path: Path, config: dict[str, Any]):
 
         dst_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(asm_path, dst_path, dirs_exist_ok=True)
+
+        rewritten = fix_gp_rel_stores(dst_path)
+        if rewritten:
+            print(f"normalized gp-relative stores in {rewritten} expected asm files")
 
         print(f"expected asm extracted to '{dst_path}'")
 
