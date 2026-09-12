@@ -11,6 +11,6 @@
  * truth for the exact branch and the symbol parameter documents the oracle
  * identity without changing the assembler input.
  */
-#define INCLUDE_ASM(path, symbol) __asm__(".include \"macro.inc\"\n.include \"" path "\"")
+#define INCLUDE_ASM(path, symbol) __asm__(".set noreorder\n.include \"macro.inc\"\n.include \"" path "\"\n.set reorder")
 
 #endif /* RNCDECOMP_ASM_H */
