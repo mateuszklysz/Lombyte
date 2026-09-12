@@ -554,7 +554,7 @@ segments:
           - [0x25e5c, textbin, text_gap_00124da0_post_sdk_worker]
           - [0x25e60, c, sdk/sce_pad2_link_driver]
           - [0x25eb4, textbin, text_gap_00124ee0_post_sdk_worker]
-          - [0x25eb8, c, assembly/sdk/sce_pad2_get_side]
+          - [0x25eb8, c, sdk/sce_pad2_get_side]
           - [0x25f1c, textbin, text_gap_00124f38_post_sdk_worker]
           - [0x25f20, c, assembly/sdk/sce_pad2_check_dma]
           - [0x25fa0, c, sdk/sce_pad2_set_button_order]
