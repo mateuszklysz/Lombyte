@@ -1,0 +1,27 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_002049f0
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: sn-O2
+DECISION: promoted
+BLOCKER: none
+*/
+
+#include "types.h"
+struct TransferState {
+    u8 pad[0x5C];
+    u32 current;
+    u32 entries[1];
+};
+extern struct TransferState D_0018CB20;
+#define D_00160F0C ((u32 *)0x00160F0C)
+extern u32 D_001940C8[4];
+extern void func_00204790(void *);
+
+void FUN_002049f0(s32 index) {
+    struct TransferState *slot;
+    slot = (struct TransferState *)((u8 *)&D_0018CB20 - (-(index * 4)));
+    D_0018CB20.current = slot->entries[0];
+    func_00204790(slot);
+    D_0018CB20.current = D_001940C8[0] + D_00160F0C[0];
+}
