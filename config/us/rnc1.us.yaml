@@ -1976,7 +1976,7 @@ segments:
           - [0x13bb1c, textbin, text_gap_0023ab9c_before_fun_0023aba0]
           - [0x13bb20, c, textbin/fun_0023aba0]
           - [0x13bb4c, textbin, text_gap_0023abcc_after_fun_0023aba0]
-          - [0x13bb50, c, assembly/textbin/fun_0023abd0]
+          - [0x13bb50, c, textbin/fun_0023abd0]
           - [0x13bc0c, textbin, text_gap_0023ac8c_before_fun_0023ac90]
           - [0x13bc10, c, textbin/fun_0023ac90]
           - [0x13bc30, textbin, text_gap_0023acb0_after_fun_0023ac90]
