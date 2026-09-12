@@ -195,6 +195,7 @@ SN_FLAG_UNITS = {
     "fun_001f4248": "-mno-split-addresses",
     "fun_0023b540": "-mno-split-addresses",
     "fun_001f21c0": "-mno-split-addresses",
+    "fun_002151d8": "-mno-split-addresses",
 }
 
 
