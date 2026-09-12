@@ -151,6 +151,12 @@ HIMURO_PATCHED_UNITS = {
     # patched profile plus a v0 register pin reproduces all 30 instructions
     # (98.67 without the pin). patha linked-byte equal, 2026-09-12.
     "textbin/fun_00208f28",
+    # lq/sq-save class exacts recovered by the extended pool sweep; promoted
+    # as a batch (patha byte-equal each; batch2 gate 2026-09-12).
+    "core/read_state_field",
+    "textbin/fun_001fd6e0",
+    "textbin/fun_00213308",
+    "textbin/mpeg_error",
 }
 
 SDK_COMPILER_UNITS = {
