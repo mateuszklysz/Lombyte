@@ -1,7 +1,7 @@
 {
   "schema": "rnc-unit-categories-v1",
   "description": "Derived unit categories needed by scripts/generate_treemap.py. Canonical audits live in the tooling repository.",
-  "generated": "2026-09-11",
+  "generated": "2026-09-12",
   "exact_under_assembly": [
     "assembly/ee/clear_dma_queue_entry",
     "assembly/textbin/audio_dec_begin_put",
@@ -27,7 +27,6 @@
     "assembly/kernel/enable_cache",
     "assembly/kernel/enable_dmac",
     "assembly/kernel/enable_intc",
-    "assembly/kernel/enable_interrupts",
     "assembly/kernel/end_of_heap",
     "assembly/kernel/exit",
     "assembly/kernel/flush_cache",
