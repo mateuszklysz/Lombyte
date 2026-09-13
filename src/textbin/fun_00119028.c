@@ -1,11 +1,14 @@
 /*
 STATE: C_EXACT
-SYMBOL: FUN_00119028
+SYMBOL: DisableIntc
 SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
 COMPILER: himuro-O2 -O2 -g2 -gstabs
 DECISION: promoted (pipeline-2026-09-10-4)
 BLOCKER: none
 */
+
+/* ROLE: DisableIntc: interrupt-guarded public wrapper over the `_DisableIntc` kernel entry (callee and guard-pattern evidence). */
+
 
 #include "types.h"
 
@@ -29,3 +32,6 @@ s32 FUN_00119028(s32 arg0) {
     }
     return result;
 }
+
+/* Recovered original symbol name. */
+extern __typeof__(FUN_00119028) DisableIntc __attribute__((alias("FUN_00119028")));
