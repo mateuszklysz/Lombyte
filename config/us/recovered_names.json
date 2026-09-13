@@ -83,7 +83,7 @@
   },
   {
    "name": "snd_GotReturns",
-   "unit": "assembly/textbin/snd_got_returns",
+   "unit": "textbin/snd_got_returns",
    "unit_size": "0x88",
    "match": "full",
    "address": "0x12de70",
@@ -235,7 +235,7 @@
   },
   {
    "name": "snd_PostMessage",
-   "unit": "assembly/textbin/snd_post_message",
+   "unit": "textbin/snd_post_message",
    "unit_size": "0x38",
    "match": "full",
    "address": "0x12e9a0",
@@ -323,7 +323,7 @@
   },
   {
    "name": "snd_StreamSafeCheckCDIdle",
-   "unit": "assembly/textbin/snd_stream_safe_check_cd_idle",
+   "unit": "textbin/snd_stream_safe_check_cd_idle",
    "unit_size": "0x28",
    "match": "full",
    "address": "0x12ed30",
@@ -331,7 +331,7 @@
   },
   {
    "name": "snd_StreamSafeCdRead",
-   "unit": "assembly/textbin/snd_stream_safe_cd_read",
+   "unit": "textbin/snd_stream_safe_cd_read",
    "unit_size": "0xb0",
    "match": "full",
    "address": "0x12ed58",
@@ -355,7 +355,7 @@
   },
   {
    "name": "snd_StreamSafeCdGetError",
-   "unit": "assembly/textbin/snd_stream_safe_cd_get_error",
+   "unit": "textbin/snd_stream_safe_cd_get_error",
    "unit_size": "0x38",
    "match": "full",
    "address": "0x12eef0",
@@ -371,7 +371,7 @@
   },
   {
    "name": "snd_SetReverbEx",
-   "unit": "assembly/textbin/snd_set_reverb_ex",
+   "unit": "textbin/snd_set_reverb_ex",
    "unit_size": "0x40",
    "match": "full",
    "address": "0x12ef68",
@@ -1387,7 +1387,7 @@
   },
   {
    "name": "PutDispBuffer__Fv",
-   "unit": "assembly/textbin/fun_001fb2a8",
+   "unit": "textbin/fun_001fb2a8",
    "unit_size": "0x24",
    "match": "fragment",
    "address": "0x1fb2a8",
@@ -1675,7 +1675,7 @@
   },
   {
    "name": "memcard_Init",
-   "unit": "assembly/textbin/memcard_init",
+   "unit": "textbin/memcard_init",
    "unit_size": "0x30",
    "match": "full",
    "address": "0x20ac58",
@@ -1883,7 +1883,7 @@
   },
   {
    "name": "DrawMobys",
-   "unit": "assembly/textbin/fun_0020d460",
+   "unit": "textbin/fun_0020d460",
    "unit_size": "0x80",
    "match": "fragment",
    "address": "0x20d460",
@@ -2635,7 +2635,7 @@
   },
   {
    "name": "audioDecStart",
-   "unit": "assembly/textbin/audio_dec_start",
+   "unit": "textbin/audio_dec_start",
    "unit_size": "0x58",
    "match": "full",
    "address": "0x23acb8",
@@ -2787,7 +2787,7 @@
   },
   {
    "name": "readBufBeginGet__FP7ReadBufPPUc",
-   "unit": "assembly/textbin/read_buf_begin_get",
+   "unit": "textbin/read_buf_begin_get",
    "unit_size": "0x48",
    "match": "full",
    "address": "0x23b9d8",

@@ -68,6 +68,15 @@ SN_COMPILER_UNITS = {
     # SN exactly (fresh SN -O2 -g2 object = 100% four-way; EE-GCC 2.9 = 95.2%
     # order-only nop/addiu swap). See the private evidence archive for details.
     "textbin/fun_002172c0",
+    # Save-less counting loops (retail style "none"): fresh SN -O2 -g2 objects
+    # are 100/100/100; the Himuro fallback ties at 59.7-91.1% (pipeline-2026-09-13-11
+    # wave 3, fun_00215300 / fun_00215348 / fun_00215290).
+    "textbin/fun_00215300",
+    "textbin/fun_00215348",
+    "textbin/fun_00215290",
+    # Save-less leaf (retail style "none", 19 instructions, no frame): fresh
+    # SN -O2 -g2 is 100/100/100; the EE-GCC 2.9 fallback stages at 91.11%.
+    "textbin/read_buf_begin_get",
     "textbin/fun_001f6250",
     "textbin/fun_001f6270",
     "textbin/fun_001f6290",
@@ -221,6 +230,12 @@ HIMURO_FLAG_UNITS = {
     # schedules the return move out of the jr delay slot.  100/100/100 under
     # Himuro with this flag pair (campaign pipeline-2026-09-11-7).
     "DIntr": "-Os -fno-cse-follow-jumps",
+    # __swrite: retail's field layout is u16@0xC + s16@0xE (not s32@0xE, which
+    # the compiler pads to 0x10) and the s64 return is the dsll32/dsra32
+    # sign-extension pair, which the local compiler only emits when the s32
+    # result is forced through an s64 local + (u32) truncation.  Exact under
+    # -Os -fno-cse-follow-jumps (pipeline-2026-09-13-11).
+    "__swrite": "-Os -fno-cse-follow-jumps",
 }
 
 
@@ -255,6 +270,15 @@ SN_FLAG_UNITS = {
     # split-address sequence diverges.  100/100/100 + patha byte-equal
     # (byte-max campaign 2026-09-13, pipeline-2026-09-13-10).
     "fun_0023be20": "-mno-split-addresses",
+    # fun_001fb2a8: retail folds the non-small global's absolute load
+    # (`lui a0,0x16; lw a0,-0x1148(a0)`) and keeps the ra save after it; the
+    # array extern alone leaves the lui scheduled before the frame adjust.
+    # 100/100/100 under SN with flag (pipeline-2026-09-13-11).
+    "fun_001fb2a8": "-mno-split-addresses",
+    # snd_post_message: retail keeps the index in v1 and the base in v0; the
+    # default prepass scheduler swaps them.  100/100/100 with
+    # -fno-schedule-insns (pipeline-2026-09-13-11 wave 2).
+    "snd_post_message": "-fno-schedule-insns",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
