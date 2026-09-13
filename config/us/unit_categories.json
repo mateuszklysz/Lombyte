@@ -3,7 +3,6 @@
   "description": "Derived unit categories needed by scripts/generate_treemap.py. Canonical audits live in the tooling repository.",
   "generated": "2026-09-13",
   "exact_under_assembly": [
-    "assembly/ee/clear_dma_queue_entry",
     "assembly/textbin/audio_dec_begin_put",
     "assembly/textbin/fun_002220f0",
     "assembly/textbin/fun_00225dd8",

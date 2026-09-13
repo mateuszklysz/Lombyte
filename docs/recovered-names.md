@@ -72,7 +72,6 @@ Our configured unit has the same start and size as the recovered function (103).
 | `assembly/textbin/update_all_point_lights` | 0x201a28 | `UpdateAllPointLights` |
 | `assembly/textbin/vblank_handler` | 0x23b3d8 | `vblankHandler` |
 | `assembly/textbin/vi_buf_create` | 0x23bc48 | `viBufCreate` |
-| `assembly/textbin/vi_buf_delete` | 0x23c5b8 | `viBufDelete__FP5ViBuf` |
 | `assembly/textbin/vi_buf_put_ts` | 0x23c810 | `viBufPutTs__FP5ViBufP9TimeStamp` |
 | `assembly/textbin/vi_buf_reset` | 0x23bcc0 | `viBufReset__FP5ViBuf` |
 | `assembly/textbin/vi_buf_restart_dma` | 0x23c280 | `viBufRestartDMA__FP5ViBuf` |
@@ -116,6 +115,7 @@ Our configured unit has the same start and size as the recovered function (103).
 | `textbin/snd_unk_function_0012eb00` | 0x12eb00 | `snd_UnkFunction_0012eb00` |
 | `textbin/snd_unload_bank` | 0x12e1d8 | `snd_UnloadBank` |
 | `textbin/update_occlusion` | 0x1f2c10 | `UpdateOcclusion__Fv` |
+| `textbin/vi_buf_delete` | 0x23c5b8 | `viBufDelete__FP5ViBuf` |
 | `textbin/video_dec_is_flushed` | 0x23cde0 | `videoDecIsFlushed__FP8VideoDec` |
 | `textbin/video_dec_set_stream` | 0x23cbd0 | `videoDecSetStream__FP8VideoDeciiPFP7sceMpegP13sceMpegCbDataPv_iPv` |
 | `textbin/vo_buf_get_data` | 0x23d288 | `voBufGetData__FP5VoBuf` |
@@ -189,7 +189,6 @@ The recovered function starts at our unit and extends past it (206).
 | `assembly/textbin/fun_001fb2d0` | 0x1fb2d0 | `PutDrawBufferLarge__Fv` |
 | `assembly/textbin/fun_001fb3d0` | 0x1fb3d0 | `PutDrawBufferSmall__Fv` |
 | `assembly/textbin/fun_001fbc50` | 0x1fbc50 | `DrawDialogText__Fv` |
-| `assembly/textbin/fun_001fdca0` | 0x1fdca0 | `Help_FindIndex` |
 | `assembly/textbin/fun_001fde90` | 0x1fde90 | `Help_Update` |
 | `assembly/textbin/fun_001fee38` | 0x1fee38 | `Hud_GetIconIndex__Fi` |
 | `assembly/textbin/fun_001fefc0` | 0x1fefc0 | `LinkHudBank__FiPc` |
@@ -199,7 +198,6 @@ The recovered function starts at our unit and extends past it (206).
 | `assembly/textbin/fun_00201650` | 0x201650 | `InitOnce__Fv` |
 | `assembly/textbin/fun_002026c8` | 0x2026c8 | `ParseParticleTexs` |
 | `assembly/textbin/fun_00202a98` | 0x202a98 | `LoadHudBanks__Fv` |
-| `assembly/textbin/fun_00202d10` | 0x202d10 | `LoadCompressedHudBank__FiPc` |
 | `assembly/textbin/fun_00202fd0` | 0x202fd0 | `SetUpVisGifViewer__FPiiiiii` |
 | `assembly/textbin/fun_00209030` | 0x209030 | `memcard_GetName` |
 | `assembly/textbin/fun_00209298` | 0x209298 | `memcard_RestoreGame` |
@@ -213,7 +211,6 @@ The recovered function starts at our unit and extends past it (206).
 | `assembly/textbin/fun_0020c828` | 0x20c828 | `DeleteMoby` |
 | `assembly/textbin/fun_0020cb88` | 0x20cb88 | `DetachManipulator` |
 | `assembly/textbin/fun_0020cef8` | 0x20cef8 | `PatchMobyGifs` |
-| `assembly/textbin/fun_0020d3b0` | 0x20d3b0 | `DrawMobysCleanUp` |
 | `assembly/textbin/fun_00215b68` | 0x215b68 | `music_PreseekTrack__Fiii` |
 | `assembly/textbin/fun_00215c40` | 0x215c40 | `music_StartTrack__Fiii` |
 | `assembly/textbin/fun_00215d18` | 0x215d18 | `music_StartTrackBody__Fiii` |
@@ -302,11 +299,14 @@ The recovered function starts at our unit and extends past it (206).
 | `textbin/fun_001f6b88` | 0x1f6b88 | `FontPrintCenterSmall` |
 | `textbin/fun_001f6c20` | 0x1f6c20 | `FontPrintCenterLarge` |
 | `textbin/fun_001fb2a8` | 0x1fb2a8 | `PutDispBuffer__Fv` |
+| `textbin/fun_001fdca0` | 0x1fdca0 | `Help_FindIndex` |
 | `textbin/fun_001fdd10` | 0x1fdd10 | `msg_string__Fi` |
 | `textbin/fun_00201f58` | 0x201f58 | `RefreshPointLight` |
+| `textbin/fun_00202d10` | 0x202d10 | `LoadCompressedHudBank__FiPc` |
 | `textbin/fun_0020d1a8` | 0x20d1a8 | `ProcessMobyAnimData__Fv` |
 | `textbin/fun_0020d218` | 0x20d218 | `StashMobyClassDists__Fv` |
 | `textbin/fun_0020d248` | 0x20d248 | `RestoreMobyClassDists__Fv` |
+| `textbin/fun_0020d3b0` | 0x20d3b0 | `DrawMobysCleanUp` |
 | `textbin/fun_0020d460` | 0x20d460 | `DrawMobys` |
 | `textbin/fun_002172c0` | 0x2172c0 | `ClearPadInput__FR3PAD` |
 | `textbin/fun_0021e890` | 0x21e890 | `DrawQuitGameMenu` |

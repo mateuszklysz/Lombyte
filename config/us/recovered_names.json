@@ -1443,7 +1443,7 @@
   },
   {
    "name": "Help_FindIndex",
-   "unit": "assembly/textbin/fun_001fdca0",
+   "unit": "textbin/fun_001fdca0",
    "unit_size": "0x6c",
    "match": "fragment",
    "address": "0x1fdca0",
@@ -1611,7 +1611,7 @@
   },
   {
    "name": "LoadCompressedHudBank__FiPc",
-   "unit": "assembly/textbin/fun_00202d10",
+   "unit": "textbin/fun_00202d10",
    "unit_size": "0x64",
    "match": "fragment",
    "address": "0x202d10",
@@ -1875,7 +1875,7 @@
   },
   {
    "name": "DrawMobysCleanUp",
-   "unit": "assembly/textbin/fun_0020d3b0",
+   "unit": "textbin/fun_0020d3b0",
    "unit_size": "0xac",
    "match": "fragment",
    "address": "0x20d3b0",
@@ -2891,7 +2891,7 @@
   },
   {
    "name": "viBufDelete__FP5ViBuf",
-   "unit": "assembly/textbin/vi_buf_delete",
+   "unit": "textbin/vi_buf_delete",
    "unit_size": "0x58",
    "match": "full",
    "address": "0x23c5b8",
