@@ -161,12 +161,18 @@ HIMURO_PATCHED_UNITS = {
     # _nextBit call delay slots; the patched profile splits the AT macro and the
     # at-store policy brackets it with .set noat. 100/100/100, gate 2026-09-13.
     "sdk/library/picturecodingextension",
+    # _lastFrame: retail keeps two independent count-1 computations in the
+    # _dispRefImage argument setup.  The v3 patched profile blocks the CSE and
+    # reload-CSE folds and reverses load_register_parameters; 100/100/100 and
+    # full-ELF gate 2026-09-13.
+    "sdk/library/_lastFrame",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
 # is opt-in and absent by default; flag-absent output is byte-identical.
 HIMURO_PATCHED_FLAG_UNITS = {
     "picturecodingextension": "-mastra-volatile-delay -mastra-sd-saves",
+    "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
 }
 
 # Per-unit assembler policies applied by the generated padless-asm.py helper.
