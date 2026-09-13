@@ -76,6 +76,75 @@ ROW_RE = re.compile(
     r"^\s*-\s*\[(0x[0-9A-Fa-f]+)\s*,\s*([A-Za-z_][A-Za-z0-9_]*)\s*,\s*([^\]]+?)\s*\]\s*$"
 )
 
+# --------------------------------------------------------------------------
+# Display names: presentation-only tile labels.  Canonical identity (the unit
+# path and its FUN_xxxx symbol) never changes; every renderer keeps it in the
+# tile tooltip.  Sources, in priority order:
+#   1. the stamped ``SYMBOL:`` field of a promoted source under ``src/``
+#      (recovered roles are recorded there by the source-header stamper),
+#   2. ``config/us/recovered_names.json`` entries with ``match == "full"``
+#      whose recovered function starts exactly at the unit start,
+#   3. no evidence -> the unit basename (address name).
+# --------------------------------------------------------------------------
+SYMBOL_RE = re.compile(r"(?m)^SYMBOL:\s*([A-Za-z_]\w*)\s*$")
+ADDR_SYMBOL_RE = re.compile(r"^(?:FUN_|func_|D_|DAT_)[0-9A-Fa-f]+$")
+
+
+def demangle_cfront(name: str) -> str:
+    """`videoDecAbort__FP8VideoDec` -> `videoDecAbort` (display only)."""
+    stem = name.split("__F", 1)[0]
+    return stem if stem[:1].isalpha() else name
+
+
+def load_recovered_full(config_dir: Path) -> dict[str, str]:
+    """owner -> recovered name for `full` matches starting at the unit start."""
+    path = config_dir / "recovered_names.json"
+    if not path.is_file():
+        return {}
+    try:
+        payload = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError):
+        return {}
+    names: dict[str, str] = {}
+    for entry in payload.get("symbols", []):
+        if entry.get("match") != "full":
+            continue
+        unit = entry.get("unit")
+        name = str(entry.get("name") or "")
+        if not unit or not name:
+            continue
+        address, unit_address = entry.get("address"), entry.get("unit_address")
+        if address and unit_address and address != unit_address:
+            continue
+        # The yaml owner and the recovered table agree on one of these forms.
+        names.setdefault(unit, name)
+        names.setdefault(unit.removeprefix("assembly/"), name)
+    return names
+
+
+def display_for(owner: str, source: Path, recovered: dict[str, str]) -> str | None:
+    if source.is_file():
+        match = SYMBOL_RE.search(source.read_text(errors="replace")[:600])
+        if match and not ADDR_SYMBOL_RE.match(match.group(1)):
+            return demangle_cfront(match.group(1))
+    name = recovered.get(owner) or recovered.get(owner.removeprefix("assembly/"))
+    return demangle_cfront(name) if name else None
+
+
+def tile_tooltip(tile) -> str:
+    if tile.get("group"):
+        return (f"{tile['count']} units < {tile.get('threshold', 0)} B "
+                f"({tile['category']})")
+    parts = []
+    if tile.get("display"):
+        parts.append(tile["display"])
+    parts.append(tile["owner"])
+    parts.append(f"0x{tile['address']:X}")
+    parts.append(f"{tile['size']} B")
+    parts.append({"exact": "exact C", "asm": "intentional asm",
+                  "pending": "pending C"}[tile["category"]])
+    return " · ".join(parts)
+
 
 # --------------------------------------------------------------------------
 # squarify: use the package when available, otherwise the same algorithm
@@ -196,6 +265,7 @@ def load_categories(path: Path | None):
 
 def build_units(repo: Path, config: Path, categories: Path | None):
     exact_assembly, intentional = load_categories(categories)
+    recovered = load_recovered_full(config.parent)
     result = []
     for owner, address, size in parse_units(config):
         source = repo / "src" / f"{owner}.c"
@@ -209,6 +279,7 @@ def build_units(repo: Path, config: Path, categories: Path | None):
             category = "pending"
         result.append({
             "owner": owner, "address": address, "size": size, "category": category,
+            "display": display_for(owner, source, recovered),
         })
     return result
 
@@ -218,13 +289,6 @@ def build_units(repo: Path, config: Path, categories: Path | None):
 # --------------------------------------------------------------------------
 def esc(value) -> str:
     return html.escape(str(value), quote=True)
-
-
-def unit_name(tile) -> str:
-    """Full unit path (assembly/ prefix dropped); groups have no single name."""
-    if tile.get("group"):
-        return f"{tile['count']} units"
-    return tile["owner"].removeprefix("assembly/")
 
 
 def base_name(tile) -> str:
@@ -242,9 +306,13 @@ def match_percent(tile) -> str:
 
 
 def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
-    """Draw `name · sizekB · percent`, degrading gracefully on small tiles."""
-    name = unit_name(tile)
-    short = base_name(tile)
+    """Draw `name · sizekB · percent`, degrading gracefully on small tiles.
+
+    Evidence-backed display names replace the unit path; unnamed units show
+    their basename (the tooltip keeps the full owner and canonical identity).
+    """
+    name = tile.get("display") or base_name(tile)
+    short = name
     kb = f"{tile['size'] / 1000:.2f}kB"
     pct = match_percent(tile)
     name_fill, detail_fill = LABEL_FILLS.get(tile["category"], (TEXT, MUTED))
@@ -302,7 +370,8 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     small = [unit for unit in units if unit["size"] < min_bytes]
     tiles = [
         {"owner": unit["owner"], "address": unit["address"], "size": unit["size"],
-         "category": unit["category"], "group": False}
+         "category": unit["category"], "group": False,
+         "display": unit.get("display")}
         for unit in big
     ]
     for category in ("exact", "asm", "pending"):
@@ -415,7 +484,8 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
         lines.append(
             f'<rect x="{x:.2f}" y="{y:.2f}" width="{dx:.2f}" height="{dy:.2f}" rx="1" '
             f'fill="{fill}" stroke="{STROKE}" stroke-width="0.6"{dash} '
-            f'shape-rendering="geometricPrecision"/>'
+            f'shape-rendering="geometricPrecision">'
+            f'<title>{esc(tile_tooltip(tile))}</title></rect>'
         )
         placed.append((tile, x, y, dx, dy))
 
