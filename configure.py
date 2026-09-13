@@ -157,6 +157,21 @@ HIMURO_PATCHED_UNITS = {
     "textbin/fun_001fd6e0",
     "textbin/fun_00213308",
     "textbin/mpeg_error",
+    # _pictureCodingExtension: absolute IPU_CTRL volatile stores must fill the
+    # _nextBit call delay slots; the patched profile splits the AT macro and the
+    # at-store policy brackets it with .set noat. 100/100/100, gate 2026-09-13.
+    "sdk/library/picturecodingextension",
+}
+
+# Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
+# is opt-in and absent by default; flag-absent output is byte-identical.
+HIMURO_PATCHED_FLAG_UNITS = {
+    "picturecodingextension": "-mastra-volatile-delay -mastra-sd-saves",
+}
+
+# Per-unit assembler policies applied by the generated padless-asm.py helper.
+PADLESS_POLICY_UNITS = {
+    "picturecodingextension": "at-store",
 }
 
 SDK_COMPILER_UNITS = {
@@ -229,6 +244,11 @@ SN_FLAG_UNITS = {
     "fun_001f21c0": "-mno-split-addresses",
     "fun_002151d8": "-mno-split-addresses",
     "fun_0023abd0": "-mno-split-addresses",
+    # fun_0023be20: the two index computations must stay in retail's order and
+    # arg0->unk0 is materialized directly at each use; the default
+    # split-address sequence diverges.  100/100/100 + patha byte-equal
+    # (byte-max campaign 2026-09-13, pipeline-2026-09-13-10).
+    "fun_0023be20": "-mno-split-addresses",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
@@ -260,6 +280,20 @@ def _unit_flag(unit: str) -> str:
         if unit.endswith(suffix):
             return flags
     return ""
+
+
+def _unit_patched_flag(unit: str) -> str:
+    for suffix, flags in HIMURO_PATCHED_FLAG_UNITS.items():
+        if unit.endswith(suffix):
+            return flags
+    return ""
+
+
+def _unit_policy(unit: str) -> str:
+    for suffix, policy in PADLESS_POLICY_UNITS.items():
+        if unit.endswith(suffix):
+            return policy
+    return "none"
 
 
 def _unit_sn_flag(unit: str) -> str:
@@ -513,13 +547,41 @@ def add_empty_sections(data):
     return bytes(result)
 
 
+def apply_at_store_policy(assembly):
+    import re
+    if re.search(r"\.set[ \t]+noat", assembly):
+        return assembly
+    output = []
+    pending = False
+    for line in assembly.splitlines(keepends=True):
+        if re.match(r"^[ \t]*li[ \t]+\$1[ \t]*,[ \t]*\S+[ \t]*(?:#.*)?$", line):
+            output.append("\t.set\tnoat\n")
+            pending = True
+            output.append(line)
+        elif pending and re.match(r"^[ \t]*sw[ \t]+\$?\w+[ \t]*,[^#\n]*\(\$1\)", line):
+            output.append(line)
+            output.append("\t.set\tat\n")
+            pending = False
+        else:
+            output.append(line)
+    if pending:
+        raise SystemExit("at-store policy: li $1 without a following store through $1")
+    return "".join(output)
+
+
 def main(argv):
-    if len(argv) != 4:
-        raise SystemExit("usage: padless-asm.py normalize|finish IN OUT")
-    mode, source, destination = argv[1:]
+    if len(argv) not in (4, 5):
+        raise SystemExit("usage: padless-asm.py normalize|finish IN OUT [POLICY]")
+    mode, source, destination = argv[1:4]
+    policy = argv[4] if len(argv) == 5 else "none"
     data = open(source, "rb").read()
     if mode == "normalize":
-        open(destination, "w").write(normalize_aliases(data.decode()))
+        assembly = normalize_aliases(data.decode())
+        if policy == "at-store":
+            assembly = apply_at_store_policy(assembly)
+        elif policy != "none":
+            raise SystemExit("unknown assembler policy: " + policy)
+        open(destination, "w").write(assembly)
     elif mode == "finish":
         open(destination, "wb").write(add_empty_sections(unpad(data)))
     else:
@@ -694,7 +756,7 @@ def build_stuff(
                     f"'{patched_driver}' -S -B'{patched_root}/' -I'{patched_include}' "
                     f"-DBUILD_US_VERSION -DMATCHING_DECOMP -O2 -g2 $extra "
                     f"$pat_work/cand.c -o $pat_work/cand.s && "
-                    f"{sys.executable} padless-asm.py normalize $pat_work/cand.s $pat_work/cand-final.s && "
+                    f"{sys.executable} padless-asm.py normalize $pat_work/cand.s $pat_work/cand-final.s $policy && "
                     f"'{ee_assembler}' -o '$pat_work_win/cand-padded.o' '$pat_work_win/cand-final.s' && "
                     f"{sys.executable} padless-asm.py finish $pat_work/cand-padded.o $out && "
                     f"{CROSS}strip $out -N dummy-symbol-name"
@@ -749,10 +811,12 @@ def build_stuff(
             )
             if use_patched:
                 pat_work = str(ROOT / "build/patched-work/units" / unit)
+                flags = _unit_patched_flag(unit)
                 variables = {
                     "pat_work": pat_work,
                     "pat_work_win": _win_path(pat_work),
-                    "extra": "",
+                    "extra": f"{flags} " if flags else "",
+                    "policy": _unit_policy(unit),
                 }
                 build(entry.object_path, entry.src_paths, "cc_himuro_patched",
                       variables=variables)
