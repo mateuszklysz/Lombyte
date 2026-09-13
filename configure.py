@@ -302,6 +302,10 @@ PADLESS_ASM_UNITS = {
     # 64-bit call result pins the two outgoing spills (sd v0,8(sp)/sd v1,0(sp))
     # ahead of the addiu pair, 100/100/100.
     "textbin/fun_001fe898",
+    # run 13: the bundled GNU as refuses the short-loop padding NOP because the
+    # loop body contains a forward branch; SN cc1 + Ps2EeAs emits it and the
+    # resulting object is instruction-identical to the retail target (106/106).
+    "textbin/fun_002212b8",
 }
 
 
