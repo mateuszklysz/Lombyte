@@ -1,35 +1,36 @@
 # Commit message standard
 
-Every commit subject in this repository uses one shape:
+Every commit subject uses one shape:
 
 ```
 <type>: <summary>
 ```
 
-The `<type>` is the change's primary area. The subject names the module or
-symbol when useful, but never repeats an area prefix — `decomp: textbin/sdk:
-promote …` is invalid; the correct form is `decomp: promote …`.
+The `<type>` names the change's primary area. The subject may name a module or
+symbol, but never repeats an area prefix: `decomp: textbin: promote …` is
+wrong; write `decomp: promote …`.
 
 ## Types
 
 | Type | Use for |
 | :--- | :--- |
-| `decomp` | Exact-C promotions, source work, decompiled-source refactors, oracle/source plumbing |
-| `docs` | README and documentation, public reference data, source headers, ROLE comments, treemap/display text |
-| `chore` | Non-behavioral cleanup, generated artifacts, tooling, ownership/reference data refreshes |
+| `decomp` | Exact-C promotions, source work, source refactors, oracle/source plumbing |
+| `docs` | README and documentation, source headers, ROLE comments, reference data |
+| `chore` | Non-behavioral cleanup, generated artifacts, tooling, data refreshes |
 | `fix` | A bug fix in tooling or the build |
-| `config` | Ownership/config data proper (`rnc1.us.yaml`, `unit_categories.json`, linker bindings) |
+| `config` | Ownership/config data (`rnc1.us.yaml`, categories, linker bindings) |
 
-A commit that promotes sources *and* refreshes the map is still `decomp:`;
-the map is a derived artifact, not a second subject. Prefer `decomp:` whenever
-the commit changes `src/` behavior.
+A commit that promotes sources and also refreshes the map is still `decomp:`;
+the map is a derived artifact. Prefer `decomp:` whenever the commit changes
+`src/` behavior.
 
 ## Rules
 
 - Lowercase type, exactly one `: ` separator, imperative summary, no trailing
   period, subject length ≤ 120 characters.
-- Do not repeat the type or add a scope token in the summary.
-- One commit, one primary area. Split unrelated areas instead of stacking
+- Do not repeat the type or add a scope token (for example `textbin:`) in the
+  summary.
+- One commit, one primary area; split unrelated areas instead of stacking
   prefixes.
 - Bodies are free-form and optional; put detail (metrics, notes) there.
 
@@ -46,20 +47,11 @@ fix: make verify-baseline.sh executable
 
 ## Enforcement
 
-The format is validated by `scripts/check-commit-messages.py` (maintainers)
-and by the pipeline commit phase, which formats every automatic promotion
-message through `scripts/commit_naming.py`. Run the validator before opening
-a pull request that rewrites history:
-
-```sh
-python3 scripts/check-commit-messages.py --range HEAD~50..HEAD
-```
-
-The canonical writer/validator is `scripts/commit_naming.py`; a `commit-msg`
-hook is versioned at `scripts/commit-msg` and linked into `.git/hooks/`
-(idempotent):
+The repository version-controls a `commit-msg` hook at `scripts/commit-msg`.
+Enable it once per checkout:
 
 ```sh
 ln -sf ../../scripts/commit-msg .git/hooks/commit-msg
-python3 scripts/install-commit-hook.py --check   # from the tools repository
 ```
+
+The hook rejects any subject that does not match the standard above.
