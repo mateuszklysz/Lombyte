@@ -77,6 +77,10 @@ SN_COMPILER_UNITS = {
     # Save-less leaf (retail style "none", 19 instructions, no frame): fresh
     # SN -O2 -g2 is 100/100/100; the EE-GCC 2.9 fallback stages at 91.11%.
     "textbin/read_buf_begin_get",
+    # Save-less leaf (retail style "none", 27 instructions, no frame): fresh
+    # SN -O2 -g2 is 100/100/100 with the numeric D_0015F6A0 pointer load and the
+    # v1/a3 pointer roles; the Himuro fingerprint would route it to EE-GCC 2.9.
+    "textbin/fun_001fdca0",
     "textbin/fun_001f6250",
     "textbin/fun_001f6270",
     "textbin/fun_001f6290",
@@ -143,6 +147,7 @@ SN_COMPILER_UNITS = {
     "assembly/textbin/fun_002220f0",
     "assembly/textbin/fun_00238520",
     "assembly/ee/clear_dma_queue_entry",
+    "ee/clear_dma_queue_entry",
     # AttachManipulator is a save-less leaf (no sq/lq fingerprint), so the
     # retail-save-style routing would send it to EE-GCC 2.9; SN -O2 reproduces
     # the retail schedule byte-exactly.
@@ -175,6 +180,13 @@ HIMURO_PATCHED_UNITS = {
     # reload-CSE folds and reverses load_register_parameters; 100/100/100 and
     # full-ELF gate 2026-09-13.
     "sdk/library/_lastFrame",
+    # Run-12 campaign 12b: retail's absolute global access and word stores in
+    # these textbin tails are reproduced only by the patched profile (frozen
+    # SN emits gp-relative access and byte stores); 100/100/100 direct and
+    # patha linked-byte equal 2026-09-13.
+    "textbin/fun_001f4600",
+    "textbin/fun_001f47b8",
+    "textbin/fun_00226e08",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -236,6 +248,17 @@ HIMURO_FLAG_UNITS = {
     # result is forced through an s64 local + (u32) truncation.  Exact under
     # -Os -fno-cse-follow-jumps (pipeline-2026-09-13-11).
     "__swrite": "-Os -fno-cse-follow-jumps",
+    # AppendDmaTag: retail folds the non-small global's absolute load as
+    # `lui v0,%hi; lw v0,%lo(v0)` and the absolute store through the $at macro;
+    # -G0 + -mno-split-addresses reproduces that (100/100/100/100 + patha,
+    # run-12 wave-2 campaign 12f).
+    "append_dma_tag": "-G0 -mno-split-addresses",
+    # cmd_sem_init: retail stores the first CreateSema result in call 2's
+    # delay slot.  Under -fno-schedule-insns the E8 store is issued before
+    # call 2's `a0 = sp`, so the daddu takes the slot; the empty
+    # `asm("" : "+r"(r1))` one-cycle edge delays the E8 store so reorg fills
+    # the call-2 slot instead (pipeline-2026-09-13-12g).
+    "cmd_sem_init": "-fno-schedule-insns",
 }
 
 

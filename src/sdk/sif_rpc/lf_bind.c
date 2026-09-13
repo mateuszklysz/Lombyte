@@ -1,0 +1,43 @@
+/*
+STATE: C_EXACT
+SYMBOL: _lf_bind
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 -O2 -g2 -gstabs
+DECISION: retained
+BLOCKER: none
+*/
+
+#include "types.h"
+struct M2c_D_00158400 {
+    u8 pad_0[0x24];
+    s32 unk24;
+};
+extern s32 D_0012FCB0[];
+extern u8 D_00158200[];
+extern struct M2c_D_00158400 D_00158400;
+extern u8 D_00158428[];
+extern s32 sceSifBindRpc();
+extern s32 sceSifCallRpc();
+extern void *memcpy();
+s32 _lf_bind(void) {
+    s32 i;
+
+    if (D_0012FCB0[0] < 0) {
+loop_2:
+        if (sceSifBindRpc(&D_00158400, 0x80000006, 0) < 0) {
+            return -1;
+        }
+        if (D_00158400.unk24 != 0) {
+            D_0012FCB0[0] = 0;
+            if (sceSifCallRpc(&D_00158400, 0xFF, 0, 0, 0, D_00158200, 4, 0, 0) < 0) {
+                return 0xFFFEFFFF;
+            }
+            memcpy(D_00158428, D_00158200, 4);
+            return 0;
+        }
+        for (i = 0x100000; i != -1; i--) {
+        }
+        goto loop_2;
+    }
+    return 0;
+}
