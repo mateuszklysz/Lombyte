@@ -7,6 +7,9 @@ DECISION: promoted
 BLOCKER: none
 */
 
+/* ROLE: recovered function `Help_DrawPrompt` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 struct M2c_D_001996D0 {
     s32 unk0;

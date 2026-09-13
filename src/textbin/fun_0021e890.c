@@ -7,6 +7,9 @@ DECISION: promoted
 BLOCKER: none
 */
 
+/* ROLE: recovered function `DrawQuitGameMenu` starts here; this unit covers only its beginning. */
+
+
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

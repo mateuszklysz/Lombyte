@@ -7,6 +7,9 @@ DECISION: promoted
 BLOCKER: none
 */
 
+/* ROLE: recovered function `ParseSpaceSceneChunk__Fi` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 struct TransferState {
     u8 pad[0x5C];

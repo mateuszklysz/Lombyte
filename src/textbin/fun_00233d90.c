@@ -7,6 +7,9 @@ DECISION: promoted
 BLOCKER: none
 */
 
+/* ROLE: recovered function `DMAC_VIF1_Disable__Fv` starts here; this unit covers only its beginning. */
+
+
 /*
 AUTO-DIAGNOSIS
 symbol: FUN_00233d90

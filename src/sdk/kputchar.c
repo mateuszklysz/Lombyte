@@ -1,3 +1,12 @@
+/*
+STATE: C_EXACT
+SYMBOL: kputchar
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: himuro-O2 -O2 -g2 -gstabs
+DECISION: promoted
+BLOCKER: none
+*/
+
 #include "types.h"
 
 s32 kputchar(s32 arg0) {

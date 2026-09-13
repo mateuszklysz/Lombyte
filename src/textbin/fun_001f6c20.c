@@ -7,6 +7,9 @@ DECISION: promoted
 BLOCKER: none
 */
 
+/* ROLE: recovered function `FontPrintCenterLarge` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 extern u8 D_001DF790[];
 extern s32 func_001F44B8();

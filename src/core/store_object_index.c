@@ -7,6 +7,9 @@ DECISION: promoted (pipeline-2026-09-10-4)
 BLOCKER: none
 */
 
+/* ROLE: recovered function `snd_PrepareReturnBuffer` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 
 extern u32 D_0015EC80;

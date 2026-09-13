@@ -1,3 +1,14 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_0023be20
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: sn-O2 -O2 -g2 -gstabs -mno-split-addresses
+DECISION: promoted
+BLOCKER: none
+*/
+
+/* ROLE: recovered function `viBufBeginPut__FP5ViBufPPUcPiT1T2` starts here; this unit covers only its beginning. */
+
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;
