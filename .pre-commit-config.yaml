@@ -1,0 +1,62 @@
+# prek is compatible with this standard pre-commit configuration format.
+#
+# The cleanup hooks below deliberately do not rewrite decompilation inputs or
+# build plumbing. The protected paths are still covered by the read-only
+# validation hooks and by the source-header check in the local hook block.
+
+default_stages: [pre-commit]
+fail_fast: false
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      # These hooks only inspect files and are safe to run over the complete
+      # tracked tree, including assembly-backed units.
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-illegal-windows-names
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-yaml
+      - id: destroyed-symlinks
+      - id: detect-private-key
+      - id: forbid-new-submodules
+
+      # Auto-fix hooks are intentionally limited to public documentation and
+      # metadata. In particular, never run them over src/, include/, config/,
+      # scripts/, build files, generated trees, or vendored tools: whitespace
+      # can be meaningful to preprocessor/assembler continuations and the
+      # decompilation build must remain byte-stable.
+      - id: trailing-whitespace
+        # Limit trimming to ordinary horizontal whitespace; license files use
+        # form-feed page breaks that must not be rewritten.
+        args: [--markdown-linebreak-ext=md, "--chars= \t"]
+        files: ^(?!(?:src|include|config|scripts|tools|build|dumps|extracted)/|(?:configure|rebuild-iso)\.py$|^verify-baseline\.sh$|^Makefile$|^assets/).+
+      - id: end-of-file-fixer
+        files: ^(?!(?:src|include|config|scripts|tools|build|dumps|extracted)/|(?:configure|rebuild-iso)\.py$|^verify-baseline\.sh$|^Makefile$|^assets/).+
+      - id: fix-byte-order-marker
+        files: ^(?!(?:src|include|config|scripts|tools|build|dumps|extracted)/|(?:configure|rebuild-iso)\.py$|^verify-baseline\.sh$|^Makefile$|^assets/).+
+      - id: mixed-line-ending
+        args: [--fix=lf]
+        files: ^(?!(?:src|include|config|scripts|tools|build|dumps|extracted)/|(?:configure|rebuild-iso)\.py$|^verify-baseline\.sh$|^Makefile$|^assets/).+
+      - id: pretty-format-json
+        args: [--autofix, --no-sort-keys, --no-ensure-ascii]
+        files: \.json$
+        exclude: ^(?:src|include|config|scripts|tools|build|dumps|extracted|assets)/
+
+  - repo: local
+    hooks:
+      # This check never writes source files. It keeps promoted C metadata
+      # canonical while intentionally leaving assembly oracles untouched.
+      - id: decomp-source-headers
+        name: validate promoted C source headers
+        entry: python3 scripts/stamp_source_header.py --check
+        language: system
+        files: ^src/(?!assembly/).*\.c$
+        stages: [pre-commit]
