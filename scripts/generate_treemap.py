@@ -35,6 +35,7 @@ Usage
   python3 scripts/generate_treemap.py --min-bytes 512 --output assets/decomp_map.svg
   python3 scripts/generate_treemap.py --width 800 --height 400   # compact variant
 """
+
 from __future__ import annotations
 
 import argparse
@@ -133,16 +134,20 @@ def display_for(owner: str, source: Path, recovered: dict[str, str]) -> str | No
 
 def tile_tooltip(tile) -> str:
     if tile.get("group"):
-        return (f"{tile['count']} units < {tile.get('threshold', 0)} B "
-                f"({tile['category']})")
+        return (
+            f"{tile['count']} units < {tile.get('threshold', 0)} B ({tile['category']})"
+        )
     parts = []
     if tile.get("display"):
         parts.append(tile["display"])
     parts.append(tile["owner"])
     parts.append(f"0x{tile['address']:X}")
     parts.append(f"{tile['size']} B")
-    parts.append({"exact": "exact C", "asm": "intentional asm",
-                  "pending": "pending C"}[tile["category"]])
+    parts.append(
+        {"exact": "exact C", "asm": "intentional asm", "pending": "pending C"}[
+            tile["category"]
+        ]
+    )
     return " · ".join(parts)
 
 
@@ -173,7 +178,9 @@ def _layoutcol(sizes, x, y, dx, dy):
 
 
 def _layout(sizes, x, y, dx, dy):
-    return _layoutrow(sizes, x, y, dx, dy) if dx >= dy else _layoutcol(sizes, x, y, dx, dy)
+    return (
+        _layoutrow(sizes, x, y, dx, dy) if dx >= dy else _layoutcol(sizes, x, y, dx, dy)
+    )
 
 
 def _leftover(sizes, x, y, dx, dy):
@@ -199,9 +206,9 @@ def _squarify(sizes, x, y, dx, dy):
     if len(sizes) == 1:
         return _layout(sizes, x, y, dx, dy)
     index = 1
-    while index < len(sizes) and _worst_ratio(sizes[:index], x, y, dx, dy) >= _worst_ratio(
-        sizes[: index + 1], x, y, dx, dy
-    ):
+    while index < len(sizes) and _worst_ratio(
+        sizes[:index], x, y, dx, dy
+    ) >= _worst_ratio(sizes[: index + 1], x, y, dx, dy):
         index += 1
     current, remaining = sizes[:index], sizes[index:]
     leftover = _leftover(current, x, y, dx, dy)
@@ -277,10 +284,15 @@ def build_units(repo: Path, config: Path, categories: Path | None):
             category = "asm"
         else:
             category = "pending"
-        result.append({
-            "owner": owner, "address": address, "size": size, "category": category,
-            "display": display_for(owner, source, recovered),
-        })
+        result.append(
+            {
+                "owner": owner,
+                "address": address,
+                "size": size,
+                "category": category,
+                "display": display_for(owner, source, recovered),
+            }
+        )
     return result
 
 
@@ -321,10 +333,10 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
         return len(text) * size * 0.56 <= dx - 8
 
     options = [
-        (name, f"{kb} · {pct}"),          # two lines: path, then size + percent
+        (name, f"{kb} · {pct}"),  # two lines: path, then size + percent
         (f"{name} · {kb} · {pct}", None),  # single line, full detail
         (f"{name} · {kb}", None),
-        (short, f"{kb} · {pct}"),          # compact two-line: name, then details
+        (short, f"{kb} · {pct}"),  # compact two-line: name, then details
         (f"{short} · {kb} · {pct}", None),
         (f"{short} · {kb}", None),
         (short, None),
@@ -339,18 +351,20 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
             lines.append(
                 f'<text x="{x + 4:.2f}" y="{y + size + 3:.2f}" '
                 f'font-family="{esc(FONT)}" font-size="{size}" fill="{name_fill}">'
-                f'{esc(line1)}</text>'
+                f"{esc(line1)}</text>"
             )
             if line2:
                 lines.append(
                     f'<text x="{x + 4:.2f}" y="{y + size + 15:.2f}" '
                     f'font-family="{esc(FONT)}" font-size="{size - 1.5}" fill="{detail_fill}">'
-                    f'{esc(line2)}</text>'
+                    f"{esc(line2)}</text>"
                 )
             return
 
 
-def render_svg(units, *, width, height, margin, header, footer, min_bytes, title) -> str:
+def render_svg(
+    units, *, width, height, margin, header, footer, min_bytes, title
+) -> str:
     # Chrome (margins, header, footer, legend) scales with the canvas, while
     # tile label fonts stay at a fixed readable size so a larger map fits
     # names on many more tiles.
@@ -369,21 +383,30 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     big = [unit for unit in units if unit["size"] >= min_bytes]
     small = [unit for unit in units if unit["size"] < min_bytes]
     tiles = [
-        {"owner": unit["owner"], "address": unit["address"], "size": unit["size"],
-         "category": unit["category"], "group": False,
-         "display": unit.get("display")}
+        {
+            "owner": unit["owner"],
+            "address": unit["address"],
+            "size": unit["size"],
+            "category": unit["category"],
+            "group": False,
+            "display": unit.get("display"),
+        }
         for unit in big
     ]
     for category in ("exact", "asm", "pending"):
         group = [unit for unit in small if unit["category"] == category]
         if group:
-            tiles.append({
-                "owner": f"{len(group)} units < {min_bytes} B",
-                "address": min(unit["address"] for unit in group),
-                "size": sum(unit["size"] for unit in group),
-                "category": category, "group": True, "count": len(group),
-                "threshold": min_bytes,
-            })
+            tiles.append(
+                {
+                    "owner": f"{len(group)} units < {min_bytes} B",
+                    "address": min(unit["address"] for unit in group),
+                    "size": sum(unit["size"] for unit in group),
+                    "category": category,
+                    "group": True,
+                    "count": len(group),
+                    "threshold": min_bytes,
+                }
+            )
 
     total_units = len(units)
     total_bytes = sum(unit["size"] for unit in units)
@@ -398,7 +421,9 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     recoverable_percent = (100.0 * exact_bytes / recoverable) if recoverable else 0.0
 
     # Stable order: biggest first, then by address, so tiles keep their place.
-    order = sorted(tiles, key=lambda tile: (-tile["size"], tile["address"], tile["owner"]))
+    order = sorted(
+        tiles, key=lambda tile: (-tile["size"], tile["address"], tile["owner"])
+    )
     sizes = [tile["size"] for tile in order]
     rects = treemap(sizes, map_x, map_y, map_dx, map_dy)
 
@@ -407,13 +432,13 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" '
         f'aria-label="Decompilation progress treemap">',
-        f'<title>{esc(title)}</title>',
+        f"<title>{esc(title)}</title>",
         f'<rect width="{width}" height="{height}" fill="{BACKGROUND}"/>',
         '<defs><linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">'
         '<stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>'
         '<stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/>'
         '<stop offset="1" stop-color="#000000" stop-opacity="0.16"/>'
-        '</linearGradient></defs>',
+        "</linearGradient></defs>",
     ]
 
     # Header: bolt mark and two-tone title on the left, legend on the right.
@@ -438,7 +463,7 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
         f'<text x="{margin_px}" y="{round(41 * scale)}" font-family="{esc(FONT)}" '
         f'font-size="{10 * text_scale:.1f}" '
         f'fill="{MUTED}">{len(exact)} matching C &#183; {len(asm)} intentional asm '
-        f'&#183; {len(pending)} pending</text>'
+        f"&#183; {len(pending)} pending</text>"
     )
     legend_font = 10 * text_scale
     swatch = round(10 * scale)
@@ -450,11 +475,15 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     )
     # All rows share a left edge and hug the right edge as one block.
     # 0.56em/char is the same width estimate the tile labels use.
-    widest = max(len(html.unescape(text)) * legend_font * 0.56 for _, text in legend_rows)
+    widest = max(
+        len(html.unescape(text)) * legend_font * 0.56 for _, text in legend_rows
+    )
     row_x = width - margin_px - round(widest) - gap
     for offset, (color, text) in enumerate(legend_rows):
         y = round(14 * scale) + offset * round(17 * scale)
-        lines.append(f'<rect x="{row_x}" y="{y}" width="{swatch}" height="{swatch}" rx="2" fill="{color}"/>')
+        lines.append(
+            f'<rect x="{row_x}" y="{y}" width="{swatch}" height="{swatch}" rx="2" fill="{color}"/>'
+        )
         lines.append(
             f'<text x="{row_x + gap}" y="{y + round(9 * scale)}" '
             f'font-family="{esc(FONT)}" font-size="{legend_font:.1f}" fill="{MUTED}">{text}</text>'
@@ -470,7 +499,7 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     lines.append(
         f'<text x="{status_x}" y="{round(52 * scale)}" text-anchor="end" '
         f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}">'
-        f'of recoverable C decompiled</text>'
+        f"of recoverable C decompiled</text>"
     )
 
     placed = []
@@ -485,7 +514,7 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
             f'<rect x="{x:.2f}" y="{y:.2f}" width="{dx:.2f}" height="{dy:.2f}" rx="1" '
             f'fill="{fill}" stroke="{STROKE}" stroke-width="0.6"{dash} '
             f'shape-rendering="geometricPrecision">'
-            f'<title>{esc(tile_tooltip(tile))}</title></rect>'
+            f"<title>{esc(tile_tooltip(tile))}</title></rect>"
         )
         placed.append((tile, x, y, dx, dy))
 
@@ -506,37 +535,60 @@ def render_svg(units, *, width, height, margin, header, footer, min_bytes, title
     lines.append(
         f'<text x="{margin_px}" y="{height - round(20 * scale)}" '
         f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}" opacity="0.85">'
-        f'{exact_bytes:,} of {total_bytes:,} configured bytes are matching C &#183; '
-        f'{exact_percent:.1f}% of all configured code, {recoverable_percent:.1f}% of recoverable C</text>'
+        f"{exact_bytes:,} of {total_bytes:,} configured bytes are matching C &#183; "
+        f"{exact_percent:.1f}% of all configured code, {recoverable_percent:.1f}% of recoverable C</text>"
     )
     lines.append(
         f'<text x="{width - margin_px}" y="{height - round(8 * scale)}" text-anchor="end" '
         f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}" opacity="0.85">'
-        f'generated {generated} &#183; scripts/generate_treemap.py</text>'
+        f"generated {generated} &#183; scripts/generate_treemap.py</text>"
     )
     lines.append("</svg>")
     return "\n".join(lines) + "\n"
 
 
 def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__,
-                                     formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--config", type=Path,
-                        help="linker config (default: <repo>/config/us/rnc1.us.yaml)")
-    parser.add_argument("--categories", type=Path,
-                        help="derived categories JSON (default: <repo>/config/us/unit_categories.json)")
-    parser.add_argument("--output", type=Path, help="SVG path (default: <repo>/assets/decomp_map.svg)")
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument(
+        "--repo", type=Path, default=Path(__file__).resolve().parents[1]
+    )
+    parser.add_argument(
+        "--config",
+        type=Path,
+        help="linker config (default: <repo>/config/us/rnc1.us.yaml)",
+    )
+    parser.add_argument(
+        "--categories",
+        type=Path,
+        help="derived categories JSON (default: <repo>/config/us/unit_categories.json)",
+    )
+    parser.add_argument(
+        "--output", type=Path, help="SVG path (default: <repo>/assets/decomp_map.svg)"
+    )
     parser.add_argument("--width", type=int, default=800)
     parser.add_argument("--height", type=int, default=1600)
     parser.add_argument("--margin", type=int, default=10)
-    parser.add_argument("--header", type=int, default=62,
-                        help="header band above the map; must fit the three legend rows")
-    parser.add_argument("--footer", type=int, default=34,
-                        help="footer band below the map; fits the two footer lines")
-    parser.add_argument("--min-bytes", type=int, default=0,
-                        help="units below this size are grouped per class; 0 (default) "
-                             "draws every unit as its own tile")
+    parser.add_argument(
+        "--header",
+        type=int,
+        default=62,
+        help="header band above the map; must fit the three legend rows",
+    )
+    parser.add_argument(
+        "--footer",
+        type=int,
+        default=34,
+        help="footer band below the map; fits the two footer lines",
+    )
+    parser.add_argument(
+        "--min-bytes",
+        type=int,
+        default=0,
+        help="units below this size are grouped per class; 0 (default) "
+        "draws every unit as its own tile",
+    )
     parser.add_argument("--title", default="Ratchet & Clank - decompilation progress")
     args = parser.parse_args(argv)
 
@@ -553,9 +605,16 @@ def main(argv=None) -> int:
         print("error: no configured C units found", file=sys.stderr)
         return 1
 
-    svg = render_svg(units, width=args.width, height=args.height, margin=args.margin,
-                     header=args.header, footer=args.footer, min_bytes=args.min_bytes,
-                     title=args.title)
+    svg = render_svg(
+        units,
+        width=args.width,
+        height=args.height,
+        margin=args.margin,
+        header=args.header,
+        footer=args.footer,
+        min_bytes=args.min_bytes,
+        title=args.title,
+    )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(svg)
 
@@ -567,16 +626,25 @@ def main(argv=None) -> int:
     asm_bytes = sum(unit["size"] for unit in asm)
     shown = sum(1 for unit in units if unit["size"] >= args.min_bytes)
     print(f"wrote {output}")
-    print(f"  matching C: {len(exact)}/{len(units)} units, {exact_bytes:,}/{total:,} bytes "
-          f"({100.0 * exact_bytes / total:.2f}%; "
-          f"{100.0 * exact_bytes / (total - asm_bytes):.2f}% of recoverable C)")
+    print(
+        f"  matching C: {len(exact)}/{len(units)} units, {exact_bytes:,}/{total:,} bytes "
+        f"({100.0 * exact_bytes / total:.2f}%; "
+        f"{100.0 * exact_bytes / (total - asm_bytes):.2f}% of recoverable C)"
+    )
     print(f"  intentional asm: {len(asm)} units, {asm_bytes:,} B")
     print(f"  pending C: {len(pending)} units, {total - exact_bytes - asm_bytes:,} B")
-    print(f"  tiles: {shown} individual + grouped units below {args.min_bytes} B" if args.min_bytes > 0
-          else f"  tiles: {shown} individual (no grouping)")
-    print(f"  layout: {'squarify' if _squarify_pkg is not None else 'bundled fallback'}")
+    print(
+        f"  tiles: {shown} individual + grouped units below {args.min_bytes} B"
+        if args.min_bytes > 0
+        else f"  tiles: {shown} individual (no grouping)"
+    )
+    print(
+        f"  layout: {'squarify' if _squarify_pkg is not None else 'bundled fallback'}"
+    )
     if categories.is_file():
-        print(f"  categories: {categories.relative_to(repo) if categories.is_relative_to(repo) else categories}")
+        print(
+            f"  categories: {categories.relative_to(repo) if categories.is_relative_to(repo) else categories}"
+        )
     return 0
 
 

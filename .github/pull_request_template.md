@@ -12,7 +12,7 @@
 
 - Unit / symbol:
 - Bytes:
-- Measures: code ___ · functions ___ · data ___ · complete-data ___
+- Measures: code **_ · functions _** · data **_ · complete-data _**
 - Compiler and flags:
 - Full-ELF gate: PASS / FAIL
 

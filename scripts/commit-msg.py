@@ -3,12 +3,13 @@
 
 Install into the repository (idempotent):
 
-    ln -sf ../../scripts/commit-msg .git/hooks/commit-msg
+    ln -sf ./scripts/commit-msg .git/hooks/commit-msg
     # or: python3 scripts/install-commit-hook.py  (tools repository)
 
 The standard is one lowercase `<type>: <summary>` prefix per subject
 (`decomp`, `docs`, `chore`, `fix`, `config`), with no repeated scope token.
 """
+
 import importlib.util
 import os
 import re
@@ -17,7 +18,9 @@ from pathlib import Path
 
 TYPES = {"decomp", "docs", "chore", "fix", "config"}
 SUBJECT_RE = re.compile(r"^(?P<type>[a-z]+): (?P<summary>\S.*)$")
-NON_IMPERATIVE_RE = re.compile(r"^(?:added|updated|fixed|changed|removed|moved)\b", re.IGNORECASE)
+NON_IMPERATIVE_RE = re.compile(
+    r"^(?:added|updated|fixed|changed|removed|moved)\b", re.IGNORECASE
+)
 
 # Prefer the shared validator from a tooling checkout; fall back to the local rule.
 NAMING = Path(os.environ.get("RNC_COMMIT_NAMING", ""))

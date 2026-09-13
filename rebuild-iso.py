@@ -20,6 +20,7 @@ baseline first (./verify-baseline.sh) to produce it. For a dry check of the
 patching machinery you may pass extracted/SCUS_971.99 (byte-identical to the
 built ELF today).
 """
+
 from __future__ import annotations
 
 import argparse
@@ -39,8 +40,10 @@ def sha256_bytes(data: bytes) -> str:
 
 def find_boot_extent(iso: bytes, want_name: str = "SCUS_971.99;1") -> tuple[int, int]:
     """Return (LBA, size) of the boot ELF file record from the ISO9660 PVD."""
-    if iso[0x8000:0x8000 + 6] != b"\x01CD001":
-        raise SystemExit("input is not an ISO9660 image (missing CD001 PVD at sector 16)")
+    if iso[0x8000 : 0x8000 + 6] != b"\x01CD001":
+        raise SystemExit(
+            "input is not an ISO9660 image (missing CD001 PVD at sector 16)"
+        )
     root_record = iso[0x8000 + 156 : 0x8000 + 190]
     root_lba = struct.unpack_from("<I", root_record, 2)[0]
     root_size = struct.unpack_from("<I", root_record, 10)[0]
@@ -59,11 +62,15 @@ def find_boot_extent(iso: bytes, want_name: str = "SCUS_971.99;1") -> tuple[int,
             size = struct.unpack_from("<I", iso, off + o + 10)[0]
             return lba, size
         o += rec_len
-    raise SystemExit(f"boot ELF record {want_name!r} not found in ISO9660 root directory")
+    raise SystemExit(
+        f"boot ELF record {want_name!r} not found in ISO9660 root directory"
+    )
 
 
 def built_elf_candidates() -> list[pathlib.Path]:
-    baseline = pathlib.Path(os.environ.get("BASELINE_ROOT", str(pathlib.Path.home() / "rnc-baseline")))
+    baseline = pathlib.Path(
+        os.environ.get("BASELINE_ROOT", str(pathlib.Path.home() / "rnc-baseline"))
+    )
     return [
         ROOT / "build/SCUS_971.99",
         baseline / "config/us/build/SCUS_971.99",
@@ -73,14 +80,29 @@ def built_elf_candidates() -> list[pathlib.Path]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--iso", type=pathlib.Path, default=None,
-                    help="original disc image (default: first *.iso in dumps/)")
-    ap.add_argument("--elf", type=pathlib.Path, default=None,
-                    help="built boot ELF (default: search build/ and baseline workspace)")
-    ap.add_argument("--out", type=pathlib.Path, default=None,
-                    help="output ISO path (default: build/Ratchet & Clank (USA) - rebuilt.iso)")
-    ap.add_argument("--force", action="store_true",
-                    help="patch even when the built ELF is not byte-identical to retail (experimental; may not boot)")
+    ap.add_argument(
+        "--iso",
+        type=pathlib.Path,
+        default=None,
+        help="original disc image (default: first *.iso in dumps/)",
+    )
+    ap.add_argument(
+        "--elf",
+        type=pathlib.Path,
+        default=None,
+        help="built boot ELF (default: search build/ and baseline workspace)",
+    )
+    ap.add_argument(
+        "--out",
+        type=pathlib.Path,
+        default=None,
+        help="output ISO path (default: build/Ratchet & Clank (USA) - rebuilt.iso)",
+    )
+    ap.add_argument(
+        "--force",
+        action="store_true",
+        help="patch even when the built ELF is not byte-identical to retail (experimental; may not boot)",
+    )
     args = ap.parse_args()
 
     iso_path = args.iso
@@ -118,8 +140,10 @@ def main() -> int:
             f"lies outside the ISO image ({len(iso)} bytes)"
         )
     if size != len(built):
-        print(f"WARNING: built ELF size {len(built)} != ISO record size {size}; "
-              "the ISO record must be resized in the directory (not supported yet)")
+        print(
+            f"WARNING: built ELF size {len(built)} != ISO record size {size}; "
+            "the ISO record must be resized in the directory (not supported yet)"
+        )
     print(f"boot extent  : LBA {lba} (offset 0x{extent_off:X}), record size {size}")
 
     original_extent = iso[extent_off : extent_off + size]
@@ -129,10 +153,14 @@ def main() -> int:
         print("WARNING: original ISO boot ELF does not match known retail sha256")
 
     if original_sha == built_sha:
-        print("built ELF is byte-identical to the disc's boot ELF -> rebuilt ISO == original ISO")
+        print(
+            "built ELF is byte-identical to the disc's boot ELF -> rebuilt ISO == original ISO"
+        )
     else:
-        print("built ELF differs from the disc ELF; the extent will be overwritten "
-              f"({size} bytes at offset 0x{extent_off:X})")
+        print(
+            "built ELF differs from the disc ELF; the extent will be overwritten "
+            f"({size} bytes at offset 0x{extent_off:X})"
+        )
 
     if original_sha != built_sha and not args.force:
         raise SystemExit(
@@ -158,7 +186,9 @@ def main() -> int:
     back_elf = back[verify_lba * 2048 : verify_lba * 2048 + verify_size]
     back_sha = sha256_bytes(back_elf)
     ok = back_sha == built_sha
-    print(f"verify      : rebuilt ISO boot ELF sha256 {back_sha} matches built ELF: {ok}")
+    print(
+        f"verify      : rebuilt ISO boot ELF sha256 {back_sha} matches built ELF: {ok}"
+    )
     if original_sha == built_sha:
         print("result      : byte-identical to the original disc image")
     print("ISO rebuild complete (boot path).")

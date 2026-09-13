@@ -32,15 +32,15 @@ normalizer:
 python3 scripts/stamp_source_header.py --normalize src/ --apply
 ```
 
-| Field | Meaning |
-| :--- | :--- |
-| `STATE` | `C_EXACT` (byte-exact C), `C_NON_MATCHING` (readable C, not exact yet), or `INTENTIONAL_LOW_LEVEL_ASM` (kept as assembly on purpose) |
-| `SYMBOL` | The objdiff/audit identity of the unit (`FUN_XXXXXXXX`, its `func_` alias, or a recovered name) |
-| `SCORE` | Measured match percentages: `code`, `functions`, `data`, `complete_data` |
-| `COMPILER` | Compiler profile and flags that produced the measurement |
-| `DECISION` | `promoted`, `retained`, `rejected`, or `stuck` |
-| `BLOCKER` | One short reason, or `none` |
-| `NOTE` | Optional implementation note for future readers (no run IDs or private paths) |
+| Field      | Meaning                                                                                                                              |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| `STATE`    | `C_EXACT` (byte-exact C), `C_NON_MATCHING` (readable C, not exact yet), or `INTENTIONAL_LOW_LEVEL_ASM` (kept as assembly on purpose) |
+| `SYMBOL`   | The objdiff/audit identity of the unit (`FUN_XXXXXXXX`, its `func_` alias, or a recovered name)                                      |
+| `SCORE`    | Measured match percentages: `code`, `functions`, `data`, `complete_data`                                                             |
+| `COMPILER` | Compiler profile and flags that produced the measurement                                                                             |
+| `DECISION` | `promoted`, `retained`, `rejected`, or `stuck`                                                                                       |
+| `BLOCKER`  | One short reason, or `none`                                                                                                          |
+| `NOTE`     | Optional implementation note for future readers (no run IDs or private paths)                                                        |
 
 `COMPILER`, `BLOCKER` and `NOTE` may be omitted when no measurement or note
 exists, such as headers backfilled from an audit snapshot.

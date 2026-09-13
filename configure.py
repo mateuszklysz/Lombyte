@@ -369,15 +369,20 @@ def _retail_save_style(elf: bytes, vram: int, size: int) -> str:
             break
         word = struct.unpack_from("<I", elf, foff)[0]
         op = word >> 26
-        if op == 0x1E: sq += 1
-        elif op == 0x1F: lq += 1
-        elif op == 0x3F: sd += 1
-        elif op == 0x37: ld += 1
+        if op == 0x1E:
+            sq += 1
+        elif op == 0x1F:
+            lq += 1
+        elif op == 0x3F:
+            sd += 1
+        elif op == 0x37:
+            ld += 1
     if sq + lq >= sd + ld and sq + lq > 0:
         return "sq"
     if sd + ld > 0:
         return "sd"
     return "none"
+
 
 LANGUAGES = {
     "SCUS_971.99": "us",
@@ -431,13 +436,18 @@ def make_compiler_cmd(config_dir: Path, src_path: Path) -> tuple[str, str]:
         f"-Wa,-I{src_path.parent / 'include'} -Wa,-I{src_path.parent}"
     )
 
-    compile_cmd = f"{game_cc_dir}/ee-gcc -c {common_includes} {LANG_DEFINE} {COMPILER_FLAGS}"
+    compile_cmd = (
+        f"{game_cc_dir}/ee-gcc -c {common_includes} {LANG_DEFINE} {COMPILER_FLAGS}"
+    )
 
     return compile_cmd, common_includes
 
 
 def sn_compiler_configured() -> bool:
-    return bool(SN_TOOLCHAIN_ROOT) and (Path(SN_TOOLCHAIN_ROOT) / "bin/ee-gcc.exe").is_file()
+    return (
+        bool(SN_TOOLCHAIN_ROOT)
+        and (Path(SN_TOOLCHAIN_ROOT) / "bin/ee-gcc.exe").is_file()
+    )
 
 
 def himuro_patched_configured() -> bool:
@@ -464,10 +474,10 @@ def _unit_from_object(object_path: Path) -> str:
     """
     parts = list(Path(object_path).parts)
     if "src" in parts:
-        parts = parts[parts.index("src") + 1:]
+        parts = parts[parts.index("src") + 1 :]
     joined = "/".join(parts)
     if joined.endswith(".c.o"):
-        joined = joined[:-len(".c.o")]
+        joined = joined[: -len(".c.o")]
     return joined
 
 
@@ -825,13 +835,17 @@ def build_stuff(
             continue
 
         if isinstance(seg, splat.segtypes.common.c.CommonSegC):
-            entry.src_paths = [Path("..", "..") / src_file for src_file in entry.src_paths]
+            entry.src_paths = [
+                Path("..", "..") / src_file for src_file in entry.src_paths
+            ]
             unit = _unit_from_object(entry.object_path)
             style = "none"
             if sn_compiler_configured() and elf_bytes:
                 vram = getattr(seg, "vram_start", None)
                 if vram:
-                    style = _retail_save_style(elf_bytes, int(vram), max(int(seg.size or 0), 4))
+                    style = _retail_save_style(
+                        elf_bytes, int(vram), max(int(seg.size or 0), 4)
+                    )
             # Per-unit compiler by retail save style: sq/lq textbin code is
             # SN; sd/ld and save-less leaves stay on the inherited EE-GCC 2.9 pin
             # (they were matched there and SD-style textbin breaks under SN).
@@ -852,8 +866,12 @@ def build_stuff(
                     "extra": f"{flags} " if flags else "",
                     "policy": _unit_policy(unit),
                 }
-                build(entry.object_path, entry.src_paths, "cc_himuro_patched",
-                      variables=variables)
+                build(
+                    entry.object_path,
+                    entry.src_paths,
+                    "cc_himuro_patched",
+                    variables=variables,
+                )
             elif sn_compiler_configured() and unit in PADLESS_ASM_UNITS:
                 sn_work = str(sn_repo / "build/sn-work/units" / unit)
                 sn_extra = _unit_sn_flag(unit)
@@ -863,8 +881,12 @@ def build_stuff(
                 }
                 if sn_extra:
                     variables["extra"] = f"{sn_extra} "
-                build(entry.object_path, entry.src_paths, "cc_sn_padless",
-                      variables=variables)
+                build(
+                    entry.object_path,
+                    entry.src_paths,
+                    "cc_sn_padless",
+                    variables=variables,
+                )
             elif use_sn:
                 sn_work = str(sn_repo / "build/sn-work/units" / unit)
                 sn_extra = _unit_sn_flag(unit)
@@ -874,8 +896,7 @@ def build_stuff(
                 }
                 if sn_extra:
                     variables["extra"] = f"{sn_extra} "
-                build(entry.object_path, entry.src_paths, "cc_sn",
-                      variables=variables)
+                build(entry.object_path, entry.src_paths, "cc_sn", variables=variables)
             else:
                 extra = _unit_flag(unit)
                 variables = {"extra": f"{extra} "} if extra else {}
@@ -954,8 +975,8 @@ def fix_gp_rel_stores(asm_root: Path) -> int:
             if symbol not in symbols:
                 symbols.append(symbol)
             return (
-                f'{match.group("indent")}{match.group("op")}{match.group("spacing")}'
-                f'{match.group("reg")}, {symbol}'
+                f"{match.group('indent')}{match.group('op')}{match.group('spacing')}"
+                f"{match.group('reg')}, {symbol}"
             )
 
         updated = pattern.sub(rewrite, text)
@@ -1063,7 +1084,9 @@ def make_asm(config_path: Path, config: dict[str, Any]):
 
         for asm_file in tmp_asm_dir.rglob("*.c.s"):
             asm_file_rel = asm_file.relative_to(tmp_path)
-            obj_file_rel = Path("obj") / asm_file.relative_to(tmp_asm_dir).with_suffix(".o")
+            obj_file_rel = Path("obj") / asm_file.relative_to(tmp_asm_dir).with_suffix(
+                ".o"
+            )
             obj_file = tmp_obj_path / obj_file_rel.relative_to("obj")
             obj_file.parent.mkdir(parents=True, exist_ok=True)
             subprocess.run(
@@ -1141,7 +1164,9 @@ def fix_assets(config_dir: Path, config: dict[str, Any]):
 
     for asm_file in (config_dir / "asm").rglob("*.s"):
         data_asm: str = asm_file.read_text()
-        data_asm, count = re.subn(rf'\.incbin "{asset_rel_path}/', '.incbin "assets/', data_asm)
+        data_asm, count = re.subn(
+            rf'\.incbin "{asset_rel_path}/', '.incbin "assets/', data_asm
+        )
         if count > 0:
             asm_file.write_text(data_asm)
 
@@ -1165,7 +1190,9 @@ def fix_linkerscript(config: dict[str, Any], linkerscript_path: Path):
                 indent = cast(str, match["indent"])
 
                 if match["section"] == "text":
-                    patched_lines.append(f"{indent}. = ALIGN(., {current_section_subalign});\n")
+                    patched_lines.append(
+                        f"{indent}. = ALIGN(., {current_section_subalign});\n"
+                    )
 
             if match := re_section_line.match(line):
                 section = cast(str, match["section"])
@@ -1202,10 +1229,7 @@ def apply_retail_link_layout(config: dict[str, Any], linkerscript_path: Path):
     source no longer depends on the preserved blob for those bytes.
     """
 
-    overlays = {
-        name: (vram, at)
-        for name, (vram, at) in RODATA_OVERLAYS.items()
-    }
+    overlays = {name: (vram, at) for name, (vram, at) in RODATA_OVERLAYS.items()}
     text = linkerscript_path.read_text()
     entry_re = re.compile(
         r"^\s*(build/(?:asm|src)(?:/data)?/.*\.[sc]\.o\(\.text\);)$",
@@ -1263,7 +1287,11 @@ def apply_retail_link_layout(config: dict[str, Any], linkerscript_path: Path):
         if not (isinstance(segment, dict) and segment.get("name") == "main"):
             continue
         for subsegment in segment.get("subsegments", []):
-            if isinstance(subsegment, list) and len(subsegment) >= 3 and subsegment[1] == "c":
+            if (
+                isinstance(subsegment, list)
+                and len(subsegment) >= 3
+                and subsegment[1] == "c"
+            ):
                 c_units.append(str(subsegment[2]))
     rodata_overlay_sections = []
     for unit in c_units:
@@ -1275,7 +1303,9 @@ def apply_retail_link_layout(config: dict[str, Any], linkerscript_path: Path):
                     f"        build/src/{unit}.c.o(.rodata);\n"
                     "    } :data_alt"
                 )
-    rodata_overlay = "\n\n".join(rodata_overlay_sections) if rodata_overlay_sections else ""
+    rodata_overlay = (
+        "\n\n".join(rodata_overlay_sections) if rodata_overlay_sections else ""
+    )
     script = f"""ENTRY(entry)
 PHDRS
 {{
@@ -1417,7 +1447,11 @@ def main():
     config_dir = Path(args.YAML_FILE).parent
 
     if basename not in LANGUAGES:
-        supported_elfs = f"{set(f'{elf} ({lang})' for elf, lang in LANGUAGES.items())}".replace("'", "")
+        supported_elfs = (
+            f"{set(f'{elf} ({lang})' for elf, lang in LANGUAGES.items())}".replace(
+                "'", ""
+            )
+        )
         print(f"unsupported game ELF. Supported versions are: {supported_elfs}")
         exit(1)
 

@@ -40,15 +40,15 @@ Each tile is one configured C unit, sized by its share of the executable's code 
 
 Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. The map's classification input is `config/us/unit_categories.json`.
 
-**A matching executable does not mean the decompilation is complete.** Unconverted units keep using assembly or raw machine-code *oracles* to preserve the original bytes; matching C replaces them over time. The oracles are generated at build time from your own `config/us/SCUS_971.99` into the gitignored `config/us/expected/asm/` tree and are not stored in this repository.
+**A matching executable does not mean the decompilation is complete.** Unconverted units keep using assembly or raw machine-code _oracles_ to preserve the original bytes; matching C replaces them over time. The oracles are generated at build time from your own `config/us/SCUS_971.99` into the gitignored `config/us/expected/asm/` tree and are not stored in this repository.
 
 The build verifies matching at two levels: objdiff per compiled object, and a whole-ELF comparison against the original (SHA-256 below).
 
 ## Supported version
 
-| Game | Platform | Region | Boot executable |
-| :--- | :--- | :--- | :--- |
-| Ratchet & Clank (2002) | PlayStation 2 | USA / NTSC-U | `SCUS_971.99` |
+| Game                   | Platform      | Region       | Boot executable |
+| :--------------------- | :------------ | :----------- | :-------------- |
+| Ratchet & Clank (2002) | PlayStation 2 | USA / NTSC-U | `SCUS_971.99`   |
 
 Expected **SHA-256 of the boot executable** (not the ISO):
 
@@ -64,13 +64,13 @@ The verified build environment is Linux/WSL with support for both the frozen 32-
 
 Install Git, Make, Bash, Python 3 with virtual-environment support, and the following tools:
 
-| Tool | Required location or configuration |
-| :--- | :--- |
-| EE-GCC `2.9-ee-991111-01` | `tools/compilers/ee-gcc2.9-991111-01/` |
-| SN EE-GCC `2.95.2` | `tools/compilers/ee-gcc-2.95.2/` (including `bin/ee-gcc.exe` and its supporting tools) |
-| R5900 binutils | `mips-ps2-decompals-*` executables; set `BINUTILS_ROOT` to their directory |
-| [objdiff CLI](https://github.com/encounter/objdiff) | `tools/objdiff/objdiff-cli` |
-| Ninja and Python build dependencies | Installed into `.venv` below |
+| Tool                                                | Required location or configuration                                                     |
+| :-------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| EE-GCC `2.9-ee-991111-01`                           | `tools/compilers/ee-gcc2.9-991111-01/`                                                 |
+| SN EE-GCC `2.95.2`                                  | `tools/compilers/ee-gcc-2.95.2/` (including `bin/ee-gcc.exe` and its supporting tools) |
+| R5900 binutils                                      | `mips-ps2-decompals-*` executables; set `BINUTILS_ROOT` to their directory             |
+| [objdiff CLI](https://github.com/encounter/objdiff) | `tools/objdiff/objdiff-cli`                                                            |
+| Ninja and Python build dependencies                 | Installed into `.venv` below                                                           |
 
 Compiler versions matter for matching. Preserve the compiler directory layouts and executable permissions when installing them. Toolchain binaries must be supplied separately; the build does not download them.
 
@@ -113,10 +113,10 @@ The build stages the sources, splits the reference executable, prepares assembly
 
 The default staging directory is `~/rnc-baseline`. **It is recreated on each run**, so use a dedicated build directory when overriding it.
 
-| Output | Default location |
-| :--- | :--- |
-| Reconstructed boot ELF | `~/rnc-baseline/config/us/build/SCUS_971.99` |
-| Object comparison report | `~/rnc-baseline/config/us/report.json` |
+| Output                   | Default location                             |
+| :----------------------- | :------------------------------------------- |
+| Reconstructed boot ELF   | `~/rnc-baseline/config/us/build/SCUS_971.99` |
+| Object comparison report | `~/rnc-baseline/config/us/report.json`       |
 
 A successful run ends with:
 
@@ -146,13 +146,13 @@ The original disc image is preserved. With a byte-identical boot ELF, the rebuil
 
 The build and ISO scripts support these environment overrides. Use absolute paths for custom tool and staging locations.
 
-| Variable | Default / usage |
-| :--- | :--- |
-| `VENV` | `.venv` in the checkout |
-| `BASELINE_ROOT` | `~/rnc-baseline`; dedicated, disposable staging directory |
-| `BINUTILS_ROOT` | Set to the directory containing your `mips-ps2-decompals-*` tools |
-| `COMPILER_ROOT` | `tools/compilers` in the checkout |
-| `SN_TOOLCHAIN_ROOT` | `tools/compilers/ee-gcc-2.95.2` in the checkout |
+| Variable            | Default / usage                                                   |
+| :------------------ | :---------------------------------------------------------------- |
+| `VENV`              | `.venv` in the checkout                                           |
+| `BASELINE_ROOT`     | `~/rnc-baseline`; dedicated, disposable staging directory         |
+| `BINUTILS_ROOT`     | Set to the directory containing your `mips-ps2-decompals-*` tools |
+| `COMPILER_ROOT`     | `tools/compilers` in the checkout                                 |
+| `SN_TOOLCHAIN_ROOT` | `tools/compilers/ee-gcc-2.95.2` in the checkout                   |
 
 For example:
 
@@ -175,18 +175,18 @@ python3 rebuild-iso.py \
 
 ## Repository layout
 
-| Path | Contents |
-| :--- | :--- |
-| [`src/`](src/) | Reconstructed C, including matching and work-in-progress units |
-| [`src/assembly/`](src/assembly/) | Assembly-backed units that preserve the original code |
-| [`include/`](include/) | Shared types, structures, and declarations |
-| [`config/`](config/) | Executable layout, symbol maps, and analysis exports |
-| [`scripts/`](scripts/) | Build-support helpers and the progress-map generator |
-| [`docs/`](docs/) | Matching workflow and acceptance discipline |
-| [`assets/`](assets/) | Lombyte emblem and generated progress map |
-| [`tools/`](tools/) | Locally installed compilers and comparison tools (not tracked by Git) |
-| [`dumps/`](dumps/) | Local input disc images, ignored by Git |
-| [`build/`](build/) | Local ISO output, ignored by Git |
+| Path                             | Contents                                                              |
+| :------------------------------- | :-------------------------------------------------------------------- |
+| [`src/`](src/)                   | Reconstructed C, including matching and work-in-progress units        |
+| [`src/assembly/`](src/assembly/) | Assembly-backed units that preserve the original code                 |
+| [`include/`](include/)           | Shared types, structures, and declarations                            |
+| [`config/`](config/)             | Executable layout, symbol maps, and analysis exports                  |
+| [`scripts/`](scripts/)           | Build-support helpers and the progress-map generator                  |
+| [`docs/`](docs/)                 | Matching workflow and acceptance discipline                           |
+| [`assets/`](assets/)             | Lombyte emblem and generated progress map                             |
+| [`tools/`](tools/)               | Locally installed compilers and comparison tools (not tracked by Git) |
+| [`dumps/`](dumps/)               | Local input disc images, ignored by Git                               |
+| [`build/`](build/)               | Local ISO output, ignored by Git                                      |
 
 ## Contributing
 

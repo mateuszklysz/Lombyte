@@ -40,6 +40,7 @@ The canonical layout is the plain ``/*`` block first, one blank line, optional
 comments (NON_MATCHING FALLBACK, C_EXACT (byte-proven), UNIT, GATE) are dropped
 by ``--normalize``.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -72,8 +73,11 @@ def _field_line_re(key: str) -> re.Pattern:
 def render_block(fields: dict[str, str | None]) -> str:
     """Render a canonical block; keys follow FIELD_ORDER, extras after."""
     keys = [key for key in FIELD_ORDER if fields.get(key) is not None]
-    keys += [key for key, value in fields.items()
-             if key not in FIELD_ORDER and value is not None]
+    keys += [
+        key
+        for key, value in fields.items()
+        if key not in FIELD_ORDER and value is not None
+    ]
     return "\n".join(["/*"] + [f"{key}: {fields[key]}" for key in keys] + ["*/"])
 
 
@@ -139,7 +143,9 @@ def _set_field(block: str, key: str, value: str) -> str:
     insert_at = None
     for index, line in enumerate(lines):
         match = FIELD_LINE_RE.match(line)
-        if match and order.get(match.group(2), len(FIELD_ORDER)) > order.get(key, len(FIELD_ORDER)):
+        if match and order.get(match.group(2), len(FIELD_ORDER)) > order.get(
+            key, len(FIELD_ORDER)
+        ):
             insert_at = index
             break
     if insert_at is None:
@@ -180,8 +186,9 @@ def remove_field_lines(text: str, key: str) -> str:
     return "".join(kept) if changed else text
 
 
-def update(text: str, fields: dict[str, str | None] | None = None,
-           remove: tuple[str, ...] = ()) -> str:
+def update(
+    text: str, fields: dict[str, str | None] | None = None, remove: tuple[str, ...] = ()
+) -> str:
     """Insert or update the state block; ``None`` values remove a field."""
     fields = fields or {}
     span = find_state_block(text)
@@ -189,7 +196,11 @@ def update(text: str, fields: dict[str, str | None] | None = None,
         supplied = {key: value for key, value in fields.items() if value is not None}
         if supplied:
             body = text.lstrip("\n")
-            text = render_block(supplied) + "\n\n" + body if body else render_block(supplied) + "\n"
+            text = (
+                render_block(supplied) + "\n\n" + body
+                if body
+                else render_block(supplied) + "\n"
+            )
     else:
         start, end = span
         block = text[start:end]
@@ -209,10 +220,14 @@ def validate(text: str) -> list[str]:
     span = find_state_block(text)
     if span is None:
         return ["missing STATE block"]
-    block = text[span[0]:span[1]]
+    block = text[span[0] : span[1]]
     present = {match.group(2) for match in FIELD_LINE_RE.finditer(block)}
     problems = [f"missing {key}" for key in REQUIRED_FIELDS if key not in present]
-    problems += [f"{key} is not allowed in this repository" for key in FORBIDDEN_FIELDS if key in present]
+    problems += [
+        f"{key} is not allowed in this repository"
+        for key in FORBIDDEN_FIELDS
+        if key in present
+    ]
     return problems
 
 
@@ -277,7 +292,7 @@ def normalize(text: str) -> str:
     comments: list[tuple[int, int, str]] = []
     position = 0
     for match in COMMENT_RE.finditer(text):
-        if text[position:match.start()].strip():
+        if text[position : match.start()].strip():
             break
         comments.append((match.start(), match.end(), match.group(0)))
         position = match.end()
@@ -297,7 +312,7 @@ def normalize(text: str) -> str:
         if flat.startswith(LEGACY_PREFIXES):
             continue
         if flat.startswith("ROLE:"):
-            value = flat[len("ROLE:"):].strip()
+            value = flat[len("ROLE:") :].strip()
             if value:
                 roles.append(value)
             continue
@@ -312,13 +327,15 @@ def normalize(text: str) -> str:
     roles = unique_roles
 
     block_lines = ["/*"]
-    block_lines.extend(f"{key}: {fields[key]}" for key in FIELD_ORDER if fields.get(key))
+    block_lines.extend(
+        f"{key}: {fields[key]}" for key in FIELD_ORDER if fields.get(key)
+    )
     block_lines.append("*/")
     parts = ["\n".join(block_lines)]
     parts.extend(f"/* ROLE: {role} */" for role in roles)
     parts.extend(kept)
     header = "\n\n".join(parts)
-    code = text[comments[-1][1]:].lstrip("\n")
+    code = text[comments[-1][1] :].lstrip("\n")
     return header + "\n\n" + code
 
 
@@ -334,40 +351,66 @@ def _collect(paths: list[Path]) -> list[Path]:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
-        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument("paths", nargs="+", type=Path, help="source file or directory")
     parser.add_argument("--state")
     parser.add_argument("--symbol")
-    parser.add_argument("--score", help='e.g. "code=100 functions=100 data=100 complete_data=100"')
+    parser.add_argument(
+        "--score", help='e.g. "code=100 functions=100 data=100 complete_data=100"'
+    )
     parser.add_argument("--compiler")
     parser.add_argument("--decision")
     parser.add_argument("--blocker")
     parser.add_argument("--note", help="short implementation note for future readers")
-    parser.add_argument("--remove", action="append", default=[], metavar="FIELD",
-                        help="drop a field (repeatable), e.g. --remove EVIDENCE")
-    parser.add_argument("--normalize", action="store_true",
-                        help="rewrite the leading comments to the canonical shape")
+    parser.add_argument(
+        "--remove",
+        action="append",
+        default=[],
+        metavar="FIELD",
+        help="drop a field (repeatable), e.g. --remove EVIDENCE",
+    )
+    parser.add_argument(
+        "--normalize",
+        action="store_true",
+        help="rewrite the leading comments to the canonical shape",
+    )
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--apply", action="store_true", help="write changes")
-    mode.add_argument("--check", action="store_true",
-                      help="exit 1 when a header is invalid or out of date")
+    mode.add_argument(
+        "--check",
+        action="store_true",
+        help="exit 1 when a header is invalid or out of date",
+    )
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args(argv)
 
-    fields = {"STATE": args.state, "SYMBOL": args.symbol, "SCORE": args.score,
-              "COMPILER": args.compiler, "DECISION": args.decision, "BLOCKER": args.blocker,
-              "NOTE": args.note}
+    fields = {
+        "STATE": args.state,
+        "SYMBOL": args.symbol,
+        "SCORE": args.score,
+        "COMPILER": args.compiler,
+        "DECISION": args.decision,
+        "BLOCKER": args.blocker,
+        "NOTE": args.note,
+    }
     updates = {key: value for key, value in fields.items() if value is not None}
 
     failures = 0
     changed = 0
     for path in _collect(args.paths):
         text = path.read_text()
-        new = normalize(text) if args.normalize else update(text, updates, tuple(args.remove))
+        new = (
+            normalize(text)
+            if args.normalize
+            else update(text, updates, tuple(args.remove))
+        )
         if args.check:
             problems = validate(text)
             if (updates or args.remove or args.normalize) and new != text:
-                problems.append("header not normalized" if args.normalize else "header out of date")
+                problems.append(
+                    "header not normalized" if args.normalize else "header out of date"
+                )
             if problems:
                 failures += 1
                 print(f"FAIL {path}: {'; '.join(problems)}")

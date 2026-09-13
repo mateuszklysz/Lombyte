@@ -12,13 +12,13 @@ wrong; write `decomp: promote …`.
 
 ## Types
 
-| Type | Use for |
-| :--- | :--- |
+| Type     | Use for                                                                   |
+| :------- | :------------------------------------------------------------------------ |
 | `decomp` | Exact-C promotions, source work, source refactors, oracle/source plumbing |
-| `docs` | README and documentation, source headers, ROLE comments, reference data |
-| `chore` | Non-behavioral cleanup, generated artifacts, tooling, data refreshes |
-| `fix` | A bug fix in tooling or the build |
-| `config` | Ownership/config data (`rnc1.us.yaml`, categories, linker bindings) |
+| `docs`   | README and documentation, source headers, ROLE comments, reference data   |
+| `chore`  | Non-behavioral cleanup, generated artifacts, tooling, data refreshes      |
+| `fix`    | A bug fix in tooling or the build                                         |
+| `config` | Ownership/config data (`rnc1.us.yaml`, categories, linker bindings)       |
 
 A commit that promotes sources and also refreshes the map is still `decomp:`;
 the map is a derived artifact. Prefer `decomp:` whenever the commit changes
@@ -51,7 +51,7 @@ The repository version-controls a `commit-msg` hook at `scripts/commit-msg.py`.
 Enable it once per checkout:
 
 ```sh
-ln -sf ../../scripts/commit-msg.py .git/hooks/commit-msg
+ln -sf ../scripts/commit-msg.py .git/hooks/commit-msg
 ```
 
 The hook rejects any subject that does not match the standard above.

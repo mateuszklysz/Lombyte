@@ -23,24 +23,24 @@ any retail unit by itself.
 
 ## Core modules
 
-| Module | Subsystem (inferred from name and call context) |
-| :--- | :--- |
-| `db_core.cpp` | debug core: print buffer and assertion plumbing |
-| `debug.cpp` | developer debug display / profiler front-end |
-| `framebuf.cpp` | framebuffer and render-target setup |
-| `freeze.cpp` | game-freeze / save-prompt handling |
-| `hud.cpp` | HUD bank loading and drawing |
-| `init.cpp` | level/system initialisation |
-| `loaders.cpp` | asset and level loaders |
-| `map.cpp` | world map, collision block cache, occlusion grid |
-| `memcard.h` | memory-card helpers used by save code |
-| `mission.cpp` | mission/objective state |
-| `mobyfunc.cpp` | moby (entity) helper functions |
-| `mobyutil.cpp` | moby utility functions |
-| `npc.cpp` | NPC behaviour |
-| `pause.cpp` | pause menu |
-| `save.cpp` | save/load handling |
-| `vuchain.cpp` | VU microcode chain management |
+| Module         | Subsystem (inferred from name and call context)  |
+| :------------- | :----------------------------------------------- |
+| `db_core.cpp`  | debug core: print buffer and assertion plumbing  |
+| `debug.cpp`    | developer debug display / profiler front-end     |
+| `framebuf.cpp` | framebuffer and render-target setup              |
+| `freeze.cpp`   | game-freeze / save-prompt handling               |
+| `hud.cpp`      | HUD bank loading and drawing                     |
+| `init.cpp`     | level/system initialisation                      |
+| `loaders.cpp`  | asset and level loaders                          |
+| `map.cpp`      | world map, collision block cache, occlusion grid |
+| `memcard.h`    | memory-card helpers used by save code            |
+| `mission.cpp`  | mission/objective state                          |
+| `mobyfunc.cpp` | moby (entity) helper functions                   |
+| `mobyutil.cpp` | moby utility functions                           |
+| `npc.cpp`      | NPC behaviour                                    |
+| `pause.cpp`    | pause menu                                       |
+| `save.cpp`     | save/load handling                               |
+| `vuchain.cpp`  | VU microcode chain management                    |
 
 ## Per-level modules
 
