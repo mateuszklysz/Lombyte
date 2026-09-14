@@ -329,6 +329,9 @@ PADLESS_ASM_UNITS = {
     # loop body contains a forward branch; SN cc1 + Ps2EeAs emits it and the
     # resulting object is instruction-identical to the retail target (106/106).
     "textbin/fun_002212b8",
+    # run 13 wave 3 (2026-09-14): same short-loop padding-NOP class; the
+    # padless object is instruction-identical (49/49) and patha byte-equal.
+    "textbin/fun_002073b8",
 }
 
 
