@@ -328,11 +328,13 @@ def fuzzy_progress(units, scores) -> float:
     return similar / recoverable
 
 
-def measure_scores(workspace: Path) -> dict[str, float] | None:
-    """Per-unit similarity from the existing work-list scorer, or None.
+def measure_scores(workspace: Path, scores_out: Path) -> tuple[dict[str, float], Path] | None:
+    """Per-unit similarity from the work-list scorer plus its persisted index.
 
     Delegates to ``scripts/list-functions.py --score`` so C_FUZZY reuses the
-    same objdiff measurement as the contribution tooling.
+    same objdiff measurement as the contribution tooling; ``--out`` makes that
+    same pass write the ``rnc-pending-similarity-v1`` index next to the
+    measured objects.
     """
     script = Path(__file__).resolve().parent / "list-functions.py"
     process = subprocess.run(
@@ -343,6 +345,8 @@ def measure_scores(workspace: Path) -> dict[str, float] | None:
             "--limit",
             "0",
             "--json",
+            "--out",
+            str(scores_out),
             "--workspace",
             str(workspace),
         ],
@@ -357,11 +361,12 @@ def measure_scores(workspace: Path) -> dict[str, float] | None:
     except json.JSONDecodeError:
         print("list-functions.py --score returned no usable JSON", file=sys.stderr)
         return None
-    return {
+    scores = {
         str(item["unit"]): float(item["score"])
         for item in payload
         if item.get("unit") and item.get("score") is not None
     }
+    return scores, Path(scores_out)
 
 
 # --------------------------------------------------------------------------
@@ -685,6 +690,13 @@ def main(argv=None) -> int:
         help="baseline workspace; measure the pending C bodies with "
         "scripts/list-functions.py --score and also report C_FUZZY",
     )
+    parser.add_argument(
+        "--scores-out",
+        type=Path,
+        default=None,
+        help="rnc-pending-similarity-v1 index path for --workspace "
+        "(default: WORKSPACE/c_fuzzy_scores.json)",
+    )
     args = parser.parse_args(argv)
 
     repo = args.repo.resolve()
@@ -702,12 +714,18 @@ def main(argv=None) -> int:
 
     fuzzy_percent = None
     scores: dict[str, float] = {}
+    index_path = None
     if args.workspace:
         workspace = args.workspace.expanduser().resolve()
-        measured = measure_scores(workspace)
+        scores_out = (
+            args.scores_out.expanduser().resolve()
+            if args.scores_out
+            else workspace / "c_fuzzy_scores.json"
+        )
+        measured = measure_scores(workspace, scores_out)
         if measured is None:
             return 2
-        scores = measured
+        scores, index_path = measured
         fuzzy_percent = fuzzy_progress(units, scores)
 
     svg = render_svg(
@@ -743,6 +761,8 @@ def main(argv=None) -> int:
             f"  fuzzy C (C_FUZZY): {fuzzy_percent:.2f}% of recoverable C "
             f"({measured}/{len(pending)} pending units measured)"
         )
+        if index_path is not None:
+            print(f"  similarity index: {index_path}")
     print(f"  intentional asm: {len(asm)} units, {asm_bytes:,} B")
     print(f"  pending C: {len(pending)} units, {total - exact_bytes - asm_bytes:,} B")
     print(

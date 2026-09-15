@@ -23,7 +23,10 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import datetime as dt
+import hashlib
 import json
+import os
 import subprocess
 import sys
 import time
@@ -33,6 +36,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rnc_units  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
+INDEX_SCHEMA = "rnc-pending-similarity-v1"
 
 
 def parse_args(argv=None):
@@ -72,11 +76,25 @@ def parse_args(argv=None):
         action="store_true",
         help="print the matching units as JSON",
     )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="write the full rnc-pending-similarity-v1 index for every pending "
+        "unit (implies --score; atomic write)",
+    )
+    parser.add_argument(
+        "--audit",
+        type=Path,
+        default=None,
+        help="audit JSON to bind the index to (default: latest under the "
+        "tools repo when found)",
+    )
     return parser.parse_args(argv)
 
 
-def score_unit(owner: str, workspace: Path) -> tuple[float | None, str | None]:
-    """Measure one unit through check-unit.py; return (percent, error)."""
+def score_unit(owner: str, workspace: Path) -> tuple[dict | None, str | None]:
+    """Measure one unit through check-unit.py; return (payload, error)."""
     process = subprocess.run(
         [
             sys.executable,
@@ -96,20 +114,44 @@ def score_unit(owner: str, workspace: Path) -> tuple[float | None, str | None]:
         payload = json.loads(process.stdout)
     except json.JSONDecodeError:
         return None, "check-unit returned no usable JSON"
-    return payload.get("text_match_percent"), None
+    if not isinstance(payload, dict):
+        return None, "check-unit returned no result object"
+    return payload, None
+
+
+def apply_payload(unit: dict, payload: dict | None, problem: str | None) -> None:
+    """Copy one check-unit payload onto a listing row."""
+    unit["score_error"] = problem
+    if payload is None:
+        unit["score"] = None
+        unit["strict_score"] = None
+        unit["measurable"] = False
+        unit["unmeasurable_reason"] = "score-error" if problem else None
+        unit["non_text_ok"] = None
+        return
+    unit["score"] = payload.get("text_match_percent")
+    unit["strict_score"] = payload.get("strict_match_percent")
+    unit["measurable"] = bool(payload.get("measurable"))
+    unit["unmeasurable_reason"] = payload.get("unmeasurable_reason")
+    unit["non_text_ok"] = payload.get("non_text_ok")
 
 
 def score_units(units: list[dict], workspace: Path) -> int:
-    """Fill in ``score`` for every unit with a C body; return the error count."""
+    """Fill in ``score`` for every unit; return the error count."""
     scorable = [unit for unit in units if unit["c_body"]]
     for unit in units:
         unit["score"] = None
         unit["score_error"] = None
+        if not unit["c_body"]:
+            unit["measurable"] = False
+            unit["unmeasurable_reason"] = "no-c-body"
+            unit["non_text_ok"] = None
+            unit["strict_score"] = None
     errors = 0
     for index, unit in enumerate(scorable, 1):
-        percent, problem = score_unit(unit["owner"], workspace)
-        unit["score"] = percent
-        unit["score_error"] = problem
+        payload, problem = score_unit(unit["owner"], workspace)
+        apply_payload(unit, payload, problem)
+        percent = unit["score"]
         if problem:
             errors += 1
             shown = "error"
@@ -122,6 +164,69 @@ def score_units(units: list[dict], workspace: Path) -> int:
             file=sys.stderr,
         )
     return errors
+
+
+def default_audit() -> Path | None:
+    """Latest source-quality audit in the tools repo, when this checkout has one."""
+    candidates = []
+    tools_root = os.environ.get("RNC_TOOLS_ROOT", "").strip()
+    if tools_root:
+        candidates.append(Path(tools_root) / "analysis" / "audits")
+    candidates.append(ROOT.parent / "RncDecomp-tools" / "analysis" / "audits")
+    candidates.append(ROOT / "analysis" / "audits")
+    for directory in candidates:
+        if directory.is_dir():
+            matches = sorted(directory.glob("source-quality-audit-*.json"))
+            if matches:
+                return matches[-1]
+    return None
+
+
+def sha256_file(path: Path) -> str | None:
+    try:
+        return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    except OSError:
+        return None
+
+
+def write_index(path: Path, units: list[dict], workspace: Path, audit: Path | None) -> None:
+    """Write the rnc-pending-similarity-v1 index atomically."""
+    audit = audit or default_audit()
+    retail = Path(workspace) / "config" / "us" / "SCUS_971.99"
+    payload = {
+        "schema": INDEX_SCHEMA,
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "repo": str(ROOT),
+        "workspace": str(workspace),
+        "retail_sha256": sha256_file(retail),
+        "audit_sha256": sha256_file(audit) if audit else None,
+        "count": len(units),
+        "units": [
+            {
+                "unit": unit["owner"],
+                "address": f"0x{unit['address']:X}",
+                "bytes": unit["size"],
+                "name": unit["display"],
+                "source": str(unit["source"].relative_to(ROOT)),
+                "has_c_body": unit["c_body"],
+                "score": unit.get("score"),
+                "strict_score": unit.get("strict_score"),
+                "measurable": unit.get("measurable"),
+                "unmeasurable_reason": unit.get("unmeasurable_reason"),
+                "non_text_ok": unit.get("non_text_ok"),
+                "score_error": unit.get("score_error"),
+            }
+            for unit in sorted(units, key=lambda row: row["owner"])
+        ],
+    }
+    if audit:
+        payload["audit"] = str(audit)
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(path.name + f".tmp{os.getpid()}")
+    tmp.write_text(json.dumps(payload, indent=2) + "\n")
+    os.replace(tmp, path)
+    print(f"wrote {path} ({payload['count']} units, schema {INDEX_SCHEMA})", file=sys.stderr)
 
 
 def main(argv=None) -> int:
@@ -144,9 +249,11 @@ def main(argv=None) -> int:
     selected = listed if args.all else with_body
     to_score = len(with_body)
 
+    score_mode = args.score or args.out is not None
     errors = 0
     elapsed = 0.0
-    if args.score:
+    workspace = None
+    if score_mode:
         workspace = args.workspace or rnc_units.default_workspace(ROOT)
         workspace = workspace.expanduser().resolve()
         problem = rnc_units.workspace_problem(workspace, ROOT)
@@ -159,7 +266,13 @@ def main(argv=None) -> int:
                 file=sys.stderr,
             )
         started = time.monotonic()
-        errors = score_units(list(selected), workspace)
+        if args.out is not None:
+            # The index covers every pending unit, not just the printed page.
+            errors = score_units(list(listed), workspace)
+            for unit in listed:
+                unit["_scored"] = True
+        else:
+            errors = score_units(list(selected), workspace)
         elapsed = time.monotonic() - started
         selected.sort(
             key=lambda unit: (
@@ -172,6 +285,9 @@ def main(argv=None) -> int:
         selected.sort(key=lambda unit: (unit["size"], unit["owner"]))
     if args.limit > 0:
         selected = selected[: args.limit]
+
+    if args.out is not None:
+        write_index(args.out, listed, workspace, args.audit)
 
     if args.json:
         print(
@@ -199,7 +315,7 @@ def main(argv=None) -> int:
         f"{len(listed)} pending units / {total:,} bytes "
         f"(of {len(all_units)} configured C units)\n"
     )
-    if args.score:
+    if score_mode:
         print(
             f"Scored {to_score} units in {elapsed:.1f}s; highest match "
             "first (closest to promotion):\n"
@@ -218,14 +334,14 @@ def main(argv=None) -> int:
         return 0
 
     width = max(len(unit["owner"]) for unit in selected)
-    if args.score:
+    if score_mode:
         print(f"  {'SCORE':>6}  {'BYTES':>6}  {'UNIT':<{width}}  NAME")
     else:
         print(f"  {'BYTES':>6}  {'UNIT':<{width}}  NAME")
     for unit in selected:
         name = unit["display"] or "-"
         flag = "" if unit["c_body"] else "  [asm only]"
-        if args.score:
+        if score_mode:
             score = unit.get("score")
             shown = "error" if unit.get("score_error") else (
                 f"{score:.1f}%" if score is not None else "-"
@@ -240,9 +356,9 @@ def main(argv=None) -> int:
         print(f"\nShowing {shown} of {pool}.")
     if errors:
         print(f"{errors} unit(s) could not be measured.")
-    if not args.score:
+    if not score_mode:
         print("\nTip: pass --score to rank the list by current match percentage.")
-    print("\nRefine one with:" if args.score else "\nPick one and measure it with:")
+    print("\nRefine one with:" if score_mode else "\nPick one and measure it with:")
     print("  python3 scripts/check-unit.py <unit>")
     return 0
 

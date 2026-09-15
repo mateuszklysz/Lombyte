@@ -162,6 +162,100 @@ def first_differences(left: dict, right: dict, limit: int = 3) -> list[str]:
     return rows
 
 
+def section_percentages(left: dict) -> tuple[float | None, list[dict]]:
+    """Split a side payload into (.text percent, non-.text section rows)."""
+    text_match = None
+    others = []
+    for section in left.get("sections", []):
+        percent = section.get("match_percent")
+        if section["name"] == ".text":
+            if percent is not None:
+                text_match = percent
+        elif percent is not None:
+            others.append(
+                {
+                    "name": section["name"],
+                    "size": section.get("size"),
+                    "match_percent": percent,
+                }
+            )
+    return text_match, others
+
+
+def score_verdict(
+    *,
+    text_match: float | None,
+    functions: list[dict],
+    section_rows: list[dict],
+    custom_sections: list[str] | None = None,
+    non_text_ok: bool | None = None,
+) -> dict:
+    """Pure measurement verdict for one unit.
+
+    ``ok`` keeps its original meaning (``.text`` and every function at 100%),
+    so existing consumers keep working; ``promotable`` additionally requires
+    every non-``.text`` section at 100% on the strict pass.
+    """
+    custom_sections = custom_sections or []
+    if custom_sections:
+        return {
+            "measurable": False,
+            "unmeasurable_reason": "custom-sections",
+            "non_text_ok": None,
+            "promotable": False,
+            "ok": False,
+        }
+    if text_match is None or not functions:
+        return {
+            "measurable": False,
+            "unmeasurable_reason": "no-pairing",
+            "non_text_ok": None,
+            "promotable": False,
+            "ok": False,
+        }
+    if all(row["match_percent"] is None for row in functions):
+        return {
+            "measurable": False,
+            "unmeasurable_reason": "no-pairing",
+            "non_text_ok": None,
+            "promotable": False,
+            "ok": False,
+        }
+    ok = text_match == 100.0 and all(
+        function["match_percent"] == 100.0 for function in functions
+    )
+    if non_text_ok is None:
+        non_text_ok = all(row["match_percent"] == 100.0 for row in section_rows)
+    return {
+        "measurable": True,
+        "unmeasurable_reason": None,
+        "non_text_ok": bool(non_text_ok),
+        "promotable": bool(ok and non_text_ok),
+        "ok": ok,
+    }
+
+
+def fail_result(unit: str, reason: str, message: str, *, as_json: bool, code: int) -> int:
+    """Report a unit that cannot be measured (keeps exit codes unchanged)."""
+    if as_json:
+        print(
+            json.dumps(
+                {
+                    "unit": unit,
+                    "measurable": False,
+                    "unmeasurable_reason": reason,
+                    "non_text_ok": None,
+                    "promotable": False,
+                    "ok": False,
+                    "error": message,
+                },
+                indent=2,
+            )
+        )
+    print(f"check-unit: error: {message}", file=sys.stderr)
+    return code
+
+
 def print_result(result: dict) -> None:
     print(f"unit       {result['unit']}")
     print(f"source     {result['source']} ({result['staged_from']})")
@@ -185,8 +279,8 @@ def print_result(result: dict) -> None:
             f"({section['size']} bytes)"
         )
     print()
-    if result["ok"]:
-        print("Object matches.")
+    if result["promotable"]:
+        print("Object matches (promotable).")
         if result["strict_match_percent"] not in (None, 100.0):
             print(
                 "Strict symbol-name comparison still differs "
@@ -195,7 +289,25 @@ def print_result(result: dict) -> None:
             )
         print("Run ./verify-baseline.sh for the authoritative full-image SHA gate.")
         return
-    print(f"Not matching yet ({result['text_match_percent']:.1f}%).")
+    if result["ok"] and result["non_text_ok"] is False:
+        print("Text matches; data/rodata differ — the full gate will fail.")
+        for section in result["other_sections"]:
+            print(
+                f"  {section['name']}   {section['match_percent']:.1f}% "
+                f"({section['size']} bytes)"
+            )
+        return
+    if result["ok"]:
+        print(
+            "Text matches; promotability unverified (the strict pass did not "
+            "produce non-.text percentages)."
+        )
+        return
+    if result["measurable"]:
+        print(f"Not matching yet ({result['text_match_percent']:.1f}%).")
+    else:
+        print(f"Not measurable: {result['unmeasurable_reason']} "
+              f"({result['text_match_percent']:.1f}%).")
     for note in result["notes"]:
         print()
         print(f"note: {note}")
@@ -220,9 +332,13 @@ def main(argv=None) -> int:
         return error(f"no such unit source: {source}")
     _, intentional = rnc_units.load_categories(ROOT / rnc_units.CATEGORY_PATH)
     if unit in intentional:
-        return error(
+        return fail_result(
+            unit,
+            "intentional-asm",
             f"{unit} is intentional low-level asm and is excluded from the C "
-            "goal; pick another unit (see scripts/list-functions.py)"
+            "goal; pick another unit (see scripts/list-functions.py)",
+            as_json=args.json,
+            code=2,
         )
 
     text = source.read_text(errors="replace")
@@ -260,11 +376,15 @@ def main(argv=None) -> int:
             "after pulling the latest source"
         )
     if unit in rnc_units.oracle_fallback_units(workspace):
-        return error(
+        return fail_result(
+            unit,
+            "oracle-fallback",
             f"{unit} is rebuilt from the retail oracle in this workspace "
             "because HIMURO_PATCHED_ROOT is not set; run "
             "scripts/build-patched-toolchain.py, re-run make elf, then measure "
-            "its C"
+            "its C",
+            as_json=args.json,
+            code=2,
         )
 
     ninja = find_ninja()
@@ -282,7 +402,13 @@ def main(argv=None) -> int:
     if build.returncode != 0:
         print(build.stdout, end="", file=sys.stderr)
         print(build.stderr, end="", file=sys.stderr)
-        return error(f"compiling {unit} failed; fix the compile errors above", 1)
+        return fail_result(
+            unit,
+            "compile-failed",
+            f"compiling {unit} failed; fix the compile errors above",
+            as_json=args.json,
+            code=1,
+        )
 
     scored = objdiff_report(objdiff, project, unit, "functionRelocDiffs=none")
     if scored.returncode != 0:
@@ -294,40 +420,28 @@ def main(argv=None) -> int:
         return error(f"objdiff returned no usable JSON for {unit}", 1)
 
     left = payload.get("left") or {}
-    text_sections = [
-        section
-        for section in left.get("sections", [])
-        if section["name"] == ".text" and section.get("match_percent") is not None
-    ]
-    text_match = text_sections[0]["match_percent"] if text_sections else None
+    text_match, section_rows = section_percentages(left)
     functions = function_rows(left)
-    other_sections = []
-    for section in left.get("sections", []):
-        percent = section.get("match_percent")
-        if section["name"] != ".text" and percent is not None and percent != 100.0:
-            other_sections.append(
-                {
-                    "name": section["name"],
-                    "size": section.get("size"),
-                    "match_percent": percent,
-                }
-            )
-
-    ok = (
-        text_match == 100.0
-        and bool(functions)
-        and all(function["match_percent"] == 100.0 for function in functions)
+    other_sections = [
+        row for row in section_rows if row["match_percent"] != 100.0
+    ]
+    right = payload.get("right") or {}
+    target_sections = {section["name"] for section in left.get("sections", [])}
+    custom_sections = [
+        section["name"]
+        for section in right.get("sections", [])
+        if section["name"].startswith(".text.")
+        and section["name"] not in target_sections
+    ]
+    verdict = score_verdict(
+        text_match=text_match,
+        functions=functions,
+        section_rows=section_rows,
+        custom_sections=custom_sections,
     )
+    ok = verdict["ok"]
     notes = []
     if not ok:
-        right = payload.get("right") or {}
-        target_sections = {section["name"] for section in left.get("sections", [])}
-        custom_sections = [
-            section["name"]
-            for section in right.get("sections", [])
-            if section["name"].startswith(".text.")
-            and section["name"] not in target_sections
-        ]
         if custom_sections:
             notes.append(
                 "your C body places code in custom sections ("
@@ -344,21 +458,24 @@ def main(argv=None) -> int:
             )
 
     strict_match = None
+    non_text_ok = verdict["non_text_ok"]
     if ok:
         strict = objdiff_report(objdiff, project, unit, None)
         if strict.returncode == 0:
             try:
                 strict_left = json.loads(strict.stdout).get("left") or {}
-                strict_sections = [
-                    section
-                    for section in strict_left.get("sections", [])
-                    if section["name"] == ".text"
-                    and section.get("match_percent") is not None
-                ]
-                if strict_sections:
-                    strict_match = strict_sections[0]["match_percent"]
+                strict_text, strict_rows = section_percentages(strict_left)
+                if strict_text is not None:
+                    strict_match = strict_text
+                non_text_ok = all(
+                    row["match_percent"] == 100.0 for row in strict_rows
+                )
             except json.JSONDecodeError:
                 strict_match = None
+                non_text_ok = None
+        else:
+            non_text_ok = None
+    promotable = bool(ok and non_text_ok)
 
     asm_dir = project / "expected" / "asm" / unit
     retail_asm = (
@@ -384,6 +501,10 @@ def main(argv=None) -> int:
         "notes": notes,
         "differences": [] if ok else first_differences(left, payload.get("right") or {}),
         "ok": ok,
+        "measurable": verdict["measurable"],
+        "unmeasurable_reason": verdict["unmeasurable_reason"],
+        "non_text_ok": non_text_ok,
+        "promotable": promotable,
     }
     if args.json:
         print(json.dumps(result, indent=2))

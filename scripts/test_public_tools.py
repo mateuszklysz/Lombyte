@@ -77,6 +77,25 @@ class TreemapClassificationTests(unittest.TestCase):
         )
         return config, categories
 
+    def test_measure_scores_persists_the_index(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            calls = []
+
+            def fake_run(command, **kwargs):
+                calls.append(command)
+                return SimpleNamespace(
+                    returncode=0,
+                    stdout=json.dumps([{"unit": "assembly/x/y", "score": 42.0}]),
+                    stderr="",
+                )
+
+            with mock.patch.object(self.treemap.subprocess, "run", fake_run):
+                result = self.treemap.measure_scores(tmp, tmp / "idx.json")
+        self.assertEqual(result, ({"assembly/x/y": 42.0}, tmp / "idx.json"))
+        self.assertIn("--out", calls[0])
+        self.assertIn(str(tmp / "idx.json"), calls[0])
+
     def test_categories_drive_tile_colors(self):
         with tempfile.TemporaryDirectory() as name:
             tmp = Path(name)
@@ -867,6 +886,95 @@ class ListFunctionsTests(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn("baseline workspace", stderr.getvalue())
 
+    def test_score_out_writes_the_similarity_index(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            workspace = self._workspace(tmp)
+            audit = tmp / "audit.json"
+            audit.write_text("{}")
+            out = tmp / "index.json"
+
+            def fake_run(command, **kwargs):
+                owner = command[2]
+                return SimpleNamespace(
+                    returncode=0,
+                    stdout=json.dumps(
+                        {
+                            "unit": owner,
+                            "text_match_percent": 10.0,
+                            "strict_match_percent": None,
+                            "measurable": True,
+                            "unmeasurable_reason": None,
+                            "non_text_ok": True,
+                        }
+                    ),
+                    stderr="",
+                )
+
+            stdout = io.StringIO()
+            with (
+                mock.patch.object(self.lister, "ROOT", tmp),
+                mock.patch.object(self.lister.subprocess, "run", fake_run),
+                contextlib.redirect_stdout(stdout),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                code = self.lister.main(
+                    ["--score", "--out", str(out), "--audit", str(audit),
+                     "--workspace", str(workspace), "--json"]
+                )
+            self.assertEqual(code, 0)
+            payload = json.loads(out.read_text())
+        self.assertEqual(payload["schema"], "rnc-pending-similarity-v1")
+        self.assertEqual(payload["count"], 3)
+        self.assertEqual(
+            [unit["unit"] for unit in payload["units"]],
+            sorted(unit["unit"] for unit in payload["units"]),
+        )
+        by_unit = {unit["unit"]: unit for unit in payload["units"]}
+        self.assertIsNone(by_unit["assembly/textbin/no_c"]["score"])
+        self.assertFalse(by_unit["assembly/textbin/no_c"]["has_c_body"])
+        self.assertEqual(
+            by_unit["assembly/textbin/no_c"]["unmeasurable_reason"], "no-c-body"
+        )
+        self.assertTrue(by_unit["assembly/textbin/with_c"]["measurable"])
+        self.assertEqual(by_unit["assembly/textbin/with_c"]["score"], 10.0)
+        self.assertTrue(payload["audit_sha256"])
+
+    def test_score_out_is_atomic(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            workspace = self._workspace(tmp)
+
+            def fake_run(command, **kwargs):
+                return SimpleNamespace(
+                    returncode=0,
+                    stdout=json.dumps(
+                        {
+                            "unit": command[2],
+                            "text_match_percent": 1.0,
+                            "measurable": True,
+                            "unmeasurable_reason": None,
+                        }
+                    ),
+                    stderr="",
+                )
+
+            out = tmp / "index.json"
+            with (
+                mock.patch.object(self.lister, "ROOT", tmp),
+                mock.patch.object(self.lister.subprocess, "run", fake_run),
+                contextlib.redirect_stdout(io.StringIO()),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                code = self.lister.main(
+                    ["--score", "--out", str(out), "--workspace", str(workspace)]
+                )
+            leftovers = [p.name for p in tmp.iterdir() if ".tmp" in p.name]
+        self.assertEqual(code, 0)
+        self.assertEqual(leftovers, [])
+
     def test_score_defaults_to_the_project_local_workspace(self):
         environment = {
             key: value
@@ -1003,7 +1111,7 @@ class CheckUnitTests(unittest.TestCase):
                 )
             staged = (ws / "src" / "assembly" / "textbin" / "demo.c").read_text()
         self.assertEqual(code, 0)
-        self.assertIn("Object matches.", output)
+        self.assertIn("Object matches (promotable).", output)
         self.assertIn("return 1;", staged)
         self.assertNotIn("INCLUDE_ASM", staged)
 
@@ -1049,6 +1157,113 @@ class CheckUnitTests(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn("intentional low-level asm", stderr.getvalue())
 
+    def test_verdict_text_match_data_mismatch_is_not_promotable(self):
+        verdict = self.check.score_verdict(
+            text_match=100.0,
+            functions=[{"name": "FUN_00123456", "match_percent": 100.0}],
+            section_rows=[{"name": ".rodata", "match_percent": 50.0}],
+        )
+        self.assertTrue(verdict["measurable"])
+        self.assertTrue(verdict["ok"])
+        self.assertFalse(verdict["non_text_ok"])
+        self.assertFalse(verdict["promotable"])
+        self.assertIsNone(verdict["unmeasurable_reason"])
+
+    def test_verdict_custom_sections_are_unmeasurable(self):
+        verdict = self.check.score_verdict(
+            text_match=0.0,
+            functions=[{"name": "FUN_00123456", "match_percent": None}],
+            section_rows=[],
+            custom_sections=[".text.seed_name"],
+        )
+        self.assertFalse(verdict["measurable"])
+        self.assertEqual(verdict["unmeasurable_reason"], "custom-sections")
+        self.assertFalse(verdict["ok"])
+
+    def test_verdict_unpaired_symbol_is_no_pairing(self):
+        verdict = self.check.score_verdict(
+            text_match=None,
+            functions=[{"name": "FUN_00123456", "match_percent": None}],
+            section_rows=[],
+        )
+        self.assertFalse(verdict["measurable"])
+        self.assertEqual(verdict["unmeasurable_reason"], "no-pairing")
+
+    def test_verdict_no_reloc_textbin_is_promotable(self):
+        verdict = self.check.score_verdict(
+            text_match=100.0,
+            functions=[{"name": "FUN_00123456", "match_percent": 100.0}],
+            section_rows=[],
+        )
+        self.assertTrue(verdict["measurable"])
+        self.assertTrue(verdict["non_text_ok"])
+        self.assertTrue(verdict["promotable"])
+        self.assertTrue(verdict["ok"])
+
+    def test_json_reports_promotable_fields(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            with mock.patch.object(self.check, "ROOT", tmp):
+                code, output, _ = self._run(
+                    [self.unit, "--workspace", str(ws), "--json"], match=100.0
+                )
+        self.assertEqual(code, 0)
+        payload = json.loads(output)
+        self.assertTrue(payload["measurable"])
+        self.assertIsNone(payload["unmeasurable_reason"])
+        self.assertTrue(payload["non_text_ok"])
+        self.assertTrue(payload["promotable"])
+        self.assertTrue(payload["ok"])
+
+    def test_terminal_reports_data_mismatch(self):
+        data_payload = self._payload(100.0)
+        data_payload["left"]["sections"].append(
+            {"name": ".rodata", "size": "8", "match_percent": 25.0}
+        )
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            with (
+                mock.patch.object(self.check, "ROOT", tmp),
+                mock.patch.object(self.check, "find_ninja", return_value="/usr/bin/ninja"),
+                mock.patch.object(
+                    self.check, "objdiff_report",
+                    lambda *a, **k: self.simple(returncode=0, stdout=json.dumps(data_payload), stderr=""),
+                ),
+                mock.patch.object(
+                    self.check.subprocess, "run",
+                    lambda *a, **k: self.simple(returncode=0, stdout="", stderr=""),
+                ),
+                contextlib.redirect_stdout(io.StringIO()) as stdout,
+            ):
+                code = self.check.main([self.unit, "--workspace", str(ws)])
+        self.assertEqual(code, 0)
+        self.assertIn("Text matches; data/rodata differ", stdout.getvalue())
+
+    def test_compile_failure_reports_reason_in_json(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            with (
+                mock.patch.object(self.check, "ROOT", tmp),
+                mock.patch.object(self.check, "find_ninja", return_value="/usr/bin/ninja"),
+                mock.patch.object(
+                    self.check.subprocess, "run",
+                    lambda *a, **k: self.simple(returncode=1, stdout="boom", stderr=""),
+                ),
+                contextlib.redirect_stdout(io.StringIO()) as stdout,
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                code = self.check.main([self.unit, "--workspace", str(ws), "--json"])
+        self.assertEqual(code, 1)
+        payload = json.loads(stdout.getvalue())
+        self.assertFalse(payload["measurable"])
+        self.assertEqual(payload["unmeasurable_reason"], "compile-failed")
+
     def test_normalize_unit(self):
         self.assertEqual(self.check.normalize_unit("src/assembly/x/y.c"), "assembly/x/y")
         self.assertEqual(self.check.normalize_unit("./assembly/x/y"), "assembly/x/y")
@@ -1080,6 +1295,182 @@ class CheckUnitTests(unittest.TestCase):
                     code = self.check.main([self.unit, "--workspace", str(ws)])
         self.assertEqual(code, 2)
         self.assertIn("rebuilt from the retail oracle", stderr.getvalue())
+
+
+class NormalizePendingBodiesTests(unittest.TestCase):
+    """normalize-pending-bodies.py must strip grouping sections, never the oracle."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.normalize = load_module(
+            "rnc_normalize_pending_bodies",
+            ROOT / "scripts" / "normalize-pending-bodies.py",
+        )
+
+    BODY = textwrap.dedent(
+        """\
+        /*
+        STATE: C_NON_MATCHING
+        SYMBOL: snd_StopSound
+        */
+
+        #include "asm.h"
+
+        #ifndef NON_MATCHING
+        INCLUDE_ASM("config/us/expected/asm/assembly/textbin/demo/snd_StopSound.s", snd_StopSound);
+        #else
+        #include "types.h"
+
+        __attribute__((section(".text.func_00123456")))
+        void func_00123456(void) {
+            return;
+        }
+        #endif /* NON_MATCHING */
+        """
+    )
+
+    def _repo(self, tmp: Path, text: str | None = None):
+        (tmp / "src" / "assembly" / "textbin").mkdir(parents=True)
+        (tmp / "src" / "assembly" / "textbin" / "demo.c").write_text(text or self.BODY)
+        (tmp / "config" / "us").mkdir(parents=True)
+        (tmp / "config" / "us" / "unit_categories.json").write_text(
+            json.dumps({"exact_under_assembly": [], "intentional_asm": []})
+        )
+
+    def _workspace(self, tmp: Path, symbols=("snd_StopSound",)):
+        ws = tmp / "ws"
+        asm = ws / "config" / "us" / "expected" / "asm" / "assembly" / "textbin" / "demo"
+        asm.mkdir(parents=True)
+        (asm / "snd_StopSound.s").write_text(
+            "glabel snd_StopSound\n" + "\n".join(f"glabel {name}" for name in symbols) + "\n"
+        )
+        (ws / ".rnc-baseline-root").write_text("")
+        (ws / "config" / "us" / "build.ninja").write_text("")
+        (ws / "tools" / "objdiff").mkdir(parents=True)
+        (ws / "tools" / "objdiff" / "objdiff-cli").write_text("")
+        return ws
+
+    def test_strip_section_attributes(self):
+        stripped, count = self.normalize.strip_section_attributes(
+            'void a(void) {\n}\n__attribute__((section(".text.a")))\nvoid b(void) {\n}\n'
+        )
+        self.assertEqual(count, 1)
+        self.assertNotIn("section(", stripped)
+        self.assertIn("void b(void) {", stripped)
+
+    def test_reports_unpaired_definition_and_expected_symbol(self):
+        plan = self.normalize.unit_plan(
+            "assembly/textbin/demo",
+            Path("src/assembly/textbin/demo.c"),
+            self.BODY,
+            None,
+            set(),
+            False,
+        )
+        self.assertEqual(plan["attributes_removed"], 1)
+        self.assertEqual(plan["defined"], ["func_00123456"])
+        self.assertEqual(plan["expected"], ["snd_StopSound"])
+        self.assertEqual(plan["unpaired"], ["func_00123456"])
+
+    def test_apply_preserves_the_oracle(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            with mock.patch.object(self.normalize, "ROOT", tmp):
+                code = self.normalize.main(
+                    ["--unit", "assembly/textbin/demo", "--apply",
+                     "--workspace", str(ws), "--candidates", str(tmp / "banks")]
+                )
+            self.assertEqual(code, 0)
+            text = (tmp / "src" / "assembly" / "textbin" / "demo.c").read_text()
+        self.assertIn("INCLUDE_ASM(", text)
+        self.assertIn("#ifndef NON_MATCHING", text)
+        self.assertNotIn("section(", text)
+        self.assertIn("void func_00123456(void) {", text)
+
+    def test_skips_contaminated_units(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            bank = tmp / "banks" / "assembly_textbin_demo"
+            bank.mkdir(parents=True)
+            (bank / "candidate.json").write_text(
+                json.dumps({"unit": "assembly/textbin/demo", "status": "contaminated"})
+            )
+            before = (tmp / "src" / "assembly" / "textbin" / "demo.c").read_text()
+            with mock.patch.object(self.normalize, "ROOT", tmp):
+                code = self.normalize.main(
+                    ["--unit", "assembly/textbin/demo", "--apply",
+                     "--workspace", str(ws), "--candidates", str(tmp / "banks")]
+                )
+            after = (tmp / "src" / "assembly" / "textbin" / "demo.c").read_text()
+        self.assertEqual(code, 0)
+        self.assertEqual(before, after)
+
+    def test_noop_on_clean_body(self):
+        clean = self.BODY.replace('__attribute__((section(".text.func_00123456")))\n', "")
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp, clean)
+            ws = self._workspace(tmp)
+            with mock.patch.object(self.normalize, "ROOT", tmp):
+                code = self.normalize.main(
+                    ["--unit", "assembly/textbin/demo", "--apply",
+                     "--workspace", str(ws), "--candidates", str(tmp / "banks")]
+                )
+            text = (tmp / "src" / "assembly" / "textbin" / "demo.c").read_text()
+        self.assertEqual(code, 0)
+        self.assertEqual(text, clean)
+
+    def test_reconcile_renames_single_unambiguous_definition(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            with mock.patch.object(self.normalize, "ROOT", tmp):
+                code = self.normalize.main(
+                    ["--unit", "assembly/textbin/demo", "--apply", "--reconcile-names",
+                     "--workspace", str(ws), "--candidates", str(tmp / "banks")]
+                )
+            text = (tmp / "src" / "assembly" / "textbin" / "demo.c").read_text()
+        self.assertEqual(code, 0)
+        self.assertIn("void snd_StopSound(void) {", text)
+        self.assertNotIn("func_00123456", text)
+
+    def test_reconcile_refuses_ambiguous_name_sets(self):
+        ambiguous = self.BODY.replace(
+            "void func_00123456(void) {",
+            "void func_00123456(void) {\n}\nvoid func_00123457(void) {",
+        )
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp, ambiguous)
+            ws = self._workspace(tmp, symbols=("snd_StopSound", "snd_StopSound2"))
+            with mock.patch.object(self.normalize, "ROOT", tmp):
+                code = self.normalize.main(
+                    ["--unit", "assembly/textbin/demo", "--apply", "--reconcile-names",
+                     "--workspace", str(ws), "--candidates", str(tmp / "banks")]
+                )
+            text = (tmp / "src" / "assembly" / "textbin" / "demo.c").read_text()
+        self.assertEqual(code, 0)
+        self.assertIn("func_00123456", text)
+        self.assertNotIn("snd_StopSound", text.split("#else", 1)[1])
+
+    def test_rejects_paths_outside_assembly(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            with mock.patch.object(self.normalize, "ROOT", tmp):
+                with contextlib.redirect_stderr(io.StringIO()):
+                    code = self.normalize.main(["--unit", "../../etc/passwd", "--apply"])
+        self.assertEqual(code, 2)
+
+    def test_cli_requires_a_scope(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                self.normalize.main([])
 
 
 class PatchedToolchainArtifactTests(unittest.TestCase):
