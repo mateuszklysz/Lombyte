@@ -105,6 +105,10 @@ justify a change in behavior.
 
 - Report exact functions and exact bytes separately. A partial score is not
   throughput until it is promoted.
+- C_EXACT and C_FUZZY share the same recoverable-C denominator (intentional
+  asm excluded). C_FUZZY replaces each pending unit's 0 with its measured
+  `.text` similarity (objdiff via `check-unit`), weighted by unit bytes; exact
+  units stay 100%. C_EXACT remains the authoritative metric.
 - Exclude terminal categories such as hand-written low-level assembly from
   the recoverable-C denominator, and state the denominator.
 - Keep the image hash gate status with the numbers.

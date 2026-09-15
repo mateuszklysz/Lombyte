@@ -20,6 +20,11 @@ What the map shows
   The palette follows the *Ratchet & Clank* (2002) logo: Ratchet's bolt
   orange, Clank's chrome, and the dark riveted plate behind them.
 
+  With ``--workspace`` the map also reports C_FUZZY over the same recoverable
+  units as C_EXACT: matching units count 100%, every pending unit contributes
+  its measured objdiff ``.text`` similarity, weighted by unit bytes.  The
+  scores come from ``scripts/list-functions.py --score``.
+
   Units below ``--min-bytes`` are grouped per class so a compact map stays
   readable; the default (0) draws every configured C unit as its own tile and
   relies on the tall default canvas for label room.
@@ -43,6 +48,7 @@ import datetime as dt
 import html
 import json
 import re
+import subprocess
 from pathlib import Path
 import sys
 
@@ -297,6 +303,68 @@ def build_units(repo: Path, config: Path, categories: Path | None):
 
 
 # --------------------------------------------------------------------------
+# C_FUZZY: byte-weighted similarity over the C_EXACT denominator
+# --------------------------------------------------------------------------
+def fuzzy_progress(units, scores) -> float:
+    """Byte-weighted mean similarity, in percent, of the recoverable units.
+
+    C_EXACT counts a unit 0 or 100; C_FUZZY replaces the pending units with
+    their measured ``.text`` similarity, weighted by unit bytes.  Intentional
+    asm stays out of numerator and denominator, exactly like C_EXACT, and
+    unmeasured pending units contribute 0.
+    """
+    recoverable = sum(unit["size"] for unit in units if unit["category"] != "asm")
+    if not recoverable:
+        return 0.0
+    similar = 0.0
+    for unit in units:
+        if unit["category"] == "exact":
+            similarity = 100.0
+        elif unit["category"] == "pending":
+            similarity = min(100.0, max(0.0, float(scores.get(unit["owner"], 0.0))))
+        else:
+            continue
+        similar += unit["size"] * similarity
+    return similar / recoverable
+
+
+def measure_scores(workspace: Path) -> dict[str, float] | None:
+    """Per-unit similarity from the existing work-list scorer, or None.
+
+    Delegates to ``scripts/list-functions.py --score`` so C_FUZZY reuses the
+    same objdiff measurement as the contribution tooling.
+    """
+    script = Path(__file__).resolve().parent / "list-functions.py"
+    process = subprocess.run(
+        [
+            sys.executable,
+            str(script),
+            "--score",
+            "--limit",
+            "0",
+            "--json",
+            "--workspace",
+            str(workspace),
+        ],
+        stdout=subprocess.PIPE,
+        text=True,
+    )
+    if process.returncode != 0:
+        print("scripts/list-functions.py --score failed", file=sys.stderr)
+        return None
+    try:
+        payload = json.loads(process.stdout)
+    except json.JSONDecodeError:
+        print("list-functions.py --score returned no usable JSON", file=sys.stderr)
+        return None
+    return {
+        str(item["unit"]): float(item["score"])
+        for item in payload
+        if item.get("unit") and item.get("score") is not None
+    }
+
+
+# --------------------------------------------------------------------------
 # SVG
 # --------------------------------------------------------------------------
 def esc(value) -> str:
@@ -363,7 +431,16 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
 
 
 def render_svg(
-    units, *, width, height, margin, header, footer, min_bytes, title
+    units,
+    *,
+    width,
+    height,
+    margin,
+    header,
+    footer,
+    min_bytes,
+    title,
+    fuzzy_percent=None,
 ) -> str:
     # Chrome (margins, header, footer, legend) scales with the canvas, while
     # tile label fonts stay at a fixed readable size so a larger map fits
@@ -532,11 +609,23 @@ def render_svg(
         f'<line x1="{margin_px}" y1="{separator_y:.1f}" x2="{width - margin_px}" '
         f'y2="{separator_y:.1f}" stroke="{PLATE}" stroke-width="1" opacity="0.8"/>'
     )
+    if fuzzy_percent is None:
+        progress_text = f"C_EXACT {recoverable_percent:.1f}% of recoverable C"
+    else:
+        progress_text = (
+            f"C_EXACT {recoverable_percent:.1f}% / C_FUZZY {fuzzy_percent:.1f}% "
+            "of recoverable C"
+        )
     lines.append(
         f'<text x="{margin_px}" y="{height - round(20 * scale)}" '
         f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}" opacity="0.85">'
         f"{exact_bytes:,} of {total_bytes:,} configured bytes are matching C &#183; "
-        f"{exact_percent:.1f}% of all configured code, {recoverable_percent:.1f}% of recoverable C</text>"
+        f"{exact_percent:.1f}% of all configured code</text>"
+    )
+    lines.append(
+        f'<text x="{margin_px}" y="{height - round(8 * scale)}" '
+        f'font-family="{esc(FONT)}" font-size="{9 * text_scale:.1f}" fill="{MUTED}" opacity="0.85">'
+        f"{progress_text}</text>"
     )
     lines.append(
         f'<text x="{width - margin_px}" y="{height - round(8 * scale)}" text-anchor="end" '
@@ -590,6 +679,12 @@ def main(argv=None) -> int:
         "draws every unit as its own tile",
     )
     parser.add_argument("--title", default="Ratchet & Clank - decompilation progress")
+    parser.add_argument(
+        "--workspace",
+        type=Path,
+        help="baseline workspace; measure the pending C bodies with "
+        "scripts/list-functions.py --score and also report C_FUZZY",
+    )
     args = parser.parse_args(argv)
 
     repo = args.repo.resolve()
@@ -605,6 +700,16 @@ def main(argv=None) -> int:
         print("error: no configured C units found", file=sys.stderr)
         return 1
 
+    fuzzy_percent = None
+    scores: dict[str, float] = {}
+    if args.workspace:
+        workspace = args.workspace.expanduser().resolve()
+        measured = measure_scores(workspace)
+        if measured is None:
+            return 2
+        scores = measured
+        fuzzy_percent = fuzzy_progress(units, scores)
+
     svg = render_svg(
         units,
         width=args.width,
@@ -614,6 +719,7 @@ def main(argv=None) -> int:
         footer=args.footer,
         min_bytes=args.min_bytes,
         title=args.title,
+        fuzzy_percent=fuzzy_percent,
     )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(svg)
@@ -631,6 +737,12 @@ def main(argv=None) -> int:
         f"({100.0 * exact_bytes / total:.2f}%; "
         f"{100.0 * exact_bytes / (total - asm_bytes):.2f}% of recoverable C)"
     )
+    if fuzzy_percent is not None:
+        measured = sum(1 for unit in pending if unit["owner"] in scores)
+        print(
+            f"  fuzzy C (C_FUZZY): {fuzzy_percent:.2f}% of recoverable C "
+            f"({measured}/{len(pending)} pending units measured)"
+        )
     print(f"  intentional asm: {len(asm)} units, {asm_bytes:,} B")
     print(f"  pending C: {len(pending)} units, {total - exact_bytes - asm_bytes:,} B")
     print(

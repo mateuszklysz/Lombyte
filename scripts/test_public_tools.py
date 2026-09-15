@@ -96,6 +96,59 @@ class TreemapClassificationTests(unittest.TestCase):
             units = self.treemap.build_units(tmp, config, tmp / "missing.json")
         self.assertTrue(any(u["owner"] == "textbin/promoted" for u in units))
 
+    def test_fuzzy_progress_weighting_and_exclusions(self):
+        units = [
+            {"owner": "exact/a", "size": 100, "category": "exact"},
+            {"owner": "pending/b", "size": 300, "category": "pending"},
+            {"owner": "pending/c", "size": 400, "category": "pending"},
+            {"owner": "asm/d", "size": 10_000, "category": "asm"},
+        ]
+        # (100x100 + 300x50 + 400x0) / 800 bytes -> 31.25%.
+        self.assertAlmostEqual(
+            self.treemap.fuzzy_progress(units, {"pending/b": 50.0}), 31.25
+        )
+        # Matching units count 100% whatever a score file says, intentional asm
+        # is outside the denominator, and scores are clamped to 0..100.
+        self.assertAlmostEqual(
+            self.treemap.fuzzy_progress(
+                units, {"exact/a": 10.0, "pending/b": 150.0}
+            ),
+            (100 * 100 + 300 * 100) / 800,
+        )
+        self.assertEqual(self.treemap.fuzzy_progress([], {}), 0.0)
+
+    def test_workspace_reports_c_fuzzy(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            config, categories = self._workspace(tmp)
+            output = tmp / "map.svg"
+            payload = json.dumps(
+                [{"unit": "assembly/textbin/pending", "score": 50.0}]
+            )
+            completed = subprocess.CompletedProcess([], 0, stdout=payload, stderr="")
+            with mock.patch.object(
+                self.treemap.subprocess, "run", return_value=completed
+            ), contextlib.redirect_stdout(io.StringIO()) as stdout:
+                code = self.treemap.main(
+                    [
+                        "--repo",
+                        str(tmp),
+                        "--config",
+                        str(config),
+                        "--categories",
+                        str(categories),
+                        "--output",
+                        str(output),
+                        "--workspace",
+                        str(tmp / "workspace"),
+                    ]
+                )
+            self.assertEqual(code, 0)
+            # 512 exact bytes / 768 recoverable -> 66.7% C_EXACT,
+            # (512x100 + 256x50) / 768 -> 83.3% C_FUZZY.
+            self.assertIn("C_FUZZY 83.3%", output.read_text())
+            self.assertIn("C_FUZZY", stdout.getvalue())
+
 
 class SourceHeaderTests(unittest.TestCase):
     """stamp_source_header.py must write, normalize and validate the block."""

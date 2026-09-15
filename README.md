@@ -36,6 +36,8 @@ Each tile is one configured C unit, sized by its share of the executable's code 
 .venv/bin/python scripts/generate_treemap.py
 ```
 
+After a baseline build, pass `--workspace build/baseline` to also measure the pending C bodies and report C_FUZZY alongside C_EXACT.
+
 Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. The map's classification input is `config/us/unit_categories.json`.
 
 A matching executable does not mean the decompilation is complete. Unconverted
