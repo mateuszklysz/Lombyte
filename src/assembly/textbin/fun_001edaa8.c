@@ -37,7 +37,6 @@ extern char D_003C3FB0[];
 
 
 
-__attribute__((section(".text.func_002B6768")))
 int FUN_001edaa8(char *a0) {
     void *m1;
     void *m2;

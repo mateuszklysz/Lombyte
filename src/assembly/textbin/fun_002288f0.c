@@ -23,7 +23,6 @@ extern char D_00603310[];
 extern char D_006036A0[];
 extern unsigned short D_00747A50;
 
-__attribute__((section(".text.func_002CFD50")))
 void FUN_002288f0(char *a0) {
     char *a1 = a0;
     switch (*(int *)(a1 + 0x2C)) {

@@ -21,7 +21,6 @@ extern void func_002E1468(void *a0, void *a1, void *a2, void *a3, float f0, floa
 
 
 
-__attribute__((section(".text.func_0013C630")))
 void FUN_001ee4b0(void *arg) {
     char *s0 = (char *)arg;
     float buf[16];

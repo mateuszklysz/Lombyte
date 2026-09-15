@@ -18,7 +18,6 @@ extern struct S24 { int w[9]; } D_00766BA8;
 extern int D_00766BD0[];
 extern int D_00766BD8[];
 
-__attribute__((section(".text.SFD_SetMpvParaTbl")))
 void FUN_0021a1e0(struct S24 *src, int *b, int *c) {
     int i, n;
     D_00766BA8 = *src;

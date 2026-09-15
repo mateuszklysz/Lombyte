@@ -16,7 +16,6 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f9988/FUN_001f9988.s
  * Q/sqrt pipeline. vsqrt emitted as its exact .word (ee-as encodes it
  * differently from retail). */
 
-__attribute__((section(".text.capVu0Length")))
 float FUN_001f9988(void *a0) {
     float r;
     int t;

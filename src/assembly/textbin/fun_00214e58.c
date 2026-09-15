@@ -44,7 +44,6 @@ extern char D_00462FC0[];
 
 
 
-__attribute__((section(".text.func_00122A50")))
 void FUN_00214e58(void *a0) {
     char *s1 = (char *)a0;
     char *o;

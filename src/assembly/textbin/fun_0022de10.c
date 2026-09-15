@@ -37,7 +37,6 @@ extern int D_005864E0[];
 
 
 
-__attribute__((section(".text.func_00296818")))
 int FUN_0022de10(void *a0) {
     char *s2 = (char *)a0;
     pl00_reset(Obj0000_Get_D_00747A94_2DB6B0());

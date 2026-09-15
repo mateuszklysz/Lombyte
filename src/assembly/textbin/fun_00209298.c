@@ -40,7 +40,6 @@ extern char D_00601180[];
 
 
 
-__attribute__((section(".text.func_002CC3B8")))
 void FUN_00209298(void *a0, int a1) {
     char *p;
     char *q;

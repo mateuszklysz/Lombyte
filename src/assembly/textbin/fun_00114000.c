@@ -20,7 +20,6 @@ extern void sceVu0Normalize(void *d, void *s);
 extern void Tramp_MMI_COPY3Q_VADD_30A508(void *d, void *a, void *b);
 extern void Tramp_MMI_INVERSE_RT_MATRIX_30A3F8(void *d, void *s);
 
-__attribute__((section(".text.sceVu0CameraMatrix")))
 void FUN_00114000(void *dst, void *a1, void *a2, void *a3) {
     char M[0x40];
     char Tv[0x10];

@@ -14,7 +14,6 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f97a0/FUN_001f97a0.s
 #include "types.h"
 /* SN ProDG ee-gcc 2.95.3 matched TU. */
 
-__attribute__((section(".text.ClearField90_13E400")))
 void FUN_001f97a0(void *a0) {
     if (*(int*)((char*)a0+0x90) != 0) {
         *(int*)((char*)a0+0x90) = 0;

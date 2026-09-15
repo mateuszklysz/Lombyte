@@ -24,7 +24,6 @@ extern int GetTimerValue_1FA710();
 extern void BlackJackId_Move();
 extern void BlackJackId__Trans();
 
-__attribute__((section(".text.BlackJack_Release")))
 void FUN_00120558(void) {
     func_001D4F48();
 }
@@ -32,7 +31,6 @@ void FUN_00120558(void) {
 extern char D_00463050[];
 
 
-__attribute__((section(".text.BlackJack_Main")))
 void BlackJack_Main(int a0)
 {
     int s1;
@@ -90,7 +88,6 @@ void BlackJack_Main(int a0)
     BlackJackId__Trans(a0);
 }
 
-__attribute__((section(".text.BlackJack_SetBlackJackCamera")))
 void BlackJack_SetBlackJackCamera(int a0, float *a1, float *a2) {
     float *dst1;
     float *dst2;
@@ -112,7 +109,6 @@ void BlackJack_SetBlackJackCamera(int a0, float *a1, float *a2) {
 }
 
 
-__attribute__((section(".text.BlackJack_ClearBlackJackCamera")))
 void BlackJack_ClearBlackJackCamera(void) {
     cCamManager_setPlCamera(D_00463050, 0);
 }

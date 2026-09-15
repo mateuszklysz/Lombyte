@@ -55,7 +55,6 @@ extern char D_00569B70[];
 
 
 
-__attribute__((section(".text.func_0030D5C8")))
 void FUN_001fa978(void) {
     char buf[16];
     int h;

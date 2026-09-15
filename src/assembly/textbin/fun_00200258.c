@@ -24,7 +24,6 @@ struct Ent { Fp fp; int arg; int pad; };
 
 
 
-__attribute__((section(".text.func_0033BC48")))
 int FUN_00200258(int idx) {
     volatile int *flag = &D_003E9970[idx];
     struct Ent *e = &D_00758620[idx * 6];

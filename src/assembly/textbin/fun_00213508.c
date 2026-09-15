@@ -23,7 +23,6 @@ extern void func_0033F130(const Sint8 *);    /* ADXERR_CallErrFunc1 */
 extern const Sint8 D_00451A18[];             /* "E9040828:'ptid' is range outside." */
 extern const Sint8 D_00451A40[];             /* "E9040828:'flid' is range outside." */
 
-__attribute__((section(".text.adxf_ChkPrmGfr")))
 Sint32 FUN_00213508(Sint32 ptid, Sint32 flid) {
     ADXF_PTINFO *info;
     if ((Uint32)ptid >= 0x100) {

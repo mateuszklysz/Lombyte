@@ -21,7 +21,6 @@ extern void func_0033F130(const Sint8 *msg);  /* ADXERR_CallErrFunc1 */
 extern const Sint8 D_00451390[];  /* "E9040801:...range outside..." */
 extern const Sint8 D_004513C8[];  /* "E9040802:...ptinfo NULL..."    */
 
-__attribute__((section(".text.adxf_ChkPrmPt")))
 Sint32 FUN_001ec868(Sint32 ptid, void *ptinfo) {
     if ((Uint32)ptid >= 0x100) {
         func_0033F130(D_00451390);

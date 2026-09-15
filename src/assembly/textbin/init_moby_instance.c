@@ -35,7 +35,6 @@ static inline int GetLayerObj(char *a0, int *frame, int idx)
     return 0;
 }
 
-__attribute__((section(".text.func_001CED40")))
 void FUN_0020c5f0(void *a0) {
     char *s0 = (char *)a0;
     unsigned char frame[0x10];

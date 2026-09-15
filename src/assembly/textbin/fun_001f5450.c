@@ -18,7 +18,6 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f5450/FUN_001f5450.s
 
 extern unsigned int D_004A5D80[];
 
-__attribute__((section(".text.func_00155BE8")))
 void FUN_001f5450(char *arg0, int arg1, int arg2) {
     unsigned long *q;
     unsigned long hi;

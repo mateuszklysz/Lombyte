@@ -25,7 +25,6 @@ extern char D_00583F20[];
 extern int D_003C3CF0;
 extern void func_003A6C58(void *a0, void *a1, void *a2);
 
-__attribute__((section(".text.LoadResourceEntry_297378")))
 void FUN_0011c938(void *a0) {
     char *s = (char*)a0;
     unsigned long b = *(unsigned char*)(s + 8);

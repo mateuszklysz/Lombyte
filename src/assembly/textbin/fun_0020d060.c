@@ -19,7 +19,6 @@ extern void func_003B0A40(int a);
 /* compiler: ee-2.9-991111 ; extra keys: none */
 
 
-__attribute__((section(".text._request_call")))
 void FUN_0020d060(char *p) {
     char *r;
     char *q;

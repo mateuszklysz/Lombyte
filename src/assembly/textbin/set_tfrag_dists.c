@@ -26,7 +26,6 @@ extern float func_003A19F8(float x);
 
 
 
-__attribute__((section(".text.func_0015A6A0")))
 void FUN_00233068(float *out, float *a, float *b, float t) {
     float sign = 1.0f;
     float dot;

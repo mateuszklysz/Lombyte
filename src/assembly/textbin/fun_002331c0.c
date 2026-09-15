@@ -29,7 +29,6 @@ extern volatile int D_003C814C;
 
 
 
-__attribute__((section(".text.func_00325578")))
 void FUN_002331c0(void) {
     ThreadParam param;
     param.func = (void *)func_00325100;
@@ -45,7 +44,6 @@ void FUN_002331c0(void) {
     D_003C814C;
 }
 
-__attribute__((section(".text.func_0035B9B0")))
 int func_0035B9B0(char *a0) {
     int local0, local1;
     int a1val, s0, s1, r;

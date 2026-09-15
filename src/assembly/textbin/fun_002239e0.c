@@ -31,7 +31,6 @@ extern void *InitObjectSetVtable_4F630_300020(void *);
 extern void *InitObjectFieldsIfNonNull_300060(void *);
 extern void *InitObjectSetVtable_4F880_3000B0(void *);
 
-__attribute__((section(".text.func_002FACA8")))
 void *FUN_002239e0(int slot, int type) {
     char *r;
 

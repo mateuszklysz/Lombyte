@@ -41,8 +41,7 @@ extern void UpdateGlobalPtrWithParam_3A7CC0(void *);  /* free */
 
 
 
-__attribute__((section(".text.func_00380138")))
-void func_00380138(char *self, char *other)
+void sceTtyHandler(char *self, char *other)
 {
     if (*(int *)(other + 0x34) & 0x40) {
         String *dst = *(String **)(self + 0x10);

@@ -31,7 +31,6 @@ extern void func_003A6C58(void *a0, void *a1, void *a2);
 extern void func_003A57C4(void *a0, void *a1);
 extern int cDvd_FileExist(void *a0, void *a1);
 
-__attribute__((section(".text.cIDManager_getLocalFileName")))
 int FUN_00201a28(void *a0, void *a1, void *a2, signed char a3) {
     char buf[0x80];
     void *s2 = a1;

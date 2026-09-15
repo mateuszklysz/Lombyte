@@ -22,7 +22,6 @@ extern char D_005864E0[];
 
 
 
-__attribute__((section(".text.func_00207EE0")))
 void FUN_00124a20(void *a0) {
     char *s1 = (char *)a0;
     switch (*(int *)(s1 + 0x564)) {

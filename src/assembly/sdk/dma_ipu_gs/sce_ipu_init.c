@@ -21,8 +21,7 @@ extern void func_001F8A88(int a0, float x0, float x1, float y0, float y1, float 
 
 
 
-__attribute__((section(".text.func_00148F50")))
-void func_00148F50(int u, int *mp, int obj)
+void sceIpuInit(int u, int *mp, int obj)
 {
     unsigned char hold[0x10] __attribute__((aligned(16)));
     char *base;

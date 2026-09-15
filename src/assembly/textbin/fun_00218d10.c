@@ -18,7 +18,6 @@ extern int D_00755C08;
 extern unsigned char D_00755BF8[];
 extern unsigned char D_00755C10[];
 
-__attribute__((section(".text.func_003203B0")))
 void *FUN_00218d10(void) {
     if (D_00755C08 == 0) {
         D_00755C08 = 1;

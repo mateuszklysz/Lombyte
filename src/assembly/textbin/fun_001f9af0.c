@@ -18,7 +18,6 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f9af0/FUN_001f9af0.s
  * (vmul.xyz then horizontal add via vaddy/vaddz, result moved out through
  * qmfc2/mtc1). */
 
-__attribute__((section(".text.sceVu0InnerProduct")))
 float FUN_001f9af0(void *a0, void *a1) {
     float r;
     int t;

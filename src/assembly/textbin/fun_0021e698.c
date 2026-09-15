@@ -23,7 +23,6 @@ extern int moveMotion(void *a0);
 
 
 
-__attribute__((section(".text.func_0027FBE8")))
 void FUN_0021e698(void *a0) {
     char *s0 = (char *)a0;
     int v0;

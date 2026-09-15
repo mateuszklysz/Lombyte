@@ -31,7 +31,6 @@ extern int D_003C3118;
 
 
 
-__attribute__((section(".text.func_002CFE68")))
 void FUN_00208770(int a0, int sel, int val, int arg) {
     switch (sel) {
     case 3:

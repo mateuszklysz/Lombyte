@@ -55,7 +55,6 @@ static inline int Find(char *tbl, signed char *str) {
     return cScrArray_SearchScroll(tbl, acc);
 }
 
-__attribute__((section(".text.DogRace_Initialize")))
 void FUN_001f2d98(char *p) {
     displayScrollLayer(1, 0);
     *(int *)(p + 0x1EC) = Find(D_00754C38, D_0042BBC0);

@@ -33,7 +33,6 @@ extern void func_00326830(int a0);
 extern int D_003C7418;
 extern void func_0033C088(int a0);
 
-__attribute__((section(".text.func_003242B0")))
 int func_003242B0(void *a0, int a1, int a2) {
     func_003228C0(6, 0, a0, (void *)a1, a2);
     if (a0 == 0) {
@@ -60,7 +59,6 @@ int func_003242B0(void *a0, int a1, int a2) {
     return *(int *)((char *)a0 + 0x14);
 }
 
-__attribute__((section(".text.func_00323BE0")))
 int FUN_0023b5f0(void *a0, int a1, int a2) {
     int diff, clamped, result;
     if (func_00328098(*(int *)((char *)a0 + 4)) != 1)
@@ -89,7 +87,6 @@ int FUN_0023b5f0(void *a0, int a1, int a2) {
     return result;
 }
 
-__attribute__((section(".text.func_00329B60")))
 void func_00329B60(void *a0, int a1) {
     volatile int i = 0;
     if (*(signed char *)((char *)a0 + 3) > 0) {

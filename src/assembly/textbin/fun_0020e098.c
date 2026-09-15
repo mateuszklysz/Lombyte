@@ -14,7 +14,6 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0020e098/FUN_0020e098.s
 #include "types.h"
 /* cygnus-2.96 matched TU. */
 
-__attribute__((section(".text.func_003373A0")))
 void FUN_0020e098(int a, int *p) {
     int n;
     if (p == 0) { for (;;) { } }

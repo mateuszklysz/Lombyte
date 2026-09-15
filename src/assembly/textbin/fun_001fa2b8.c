@@ -16,7 +16,6 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001fa2b8/FUN_001fa2b8.s
  * lq/sq, and store a0.0x30 = a1.0x30 + a2 (vadd.xyz).  Single hardware-
  * intrinsic block; see godhand/mmi.h. */
 
-__attribute__((section(".text.Tramp_MMI_COPY3Q_VADD_30A508")))
 void FUN_001fa2b8(void *a0, void *a1, void *a2) {
     MMI_COPY3Q_VADD(a0, a1, a2);
 }

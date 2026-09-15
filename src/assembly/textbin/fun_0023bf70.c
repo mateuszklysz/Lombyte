@@ -28,7 +28,6 @@ extern char D_0044B4B0[];
 
 
 
-__attribute__((section(".text.cObjSimple__SetTexChange")))
 void FUN_0023bf70(void *a0, int a1) {
     char *s0 = (char *)a0;
     int s1 = a1;

@@ -27,7 +27,6 @@ extern void func_00297660(void);
 extern void cEventConfig_setEventNo(void *a0, int a1);
 extern unsigned char D_00586B30[];
 
-__attribute__((section(".text.LoadDisplayText_297450")))
 void FUN_0021ef78(void *a0) {
     unsigned char *s0 = (unsigned char *)a0;
     char buf[0x40];
@@ -47,7 +46,6 @@ void FUN_0021ef78(void *a0) {
     }
 }
 
-__attribute__((section(".text.ClearDisplayText_2974F0")))
 void ClearDisplayText_2974F0(void *a0) {
     unsigned char *s0 = (unsigned char *)a0;
     unsigned long v0 = *(unsigned char *)(s0 + 8);
@@ -57,7 +55,6 @@ void ClearDisplayText_2974F0(void *a0) {
     }
 }
 
-__attribute__((section(".text.InitSubState_2975F8")))
 void InitSubState_2975F8(void *a0, int a1) {
     unsigned char *s0 = (unsigned char *)a0;
     unsigned long t = *(int *)(s0 + 8);

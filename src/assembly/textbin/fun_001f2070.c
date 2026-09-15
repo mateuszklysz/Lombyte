@@ -27,7 +27,6 @@ extern void func_0032EC78(int a0, int a1, int a2);
 
 
 
-__attribute__((section(".text.func_003745C0")))
 void FUN_001f2070(void *arg, int idx, int n, float val) {
     char *p = (char *)arg;
     float t;
