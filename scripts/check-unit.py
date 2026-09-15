@@ -34,7 +34,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rnc_units  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_WORKSPACE = Path("~/rnc-baseline")
 
 
 def parse_args(argv=None):
@@ -233,19 +232,13 @@ def main(argv=None) -> int:
         "C body staged from the NON_MATCHING guard" if uses_guard else "staged as-is"
     )
 
-    workspace = args.workspace or Path(
-        os.environ.get("BASELINE_ROOT") or str(DEFAULT_WORKSPACE)
-    )
+    workspace = args.workspace or rnc_units.default_workspace()
     workspace = workspace.expanduser().resolve()
-    if not (workspace / ".rnc-baseline-root").is_file():
-        return error(
-            f"{workspace} is not a baseline workspace; run ./verify-baseline.sh "
-            "once (or pass --workspace)"
-        )
+    problem = rnc_units.workspace_problem(workspace)
+    if problem:
+        return error(problem)
     project = workspace / "config" / "us"
     objdiff = workspace / "tools" / "objdiff" / "objdiff-cli"
-    if not (project / "build.ninja").is_file() or not objdiff.is_file():
-        return error(f"{workspace} is incomplete; re-run ./verify-baseline.sh")
     workspace_source = workspace / "src" / f"{unit}.c"
     if not workspace_source.is_file():
         return error(

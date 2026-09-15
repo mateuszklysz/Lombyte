@@ -13,6 +13,7 @@ keeps its own copy of the parser so it stays standalone.
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
@@ -114,6 +115,25 @@ def display_for(owner: str, source: Path, recovered: dict[str, str]) -> str | No
 def unit_source(repo: Path, owner: str) -> Path:
     """Source file path for a configured unit owner."""
     return repo / "src" / f"{owner}.c"
+
+
+def default_workspace() -> Path:
+    """Baseline workspace location used when none is passed explicitly."""
+    return Path(os.environ.get("BASELINE_ROOT") or "~/rnc-baseline").expanduser()
+
+
+def workspace_problem(workspace: Path) -> str | None:
+    """Describe why ``workspace`` cannot be used, or return None."""
+    if not (workspace / ".rnc-baseline-root").is_file():
+        return (
+            f"{workspace} is not a baseline workspace; run ./verify-baseline.sh "
+            "once (or pass --workspace)"
+        )
+    project = workspace / "config" / "us"
+    objdiff = workspace / "tools" / "objdiff" / "objdiff-cli"
+    if not (project / "build.ninja").is_file() or not objdiff.is_file():
+        return f"{workspace} is incomplete; re-run ./verify-baseline.sh"
+    return None
 
 
 def classify_units(repo: Path) -> list[dict]:

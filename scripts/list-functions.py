@@ -8,11 +8,16 @@ byte-exact.  By default only units that already carry a readable C body under
 ``#else`` are listed: those are the ones to refine rather than write from
 scratch.
 
+With ``--score`` every listed unit's C body is measured against retail (about
+a minute for the full list) and the highest scores are listed first: those are
+usually the closest to a promotion.  This needs the baseline workspace built
+once with ``./verify-baseline.sh``.
+
 Usage:
   python3 scripts/list-functions.py                 # 25 smallest with a C body
+  python3 scripts/list-functions.py --score         # rank by current match %
+  python3 scripts/list-functions.py --score --limit 50 --filter textbin
   python3 scripts/list-functions.py --all           # include units with no C yet
-  python3 scripts/list-functions.py --limit 100
-  python3 scripts/list-functions.py --filter textbin --all
   python3 scripts/list-functions.py --json
 """
 
@@ -20,7 +25,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -51,11 +58,71 @@ def parse_args(argv=None):
         help="only units whose owner path contains TEXT",
     )
     parser.add_argument(
+        "--score",
+        action="store_true",
+        help="measure each listed C body and sort by match percentage",
+    )
+    parser.add_argument(
+        "--workspace",
+        type=Path,
+        default=None,
+        help="baseline workspace for --score (default: $BASELINE_ROOT or ~/rnc-baseline)",
+    )
+    parser.add_argument(
         "--json",
         action="store_true",
         help="print the matching units as JSON",
     )
     return parser.parse_args(argv)
+
+
+def score_unit(owner: str, workspace: Path) -> tuple[float | None, str | None]:
+    """Measure one unit through check-unit.py; return (percent, error)."""
+    process = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "check-unit.py"),
+            owner,
+            "--workspace",
+            str(workspace),
+            "--json",
+        ],
+        capture_output=True,
+        text=True,
+    )
+    if process.returncode not in (0, 1):
+        lines = [line for line in process.stderr.strip().splitlines() if line.strip()]
+        return None, lines[-1] if lines else "check-unit failed"
+    try:
+        payload = json.loads(process.stdout)
+    except json.JSONDecodeError:
+        return None, "check-unit returned no usable JSON"
+    return payload.get("text_match_percent"), None
+
+
+def score_units(units: list[dict], workspace: Path) -> int:
+    """Fill in ``score`` for every unit with a C body; return the error count."""
+    scorable = [unit for unit in units if unit["c_body"]]
+    for unit in units:
+        unit["score"] = None
+        unit["score_error"] = None
+    errors = 0
+    for index, unit in enumerate(scorable, 1):
+        percent, problem = score_unit(unit["owner"], workspace)
+        unit["score"] = percent
+        unit["score_error"] = problem
+        if problem:
+            errors += 1
+            shown = "error"
+        elif percent is None:
+            shown = "?"
+        else:
+            shown = f"{percent:.1f}%"
+        print(
+            f"[{index:>3}/{len(scorable)}] {shown:>7}  {unit['owner']}",
+            file=sys.stderr,
+        )
+    return errors
 
 
 def main(argv=None) -> int:
@@ -76,7 +143,29 @@ def main(argv=None) -> int:
 
     with_body = [unit for unit in listed if unit["c_body"]]
     selected = listed if args.all else with_body
-    selected = sorted(selected, key=lambda unit: (unit["size"], unit["owner"]))
+    to_score = len(with_body)
+
+    errors = 0
+    elapsed = 0.0
+    if args.score:
+        workspace = args.workspace or rnc_units.default_workspace()
+        workspace = workspace.expanduser().resolve()
+        problem = rnc_units.workspace_problem(workspace)
+        if problem:
+            print(f"list-functions: error: {problem}", file=sys.stderr)
+            return 2
+        started = time.monotonic()
+        errors = score_units(list(selected), workspace)
+        elapsed = time.monotonic() - started
+        selected.sort(
+            key=lambda unit: (
+                0 if unit["score"] is None else -unit["score"],
+                unit["size"],
+                unit["owner"],
+            )
+        )
+    else:
+        selected.sort(key=lambda unit: (unit["size"], unit["owner"]))
     if args.limit > 0:
         selected = selected[: args.limit]
 
@@ -91,6 +180,8 @@ def main(argv=None) -> int:
                         "name": unit["display"],
                         "source": str(unit["source"].relative_to(ROOT)),
                         "has_c_body": unit["c_body"],
+                        "score": unit.get("score"),
+                        "score_error": unit.get("score_error"),
                     }
                     for unit in selected
                 ],
@@ -104,7 +195,12 @@ def main(argv=None) -> int:
         f"{len(listed)} pending units / {total:,} bytes "
         f"(of {len(all_units)} configured C units)\n"
     )
-    if not args.all:
+    if args.score:
+        print(
+            f"Scored {to_score} units in {elapsed:.1f}s; highest match "
+            "first (closest to promotion):\n"
+        )
+    elif not args.all:
         missing = [unit for unit in listed if not unit["c_body"]]
         line = f"{len(with_body)} of them have a readable C body; smallest first"
         if missing:
@@ -118,16 +214,31 @@ def main(argv=None) -> int:
         return 0
 
     width = max(len(unit["owner"]) for unit in selected)
-    print(f"  {'BYTES':>6}  {'UNIT':<{width}}  NAME")
+    if args.score:
+        print(f"  {'SCORE':>6}  {'BYTES':>6}  {'UNIT':<{width}}  NAME")
+    else:
+        print(f"  {'BYTES':>6}  {'UNIT':<{width}}  NAME")
     for unit in selected:
         name = unit["display"] or "-"
         flag = "" if unit["c_body"] else "  [asm only]"
-        print(f"  {unit['size']:>6}  {unit['owner']:<{width}}  {name}{flag}")
+        if args.score:
+            score = unit.get("score")
+            shown = "error" if unit.get("score_error") else (
+                f"{score:.1f}%" if score is not None else "-"
+            )
+            print(f"  {shown:>6}  {unit['size']:>6}  {unit['owner']:<{width}}  {name}{flag}")
+        else:
+            print(f"  {unit['size']:>6}  {unit['owner']:<{width}}  {name}{flag}")
 
     shown = len(selected)
-    if shown < len(listed if args.all else with_body):
-        print(f"\nShowing {shown} of {len(listed if args.all else with_body)}.")
-    print("\nPick one and measure it with:")
+    pool = len(listed if args.all else with_body)
+    if shown < pool:
+        print(f"\nShowing {shown} of {pool}.")
+    if errors:
+        print(f"{errors} unit(s) could not be measured.")
+    if not args.score:
+        print("\nTip: pass --score to rank the list by current match percentage.")
+    print("\nRefine one with:" if args.score else "\nPick one and measure it with:")
     print("  python3 scripts/check-unit.py <unit>")
     return 0
 

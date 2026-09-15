@@ -535,6 +535,19 @@ class ListFunctionsTests(unittest.TestCase):
         (tmp / "src" / "assembly" / "textbin" / "no_c.c").write_text(
             "#ifndef NON_MATCHING\nINCLUDE_ASM(\"oracle.s\", FUN_00123457);\n#endif\n"
         )
+        (tmp / "src" / "assembly" / "textbin" / "almost.c").write_text(
+            textwrap.dedent(
+                """\
+                #ifndef NON_MATCHING
+                INCLUDE_ASM("oracle.s", FUN_00123458);
+                #else
+                int FUN_00123458(void) {
+                    return 2;
+                }
+                #endif /* NON_MATCHING */
+                """
+            )
+        )
         (tmp / "config" / "us" / "rnc1.us.yaml").write_text(
             textwrap.dedent(
                 """
@@ -545,8 +558,9 @@ class ListFunctionsTests(unittest.TestCase):
                 subsegments:
                   - [0x1000, c, textbin/exact_one]
                   - [0x1100, c, assembly/textbin/with_c]
-                  - [0x1200, c, assembly/textbin/no_c]
-                  - [0x1300, textbin, text_gap_end]
+                  - [0x1200, c, assembly/textbin/almost]
+                  - [0x1300, c, assembly/textbin/no_c]
+                  - [0x1400, textbin, text_gap_end]
             """
             )
         )
@@ -583,10 +597,72 @@ class ListFunctionsTests(unittest.TestCase):
         listed = json.loads(stdout.getvalue())
         self.assertEqual(
             [entry["unit"] for entry in listed],
-            ["assembly/textbin/no_c", "assembly/textbin/with_c"],
+            [
+                "assembly/textbin/almost",
+                "assembly/textbin/no_c",
+                "assembly/textbin/with_c",
+            ],
         )
-        self.assertFalse(listed[0]["has_c_body"])
-        self.assertTrue(listed[1]["has_c_body"])
+        self.assertFalse(listed[1]["has_c_body"])
+        self.assertTrue(listed[2]["has_c_body"])
+
+    def _workspace(self, tmp: Path) -> Path:
+        workspace = tmp / "ws"
+        (workspace / "config" / "us").mkdir(parents=True)
+        (workspace / ".rnc-baseline-root").write_text("")
+        (workspace / "config" / "us" / "build.ninja").write_text("")
+        (workspace / "tools" / "objdiff").mkdir(parents=True)
+        (workspace / "tools" / "objdiff" / "objdiff-cli").write_text("")
+        return workspace
+
+    def test_score_sorts_by_match_percentage(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            workspace = self._workspace(tmp)
+            scores = {
+                "assembly/textbin/with_c": 42.0,
+                "assembly/textbin/almost": 99.5,
+            }
+
+            def fake_run(command, **kwargs):
+                owner = command[2]
+                return SimpleNamespace(
+                    returncode=0,
+                    stdout=json.dumps({"text_match_percent": scores[owner]}),
+                    stderr="",
+                )
+
+            stdout = io.StringIO()
+            with (
+                mock.patch.object(self.lister, "ROOT", tmp),
+                mock.patch.object(self.lister.subprocess, "run", fake_run),
+                contextlib.redirect_stdout(stdout),
+                contextlib.redirect_stderr(io.StringIO()),
+            ):
+                code = self.lister.main(
+                    ["--score", "--limit", "0", "--workspace", str(workspace)]
+                )
+        self.assertEqual(code, 0)
+        output = stdout.getvalue()
+        self.assertIn("99.5%", output)
+        self.assertIn("42.0%", output)
+        self.assertLess(output.index("almost"), output.index("with_c"))
+
+    def test_score_requires_a_baseline_workspace(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            stderr = io.StringIO()
+            with (
+                mock.patch.object(self.lister, "ROOT", tmp),
+                contextlib.redirect_stderr(stderr),
+            ):
+                code = self.lister.main(
+                    ["--score", "--workspace", str(tmp / "not-a-workspace")]
+                )
+        self.assertEqual(code, 2)
+        self.assertIn("baseline workspace", stderr.getvalue())
 
 
 class CheckUnitTests(unittest.TestCase):
