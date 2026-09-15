@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_001ee008
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 28.9648%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -13,86 +11,66 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ee008/FUN_001ee008.s
 #else
 #include "rnc/assembly_textbin_fun_001ee008_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void *CreateObj(int a0, int a1);
-extern void cOmBase_setTexChange(void *a0, int a1);
-extern float frand(float a0, float a1);
-extern int Forward30F348_31CFE0(void);
-
-/* sn-2.95.3-136 matched TU. */
 
 
+extern s32 func_001F44B8();
+extern s32 func_001F5AB0(s32, s32, s32, s32, s32, s32, s32, f32, f32, f32, f32, f32, s32, s32);
+extern s32 func_001F9DC8();
+extern f32 func_001F9DE0();
+extern f32 func_001FA580();
+void FUN_001ee008(struct M2c_arg0 *arg0, f32 fparg0, f32 fparg1) {
+    f32 sp0;
+    f32 sp4;
+    f32 sp10;
+    f32 sp14;
+    f32 temp_f0_78;
+    f32 temp_f14_119;
+    f32 temp_f14_138;
+    f32 temp_f14_161;
+    f32 temp_f14_183;
+    f32 temp_f14_48;
+    f32 temp_f14_97;
+    f32 temp_f2_94;
+    f32 var_f21_24;
+    s32 temp_18_20;
+    s32 temp_3_21;
+    s32 var_17_40;
 
-
-
-
-
-
-__attribute__((section(".text.func_001EE780")))
-int FUN_001ee008(char *s0, unsigned char n, char *s2) {
-    char *obj;
-    char *vt;
-    int (*fp)();
-    float r;
-    unsigned int rem;
-    char *p;
-    unsigned int m;
-
-    obj = (char *)CreateObj(0x371, 0xFFFF);
-    *(char **)s0 = obj;
-    if (obj == 0) {
-        return 0;
-    }
-    vt = *(char **)(obj + 0x214);
-    fp = *(int (**)())(vt + 0x44);
-    fp(obj + *(short *)(vt + 0x40));
-    m = n;
-    s0[4] = n;
-    switch (m & 0xFF) {
+    temp_18_20 = func_001F44B8(arg0->unk18);
+    temp_3_21 = arg0->unk2C;
+    var_f21_24 = arg0->unk1C;
+    switch (temp_3_21) {                            /* irregular */
     case 0:
-    default:
-        p = *(char **)s0;
-        if (p != 0) {
-            cOmBase_setTexChange(p, 1);
+        var_17_40 = 0;
+        if (arg0->unk26 > 0) {
+            do {
+                temp_f14_48 = 40.0f * arg0->unk10;
+                func_001F5AB0(0x3F, 0x3F, temp_18_20, 0xFFFFF3, arg0->unk14, 0, 0, fparg0, fparg1, temp_f14_48, temp_f14_48, var_f21_24, 0, 0);
+                var_17_40 += 1;
+                var_f21_24 = func_001FA580(var_f21_24, arg0->unk28);
+            } while (var_17_40 < arg0->unk26);
         }
-        break;
+        return;
     case 1:
-        p = *(char **)s0;
-        if (p != 0) {
-            cOmBase_setTexChange(p, 2);
-        }
+        temp_f0_78 = func_001F9DE0(var_f21_24) * 40.0f * arg0->unk10;
+        sp0 = temp_f0_78;
+        sp4 = func_001F9DC8(var_f21_24) * 40.0f * arg0->unk10;
+        sp10 = func_001F9DC8(var_f21_24) * 40.0f * arg0->unk10;
+        temp_f2_94 = arg0->unk10;
+        temp_f14_97 = temp_f2_94 * 40.0f;
+        sp14 = func_001F9DE0(var_f21_24) * -40.0f * temp_f2_94;
+        func_001F5AB0(0x3F, 0x3F, temp_18_20, 0xFFFFF3, arg0->unk14, 0, 0, fparg0, fparg1, temp_f14_97, temp_f14_97, var_f21_24, 0, 0);
+        temp_f14_119 = arg0->unk10 * 40.0f;
+        func_001F5AB0(0x3F, 0x3F, temp_18_20, 0xFFFFF3, arg0->unk14, 1, 0, fparg0 + sp10, fparg1 + sp14, temp_f14_119, temp_f14_119, var_f21_24, 0, 0);
+        temp_f14_138 = arg0->unk10 * 40.0f;
+        func_001F5AB0(0x3F, 0x3F, temp_18_20, 0xFFFFF3, arg0->unk14, 0, 1, fparg0 - sp0, fparg1 - sp4, temp_f14_138, temp_f14_138, var_f21_24, 0, 0);
+        temp_f14_161 = arg0->unk10 * 40.0f;
+        func_001F5AB0(0x3F, 0x3F, temp_18_20, 0xFFFFF3, arg0->unk14, 1, 1, (fparg0 + sp10) - temp_f0_78, (fparg1 + sp14) - sp4, temp_f14_161, temp_f14_161, var_f21_24, 0, 0);
         break;
     case 2:
-        p = *(char **)s0;
-        if (p != 0) {
-            cOmBase_setTexChange(p, 3);
-        }
-        break;
-    case 3:
-        p = *(char **)s0;
-        if (p != 0) {
-            cOmBase_setTexChange(p, 0);
-        }
-        break;
-    case 4:
+        temp_f14_183 = arg0->unk10 * 40.0f;
+        func_001F5AB0(0x3F, 0x3F, temp_18_20, 0xFFFFF3, arg0->unk14, 0, 0, fparg0, fparg1, temp_f14_183, temp_f14_183, var_f21_24, 0x3F000000, 0x3F000000);
         break;
     }
-    *(T36 *)(s0 + 8) = *(T36 *)s2;
-    r = frand(*(float *)(s0 + 0x24), *(float *)(s0 + 0x28));
-    *(float *)(s0 + 0x3C) = r;
-    *(float *)(s0 + 0x10) = *(float *)(s0 + 0x10) * r;
-    *(float *)(s0 + 0x18) = *(float *)(s0 + 0x18) * r;
-    rem = (unsigned int)Forward30F348_31CFE0() % 100;
-    if (*(unsigned int *)(s0 + 0x20) >= rem) {
-        *(float *)(s0 + 0x1C) = frand(-43.0f, -25.0f);
-    }
-    *(int *)(s0 + 0x2C) = 11;
-    *(int *)(s0 + 0x30) = 0;
-    *(int *)(s0 + 0x38) = (int)(*(float *)(s0 + 0x10) * 100.0f)
-                        - *(int *)(s0 + 0xC) * 10
-                        + (int)(*(float *)(s0 + 0x14) * 10.0f)
-                        + (int)(*(float *)(s0 + 0x18) * 100.0f);
-    return 1;
 }
 #endif /* NON_MATCHING */

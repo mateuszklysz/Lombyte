@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00215970
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 50.4078%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -18,6 +16,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00215970/FUN_00215970.s
 extern u8 D_0013A664[];
 extern struct M2c_D_001516D0 D_001516D0;
 extern s32 D_0015ED88;
+extern u8 D_002169C0[];
 extern s32 func_0012EC08();
 extern s32 func_00215440();
 extern s32 func_00215518();
@@ -25,9 +24,8 @@ extern s32 func_00215600();
 extern s32 func_002156D8();
 extern s32 func_002157D0();
 extern s32 func_002158A0();
-extern void func_002169C0();
-void FUN_00215970(u16 arg0, u16 arg1, u16 arg2) {
-    s32 temp_4_73;
+void FUN_00215970(s16 arg0, s16 arg1, s16 arg2) {
+    s32 temp_4_71;
 
     if (arg0 > 0xEA5F) {
         func_00215440();
@@ -42,8 +40,8 @@ void FUN_00215970(u16 arg0, u16 arg1, u16 arg2) {
     } else if (arg0 >= 0x2710) {
         func_002158A0(arg0, arg1, arg2);
     } else {
-        temp_4_73 = *((arg0 * 0x250) + (D_0015ED88 * 4) + D_0013A664);
-        if (temp_4_73 != 0) {
+        temp_4_71 = *((arg0 * 0x250) + (D_0015ED88 * 4) + D_0013A664);
+        if (temp_4_71 != 0) {
             if (D_001516D0.unk50 == 0) {
                 D_001516D0.unk5A = 1;
                 D_001516D0.unk64 = 0xA;
@@ -53,7 +51,7 @@ void FUN_00215970(u16 arg0, u16 arg1, u16 arg2) {
                 D_001516D0.unk58 = arg1;
                 D_001516D0.unk56 = arg2;
                 D_001516D0.unk60 = 0;
-                func_0012EC08(temp_4_73, 0, 0, 0, arg2, 0, 2, 0, 0x21, &func_002169C0, (u64) ((s64) (((u8 *)&D_001516D0 + 0x50)) << 0x20) >> 0x20);
+                func_0012EC08(temp_4_71, 0, 0, 0, arg2, 0, 2, 0, 0x21, D_002169C0, (u64) ((s64) (((u8 *)&D_001516D0 + 0x50)) << 0x20) >> 0x20);
             }
         }
     }

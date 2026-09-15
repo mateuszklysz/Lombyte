@@ -10,11 +10,11 @@ struct M2c_D_001A00F0 {
     s32 unk2A0;
 };
 
-struct M2c_var_17_54 {
+struct M2c_var_17_52 {
     s32 unk0;
 };
 
-struct M2c_var_3_25 {
+struct M2c_var_3_23 {
     s32 unk0;
 };
 

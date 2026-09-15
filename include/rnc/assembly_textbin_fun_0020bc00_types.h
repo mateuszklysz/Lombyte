@@ -3,14 +3,15 @@
 
 #include "types.h"
 
-struct M2c_var_9_7 {
-    s32 unk0;
-    u8 pad_4[0xC];
+struct M2c_var_9_5 {
+    s16 unk0;
+    u8 pad_2[0xE];
     u16 unk10;
-    s32 unk12;
-    u8 pad_16[0xE];
-    u16 unk24;
-    s32 unk26;
+    s16 unk12;
+    u8 pad_14[0x10];
+    s16 unk24;
+    s16 unk26;
+    u8 pad_28[0x2];
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_0020BC00_TYPES_H */

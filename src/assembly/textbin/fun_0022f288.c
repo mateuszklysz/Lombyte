@@ -1,73 +1,113 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0022f288
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 57.1238%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022f288/FUN_0022f288.s", FUN_0022f288);
 #else
+#include "rnc/assembly_textbin_fun_0022f288_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_0061B7C0[];
-extern void *InitObjectSetVtable_4E090_2FFA90(void *);
-extern void *InitObjectSetVtable_4E820_2FFC20(void *);
-extern void *InitObjectSetVtable_4EA10_2FFC88(void *);
-extern void *InitObjectSetVtable_4EAB8_2FFCC8(void *);
-extern void *InitObjectSetVtable_4EB70_2FFD08(void *);
-extern void *InitObjectSetVtable_4EC68_2FFD48(void *);
-extern void *InitVtablePtrAndClearField_2FFD88(void *);
-extern void *InitObjectSetVtable_4EFA0_2FFE10(void *);
-extern void *InitObjectSetVtable_4F078_2FFE50(void *);
-extern void *InitObjectSetVtable_4F1C8_2FFE90(void *);
-extern void *InitObjectSetVtable_4F270_2FFED0(void *);
-extern void *InitObjectSetVtable_4F3A0_2FFF50(void *);
-extern void *InitObjectSetVtable_4F630_300020(void *);
-extern void *InitObjectFieldsIfNonNull_300060(void *);
-extern void *InitObjectSetVtable_4F880_3000B0(void *);
 
-__attribute__((section(".text.func_002FACA8")))
-void *FUN_0022f288(int slot, int type) {
-    char *r;
 
-    switch (type) {
-    case 0:  r = (char *)func_002FFA68(&D_0061B7C0[slot << 10]); break;
-    case 1:  r = (char *)InitObjectSetVtable_4E090_2FFA90(&D_0061B7C0[slot << 10]); break;
-    case 2:  r = (char *)func_002FFAD0(&D_0061B7C0[slot << 10]); break;
-    case 3:  r = (char *)func_002FFB10(&D_0061B7C0[slot << 10]); break;
-    case 4:  r = (char *)func_002FFB38(&D_0061B7C0[slot << 10]); break;
-    case 5:  r = (char *)func_002FFB80(&D_0061B7C0[slot << 10]); break;
-    case 6:  r = (char *)func_002FFBD0(&D_0061B7C0[slot << 10]); break;
-    case 7:  r = (char *)func_002FFBF8(&D_0061B7C0[slot << 10]); break;
-    case 8:  r = (char *)InitObjectSetVtable_4E820_2FFC20(&D_0061B7C0[slot << 10]); break;
-    case 9:  r = (char *)func_002FFC60(&D_0061B7C0[slot << 10]); break;
-    case 15: r = (char *)InitObjectSetVtable_4EA10_2FFC88(&D_0061B7C0[slot << 10]); break;
-    case 16: r = (char *)InitObjectSetVtable_4EAB8_2FFCC8(&D_0061B7C0[slot << 10]); break;
-    case 18: r = (char *)InitObjectSetVtable_4EB70_2FFD08(&D_0061B7C0[slot << 10]); break;
-    case 19: r = (char *)InitObjectSetVtable_4EC68_2FFD48(&D_0061B7C0[slot << 10]); break;
-    case 20: r = (char *)InitVtablePtrAndClearField_2FFD88(&D_0061B7C0[slot << 10]); break;
-    case 21: r = (char *)func_002FFDC8(&D_0061B7C0[slot << 10]); break;
-    case 22: r = (char *)InitObjectSetVtable_4EFA0_2FFE10(&D_0061B7C0[slot << 10]); break;
-    case 24: r = (char *)InitObjectSetVtable_4F078_2FFE50(&D_0061B7C0[slot << 10]); break;
-    case 25: r = (char *)InitObjectSetVtable_4F1C8_2FFE90(&D_0061B7C0[slot << 10]); break;
-    case 26: r = (char *)InitObjectSetVtable_4F270_2FFED0(&D_0061B7C0[slot << 10]); break;
-    case 29: r = (char *)func_002FFF10(&D_0061B7C0[slot << 10]); break;
-    case 30: r = (char *)InitObjectSetVtable_4F3A0_2FFF50(&D_0061B7C0[slot << 10]); break;
-    case 31: r = (char *)func_002FFF90(&D_0061B7C0[slot << 10]); break;
-    case 32: r = (char *)func_002FFFB8(&D_0061B7C0[slot << 10]); break;
-    case 33: r = (char *)func_002FFFE0(&D_0061B7C0[slot << 10]); break;
-    case 35: r = (char *)InitObjectSetVtable_4F630_300020(&D_0061B7C0[slot << 10]); break;
-    case 36: r = (char *)InitObjectFieldsIfNonNull_300060(&D_0061B7C0[slot << 10]); break;
-    case 37: r = (char *)func_00300088(&D_0061B7C0[slot << 10]); break;
-    case 38: r = (char *)InitObjectSetVtable_4F880_3000B0(&D_0061B7C0[slot << 10]); break;
-    default: return 0;
+
+
+
+
+
+extern struct M2c_D_0013D290 D_0013D290;
+extern s32 D_0013DD43;
+extern struct M2c_D_0013E030 D_0013E030;
+extern struct M2c_D_0013E500 D_0013E500;
+extern s32 D_0015ED84;
+extern s32 D_0015F438;
+extern s32 D_0015F43C[];
+extern s32 D_0015F620;
+extern s32 D_0018CB54[];
+extern s32 D_0018CC98;
+extern struct M2c_D_0018CD00 D_0018CD00;
+extern s32 AppendDmaTag();
+extern s32 func_001F2260();
+extern s32 func_001F2D98();
+extern s32 func_001F3868();
+extern s32 func_001F4280();
+extern s32 func_001F4398();
+extern s32 func_001F44B8();
+extern s32 func_001F5210();
+extern s32 func_001F5450();
+extern s32 func_001FA6D0();
+extern s32 func_001FB368();
+extern s32 func_00200600();
+extern s32 func_0020CC60();
+extern s32 func_0020CEF8();
+extern s32 func_0020D460();
+extern s32 func_0022B288();
+extern s32 func_0022E420();
+extern s32 func_0022E8C8();
+extern s32 func_0022EA08();
+extern s32 func_002327A0();
+extern s32 func_002337B0();
+extern s32 func_00233980();
+void FUN_0022f288(void) {
+    f32 temp_f20_22;
+    f32 temp_f21_157;
+    s32 temp_3_77;
+    s32 temp_4_85;
+    s32 temp_hi_148;
+
+    func_001FB368();
+    func_001F2260();
+    func_0020CC60();
+    func_001F3868();
+    temp_f20_22 = D_0018CD00.unkB0;
+    D_0015F620 = -1;
+    if (temp_f20_22 < 0.63f) {
+        D_0018CD00.unkB0 = 0.63f;
     }
-    r[0x102] = type;
-    return r;
+    func_001F2D98();
+    func_001F2260();
+    func_0022B288();
+    D_0018CD00.unkB0 = temp_f20_22;
+    func_001F2D98();
+    func_001F2260();
+    if (D_0013E030.unk58 == 4) {
+        func_001F4280(1);
+        func_0022E8C8();
+        func_001F4398();
+    }
+    func_0020D460();
+    AppendDmaTag(0x02080000);
+    func_001F4280(1);
+    if ((D_0015ED84 != 0) && ((D_0015ED84 != 1) || (D_0013DD43 != 0))) {
+        func_0022E420(D_0018CC98);
+    }
+    temp_3_77 = D_0015ED84;
+    if ((D_0013E030.unk58 == 4) && (D_0018CB54[0] >= 0x3D)) {
+        temp_4_85 = (D_0018CB54[0] - 0x3C) * 2;
+        func_0022EA08((temp_4_85 >= 0x81) ? 0x80 : temp_4_85);
+    }
+    if ((temp_3_77 != 0) && ((temp_3_77 != 1) || (D_0013DD43 != 0))) {
+        func_002327A0(D_0018CC98);
+    }
+    if ((D_0013D290.unkD4 >= 3) || (D_0013D290.unkDC >= 0)) {
+        func_00233980(0x47, 0x3004B);
+        func_001F5450(0x2C, D_0013E500.unk4 - 0x60, 0x40, 0x40, 0, 0, 0x40, 0x40, (0x8080 << 0x10) | 0x8080, func_001F44B8(2));
+        temp_hi_148 = (s32) D_0015F438 % 55;
+        temp_f21_157 = (f32) ((D_0013E500.unk4 - 0x40) * 0x10);
+        func_00200600(0x40, 0x40, func_001F44B8(3, temp_hi_148), 0x44980000, temp_f21_157, 0x43880000, 0x43880000, ((f32) temp_hi_148 * -6.2831855f) / 55.0f);
+    }
+    func_001F4398();
+    if (D_0015F43C[0] > 0.0f) {
+        if (D_0015F43C[0] > 1.0f) {
+            D_0015F43C[0] = 1.0f;
+        }
+        func_001F5210(0, 0, 0, func_001FA6D0(D_0015F43C[0] * 128.0f));
+    }
+    func_002337B0(0x10);
+    func_0020CEF8();
 }
 #endif /* NON_MATCHING */

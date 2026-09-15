@@ -9,22 +9,22 @@ struct M2c_D_001D5BF0 {
     s32 unk10C;
 };
 
-struct M2c_var_2_25 {
+struct M2c_var_2_23 {
     s32 unk0;
     s32 unk4;
 };
 
-struct M2c_var_3_46 {
+struct M2c_var_3_44 {
     s32 unk0;
     s32 unk4;
 };
 
-struct M2c_var_3_67 {
+struct M2c_var_3_65 {
     s32 unk0;
     s32 unk4;
 };
 
-struct M2c_var_3_87 {
+struct M2c_var_3_85 {
     s32 unk0;
     s32 unk4;
 };

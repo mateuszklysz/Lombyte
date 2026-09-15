@@ -1,73 +1,167 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00237ed0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 64.8491%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00237ed0/FUN_00237ed0.s", FUN_00237ed0);
 #else
+#include "rnc/assembly_textbin_fun_00237ed0_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_0061B7C0[];
-extern void *InitObjectSetVtable_4E090_2FFA90(void *);
-extern void *InitObjectSetVtable_4E820_2FFC20(void *);
-extern void *InitObjectSetVtable_4EA10_2FFC88(void *);
-extern void *InitObjectSetVtable_4EAB8_2FFCC8(void *);
-extern void *InitObjectSetVtable_4EB70_2FFD08(void *);
-extern void *InitObjectSetVtable_4EC68_2FFD48(void *);
-extern void *InitVtablePtrAndClearField_2FFD88(void *);
-extern void *InitObjectSetVtable_4EFA0_2FFE10(void *);
-extern void *InitObjectSetVtable_4F078_2FFE50(void *);
-extern void *InitObjectSetVtable_4F1C8_2FFE90(void *);
-extern void *InitObjectSetVtable_4F270_2FFED0(void *);
-extern void *InitObjectSetVtable_4F3A0_2FFF50(void *);
-extern void *InitObjectSetVtable_4F630_300020(void *);
-extern void *InitObjectFieldsIfNonNull_300060(void *);
-extern void *InitObjectSetVtable_4F880_3000B0(void *);
 
-__attribute__((section(".text.func_002FACA8")))
-void *FUN_00237ed0(int slot, int type) {
-    char *r;
 
-    switch (type) {
-    case 0:  r = (char *)func_002FFA68(&D_0061B7C0[slot << 10]); break;
-    case 1:  r = (char *)InitObjectSetVtable_4E090_2FFA90(&D_0061B7C0[slot << 10]); break;
-    case 2:  r = (char *)func_002FFAD0(&D_0061B7C0[slot << 10]); break;
-    case 3:  r = (char *)func_002FFB10(&D_0061B7C0[slot << 10]); break;
-    case 4:  r = (char *)func_002FFB38(&D_0061B7C0[slot << 10]); break;
-    case 5:  r = (char *)func_002FFB80(&D_0061B7C0[slot << 10]); break;
-    case 6:  r = (char *)func_002FFBD0(&D_0061B7C0[slot << 10]); break;
-    case 7:  r = (char *)func_002FFBF8(&D_0061B7C0[slot << 10]); break;
-    case 8:  r = (char *)InitObjectSetVtable_4E820_2FFC20(&D_0061B7C0[slot << 10]); break;
-    case 9:  r = (char *)func_002FFC60(&D_0061B7C0[slot << 10]); break;
-    case 15: r = (char *)InitObjectSetVtable_4EA10_2FFC88(&D_0061B7C0[slot << 10]); break;
-    case 16: r = (char *)InitObjectSetVtable_4EAB8_2FFCC8(&D_0061B7C0[slot << 10]); break;
-    case 18: r = (char *)InitObjectSetVtable_4EB70_2FFD08(&D_0061B7C0[slot << 10]); break;
-    case 19: r = (char *)InitObjectSetVtable_4EC68_2FFD48(&D_0061B7C0[slot << 10]); break;
-    case 20: r = (char *)InitVtablePtrAndClearField_2FFD88(&D_0061B7C0[slot << 10]); break;
-    case 21: r = (char *)func_002FFDC8(&D_0061B7C0[slot << 10]); break;
-    case 22: r = (char *)InitObjectSetVtable_4EFA0_2FFE10(&D_0061B7C0[slot << 10]); break;
-    case 24: r = (char *)InitObjectSetVtable_4F078_2FFE50(&D_0061B7C0[slot << 10]); break;
-    case 25: r = (char *)InitObjectSetVtable_4F1C8_2FFE90(&D_0061B7C0[slot << 10]); break;
-    case 26: r = (char *)InitObjectSetVtable_4F270_2FFED0(&D_0061B7C0[slot << 10]); break;
-    case 29: r = (char *)func_002FFF10(&D_0061B7C0[slot << 10]); break;
-    case 30: r = (char *)InitObjectSetVtable_4F3A0_2FFF50(&D_0061B7C0[slot << 10]); break;
-    case 31: r = (char *)func_002FFF90(&D_0061B7C0[slot << 10]); break;
-    case 32: r = (char *)func_002FFFB8(&D_0061B7C0[slot << 10]); break;
-    case 33: r = (char *)func_002FFFE0(&D_0061B7C0[slot << 10]); break;
-    case 35: r = (char *)InitObjectSetVtable_4F630_300020(&D_0061B7C0[slot << 10]); break;
-    case 36: r = (char *)InitObjectFieldsIfNonNull_300060(&D_0061B7C0[slot << 10]); break;
-    case 37: r = (char *)func_00300088(&D_0061B7C0[slot << 10]); break;
-    case 38: r = (char *)InitObjectSetVtable_4F880_3000B0(&D_0061B7C0[slot << 10]); break;
-    default: return 0;
+
+
+
+extern u8 D_001516EC[];
+extern s32 D_0015172A;
+extern s32 D_0015EDB0;
+extern u8 D_00161030[];
+extern u8 D_00161038[];
+extern u8 D_00161040[];
+extern s32 D_001610B0;
+extern s32 D_001610B4;
+extern struct M2c_D_001E63C0 D_001E63C0;
+extern s32 D_001E63FC[];
+extern struct M2c_D_001E65E0 D_001E65E0;
+extern s32 func_001F96F8();
+extern s32 func_0020CB10();
+extern s32 func_0020CB88();
+extern s32 func_00212F90();
+extern s32 func_00213260();
+extern s32 func_00214CC8();
+extern s32 func_00215B10();
+void FUN_00237ed0(struct M2c_arg0 *arg0) {
+    s32 *var_6_138;
+    s32 temp_16_209;
+    s32 temp_16_240;
+    s32 temp_16_271;
+    s32 temp_2_58;
+    s32 temp_3_66;
+    u8 temp_3_38;
+    u8 temp_5_205;
+    u8 var_2_211;
+
+    if (D_0015EDB0 != 0) {
+        if (D_001E65E0.unk1 == 0) {
+            func_0020CB10(0, &D_001E65E0);
+        }
+        D_001E65E0.unk28 = 2.37f;
+        D_001E65E0.unk20 = 2.37f;
+        D_001E65E0.unk24 = 2.37f;
+    } else if (D_001E65E0.unk1 != 0) {
+        func_0020CB88(arg0, &D_001E65E0);
     }
-    r[0x102] = type;
-    return r;
+    temp_3_38 = arg0->unk20;
+    switch (temp_3_38) {
+    case 0:
+        if (func_001F96F8(0x258) < D_001E63C0.unk34) {
+            temp_2_58 = func_00213260(2);
+            temp_3_66 = ((temp_2_58 * 3) + 1) * 6;
+            D_001610B0 = 1;
+            D_001E63C0.unk3C = temp_2_58;
+            D_001610B4 = 0;
+            *(s32 *)D_001516EC = temp_3_66 + D_001E63C0.unk38 + 0x2710;
+            if (arg0->unk53 != 2) {
+                func_00212F90(arg0, 2, 0, func_001F96F8(0x12, 6U, D_001E63C0.unk38, D_001516EC));
+            }
+            arg0->unk20 = 0xCU;
+block_16:
+            D_001E63C0.unk34 = 0;
+        }
+block_17:
+        D_001E63C0.unk34 = (s32) (D_001E63C0.unk34 + 1);
+    default:
+        return;
+    case 2:
+        if (func_001F96F8(0x258) < D_001E63C0.unk34) {
+            if (arg0->unk53 != 3) {
+                func_00212F90(arg0, 3, 0, func_001F96F8(0x12));
+            }
+            arg0->unk20 = 3U;
+            goto block_16;
+        }
+        goto block_17;
+    case 3:
+        if (arg0->unk70 & 2) {
+            if (arg0->unk53 == 0) {
+                arg0->unk20 = 0U;
+                return;
+            }
+            func_00212F90(arg0, 0, 0, func_001F96F8(0x12));
+            arg0->unk20 = 0U;
+        }
+        break;
+    case 4:
+        var_6_138 = D_00161030;
+block_26:
+        if ((func_00214CC8(arg0, &D_001E63C0, var_6_138, (f32) *((D_001E63C0.unk3C * 4) + var_6_138)) != 0) && (D_001610B4 != 0)) {
+            D_001610B4 = 0;
+            func_00215B10();
+        }
+        if (arg0->unk70 & 2) {
+            if (arg0->unk53 != 2) {
+                func_00212F90(arg0, 2, 0, func_001F96F8(0x12));
+            }
+            arg0->unk20 = 2U;
+            D_001E63C0.unk34 = 0;
+        }
+        break;
+    case 5:
+        var_6_138 = D_00161038;
+        goto block_26;
+    case 6:
+        var_6_138 = D_00161040;
+        goto block_26;
+    case 10:
+        if ((D_0015172A == 3) && (D_001610B0 != 0)) {
+            D_001610B0 = 0;
+            D_001610B4 = 1;
+        }
+        if (arg0->unk70 & 2) {
+            temp_5_205 = arg0->unk53;
+            temp_16_209 = (D_001E63FC[0] * 3) + 4;
+            if (temp_5_205 == temp_16_209) {
+                var_2_211 = 4;
+            } else {
+                func_00212F90(arg0, temp_16_209, 0, func_001F96F8(0xC, temp_5_205));
+                var_2_211 = 4;
+            }
+block_51:
+            arg0->unk20 = var_2_211;
+        }
+        break;
+    case 12:
+        if ((D_0015172A == 3) && (D_001610B0 != 0)) {
+            D_001610B4 = 1;
+            D_001610B0 = 0;
+            temp_16_240 = (D_001E63FC[0] * 3) + 5;
+            if (arg0->unk53 == temp_16_240) {
+                var_2_211 = 5;
+            } else {
+                func_00212F90(arg0, temp_16_240, 0, func_001F96F8(0x12));
+                var_2_211 = 5;
+            }
+            goto block_51;
+        }
+        break;
+    case 11:
+        if ((D_0015172A == 3) && (D_001610B0 != 0)) {
+            D_001610B4 = 1;
+            D_001610B0 = 0;
+            temp_16_271 = (D_001E63FC[0] * 3) + 6;
+            var_2_211 = 6;
+            if (arg0->unk53 != temp_16_271) {
+                func_00212F90(arg0, temp_16_271, 0, func_001F96F8(0x12));
+                var_2_211 = 6;
+            }
+            goto block_51;
+        }
+        break;
+    }
 }
 #endif /* NON_MATCHING */

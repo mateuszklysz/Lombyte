@@ -1,73 +1,174 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00204428
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 56.6250%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00204428/FUN_00204428.s", FUN_00204428);
 #else
+#include "rnc/assembly_textbin_fun_00204428_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_0061B7C0[];
-extern void *InitObjectSetVtable_4E090_2FFA90(void *);
-extern void *InitObjectSetVtable_4E820_2FFC20(void *);
-extern void *InitObjectSetVtable_4EA10_2FFC88(void *);
-extern void *InitObjectSetVtable_4EAB8_2FFCC8(void *);
-extern void *InitObjectSetVtable_4EB70_2FFD08(void *);
-extern void *InitObjectSetVtable_4EC68_2FFD48(void *);
-extern void *InitVtablePtrAndClearField_2FFD88(void *);
-extern void *InitObjectSetVtable_4EFA0_2FFE10(void *);
-extern void *InitObjectSetVtable_4F078_2FFE50(void *);
-extern void *InitObjectSetVtable_4F1C8_2FFE90(void *);
-extern void *InitObjectSetVtable_4F270_2FFED0(void *);
-extern void *InitObjectSetVtable_4F3A0_2FFF50(void *);
-extern void *InitObjectSetVtable_4F630_300020(void *);
-extern void *InitObjectFieldsIfNonNull_300060(void *);
-extern void *InitObjectSetVtable_4F880_3000B0(void *);
 
-__attribute__((section(".text.func_002FACA8")))
-void *FUN_00204428(int slot, int type) {
-    char *r;
 
-    switch (type) {
-    case 0:  r = (char *)func_002FFA68(&D_0061B7C0[slot << 10]); break;
-    case 1:  r = (char *)InitObjectSetVtable_4E090_2FFA90(&D_0061B7C0[slot << 10]); break;
-    case 2:  r = (char *)func_002FFAD0(&D_0061B7C0[slot << 10]); break;
-    case 3:  r = (char *)func_002FFB10(&D_0061B7C0[slot << 10]); break;
-    case 4:  r = (char *)func_002FFB38(&D_0061B7C0[slot << 10]); break;
-    case 5:  r = (char *)func_002FFB80(&D_0061B7C0[slot << 10]); break;
-    case 6:  r = (char *)func_002FFBD0(&D_0061B7C0[slot << 10]); break;
-    case 7:  r = (char *)func_002FFBF8(&D_0061B7C0[slot << 10]); break;
-    case 8:  r = (char *)InitObjectSetVtable_4E820_2FFC20(&D_0061B7C0[slot << 10]); break;
-    case 9:  r = (char *)func_002FFC60(&D_0061B7C0[slot << 10]); break;
-    case 15: r = (char *)InitObjectSetVtable_4EA10_2FFC88(&D_0061B7C0[slot << 10]); break;
-    case 16: r = (char *)InitObjectSetVtable_4EAB8_2FFCC8(&D_0061B7C0[slot << 10]); break;
-    case 18: r = (char *)InitObjectSetVtable_4EB70_2FFD08(&D_0061B7C0[slot << 10]); break;
-    case 19: r = (char *)InitObjectSetVtable_4EC68_2FFD48(&D_0061B7C0[slot << 10]); break;
-    case 20: r = (char *)InitVtablePtrAndClearField_2FFD88(&D_0061B7C0[slot << 10]); break;
-    case 21: r = (char *)func_002FFDC8(&D_0061B7C0[slot << 10]); break;
-    case 22: r = (char *)InitObjectSetVtable_4EFA0_2FFE10(&D_0061B7C0[slot << 10]); break;
-    case 24: r = (char *)InitObjectSetVtable_4F078_2FFE50(&D_0061B7C0[slot << 10]); break;
-    case 25: r = (char *)InitObjectSetVtable_4F1C8_2FFE90(&D_0061B7C0[slot << 10]); break;
-    case 26: r = (char *)InitObjectSetVtable_4F270_2FFED0(&D_0061B7C0[slot << 10]); break;
-    case 29: r = (char *)func_002FFF10(&D_0061B7C0[slot << 10]); break;
-    case 30: r = (char *)InitObjectSetVtable_4F3A0_2FFF50(&D_0061B7C0[slot << 10]); break;
-    case 31: r = (char *)func_002FFF90(&D_0061B7C0[slot << 10]); break;
-    case 32: r = (char *)func_002FFFB8(&D_0061B7C0[slot << 10]); break;
-    case 33: r = (char *)func_002FFFE0(&D_0061B7C0[slot << 10]); break;
-    case 35: r = (char *)InitObjectSetVtable_4F630_300020(&D_0061B7C0[slot << 10]); break;
-    case 36: r = (char *)InitObjectFieldsIfNonNull_300060(&D_0061B7C0[slot << 10]); break;
-    case 37: r = (char *)func_00300088(&D_0061B7C0[slot << 10]); break;
-    case 38: r = (char *)InitObjectSetVtable_4F880_3000B0(&D_0061B7C0[slot << 10]); break;
-    default: return 0;
+
+
+
+extern struct M2c_D_00137B80 D_00137B80;
+extern s32 D_0013E056;
+extern s32 D_0015ED58;
+extern u8 D_0015ED5C[];
+extern s32 D_0015ED80[];
+extern s32 D_0015EE48;
+extern s32 D_0015EE4A;
+extern struct M2c_D_0015EE4C *D_0015EE4C;
+extern s32 D_0015EE50;
+extern s32 D_0015EE54;
+extern s32 D_0015EEBC;
+extern s32 D_0015EEC0;
+extern u8 D_0022DD78[];
+extern u8 D_1FF8000[];
+extern s32 func_0012DC80();
+extern s32 func_0012E088();
+extern s32 func_0012E1A8();
+extern s32 func_0012E1D8();
+extern s32 func_0012E3B8();
+extern s32 func_00216728();
+extern s32 sceCdBreak();
+extern s32 sceCdGetError();
+extern s32 sceCdSync();
+extern void jtbl_001E7CE0();
+s32 FUN_00204428(void) {
+    s32 temp_16_10;
+    s32 temp_2_16;
+    s32 temp_4_15;
+    s32 temp_4_67;
+    s32 var_2_79;
+    s32 var_5_106;
+    s32 var_6_95;
+    u16 temp_3_26;
+    u16 temp_3_50;
+    s32 *temp_2_107;
+    s32 *temp_3_103;
+    s32 *var_4_115;
+    struct M2c_var_7_98 *var_7_98;
+
+    temp_16_10 = D_0013E056 + 1;
+    if (sceCdSync(1) != 0) {
+        temp_4_15 = D_0015ED58;
+        temp_2_16 = D_0015EEBC + 1;
+        D_0015EEBC = temp_2_16;
+        if (temp_4_15 == 1) {
+            if (temp_2_16 >= 0x2D1) {
+                D_0015EEC0 = temp_4_15;
+                temp_3_26 = D_0015EE48 - 1;
+                D_0015ED58 = 0;
+                if ((u32) (temp_3_26 & 0xFFFF) < 3U) {
+                    D_0015EE48 = temp_3_26;
+                }
+                sceCdBreak(temp_4_15);
+            }
+        }
+        /* Duplicate return node #36. Try simplifying control flow for better match */
+        return 0;
     }
-    r[0x102] = type;
-    return r;
+    if (sceCdGetError() != 0) {
+        if (D_0015EEC0 == 0) {
+            D_0015EEC0 = 1;
+            temp_3_50 = D_0015EE48 - 1;
+            D_0015ED58 = 0;
+            if ((u32) (temp_3_50 & 0xFFFF) < 3U) {
+                D_0015EE48 = temp_3_50;
+            }
+        }
+    }
+    if ((u32) (s16) D_0015EE48 < 8U) {
+        temp_4_67 = *(((u32) (s16) D_0015EE48 * 4) + &jtbl_001E7CE0);
+        switch ((u32) (s16) D_0015EE48) {
+        case 0:
+            if (D_0015ED80[0] != 0) {
+                var_2_79 = D_00137B80.unk297C;
+            } else {
+                var_2_79 = D_00137B80.unk2974;
+            }
+            var_6_95 = D_00137B80.unk296C;
+            var_7_98 = D_1FF8000 - (((var_2_79 << 0xB) + 0xFFF) & 0xFFFFF000);
+            temp_3_103 = ((u8 *)var_7_98) - (((*(s32 *)((u8 *)(((u8 *)&D_00137B80) + (temp_16_10 * 8)) + 0x12CC) << 0xB) + 0xFFF) & 0xFFFFF000);
+            var_5_106 = D_00137B80.unk2968;
+            temp_2_107 = temp_3_103 - (((var_6_95 << 0xB) + 0xFFF) & 0xFFFFF000);
+            D_0015EE54 = temp_3_103;
+            D_0015EE50 = var_7_98;
+            D_0015EE4C = temp_2_107;
+            var_4_115 = temp_2_107;
+block_18:
+            func_00216728(var_4_115, var_5_106, var_6_95, var_7_98);
+            D_0015EE48 += 1;
+            goto block_35;
+        case 1:
+            var_4_115 = D_0015EE54;
+            var_7_98 = ((u8 *)&D_00137B80) + (temp_16_10 * 8);
+            var_6_95 = var_7_98->unk12CC;
+            var_5_106 = var_7_98->unk12C8;
+            goto block_18;
+        case 2:
+            if (D_0015ED80[0] != 0) {
+                func_00216728(D_0015EE50, D_00137B80.unk2978, D_00137B80.unk297C);
+            } else {
+                func_00216728(D_0015EE50, D_00137B80.unk2970, D_00137B80.unk2974);
+            }
+block_31:
+            D_0015EE48 += 1;
+            goto block_35;
+        case 3:
+            if (D_0015EE4A == 0) {
+                func_0012E3B8(temp_4_67);
+                if (*(s32 *)D_0015ED5C == 0) {
+                    D_0015EE48 = 6;
+                } else {
+                    goto block_31;
+                }
+            }
+            /* Duplicate return node #36. Try simplifying control flow for better match */
+            return 0;
+        case 4:
+            if (func_0012DC80(temp_4_67) == 0) {
+                func_0012E1D8(*(s32 *)D_0015ED5C);
+                *(s32 *)D_0015ED5C = 0;
+                goto block_31;
+            }
+            /* Duplicate return node #36. Try simplifying control flow for better match */
+            return 0;
+        case 5:
+            if (func_0012DC80(temp_4_67) == 0) {
+                func_0012E1A8();
+                goto block_31;
+            }
+            /* Duplicate return node #36. Try simplifying control flow for better match */
+            return 0;
+        case 6:
+            if (func_0012DC80(temp_4_67) == 0) {
+                *(s32 *)D_0015ED5C = 0xFFFFFFFF;
+                func_0012E088(D_0015EE4C->unk8 + D_0015EE4C, D_0022DD78, (u64) ((s64) D_0015ED5C << 0x20) >> 0x20);
+                goto block_31;
+            }
+            /* Duplicate return node #36. Try simplifying control flow for better match */
+            return 0;
+        case 7:
+            if ((func_0012DC80(temp_4_67) == 0) && (*(s32 *)D_0015ED5C != 0xFFFFFFFF)) {
+                func_0012E1A8();
+                return 1;
+            }
+            /* Duplicate return node #36. Try simplifying control flow for better match */
+            return 0;
+        }
+    } else {
+block_35:
+        return 0;
+    }
 }
+
+extern s32 func_00204428(void) __attribute__((alias("FUN_00204428")));
 #endif /* NON_MATCHING */

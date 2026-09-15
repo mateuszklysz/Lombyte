@@ -18,7 +18,7 @@ struct M2c_D_0019A3E8_unk18 {
     s32 unk44;
 };
 
-struct M2c_temp_4_47 {
+struct M2c_temp_4_45 {
     u8 pad_0[0x4];
     s32 unk4;
 };

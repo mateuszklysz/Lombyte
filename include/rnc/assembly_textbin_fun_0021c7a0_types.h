@@ -17,7 +17,7 @@ struct M2c_D_00141848 {
 
 struct M2c_D_001D5BF4 {
     u8 pad_0[0x40];
-    struct M2c_temp_3_18 * unk40;
+    struct M2c_temp_3_16 * unk40;
 };
 
 struct M2c_arg0 {
@@ -29,7 +29,7 @@ struct M2c_arg0 {
     s32 unk50;
 };
 
-struct M2c_temp_3_18 {
+struct M2c_temp_3_16 {
     u8 pad_0[0x3C];
     s32 unk3C;
     u8 pad_40[0x8];

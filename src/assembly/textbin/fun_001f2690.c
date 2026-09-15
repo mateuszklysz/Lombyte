@@ -1,12 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: ParseOcclGrid
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `ParseOcclGrid` starts here; this unit covers only its beginning. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 70.4340%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -27,40 +23,40 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f2690/FUN_001f2690.s
 
 
 
-extern struct M2c_D_0015F640 *D_0015F640;
+extern struct M2c_D_0015F640 *D_0015F640[];
 s32 *FUN_001f2690(s32 arg0, s32 arg1, s32 arg2) {
-    s32 temp_4_43;
-    s32 temp_5_25;
-    s32 temp_6_10;
-    u16 temp_3_52;
-    struct M2c_temp_2_17 *temp_2_17;
-    struct M2c_temp_2_32 *temp_2_32;
-    struct M2c_temp_7_23 *temp_7_23;
-    struct M2c_temp_7_41 *temp_7_41;
-    struct M2c_temp_7_8 *temp_7_8;
+    s32 temp_4_41;
+    s32 temp_5_23;
+    s32 temp_6_8;
+    u16 temp_3_50;
+    struct M2c_temp_2_15 *temp_2_15;
+    struct M2c_temp_2_30 *temp_2_30;
+    struct M2c_temp_7_21 *temp_7_21;
+    struct M2c_temp_7_39 *temp_7_39;
+    struct M2c_temp_7_6 *temp_7_6;
 
-    temp_7_8 = D_0015F640 + 4;
-    temp_6_10 = arg2 - D_0015F640->unk4;
-    if (temp_6_10 < 0) {
+    temp_7_6 = D_0015F640[0] + 4;
+    temp_6_8 = arg2 - D_0015F640[0]->unk4;
+    if (temp_6_8 < 0) {
         goto block_8;
     }
-    if (temp_6_10 >= (s32) temp_7_8->unk2) {
+    if (temp_6_8 >= (s32) temp_7_6->unk2) {
         goto block_8;
     }
-    temp_2_17 = ((u8 *)temp_7_8 + ((temp_6_10 * 2)));
-    if (temp_2_17->unk4 == 0) {
+    temp_2_15 = ((u8 *)temp_7_6 + ((temp_6_8 * 2)));
+    if (temp_2_15->unk4 == 0) {
         goto block_8;
     }
-    temp_7_23 = D_0015F640 + (temp_2_17->unk4 * 4);
-    temp_5_25 = arg1 - temp_7_23->unk0;
-    if (temp_5_25 < 0) {
+    temp_7_21 = D_0015F640[0] + (temp_2_15->unk4 * 4);
+    temp_5_23 = arg1 - temp_7_21->unk0;
+    if (temp_5_23 < 0) {
         goto block_8;
     }
-    if (temp_5_25 >= (s32) temp_7_23->unk2) {
+    if (temp_5_23 >= (s32) temp_7_21->unk2) {
         goto block_8;
     }
-    temp_2_32 = ((u8 *)temp_7_23 + ((temp_5_25 * 2)));
-    if (temp_2_32->unk4 == 0) {
+    temp_2_30 = ((u8 *)temp_7_21 + ((temp_5_23 * 2)));
+    if (temp_2_30->unk4 == 0) {
         goto block_7;
     }
     goto block_9;
@@ -68,19 +64,19 @@ block_7:
 block_8:
     return NULL;
 block_9:
-    temp_7_41 = D_0015F640 + (temp_2_32->unk4 * 4);
-    temp_4_43 = arg0 - temp_7_41->unk0;
-    if (temp_4_43 < 0) {
+    temp_7_39 = D_0015F640[0] + (temp_2_30->unk4 * 4);
+    temp_4_41 = arg0 - temp_7_39->unk0;
+    if (temp_4_41 < 0) {
         goto block_8;
     }
-    if (temp_4_43 >= (s32) temp_7_41->unk2) {
+    if (temp_4_41 >= (s32) temp_7_39->unk2) {
         goto block_8;
     }
-    temp_3_52 = *(s32 *)((u8 *)(((u8 *)temp_7_41 + ((temp_4_43 * 2)))) + 0x4);
-    if (temp_3_52 == 0xFFFF) {
+    temp_3_50 = *(s32 *)((u8 *)(((u8 *)temp_7_39 + ((temp_4_41 * 2)))) + 0x4);
+    if (temp_3_50 == 0xFFFF) {
         goto block_13;
     }
-    return D_0015F640 + D_0015F640->unk0 + (temp_3_52 << 7);
+    return D_0015F640[0] + D_0015F640[0]->unk0 + (temp_3_50 << 7);
 block_13:
     return NULL;
 }

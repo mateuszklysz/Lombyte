@@ -5,10 +5,11 @@
 
 struct M2c_D_001D5BF0 {
     u8 pad_0[0xCB];
-    s32 unkCB;
+    u8 unkCB;
+    u8 pad_CC[0x3];
 };
 
-struct M2c_var_16_12 {
+struct M2c_var_16_10 {
     s32 unk0;
 };
 

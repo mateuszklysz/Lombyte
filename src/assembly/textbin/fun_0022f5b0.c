@@ -1,85 +1,61 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0022f5b0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 27.7281%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022f5b0/FUN_0022f5b0.s", FUN_0022f5b0);
 #else
+#include "rnc/assembly_textbin_fun_0022f5b0_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void *SearchData(void *a, void *b, int c);
-extern int cModel_setupModel(void *a, void *b, void *c, int d, int e);
-extern void cObjBase_KageInit(void *a, void *b, void *c);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
-extern char D_0044B4B8[];
-extern char D_003C3F58[];
-extern char D_003C3F68[];
-extern char D_003C3FB0[];
-
-/* sn-2.95.3-136 matched TU. */
 
 
+extern struct M2c_D_0013E030 D_0013E030;
+extern s32 D_0015ED6C;
+extern u8 D_001D9B60[];
+extern s32 func_001F96F8();
+extern s32 func_001F9A10();
+extern s32 func_001F9CF8();
+extern s32 func_00213260();
+extern s32 func_002132A8(f32, f32);
+extern s32 func_00218888();
+extern void sp10();
+void FUN_0022f5b0(s32 arg0, f32 fparg0) {
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    s64 sp20;
+    f32 sp2C;
+    s64 sp30;
+    f32 temp_f0_43;
+    f32 temp_f13_23;
+    s32 temp_16_84;
+    s32 temp_17_81;
+    s32 temp_18_78;
+    s32 var_20_14;
 
-
-
-
-
-
-
-
-
-
-__attribute__((section(".text.func_002B6768")))
-int FUN_0022f5b0(char *a0) {
-    void *m1;
-    void *m2;
-    int n;
-
-    if (*(unsigned char *)(a0 + 0x4D0) == 0) {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, 0);
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, 0);
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, 0);
-        }
-    } else {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, *(int *)(a0 + 0x4D4));
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, *(int *)(a0 + 0x4D4));
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, *(int *)(a0 + 0x4D4));
-        }
-    }
-    n = func_002B6688(*(unsigned short *)(a0 + 0x2FE));
-    *(int *)(a0 + 0x4DC) = n;
-    switch (n) {
-    case 1:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        break;
-    case 2:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F58);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x40000000;
-        break;
-    case 3:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x20000000;
-        break;
-    case 4:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3FB0);
-        break;
-    case 0:
-        break;
-    }
-    *(int *)(a0 + 0x254) = *(int *)(a0 + 0x254) | 0x8000000;
-    if (m1 == 0) {
-        return 0;
-    }
-    return cModel_setupModel(a0, m1, m2, 0, 0);
+    var_20_14 = 0;
+    temp_f13_23 = D_0015ED6C;
+    do {
+        sp10 = func_002132A8(-temp_f13_23, temp_f13_23);
+        sp14 = func_002132A8(-D_0015ED6C, D_0015ED6C);
+        temp_f0_43 = fparg0 + func_002132A8(D_0015ED6C * -0.25f, D_0015ED6C * 0.25f);
+        sp1C = 0.4f;
+        sp18 = temp_f0_43;
+        sp20 = sp10;
+        sp2C = 0.6f;
+        sp30 = *((D_0013E030.unk26 * 0x60) + (var_20_14 * 0x10) + D_001D9B60);
+        var_20_14 += 1;
+        func_001F9CF8(&sp30, &sp30, arg0 + 0xC0);
+        func_001F9A10(&sp30, &sp30, arg0 + 0x10);
+        temp_18_78 = func_001F96F8(4);
+        temp_17_81 = func_001F96F8(4);
+        temp_16_84 = func_001F96F8(4);
+        func_00218888(&sp30, &sp10, &sp20, 0x24C0C0C0, 0x14C0C0C0, temp_18_78, temp_17_81, temp_16_84 + func_00213260(func_001F96F8(4)), -1);
+    } while (var_20_14 < 6);
 }
 #endif /* NON_MATCHING */

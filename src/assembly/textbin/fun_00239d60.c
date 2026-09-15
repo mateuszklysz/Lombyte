@@ -1,135 +1,70 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00239d60
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 35.6814%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00239d60/FUN_00239d60.s", FUN_00239d60);
 #else
+#include "rnc/assembly_textbin_fun_00239d60_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void cIDBase_restartAnim(void *a0);
-extern void cIDBase_move(void *a0);
-
-/* sn-2.95.3-136 matched TU. */
 
 
 
 
-__attribute__((section(".text.func_001471F0")))
-void FUN_00239d60(char *s0) {
-    char st;
 
-    if (*(int *)(s0 + 0xB0) != 0) {
-        st = *(unsigned char *)(s0 + 0xB8) - 1;
-        switch (st) {
-        case 0:
-            cIDBase_restartAnim(s0);
-            s0[0x1C] = 1;
-            s0[0xB8] = 2;
-        case 1:
-            {
-            char *p1 = *(char **)(s0 + 0x90);
-            char *p2;
-            char *p3;
-            char *q;
-            *(float *)(p1 + 0x40) = *(float *)(p1 + 0x40) + 0.1f;
-            p2 = *(char **)(s0 + 0x90);
-            *(float *)(p2 + 0x44) = *(float *)(p2 + 0x44) + 0.1f;
-            p3 = *(char **)(s0 + 0x90);
-            q = *(char **)(p3 + 0x1C);
-            if (*(float *)(q + 0x28) < *(float *)(p3 + 0x40)) {
-                char *r;
-                char *rq;
-                char *t1;
-                char *t2;
-                *(float *)(p3 + 0x40) = *(float *)(q + 0x28);
-                r = *(char **)(s0 + 0x90);
-                rq = *(char **)(r + 0x1C);
-                *(float *)(r + 0x44) = *(float *)(rq + 0x2C);
-                t1 = *(char **)(s0 + 0x94);
-                *(unsigned short *)(t1 + 0x90) = *(unsigned short *)(s0 + 0xAC);
-                t2 = *(char **)(s0 + 0x98);
-                *(unsigned short *)(t2 + 0x90) = *(unsigned short *)(s0 + 0xAC);
-                s0[0xB8] = 3;
+
+extern s32 D_00161190;
+extern s32 D_00161194;
+extern s32 D_00161198[];
+extern struct M2c_D_001E66E0 D_001E66E0;
+extern s32 func_001FA6D0();
+s32 FUN_00239d60(f32 fparg0, f32 fparg1, f32 fparg2) {
+    s32 temp_16_76;
+    s32 temp_21_32;
+    s32 temp_22_31;
+    s32 temp_23_28;
+    s32 temp_2_45;
+    s32 temp_3_42;
+    s32 temp_4_46;
+    s32 temp_5_50;
+    s32 var_19_19;
+    s32 var_2_92;
+    s32 var_30_38;
+    struct M2c_temp_17_68 *temp_17_68;
+    struct M2c_var_18_36 *var_18_36;
+
+    var_19_19 = 0;
+    temp_23_28 = func_001FA6D0(fparg0 * 1024.0f);
+    temp_22_31 = func_001FA6D0(fparg1 * 1024.0f);
+    temp_21_32 = func_001FA6D0(fparg2 * 1024.0f);
+    var_18_36 = D_00161194;
+    if (D_00161198[0] > 0) {
+        var_30_38 = 0;
+loop_2:
+        temp_3_42 = var_18_36->unk0;
+        temp_2_45 = D_00161198[0];
+        if ((temp_23_28 >= temp_3_42) && (temp_4_46 = var_18_36->unk4, ((temp_22_31 < temp_4_46) == 0)) && (temp_5_50 = var_18_36->unk8, ((temp_21_32 < temp_5_50) == 0)) && (temp_23_28 < (temp_3_42 + var_18_36->unkC))) {
+            if ((temp_22_31 >= (temp_4_46 + var_18_36->unkE)) || (temp_21_32 >= (temp_5_50 + 0x800)) || (temp_17_68 = D_00161190 + var_30_38, temp_16_76 = func_001FA6D0((f32) temp_4_46, temp_5_50, (fparg0 - (temp_17_68->unk0 + D_001E66E0.unk8)) / D_001E66E0.unk10), var_2_92 = var_19_19, ((temp_17_68->unk1E & (1 << (((temp_16_76 >> 2) & 3) | (func_001FA6D0((fparg1 - (temp_17_68->unk4 + D_001E66E0.unkC)) / D_001E66E0.unk14) & 0xC)))) == 0))) {
+                goto block_10;
             }
+        } else {
+block_10:
+            var_19_19 += 1;
+            var_30_38 += 0x1190;
+            var_18_36 += 0x10;
+            if (var_19_19 >= temp_2_45) {
+                goto block_11;
             }
-            break;
-        case 2:
-            {
-            char *a = *(char **)(s0 + 0x94);
-            char *b;
-            *(int *)(a + 0x2C) = *(int *)(a + 0x2C) & 0xF7FFFFFFU;
-            b = *(char **)(s0 + 0x98);
-            *(int *)(b + 0x2C) = *(int *)(b + 0x2C) & 0xF7FFFFFFU;
-            switch (*(unsigned short *)(s0 + 0xAC)) {
-            case 0x2000:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2006;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2006;
-                *(int *)(*(char **)(s0 + 0xA4) + 0x2C) =
-                    *(int *)(*(char **)(s0 + 0xA4) + 0x2C) & 0xF7FFFFFFU;
-                break;
-            case 0x2001:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2007;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2007;
-                break;
-            case 0x2002:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2008;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2008;
-                break;
-            case 0x2003:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2009;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2009;
-                break;
-            case 0x2004:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x200A;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x200A;
-                *(int *)(*(char **)(s0 + 0xA8) + 0x2C) =
-                    *(int *)(*(char **)(s0 + 0xA8) + 0x2C) & 0xF7FFFFFFU;
-                break;
-            case 0x2005:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x200B;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x200B;
-                break;
-            }
-            }
-            break;
-        case 3:
-            {
-            char *c = *(char **)(s0 + 0x94);
-            char *d;
-            char *e1;
-            char *e2;
-            char *e3;
-            *(int *)(c + 0x2C) = *(int *)(c + 0x2C) | 0x8000000;
-            d = *(char **)(s0 + 0x98);
-            *(int *)(d + 0x2C) = *(int *)(d + 0x2C) | 0x8000000;
-            e1 = *(char **)(s0 + 0x90);
-            *(float *)(e1 + 0x40) = *(float *)(e1 + 0x40) - 0.1f;
-            e2 = *(char **)(s0 + 0x90);
-            *(float *)(e2 + 0x44) = *(float *)(e2 + 0x44) - 0.1f;
-            e3 = *(char **)(s0 + 0x90);
-            if (*(float *)(e3 + 0x40) < 0.0f) {
-                char *f1;
-                *(float *)(e3 + 0x40) = 0.0f;
-                f1 = *(char **)(s0 + 0x90);
-                *(float *)(f1 + 0x44) = 0.0f;
-                s0[0xB8] = 5;
-            }
-            }
-            break;
-        case 4:
-            s0[0xB8] = 0;
-            *(unsigned short *)(s0 + 0xAC) = 0xFFFF;
-            break;
+            goto loop_2;
         }
-        cIDBase_move(s0);
+    } else {
+block_11:
+        var_2_92 = -1;
     }
+    return var_2_92;
 }
 #endif /* NON_MATCHING */

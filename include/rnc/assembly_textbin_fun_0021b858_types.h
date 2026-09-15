@@ -43,19 +43,19 @@ struct M2c_arg0 {
     s32 unk3C;
     s32 unk40;
     s32 unk44;
-    struct M2c_temp_17_309 * unk48;
-    struct M2c_var_5_70 * unk4C;
-    struct M2c_var_5_156 * unk50;
+    struct M2c_temp_17_307 * unk48;
+    struct M2c_var_5_68 * unk4C;
+    struct M2c_var_5_154 * unk50;
     u8 * unk54;
     u8 * unk58;
 };
 
-struct M2c_temp_17_309 {
+struct M2c_temp_17_307 {
     u8 pad_0[0x6];
-    s32 unk6;
+    s16 unk6;
 };
 
-struct M2c_var_5_156 {
+struct M2c_var_5_154 {
     u8 pad_0[0x30];
     s32 unk30;
     u8 pad_34[0x8];
@@ -63,10 +63,10 @@ struct M2c_var_5_156 {
     u8 pad_40[0x4];
     s32 unk44;
     u8 pad_48[0x8];
-    struct M2c_var_5_156 * unk50;
+    struct M2c_var_5_154 * unk50;
 };
 
-struct M2c_var_5_70 {
+struct M2c_var_5_68 {
     u8 pad_0[0x30];
     s32 unk30;
     u8 pad_34[0x8];
@@ -74,7 +74,7 @@ struct M2c_var_5_70 {
     s32 unk40;
     s32 unk44;
     u8 pad_48[0x4];
-    struct M2c_var_5_70 * unk4C;
+    struct M2c_var_5_68 * unk4C;
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_0021B858_TYPES_H */

@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_001fa6d0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 97.5000%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -12,13 +10,8 @@ DECISION: retained (pending)
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001fa6d0/FUN_001fa6d0.s", FUN_001fa6d0);
 #else
 #include "types.h"
-/* cygnus-2.96 matched TU. */
 
-__attribute__((section(".text.func_003373A0")))
-void FUN_001fa6d0(int a, int *p) {
-    int n;
-    if (p == 0) { for (;;) { } }
-    n = *p;
-    if (n > 0) { do { n--; } while (n != 0); }
+s32 FUN_001fa6d0(f32 fparg0) {
+    return (s32) fparg0;
 }
 #endif /* NON_MATCHING */

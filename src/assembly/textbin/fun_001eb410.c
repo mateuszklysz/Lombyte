@@ -1,75 +1,144 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: Transition_DefaultDraw__Fb
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `Transition_DefaultDraw__Fb` starts here; this unit covers only its beginning. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 79.4755%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001eb410/FUN_001eb410.s", FUN_001eb410);
 #else
+#include "rnc/assembly_textbin_fun_001eb410_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_0061B7C0[];
-extern void *InitObjectSetVtable_4E090_2FFA90(void *);
-extern void *InitObjectSetVtable_4E820_2FFC20(void *);
-extern void *InitObjectSetVtable_4EA10_2FFC88(void *);
-extern void *InitObjectSetVtable_4EAB8_2FFCC8(void *);
-extern void *InitObjectSetVtable_4EB70_2FFD08(void *);
-extern void *InitObjectSetVtable_4EC68_2FFD48(void *);
-extern void *InitVtablePtrAndClearField_2FFD88(void *);
-extern void *InitObjectSetVtable_4EFA0_2FFE10(void *);
-extern void *InitObjectSetVtable_4F078_2FFE50(void *);
-extern void *InitObjectSetVtable_4F1C8_2FFE90(void *);
-extern void *InitObjectSetVtable_4F270_2FFED0(void *);
-extern void *InitObjectSetVtable_4F3A0_2FFF50(void *);
-extern void *InitObjectSetVtable_4F630_300020(void *);
-extern void *InitObjectFieldsIfNonNull_300060(void *);
-extern void *InitObjectSetVtable_4F880_3000B0(void *);
 
-__attribute__((section(".text.func_002FACA8")))
-void *FUN_001eb410(int slot, int type) {
-    char *r;
+extern u8 D_00100AE0[];
+extern s32 D_0013E504;
+extern s32 D_0015ED88;
+extern s32 D_0015EF48;
+extern s32 D_0015EF50;
+extern s32 D_0015EF54;
+extern s32 D_0015F43C;
+extern s32 D_0015F464[];
+extern s32 D_0015F604;
+extern s32 D_0015F620;
+extern struct M2c_D_0016045C *D_0016045C;
+extern s32 D_0018A2E8;
+extern u8 D_00193FC0[];
+extern u8 D_001D8EB0[];
+extern u8 D_001E1300[];
+extern u8 D_001E3200[];
+extern s32 AppendDmaTag();
+extern s32 FillTransferWords();
+extern s32 FlushCache();
+extern s32 func_001E9AB8();
+extern s32 func_001EAF88();
+extern s32 func_001F2260();
+extern s32 func_001F2588();
+extern s32 func_001F3868();
+extern s32 func_001F4280();
+extern s32 func_001F4398();
+extern s32 func_001F44B8();
+extern s32 func_001F4650();
+extern s32 func_001F5210();
+extern s32 func_001F5450();
+extern s32 func_001FA6D0();
+extern s32 func_001FB368();
+extern s32 func_001FB680();
+extern s32 func_001FBC50();
+extern s32 func_0020CC60();
+extern s32 func_0020CEF8();
+extern s32 func_0020D460();
+extern s32 func_00217C18();
+extern s32 func_002196B8();
+extern s32 func_00228A30();
+extern s32 func_00228B38();
+extern s32 func_0022A5E0();
+extern s32 func_00233308();
+extern s32 func_002333A8();
+extern s32 func_002334D8();
+extern s32 func_002337B0();
+extern s32 func_00233980();
+extern s32 func_00233C28();
+extern s32 func_00234F98();
+extern s32 func_00235780();
+extern s32 func_002358C8();
+extern s32 func_00237370();
+void FUN_001eb410(s32 *arg0) {
+    s32 *var_4_0;
+    s32 temp_4_121;
 
-    switch (type) {
-    case 0:  r = (char *)func_002FFA68(&D_0061B7C0[slot << 10]); break;
-    case 1:  r = (char *)InitObjectSetVtable_4E090_2FFA90(&D_0061B7C0[slot << 10]); break;
-    case 2:  r = (char *)func_002FFAD0(&D_0061B7C0[slot << 10]); break;
-    case 3:  r = (char *)func_002FFB10(&D_0061B7C0[slot << 10]); break;
-    case 4:  r = (char *)func_002FFB38(&D_0061B7C0[slot << 10]); break;
-    case 5:  r = (char *)func_002FFB80(&D_0061B7C0[slot << 10]); break;
-    case 6:  r = (char *)func_002FFBD0(&D_0061B7C0[slot << 10]); break;
-    case 7:  r = (char *)func_002FFBF8(&D_0061B7C0[slot << 10]); break;
-    case 8:  r = (char *)InitObjectSetVtable_4E820_2FFC20(&D_0061B7C0[slot << 10]); break;
-    case 9:  r = (char *)func_002FFC60(&D_0061B7C0[slot << 10]); break;
-    case 15: r = (char *)InitObjectSetVtable_4EA10_2FFC88(&D_0061B7C0[slot << 10]); break;
-    case 16: r = (char *)InitObjectSetVtable_4EAB8_2FFCC8(&D_0061B7C0[slot << 10]); break;
-    case 18: r = (char *)InitObjectSetVtable_4EB70_2FFD08(&D_0061B7C0[slot << 10]); break;
-    case 19: r = (char *)InitObjectSetVtable_4EC68_2FFD48(&D_0061B7C0[slot << 10]); break;
-    case 20: r = (char *)InitVtablePtrAndClearField_2FFD88(&D_0061B7C0[slot << 10]); break;
-    case 21: r = (char *)func_002FFDC8(&D_0061B7C0[slot << 10]); break;
-    case 22: r = (char *)InitObjectSetVtable_4EFA0_2FFE10(&D_0061B7C0[slot << 10]); break;
-    case 24: r = (char *)InitObjectSetVtable_4F078_2FFE50(&D_0061B7C0[slot << 10]); break;
-    case 25: r = (char *)InitObjectSetVtable_4F1C8_2FFE90(&D_0061B7C0[slot << 10]); break;
-    case 26: r = (char *)InitObjectSetVtable_4F270_2FFED0(&D_0061B7C0[slot << 10]); break;
-    case 29: r = (char *)func_002FFF10(&D_0061B7C0[slot << 10]); break;
-    case 30: r = (char *)InitObjectSetVtable_4F3A0_2FFF50(&D_0061B7C0[slot << 10]); break;
-    case 31: r = (char *)func_002FFF90(&D_0061B7C0[slot << 10]); break;
-    case 32: r = (char *)func_002FFFB8(&D_0061B7C0[slot << 10]); break;
-    case 33: r = (char *)func_002FFFE0(&D_0061B7C0[slot << 10]); break;
-    case 35: r = (char *)InitObjectSetVtable_4F630_300020(&D_0061B7C0[slot << 10]); break;
-    case 36: r = (char *)InitObjectFieldsIfNonNull_300060(&D_0061B7C0[slot << 10]); break;
-    case 37: r = (char *)func_00300088(&D_0061B7C0[slot << 10]); break;
-    case 38: r = (char *)InitObjectSetVtable_4F880_3000B0(&D_0061B7C0[slot << 10]); break;
-    default: return 0;
+    var_4_0 = arg0;
+    if ((D_0016045C == NULL) || (var_4_0 = D_00193FC0, (D_0016045C->unk4 != 0))) {
+        func_001FB368(var_4_0);
     }
-    r[0x102] = type;
-    return r;
+    FillTransferWords(D_00193FC0, -1, 0x80);
+    func_001EAF88();
+    func_001F2260();
+    func_0020CC60();
+    func_001F3868();
+    D_0015F620 = -1;
+    if (D_0016045C != NULL) {
+        func_001E9AB8();
+    }
+    func_002333A8();
+    AppendDmaTag(0x02010000);
+    func_002358C8();
+    AppendDmaTag(0x02020000);
+    func_00228B38();
+    AppendDmaTag(0x02040000);
+    if (D_0015F604 == 3) {
+        func_002196B8();
+    } else {
+        func_0020D460();
+    }
+    AppendDmaTag(0x02080000);
+    func_001F4280(0);
+    func_00233C28();
+    if (D_0015F464[0] != 0) {
+        func_001F4650();
+    }
+    func_00233C28();
+    if (D_0018A2E8 != 0) {
+        func_00233980(8, 5);
+        func_00233C28();
+        FlushCache(0);
+        func_00217C18();
+        D_0015F620 = 8;
+    }
+    func_001FB680();
+    func_001F3868();
+    if (D_0015EF50 != 0) {
+        func_001F5450(0xEC, 0x10, 0x100, 0x80, 0, 0, 0x100, 0x80, (D_0015EF50 << 0x18) | 0x808080, D_0015EF48);
+    }
+    if (D_0015EF54 != 0) {
+        temp_4_121 = D_0015ED88 - 1;
+        func_001F5450(0xA0, D_0013E504 - 0x50, 0xC0, 0x60, 0, 0, 0x100, 0x80, (D_0015EF54 << 0x18) | 0x808080, func_001F44B8(((temp_4_121 <= -1) ? 0 : temp_4_121) + 4));
+    }
+    func_001F4398();
+    if (D_0015F43C > 0.0f) {
+        if (D_0015F43C > 1.0f) {
+            D_0015F43C = 1.0f;
+        }
+        func_001F5210(0, 0, 0, func_001FA6D0(D_00100AE0, D_0015F43C * 128.0f));
+    }
+    func_002334D8(D_00100AE0);
+    FlushCache(0);
+    if (D_0015F604 == 4) {
+        func_001FBC50();
+    }
+    func_002337B0(2);
+    func_00234F98(D_001E1300);
+    func_00233308();
+    func_002337B0(4);
+    func_00237370(D_001E3200);
+    func_00235780();
+    func_002337B0(8);
+    func_0022A5E0(D_001D8EB0);
+    func_00228A30();
+    func_002337B0(0x10);
+    func_0020CEF8();
+    func_001F2588();
 }
 #endif /* NON_MATCHING */

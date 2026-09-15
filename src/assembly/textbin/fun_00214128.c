@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00214128
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 42.7872%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -14,47 +12,47 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214128/FUN_00214128.s
 #include "types.h"
 extern s32 func_001F9BF8();
 void FUN_00214128(s32 arg0) {
-u8 sp_slot[0x50];    f32 *var_2_17;
-    f32 *var_2_34;
-    f32 *var_3_16;
-    f32 *var_3_33;
-    f32 temp_f0_21;
-    f32 temp_f0_38;
-    s32 var_16_12;
-    s32 var_3_6;
-    s32 var_4_18;
-    s32 var_4_35;
+u8 sp_slot[0x50];    f32 *var_2_15;
+    f32 *var_2_32;
+    f32 *var_3_14;
+    f32 *var_3_31;
+    f32 temp_f0_19;
+    f32 temp_f0_36;
+    s32 var_16_10;
+    s32 var_3_4;
+    s32 var_4_16;
+    s32 var_4_33;
 
-    var_3_6 = 0;
-    var_16_12 = 0 * 4;
+    var_3_4 = 0;
+    var_16_10 = 0 * 4;
     do {
-        var_3_16 = sp_slot;
-        var_2_17 = arg0 + var_16_12;
-        var_4_18 = 2;
+        var_3_14 = sp_slot;
+        var_2_15 = arg0 + var_16_10;
+        var_4_16 = 2;
 loop_2:
-        temp_f0_21 = *var_2_17;
-        var_4_18 -= 1;
-        var_2_17 += 0x10;
-        *var_3_16 = temp_f0_21;
-        var_3_16 += 4;
-        if (var_4_18 >= 0) {
+        temp_f0_19 = *var_2_15;
+        var_4_16 -= 1;
+        var_2_15 += 4;
+        *var_3_14 = temp_f0_19;
+        var_3_14 += 4;
+        if (var_4_16 >= 0) {
             goto loop_2;
         }
         func_001F9BF8(sp_slot, sp_slot, 0x3F800000);
-        var_3_33 = arg0 + var_16_12;
-        var_2_34 = sp_slot;
-        var_4_35 = 2;
+        var_3_31 = arg0 + var_16_10;
+        var_2_32 = sp_slot;
+        var_4_33 = 2;
 loop_4:
-        temp_f0_38 = *var_2_34;
-        var_4_35 -= 1;
-        var_2_34 += 4;
-        *var_3_33 = temp_f0_38;
-        var_3_33 += 0x10;
-        if (var_4_35 >= 0) {
+        temp_f0_36 = *var_2_32;
+        var_4_33 -= 1;
+        var_2_32 += 4;
+        *var_3_31 = temp_f0_36;
+        var_3_31 += 0x10;
+        if (var_4_33 >= 0) {
             goto loop_4;
         }
-        var_3_6 += 1;
-        var_16_12 = var_3_6 * 4;
-    } while (var_3_6 < 3);
+        var_3_4 += 1;
+        var_16_10 = var_3_4 * 4;
+    } while (var_3_4 < 3);
 }
 #endif /* NON_MATCHING */

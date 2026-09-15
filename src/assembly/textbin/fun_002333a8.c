@@ -1,71 +1,60 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: DrawTfrag
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `DrawTfrag` starts here. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 70.3649%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002333a8/FUN_002333a8.s", FUN_002333a8);
 #else
+#include "rnc/assembly_textbin_fun_002333a8_types.h"
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
 
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern int D_00747A30;
-extern unsigned char D_0044A920[];
-extern unsigned char D_0044A940[];
-extern unsigned char D_0044A958[];
-extern unsigned char D_005E8640[];
-extern void cRelSys_unlinkNoFree(void *a0, int a1);
-extern void func_00297660(void);
-extern void cEventConfig_setEventNo(void *a0, int a1);
-extern unsigned char D_00586B30[];
 
-__attribute__((section(".text.LoadDisplayText_297450")))
-void FUN_002333a8(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    char buf[0x40];
-    unsigned long b = *(unsigned char *)(s0 + 8);
-    int a1;
-    if ((b >> 7) == 0) {
-        if (D_00747A30 & 0x400) {
-            func_003A6C58(buf, D_0044A920, D_0044A940);
-        } else {
-            func_003A6C58(buf, D_0044A958, D_0044A940);
-        }
-        a1 = *(int *)(s0 + 0x10);
-        if (a1 != 0) {
-            cRelSys_linkNoAlloc(D_005E8640, a1, buf, 2);
-            *(int *)(s0 + 8) = *(int *)(s0 + 8) | 0x80;
-        }
+extern s32 D_0015EE74;
+extern s32 D_0015EE78;
+extern u8 D_00160E70[];
+extern u8 D_00160E80[];
+extern s32 D_00160EBC;
+extern s32 D_00160F00;
+extern u8 D_00187080[];
+extern struct M2c_D_0018A2B0 D_0018A2B0;
+extern u8 D_001E1300[];
+extern s32 FlushCache();
+extern s32 WriteDmaChannel();
+extern s32 func_001F21B0();
+extern s32 func_001F21B8();
+extern s32 func_001F9A68(s32 *, u8 *, f32);
+extern s32 func_001F9FC8();
+extern s32 func_001FA378();
+extern s32 func_002331C0();
+extern s32 func_00233888();
+extern s32 func_00233FB0();
+void FUN_002333a8(void) {
+u8 sp_slot[0x30];    s32 sp30;
+    f32 sp3C;
+
+    D_00160EBC = D_00160F00;
+    D_0015EE74 = D_0015EE78;
+    D_00160F00 += 0x10;
+    func_001F21B8(D_00160E70, 1);
+    func_001F9FC8(sp_slot);
+    func_001F9A68(&sp30, D_00187080, -1024.0f);
+    sp3C = 1.0f;
+    func_001FA378(sp_slot, ((u8 *)D_00187080 - (u8 *)0x100), sp_slot);
+    func_00233888(5, sp_slot, 4);
+    func_00233888(0x14D, sp_slot, 4);
+    if (D_0018A2B0.unk10 != 0) {
+        FlushCache(0);
+        func_00233FB0();
     }
-}
-
-__attribute__((section(".text.ClearDisplayText_2974F0")))
-void ClearDisplayText_2974F0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long v0 = *(unsigned char *)(s0 + 8);
-    if (v0 >> 7) {
-        cRelSys_unlinkNoFree(D_005E8640, 2);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) & -0x81;
+    func_001F21B8(D_00160E80, 2);
+    func_002331C0();
+    if (D_0018A2B0.unk10 != 0) {
+        WriteDmaChannel(D_001E1300, 0x3000, 0x40);
     }
-}
-
-__attribute__((section(".text.InitSubState_2975F8")))
-void InitSubState_2975F8(void *a0, int a1) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long t = *(int *)(s0 + 8);
-    if (((t >> 1) & 1) == 0) {
-        func_00297660();
-        *(int *)(s0 + 0x18) = a1;
-        cEventConfig_setEventNo(D_00586B30, a1);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) | 2;
-    }
+    func_001F21B0(D_00160E80, 2);
 }
 #endif /* NON_MATCHING */

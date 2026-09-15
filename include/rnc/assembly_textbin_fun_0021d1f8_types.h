@@ -30,7 +30,7 @@ struct M2c_arg0 {
     s32 unk54;
 };
 
-struct M2c_var_3_17 {
+struct M2c_var_3_15 {
     s32 unk0;
 };
 

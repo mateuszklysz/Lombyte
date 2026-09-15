@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00214db0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 60.6410%
+ * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -15,16 +13,16 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214db0/FUN_00214db0.s
 #include "types.h"
 
 
-extern s32 func_001F9DC8();
-extern s32 func_001F9DE0();
+extern f32 func_001F9DC8(f32);
+extern f32 func_001F9DE0(f32);
 void FUN_00214db0(struct M2c_arg0 *arg0, f32 fparg0, f32 fparg1, f32 fparg2) {
-    f32 temp_f20_20;
-    f32 temp_f20_28;
+    f32 temp_f20_18;
+    f32 temp_f20_26;
 
-    temp_f20_20 = func_001F9DC8(fparg1);
-    arg0->unk0 = (f32) (temp_f20_20 * fparg0 * func_001F9DC8(fparg2));
-    temp_f20_28 = func_001F9DE0(fparg1);
-    arg0->unk4 = (f32) (temp_f20_28 * fparg0 * func_001F9DC8(fparg2));
+    temp_f20_18 = func_001F9DC8(fparg1);
+    arg0->unk0 = (f32) (temp_f20_18 * fparg0 * func_001F9DC8(fparg2));
+    temp_f20_26 = func_001F9DE0(fparg1);
+    arg0->unk4 = (f32) (temp_f20_26 * fparg0 * func_001F9DC8(fparg2));
     arg0->unk8 = (f32) (func_001F9DE0(fparg2) * fparg0);
 }
 #endif /* NON_MATCHING */
