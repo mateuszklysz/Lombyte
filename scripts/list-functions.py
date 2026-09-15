@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 """List the units whose C is still pending, smallest first.
 
-Reads ``config/us/rnc1.us.yaml`` and ``config/us/unit_categories.json``, so no
-build and no game files are needed.  A *pending* unit is assembly-backed
+Reads ``config/us/rnc1.us.yaml`` and ``config/us/unit_categories.json``; no
+build or game files needed.  A *pending* unit is assembly-backed
 (``src/assembly/...``) and is neither intentional low-level asm nor already
-byte-exact.  By default only units that already carry a readable C body under
-``#else`` are listed: those are the ones to refine rather than write from
-scratch.
+byte-exact; by default only units that already carry a C body under ``#else``
+are listed, so you can refine rather than write from scratch.
 
-With ``--score`` every listed unit's C body is measured against retail (about
-a minute for the full list) and the highest scores are listed first: those are
-usually the closest to a promotion.  This needs the baseline workspace built
-once with ``./verify-baseline.sh`` (``build/baseline`` inside the checkout, or
+With ``--score`` every listed unit's C body is measured against retail and the
+highest scores are listed first.  This needs the baseline workspace built once
+with ``./verify-baseline.sh`` (``build/baseline`` inside the checkout, or
 ``$BASELINE_ROOT`` when set); only that workspace is written to.
 
 Usage:

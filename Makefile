@@ -1,16 +1,11 @@
 # R&CRE — Ratchet & Clank (PS2, USA) matching decompilation
 #
-# The boot ELF is the only recompiled piece of the disc. It rebuilds
-# byte-for-byte (full-ELF SHA gate), so `make iso` patches a rebuilt ELF into
-# a copy of your legally owned disc image, preserving the ~4.2 GB of raw
-# LBA-addressed game data untouched.
+# Only the boot ELF is recompiled, and it must match retail byte-for-byte
+# (full-ELF SHA gate). `make iso` patches it into a copy of your legally owned
+# disc image, leaving the raw game data untouched.
 #
-# Setup:
-#   1. Drop a legally owned disc dump into dumps/ (e.g. dumps/game.iso).
-#   2. Install the build prerequisites (see README.md): EE-GCC compilers
-#      under tools/compilers/, ninja under tools/ninja/, objdiff-cli under
-#      tools/objdiff/, and a Python venv with splat + pyyaml.
-#   3. Run `make` below.
+# Setup: put a legally owned disc dump in dumps/ (e.g. dumps/game.iso) and
+# install the prerequisites (see README.md). Then run `make`.
 
 .PHONY: elf iso clean-iso
 

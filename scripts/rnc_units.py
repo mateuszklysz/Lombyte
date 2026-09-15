@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 """Shared configuration and source helpers for the contribution scripts.
 
-There is no command-line interface here.  ``list-functions.py`` imports this
-module for the pending-C work list, and ``check-unit.py`` imports it to stage
-one unit's C body for measurement.
-
-The configured-unit row format (``- [0xADDR, c, owner]``) and the category
-file are the same contract as ``scripts/generate_treemap.py``; the map script
-keeps its own copy of the parser so it stays standalone.
+No command-line interface; ``list-functions.py`` and ``check-unit.py`` import
+it.  The configured-unit row format (``- [0xADDR, c, owner]``) and the category
+file are the same contract as ``scripts/generate_treemap.py``, which keeps its
+own parser so it stays standalone.
 """
 
 from __future__ import annotations
@@ -158,11 +155,7 @@ def path_inside(path: Path, root: Path) -> bool:
 
 
 def oracle_fallback_units(workspace: Path) -> set[str]:
-    """Units this workspace rebuilds from the retail oracle instead of their C.
-
-    ``configure.py`` writes the list when the optional patched EE-GCC profile
-    is not installed, so tools can avoid reporting oracle results as C scores.
-    """
+    """Units this workspace rebuilds from the retail oracle instead of their C."""
     path = Path(workspace) / "config" / "us" / "oracle-fallback-units.json"
     if not path.is_file():
         return set()

@@ -1,32 +1,12 @@
 #!/usr/bin/env python3
 """Build the optional patched EE-GCC 2.9-ee-991111-01 profile.
 
-The profile is only needed to compile and verify the small set of units that
-were matched with it; ``make elf`` works without it (those units are rebuilt
-from the retail oracle, see docs/patched-toolchain.md).
-
-The script:
-
-1. obtains the public Sony EE-GCC snapshot at the pinned revision
-   (``SSXModding/ps2-ee-toolchain`` @ ``b595ded``),
-2. applies ``patches/ee-gcc-2.9-991111-01/patched-ee-gcc.patch``,
-3. builds ``cc1``, ``cpp`` and ``xgcc`` for the 32-bit host,
-4. installs them flat into the output directory and writes ``provenance.json``.
-
-Requirements: Linux with 32-bit host build support (``gcc -m32``, e.g. the
-``gcc-multilib`` package), GNU make, git, and GNU bison 1.28 (the script
-downloads and builds it when no compatible bison is on PATH).
-
-Usage:
-  python3 scripts/build-patched-toolchain.py
-  export HIMURO_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
-
-Offline use:
-  python3 scripts/build-patched-toolchain.py --source-dir /path/to/ps2-ee-toolchain
-  python3 scripts/build-patched-toolchain.py --bison /path/to/bison-1.28/bin/bison
-
-Check the patch and source revision without building:
-  python3 scripts/build-patched-toolchain.py --check
+Clones the public snapshot at the pinned revision, applies
+``patches/ee-gcc-2.9-991111-01/patched-ee-gcc.patch``, and builds ``cc1``,
+``cpp`` and ``xgcc`` into ``tools/ee-gcc2.9-991111-01-patched/``. Needs a
+32-bit host build environment (``gcc -m32``, e.g. ``gcc-multilib``); builds
+bison 1.28 automatically when no 1.2x bison is on PATH. See
+docs/patched-toolchain.md. Offline: pass ``--source-dir`` and ``--bison``.
 """
 
 from __future__ import annotations

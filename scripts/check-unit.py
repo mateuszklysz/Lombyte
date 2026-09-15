@@ -6,16 +6,14 @@ Usage:
 
 ``<unit>`` is a configured unit path such as ``assembly/textbin/fast_sin``; a
 leading ``src/`` and a trailing ``.c`` are accepted.  When the file keeps its
-assembly oracle under ``#ifndef NON_MATCHING``, the readable C body under
-``#else`` is staged into the workspace and measured alone, so the source tree
-keeps its oracle while you iterate.
+assembly oracle under ``#ifndef NON_MATCHING``, the C body under ``#else`` is
+staged into the workspace and measured alone, so the source tree keeps its
+oracle while you iterate.
 
-This is the fast inner loop, not the acceptance gate.  It needs a baseline
-workspace built once with ``./verify-baseline.sh`` (default ``build/baseline``
-inside the checkout, or ``$BASELINE_ROOT`` when set) and only rebuilds a single
-object.  The full-image run of ``./verify-baseline.sh`` stays the authoritative
-check.  Only the workspace copy of the unit's source is written; nothing
-outside the workspace is touched.
+This is the fast inner loop, not the acceptance gate: ``make elf`` stays
+authoritative.  It needs a baseline workspace built once with
+``./verify-baseline.sh`` (``build/baseline``, or ``$BASELINE_ROOT``) and writes
+only inside it.
 
 Usage examples:
   python3 scripts/check-unit.py assembly/math/subtract_integer_with_clamp
@@ -263,10 +261,10 @@ def main(argv=None) -> int:
         )
     if unit in rnc_units.oracle_fallback_units(workspace):
         return error(
-            f"{unit} is rebuilt from the retail oracle in this workspace because "
-            "HIMURO_PATCHED_ROOT is not configured; build the patched toolchain "
-            "(python3 scripts/build-patched-toolchain.py), re-run make elf, then "
-            "measure its C"
+            f"{unit} is rebuilt from the retail oracle in this workspace "
+            "because HIMURO_PATCHED_ROOT is not set; run "
+            "scripts/build-patched-toolchain.py, re-run make elf, then measure "
+            "its C"
         )
 
     ninja = find_ninja()

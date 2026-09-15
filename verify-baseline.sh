@@ -3,12 +3,10 @@ set -euo pipefail
 
 # Rebuild the boot ELF byte-for-byte from the checked-in sources.
 #
-# The build runs in a staging directory inside the checkout
-# (default build/baseline) so the frozen 32-bit compiler never reads from the
-# mounted source tree without a copy. Set BASELINE_ROOT to a native Linux
-# directory (for example $HOME/rnc-baseline) when the checkout itself is on a
-# Windows-mounted drive. The output boot ELF is verified by SHA-256 against
-# retail; `make iso` then patches it into a copy of your legally owned disc
+# The build runs in a staging directory inside the checkout (default
+# build/baseline). Set BASELINE_ROOT to a native Linux directory (for example
+# $HOME/rnc-baseline) when the checkout itself is on a Windows-mounted drive.
+# `make iso` patches the verified ELF into a copy of your legally owned disc
 # image.
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -53,9 +51,9 @@ fi
 if [[ -n "${HIMURO_PATCHED_ROOT:-}" && -x "$HIMURO_PATCHED_ROOT/xgcc" ]]; then
   printf 'note: patched EE-GCC profile: %s\n' "$HIMURO_PATCHED_ROOT"
 elif [[ -n "${HIMURO_PATCHED_ROOT:-}" ]]; then
-  printf 'warning: HIMURO_PATCHED_ROOT is set but %s/xgcc is missing; patched-profile units are rebuilt from the retail oracle\n' "$HIMURO_PATCHED_ROOT" >&2
+  printf 'warning: HIMURO_PATCHED_ROOT has no xgcc; patched-profile units fall back to the retail oracle\n' >&2
 else
-  printf 'note: HIMURO_PATCHED_ROOT is not set; units matched with the patched profile are rebuilt from the retail oracle (docs/patched-toolchain.md)\n'
+  printf 'note: HIMURO_PATCHED_ROOT is not set; patched-profile units fall back to the retail oracle (docs/patched-toolchain.md)\n'
 fi
 
 rm -rf "$BASELINE_ROOT"

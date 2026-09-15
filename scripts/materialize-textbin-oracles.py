@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 """Install stable raw-word oracles for textbin functions in a build workspace.
 
-Splat's generated textbin disassembly is useful for analysis, but the frozen
-EE compiler's inline assembler does not accept every VU/relocation spelling.
+Splat's textbin disassembly is useful for analysis, but the frozen EE
+compiler's inline assembler does not accept every VU/relocation spelling.
 This helper leaves splat output intact and adds a stable ``FUN_*.s`` byte
 oracle plus its expected object, which is what NON_MATCHING wrappers include.
-
-This is a build-only helper: it reads the project's segment table, reads raw
-bytes from the retail ELF, and assembles them. It does not decompile.
+Build-only: it reads the segment table and raw bytes from the retail ELF.
 """
 
 from __future__ import annotations
