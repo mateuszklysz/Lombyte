@@ -571,6 +571,71 @@ class UnitListHelpersTests(unittest.TestCase):
             self.assertTrue(self.units.path_inside(root / "src" / "x.c", root))
             self.assertFalse(self.units.path_inside(root.parent / "x.c", root))
 
+    def test_unsafe_unit_name(self):
+        self.assertFalse(self.units.unsafe_unit_name("assembly/textbin/fun_00112380"))
+        self.assertFalse(self.units.unsafe_unit_name("textbin/fun_002172c0"))
+        self.assertFalse(self.units.unsafe_unit_name("_dtoa_r"))
+        self.assertTrue(self.units.unsafe_unit_name("textbin/../../../../escape"))
+        self.assertTrue(self.units.unsafe_unit_name("/etc/passwd"))
+        self.assertTrue(self.units.unsafe_unit_name("textbin/foo; rm -rf /"))
+        self.assertTrue(self.units.unsafe_unit_name("textbin/foo bar"))
+        self.assertTrue(self.units.unsafe_unit_name(""))
+
+
+class OracleMaterializerGuardTests(unittest.TestCase):
+    """materialize-textbin-oracles.py must reject names that escape the tree."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.materializer = load_module(
+            "rnc_materialize_oracles",
+            ROOT / "scripts" / "materialize-textbin-oracles.py",
+        )
+
+    def _fixture(self, tmp: Path, unit: str):
+        config = tmp / "config.yaml"
+        config.write_text(
+            "segments:\n"
+            "  - name: main\n"
+            "    type: code\n"
+            "    start: 0x1000\n"
+            "    vram: 0x100080\n"
+            "    subsegments:\n"
+            f"          - [0x13300, c, {unit}]\n"
+            "          - [0x13328, textbin, gap_after]\n"
+        )
+        function_map = tmp / "map.csv"
+        function_map.write_text(
+            "Name,Start,End,Size\nFUN_00112380,0x00112380,0x001123A8,40\n"
+        )
+        return config, function_map
+
+    def test_rejects_unsafe_unit_names(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            config, function_map = self._fixture(tmp, "textbin/../../../../escape")
+            with self.assertRaises(ValueError):
+                self.materializer.configured_textbin_functions(config, function_map)
+
+    def test_rejects_unsafe_symbol_names(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            config, _ = self._fixture(tmp, "assembly/textbin/fun_00112380")
+            function_map = tmp / "map.csv"
+            function_map.write_text(
+                "Name,Start,End,Size\n../evil,0x00112380,0x001123A8,40\n"
+            )
+            with self.assertRaises(ValueError):
+                self.materializer.configured_textbin_functions(config, function_map)
+
+    def test_accepts_valid_names(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            config, function_map = self._fixture(tmp, "assembly/textbin/fun_00112380")
+            rows = self.materializer.configured_textbin_functions(config, function_map)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["symbol"], "FUN_00112380")
+
 
 class ListFunctionsTests(unittest.TestCase):
     """list-functions.py must filter, sort and print the pending work list."""

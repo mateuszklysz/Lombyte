@@ -17,10 +17,14 @@ import csv
 import json
 import os
 import re
-from pathlib import Path
 import shutil
 import struct
 import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import rnc_units  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -159,12 +163,19 @@ def configured_textbin_functions(
         row = mapped.get(address)
         if row is None or int(row["size"]) != int(item["size"]):
             continue
+        symbol = str(row["symbol"])
+        # Unit and symbol names become file paths and assembler arguments:
+        # fail closed instead of writing outside the workspace.
+        if rnc_units.unsafe_unit_name(name):
+            raise ValueError(f"unsafe unit name in configuration: {name!r}")
+        if rnc_units.unsafe_unit_name(symbol):
+            raise ValueError(f"unsafe symbol name in function map: {symbol!r}")
         rows.append(
             {
                 "unit": name,
                 "address": address,
                 "size": row["size"],
-                "symbol": row["symbol"],
+                "symbol": symbol,
             }
         )
     return rows
@@ -186,6 +197,10 @@ def install(
         size = int(row["size"])
         asm = workspace / "config/us/expected/asm" / unit / f"{symbol}.s"
         obj = workspace / "config/us/expected/obj" / f"{unit}.c.o"
+        wrapper = workspace / "src" / f"{unit}.c"
+        for path in (asm, obj, wrapper):
+            if not rnc_units.path_inside(path, workspace):
+                raise ValueError(f"refusing to write outside the workspace: {path}")
         asm.parent.mkdir(parents=True, exist_ok=True)
         obj.parent.mkdir(parents=True, exist_ok=True)
         try:
@@ -211,7 +226,6 @@ def install(
                 installed.append(unit)
                 continue
             asm.write_text(rendered)
-            wrapper = workspace / "src" / f"{unit}.c"
             if wrapper.is_file():
                 os.utime(wrapper, None)
             if not assembler.is_file():
@@ -257,9 +271,16 @@ def main() -> int:
     workspace = args.workspace.resolve()
     config = (args.config or workspace / "config/us/rnc1.us.yaml").resolve()
     elf = (args.elf or workspace / "config/us/SCUS_971.99").resolve()
-    result = install(
-        workspace, config=config, function_map=args.function_map.resolve(), elf=elf
-    )
+    try:
+        result = install(
+            workspace,
+            config=config,
+            function_map=args.function_map.resolve(),
+            elf=elf,
+        )
+    except ValueError as error:
+        print(f"materialize-textbin-oracles: error: {error}", file=sys.stderr)
+        return 2
     if args.json:
         args.json.resolve().write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))

@@ -117,6 +117,23 @@ def unit_source(repo: Path, owner: str) -> Path:
     return repo / "src" / f"{owner}.c"
 
 
+UNIT_NAME_RE = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9_./-]*$")
+
+
+def unsafe_unit_name(name: str) -> bool:
+    """True when a configured unit or symbol name may not be used in paths.
+
+    Build scripts derive file paths and shell command fragments from unit
+    names. Only the project's ``[A-Za-z0-9_./-]`` alphabet is accepted, and
+    no path segment may be ``..``.
+    """
+    candidate = str(name).strip()
+    if not UNIT_NAME_RE.match(candidate):
+        return True
+    parts = [part for part in candidate.split("/") if part not in ("", ".")]
+    return not parts or any(part == ".." for part in parts)
+
+
 def default_workspace(repo: Path) -> Path:
     """Baseline workspace used when none is configured.
 

@@ -16,6 +16,7 @@ import copy
 import json
 import os
 import re
+import shlex
 import shutil
 import struct
 import subprocess
@@ -446,6 +447,38 @@ MAP_PATH = f"build/{BASENAME}.map"
 PRE_ELF_PATH = f"build/{BASENAME}.elf"
 
 OBJDIFF_CATEGORY = {"id": "us", "name": "Ratchet & Clank (USA)"}
+
+# Configuration names become file paths and compiler command fragments.
+# Restrict them to the project's alphabet and forbid path escapes so a
+# malformed or hostile row cannot write outside the build workspace.
+_UNIT_NAME_RE = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9_./-]*$")
+
+
+def _check_unit_name(name: str) -> None:
+    parts = [part for part in name.split("/") if part not in ("", ".")]
+    if (
+        not _UNIT_NAME_RE.match(name)
+        or not parts
+        or any(part == ".." for part in parts)
+    ):
+        raise SystemExit(
+            f"unsafe unit name in build configuration: {name!r} "
+            "(allowed: letters, digits, '_', '.', '/', '-'; no '..')"
+        )
+
+
+def validate_config_names(node: Any) -> None:
+    """Reject configuration names that could escape the build tree."""
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key == "name" and isinstance(value, str):
+                _check_unit_name(value)
+            validate_config_names(value)
+    elif isinstance(node, list):
+        if len(node) >= 3 and isinstance(node[1], str) and isinstance(node[2], str):
+            _check_unit_name(node[2])
+        for item in node:
+            validate_config_names(item)
 
 
 @contextlib.contextmanager
@@ -1131,7 +1164,10 @@ def make_asm(config_path: Path, config: dict[str, Any]):
 
         rel_root = Path(os.path.relpath(ROOT, tmp_path))
         cpp = f"{rel_root}/{get_compiler_command('cpp')}"
-        up_includes = f"-I{rel_root}/src -I{rel_root}/include -Iinclude"
+        up_includes = " ".join(
+            shlex.quote(f"-I{part}")
+            for part in (f"{rel_root}/src", f"{rel_root}/include", "include")
+        )
 
         for asm_file in tmp_asm_dir.rglob("*.c.s"):
             asm_file_rel = asm_file.relative_to(tmp_path)
@@ -1140,9 +1176,13 @@ def make_asm(config_path: Path, config: dict[str, Any]):
             )
             obj_file = tmp_obj_path / obj_file_rel.relative_to("obj")
             obj_file.parent.mkdir(parents=True, exist_ok=True)
+            asm_include = shlex.quote(f"-Wa,-I{rel_root}/include")
+            assembler_include = shlex.quote(f"-I{rel_root}/include")
             subprocess.run(
-                f"{cpp} {up_includes} -Wa,-I{rel_root}/include '{asm_file_rel}' -o - | "
-                f"{CROSS}as -no-pad-sections -EL -march=5900 -mabi=eabi -I{rel_root}/include -o {obj_file_rel}",
+                f"{shlex.quote(cpp)} {up_includes} {asm_include} "
+                f"{shlex.quote(str(asm_file_rel))} -o - | "
+                f"{CROSS}as -no-pad-sections -EL -march=5900 -mabi=eabi "
+                f"{assembler_include} -o {shlex.quote(str(obj_file_rel))}",
                 shell=True,
                 cwd=tmp_path,
             )
@@ -1493,6 +1533,7 @@ def main():
         verbose=False,
         disassemble_all=False,
     )
+    validate_config_names(config["segments"])
 
     basename = config["options"]["basename"]
     config_dir = Path(args.YAML_FILE).parent
