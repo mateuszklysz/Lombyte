@@ -29,13 +29,16 @@ retail assembly and the per-unit comparison targets used below.
 ### 2. Pick a function
 
 ```sh
-python3 scripts/list-functions.py
+python3 scripts/list-functions.py --score
 ```
 
-This reads the build configuration and lists the units whose C is still
-pending, smallest first. Units that already contain a readable C body are the
-easiest starting points; the smallest of those are usually good first targets.
-Grab a unit name, for example `assembly/math/subtract_integer_with_clamp`.
+This lists the units whose C is still pending. With `--score` each candidate's
+current C body is measured against retail (about a minute for the full list)
+and the highest match is listed first: those are usually the closest to a
+promotion and the best first targets. Without `--score` the list is offline and
+sorted by size instead. Use `--limit` and `--filter` to narrow the list.
+
+Grab a unit name, for example `assembly/math/sign_extend_packed_value`.
 
 If you want to claim a function so nobody duplicates the work, open an issue or
 comment on an existing one with the unit name.

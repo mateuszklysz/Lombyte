@@ -201,7 +201,8 @@ documentation, and build reproducibility all help. The full walkthrough lives
 in [CONTRIBUTING.md](CONTRIBUTING.md); in short:
 
 1. Build the baseline once with `make elf` and keep the workspace it creates.
-2. Run `python3 scripts/list-functions.py` to see which units still need C.
+2. Run `python3 scripts/list-functions.py --score` to see which units still need
+   C, ranked by how close they are to matching.
 3. Refine the C body under `#else` and measure it with
    `python3 scripts/check-unit.py <unit>` until the object matches.
 4. Promote the unit (remove the oracle, move it out of `src/assembly/`, retag it
