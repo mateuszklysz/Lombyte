@@ -188,7 +188,6 @@ The recovered function starts at our unit and extends past it (206).
 | `assembly/textbin/fun_001fde90`             | 0x1fde90 | `Help_Update`                                       |
 | `assembly/textbin/fun_001fee38`             | 0x1fee38 | `Hud_GetIconIndex__Fi`                              |
 | `assembly/textbin/fun_001fefc0`             | 0x1fefc0 | `LinkHudBank__FiPc`                                 |
-| `assembly/textbin/fun_001ff288`             | 0x1ff288 | `Hud_HeapAlloc__FUiPcT1i`                           |
 | `assembly/textbin/fun_001ff960`             | 0x1ff960 | `GetIconFrame__Fii`                                 |
 | `assembly/textbin/fun_001ffa10`             | 0x1ffa10 | `GetFrameTex__Fi`                                   |
 | `assembly/textbin/fun_00201650`             | 0x201650 | `InitOnce__Fv`                                      |
@@ -299,6 +298,7 @@ The recovered function starts at our unit and extends past it (206).
 | `textbin/fun_001fb2a8`                      | 0x1fb2a8 | `PutDispBuffer__Fv`                                 |
 | `textbin/fun_001fdca0`                      | 0x1fdca0 | `Help_FindIndex`                                    |
 | `textbin/fun_001fdd10`                      | 0x1fdd10 | `msg_string__Fi`                                    |
+| `textbin/fun_001ff288`                      | 0x1ff288 | `Hud_HeapAlloc__FUiPcT1i`                           |
 | `textbin/fun_00201f58`                      | 0x201f58 | `RefreshPointLight`                                 |
 | `textbin/fun_00202d10`                      | 0x202d10 | `LoadCompressedHudBank__FiPc`                       |
 | `textbin/fun_0020d1a8`                      | 0x20d1a8 | `ProcessMobyAnimData__Fv`                           |
