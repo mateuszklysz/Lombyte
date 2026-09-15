@@ -147,7 +147,7 @@
     },
     {
       "name": "snd_SetMixerMode",
-      "unit": "assembly/textbin/fun_0012e280",
+      "unit": "textbin/fun_0012e280",
       "unit_size": "0x34",
       "match": "fragment",
       "address": "0x12e280",
@@ -395,7 +395,7 @@
     },
     {
       "name": "snd_InitMovieSound",
-      "unit": "assembly/textbin/fun_0012f068",
+      "unit": "textbin/fun_0012f068",
       "unit_size": "0x3c",
       "match": "fragment",
       "address": "0x12f068",
@@ -427,7 +427,7 @@
     },
     {
       "name": "snd_UpdateMovieADPCM",
-      "unit": "assembly/textbin/fun_0012f148",
+      "unit": "textbin/fun_0012f148",
       "unit_size": "0x2c",
       "match": "fragment",
       "address": "0x12f148",
@@ -1955,7 +1955,7 @@
     },
     {
       "name": "music_Pause__Fi",
-      "unit": "assembly/gs/initialize_render_state",
+      "unit": "gs/initialize_render_state",
       "unit_size": "0x34",
       "match": "fragment",
       "address": "0x216050",

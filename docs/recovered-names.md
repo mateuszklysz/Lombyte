@@ -128,7 +128,6 @@ The recovered function starts at our unit and extends past it (206).
 | :------------------------------------------ | :------- | :-------------------------------------------------- |
 | `assembly/core/fill_transfer_words`         | 0x1f97e8 | `FastMemSet`                                        |
 | `assembly/core/spin_wait`                   | 0x1f97c0 | `FastSitAndSpin__Fi`                                |
-| `assembly/gs/initialize_render_state`       | 0x216050 | `music_Pause__Fi`                                   |
 | `assembly/kernel/flush_cache`               | 0x118a80 | `FlushCache`                                        |
 | `assembly/kernel/jump_to_rfu_status`        | 0x12d8e8 | `_exit`                                             |
 | `assembly/kernel/update_rfu_dispatch_state` | 0x11dcc8 | `__main`                                            |
@@ -137,7 +136,6 @@ The recovered function starts at our unit and extends past it (206).
 | `assembly/textbin/fun_0012dc80`             | 0x12dc80 | `snd_FlushSoundCommands`                            |
 | `assembly/textbin/fun_0012df20`             | 0x12df20 | `snd_BankLoadByLoc`                                 |
 | `assembly/textbin/fun_0012e088`             | 0x12e088 | `snd_BankLoadFromEE_CB`                             |
-| `assembly/textbin/fun_0012e280`             | 0x12e280 | `snd_SetMixerMode`                                  |
 | `assembly/textbin/fun_0012e308`             | 0x12e308 | `snd_PlaySoundVolPanPMPB`                           |
 | `assembly/textbin/fun_0012e368`             | 0x12e368 | `snd_StopSound`                                     |
 | `assembly/textbin/fun_0012e4c0`             | 0x12e4c0 | `snd_SetSoundParams_CB`                             |
@@ -145,9 +143,7 @@ The recovered function starts at our unit and extends past it (206).
 | `assembly/textbin/fun_0012e9d8`             | 0x12e9d8 | `snd_SendCurrentBatch`                              |
 | `assembly/textbin/fun_0012eb20`             | 0x12eb20 | `snd_InitVAGStreamingEx`                            |
 | `assembly/textbin/fun_0012ec08`             | 0x12ec08 | `snd_PlayVAGStreamByLocEx_CB`                       |
-| `assembly/textbin/fun_0012f068`             | 0x12f068 | `snd_InitMovieSound`                                |
 | `assembly/textbin/fun_0012f108`             | 0x12f108 | `snd_StartMovieSound`                               |
-| `assembly/textbin/fun_0012f148`             | 0x12f148 | `snd_UpdateMovieADPCM`                              |
 | `assembly/textbin/fun_0012f208`             | 0x12f208 | `wad_GetSectors_FiiPv`                              |
 | `assembly/textbin/fun_001e9ab8`             | 0x1e9ab8 | `Transition_DrawSky__Fv`                            |
 | `assembly/textbin/fun_001ea830`             | 0x1ea830 | `Transition_LoadWad`                                |
@@ -274,12 +270,14 @@ The recovered function starts at our unit and extends past it (206).
 | `core/replace_state_field`                  | 0x23cc88 | `videoDecSetState__FP8VideoDecUi`                   |
 | `core/set_state_field`                      | 0x23cc70 | `videoDecAbort__FP8VideoDec`                        |
 | `core/store_object_index`                   | 0x12def8 | `snd_PrepareReturnBuffer`                           |
+| `gs/initialize_render_state`                | 0x216050 | `music_Pause__Fi`                                   |
 | `gs/update_render_state_command`            | 0x216088 | `music_Unpause__Fv`                                 |
 | `sdk/debug_print`                           | 0x1e93b0 | `STUB_printf`                                       |
 | `sdk/sce_pad2_read`                         | 0x124bd8 | `scePad2Read`                                       |
 | `textbin/fun_0012e1a8`                      | 0x12e1a8 | `snd_ResolveBankXREFS`                              |
 | `textbin/fun_0012e208`                      | 0x12e208 | `snd_SetMasterVolume`                               |
 | `textbin/fun_0012e240`                      | 0x12e240 | `snd_SetPlaybackMode`                               |
+| `textbin/fun_0012e280`                      | 0x12e280 | `snd_SetMixerMode`                                  |
 | `textbin/fun_0012e2b8`                      | 0x12e2b8 | `snd_SetGroupVoiceRange`                            |
 | `textbin/fun_0012e3b8`                      | 0x12e3b8 | `snd_StopAllSounds`                                 |
 | `textbin/fun_0012e448`                      | 0x12e448 | `snd_SoundIsStillPlaying_CB`                        |
@@ -289,8 +287,10 @@ The recovered function starts at our unit and extends past it (206).
 | `textbin/fun_0012ef28`                      | 0x12ef28 | `snd_StreamSafeCdCallback`                          |
 | `textbin/fun_0012efa8`                      | 0x12efa8 | `snd_PreAllocReverbWorkArea`                        |
 | `textbin/fun_0012efe0`                      | 0x12efe0 | `snd_AutoReverb`                                    |
+| `textbin/fun_0012f068`                      | 0x12f068 | `snd_InitMovieSound`                                |
 | `textbin/fun_0012f0a8`                      | 0x12f0a8 | `snd_ResetMovieSound`                               |
 | `textbin/fun_0012f0e0`                      | 0x12f0e0 | `snd_CloseMovieSound`                               |
+| `textbin/fun_0012f148`                      | 0x12f148 | `snd_UpdateMovieADPCM`                              |
 | `textbin/fun_0012f178`                      | 0x12f178 | `snd_GetMovieNAX`                                   |
 | `textbin/fun_001ebc90`                      | 0x1ebc90 | `BackupCurrentCam`                                  |
 | `textbin/fun_001f6530`                      | 0x1f6530 | `FontPrintLarge`                                    |
