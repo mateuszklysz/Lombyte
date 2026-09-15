@@ -14,13 +14,17 @@ build instead of slipping through.
 
 ### 1. Build the baseline once
 
-Follow [Building](README.md#building) to install the toolchain — including the
-patched EE-GCC profile referenced by `HIMURO_PATCHED_ROOT` — and to provide your
-own copy of the game, then run:
+Follow [Building](README.md#building) to install the required toolchain and
+provide your own copy of the game, then run:
 
 ```sh
 make elf
 ```
+
+The optional patched EE-GCC profile is not needed to build: without it a small
+set of units is rebuilt from the retail oracle. Build it separately (see
+[docs/patched-toolchain.md](docs/patched-toolchain.md)) if you want to work on
+those units' C.
 
 The run ends with `PASS: reconstructed boot ELF matches retail`. It also leaves
 a workspace at `build/baseline` inside the checkout (override with

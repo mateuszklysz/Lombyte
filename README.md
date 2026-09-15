@@ -68,14 +68,20 @@ Install Git, Make, Bash, Python 3 with virtual-environment support, and the foll
 | :-------------------------------------------------- | :------------------------------------------------------------------------------------- |
 | EE-GCC `2.9-ee-991111-01`                           | `tools/compilers/ee-gcc2.9-991111-01/`                                                 |
 | SN EE-GCC `2.95.2`                                  | `tools/compilers/ee-gcc-2.95.2/` (including `bin/ee-gcc.exe` and its supporting tools) |
-| Patched EE-GCC `2.9-991111-01` profile              | Set `HIMURO_PATCHED_ROOT` to the patched compiler root (`xgcc` plus its `cc1`)         |
 | R5900 binutils                                      | `mips-ps2-decompals-*` executables; set `BINUTILS_ROOT` to their directory             |
 | [objdiff CLI](https://github.com/encounter/objdiff) | `tools/objdiff/objdiff-cli`                                                            |
 | Ninja and Python build dependencies                 | Installed into `.venv` below                                                           |
 
 Compiler versions matter for matching. Preserve the compiler directory layouts and executable permissions when installing them. Toolchain binaries must be supplied separately; the build does not download them.
 
-The patched profile is a locally built `2.9-991111-01` compiler with opt-in code-generation controls. A small set of already-promoted units reproduces only under it, and the link fails without it, so the full baseline requires `HIMURO_PATCHED_ROOT` to be set.
+A small set of units was matched with an optional patched EE-GCC profile. `make elf` works without it: those units are then rebuilt from the retail oracle and the full-image gate still passes. Build the profile from the published source patch when you want to compile and verify their C:
+
+```sh
+python3 scripts/build-patched-toolchain.py
+export HIMURO_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
+```
+
+See [docs/patched-toolchain.md](docs/patched-toolchain.md) for requirements and details.
 
 From your checkout, for example `~/Lombyte`:
 
@@ -84,9 +90,8 @@ cd ~/Lombyte
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 
-# Point these at your installed toolchains.
+# Point this at your installed R5900 binutils.
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
-export HIMURO_PATCHED_ROOT="$HOME/tools/ee-gcc2.9-991111-01-patched"
 ```
 
 Use the versions in [requirements.txt](requirements.txt), including the pinned spimdisasm version, to match the expected disassembly output.
@@ -155,7 +160,7 @@ The build and ISO scripts support these environment overrides. Use absolute path
 | `VENV`                | `.venv` in the checkout                                                  |
 | `BASELINE_ROOT`       | `build/baseline` in the checkout; disposable staging directory           |
 | `BINUTILS_ROOT`       | Set to the directory containing your `mips-ps2-decompals-*` tools        |
-| `HIMURO_PATCHED_ROOT` | Directory of the patched EE-GCC profile; required for the full baseline  |
+| `HIMURO_PATCHED_ROOT` | Optional patched EE-GCC profile; units using it fall back to the oracle  |
 | `COMPILER_ROOT`       | `tools/compilers` in the checkout                                        |
 | `SN_TOOLCHAIN_ROOT`   | `tools/compilers/ee-gcc-2.95.2` in the checkout                          |
 
@@ -165,8 +170,13 @@ For example:
 # Override only when the checkout is on a Windows-mounted drive.
 export BASELINE_ROOT="$HOME/rnc-baseline"
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
-export HIMURO_PATCHED_ROOT="$HOME/tools/ee-gcc2.9-991111-01-patched"
 make elf
+```
+
+To use the optional patched EE-GCC profile:
+
+```sh
+export HIMURO_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
 ```
 
 To patch an already-built ELF with explicit input and output paths:
@@ -189,6 +199,7 @@ python3 rebuild-iso.py \
 | [`include/`](include/)           | Shared types, structures, and declarations                            |
 | [`config/`](config/)             | Executable layout, symbol maps, and analysis exports                  |
 | [`scripts/`](scripts/)           | Build-support helpers, the progress map, and contribution helpers     |
+| [`patches/`](patches/)           | Source patch for the optional patched EE-GCC profile                  |
 | [`docs/`](docs/)                 | Matching workflow and acceptance discipline                           |
 | [`assets/`](assets/)             | Lombyte emblem and generated progress map                             |
 | [`tools/`](tools/)               | Locally installed compilers and comparison tools (not tracked by Git) |

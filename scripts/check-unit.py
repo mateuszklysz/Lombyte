@@ -261,6 +261,13 @@ def main(argv=None) -> int:
             f"{unit} is not part of {workspace}; re-run ./verify-baseline.sh "
             "after pulling the latest source"
         )
+    if unit in rnc_units.oracle_fallback_units(workspace):
+        return error(
+            f"{unit} is rebuilt from the retail oracle in this workspace because "
+            "HIMURO_PATCHED_ROOT is not configured; build the patched toolchain "
+            "(python3 scripts/build-patched-toolchain.py), re-run make elf, then "
+            "measure its C"
+        )
 
     ninja = find_ninja()
     if ninja is None:

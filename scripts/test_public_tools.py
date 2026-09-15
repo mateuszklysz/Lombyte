@@ -581,6 +581,24 @@ class UnitListHelpersTests(unittest.TestCase):
         self.assertTrue(self.units.unsafe_unit_name("textbin/foo bar"))
         self.assertTrue(self.units.unsafe_unit_name(""))
 
+    def test_oracle_fallback_units(self):
+        with tempfile.TemporaryDirectory() as name:
+            workspace = Path(name) / "ws"
+            (workspace / "config" / "us").mkdir(parents=True)
+            self.assertEqual(self.units.oracle_fallback_units(workspace), set())
+            (workspace / "config" / "us" / "oracle-fallback-units.json").write_text(
+                json.dumps(
+                    {
+                        "schema": "rnc-oracle-fallback-v1",
+                        "units": ["sdk/bcd_to_time", "textbin/fun_002133d0"],
+                    }
+                )
+            )
+            self.assertEqual(
+                self.units.oracle_fallback_units(workspace),
+                {"sdk/bcd_to_time", "textbin/fun_002133d0"},
+            )
+
 
 class OracleMaterializerGuardTests(unittest.TestCase):
     """materialize-textbin-oracles.py must reject names that escape the tree."""
@@ -995,6 +1013,49 @@ class CheckUnitTests(unittest.TestCase):
                     code = self.check.main(["../outside/x"])
         self.assertEqual(code, 2)
         self.assertIn("invalid unit path", stderr.getvalue())
+
+    def test_refuses_oracle_fallback_units(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            (ws / "config" / "us" / "oracle-fallback-units.json").write_text(
+                json.dumps({"units": [self.unit]})
+            )
+            with mock.patch.object(self.check, "ROOT", tmp):
+                with contextlib.redirect_stderr(io.StringIO()) as stderr:
+                    code = self.check.main([self.unit, "--workspace", str(ws)])
+        self.assertEqual(code, 2)
+        self.assertIn("rebuilt from the retail oracle", stderr.getvalue())
+
+
+class PatchedToolchainArtifactTests(unittest.TestCase):
+    """The published toolchain patch and its build script must agree."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.builder = load_module(
+            "rnc_build_patched_toolchain",
+            ROOT / "scripts" / "build-patched-toolchain.py",
+        )
+
+    def test_patch_file_matches_pinned_hash(self):
+        patch = Path(self.builder.PATCH_PATH)
+        self.assertTrue(patch.is_file(), patch)
+        self.assertEqual(
+            hashlib.sha256(patch.read_bytes()).hexdigest(),
+            self.builder.PATCH_SHA256,
+        )
+
+    def test_source_and_bison_are_pinned(self):
+        self.assertEqual(self.builder.SOURCE_REVISION, "b595ded")
+        self.assertIn("ps2-ee-toolchain", self.builder.SOURCE_URL)
+        self.assertEqual(len(self.builder.BISON_SHA256), 64)
+        self.assertIn("bison-1.28", self.builder.BISON_URL)
+
+    def test_reference_hashes_are_full_sha256(self):
+        for name, digest in self.builder.REFERENCE_HASHES.items():
+            self.assertEqual(len(digest), 64, name)
 
 
 if __name__ == "__main__":

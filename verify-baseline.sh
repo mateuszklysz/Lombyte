@@ -50,8 +50,12 @@ fi
 [[ -x "$VENV/bin/python" ]] || die "missing virtual environment: $VENV (create it with: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt)"
 [[ -d "$COMPILER_ROOT/ee-gcc2.9-991111-01" ]] || die "missing frozen EE compiler under $COMPILER_ROOT"
 [[ -x "$SN_TOOLCHAIN_ROOT/bin/ee-gcc.exe" ]] || die "missing textbin ee-gcc under $SN_TOOLCHAIN_ROOT"
-if [[ -z "${HIMURO_PATCHED_ROOT:-}" ]]; then
-  printf 'warning: HIMURO_PATCHED_ROOT is not set; units promoted under the patched EE-GCC profile will not link (see README, Building)\n' >&2
+if [[ -n "${HIMURO_PATCHED_ROOT:-}" && -x "$HIMURO_PATCHED_ROOT/xgcc" ]]; then
+  printf 'note: patched EE-GCC profile: %s\n' "$HIMURO_PATCHED_ROOT"
+elif [[ -n "${HIMURO_PATCHED_ROOT:-}" ]]; then
+  printf 'warning: HIMURO_PATCHED_ROOT is set but %s/xgcc is missing; patched-profile units are rebuilt from the retail oracle\n' "$HIMURO_PATCHED_ROOT" >&2
+else
+  printf 'note: HIMURO_PATCHED_ROOT is not set; units matched with the patched profile are rebuilt from the retail oracle (docs/patched-toolchain.md)\n'
 fi
 
 rm -rf "$BASELINE_ROOT"

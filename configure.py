@@ -565,6 +565,22 @@ def _unit_from_object(object_path: Path) -> str:
     return joined
 
 
+# C-level aliases in promoted sources:
+#   extern __typeof__(TARGET) ALIAS __attribute__((alias("TARGET")));
+# When such a unit is built from the retail oracle instead of its C, the
+# oracle keeps the bytes but not the aliases, so they are provided to the
+# linker (PROVIDE, only when nothing else defines them).
+_ALIAS_RE = re.compile(
+    r"([A-Za-z_]\w*)\s*__attribute__\s*\(\(\s*alias\s*\(\s*\"([^\"]+)\"\s*\)\s*\)\)"
+)
+
+
+def _alias_symbols(source: Path) -> set[tuple[str, str]]:
+    """(alias, target) pairs declared in a source file."""
+    text = source.read_text(errors="replace")
+    return {(match.group(1), match.group(2)) for match in _ALIAS_RE.finditer(text)}
+
+
 PADLESS_ASM_HELPER = r'''#!/usr/bin/env python3
 """Normalize SN cc1 output for Ps2EeAs and drop section tail padding.
 
@@ -894,7 +910,7 @@ def build_stuff(
     ninja.rule(
         "ld",
         description="link $out",
-        command=f"{CROSS}ld {ld_args}",
+        command=f"{CROSS}ld {ld_args} -T oracle-aliases.txt",
     )
 
     ninja.rule(
@@ -903,11 +919,26 @@ def build_stuff(
         command="cmp -s $in && touch $out",
     )
 
+    # Used when a unit was matched with the optional patched EE-GCC profile
+    # and that profile is not installed: the unit is rebuilt from the retail
+    # oracle so the reconstructed image stays byte-exact.
+    ninja.rule(
+        "oracle_obj",
+        description="oracle $out",
+        command="cp $in $out",
+    )
+
     ninja.rule(
         "elf",
         description="elf $out",
         command=f"{CROSS}objcopy $in $out -O binary",
     )
+
+    # A unit is routed to the patched profile only when both the profile and
+    # the SN assembler it needs are present; otherwise it is rebuilt from the
+    # retail oracle and the image stays byte-exact.
+    patched_route = himuro_patched_configured() and sn_compiler_configured()
+    oracle_fallback_units: list[str] = []
 
     for entry in linker_entries:
         seg = entry.segment
@@ -936,11 +967,7 @@ def build_stuff(
             use_sn = sn_compiler_configured() and (
                 unit in SN_COMPILER_UNITS or (_unit_uses_sn(unit) and style == "sq")
             )
-            use_patched = (
-                himuro_patched_configured()
-                and sn_compiler_configured()
-                and unit in HIMURO_PATCHED_UNITS
-            )
+            use_patched = patched_route and unit in HIMURO_PATCHED_UNITS
             if use_patched:
                 pat_work = str(ROOT / "build/patched-work/units" / unit)
                 flags = _unit_patched_flag(unit)
@@ -955,6 +982,16 @@ def build_stuff(
                     entry.src_paths,
                     "cc_himuro_patched",
                     variables=variables,
+                )
+            elif not patched_route and unit in HIMURO_PATCHED_UNITS:
+                # The optional patched profile is not installed. Rebuild the
+                # unit from the retail oracle so the reconstructed image stays
+                # byte-exact; its C is verified when the profile is present.
+                oracle_fallback_units.append(unit)
+                build(
+                    entry.object_path,
+                    [Path("expected/obj") / f"{unit}.c.o"],
+                    "oracle_obj",
                 )
             elif sn_compiler_configured() and unit in PADLESS_ASM_UNITS:
                 sn_work = str(sn_repo / "build/sn-work/units" / unit)
@@ -1003,6 +1040,45 @@ def build_stuff(
         else:
             print(f"ERROR: Unsupported build segment type {seg.type}")
             sys.exit(1)
+
+    fallback_path = config_dir / "oracle-fallback-units.json"
+    alias_path = config_dir / "oracle-aliases.txt"
+    alias_entries: set[tuple[str, str]] = set()
+    if oracle_fallback_units:
+        fallback_path.write_text(
+            json.dumps(
+                {
+                    "schema": "rnc-oracle-fallback-v1",
+                    "reason": "HIMURO_PATCHED_ROOT is not configured",
+                    "units": sorted(oracle_fallback_units),
+                },
+                indent=2,
+            )
+            + "\n"
+        )
+        for unit in oracle_fallback_units:
+            source = (config_dir / ".." / ".." / "src" / f"{unit}.c").resolve()
+            if source.is_file():
+                alias_entries.update(_alias_symbols(source))
+        print(
+            f"HIMURO_PATCHED_ROOT not configured: {len(oracle_fallback_units)} "
+            "unit(s) will be built from the retail oracle "
+            "(see docs/patched-toolchain.md)"
+        )
+    else:
+        fallback_path.unlink(missing_ok=True)
+    alias_lines = [
+        "/*",
+        " * Fallback aliases for patched-profile units that are built from the",
+        " * retail oracle because HIMURO_PATCHED_ROOT is not configured.  The",
+        " * oracle keeps the bytes but not the C-level aliases, so they are",
+        " * provided here only when nothing else defines them.",
+        " */",
+    ]
+    alias_lines.extend(
+        f"PROVIDE({alias} = {target});" for alias, target in sorted(alias_entries)
+    )
+    alias_path.write_text("\n".join(alias_lines) + "\n")
 
     ninja.build(
         PRE_ELF_PATH,
