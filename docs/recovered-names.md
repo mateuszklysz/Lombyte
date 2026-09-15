@@ -350,7 +350,6 @@ The recovered function starts at our unit and its extent is not recoverable from
 | `assembly/textbin/fun_001fce28` | 0x1fce28 | `UpdateModeFreeze__Fv`                     |
 | `assembly/textbin/fun_00200b10` | 0x200b10 | `Hud_sendTexture__FPciiiii`                |
 | `assembly/textbin/fun_00201520` | 0x201520 | `LoadIRXModule`                            |
-| `assembly/textbin/fun_00201f88` | 0x201f88 | `DetachPointLight__Fi`                     |
 | `assembly/textbin/fun_00205640` | 0x205640 | `UNK_NoMapAvailable`                       |
 | `assembly/textbin/fun_0020b618` | 0x20b618 | `FastDecompress`                           |
 | `assembly/textbin/fun_0020dc20` | 0x20dc20 | `UpdateMobyGrids`                          |
@@ -376,6 +375,7 @@ The recovered function starts at our unit and its extent is not recoverable from
 | `ee/initialize_dma_packet`      | 0x1f7668 | `FontSetWindow`                            |
 | `textbin/fun_001e9338`          | 0x1e9338 | `LoadDebugFont`                            |
 | `textbin/fun_001fe898`          | 0x1fe898 | `Help_DrawPrompt`                          |
+| `textbin/fun_00201f88`          | 0x201f88 | `DetachPointLight__Fi`                     |
 | `textbin/fun_002049f0`          | 0x2049f0 | `ParseSpaceSceneChunk__Fi`                 |
 | `textbin/fun_00216828`          | 0x216828 | `Load`                                     |
 | `textbin/fun_00217a10`          | 0x217a10 | `UpdatePad__Fv`                            |

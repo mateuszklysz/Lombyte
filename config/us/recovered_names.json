@@ -1587,7 +1587,7 @@
     },
     {
       "name": "DetachPointLight__Fi",
-      "unit": "assembly/textbin/fun_00201f88",
+      "unit": "textbin/fun_00201f88",
       "unit_size": "0x2e8",
       "match": "entry_size_unknown",
       "address": "0x201f88",
