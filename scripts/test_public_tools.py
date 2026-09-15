@@ -18,6 +18,7 @@ import tempfile
 import textwrap
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -380,6 +381,379 @@ class RebuildIsoExtentTests(unittest.TestCase):
             self.assertEqual(code, 0)
             self.assertIn("byte-identical", stdout.getvalue())
             self.assertEqual(out_path.read_bytes(), bytes(iso))
+
+
+class UnitListHelpersTests(unittest.TestCase):
+    """rnc_units.py must parse the config and guard conventions exactly."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.units = load_module("rnc_units", ROOT / "scripts" / "rnc_units.py")
+
+    def test_parse_config_rows(self):
+        with tempfile.TemporaryDirectory() as name:
+            config = Path(name) / "config.yaml"
+            config.write_text(
+                textwrap.dedent(
+                    """
+                segments:
+                  - [0, databin, elf_header]
+                  - name: main
+                    type: code
+                    subsegments:
+                      - [0x1000, textbin, vutext]
+                      - [0x13300, c, textbin/exact_one]
+                      - [0x13400, c, assembly/textbin/pending_one]
+                      - [0x13500, textbin, text_gap_end]
+                """
+                )
+            )
+            rows = self.units.parse_config_rows(config)
+            self.assertEqual(
+                rows,
+                [
+                    (0x1000, "textbin", "vutext"),
+                    (0x13300, "c", "textbin/exact_one"),
+                    (0x13400, "c", "assembly/textbin/pending_one"),
+                    (0x13500, "textbin", "text_gap_end"),
+                ],
+            )
+            units = self.units.configured_units(config)
+        self.assertEqual(
+            units,
+            [
+                {"owner": "textbin/exact_one", "address": 0x13300, "size": 0x100},
+                {
+                    "owner": "assembly/textbin/pending_one",
+                    "address": 0x13400,
+                    "size": 0x100,
+                },
+            ],
+        )
+
+    def test_classify_units(self):
+        with tempfile.TemporaryDirectory() as name:
+            repo = Path(name)
+            (repo / "config" / "us").mkdir(parents=True)
+            (repo / "src" / "textbin").mkdir(parents=True)
+            (repo / "src" / "assembly" / "textbin").mkdir(parents=True)
+            (repo / "src" / "textbin" / "exact_one.c").write_text("/* promoted */\n")
+            (repo / "src" / "assembly" / "textbin" / "pending_one.c").write_text(
+                "/* oracle */\n"
+            )
+            (repo / "config" / "us" / "rnc1.us.yaml").write_text(
+                textwrap.dedent(
+                    """
+                subsegments:
+                  - [0x1000, c, textbin/exact_one]
+                  - [0x1100, c, assembly/textbin/pending_one]
+                  - [0x1200, c, assembly/textbin/intentional_asm]
+                  - [0x1300, textbin, text_gap_end]
+                """
+                )
+            )
+            (repo / "config" / "us" / "unit_categories.json").write_text(
+                json.dumps({"intentional_asm": ["assembly/textbin/intentional_asm"]})
+            )
+            units = {u["owner"]: u["category"] for u in self.units.classify_units(repo)}
+        self.assertEqual(units["textbin/exact_one"], "exact")
+        self.assertEqual(units["assembly/textbin/pending_one"], "pending")
+        self.assertEqual(units["assembly/textbin/intentional_asm"], "asm")
+
+    def test_split_oracle_guard_plain_source(self):
+        self.assertEqual(self.units.split_oracle_guard("int f(void) { return 1; }\n"), (False, None))
+
+    def test_split_oracle_guard_body(self):
+        text = textwrap.dedent(
+            """\
+            #include "types.h"
+            #ifndef NON_MATCHING
+            INCLUDE_ASM("oracle.s", FUN_00123456);
+            #else
+            int FUN_00123456(void) {
+                return 1;
+            }
+            #endif /* NON_MATCHING */
+            """
+        )
+        has_guard, body = self.units.split_oracle_guard(text)
+        self.assertTrue(has_guard)
+        self.assertIn("return 1;", body)
+        self.assertNotIn("INCLUDE_ASM", body)
+
+    def test_split_oracle_guard_without_body(self):
+        text = "#ifndef NON_MATCHING\nINCLUDE_ASM(\"oracle.s\", FUN_00123456);\n#endif\n"
+        self.assertEqual(self.units.split_oracle_guard(text), (True, None))
+
+    def test_split_oracle_guard_nested_directives(self):
+        text = textwrap.dedent(
+            """\
+            #ifndef NON_MATCHING
+            INCLUDE_ASM("oracle.s", FUN_00123456);
+            #else
+            #ifdef DEBUG
+            #endif
+            int FUN_00123456(void) {
+                return 1;
+            }
+            #endif /* NON_MATCHING */
+            """
+        )
+        has_guard, body = self.units.split_oracle_guard(text)
+        self.assertTrue(has_guard)
+        self.assertIn("return 1;", body)
+        self.assertIn("#ifdef DEBUG", body)
+
+
+class ListFunctionsTests(unittest.TestCase):
+    """list-functions.py must filter, sort and print the pending work list."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lister = load_module(
+            "rnc_list_functions", ROOT / "scripts" / "list-functions.py"
+        )
+
+    def _repo(self, tmp: Path):
+        (tmp / "config" / "us").mkdir(parents=True)
+        (tmp / "src" / "textbin").mkdir(parents=True)
+        (tmp / "src" / "assembly" / "textbin").mkdir(parents=True)
+        (tmp / "src" / "textbin" / "exact_one.c").write_text("/* promoted */\n")
+        (tmp / "src" / "assembly" / "textbin" / "with_c.c").write_text(
+            textwrap.dedent(
+                """\
+                #ifndef NON_MATCHING
+                INCLUDE_ASM("oracle.s", FUN_00123456);
+                #else
+                int FUN_00123456(void) {
+                    return 1;
+                }
+                #endif /* NON_MATCHING */
+                """
+            )
+        )
+        (tmp / "src" / "assembly" / "textbin" / "no_c.c").write_text(
+            "#ifndef NON_MATCHING\nINCLUDE_ASM(\"oracle.s\", FUN_00123457);\n#endif\n"
+        )
+        (tmp / "config" / "us" / "rnc1.us.yaml").write_text(
+            textwrap.dedent(
+                """
+            segments:
+              - [0, databin, elf_header]
+              - name: main
+                type: code
+                subsegments:
+                  - [0x1000, c, textbin/exact_one]
+                  - [0x1100, c, assembly/textbin/with_c]
+                  - [0x1200, c, assembly/textbin/no_c]
+                  - [0x1300, textbin, text_gap_end]
+            """
+            )
+        )
+        (tmp / "config" / "us" / "unit_categories.json").write_text(json.dumps({}))
+        (tmp / "config" / "us" / "recovered_names.json").write_text(json.dumps({}))
+
+    def test_default_lists_only_units_with_a_c_body(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            stdout = io.StringIO()
+            with (
+                mock.patch.object(self.lister, "ROOT", tmp),
+                contextlib.redirect_stdout(stdout),
+            ):
+                code = self.lister.main([])
+        self.assertEqual(code, 0)
+        output = stdout.getvalue()
+        self.assertIn("assembly/textbin/with_c", output)
+        self.assertNotIn("assembly/textbin/no_c", output)
+        self.assertNotIn("textbin/exact_one", output)
+
+    def test_all_and_json_include_units_without_a_c_body(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            stdout = io.StringIO()
+            with (
+                mock.patch.object(self.lister, "ROOT", tmp),
+                contextlib.redirect_stdout(stdout),
+            ):
+                code = self.lister.main(["--all", "--json"])
+        self.assertEqual(code, 0)
+        listed = json.loads(stdout.getvalue())
+        self.assertEqual(
+            [entry["unit"] for entry in listed],
+            ["assembly/textbin/no_c", "assembly/textbin/with_c"],
+        )
+        self.assertFalse(listed[0]["has_c_body"])
+        self.assertTrue(listed[1]["has_c_body"])
+
+
+class CheckUnitTests(unittest.TestCase):
+    """check-unit.py must stage, build and score one unit from a workspace."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.check = load_module("rnc_check_unit", ROOT / "scripts" / "check-unit.py")
+        cls.simple = SimpleNamespace
+        cls.unit = "assembly/textbin/demo"
+
+    def _repo(self, tmp: Path):
+        (tmp / "src" / "assembly" / "textbin").mkdir(parents=True)
+        (tmp / "src" / "assembly" / "textbin" / "demo.c").write_text(
+            textwrap.dedent(
+                """\
+                /*
+                STATE: C_NON_MATCHING
+                SYMBOL: FUN_00123456
+                */
+
+                #include "asm.h"
+
+                #ifndef NON_MATCHING
+                INCLUDE_ASM("oracle.s", FUN_00123456);
+                #else
+                int FUN_00123456(void) {
+                    return 1;
+                }
+                #endif /* NON_MATCHING */
+                """
+            )
+        )
+
+    def _workspace(self, tmp: Path):
+        ws = tmp / "ws"
+        (ws / "config" / "us").mkdir(parents=True)
+        (ws / ".rnc-baseline-root").write_text("")
+        (ws / "config" / "us" / "build.ninja").write_text("")
+        (ws / "tools" / "objdiff").mkdir(parents=True)
+        (ws / "tools" / "objdiff" / "objdiff-cli").write_text("")
+        (ws / "config" / "us" / "expected" / "asm" / self.unit).mkdir(parents=True)
+        (ws / "config" / "us" / "expected" / "asm" / self.unit / "FUN_00123456.s").write_text("")
+        (ws / "src" / "assembly" / "textbin").mkdir(parents=True)
+        (ws / "src" / "assembly" / "textbin" / "demo.c").write_text("/* stale */\n")
+        return ws
+
+    def _payload(self, match: float):
+        def side(instructions):
+            return {
+                "sections": [{"name": ".text", "size": "8", "match_percent": match}],
+                "symbols": [
+                    {
+                        "name": "FUN_00123456",
+                        "kind": "SYMBOL_FUNCTION",
+                        "size": "8",
+                        "match_percent": match,
+                        "instructions": instructions,
+                    }
+                ],
+            }
+
+        target = [{"instruction": {"address": "0", "size": 4, "formatted": "jr ra"}}]
+        current = list(target)
+        if match != 100.0:
+            target[0]["diff_kind"] = "DIFF_REPLACE"
+            current[0] = {
+                "diff_kind": "DIFF_REPLACE",
+                "instruction": {"address": "0", "size": 4, "formatted": "nop"},
+            }
+        return {"left": side(target), "right": side(current)}
+
+    def _run(self, argv, match=100.0):
+        calls = []
+
+        def fake_objdiff(objdiff, project, unit, config):
+            calls.append(config)
+            return self.simple(
+                returncode=0, stdout=json.dumps(self._payload(match)), stderr=""
+            )
+
+        with (
+            mock.patch.object(self.check, "find_ninja", return_value="/usr/bin/ninja"),
+            mock.patch.object(self.check, "objdiff_report", fake_objdiff),
+            mock.patch.object(
+                self.check.subprocess,
+                "run",
+                lambda *a, **k: self.simple(returncode=0, stdout="", stderr=""),
+            ),
+            contextlib.redirect_stdout(io.StringIO()) as stdout,
+        ):
+            code = self.check.main(argv)
+        return code, stdout.getvalue(), calls
+
+    def test_rejects_source_without_c_body(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            (tmp / "src" / "assembly" / "textbin").mkdir(parents=True)
+            (tmp / "src" / "assembly" / "textbin" / "demo.c").write_text(
+                "#ifndef NON_MATCHING\nINCLUDE_ASM(\"oracle.s\", FUN_00123456);\n#endif\n"
+            )
+            with mock.patch.object(self.check, "ROOT", tmp):
+                with contextlib.redirect_stderr(io.StringIO()) as stderr:
+                    code = self.check.main([self.unit, "--workspace", str(tmp)])
+        self.assertEqual(code, 2)
+        self.assertIn("no readable C body", stderr.getvalue())
+
+    def test_stages_body_and_reports_match(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            with mock.patch.object(self.check, "ROOT", tmp):
+                code, output, _ = self._run(
+                    [self.unit, "--workspace", str(ws)], match=100.0
+                )
+            staged = (ws / "src" / "assembly" / "textbin" / "demo.c").read_text()
+        self.assertEqual(code, 0)
+        self.assertIn("Object matches.", output)
+        self.assertIn("return 1;", staged)
+        self.assertNotIn("INCLUDE_ASM", staged)
+
+    def test_reports_mismatch_and_scores(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            ws = self._workspace(tmp)
+            with mock.patch.object(self.check, "ROOT", tmp):
+                code, output, calls = self._run(
+                    [self.unit, "--workspace", str(ws)], match=50.0
+                )
+        self.assertEqual(code, 1)
+        self.assertIn("Not matching yet", output)
+        self.assertIn("first differences", output)
+        self.assertIn("FUN_00123456", output)
+        self.assertEqual(calls, ["functionRelocDiffs=none"])
+
+    def test_requires_a_baseline_workspace(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            (tmp / "not-a-workspace").mkdir()
+            with mock.patch.object(self.check, "ROOT", tmp):
+                with contextlib.redirect_stderr(io.StringIO()) as stderr:
+                    code = self.check.main(
+                        [self.unit, "--workspace", str(tmp / "not-a-workspace")]
+                    )
+        self.assertEqual(code, 2)
+        self.assertIn("not a baseline workspace", stderr.getvalue())
+
+    def test_rejects_intentional_asm_units(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            (tmp / "config" / "us").mkdir(parents=True)
+            (tmp / "config" / "us" / "unit_categories.json").write_text(
+                json.dumps({"intentional_asm": [self.unit]})
+            )
+            with mock.patch.object(self.check, "ROOT", tmp):
+                with contextlib.redirect_stderr(io.StringIO()) as stderr:
+                    code = self.check.main([self.unit, "--workspace", str(tmp)])
+        self.assertEqual(code, 2)
+        self.assertIn("intentional low-level asm", stderr.getvalue())
+
+    def test_normalize_unit(self):
+        self.assertEqual(self.check.normalize_unit("src/assembly/x/y.c"), "assembly/x/y")
+        self.assertEqual(self.check.normalize_unit("./assembly/x/y"), "assembly/x/y")
 
 
 if __name__ == "__main__":

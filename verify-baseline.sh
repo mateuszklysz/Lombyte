@@ -42,6 +42,9 @@ fi
 [[ -x "$VENV/bin/python" ]] || die "missing virtual environment: $VENV (create it with: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt)"
 [[ -d "$COMPILER_ROOT/ee-gcc2.9-991111-01" ]] || die "missing frozen EE compiler under $COMPILER_ROOT"
 [[ -x "$SN_TOOLCHAIN_ROOT/bin/ee-gcc.exe" ]] || die "missing textbin ee-gcc under $SN_TOOLCHAIN_ROOT"
+if [[ -z "${HIMURO_PATCHED_ROOT:-}" ]]; then
+  printf 'warning: HIMURO_PATCHED_ROOT is not set; units promoted under the patched EE-GCC profile will not link (see README, Building)\n' >&2
+fi
 
 rm -rf "$BASELINE_ROOT"
 mkdir -p "$BASELINE_ROOT"
