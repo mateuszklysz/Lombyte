@@ -68,11 +68,14 @@ Install Git, Make, Bash, Python 3 with virtual-environment support, and the foll
 | :-------------------------------------------------- | :------------------------------------------------------------------------------------- |
 | EE-GCC `2.9-ee-991111-01`                           | `tools/compilers/ee-gcc2.9-991111-01/`                                                 |
 | SN EE-GCC `2.95.2`                                  | `tools/compilers/ee-gcc-2.95.2/` (including `bin/ee-gcc.exe` and its supporting tools) |
+| Patched EE-GCC `2.9-991111-01` profile              | Set `HIMURO_PATCHED_ROOT` to the patched compiler root (`xgcc` plus its `cc1`)         |
 | R5900 binutils                                      | `mips-ps2-decompals-*` executables; set `BINUTILS_ROOT` to their directory             |
 | [objdiff CLI](https://github.com/encounter/objdiff) | `tools/objdiff/objdiff-cli`                                                            |
 | Ninja and Python build dependencies                 | Installed into `.venv` below                                                           |
 
 Compiler versions matter for matching. Preserve the compiler directory layouts and executable permissions when installing them. Toolchain binaries must be supplied separately; the build does not download them.
+
+The patched profile is a locally built `2.9-991111-01` compiler with opt-in code-generation controls. A small set of already-promoted units reproduces only under it, and the link fails without it, so the full baseline requires `HIMURO_PATCHED_ROOT` to be set.
 
 From your checkout, for example `~/Lombyte`:
 
@@ -81,8 +84,9 @@ cd ~/Lombyte
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 
-# Point this at your installed R5900 binutils executables.
+# Point these at your installed toolchains.
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
+export HIMURO_PATCHED_ROOT="$HOME/tools/ee-gcc2.9-991111-01-patched"
 ```
 
 Use the versions in [requirements.txt](requirements.txt), including the pinned spimdisasm version, to match the expected disassembly output.
@@ -146,19 +150,21 @@ The original disc image is preserved. With a byte-identical boot ELF, the rebuil
 
 The build and ISO scripts support these environment overrides. Use absolute paths for custom tool and staging locations.
 
-| Variable            | Default / usage                                                   |
-| :------------------ | :---------------------------------------------------------------- |
-| `VENV`              | `.venv` in the checkout                                           |
-| `BASELINE_ROOT`     | `~/rnc-baseline`; dedicated, disposable staging directory         |
-| `BINUTILS_ROOT`     | Set to the directory containing your `mips-ps2-decompals-*` tools |
-| `COMPILER_ROOT`     | `tools/compilers` in the checkout                                 |
-| `SN_TOOLCHAIN_ROOT` | `tools/compilers/ee-gcc-2.95.2` in the checkout                   |
+| Variable              | Default / usage                                                          |
+| :-------------------- | :----------------------------------------------------------------------- |
+| `VENV`                | `.venv` in the checkout                                                  |
+| `BASELINE_ROOT`       | `~/rnc-baseline`; dedicated, disposable staging directory                |
+| `BINUTILS_ROOT`       | Set to the directory containing your `mips-ps2-decompals-*` tools        |
+| `HIMURO_PATCHED_ROOT` | Directory of the patched EE-GCC profile; required for the full baseline  |
+| `COMPILER_ROOT`       | `tools/compilers` in the checkout                                        |
+| `SN_TOOLCHAIN_ROOT`   | `tools/compilers/ee-gcc-2.95.2` in the checkout                          |
 
 For example:
 
 ```sh
 export BASELINE_ROOT="$HOME/rnc-baseline"
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
+export HIMURO_PATCHED_ROOT="$HOME/tools/ee-gcc2.9-991111-01-patched"
 make elf
 ```
 
@@ -181,7 +187,7 @@ python3 rebuild-iso.py \
 | [`src/assembly/`](src/assembly/) | Assembly-backed units that preserve the original code                 |
 | [`include/`](include/)           | Shared types, structures, and declarations                            |
 | [`config/`](config/)             | Executable layout, symbol maps, and analysis exports                  |
-| [`scripts/`](scripts/)           | Build-support helpers and the progress-map generator                  |
+| [`scripts/`](scripts/)           | Build-support helpers, the progress map, and contribution helpers     |
 | [`docs/`](docs/)                 | Matching workflow and acceptance discipline                           |
 | [`assets/`](assets/)             | Lombyte emblem and generated progress map                             |
 | [`tools/`](tools/)               | Locally installed compilers and comparison tools (not tracked by Git) |
@@ -190,16 +196,24 @@ python3 rebuild-iso.py \
 
 ## Contributing
 
-Contributions are welcome, from matching functions and recovering names to improving types, documentation, and build reproducibility. See [docs/decompilation-tips.md](docs/decompilation-tips.md) for a step-by-step walkthrough of the matching workflow.
+Contributions are welcome: matching functions, recovered names, types,
+documentation, and build reproducibility all help. The full walkthrough lives
+in [CONTRIBUTING.md](CONTRIBUTING.md); in short:
 
-For code contributions:
+1. Build the baseline once with `make elf` and keep the workspace it creates.
+2. Run `python3 scripts/list-functions.py` to see which units still need C.
+3. Refine the C body under `#else` and measure it with
+   `python3 scripts/check-unit.py <unit>` until the object matches.
+4. Promote the unit (remove the oracle, move it out of `src/assembly/`, retag it
+   in `config/us/rnc1.us.yaml`) and run `make elf` — it must end with
+   `PASS: reconstructed boot ELF matches retail`.
+5. Open a pull request with the unit name and the verification output.
 
-1. Start with a reproducible baseline using the supported executable and compiler versions.
-2. Keep changes focused and follow the surrounding source and naming conventions.
-3. Compare affected objects with objdiff and run `make elf` before submitting.
-4. Include the affected functions, matching results, and full-build verification in your pull request. Clearly identify any work-in-progress code.
-
-For build issues, include your operating system, tool versions, command, and relevant error output. Supply hashes and logs rather than game images or proprietary compiler binaries.
+Work-in-progress C is welcome too: keep the oracle, make sure `make elf` still
+passes, and describe the remaining mismatch in the pull request. For build
+issues, include your operating system, tool versions, command, and relevant
+error output. Supply hashes and logs rather than game images or proprietary
+compiler binaries.
 
 ## Credits
 

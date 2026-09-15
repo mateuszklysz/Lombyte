@@ -1,5 +1,9 @@
 # Matching workflow and acceptance discipline
 
+> **New contributors:** [CONTRIBUTING.md](../CONTRIBUTING.md) has the simple
+> pick-a-function loop and the exact commands to run. This document is the full
+> acceptance discipline behind those commands; read it before promoting a unit.
+
 Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
 
 ## 1. Ground truth
