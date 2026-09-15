@@ -1201,7 +1201,7 @@ segments:
           - [0x1000a0, textbin, text_gap_001ff120_before_fun_001ff128]
           - [0x1000a8, c, assembly/textbin/hud_send_resident_bank]
           - [0x1001e0, c, core/hud_heap_reset]
-          - [0x100208, c, assembly/textbin/fun_001ff288]
+          - [0x100208, c, textbin/fun_001ff288]
           - [0x10027c, textbin, text_gap_001ff2fc_after_fun_001ff288]
           - [0x100288, c, assembly/textbin/fun_001ff308]
           - [0x100394, textbin, text_gap_001ff414_before_fun_001ff418]
