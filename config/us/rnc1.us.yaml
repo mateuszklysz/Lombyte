@@ -1671,7 +1671,7 @@ segments:
           - [0x1228b0, c, textbin/fun_00221930]
           - [0x1228e8, c, assembly/textbin/fun_00221968]
           - [0x1229c4, textbin, text_gap_00221a44_before_fun_00221a48]
-          - [0x1229c8, c, assembly/textbin/fun_00221a48]
+          - [0x1229c8, c, textbin/fun_00221a48]
           - [0x122a04, textbin, text_gap_00221a84_before_fun_00221a88]
           - [0x122a08, c, textbin/fun_00221a88]
           - [0x122a38, textbin, text_gap_00221ab8_after_fun_00221a88]
