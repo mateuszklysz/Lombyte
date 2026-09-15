@@ -5,14 +5,14 @@
 <defs><linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/><stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.16"/></linearGradient></defs>
 <path d="M6 0.7 L11.3 3.5 L11.3 8.5 L6 11.3 L0.7 8.5 L0.7 3.5 Z M3.8 6 A2.2 2.2 0 1 1 8.2 6 A2.2 2.2 0 1 1 3.8 6 Z" fill="#dd8b30" fill-rule="evenodd" transform="translate(10 14) scale(0.833)"/>
 <text x="26" y="24" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="14.0" font-weight="700" letter-spacing="0.2"><tspan fill="#dd8b30">Ratchet</tspan><tspan fill="#c3cbd8"> &amp; Clank</tspan><tspan fill="#a6adc8" font-weight="500"> - decompilation progress</tspan></text>
-<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">544 matching C &#183; 129 intentional asm &#183; 662 pending</text>
+<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">545 matching C &#183; 129 intentional asm &#183; 661 pending</text>
 <rect x="629" y="14" width="10" height="10" rx="2" fill="#dd8b30"/>
-<text x="644" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 76,820 B</text>
+<text x="644" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 78,012 B</text>
 <rect x="629" y="31" width="10" height="10" rx="2" fill="#c3cbd8"/>
 <text x="644" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 40,632 B</text>
 <rect x="629" y="48" width="10" height="10" rx="2" fill="#2e3644"/>
-<text x="644" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 313,268 B</text>
-<text x="619" y="38" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="28.0" font-weight="800" fill="#dd8b30">19.7%</text>
+<text x="644" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 312,076 B</text>
+<text x="619" y="38" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="28.0" font-weight="800" fill="#dd8b30">20.0%</text>
 <text x="619" y="52" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8">of recoverable C decompiled</text>
 <rect x="10.00" y="62.00" width="141.95" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>memcard_Update · assembly/textbin/fun_002093d8 · 0x10A358 · 6100 B · pending C</title></rect>
 <rect x="151.95" y="62.00" width="139.53" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022f778 · 0x1306F8 · 5996 B · pending C</title></rect>
@@ -75,7 +75,7 @@
 <rect x="72.39" y="564.78" width="61.25" height="57.07" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0021b1c8 · 0x11C148 · 1292 B · pending C</title></rect>
 <rect x="133.65" y="564.78" width="59.93" height="57.07" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>FontPrintWindow · assembly/textbin/fun_001f7090 · 0xF8010 · 1264 B · pending C</title></rect>
 <rect x="193.57" y="564.78" width="57.46" height="57.07" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001fd748 · 0xFE6C8 · 1212 B · pending C</title></rect>
-<rect x="251.04" y="564.78" width="56.51" height="57.07" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>_decMB0 · assembly/sdk/library/_decMB0 · 0x28B80 · 1192 B · pending C</title></rect>
+<rect x="251.04" y="564.78" width="56.51" height="57.07" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>_decMB0 · sdk/library/_decMB0 · 0x28B80 · 1192 B · exact C</title></rect>
 <rect x="307.55" y="564.78" width="56.32" height="57.07" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022e420 · 0x12F3A0 · 1188 B · pending C</title></rect>
 <rect x="363.87" y="564.78" width="56.13" height="57.07" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0021d4a8 · 0x11E428 · 1184 B · pending C</title></rect>
 <rect x="420.01" y="564.78" width="54.81" height="57.07" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0021d948 · 0x11E8C8 · 1156 B · pending C</title></rect>
@@ -1460,8 +1460,7 @@
 <text x="76.39" y="586.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="5.5" fill="#a6adc8">1.29kB · 0.00%</text>
 <text x="197.57" y="574.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#e8edf5">fun_001fd748</text>
 <text x="197.57" y="586.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="5.5" fill="#a6adc8">1.21kB · 0.00%</text>
-<text x="255.04" y="574.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#e8edf5">_decMB0</text>
-<text x="255.04" y="586.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="5.5" fill="#a6adc8">1.19kB · 0.00%</text>
+<text x="255.04" y="577.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#2b1604">_decMB0</text>
 <text x="311.55" y="574.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#e8edf5">fun_0022e420</text>
 <text x="311.55" y="586.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="5.5" fill="#a6adc8">1.19kB · 0.00%</text>
 <text x="367.87" y="574.78" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7" fill="#e8edf5">fun_0021d4a8</text>
@@ -1491,7 +1490,7 @@
 <text x="199.54" y="1038.85" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#2b1604">_d2b</text>
 <text x="455.39" y="973.03" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#2b1604">dpdiv</text>
 <line x1="10" y1="1566.0" x2="790" y2="1566.0" stroke="#2e3644" stroke-width="1" opacity="0.8"/>
-<text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">76,820 of 430,720 configured bytes are matching C &#183; 17.8% of all configured code</text>
-<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 19.7% / C_FUZZY 37.5% of recoverable C</text>
+<text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">78,012 of 430,720 configured bytes are matching C &#183; 18.1% of all configured code</text>
+<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 20.0% / C_FUZZY 39.6% of recoverable C</text>
 <text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-15 &#183; scripts/generate_treemap.py</text>
 </svg>
