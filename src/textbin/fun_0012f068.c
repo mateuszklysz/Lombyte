@@ -1,0 +1,22 @@
+/*
+STATE: C_EXACT
+SYMBOL: FUN_0012f068
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs
+DECISION: promoted
+*/
+
+#include "types.h"
+extern s32 func_0012E548();
+void FUN_0012f068(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+    s32 sp_slot[6];
+
+    sp_slot[0] = arg0;
+    sp_slot[1] = arg1;
+    sp_slot[2] = arg2;
+    sp_slot[3] = arg3;
+    sp_slot[4] = arg4;
+    sp_slot[5] = arg5;
+    func_0012E548(0x3B, 0x18, sp_slot);
+}
+

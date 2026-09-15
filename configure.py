@@ -152,6 +152,12 @@ SN_COMPILER_UNITS = {
     # retail-save-style routing would send it to EE-GCC 2.9; SN -O2 reproduces
     # the retail schedule byte-exactly.
     "textbin/attach_manipulator",
+    # InitializeRenderState: the whole unit is 13 SN-style instructions; fresh
+    # SN -O2 with s16 fields at 0x40/0x42/0x5C/0x5E/0x78/0x7A and the retail
+    # store order is 100/100/100 direct and patha linked-byte equal
+    # (run-14 mass-d; Himuro EE-GCC 2.9 stages at 76.00).  The unit is a
+    # non-textbin prefix, so the per-unit set is the only routing hook.
+    "gs/initialize_render_state",
 }
 
 # Units proven byte-exact under the patched 991111 build.  Keep the set
@@ -187,6 +193,11 @@ HIMURO_PATCHED_UNITS = {
     "textbin/fun_001f4600",
     "textbin/fun_001f47b8",
     "textbin/fun_00226e08",
+    # fun_002133d0 (run-14 worker b): retail materializes the float constants
+    # pi/1.0/0.5 with lui/ori/mtc1 and carries the FP hazard NOPs; the frozen
+    # profiles emit .lit4 loads and drop the NOPs. The patched profile plus the
+    # permuter shape is 100/100/100 and patha linked-byte equal, 2026-09-14.
+    "textbin/fun_002133d0",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -271,6 +282,9 @@ SN_FLAG_UNITS = {
     # Keep the loop's address register separate from the mode's live range.
     "fun_0012ee08": "-fno-gcse",
     "fun_00225490": "-fno-schedule-insns",
+    # run 14 mass-c: 47.7f must materialize inline (lui/ori/mtc1), not via
+    # .lit4; verified with p07 97.78 -> padless 100/100/100.
+    "fun_00207300": "-G0",
     "fun_00225530": "-mno-split-addresses",
     "fun_00233980": "-mno-split-addresses",
     # Two independent tiny-FPU field loads must stay in retail's order; the
@@ -332,6 +346,17 @@ PADLESS_ASM_UNITS = {
     # run 13 wave 3 (2026-09-14): same short-loop padding-NOP class; the
     # padless object is instruction-identical (49/49) and patha byte-equal.
     "textbin/fun_002073b8",
+    # run 14 mass-c: FUN_0022da68 had two compiler-emitted hazard NOPs dropped
+    # by the bundled GNU as (padless object instruction-identical, 41/41;
+    # patha byte-equal vs retail).
+    "textbin/fun_0022da68",
+    # run 14 mass-c: two loop padding NOPs dropped by the bundled GNU as
+    # (padless object instruction-identical, 44/44; patha byte-equal vs retail).
+    "textbin/fun_002242b8",
+    # run 14 mass-c: -G0 removes the .lit4 float load and the FPU mtc1->c.le.s
+    # hazard NOP is Ps2EeAs-emitted (padless object instruction-identical,
+    # 48/48; patha byte-equal vs retail).
+    "textbin/fun_00207300",
 }
 
 
