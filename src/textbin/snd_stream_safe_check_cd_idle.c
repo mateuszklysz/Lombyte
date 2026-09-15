@@ -14,3 +14,6 @@ void FUN_0012ed30(s32 arg0) {
 }
 
 extern __typeof__(FUN_0012ed30) func_0012ED30 __attribute__((alias("FUN_0012ed30")));
+
+/* Recovered original symbol name. */
+extern __typeof__(FUN_0012ed30) snd_StreamSafeCheckCDIdle __attribute__((alias("FUN_0012ed30")));

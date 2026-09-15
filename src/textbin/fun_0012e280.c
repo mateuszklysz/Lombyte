@@ -6,6 +6,9 @@ COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs
 DECISION: promoted
 */
 
+/* ROLE: recovered function `snd_SetMixerMode` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 extern s32 func_0012E6E0();
 void FUN_0012e280(s32 arg0, s32 arg1) {

@@ -6,6 +6,9 @@ COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs
 DECISION: promoted
 */
 
+/* ROLE: recovered function `snd_InitMovieSound` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 extern s32 func_0012E548();
 void FUN_0012f068(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {

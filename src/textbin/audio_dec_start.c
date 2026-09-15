@@ -37,3 +37,6 @@ void FUN_0023acb8(struct M2c_arg0 *arg0) {
 }
 
 extern __typeof__(FUN_0023acb8) func_0023ACB8 __attribute__((alias("FUN_0023acb8")));
+
+/* Recovered original symbol name. */
+extern __typeof__(FUN_0023acb8) audioDecStart __attribute__((alias("FUN_0023acb8")));

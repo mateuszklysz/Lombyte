@@ -33,3 +33,6 @@ s32 FUN_0023c5b8(struct M2c_arg0 *arg0) {
 }
 
 extern __typeof__(FUN_0023c5b8) func_0023C5B8 __attribute__((alias("FUN_0023c5b8")));
+
+/* Recovered original symbol name. */
+extern __typeof__(FUN_0023c5b8) viBufDelete__FP5ViBuf __attribute__((alias("FUN_0023c5b8")));

@@ -6,6 +6,9 @@ COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs
 DECISION: promoted
 */
 
+/* ROLE: recovered function `snd_UpdateMovieADPCM` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 extern s32 func_0012E548();
 void FUN_0012f148(s32 arg0, s32 arg1) {

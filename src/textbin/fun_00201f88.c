@@ -6,6 +6,9 @@ COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs; constant-address cast 
 DECISION: promoted
 */
 
+/* ROLE: recovered function `DetachPointLight__Fi` starts here; this unit covers only its beginning. */
+
+
 #include "types.h"
 struct M2c_temp_17_156 {
     u8 pad_0[0x1B];

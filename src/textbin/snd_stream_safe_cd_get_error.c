@@ -20,3 +20,6 @@ s32 FUN_0012eef0(s32 arg0) {
 }
 
 extern __typeof__(FUN_0012eef0) func_0012EEF0 __attribute__((alias("FUN_0012eef0")));
+
+/* Recovered original symbol name. */
+extern __typeof__(FUN_0012eef0) snd_StreamSafeCdGetError __attribute__((alias("FUN_0012eef0")));

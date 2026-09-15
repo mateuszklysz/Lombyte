@@ -22,3 +22,6 @@ void FUN_0012e9a0(void) {
 }
 
 extern __typeof__(FUN_0012e9a0) func_0012E9A0 __attribute__((alias("FUN_0012e9a0")));
+
+/* Recovered original symbol name. */
+extern __typeof__(FUN_0012e9a0) snd_PostMessage __attribute__((alias("FUN_0012e9a0")));

@@ -317,6 +317,16 @@ SN_FLAG_UNITS = {
     # default prepass scheduler swaps them.  100/100/100 with
     # -fno-schedule-insns (pipeline-2026-09-13-11 wave 2).
     "snd_post_message": "-fno-schedule-insns",
+    # run 16 worker b: fun_0023b590 (startDisplay fragment) needs the
+    # absolute $at store pair (`lui at,0x16; sw ...`) that retail emits; the
+    # default split sequence differs.  Padless route + this flag is
+    # instruction-identical (76/76) and patha byte-equal.
+    "fun_0023b590": "-mno-split-addresses",
+    # fun_0022db10: the limit/base globals are non-small absolute loads and
+    # retail materializes the 0x13E550 slot table as `lui v0,0x14;
+    # addiu v0,v0,-0x1ab0` with the 0x70 stride in v1.  100/100/100 + patha
+    # byte-equal with -mno-split-addresses (pipeline-2026-09-15-16 worker c).
+    "fun_0022db10": "-mno-split-addresses",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
@@ -358,6 +368,21 @@ PADLESS_ASM_UNITS = {
     # hazard NOP is Ps2EeAs-emitted (padless object instruction-identical,
     # 48/48; patha byte-equal vs retail).
     "textbin/fun_00207300",
+    # run 16 worker a: the two FPU mtc1->c.le.s hazard NOPs are Ps2EeAs-emitted
+    # (padless object instruction-identical, 48/48; patha byte-equal vs retail).
+    # The winning source also needs the goto-chain tail plus v0/v1 register pins.
+    "textbin/fun_00207100",
+    # run 16 worker b: the short-loop erratum padding NOPs (3 after the jal)
+    # are Ps2EeAs-emitted; the padless object is instruction-identical (76/76)
+    # and patha byte-equal (sha 1487c262...).  Needs SN_FLAG_UNITS
+    # -mno-split-addresses for the absolute $at store pair.
+    "textbin/fun_0023b590",
+    # run 16 worker b: cc_sn_padless is also the route that reproduces retail's
+    # absolute same-register load of the scalar pointer global D_0016120C
+    # (the cc_sn route emits %gp_rel); with the v0 pin on the second load the
+    # object is instruction-identical (67/67) and patha byte-equal
+    # (sha 508793fb...).  No SN flag needed.
+    "textbin/fun_0023aa68",
 }
 
 
