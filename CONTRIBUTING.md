@@ -23,8 +23,9 @@ make elf
 ```
 
 The run ends with `PASS: reconstructed boot ELF matches retail`. It also leaves
-a workspace at `~/rnc-baseline` (override with `BASELINE_ROOT`) that holds the
-retail assembly and the per-unit comparison targets used below.
+a workspace at `build/baseline` inside the checkout (override with
+`BASELINE_ROOT`) that holds the retail assembly and the per-unit comparison
+targets used below.
 
 ### 2. Pick a function
 
@@ -144,6 +145,9 @@ acceptance discipline and the recovery ladder.
 
 - Keep changes focused; one unit per pull request is perfect for a first
   contribution.
+- The check tools only read the checkout and write inside the baseline
+  workspace (`build/baseline`, or `$BASELINE_ROOT` when you set one); they
+  never touch other locations.
 - Never commit game data, disc images, or compiler binaries. `dumps/`,
   `build/`, and `tools/` stay out of Git.
 - Do not edit `tools/`; it is local toolchain setup.

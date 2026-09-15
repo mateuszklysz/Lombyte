@@ -115,12 +115,12 @@ make elf
 
 The build stages the sources, splits the reference executable, prepares assembly-backed units, compiles and links the code, generates an objdiff report, and verifies the reconstructed executable against retail.
 
-The default staging directory is `~/rnc-baseline`. **It is recreated on each run**, so use a dedicated build directory when overriding it.
+The default staging directory is `build/baseline` inside the checkout. **It is recreated on each run.** If the checkout itself is on a Windows-mounted drive (`/mnt/c/...`), set `BASELINE_ROOT` to a native Linux directory such as `$HOME/rnc-baseline` so the frozen 32-bit compiler works on a local filesystem.
 
-| Output                   | Default location                             |
-| :----------------------- | :------------------------------------------- |
-| Reconstructed boot ELF   | `~/rnc-baseline/config/us/build/SCUS_971.99` |
-| Object comparison report | `~/rnc-baseline/config/us/report.json`       |
+| Output                   | Default location                                  |
+| :----------------------- | :------------------------------------------------ |
+| Reconstructed boot ELF   | `build/baseline/config/us/build/SCUS_971.99`      |
+| Object comparison report | `build/baseline/config/us/report.json`            |
 
 A successful run ends with:
 
@@ -153,7 +153,7 @@ The build and ISO scripts support these environment overrides. Use absolute path
 | Variable              | Default / usage                                                          |
 | :-------------------- | :----------------------------------------------------------------------- |
 | `VENV`                | `.venv` in the checkout                                                  |
-| `BASELINE_ROOT`       | `~/rnc-baseline`; dedicated, disposable staging directory                |
+| `BASELINE_ROOT`       | `build/baseline` in the checkout; disposable staging directory           |
 | `BINUTILS_ROOT`       | Set to the directory containing your `mips-ps2-decompals-*` tools        |
 | `HIMURO_PATCHED_ROOT` | Directory of the patched EE-GCC profile; required for the full baseline  |
 | `COMPILER_ROOT`       | `tools/compilers` in the checkout                                        |
@@ -162,6 +162,7 @@ The build and ISO scripts support these environment overrides. Use absolute path
 For example:
 
 ```sh
+# Override only when the checkout is on a Windows-mounted drive.
 export BASELINE_ROOT="$HOME/rnc-baseline"
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
 export HIMURO_PATCHED_ROOT="$HOME/tools/ee-gcc2.9-991111-01-patched"
@@ -192,7 +193,7 @@ python3 rebuild-iso.py \
 | [`assets/`](assets/)             | Lombyte emblem and generated progress map                             |
 | [`tools/`](tools/)               | Locally installed compilers and comparison tools (not tracked by Git) |
 | [`dumps/`](dumps/)               | Local input disc images, ignored by Git                               |
-| [`build/`](build/)               | Local ISO output, ignored by Git                                      |
+| [`build/`](build/)               | Local ISO output and the baseline workspace, ignored by Git           |
 
 ## Contributing
 
