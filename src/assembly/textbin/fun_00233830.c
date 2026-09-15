@@ -1,11 +1,10 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: VU1_addDataRef__FPvi
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=50.789474 functions=50.789474 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
-
-/* ROLE: recovered function `VU1_addDataRef__FPvi` starts here; this unit covers only its beginning. */
 
 #include "types.h"
 #include "asm.h"
@@ -25,6 +24,6 @@ void FUN_00233830(s32 arg0, s32 arg1) {
         D_00160F00->unk8 = 0;
         D_00160F00->unkC = 0;
     } while (0);
-    D_00160F00 += 0x10;
+    D_00160F00 += 1;
 }
 #endif /* NON_MATCHING */

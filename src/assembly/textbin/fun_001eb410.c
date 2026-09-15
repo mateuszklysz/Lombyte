@@ -1,8 +1,11 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 79.4755%
- * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
- * The default matching build keeps the expected assembly oracle.
- */
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_001eb410
+SCORE: code=79.9902 functions=79.9902 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
+*/
+
 #include "types.h"
 #include "asm.h"
 
@@ -17,7 +20,7 @@ extern u8 D_00100AE0[];
 extern s32 D_0013E504;
 extern s32 D_0015ED88;
 extern s32 D_0015EF48;
-extern s32 D_0015EF50;
+extern s32 D_0015EF50[];
 extern s32 D_0015EF54;
 extern s32 D_0015F43C;
 extern s32 D_0015F464[];
@@ -109,8 +112,8 @@ void FUN_001eb410(s32 *arg0) {
     }
     func_001FB680();
     func_001F3868();
-    if (D_0015EF50 != 0) {
-        func_001F5450(0xEC, 0x10, 0x100, 0x80, 0, 0, 0x100, 0x80, (D_0015EF50 << 0x18) | 0x808080, D_0015EF48);
+    if (D_0015EF50[0] != 0) {
+        func_001F5450(0xEC, 0x10, 0x100, 0x80, 0, 0, 0x100, 0x80, (D_0015EF50[0] << 0x18) | 0x808080, D_0015EF48);
     }
     if (D_0015EF54 != 0) {
         temp_4_121 = D_0015ED88 - 1;

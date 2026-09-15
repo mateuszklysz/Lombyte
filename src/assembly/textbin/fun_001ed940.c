@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_001ed940
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=76.65278 functions=76.65278 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -21,15 +22,15 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ed940/FUN_001ed940.s
 
 extern struct M2c_D_0013F350 D_0013F350;
 extern s32 D_0015EF98;
-extern s32 D_0015EF9C;
+extern s32 D_0015EF9C[];
 extern s32 D_0015EFA0;
 extern struct M2c_D_00187080 D_00187080;
 extern struct M2c_D_001870D0 D_001870D0;
 void FUN_001ed940(void) {
-    s32 var_2_51;
-    s32 var_3_52;
+    s32 var_2_49;
+    s32 var_3_50;
 
-    D_0015EF9C = 0x14;
+    D_0015EF9C[0] = 0x14;
     if ((u32) (D_0013F350.unk208C - 0x11) < 2U) {
         goto block_2;
     }
@@ -37,7 +38,7 @@ void FUN_001ed940(void) {
         goto block_3;
     }
 block_2:
-    D_0015EF9C = 0x34;
+    D_0015EF9C[0] = 0x34;
 block_3:
     if (D_0013F350.unk208C == 0x11) {
         goto block_6;
@@ -45,40 +46,40 @@ block_3:
     if (!(D_0013F350.unk2F0 < D_00187080.unk8)) {
         goto block_6;
     }
-    D_0015EF9C = 0x14;
+    D_0015EF9C[0] = 0x14;
 block_6:
-    D_0015EFA0 = D_0015EF9C;
-    D_0015EF9C |= 0x80;
+    D_0015EFA0 = D_0015EF9C[0];
+    D_0015EF9C[0] |= 0x80;
     D_0015EF98 = 0xB4;
     if (D_0013F350.unk12E5 == 0) {
         goto block_9;
     }
-    var_2_51 = 0x100;
-    var_3_52 = 0x1B4;
+    var_2_49 = 0x100;
+    var_3_50 = 0x1B4;
 block_8:
-    D_001870D0.unkC0 = var_2_51;
-    D_0015EF98 = var_3_52;
+    D_001870D0.unkC0 = var_2_49;
+    D_0015EF98 = var_3_50;
     return;
 block_9:
-    var_2_51 = 0xB00;
+    var_2_49 = 0xB00;
     if (D_0013F350.unk12EB == 0) {
         goto block_11;
     }
-    var_3_52 = 0xBB4;
+    var_3_50 = 0xBB4;
     goto block_8;
 block_11:
-    var_2_51 = 0x300;
+    var_2_49 = 0x300;
     if (D_0013F350.unk12E6 == 0) {
         goto block_13;
     }
-    var_3_52 = 0x3B4;
+    var_3_50 = 0x3B4;
     goto block_8;
 block_13:
-    var_2_51 = 0xD00;
+    var_2_49 = 0xD00;
     if (D_0013F350.unk12EC == 0) {
         goto block_15;
     }
-    var_3_52 = 0xDB4;
+    var_3_50 = 0xDB4;
     goto block_8;
 block_15:
     if (D_0013F350.unk12E4 != 0) {

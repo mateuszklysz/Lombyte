@@ -1,8 +1,11 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 50.2836%
- * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
- * The default matching build keeps the expected assembly oracle.
- */
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_001ed360
+SCORE: code=62.0 functions=62.0 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
+*/
+
 #include "types.h"
 #include "asm.h"
 
@@ -16,7 +19,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ed360/FUN_001ed360.s
 
 
 extern u8 D_00187080[];
-extern struct M2c_D_001870C0 *D_001870C0;
+extern struct M2c_D_001870C0 *D_001870C0[];
 extern u8 D_00187290[];
 extern u8 D_001872B0[];
 extern s32 func_001F9740();
@@ -31,7 +34,7 @@ u8 sp_slot[0x50];    f32 temp_f12_47;
     f32 temp_f20_39;
     s32 temp_3_21;
 
-    if ((D_001870C0 != NULL) && (D_001870C0->unk86 == 6)) {
+    if ((D_001870C0[0] != NULL) && (D_001870C0[0]->unk86 == 6)) {
         arg0->unkC = 0;
         arg0->unk8 = 0;
         return;

@@ -11,7 +11,8 @@ struct M2c_D_001516D0 {
     u16 unk3C;
     s32 unk3E;
     u8 pad_42[0x2];
-    s32 unk44;
+    s16 unk44;
+    u8 pad_46[0x2];
     s32 unk48;
     s32 unk4C;
 };

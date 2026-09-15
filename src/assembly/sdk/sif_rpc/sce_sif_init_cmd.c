@@ -1,15 +1,15 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: sceSifInitCmd
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=75.50625 functions=75.50625 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
-/* Exact SDK/library unit sceSifInitCmd; symbolic expected assembly retained pending source recovery. */
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/sif_rpc/sce_sif_init_cmd/sceSifInitCmd.s", sceSifInitCmd);
 #else
 #include "rnc/assembly_sdk_sif_rpc_sce_sif_init_cmd_types.h"
@@ -75,7 +75,7 @@ loop_4:
     var_3_42->unk0 = 0;
     var_16_46 -= 1;
     var_3_42->unk4 = 0;
-    var_3_42 += 8;
+    var_3_42 += 1;
     if (var_16_46 >= 0) {
         goto loop_4;
     }

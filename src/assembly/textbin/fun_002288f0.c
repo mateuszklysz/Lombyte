@@ -1,11 +1,10 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: DmaShrubTextures
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=46.83544 functions=46.83544 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
-
-/* ROLE: recovered function `DmaShrubTextures` starts here; this unit covers only its beginning. */
 
 #include "types.h"
 #include "asm.h"
@@ -13,57 +12,59 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002288f0/FUN_002288f0.s", FUN_002288f0);
 #else
+#include "rnc/assembly_textbin_fun_002288f0_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_00754210[];
-extern char D_00754220[];
-extern char D_00602F80[];
-extern char D_00603310[];
-extern char D_006036A0[];
-extern unsigned short D_00747A50;
 
-void FUN_002288f0(char *a0) {
-    char *a1 = a0;
-    switch (*(int *)(a1 + 0x2C)) {
-    case 0:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 3:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        if (D_00747A50 == 0x504 || D_00747A50 == 0x506 || D_00747A50 == 0x801 ||
-            D_00747A50 == 0x4F || D_00747A50 == 0x4E) {
-            *(void **)(a1 + 0x8) = D_00754220;
-        } else {
-            *(void **)(a1 + 0x8) = D_00754210;
+
+
+
+
+
+
+
+
+extern s32 D_0015EE74;
+extern struct M2c_D_001603F0 *D_001603F0[];
+extern s32 D_001603F8[];
+extern struct M2c_D_00160F00 *D_00160F00[];
+extern struct M2c_D_0018A2B0 D_0018A2B0;
+extern u8 D_001E88D0[];
+extern s32 DebugPrint();
+extern s32 func_0022A330();
+extern s32 func_00233B68();
+void FUN_002288f0(void) {
+    struct M2c_temp_17_9 *temp_17_9;
+    struct M2c_temp_3_31 *temp_3_31;
+    s32 temp_16_38;
+
+    temp_17_9 = D_00160F00[0];
+    D_00160F00[0] = ((u8 *)temp_17_9 + (0x10));
+    D_001603F0[0]->unk0 = 0x20000000;
+    D_001603F0[0]->unk4 = (s32 *) D_00160F00[0];
+    D_001603F0[0]->unk8 = 0;
+    D_001603F0[0]->unkC = 0;
+    temp_3_31 = D_00160F00[0];
+    if (D_0018A2B0.unk20 != 0) {
+        if (D_0018A2B0.unk1C != 0) {
+            temp_16_38 = func_0022A330(D_0015EE74, 0x20000000, 0x20000000, &D_0018A2B0);
+            func_00233B68();
+            if (temp_16_38 > 0x400000) {
+                DebugPrint(D_001E88D0);
+            }
+            if (D_001603F8[0] < temp_16_38) {
+                D_001603F8[0] = temp_16_38;
+            }
         }
-        *(void **)(a1 + 0xC) = D_006036A0;
-        break;
-    case 2:
-    case 4:
-    case 5:
-    case 6:
-    case 14:
-    case 15:
-    default:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00603310;
-        break;
     }
+    temp_3_31->unk0 = 0x20000000;
+    D_00160F00[0]->unk4 = (void *) (D_001603F0[0] + 0x10);
+    D_00160F00[0]->unk8 = 0;
+    D_00160F00[0]->unkC = 0;
+    D_00160F00[0] += 0x10;
+    temp_17_9->unk0 = 0x20000000;
+    temp_17_9->unkC = 0;
+    temp_17_9->unk4 = (s32 *) D_00160F00[0];
+    temp_17_9->unk8 = 0;
 }
 #endif /* NON_MATCHING */

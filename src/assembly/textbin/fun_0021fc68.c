@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_0021fc68
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=54.275864 functions=54.275864 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -18,13 +19,13 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021fc68/FUN_0021fc68.s
 
 
 extern struct M2c_D_00151780 D_00151780;
-extern u32 D_001A0348[];
+extern s32 D_001A0348;
 extern s32 func_001F5450();
 s32 FUN_0021fc68(struct M2c_arg0 *arg0) {
     if (arg0->unk44 < 2) {
         return 0;
     }
-    func_001F5450(0, 0, D_00151780.unk160, D_00151780.unk162, 0, 0, arg0->unk38, arg0->unk3C, (0x8080 << 0x10) | 0x8080, D_001A0348[0]);
+    func_001F5450(0, 0, D_00151780.unk160, D_00151780.unk162, 0, 0, arg0->unk38, arg0->unk3C, (0x8080 << 0x10) | 0x8080, D_001A0348);
     return 0x10;
 }
 #endif /* NON_MATCHING */

@@ -9,11 +9,11 @@ struct M2c_D_0013F350 {
     u8 pad_2F4[0xFF0];
     u8 unk12E4;
     u8 unk12E5;
-    s32 unk12E6;
-    u8 pad_12EA[0x1];
+    u8 unk12E6;
+    u8 pad_12E7[0x4];
     u8 unk12EB;
-    s32 unk12EC;
-    u8 pad_12F0[0xD94];
+    u8 unk12EC;
+    u8 pad_12ED[0xD97];
     s32 unk2084;
     u8 pad_2088[0x4];
     s32 unk208C;

@@ -35,7 +35,7 @@ struct M2c_arg0 {
     s32 unk34;
     u8 pad_38[0xC];
     s32 unk44;
-    struct M2c_temp_16_172 * unk48;
+    struct M2c_temp_16_170 * unk48;
     u8 pad_4C[0x4];
     s32 unk50;
     u8 pad_54[0x4];
@@ -44,18 +44,18 @@ struct M2c_arg0 {
     s32 unk60;
 };
 
-struct M2c_temp_16_172 {
+struct M2c_temp_16_170 {
     u8 pad_0[0x8];
     s32 unk8;
     s32 unkC;
 };
 
-struct M2c_temp_2_133 {
+struct M2c_temp_2_131 {
     s32 unk0;
     s32 unk4;
 };
 
-struct M2c_temp_2_141 {
+struct M2c_temp_2_139 {
     s32 unk0;
     s32 unk4;
 };

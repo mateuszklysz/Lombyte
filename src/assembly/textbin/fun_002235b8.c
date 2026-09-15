@@ -1,11 +1,11 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: SavingDataMenu2
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=75.09399 functions=75.09399 data=100 complete_data=100
+COMPILER: SN 2.73a -O2 -g2
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
-
-/* ROLE: recovered function `SavingDataMenu2` starts here; this unit covers only its beginning. */
 
 #include "types.h"
 #include "asm.h"
@@ -31,7 +31,7 @@ extern struct M2c_D_0013C940 D_0013C940;
 extern struct M2c_D_0013D290 D_0013D290;
 extern s32 D_0013E05A;
 extern s32 D_0015ED84;
-extern s32 D_0015ED98;
+extern s32 D_0015ED98[];
 extern s32 D_0015EE20;
 extern s32 D_0015EE24;
 extern s32 D_0015EE34;
@@ -42,25 +42,25 @@ extern s32 D_001D2640;
 extern u8 D_001D4E38[];
 extern u8 D_001D4F98[];
 extern struct M2c_D_001D5BF0 D_001D5BF0;
+extern s32 InitializeGlobalStateEntry();
 extern s32 func_001FBAB8();
 extern s32 func_00209370();
 extern s32 func_00226A70();
 extern s32 func_00226B08();
 extern s32 func_0022DA68();
-extern s32 func_0022E188();
 s32 FUN_002235b8(struct M2c_arg0 *arg0) {
-    s32 *temp_2_157;
-    s32 *var_2_244;
-    s32 temp_18_20;
-    s32 temp_3_215;
-    s32 temp_5_221;
-    s32 var_2_230;
-    s32 var_4_199;
+    s32 *temp_2_155;
+    s32 *var_2_242;
+    s32 temp_18_18;
+    s32 temp_3_213;
+    s32 temp_5_219;
+    s32 var_2_228;
+    s32 var_4_197;
 
     if (D_001D5BF0.unk4->unk40 != arg0) {
         goto block_62;
     }
-    temp_18_20 = arg0->unk40;
+    temp_18_18 = arg0->unk40;
     if (arg0->unk4C != 0) {
         goto block_9;
     }
@@ -109,7 +109,7 @@ block_16:
     if (D_0013D290.unkDC >= 0) {
         goto block_62;
     }
-    D_0013D290.unkF4 = 0;
+    D_001D5BF0.unk128 = 0;
     if (D_0013D290.unkE4 == 0) {
         goto block_21;
     }
@@ -117,7 +117,7 @@ block_16:
     func_001FBAB8(3, D_001D5BF0.unk4);
     goto block_61;
 block_21:
-    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x24) = (s32) D_0015ED98;
+    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x24) = (s32) D_0015ED98[0];
     *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x20) = (s32) D_0015ED84;
     *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x2C) = (s32) D_0015EE24;
     /* m2c-unknown:  unknown instruction: ldl $v1, 0x7($a4)  */
@@ -125,7 +125,7 @@ block_21:
     /* m2c-unknown:  unknown instruction: sdl $v1, 0x7($v0)  */
     /* m2c-unknown:  unknown instruction: sdr $v1, ($v0)  */
     *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x28) = (s32) D_0015EE20;
-    func_0022E188(0, 0x1C, D_0015ED98, D_0015ED84, D_0015EE98, D_0015EE20, ((u8 *)&D_0013D290 + 0x30, &D_0013D290));
+    InitializeGlobalStateEntry(0, 0x1C, D_0015ED98[0], D_0015ED84, D_0015EE98, D_0015EE20, ((u8 *)&D_0013D290 + 0x30, &D_0013D290));
     D_0013E05A = 1;
 block_22:
     if (!(D_0013C940.unk1C4 & 0xD00)) {
@@ -140,11 +140,11 @@ block_26:
     if (!(D_0013C940.unk1C4 & 0x10)) {
         goto block_32;
     }
-    temp_2_157 = D_001D5BF0.unk4->unk38;
-    if (temp_2_157 == NULL) {
+    temp_2_155 = D_001D5BF0.unk4->unk38;
+    if (temp_2_155 == NULL) {
         goto block_29;
     }
-    D_001D5BF0.unk8 = temp_2_157;
+    D_001D5BF0.unk8 = temp_2_155;
     goto block_32;
 block_29:
     if (D_001D5BF0.unk124 != 0) {
@@ -174,13 +174,13 @@ block_36:
     if (!(arg0->unk30 & 1)) {
         goto block_41;
     }
-    var_4_199 = D_0013C940.unk1B4;
+    var_4_197 = D_0013C940.unk1B4;
     goto block_42;
 block_41:
-    var_4_199 = D_0013C940.unk1A4;
+    var_4_197 = D_0013C940.unk1A4;
 block_42:
     arg0->unk40 = (s32) D_0015EE34;
-    if (!(var_4_199 & 0x1000)) {
+    if (!(var_4_197 & 0x1000)) {
         goto block_45;
     }
     if (D_0015EE34 == 0) {
@@ -188,36 +188,36 @@ block_42:
     }
     arg0->unk40 = (s32) (D_0015EE34 - 1);
 block_45:
-    if (!(var_4_199 & 0x4000)) {
+    if (!(var_4_197 & 0x4000)) {
         goto block_48;
     }
-    temp_3_215 = arg0->unk40;
-    if (temp_3_215 >= 4) {
+    temp_3_213 = arg0->unk40;
+    if (temp_3_213 >= 4) {
         goto block_48;
     }
-    arg0->unk40 = (s32) (temp_3_215 + 1);
+    arg0->unk40 = (s32) (temp_3_213 + 1);
 block_48:
-    temp_5_221 = arg0->unk40;
-    D_0015EE34 = temp_5_221;
-    if (!(var_4_199 & 0x40)) {
+    temp_5_219 = arg0->unk40;
+    D_0015EE34 = temp_5_219;
+    if (!(var_4_197 & 0x40)) {
         goto block_56;
     }
-    var_2_230 = var_4_199 & 0x20;
+    var_2_228 = var_4_197 & 0x20;
     if (D_0013D290.unk8 != 2) {
         goto block_57;
     }
-    if (*(s32 *)((u8 *)((temp_5_221 * 0x1C) + &D_0013D290) + 0x20) == -1) {
+    if (*(s32 *)((u8 *)((temp_5_219 * 0x1C) + &D_0013D290) + 0x20) == -1) {
         goto block_55;
     }
     if (!(arg0->unk30 & 0x2000)) {
         goto block_53;
     }
-    var_2_244 = D_001D4F98;
+    var_2_242 = D_001D4F98;
     goto block_54;
 block_53:
-    var_2_244 = D_001D4E38;
+    var_2_242 = D_001D4E38;
 block_54:
-    D_001D5BF0.unk8 = var_2_244;
+    D_001D5BF0.unk8 = var_2_242;
     D_001D5BF0.unkD4 = (s32) ((arg0->unk30 & 0x2000) ? 2 : 1);
     D_001D2640 = arg0->unk40;
     goto block_59;
@@ -225,18 +225,18 @@ block_55:
     arg0->unk4C = 1;
     goto block_59;
 block_56:
-    var_2_230 = var_4_199 & 0x20;
+    var_2_228 = var_4_197 & 0x20;
 block_57:
-    if (var_2_230 == 0) {
+    if (var_2_228 == 0) {
         goto block_59;
     }
-    D_001D5BF0.unk128 = 0;
+    D_0013D290.unkF4 = 0;
     D_0015EEB4 = D_0015EEB4 & ~2 & ~4;
     func_00209370(-3, -5);
-    func_0022E188(0);
+    InitializeGlobalStateEntry(0);
     D_0013E05A = 1;
 block_59:
-    if (arg0->unk40 == temp_18_20) {
+    if (arg0->unk40 == temp_18_18) {
         goto block_61;
     }
     func_0022DA68(1, 0x11, arg0->unk14);

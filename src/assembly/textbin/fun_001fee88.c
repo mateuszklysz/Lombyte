@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_001fee88
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=63.12987 functions=63.12987 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -11,57 +12,54 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001fee88/FUN_001fee88.s", FUN_001fee88);
 #else
+#include "rnc/assembly_textbin_fun_001fee88_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_00754210[];
-extern char D_00754220[];
-extern char D_00602F80[];
-extern char D_00603310[];
-extern char D_006036A0[];
-extern unsigned short D_00747A50;
 
-void FUN_001fee88(char *a0) {
-    char *a1 = a0;
-    switch (*(int *)(a1 + 0x2C)) {
-    case 0:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 3:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        if (D_00747A50 == 0x504 || D_00747A50 == 0x506 || D_00747A50 == 0x801 ||
-            D_00747A50 == 0x4F || D_00747A50 == 0x4E) {
-            *(void **)(a1 + 0x8) = D_00754220;
-        } else {
-            *(void **)(a1 + 0x8) = D_00754210;
-        }
-        *(void **)(a1 + 0xC) = D_006036A0;
-        break;
-    case 2:
-    case 4:
-    case 5:
-    case 6:
-    case 14:
-    case 15:
-    default:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00603310;
-        break;
+
+
+
+
+extern u8 D_0015F6D8[];
+extern struct M2c_D_0015FA00 *D_0015FA00;
+extern s32 D_0015FA04;
+extern s32 D_0015FA08;
+extern s32 D_0015FA0C[];
+extern u8 D_00199B60[];
+extern struct M2c_D_0019A3E8 D_0019A3E8;
+extern s32 func_001F9810();
+extern s32 func_001FF288();
+extern s32 func_001FF308();
+void FUN_001fee88(void) {
+    s32 temp_4_23;
+    s32 var_17_14;
+    s32 *temp_2_41;
+    struct M2c_var_16_16 *var_16_16;
+
+    var_17_14 = 0;
+    var_16_16 = D_00199B60 + 0x24;
+    D_0019A3E8.unk0 = 0;
+    D_0019A3E8.unk4 = 0;
+    do {
+        var_16_16->unk40 = -1;
+        temp_4_23 = var_17_14;
+        *(s32 *)((u8 *)var_16_16 - 0x4) = 0x10000;
+        var_17_14 += 1;
+        func_001FF308(temp_4_23, 0xFFFF, 0, 0, 0, 0, 1);
+        var_16_16->unk58 = 0;
+        var_16_16->unk48 = -6;
+        *(s32 *)((u8 *)var_16_16 - 0x20) = 0;
+        var_16_16->unk0 = 0;
+        var_16_16 += 0x90;
+    } while (var_17_14 < 0xD);
+    temp_2_41 = D_0015FA00;
+    if (temp_2_41 == NULL) {
+        D_0015FA00 = func_001FF288(0x2800, 0, D_0015F6D8, 0x115);
+        D_0015FA0C[0] = func_001FF288(0x1400, 0, D_0015F6D8, 0x116);
     }
+    D_0015FA08 = temp_2_41 + 0x2800;
+    D_0015FA04 = temp_2_41;
+    func_001F9810(temp_2_41, 0x2800);
+    D_0015FA00->unk20 = 0xFF;
 }
 #endif /* NON_MATCHING */

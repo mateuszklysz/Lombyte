@@ -1,11 +1,10 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: DmaTfragTextures__Fv
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=47.814816 functions=47.814816 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
-
-/* ROLE: recovered function `DmaTfragTextures__Fv` starts here; this unit covers only its beginning. */
 
 #include "types.h"
 #include "asm.h"
@@ -15,47 +14,59 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002331c0/FUN_002331c0.s
 #else
 #include "rnc/assembly_textbin_fun_002331c0_types.h"
 #include "types.h"
-/* cygnus-2.96 matched TU. */
-
-extern int CreateThread(void *);
-extern void func_003B0BA8(int, int);
-extern void ChangeThreadPriority(int, int);
-extern void func_00325100(void);
-extern int D_003CF9D8;
-extern int D_003C80C8;
-extern unsigned char D_003CB9D0[];
-extern int D_00468CF0;
-extern volatile int D_003C814C;
 
 
 
+
+
+
+
+
+
+
+extern s32 D_0015EE74;
+extern struct M2c_D_00160EBC *D_00160EBC[];
+extern s32 D_00160EC4[];
+extern struct M2c_D_00160F00 *D_00160F00[];
+extern struct M2c_D_0018A2B0 D_0018A2B0;
+extern u8 D_001E89B0[];
+extern s32 DebugPrint();
+extern s32 func_00233B68();
+extern s32 func_00234BD8();
+extern s32 func_00234D48();
 void FUN_002331c0(void) {
-    ThreadParam param;
-    param.func = (void *)func_00325100;
-    param.stack = D_003CB9D0;
-    param.stackSize = 0x2000;
-    param.initPriority = D_003CF9D8;
-    param.gpReg = &D_00468CF0;
-    D_003C814C = CreateThread(&param);
-    D_003C814C;
-    func_003B0BA8(D_003C814C, 0);
-    ChangeThreadPriority(D_003C814C, D_003C80C8);
-    func_00325360(D_003C814C);
-    D_003C814C;
-}
+    struct M2c_temp_17_9 *temp_17_9;
+    struct M2c_temp_3_31 *temp_3_31;
+    s32 temp_16_40;
 
-int func_0035B9B0(char *a0) {
-    int local0, local1;
-    int a1val, s0, s1, r;
-    char *p;
-    a1val = *(int *)(a0 + 0x950);
-    p = a0 + 0xD30;
-    s1 = *(int *)(p + 0x27C);
-    s0 = *(int *)(p + 0x280);
-    if (a1val == 0) return 1;
-    if (s1 == -5) return 0;
-    func_0035AB98(a0, &local0, &local1);
-    r = func_00366918(s1 + s0 * 2000 / 59940, s0, local0, local1);
-    return r != 0;
+    temp_17_9 = D_00160F00[0];
+    D_00160F00[0] = ((u8 *)temp_17_9 + (0x10));
+    D_00160EBC[0]->unk0 = 0x20000000;
+    D_00160EBC[0]->unk4 = (s32 *) D_00160F00[0];
+    D_00160EBC[0]->unk8 = 0;
+    D_00160EBC[0]->unkC = 0;
+    temp_3_31 = D_00160F00[0];
+    if (D_0018A2B0.unk10 != 0) {
+        if (D_0018A2B0.unkC != 0) {
+            func_00234BD8(D_00160EBC[0], 0x20000000, 0x20000000, &D_0018A2B0);
+            temp_16_40 = func_00234D48(D_0015EE74);
+            func_00233B68();
+            if (temp_16_40 > 0x400000) {
+                DebugPrint(D_001E89B0);
+            }
+            if (D_00160EC4[0] < temp_16_40) {
+                D_00160EC4[0] = temp_16_40;
+            }
+        }
+    }
+    temp_3_31->unk0 = 0x20000000;
+    D_00160F00[0]->unk4 = (void *) (D_00160EBC[0] + 0x10);
+    D_00160F00[0]->unk8 = 0;
+    D_00160F00[0]->unkC = 0;
+    D_00160F00[0] += 0x10;
+    temp_17_9->unk0 = 0x20000000;
+    temp_17_9->unkC = 0;
+    temp_17_9->unk4 = (s32 *) D_00160F00[0];
+    temp_17_9->unk8 = 0;
 }
 #endif /* NON_MATCHING */

@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_001ec868
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=56.42857 functions=56.42857 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -11,25 +12,17 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ec868/FUN_001ec868.s", FUN_001ec868);
 #else
+#include "rnc/assembly_textbin_fun_001ec868_types.h"
 #include "types.h"
-/* cygnus-2.96 matched TU — CRI libadxe, recovered from recvx-decomp (CC0). */
 
-typedef signed char Sint8;
-typedef signed int  Sint32;
-typedef unsigned int Uint32;
-extern void func_0033F130(const Sint8 *msg);  /* ADXERR_CallErrFunc1 */
-extern const Sint8 D_00451390[];  /* "E9040801:...range outside..." */
-extern const Sint8 D_004513C8[];  /* "E9040802:...ptinfo NULL..."    */
 
-Sint32 FUN_001ec868(Sint32 ptid, void *ptinfo) {
-    if ((Uint32)ptid >= 0x100) {
-        func_0033F130(D_00451390);
-        return -3;
+extern struct M2c_D_001871B0 D_001871B0;
+void FUN_001ec868(void) {
+    if (D_001871B0.unk2 != 0) {
+        D_001871B0.unk50 = (s64) D_001871B0.unkC0;
+        D_001871B0.unk60 = (s64) D_001871B0.unkD0;
     }
-    if (ptinfo == 0) {
-        func_0033F130(D_004513C8);
-        return -3;
-    }
-    return 0;
 }
+
+extern void func_001EC868(void) __attribute__((alias("FUN_001ec868")));
 #endif /* NON_MATCHING */

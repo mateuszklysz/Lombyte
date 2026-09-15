@@ -1,8 +1,11 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 50.8709%
- * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
- * The default matching build keeps the expected assembly oracle.
- */
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_00230f60
+SCORE: code=51.30282 functions=51.30282 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
+*/
+
 #include "types.h"
 #include "asm.h"
 
@@ -47,7 +50,7 @@ extern s32 D_0015F460;
 extern s32 D_0015F618;
 extern s32 D_0015FF00;
 extern s32 D_0015FF08[];
-extern struct M2c_D_0015FF18 *D_0015FF18;
+extern struct M2c_D_0015FF18 *D_0015FF18[];
 extern s32 D_0015FF1C;
 extern s32 D_0015FF20;
 extern s32 D_0015FF28;
@@ -213,15 +216,15 @@ u8 sp_slot[0xC0];    s32 *temp_16_250;
     func_001F9810(D_0019C3C0, 0x180);
     func_001F9810(D_0019BDC0, 0x400);
     func_001F98D0(D_0019BDC0, D_001D9740, 0x40);
-    D_0015FF18 = temp_16_250;
+    D_0015FF18[0] = temp_16_250;
     FillTransferWords(temp_16_250, 0, 0x4000);
     temp_16_276 = temp_16_250 + 0x4000;
-    D_0015FF1C = D_0015FF18;
-    D_0015FF18->unk20 = 0xFF;
+    D_0015FF1C = D_0015FF18[0];
+    D_0015FF18[0]->unk20 = 0xFF;
     D_0015FF28 = temp_16_276;
     D_001600AC = temp_16_276 + 0x2000;
     D_001600B4 = -1;
-    D_0015FF20 = D_0015FF18 + 0x3F00;
+    D_0015FF20 = D_0015FF18[0] + 0x3F00;
     D_001600B0 = 0;
     D_001600B8 = 0;
     func_001F9810(D_001CD780, 0x200);

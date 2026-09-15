@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_0021f158
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=75.29915 functions=75.29915 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -11,74 +12,72 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021f158/FUN_0021f158.s", FUN_0021f158);
 #else
+#include "rnc/assembly_textbin_fun_0021f158_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void *SearchData(void *a, void *b, int c);
-extern int cModel_setupModel(void *a, void *b, void *c, int d, int e);
-extern void cObjBase_KageInit(void *a, void *b, void *c);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
-extern char D_0044B4B8[];
-extern char D_003C3F58[];
-extern char D_003C3F68[];
-extern char D_003C3FB0[];
-
-/* sn-2.95.3-136 matched TU. */
 
 
 
 
 
 
+extern u8 D_0013D428[];
+extern u8 D_0013D4C0[];
+extern u8 D_001602A0[];
+extern u8 D_001602B8[];
+extern u8 D_001602C0[];
+extern u8 D_001602D0[];
+extern struct M2c_D_001D5BF4 *D_001D5BF4[];
+extern u8 D_001DFFB0[];
+extern s32 PackImageDescriptor();
+extern s32 func_001F4280();
+extern s32 func_001F4398();
+extern s32 func_001F7580();
+extern s32 func_001FDD10();
+extern s32 func_00233980();
+extern s32 sprintf();
+s32 FUN_0021f158(s32 arg0) {
+u8 sp_slot[0xC0];    s32 sp50;
+    s16 sp60;
+    s16 sp62;
+    s16 temp_4_20;
+    s32 temp_17_38;
+    s32 var_2_59;
+    u16 temp_18_40;
+    struct M2c_temp_16_37 *temp_16_37;
+    struct M2c_temp_3_15 *temp_3_15;
+    s32 *temp_4_77;
 
-
-
-
-
-
-int FUN_0021f158(char *a0) {
-    void *m1;
-    void *m2;
-    int n;
-
-    if (*(unsigned char *)(a0 + 0x4D0) == 0) {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, 0);
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, 0);
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, 0);
-        }
-    } else {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, *(int *)(a0 + 0x4D4));
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, *(int *)(a0 + 0x4D4));
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, *(int *)(a0 + 0x4D4));
-        }
-    }
-    n = func_002B6688(*(unsigned short *)(a0 + 0x2FE));
-    *(int *)(a0 + 0x4DC) = n;
-    switch (n) {
-    case 1:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        break;
-    case 2:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F58);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x40000000;
-        break;
-    case 3:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x20000000;
-        break;
-    case 4:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3FB0);
-        break;
-    case 0:
-        break;
-    }
-    *(int *)(a0 + 0x254) = *(int *)(a0 + 0x254) | 0x8000000;
-    if (m1 == 0) {
+    temp_3_15 = D_001D5BF4[0]->unk40;
+    temp_4_20 = *(s32 *)((u8 *)((temp_3_15->unk3C * 0xA) + temp_3_15->unk48) + 0x6);
+    if (*(temp_4_20 + D_0013D4C0) == 0) {
         return 0;
     }
-    return cModel_setupModel(a0, m1, m2, 0, 0);
+    temp_16_37 = (temp_4_20 * 0x18) + D_001DFFB0;
+    temp_17_38 = *((temp_4_20 * 4) + D_0013D428);
+    temp_18_40 = temp_16_37->unkE;
+    func_00233980(0x42, 0x44, D_001DFFB0, 0xA);
+    func_00233980(0x47, 0xB);
+    if (temp_16_37->unk8 == 0) {
+        sprintf(sp_slot, func_001FDD10(0x4F52));
+    } else {
+        if (temp_17_38 < 0x3E8) {
+            var_2_59 = sprintf(sp_slot, D_001602B8, temp_17_38);
+        } else {
+            var_2_59 = sprintf(sp_slot, D_001602C0, temp_17_38 / 1000, temp_17_38 % 1000);
+        }
+        temp_4_77 = sp_slot + var_2_59;
+        if ((s32) temp_18_40 < 0x3E8) {
+            sprintf(temp_4_77, D_001602A0, (s32) temp_18_40);
+        } else {
+            sprintf(temp_4_77, D_001602D0, (s32) temp_18_40 / 1000, (s32) temp_18_40 % 1000);
+        }
+    }
+    func_001F4280(0);
+    PackImageDescriptor(&sp50, arg0);
+    sp60 = 0x10;
+    sp62 = 3;
+    func_001F7580(&sp50, (0x80FF << 0x10) | 0xA888, sp_slot, -1);
+    func_001F4398();
+    return 2;
 }
 #endif /* NON_MATCHING */

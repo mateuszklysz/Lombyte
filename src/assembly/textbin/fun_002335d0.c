@@ -1,11 +1,10 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: VU1_initChain__Fv
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=70.0 functions=70.0 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
-
-/* ROLE: recovered function `VU1_initChain__Fv` starts here; this unit covers only its beginning. */
 
 #include "types.h"
 #include "asm.h"
@@ -23,7 +22,7 @@ extern s32 D_0015F5B8;
 extern s32 D_0015F638;
 extern s32 D_0015F63C;
 extern struct M2c_D_00160EF8 D_00160EF8;
-extern s32 D_00160F00;
+extern s32 D_00160F00[];
 extern s32 D_00160F0C;
 extern s32 D_00160F10;
 extern struct M2c_D_001940C0 D_001940C0;
@@ -35,7 +34,7 @@ void FUN_002335d0(void) {
     D_00160EF8.unk4 = (s32) D_001940C0.unk8;
     D_00160F10 = 0;
     D_0015F63C = temp_3_17 - 0x2000;
-    D_00160F00 = D_001940C0.unk4;
+    D_00160F00[0] = D_001940C0.unk4;
     D_0015F638 = temp_3_17;
 }
 #endif /* NON_MATCHING */

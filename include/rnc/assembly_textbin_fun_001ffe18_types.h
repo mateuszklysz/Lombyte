@@ -24,13 +24,13 @@ struct M2c_D_0019A3E8 {
     s32 unk24;
 };
 
-struct M2c_temp_10_44 {
+struct M2c_temp_10_42 {
     u8 pad_0[0x6];
     u8 unk6;
     s32 unk7;
 };
 
-struct M2c_temp_18_61 {
+struct M2c_temp_18_59 {
     u8 pad_0[0x8];
     s64 unk8;
     s32 unk10;
@@ -52,7 +52,7 @@ struct M2c_temp_18_61 {
     s32 unk68;
 };
 
-struct M2c_temp_2_60 {
+struct M2c_temp_2_58 {
     u8 pad_0[0x10];
     s64 unk10;
 };

@@ -33,7 +33,8 @@ struct M2c_D_0013F350_unk2080 {
 
 struct M2c_D_0013F350_unk890 {
     u8 pad_0[0xBC];
-    s32 unkBC;
+    u8 unkBC;
+    u8 pad_BD[0x3];
 };
 
 struct M2c_D_00193300 {
@@ -44,13 +45,13 @@ struct M2c_D_00193300 {
     s32 unk24;
 };
 
-struct M2c_temp_16_333 {
+struct M2c_temp_16_331 {
     u8 pad_0[0x20];
     s32 unk20;
     s32 unk24;
 };
 
-struct M2c_temp_16_89 {
+struct M2c_temp_16_87 {
     u8 pad_0[0x4];
     s32 unk4;
     u8 pad_8[0xC];
@@ -60,34 +61,34 @@ struct M2c_temp_16_89 {
     s32 unk20;
 };
 
-struct M2c_temp_2_440 {
+struct M2c_temp_2_438 {
     u8 pad_0[0x14];
     s32 unk14;
     s32 unk18;
 };
 
-struct M2c_temp_3_223 {
+struct M2c_temp_3_221 {
     u8 pad_0[0x1C];
     s32 unk1C;
     s32 unk20;
     s32 unk24;
 };
 
-struct M2c_temp_4_210 {
+struct M2c_temp_4_208 {
     u8 pad_0[0x1C];
     s32 unk1C;
     s32 unk20;
     s32 unk24;
 };
 
-struct M2c_temp_4_362 {
+struct M2c_temp_4_360 {
     u8 pad_0[0x4];
     s32 unk4;
     u8 pad_8[0xC];
     s32 unk14;
 };
 
-struct M2c_var_2_97 {
+struct M2c_var_2_95 {
     u8 pad_0[0x14];
     s32 unk14;
 };

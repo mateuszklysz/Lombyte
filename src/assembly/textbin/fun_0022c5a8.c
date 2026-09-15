@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_0022c5a8
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=44.488373 functions=44.488373 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -12,7 +13,7 @@ DECISION: retained (pending)
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022c5a8/FUN_0022c5a8.s", FUN_0022c5a8);
 #else
 #include "types.h"
-extern u32 D_0013E5BC[];
+extern s32 D_0013E5BC[];
 extern u8 D_00187080[];
 extern u8 D_00194120[];
 extern s32 func_001EFA68();

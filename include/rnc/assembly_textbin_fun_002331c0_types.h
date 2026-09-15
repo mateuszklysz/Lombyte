@@ -3,16 +3,35 @@
 
 #include "types.h"
 
-typedef struct {
-    int status;
-    void *func;
-    void *stack;
-    int stackSize;
-    void *gpReg;
-    int initPriority;
-    int currentPriority;
-    int attr;
-    int option;
-} ThreadParam;
+struct M2c_D_00160EBC {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
+
+struct M2c_D_00160F00 {
+    u8 pad_0[0x4];
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
+
+struct M2c_D_0018A2B0 {
+    u8 pad_0[0xC];
+    s32 unkC;
+    s32 unk10;
+};
+
+struct M2c_temp_17_9 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
+
+struct M2c_temp_3_31 {
+    s32 unk0;
+};
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_002331C0_TYPES_H */

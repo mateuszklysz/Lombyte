@@ -1,8 +1,11 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 42.7872%
- * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
- * The default matching build keeps the expected assembly oracle.
- */
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_00214128
+SCORE: code=42.80851 functions=42.80851 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
+*/
+
 #include "types.h"
 #include "asm.h"
 
@@ -45,7 +48,7 @@ loop_2:
 loop_4:
         temp_f0_36 = *var_2_32;
         var_4_33 -= 1;
-        var_2_32 += 4;
+        var_2_32 += 1;
         *var_3_31 = temp_f0_36;
         var_3_31 += 0x10;
         if (var_4_33 >= 0) {

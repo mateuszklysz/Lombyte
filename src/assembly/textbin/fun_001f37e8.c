@@ -1,11 +1,10 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: ResetDrawGlobals
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=59.032257 functions=59.032257 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
-
-/* ROLE: recovered function `ResetDrawGlobals` starts here; this unit covers only its beginning. */
 
 #include "types.h"
 #include "asm.h"
@@ -21,7 +20,7 @@ extern s32 D_0015F360;
 extern s32 D_0015F370;
 extern s32 D_0015F444;
 extern s32 D_0015F448;
-extern s32 D_0015F464;
+extern s32 D_0015F464[];
 extern s32 D_0015F468;
 extern s32 D_0015F46C;
 extern s32 D_0015F470;
@@ -32,7 +31,7 @@ extern s32 D_00161194;
 extern s32 D_00161198;
 extern s32 D_0016119C;
 void FUN_001f37e8(void) {
-    D_0015F464 = 0;
+    D_0015F464[0] = 0;
     D_0015F46C = 0;
     D_0015F470 = 0;
     D_0015F468 = 0;

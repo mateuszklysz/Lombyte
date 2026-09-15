@@ -1,15 +1,15 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: _printf
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=59.08971 functions=59.08971 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
-/* Exact SDK/library unit _printf; symbolic expected assembly retained pending source recovery. */
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/deci_debug/printf_impl/_printf.s", _printf);
 #else
 #include "rnc/assembly_sdk_deci_debug_printf_impl_types.h"
@@ -114,7 +114,7 @@ block_14:
                     goto block_14;
                 case 0x3F:
                     if (var_7_25 == 0x6C) {
-                        var_19_6 += 8;
+                        var_19_6 += 2;
                         var_17_95 = *(s32 *)((u8 *)var_19_6 - 0x8);
                     } else {
                         var_19_6 += 8;

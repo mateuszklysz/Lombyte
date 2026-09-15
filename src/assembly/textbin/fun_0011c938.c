@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: func_0011C938
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=71.8 functions=71.8 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -12,30 +13,22 @@ DECISION: retained (pending)
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0011c938/FUN_0011c938.s", FUN_0011c938);
 #else
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
+extern s32 D_0012FCAC[];
+extern u8 D_00158040[];
+extern u8 D_00158080[];
+extern u8 D_001580C0[];
+extern s32 sceSifCallRpc();
+s32 FUN_0011c938(s32 arg0) {
+    s32 var_2_28;
 
-extern unsigned int D_00747A84;
-extern int D_00586B34;
-extern char D_00747470[];
-extern int D_00747A30;
-extern char D_0044A920[];
-extern char D_0044A940[];
-extern char D_0044A958[];
-extern char D_00583F20[];
-extern int D_003C3CF0;
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-
-void FUN_0011c938(void *a0) {
-    char *s = (char*)a0;
-    unsigned long b = *(unsigned char*)(s + 8);
-    int buf[16];
-    if ((b >> 7) != 0) return;
-    if ((D_00747A30 & 0x400) != 0) {
-        func_003A6C58(buf, D_0044A920, D_0044A940);
-    } else {
-        func_003A6C58(buf, D_0044A958, D_0044A940);
+    if (D_0012FCAC[0] < 0) {
+        return 0;
     }
-    *(int*)(s + 0x10) = 0;
-    *(int*)(s + 0xC) = cDvd_ReadAlloc(D_00583F20, buf, s + 0x10, D_003C3CF0, 0, 0, 0, 0);
+    *(s32 *)D_001580C0 = arg0;
+    var_2_28 = *(s32 *)D_00158080;
+    if (sceSifCallRpc(D_00158040, 2, 0, D_001580C0, 4, D_00158080, 4, 0, 0) < 0) {
+        var_2_28 = -1;
+    }
+    return var_2_28;
 }
 #endif /* NON_MATCHING */

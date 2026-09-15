@@ -1,8 +1,11 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 53.7185%
- * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
- * The default matching build keeps the expected assembly oracle.
- */
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_0022f778
+SCORE: code=53.348232 functions=53.348232 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
+*/
+
 #include "types.h"
 #include "asm.h"
 
@@ -115,7 +118,7 @@ extern s32 D_0015F440;
 extern s32 D_0015F5B0;
 extern s32 D_0015F604;
 extern s32 D_0015F618;
-extern s32 D_0015FF1C;
+extern s32 D_0015FF1C[];
 extern s32 D_00160034;
 extern s32 D_00160510[];
 extern u8 D_00187080[];
@@ -388,7 +391,7 @@ u8 sp_slot[0x100];    s32 sp20;
                     } while (var_16_184 < D_0018CB20.unk44);
                 }
                 var_4_225 = 0xFF;
-                var_5_227 = D_0015FF1C;
+                var_5_227 = D_0015FF1C[0];
                 D_0013E030.unk0->unk34 = (u16) (D_0013E030.unk0->unk34 & 0xFFFE);
                 temp_2_231 = var_5_227->unk20;
                 if (temp_2_231 != 0xFF) {

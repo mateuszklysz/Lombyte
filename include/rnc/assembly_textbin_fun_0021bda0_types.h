@@ -16,7 +16,8 @@ struct M2c_D_001A00F0 {
 
 struct M2c_D_001D5BF0 {
     u8 pad_0[0xCB];
-    s32 unkCB;
+    u8 unkCB;
+    u8 pad_CC[0x3];
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_0021BDA0_TYPES_H */

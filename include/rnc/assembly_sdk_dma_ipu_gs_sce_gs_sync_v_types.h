@@ -4,8 +4,8 @@
 #include "types.h"
 
 struct M2c_temp_2_6 {
-    s32 unk0;
-    u8 pad_4[0x4];
+    s16 unk0;
+    u8 pad_2[0x6];
     s32 unk8;
 };
 

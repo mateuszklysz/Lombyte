@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_001ee338
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=50.31868 functions=50.31868 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -11,20 +12,8 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ee338/FUN_001ee338.s", FUN_001ee338);
 #else
+#include "rnc/assembly_textbin_fun_001ee338_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void *SearchData(void *a, void *b, int c);
-extern int cModel_setupModel(void *a, void *b, void *c, int d, int e);
-extern void cObjBase_KageInit(void *a, void *b, void *c);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
-extern char D_0044B4B8[];
-extern char D_003C3F58[];
-extern char D_003C3F68[];
-extern char D_003C3FB0[];
-
-/* sn-2.95.3-136 matched TU. */
 
 
 
@@ -33,52 +22,54 @@ extern char D_003C3FB0[];
 
 
 
+extern struct M2c_D_0013E500 D_0013E500;
+extern s32 D_001413D4[];
+extern struct M2c_D_00189300 D_00189300;
+extern s32 func_001EE008();
+extern s32 func_001F2070();
+extern s32 func_001FA6C0();
+extern void sp10();
+void FUN_001ee338(void) {
+    f32 sp0;
+    f32 sp4;
+    f32 sp10;
+    f32 sp14;
+    struct M2c_var_16_43 *var_16_43;
+    s32 var_17_26;
+    u8 temp_2_48;
+    struct M2c_temp_2_45 *temp_2_45;
 
-
-
-
-int FUN_001ee338(char *a0) {
-    void *m1;
-    void *m2;
-    int n;
-
-    if (*(unsigned char *)(a0 + 0x4D0) == 0) {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, 0);
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, 0);
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, 0);
+    if (D_001413D4[0] == 0x72) {
+        D_00189300.unkC0 = 0;
+    }
+    if (D_00189300.unkC0 != 0) {
+        var_17_26 = 0;
+        sp0 = func_001FA6C0(D_0013E500.unk8);
+        sp4 = func_001FA6C0(D_0013E500.unkC);
+        if (D_00189300.unkC0 > 0) {
+            var_16_43 = &D_00189300;
+            do {
+                temp_2_45 = var_16_43->unk20;
+                if (temp_2_45 != NULL) {
+                    temp_2_48 = temp_2_45->unk20;
+                    if (temp_2_48 != 0xFE) {
+                        if (temp_2_48 != 0xFD) {
+                            if (var_16_43->unk24 != 0) {
+                                func_001F2070(&sp10, var_16_43);
+                                sp10 = (sp10 - func_001FA6C0(D_0013E500.unk10)) * 0.0625f;
+                                sp14 = (sp14 - func_001FA6C0(D_0013E500.unk14)) * 0.0625f;
+                            } else {
+                                sp10 = (s64)(u64) sp0;
+                            }
+                            func_001EE008(var_16_43, sp10, sp14);
+                        }
+                    }
+                }
+                var_17_26 += 1;
+                var_16_43 += 0x30;
+            } while (var_17_26 < D_00189300.unkC0);
         }
-    } else {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, *(int *)(a0 + 0x4D4));
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, *(int *)(a0 + 0x4D4));
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, *(int *)(a0 + 0x4D4));
-        }
+        D_00189300.unkC0 = 0;
     }
-    n = func_002B6688(*(unsigned short *)(a0 + 0x2FE));
-    *(int *)(a0 + 0x4DC) = n;
-    switch (n) {
-    case 1:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        break;
-    case 2:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F58);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x40000000;
-        break;
-    case 3:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x20000000;
-        break;
-    case 4:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3FB0);
-        break;
-    case 0:
-        break;
-    }
-    *(int *)(a0 + 0x254) = *(int *)(a0 + 0x254) | 0x8000000;
-    if (m1 == 0) {
-        return 0;
-    }
-    return cModel_setupModel(a0, m1, m2, 0, 0);
 }
 #endif /* NON_MATCHING */

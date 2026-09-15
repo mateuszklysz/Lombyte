@@ -8,22 +8,22 @@ struct M2c_D_001940C0 {
     s32 unk14;
 };
 
-struct M2c_temp_19_44 {
+struct M2c_temp_19_42 {
     u8 pad_0[0x4];
     s32 unk4;
 };
 
-struct M2c_temp_22_49 {
+struct M2c_temp_22_47 {
     u8 pad_0[0x8];
     s32 unk8;
 };
 
-struct M2c_temp_23_53 {
+struct M2c_temp_23_51 {
     u8 pad_0[0x8];
     s32 unk8;
 };
 
-struct M2c_temp_3_14 {
+struct M2c_temp_3_12 {
     u8 pad_0[0x1388];
     s32 unk1388;
     s32 unk138C;

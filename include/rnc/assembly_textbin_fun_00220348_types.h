@@ -14,8 +14,9 @@ struct M2c_D_0013D290 {
 
 struct M2c_D_00151780 {
     u8 pad_0[0x160];
-    u16 unk160;
-    s32 unk162;
+    s16 unk160;
+    s16 unk162;
+    u8 pad_164[0x2];
 };
 
 struct M2c_D_001D5BF0 {
@@ -40,8 +41,9 @@ struct M2c_arg0 {
 
 struct M2c_var_5_0 {
     u8 pad_0[0x4];
-    u16 unk4;
-    s32 unk6;
+    s16 unk4;
+    s16 unk6;
+    u8 pad_8[0x2];
 };
 
 struct M2c_var_6_0 {

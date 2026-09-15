@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_00215130
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=82.19512 functions=82.19512 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -12,23 +13,32 @@ DECISION: retained (pending)
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00215130/FUN_00215130.s", FUN_00215130);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+extern s32 D_0015F5D0[];
+extern s32 D_0015F5D4;
+extern s32 D_00161288;
+extern s32 func_001FDD10();
+extern s32 func_001FF658();
+s32 FUN_00215130(s32 arg0, s32 arg1) {
+    s32 var_2_26;
 
-extern void sceVu0UnitMatrix(void *m);
-extern void sceVu0OuterProduct(void *d, void *a, void *b);
-extern void sceVu0Normalize(void *d, void *s);
-extern void Tramp_MMI_COPY3Q_VADD_30A508(void *d, void *a, void *b);
-extern void Tramp_MMI_INVERSE_RT_MATRIX_30A3F8(void *d, void *s);
-
-void FUN_00215130(void *dst, void *a1, void *a2, void *a3) {
-    char M[0x40];
-    char Tv[0x10];
-    sceVu0UnitMatrix(M);
-    sceVu0OuterProduct(Tv, a3, a2);
-    sceVu0Normalize(M + 0x00, Tv);
-    sceVu0Normalize(M + 0x20, a2);
-    sceVu0OuterProduct(M + 0x10, M + 0x20, M + 0x00);
-    Tramp_MMI_COPY3Q_VADD_30A508(M, M, a1);
-    Tramp_MMI_INVERSE_RT_MATRIX_30A3F8(dst, M);
+    if (D_0015F5D4 == arg0) {
+        if (arg1 != 0) {
+            func_001FF658(func_001FDD10(arg1));
+        }
+        D_00161288 = arg1;
+        D_0015F5D0[0] = 2;
+        return 2;
+    }
+    var_2_26 = 0;
+    if (D_0015F5D4 == 0) {
+        if (arg1 != 0) {
+            func_001FF658(func_001FDD10(arg1));
+        }
+        D_0015F5D4 = arg0;
+        D_0015F5D0[0] = 2;
+        var_2_26 = 1;
+        D_00161288 = arg1;
+    }
+    return var_2_26;
 }
 #endif /* NON_MATCHING */

@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_0021bda0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=70.42553 functions=70.42553 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -26,7 +27,7 @@ extern u8 D_001D5CBB[];
 extern s32 func_002166E8();
 s32 FUN_0021bda0(s8 *arg0, s32 *arg1, s32 arg2) {
     s32 *var_5_0;
-    s32 *temp_3_21;
+    s32 *temp_3_19;
     s32 var_6_0;
     s8 *var_4_0;
 
@@ -37,10 +38,10 @@ s32 FUN_0021bda0(s8 *arg0, s32 *arg1, s32 arg2) {
         var_6_0 = -1;
         var_5_0 = &D_001A00F0;
         if (D_001A00F0.unk2A0 != -1) {
-            temp_3_21 = (D_001A00F0.unk2A0 * 4) + (((u8 *)&D_001A00F0 + 0x28C));
+            temp_3_19 = (D_001A00F0.unk2A0 * 4) + (((u8 *)&D_001A00F0 + 0x28C));
             var_4_0 = D_001D5CBB;
             *(s32 *)D_001D5CBB = 0;
-            *temp_3_21 ^= 0x1000;
+            *temp_3_19 ^= 0x1000;
             D_001A00F0.unk2A0 = -1;
         }
     }

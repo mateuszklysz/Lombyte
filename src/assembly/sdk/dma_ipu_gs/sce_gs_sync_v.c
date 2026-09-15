@@ -1,15 +1,15 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: sceGsSyncV
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=70.10811 functions=70.10811 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
-/* Exact SDK/library unit sceGsSyncV; symbolic expected assembly retained pending source recovery. */
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/dma_ipu_gs/sce_gs_sync_v/sceGsSyncV.s", sceGsSyncV);
 #else
 #include "rnc/assembly_sdk_dma_ipu_gs_sce_gs_sync_v_types.h"

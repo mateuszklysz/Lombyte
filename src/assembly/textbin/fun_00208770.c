@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_00208770
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=58.128204 functions=58.128204 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -11,53 +12,53 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00208770/FUN_00208770.s", FUN_00208770);
 #else
+#include "rnc/assembly_textbin_fun_00208770_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern char D_0044D010[];
-extern char D_0044D018[];
-extern int D_003C3100[];
-extern int D_003C3104;
-extern int D_003C310C;
-extern int D_003C3118;
-
-/* sn-2.95.3-136 matched TU. */
 
 
 
 
+extern u8 D_0013D5B0[];
+extern s32 D_0015ED84[];
+extern u8 D_00199478[];
+extern u8 D_001E03B8[];
+void FUN_00208770(void) {
+    s32 temp_6_15;
+    s32 temp_7_14;
+    s32 var_6_26;
+    void **var_5_25;
+    struct M2c_temp_2_28 *temp_2_28;
+    struct M2c_var_4_24 *var_4_24;
 
-
-
-
-
-void FUN_00208770(int a0, int sel, int val, int arg) {
-    switch (sel) {
-    case 3:
-        func_003A6C58(arg, D_0044D010, D_003C310C, val & 0xFF);
-        break;
-    case 2:
-        func_003A6C58(arg, D_0044D018, D_003C3100[sel], val & 0xFFF);
-        break;
-    case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        func_003A6C58(arg, D_0044D010, D_003C3104, val & 0xFF);
-        break;
-    case 6:
-        func_003A6C58(arg, D_0044D010, D_003C3118, val & 0xFF);
-        break;
-    default:
-        break;
+    if ((u32) D_0015ED84[0] >= 0x13U) {
+        goto block_6;
     }
+    temp_7_14 = *(((D_0015ED84[0] + 1) * 4) + D_001E03B8);
+    temp_6_15 = *((D_0015ED84[0] * 4) + D_001E03B8);
+    if (temp_6_15 >= temp_7_14) {
+        goto block_6;
+    }
+    var_4_24 = (temp_6_15 * 0x10) + D_0013D5B0;
+    var_5_25 = (temp_6_15 * 4) + D_00199478;
+    var_6_26 = temp_7_14 - temp_6_15;
+loop_3:
+    temp_2_28 = *var_5_25;
+    if (temp_2_28 == NULL) {
+        goto block_5;
+    }
+    var_4_24->unk0 = (f32) temp_2_28->unk10;
+    var_4_24->unk4 = (f32) temp_2_28->unk14;
+    var_4_24->unk8 = (f32) temp_2_28->unk48;
+block_5:
+    var_4_24 += 0x10;
+    var_6_26 -= 1;
+    var_5_25 += 4;
+    if (var_6_26 != 0) {
+        goto loop_3;
+    }
+block_6:
+    return;
 }
+
+extern void func_00208770(void) __attribute__((alias("FUN_00208770")));
 #endif /* NON_MATCHING */

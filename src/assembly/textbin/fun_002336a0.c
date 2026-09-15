@@ -1,11 +1,10 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: VU1_sendChain__Fv
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=51.10294 functions=51.10294 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
-
-/* ROLE: recovered function `VU1_sendChain__Fv` starts here; this unit covers only its beginning. */
 
 #include "types.h"
 #include "asm.h"
@@ -13,56 +12,49 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002336a0/FUN_002336a0.s", FUN_002336a0);
 #else
+#include "rnc/assembly_textbin_fun_002336a0_types.h"
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
 
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern int D_00747A30;
-extern unsigned char D_0044A920[];
-extern unsigned char D_0044A940[];
-extern unsigned char D_0044A958[];
-extern unsigned char D_005E8640[];
-extern void cRelSys_unlinkNoFree(void *a0, int a1);
-extern void func_00297660(void);
-extern void cEventConfig_setEventNo(void *a0, int a1);
-extern unsigned char D_00586B30[];
 
-void FUN_002336a0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    char buf[0x40];
-    unsigned long b = *(unsigned char *)(s0 + 8);
-    int a1;
-    if ((b >> 7) == 0) {
-        if (D_00747A30 & 0x400) {
-            func_003A6C58(buf, D_0044A920, D_0044A940);
-        } else {
-            func_003A6C58(buf, D_0044A958, D_0044A940);
+extern s32 D_00160EE0;
+extern u8 D_00160EF8[];
+extern struct M2c_D_00160F00 *D_00160F00;
+extern s32 D_00160F0C;
+extern s32 D_00160F10;
+extern s32 D_00160F14[];
+extern u8 D_001E89C8[];
+extern s32 DebugPrint();
+extern s32 FlushCache();
+extern s32 sceDmaGetChan();
+extern s32 sceDmaSend();
+void FUN_002336a0(void) {
+    s32 *temp_2_48;
+    s32 temp_5_15;
+    s32 temp_6_22;
+    s32 var_3_21;
+
+    temp_5_15 = *((D_00160F10 * 4) + D_00160EF8);
+    var_3_21 = 0;
+    temp_6_22 = D_00160F00 - temp_5_15;
+    D_00160EE0 |= 0x1F;
+    if (D_00160F14[0] < temp_6_22) {
+        D_00160F14[0] = temp_6_22;
+        if (D_00160F0C < temp_6_22) {
+            DebugPrint(D_001E89C8, temp_5_15, temp_6_22);
+            var_3_21 = 1;
         }
-        a1 = *(int *)(s0 + 0x10);
-        if (a1 != 0) {
-            cRelSys_linkNoAlloc(D_005E8640, a1, buf, 2);
-            *(int *)(s0 + 8) = *(int *)(s0 + 8) | 0x80;
-        }
     }
-}
-
-void ClearDisplayText_2974F0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long v0 = *(unsigned char *)(s0 + 8);
-    if (v0 >> 7) {
-        cRelSys_unlinkNoFree(D_005E8640, 2);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) & -0x81;
+    if (var_3_21 == 0) {
+        D_00160F00->unk0 = 0x70000000;
+        D_00160F00->unk4 = 0;
+        D_00160F00->unk8 = 0;
+        D_00160F00->unkC = 0;
+        temp_2_48 = sceDmaGetChan(1, D_00160F00);
+        *temp_2_48 |= 0xC0;
+        FlushCache(0);
+        sceDmaSend(temp_2_48, *((D_00160F10 * 4) + D_00160EF8));
+        return;
     }
-}
-
-void InitSubState_2975F8(void *a0, int a1) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long t = *(int *)(s0 + 8);
-    if (((t >> 1) & 1) == 0) {
-        func_00297660();
-        *(int *)(s0 + 0x18) = a1;
-        cEventConfig_setEventNo(D_00586B30, a1);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) | 2;
-    }
+    D_00160EE0 = 0;
 }
 #endif /* NON_MATCHING */

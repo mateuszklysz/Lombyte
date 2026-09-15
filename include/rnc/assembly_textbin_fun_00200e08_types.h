@@ -16,7 +16,7 @@ struct M2c_D_00160F00 {
     s32 unkC;
 };
 
-struct M2c_temp_10_31 {
+struct M2c_temp_10_29 {
     u8 pad_0[0x10];
     s64 unk10;
     s32 unk18;

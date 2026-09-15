@@ -1,8 +1,11 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 59.1659%
- * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
- * The default matching build keeps the expected assembly oracle.
- */
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_001eb0a8
+SCORE: code=59.94931 functions=59.94931 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
+*/
+
 #include "types.h"
 #include "asm.h"
 
@@ -15,7 +18,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001eb0a8/FUN_001eb0a8.s
 
 
 
-extern s32 D_0013CAE4;
+extern s32 D_0013CAE4[];
 extern s32 D_0015EF50;
 extern s32 D_0015EF54;
 extern s32 D_0015EF58;
@@ -134,7 +137,7 @@ block_15:
     func_001F9DC8(0x3C, ((f32) ((s32) (D_0015EF58 - func_001F96F8(0x78)) % 60) * 0.10471976f) + -3.1415927f);
     D_0015EF54 = 0x42000060;
 block_17:
-    if (!(D_0013CAE4 & 0x840)) {
+    if (!(D_0013CAE4[0] & 0x840)) {
         goto block_25;
     }
     InitializeTransferCommand();

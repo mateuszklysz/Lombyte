@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-struct M2c_var_18_12 {
+struct M2c_var_18_10 {
     s32 unk0;
     s32 unk4;
     u8 pad_8[0x4];

@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_00215518
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=59.86207 functions=59.86207 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -17,14 +18,14 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00215518/FUN_00215518.s
 
 extern u8 D_00137B80[];
 extern struct M2c_D_001516D0 D_001516D0;
-extern s32 D_0015ED88;
+extern s32 D_0015ED88[];
+extern u8 D_002169C0[];
 extern s32 func_0012EC08();
-extern void func_002169C0();
-void FUN_00215518(u16 arg0, u16 arg1, u16 arg2) {
-    s32 temp_4_21;
+void FUN_00215518(s16 arg0, s16 arg1, s16 arg2) {
+    s32 temp_4_19;
 
-    temp_4_21 = *(s32 *)((u8 *)(D_00137B80 + ((D_0015ED88 * 4) + ((arg0 + 0xFFFF3CB0) * 0x18))) + 0xF00);
-    if (temp_4_21 != 0) {
+    temp_4_19 = *(s32 *)((u8 *)(D_00137B80 + ((D_0015ED88[0] * 4) + ((arg0 + 0xFFFF3CB0) * 0x18))) + 0xF00);
+    if (temp_4_19 != 0) {
         if (D_001516D0.unk50 == 0) {
             D_001516D0.unk5A = 1;
             D_001516D0.unk64 = 0xA;
@@ -34,7 +35,7 @@ void FUN_00215518(u16 arg0, u16 arg1, u16 arg2) {
             D_001516D0.unk58 = arg1;
             D_001516D0.unk56 = arg2;
             D_001516D0.unk60 = 0;
-            func_0012EC08(temp_4_21, 0, 0, 0, arg2, 0, 2, 0, 0x21, &func_002169C0, (u64) ((s64) (((u8 *)&D_001516D0 + 0x50)) << 0x20) >> 0x20);
+            func_0012EC08(temp_4_19, 0, 0, 0, arg2, 0, 2, 0, 0x21, D_002169C0, (u64) ((s64) (((u8 *)&D_001516D0 + 0x50)) << 0x20) >> 0x20);
         }
     }
 }

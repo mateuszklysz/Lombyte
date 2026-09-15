@@ -1,8 +1,9 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_00224e18
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
+SCORE: code=62.74528 functions=62.74528 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
 */
 
 #include "types.h"
@@ -11,74 +12,75 @@ DECISION: retained (pending)
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00224e18/FUN_00224e18.s", FUN_00224e18);
 #else
+#include "rnc/assembly_textbin_fun_00224e18_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void *SearchData(void *a, void *b, int c);
-extern int cModel_setupModel(void *a, void *b, void *c, int d, int e);
-extern void cObjBase_KageInit(void *a, void *b, void *c);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
-extern char D_0044B4B8[];
-extern char D_003C3F58[];
-extern char D_003C3F68[];
-extern char D_003C3FB0[];
-
-/* sn-2.95.3-136 matched TU. */
 
 
 
 
 
 
+extern u8 D_001863D0[];
+extern struct M2c_D_001D5E10 D_001D5E10;
+extern struct M2c_D_001D5E50 D_001D5E50;
+extern s32 func_001E9480();
+extern s32 func_001FA2B8();
+extern s32 func_0020CB10();
+extern s32 func_0020CB88();
+extern s32 func_0020CCA8();
+extern s32 func_0020D580();
+extern s32 func_0020DEF8();
+extern s32 func_0020E098();
+extern s32 func_00214128();
+void FUN_00224e18(struct M2c_arg0 *arg0) {
+u8 sp_slot[0xD0];    s64 sp30;
+    s32 temp_18_17;
+u8 *temp_19_27;
+    s32 var_20_38;
+    s32 var_21_39;
+    void **temp_16_14;
+    s32 *temp_16_34;
 
-
-
-
-
-
-int FUN_00224e18(char *a0) {
-    void *m1;
-    void *m2;
-    int n;
-
-    if (*(unsigned char *)(a0 + 0x4D0) == 0) {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, 0);
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, 0);
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, 0);
-        }
-    } else {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, *(int *)(a0 + 0x4D4));
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, *(int *)(a0 + 0x4D4));
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, *(int *)(a0 + 0x4D4));
-        }
+    temp_16_14 = arg0->unk78;
+    temp_18_17 = *(s32 *)((u8 *)(*temp_16_14) + 0x44);
+    func_0020D580();
+    func_0020DEF8(arg0);
+    temp_19_27 = (s32) arg0 == *(s32 *)((u8 *)(*temp_16_14) + 0x5C);
+    func_0020CCA8(temp_18_17, (temp_19_27 == 0) ? 2 : 3, sp_slot, 2);
+    arg0->unk10 = (s64) sp30;
+    temp_16_34 = ((u8 *)arg0 + (0xC0));
+    var_20_38 = 0;
+    func_001FA2B8(temp_16_34, sp_slot);
+    var_21_39 = 0;
+    func_00214128(temp_16_34);
+    func_0020E098(arg0);
+    if (D_001D5E50.unk1 != 0) {
+        var_20_38 = 1;
+        func_0020CB88(temp_18_17, &D_001D5E50);
     }
-    n = func_002B6688(*(unsigned short *)(a0 + 0x2FE));
-    *(int *)(a0 + 0x4DC) = n;
-    switch (n) {
-    case 1:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        break;
-    case 2:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F58);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x40000000;
-        break;
-    case 3:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x20000000;
-        break;
-    case 4:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3FB0);
-        break;
-    case 0:
-        break;
+    if (D_001D5E10.unk1 != 0) {
+        var_21_39 = 1;
+        func_0020CB88(temp_18_17, &D_001D5E10);
     }
-    *(int *)(a0 + 0x254) = *(int *)(a0 + 0x254) | 0x8000000;
-    if (m1 == 0) {
-        return 0;
+    if (temp_19_27 == 0) {
+
     }
-    return cModel_setupModel(a0, m1, m2, 0, 0);
+    func_001E9480(D_001863D0, D_001863D0, arg0->unk24, 0, temp_18_17);
+    arg0->unk6C = D_001863D0;
+    arg0->unk68 = D_001863D0;
+    if (var_20_38 != 0) {
+        func_0020CB10(temp_18_17, 0x17, &D_001D5E50);
+        D_001D5E50.unk28 = 0;
+        D_001D5E50.unk20 = 0;
+        D_001D5E50.unk24 = 0;
+    }
+    if (var_21_39 != 0) {
+        func_0020CB10(temp_18_17, 0x16, &D_001D5E10);
+        D_001D5E10.unk28 = 0;
+        D_001D5E10.unk20 = 0;
+        D_001D5E10.unk24 = 0;
+    }
+    arg0->unk50 = 0;
+    arg0->unk54 = 0;
 }
 #endif /* NON_MATCHING */

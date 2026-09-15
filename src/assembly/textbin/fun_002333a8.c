@@ -1,8 +1,11 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 70.3649%
- * blocker: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
- * The default matching build keeps the expected assembly oracle.
- */
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_002333a8
+SCORE: code=67.62162 functions=67.62162 data=100 complete_data=100
+DECISION: retained
+BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
+*/
+
 #include "types.h"
 #include "asm.h"
 
@@ -17,8 +20,8 @@ extern s32 D_0015EE74;
 extern s32 D_0015EE78;
 extern u8 D_00160E70[];
 extern u8 D_00160E80[];
-extern s32 D_00160EBC;
-extern s32 D_00160F00;
+extern s32 D_00160EBC[];
+extern s32 D_00160F00[];
 extern u8 D_00187080[];
 extern struct M2c_D_0018A2B0 D_0018A2B0;
 extern u8 D_001E1300[];
@@ -36,9 +39,9 @@ void FUN_002333a8(void) {
 u8 sp_slot[0x30];    s32 sp30;
     f32 sp3C;
 
-    D_00160EBC = D_00160F00;
+    D_00160EBC[0] = D_00160F00[0];
     D_0015EE74 = D_0015EE78;
-    D_00160F00 += 0x10;
+    D_00160F00[0] += 0x10;
     func_001F21B8(D_00160E70, 1);
     func_001F9FC8(sp_slot);
     func_001F9A68(&sp30, D_00187080, -1024.0f);
