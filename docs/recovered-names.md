@@ -252,10 +252,8 @@ The recovered function starts at our unit and extends past it (206).
 | `assembly/textbin/fun_00235be8`             | 0x235be8 | `TieProc`                                           |
 | `assembly/textbin/fun_002370c0`             | 0x2370c0 | `BuildTieTextureDma`                                |
 | `assembly/textbin/fun_0023a7c0`             | 0x23a7c0 | `initAll__Fiii`                                     |
-| `assembly/textbin/fun_0023aa68`             | 0x23aa68 | `termAll__Fv`                                       |
 | `assembly/textbin/fun_0023ae28`             | 0x23ae28 | `audioDecEndPut__FP9_AudioDeci`                     |
 | `assembly/textbin/fun_0023b210`             | 0x23b210 | `setImageTag`                                       |
-| `assembly/textbin/fun_0023b590`             | 0x23b590 | `startDisplay__Fi`                                  |
 | `assembly/textbin/fun_0023b728`             | 0x23b728 | `pcmCallback__FP7sceMpegP16sceMpegCbDataStrPv`      |
 | `assembly/textbin/fun_0023bf70`             | 0x23bf70 | `viBufAddDMA__FP5ViBuf`                             |
 | `assembly/textbin/fun_0023c660`             | 0x23c660 | `viBufFlush__FP5ViBuf`                              |
@@ -313,6 +311,7 @@ The recovered function starts at our unit and extends past it (206).
 | `textbin/fun_00233980`                      | 0x233980 | `VU1_addGSregister__FUiUlb`                         |
 | `textbin/fun_0023a770`                      | 0x23a770 | `switchThread`                                      |
 | `textbin/fun_0023a790`                      | 0x23a790 | `isAudioOK`                                         |
+| `textbin/fun_0023aa68`                      | 0x23aa68 | `termAll__Fv`                                       |
 | `textbin/fun_0023ab78`                      | 0x23ab78 | `ErrMessage`                                        |
 | `textbin/fun_0023aba0`                      | 0x23aba0 | `proceedAudio__Fv`                                  |
 | `textbin/fun_0023abd0`                      | 0x23abd0 | `audioDecCreate__FP9_AudioDecPUci14sceMpegStrType`  |
@@ -320,6 +319,7 @@ The recovered function starts at our unit and extends past it (206).
 | `textbin/fun_0023ad10`                      | 0x23ad10 | `audioDecReset__FP9_AudioDec`                       |
 | `textbin/fun_0023aef0`                      | 0x23aef0 | `audioDecSend`                                      |
 | `textbin/fun_0023b540`                      | 0x23b540 | `handler_endimage`                                  |
+| `textbin/fun_0023b590`                      | 0x23b590 | `startDisplay__Fi`                                  |
 | `textbin/fun_0023baf8`                      | 0x23baf8 | `getFIFOindex__FP5ViBufPv`                          |
 | `textbin/fun_0023bb40`                      | 0x23bb40 | `setD3_CHCR__FUi`                                   |
 | `textbin/fun_0023bbb0`                      | 0x23bbb0 | `setD4_CHCR__FUi`                                   |

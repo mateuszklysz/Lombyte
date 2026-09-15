@@ -2595,7 +2595,7 @@
     },
     {
       "name": "termAll__Fv",
-      "unit": "assembly/textbin/fun_0023aa68",
+      "unit": "textbin/fun_0023aa68",
       "unit_size": "0x10c",
       "match": "fragment",
       "address": "0x23aa68",
@@ -2715,7 +2715,7 @@
     },
     {
       "name": "startDisplay__Fi",
-      "unit": "assembly/textbin/fun_0023b590",
+      "unit": "textbin/fun_0023b590",
       "unit_size": "0x4c",
       "match": "fragment",
       "address": "0x23b590",
