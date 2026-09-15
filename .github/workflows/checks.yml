@@ -1,0 +1,46 @@
+name: checks
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # Public, cheap checks: no game data, no compiler, no baseline build.
+  tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Script regression tests
+        run: python3 scripts/test_public_tools.py -v
+      - name: Byte-compile the public scripts
+        run: python3 -m py_compile scripts/*.py
+      - name: Source-header state check (changed files)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="${{ github.event.pull_request.base.sha }}"
+          elif git rev-parse HEAD^ >/dev/null 2>&1; then
+            base="HEAD^"
+          else
+            base=""
+          fi
+          if [ -z "$base" ]; then
+            echo "no base commit; skipping header check"
+            exit 0
+          fi
+          mapfile -t files < <(git diff --name-only --diff-filter=ACMR "$base" HEAD -- 'src/**/*.c' || true)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "no changed src/*.c files; skipping header check"
+            exit 0
+          fi
+          printf 'checking %d file(s)\n' "${#files[@]}"
+          python3 scripts/stamp_source_header.py --check --normalize "${files[@]}"

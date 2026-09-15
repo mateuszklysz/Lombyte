@@ -87,11 +87,14 @@ python3 scripts/check-unit.py assembly/math/subtract_integer_with_clamp
 
 This compiles just that unit's C body and compares it with the retail object,
 printing the `.text` score, per-function scores, and the first differing
-instructions. Iterate until it reports `Object matches.` If you pulled changes
-since your last baseline build, re-run `make elf` first.
+instructions. Iterate until it reports `Object matches (promotable).` — that
+means the text matches and the strict pass found every non-`.text` section at
+100% as well. `Text matches; data/rodata differ` means the text is byte-equal
+but the data sections still differ, and the full gate will fail. If you pulled
+changes since your last baseline build, re-run `make elf` first.
 
-A 100% object score means the unit's C is byte-equivalent; the authoritative
-check is still the full image:
+When `check-unit.py` reports text matches, the authoritative check is still the
+full image:
 
 ```sh
 make elf
@@ -125,6 +128,20 @@ Commit with the project's message standard (see
 `decomp: promote SubtractIntegerWithClamp (24 B)`, and open a pull request
 using the template. Include the unit name, its size, and the `PASS` line from
 `make elf`. A maintainer will review and merge.
+
+## Continuous integration
+
+Every pull request runs the public `tools` job in
+[`.github/workflows/checks.yml`](.github/workflows/checks.yml):
+
+- `python3 scripts/test_public_tools.py -v` — the script regression suite;
+- `python3 -m py_compile scripts/*.py` — every public script must parse;
+- `python3 scripts/stamp_source_header.py --check --normalize <changed
+  src/**/*.c>` — changed sources must carry a valid state header.
+
+These checks need no game data and never upload build outputs. The full
+`make elf` rebuild stays a local, contributor-run gate (see above); CI does not
+run it for you.
 
 ## Not exact yet? That is still useful
 
