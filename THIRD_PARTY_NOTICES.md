@@ -46,3 +46,13 @@ The AT&T permissive notice, reproduced in every affected file:
  *
  ***************************************************************/
 ```
+
+## Patched EE-GCC toolchain source patch
+
+`patches/ee-gcc-2.9-991111-01/` modifies the GPLv2-licensed EE-GCC 2.9
+source snapshot published by
+[SSXModding/ps2-ee-toolchain](https://github.com/SSXModding/ps2-ee-toolchain)
+at revision `b595ded`. The patch and any binaries built from it are
+distributed under the GNU GPL v2 or later, like the base. Full text:
+[`licenses/GPL-2.0.txt`](licenses/GPL-2.0.txt). Built toolchain binaries are
+not distributed with this repository.
