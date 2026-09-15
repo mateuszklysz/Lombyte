@@ -1938,7 +1938,7 @@ segments:
           - [0x139290, c, assembly/textbin/fun_00238310]
           - [0x1394a0, c, assembly/textbin/fun_00238520]
           - [0x1395ac, textbin, text_gap_0023862c_before_fun_00238630]
-          - [0x1395b0, c, assembly/textbin/fun_00238630]
+          - [0x1395b0, c, textbin/fun_00238630]
           - [0x139608, c, textbin/fun_00238688]
           - [0x139668, c, textbin/fun_002386e8]
           - [0x13995c, textbin, text_gap_002389dc_after_fun_002386e8]
