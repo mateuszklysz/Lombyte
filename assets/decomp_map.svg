@@ -1491,6 +1491,6 @@
 <text x="455.39" y="973.03" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#2b1604">dpdiv</text>
 <line x1="10" y1="1566.0" x2="790" y2="1566.0" stroke="#2e3644" stroke-width="1" opacity="0.8"/>
 <text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">78,012 of 430,720 configured bytes are matching C &#183; 18.1% of all configured code</text>
-<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 20.0% / C_FUZZY 39.6% of recoverable C</text>
+<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 20.0% / C_FUZZY 40.7% of recoverable C</text>
 <text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-15 &#183; scripts/generate_treemap.py</text>
 </svg>
