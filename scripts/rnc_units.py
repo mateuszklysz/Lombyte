@@ -117,22 +117,54 @@ def unit_source(repo: Path, owner: str) -> Path:
     return repo / "src" / f"{owner}.c"
 
 
-def default_workspace() -> Path:
-    """Baseline workspace location used when none is passed explicitly."""
-    return Path(os.environ.get("BASELINE_ROOT") or "~/rnc-baseline").expanduser()
+def default_workspace(repo: Path) -> Path:
+    """Baseline workspace used when none is configured.
+
+    ``BASELINE_ROOT`` wins when set; otherwise the project-local
+    ``build/baseline`` created by ``./verify-baseline.sh`` is used, so the
+    contribution scripts never touch a location outside the checkout unless
+    the user points them there explicitly.
+    """
+    override = os.environ.get("BASELINE_ROOT", "").strip()
+    if override:
+        return Path(override).expanduser()
+    return repo / "build" / "baseline"
 
 
-def workspace_problem(workspace: Path) -> str | None:
-    """Describe why ``workspace`` cannot be used, or return None."""
-    if not (workspace / ".rnc-baseline-root").is_file():
+def path_inside(path: Path, root: Path) -> bool:
+    """True when ``path`` resolves inside ``root`` (checked before writing)."""
+    try:
+        Path(path).resolve().relative_to(Path(root).resolve())
+        return True
+    except ValueError:
+        return False
+
+
+def workspace_problem(workspace: Path, repo: Path | None = None) -> str | None:
+    """Describe why ``workspace`` cannot be used, or return None.
+
+    Refuses the filesystem root, the user's home, and the checkout itself or
+    any of its parents: those can only be damaged, never built.
+    """
+    resolved = Path(workspace).resolve()
+    if resolved == Path(resolved.anchor) or resolved == Path.home():
+        return f"refusing to use {resolved} as a baseline workspace"
+    if repo is not None:
+        checkout = Path(repo).resolve()
+        if resolved == checkout or resolved in checkout.parents:
+            return (
+                f"refusing to use {resolved} as a baseline workspace: it is the "
+                "checkout or one of its parents"
+            )
+    if not (resolved / ".rnc-baseline-root").is_file():
         return (
-            f"{workspace} is not a baseline workspace; run ./verify-baseline.sh "
+            f"{resolved} is not a baseline workspace; run ./verify-baseline.sh "
             "once (or pass --workspace)"
         )
-    project = workspace / "config" / "us"
-    objdiff = workspace / "tools" / "objdiff" / "objdiff-cli"
+    project = resolved / "config" / "us"
+    objdiff = resolved / "tools" / "objdiff" / "objdiff-cli"
     if not (project / "build.ninja").is_file() or not objdiff.is_file():
-        return f"{workspace} is incomplete; re-run ./verify-baseline.sh"
+        return f"{resolved} is incomplete; re-run ./verify-baseline.sh"
     return None
 
 

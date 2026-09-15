@@ -3,13 +3,16 @@ set -euo pipefail
 
 # Rebuild the boot ELF byte-for-byte from the checked-in sources.
 #
-# The build runs in an isolated staging directory (default under $HOME) so
-# the frozen 32-bit compiler never reads from the mounted source tree. The
-# output boot ELF is verified by SHA-256 against retail; `make iso` then
-# patches it into a copy of your legally owned disc image.
+# The build runs in a staging directory inside the checkout
+# (default build/baseline) so the frozen 32-bit compiler never reads from the
+# mounted source tree without a copy. Set BASELINE_ROOT to a native Linux
+# directory (for example $HOME/rnc-baseline) when the checkout itself is on a
+# Windows-mounted drive. The output boot ELF is verified by SHA-256 against
+# retail; `make iso` then patches it into a copy of your legally owned disc
+# image.
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BASELINE_ROOT="${BASELINE_ROOT:-$HOME/rnc-baseline}"
+BASELINE_ROOT="${BASELINE_ROOT:-$PROJECT_ROOT/build/baseline}"
 VENV="${VENV:-$PROJECT_ROOT/.venv}"
 BINUTILS_ROOT="${BINUTILS_ROOT:-/opt/binutils-mips-ps2-decompals}"
 COMPILER_ROOT="${COMPILER_ROOT:-$PROJECT_ROOT/tools/compilers}"
@@ -30,6 +33,11 @@ esac
 case "$_RESOLVED_ROOT" in
   /) die "BASELINE_ROOT must not be the filesystem root" ;;
   "$HOME") die "BASELINE_ROOT must not be the home directory ($HOME)" ;;
+esac
+_PROJECT_RESOLVED="$(realpath -m "$PROJECT_ROOT")"
+case "$_PROJECT_RESOLVED" in
+  "$_RESOLVED_ROOT" | "$_RESOLVED_ROOT"/*)
+    die "BASELINE_ROOT must not be the checkout or a parent of it: $BASELINE_ROOT" ;;
 esac
 
 # Refuse to delete an existing directory that is not a baseline workspace.

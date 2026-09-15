@@ -11,13 +11,15 @@ assembly oracle under ``#ifndef NON_MATCHING``, the readable C body under
 keeps its oracle while you iterate.
 
 This is the fast inner loop, not the acceptance gate.  It needs a baseline
-workspace built once with ``./verify-baseline.sh`` (default ``~/rnc-baseline``)
-and only rebuilds a single object.  The full-image run of
-``./verify-baseline.sh`` stays the authoritative check.
+workspace built once with ``./verify-baseline.sh`` (default ``build/baseline``
+inside the checkout, or ``$BASELINE_ROOT`` when set) and only rebuilds a single
+object.  The full-image run of ``./verify-baseline.sh`` stays the authoritative
+check.  Only the workspace copy of the unit's source is written; nothing
+outside the workspace is touched.
 
 Usage examples:
   python3 scripts/check-unit.py assembly/math/subtract_integer_with_clamp
-  python3 scripts/check-unit.py assembly/textbin/fast_sin --workspace /tmp/ws
+  python3 scripts/check-unit.py assembly/textbin/fast_sin --workspace build/baseline
 """
 
 from __future__ import annotations
@@ -45,7 +47,7 @@ def parse_args(argv=None):
         "--workspace",
         type=Path,
         default=None,
-        help="baseline workspace directory (default: $BASELINE_ROOT or ~/rnc-baseline)",
+        help="baseline workspace (default: $BASELINE_ROOT or build/baseline in the checkout)",
     )
     parser.add_argument("--json", action="store_true", help="print the result as JSON")
     return parser.parse_args(argv)
@@ -56,15 +58,21 @@ def error(message: str, code: int = 2) -> int:
     return code
 
 
-def normalize_unit(value: str) -> str:
+def normalize_unit(value: str) -> str | None:
+    """Normalize a unit path; None when it is empty or can escape the tree."""
     unit = value.strip().replace(os.sep, "/")
+    if unit.startswith("/"):
+        return None
     if unit.startswith("./"):
         unit = unit[2:]
     if unit.startswith("src/"):
         unit = unit[4:]
     if unit.endswith(".c"):
         unit = unit[:-2]
-    return unit
+    parts = [part for part in unit.split("/") if part not in ("", ".")]
+    if not parts or any(part == ".." for part in parts):
+        return None
+    return "/".join(parts)
 
 
 def find_ninja() -> str | None:
@@ -205,7 +213,11 @@ def print_result(result: dict) -> None:
 def main(argv=None) -> int:
     args = parse_args(argv)
     unit = normalize_unit(args.unit)
+    if unit is None:
+        return error(f"invalid unit path: {args.unit!r}")
     source = rnc_units.unit_source(ROOT, unit)
+    if not rnc_units.path_inside(source, ROOT / "src"):
+        return error(f"refusing to read outside the source tree: {source}")
     if not source.is_file():
         return error(f"no such unit source: {source}")
     _, intentional = rnc_units.load_categories(ROOT / rnc_units.CATEGORY_PATH)
@@ -232,14 +244,18 @@ def main(argv=None) -> int:
         "C body staged from the NON_MATCHING guard" if uses_guard else "staged as-is"
     )
 
-    workspace = args.workspace or rnc_units.default_workspace()
+    workspace = args.workspace or rnc_units.default_workspace(ROOT)
     workspace = workspace.expanduser().resolve()
-    problem = rnc_units.workspace_problem(workspace)
+    problem = rnc_units.workspace_problem(workspace, ROOT)
     if problem:
         return error(problem)
+    if not rnc_units.path_inside(workspace, ROOT):
+        print(f"note: workspace is outside the checkout: {workspace}", file=sys.stderr)
     project = workspace / "config" / "us"
     objdiff = workspace / "tools" / "objdiff" / "objdiff-cli"
     workspace_source = workspace / "src" / f"{unit}.c"
+    if not rnc_units.path_inside(workspace_source, workspace):
+        return error(f"refusing to write outside the workspace: {workspace_source}")
     if not workspace_source.is_file():
         return error(
             f"{unit} is not part of {workspace}; re-run ./verify-baseline.sh "

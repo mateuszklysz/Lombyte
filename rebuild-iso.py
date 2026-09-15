@@ -15,10 +15,10 @@ Usage:
   python3 rebuild-iso.py [--iso dumps/....iso] [--elf build/SCUS_971.99] [--out build/....iso]
 
 If --elf is omitted, the script looks for a reconstructed boot ELF (build/SCUS_971.99
-or a baseline workspace under BASELINE_ROOT, e.g. ~/rnc-baseline); run the
-baseline first (./verify-baseline.sh) to produce it. For a dry check of the
-patching machinery you may pass extracted/SCUS_971.99 (byte-identical to the
-built ELF today).
+or a baseline workspace: build/baseline in the checkout, or BASELINE_ROOT when
+set); run the baseline first (./verify-baseline.sh) to produce it. For a dry
+check of the patching machinery you may pass extracted/SCUS_971.99
+(byte-identical to the built ELF today).
 """
 
 from __future__ import annotations
@@ -68,14 +68,15 @@ def find_boot_extent(iso: bytes, want_name: str = "SCUS_971.99;1") -> tuple[int,
 
 
 def built_elf_candidates() -> list[pathlib.Path]:
-    baseline = pathlib.Path(
-        os.environ.get("BASELINE_ROOT", str(pathlib.Path.home() / "rnc-baseline"))
-    )
-    return [
-        ROOT / "build/SCUS_971.99",
-        baseline / "config/us/build/SCUS_971.99",
-        baseline / "build/SCUS_971.99",
-    ]
+    override = os.environ.get("BASELINE_ROOT", "").strip()
+    candidates = [ROOT / "build/SCUS_971.99"]
+    if override:
+        baseline = pathlib.Path(override).expanduser()
+        candidates.append(baseline / "config/us/build/SCUS_971.99")
+        candidates.append(baseline / "build/SCUS_971.99")
+    candidates.append(ROOT / "build/baseline/config/us/build/SCUS_971.99")
+    candidates.append(ROOT / "build/baseline/build/SCUS_971.99")
+    return candidates
 
 
 def main() -> int:

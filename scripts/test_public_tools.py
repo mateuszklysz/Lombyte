@@ -255,6 +255,27 @@ class BaselineGuardTests(unittest.TestCase):
             self.assertNotIn("refusing to remove", proc.stderr)
             self.assertIn("missing virtual environment", proc.stderr)
 
+    def test_refuses_the_checkout_and_its_parents(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            checkout = tmp / "checkout"
+            checkout.mkdir()
+            script = checkout / "verify-baseline.sh"
+            script.write_text((ROOT / "verify-baseline.sh").read_text())
+            for baseline in (checkout, tmp):
+                env = dict(os.environ)
+                env["BASELINE_ROOT"] = str(baseline)
+                proc = subprocess.run(
+                    ["bash", str(script)],
+                    capture_output=True,
+                    text=True,
+                    env=env,
+                    cwd=checkout,
+                )
+                self.assertNotEqual(proc.returncode, 0)
+                self.assertIn("must not be the checkout or a parent", proc.stderr)
+            self.assertTrue(checkout.is_dir())
+
 
 class RebuildIsoExtentTests(unittest.TestCase):
     """rebuild-iso.py must locate, bounds-check and patch the boot extent."""
@@ -504,6 +525,52 @@ class UnitListHelpersTests(unittest.TestCase):
         self.assertIn("return 1;", body)
         self.assertIn("#ifdef DEBUG", body)
 
+    def test_default_workspace_is_project_local(self):
+        repo = Path("/tmp/example-checkout")
+        with mock.patch.dict(os.environ, {}, clear=False):
+            os.environ.pop("BASELINE_ROOT", None)
+            self.assertEqual(
+                self.units.default_workspace(repo), repo / "build" / "baseline"
+            )
+        with mock.patch.dict(os.environ, {"BASELINE_ROOT": "/tmp/custom-ws"}):
+            self.assertEqual(
+                self.units.default_workspace(repo), Path("/tmp/custom-ws")
+            )
+
+    def test_workspace_problem_refuses_checkout_and_parents(self):
+        with tempfile.TemporaryDirectory() as name:
+            repo = Path(name) / "checkout"
+            (repo / "build" / "baseline").mkdir(parents=True)
+            self.assertIn(
+                "checkout or one of its parents",
+                self.units.workspace_problem(repo, repo),
+            )
+            self.assertIn(
+                "checkout or one of its parents",
+                self.units.workspace_problem(repo.parent, repo),
+            )
+            self.assertIn(
+                "is not a baseline workspace",
+                self.units.workspace_problem(repo / "build" / "baseline", repo),
+            )
+
+    def test_workspace_problem_accepts_a_marked_workspace(self):
+        with tempfile.TemporaryDirectory() as name:
+            repo = Path(name) / "checkout"
+            workspace = repo / "build" / "baseline"
+            (workspace / "config" / "us").mkdir(parents=True)
+            (workspace / ".rnc-baseline-root").write_text("")
+            (workspace / "config" / "us" / "build.ninja").write_text("")
+            (workspace / "tools" / "objdiff").mkdir(parents=True)
+            (workspace / "tools" / "objdiff" / "objdiff-cli").write_text("")
+            self.assertIsNone(self.units.workspace_problem(workspace, repo))
+
+    def test_path_inside(self):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            self.assertTrue(self.units.path_inside(root / "src" / "x.c", root))
+            self.assertFalse(self.units.path_inside(root.parent / "x.c", root))
+
 
 class ListFunctionsTests(unittest.TestCase):
     """list-functions.py must filter, sort and print the pending work list."""
@@ -663,6 +730,25 @@ class ListFunctionsTests(unittest.TestCase):
                 )
         self.assertEqual(code, 2)
         self.assertIn("baseline workspace", stderr.getvalue())
+
+    def test_score_defaults_to_the_project_local_workspace(self):
+        environment = {
+            key: value
+            for key, value in os.environ.items()
+            if key != "BASELINE_ROOT"
+        }
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            stderr = io.StringIO()
+            with (
+                mock.patch.object(self.lister, "ROOT", tmp),
+                mock.patch.dict(os.environ, environment, clear=True),
+                contextlib.redirect_stderr(stderr),
+            ):
+                code = self.lister.main(["--score"])
+        self.assertEqual(code, 2)
+        self.assertIn(str(tmp / "build" / "baseline"), stderr.getvalue())
 
 
 class CheckUnitTests(unittest.TestCase):
@@ -830,6 +916,20 @@ class CheckUnitTests(unittest.TestCase):
     def test_normalize_unit(self):
         self.assertEqual(self.check.normalize_unit("src/assembly/x/y.c"), "assembly/x/y")
         self.assertEqual(self.check.normalize_unit("./assembly/x/y"), "assembly/x/y")
+        self.assertIsNone(self.check.normalize_unit("../../etc/passwd"))
+        self.assertIsNone(self.check.normalize_unit("assembly/../../x"))
+        self.assertIsNone(self.check.normalize_unit("/etc/passwd"))
+        self.assertIsNone(self.check.normalize_unit(""))
+
+    def test_rejects_path_traversal(self):
+        with tempfile.TemporaryDirectory() as name:
+            tmp = Path(name)
+            self._repo(tmp)
+            with mock.patch.object(self.check, "ROOT", tmp):
+                with contextlib.redirect_stderr(io.StringIO()) as stderr:
+                    code = self.check.main(["../outside/x"])
+        self.assertEqual(code, 2)
+        self.assertIn("invalid unit path", stderr.getvalue())
 
 
 if __name__ == "__main__":

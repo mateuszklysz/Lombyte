@@ -11,7 +11,8 @@ scratch.
 With ``--score`` every listed unit's C body is measured against retail (about
 a minute for the full list) and the highest scores are listed first: those are
 usually the closest to a promotion.  This needs the baseline workspace built
-once with ``./verify-baseline.sh``.
+once with ``./verify-baseline.sh`` (``build/baseline`` inside the checkout, or
+``$BASELINE_ROOT`` when set); only that workspace is written to.
 
 Usage:
   python3 scripts/list-functions.py                 # 25 smallest with a C body
@@ -66,7 +67,7 @@ def parse_args(argv=None):
         "--workspace",
         type=Path,
         default=None,
-        help="baseline workspace for --score (default: $BASELINE_ROOT or ~/rnc-baseline)",
+        help="baseline workspace for --score (default: $BASELINE_ROOT or build/baseline in the checkout)",
     )
     parser.add_argument(
         "--json",
@@ -148,12 +149,17 @@ def main(argv=None) -> int:
     errors = 0
     elapsed = 0.0
     if args.score:
-        workspace = args.workspace or rnc_units.default_workspace()
+        workspace = args.workspace or rnc_units.default_workspace(ROOT)
         workspace = workspace.expanduser().resolve()
-        problem = rnc_units.workspace_problem(workspace)
+        problem = rnc_units.workspace_problem(workspace, ROOT)
         if problem:
             print(f"list-functions: error: {problem}", file=sys.stderr)
             return 2
+        if not rnc_units.path_inside(workspace, ROOT):
+            print(
+                f"note: workspace is outside the checkout: {workspace}",
+                file=sys.stderr,
+            )
         started = time.monotonic()
         errors = score_units(list(selected), workspace)
         elapsed = time.monotonic() - started
