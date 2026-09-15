@@ -4,22 +4,20 @@ Reference notes on the original engine's source-file and module naming,
 recovered from development-build metadata during decompilation research.
 
 > [!NOTE]
-> **Provenance and status.** Recovered from a June 2002 preview build. None of
-> these identifiers appear anywhere in the retail USA disc image
-> (`SCUS_971.99`), so this is **reference material only**: it is not a build
-> input and must not be added to `config/` without independent address
-> evidence. No code, addresses, string text or assertion expressions are
-> reproduced here — only identifiers.
+> **Provenance.** Recovered from a June 2002 preview build. None of these
+> identifiers appear in the retail USA disc image (`SCUS_971.99`), so this is
+> reference material only: not a build input, and not to be added to `config/`
+> without independent address evidence. No code, addresses, string text, or
+> assertion expressions are reproduced here — only identifiers.
 
 ## What this is
 
-Development builds carry per-check assertion metadata that names the source
-file of each check, and their debug UI exposes a profiler and module list. That
-metadata documents how the engine was organised: which source files make up
-the game, which parts are built per level, and which identifiers belong to the
-moby, HUD, map and save subsystems. It is useful context when naming
-boot-executable functions and for the long-term PC runtime; it does not name
-any retail unit by itself.
+Development builds carry per-check assertion metadata naming the source file of
+each check, and their debug UI lists profiler and module names. That documents
+how the engine was organised: which source files make up the game, what is
+built per level, and which identifiers belong to the moby, HUD, map and save
+subsystems. It is useful context when naming boot-executable functions and for
+the long-term PC runtime; it does not name any retail unit by itself.
 
 ## Core modules
 

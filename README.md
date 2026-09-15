@@ -24,15 +24,13 @@
 
 **Lombyte** is a non-commercial research and preservation project. It reconstructs the game's Emotion Engine (EE) executable as readable C that compiles to the same machine code as the original USA release (`SCUS_971.99`), verified byte-for-byte against retail.
 
-## Motivation
-
-The long-term goal is a **PC runtime**: a separate program that runs the original game on modern hardware, so it stays playable without relying on aging consoles or emulation. Reconstructing the executable's interfaces, data layouts, ABIs, and observable behavior provides the information needed to build that runtime; the matching decompilation in this repository is the groundwork for it.
+The long-term goal is a **PC runtime**: a native program that runs the game on modern hardware. Reconstructing the executable's interfaces, data layouts, ABIs, and behavior is the groundwork for it.
 
 ## Decompilation Progress
 
 <img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
 
-Each tile is one configured C unit, sized by its share of the executable's code bytes. **Orange** tiles are matching C, **chrome** tiles are intentional low-level asm (SIMD/VU0 helpers excluded from the C goal), and **dark steel** tiles are C still pending. The decompilation pipeline regenerates the map; rebuild it locally with:
+Each tile is one configured C unit, sized by its share of the executable's code bytes. **Orange** tiles are matching C, **chrome** tiles are intentional low-level asm (SIMD/VU0 helpers excluded from the C goal), and **dark steel** tiles are C still pending. Rebuild the map locally with:
 
 ```sh
 .venv/bin/python scripts/generate_treemap.py
@@ -40,9 +38,14 @@ Each tile is one configured C unit, sized by its share of the executable's code 
 
 Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. The map's classification input is `config/us/unit_categories.json`.
 
-**A matching executable does not mean the decompilation is complete.** Unconverted units keep using assembly or raw machine-code _oracles_ to preserve the original bytes; matching C replaces them over time. The oracles are generated at build time from your own `config/us/SCUS_971.99` into the gitignored `config/us/expected/asm/` tree and are not stored in this repository.
+A matching executable does not mean the decompilation is complete. Unconverted
+units keep using assembly or raw machine-code _oracles_ to preserve the
+original bytes; matching C replaces them over time. The oracles are generated
+at build time from your own `config/us/SCUS_971.99` into the gitignored
+`config/us/expected/asm/` tree; the repository stores none.
 
-The build verifies matching at two levels: objdiff per compiled object, and a whole-ELF comparison against the original (SHA-256 below).
+Matching is verified at two levels: objdiff per compiled object, and a
+whole-ELF comparison against the original (SHA-256 below).
 
 ## Supported version
 
@@ -60,7 +63,7 @@ e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9
 
 ### 1. Prepare the build tools
 
-The verified build environment is Linux/WSL with support for both the frozen 32-bit Linux EE compiler and the Windows PE SN compiler. A Linux installation alone does not provide Windows executable support; the SN driver must be runnable in your environment.
+The verified environment is Linux/WSL: the SN compiler is a Windows executable and must be runnable, so a plain Linux setup is not enough by itself.
 
 Install Git, Make, Bash, Python 3 with virtual-environment support, and the following tools:
 
@@ -72,16 +75,16 @@ Install Git, Make, Bash, Python 3 with virtual-environment support, and the foll
 | [objdiff CLI](https://github.com/encounter/objdiff) | `tools/objdiff/objdiff-cli`                                                            |
 | Ninja and Python build dependencies                 | Installed into `.venv` below                                                           |
 
-Compiler versions matter for matching. Preserve the compiler directory layouts and executable permissions when installing them. Toolchain binaries must be supplied separately; the build does not download them.
+Compiler versions matter for matching. Preserve the directory layouts and executable permissions; toolchain binaries are not downloaded.
 
-A small set of units was matched with an optional patched EE-GCC profile. `make elf` works without it: those units are then rebuilt from the retail oracle and the full-image gate still passes. Build the profile from the published source patch when you want to compile and verify their C:
+A few units were matched with an optional patched EE-GCC profile. `make elf` does not need it — those units fall back to the retail oracle — but install it to work on their C:
 
 ```sh
 python3 scripts/build-patched-toolchain.py
 export HIMURO_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
 ```
 
-See [docs/patched-toolchain.md](docs/patched-toolchain.md) for requirements and details.
+See [docs/patched-toolchain.md](docs/patched-toolchain.md).
 
 From your checkout, for example `~/Lombyte`:
 
@@ -94,11 +97,11 @@ python3 -m venv .venv
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
 ```
 
-Use the versions in [requirements.txt](requirements.txt), including the pinned spimdisasm version, to match the expected disassembly output.
+Use the versions in [requirements.txt](requirements.txt); spimdisasm is pinned to match the expected disassembly.
 
 ### 2. Supply the original game files
 
-Extract `SCUS_971.99` from the root of your USA disc image using an ISO extraction tool, and place it at:
+Extract `SCUS_971.99` from the root of your USA disc image and place it at:
 
 ```text
 config/us/SCUS_971.99
@@ -110,7 +113,7 @@ Verify it against the hash in [Supported version](#supported-version):
 sha256sum config/us/SCUS_971.99
 ```
 
-For an ISO rebuild, also place your original disc image at `dumps/game.iso`. Create `dumps/` if needed. These inputs are ignored by Git.
+For an ISO rebuild, also place your original disc image at `dumps/game.iso` (create `dumps/` if needed). These inputs are ignored by Git.
 
 ### 3. Build the executable
 
@@ -120,7 +123,7 @@ make elf
 
 The build stages the sources, splits the reference executable, prepares assembly-backed units, compiles and links the code, generates an objdiff report, and verifies the reconstructed executable against retail.
 
-The default staging directory is `build/baseline` inside the checkout. **It is recreated on each run.** If the checkout itself is on a Windows-mounted drive (`/mnt/c/...`), set `BASELINE_ROOT` to a native Linux directory such as `$HOME/rnc-baseline` so the frozen 32-bit compiler works on a local filesystem.
+The default staging directory is `build/baseline` inside the checkout. **It is recreated on each run.** If the checkout is on a Windows-mounted drive (`/mnt/c/...`), set `BASELINE_ROOT` to a native Linux directory such as `$HOME/rnc-baseline` so the frozen 32-bit compiler works on a local filesystem.
 
 | Output                   | Default location                                  |
 | :----------------------- | :------------------------------------------------ |
@@ -140,7 +143,7 @@ baseline build OK
 make iso
 ```
 
-This first rebuilds the executable, then patches it into a copy of the first `dumps/*.iso` found. Keep one input ISO in that directory to make selection unambiguous.
+This rebuilds the executable, then patches it into a copy of the first `dumps/*.iso` found. Keep one input ISO in that directory to make selection unambiguous.
 
 The output is written to:
 
@@ -160,7 +163,7 @@ The build and ISO scripts support these environment overrides. Use absolute path
 | `VENV`                | `.venv` in the checkout                                                  |
 | `BASELINE_ROOT`       | `build/baseline` in the checkout; disposable staging directory           |
 | `BINUTILS_ROOT`       | Set to the directory containing your `mips-ps2-decompals-*` tools        |
-| `HIMURO_PATCHED_ROOT` | Optional patched EE-GCC profile; units using it fall back to the oracle  |
+| `HIMURO_PATCHED_ROOT` | Optional patched EE-GCC profile                                          |
 | `COMPILER_ROOT`       | `tools/compilers` in the checkout                                        |
 | `SN_TOOLCHAIN_ROOT`   | `tools/compilers/ee-gcc-2.95.2` in the checkout                          |
 
@@ -171,12 +174,6 @@ For example:
 export BASELINE_ROOT="$HOME/rnc-baseline"
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
 make elf
-```
-
-To use the optional patched EE-GCC profile:
-
-```sh
-export HIMURO_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
 ```
 
 To patch an already-built ELF with explicit input and output paths:
@@ -198,9 +195,9 @@ python3 rebuild-iso.py \
 | [`src/assembly/`](src/assembly/) | Assembly-backed units that preserve the original code                 |
 | [`include/`](include/)           | Shared types, structures, and declarations                            |
 | [`config/`](config/)             | Executable layout, symbol maps, and analysis exports                  |
-| [`scripts/`](scripts/)           | Build-support helpers, the progress map, and contribution helpers     |
+| [`scripts/`](scripts/)           | Build and contribution helpers                                        |
 | [`patches/`](patches/)           | Source patch for the optional patched EE-GCC profile                  |
-| [`docs/`](docs/)                 | Matching workflow and acceptance discipline                           |
+| [`docs/`](docs/)                 | Workflow and reference documentation                                  |
 | [`assets/`](assets/)             | Lombyte emblem and generated progress map                             |
 | [`tools/`](tools/)               | Locally installed compilers and comparison tools (not tracked by Git) |
 | [`dumps/`](dumps/)               | Local input disc images, ignored by Git                               |
@@ -208,25 +205,9 @@ python3 rebuild-iso.py \
 
 ## Contributing
 
-Contributions are welcome: matching functions, recovered names, types,
-documentation, and build reproducibility all help. The full walkthrough lives
-in [CONTRIBUTING.md](CONTRIBUTING.md); in short:
+Contributions are welcome: matching C, recovered names, types, and documentation. [CONTRIBUTING.md](CONTRIBUTING.md) has the full walkthrough; in short: build the baseline with `make elf`, pick a unit with `python3 scripts/list-functions.py --score`, refine it with `python3 scripts/check-unit.py <unit>`, then promote it and open a pull request with the `PASS` output.
 
-1. Build the baseline once with `make elf` and keep the workspace it creates.
-2. Run `python3 scripts/list-functions.py --score` to see which units still need
-   C, ranked by how close they are to matching.
-3. Refine the C body under `#else` and measure it with
-   `python3 scripts/check-unit.py <unit>` until the object matches.
-4. Promote the unit (remove the oracle, move it out of `src/assembly/`, retag it
-   in `config/us/rnc1.us.yaml`) and run `make elf` — it must end with
-   `PASS: reconstructed boot ELF matches retail`.
-5. Open a pull request with the unit name and the verification output.
-
-Work-in-progress C is welcome too: keep the oracle, make sure `make elf` still
-passes, and describe the remaining mismatch in the pull request. For build
-issues, include your operating system, tool versions, command, and relevant
-error output. Supply hashes and logs rather than game images or proprietary
-compiler binaries.
+Work-in-progress C is welcome too: keep the oracle, make sure `make elf` still passes, and describe the remaining mismatch in the pull request. For build issues, include your operating system, tool versions, command, and relevant error output. Supply hashes and logs rather than game images or proprietary compiler binaries.
 
 ## Credits
 

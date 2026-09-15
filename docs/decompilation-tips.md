@@ -1,10 +1,10 @@
 # Matching workflow and acceptance discipline
 
-> **New contributors:** [CONTRIBUTING.md](../CONTRIBUTING.md) has the simple
-> pick-a-function loop and the exact commands to run. This document is the full
-> acceptance discipline behind those commands; read it before promoting a unit.
+> **New contributors:** [CONTRIBUTING.md](../CONTRIBUTING.md) has the
+> pick-a-function loop and the exact commands. This document is the acceptance
+> discipline behind them; read it before promoting a unit.
 
-Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
+Procedure and acceptance bar for Ratchet & Clank (PS2, `SCUS_971.99`).
 
 ## 1. Ground truth
 
@@ -17,32 +17,32 @@ Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
 
 - Every configured range has exactly one owner. Unfinished owners stay
   assembly-backed so the image is always reconstructible. The oracle is
-  generated locally from your own retail ELF (`configure.py --make-asm`,
+  generated from your own retail ELF (`configure.py --make-asm`,
   `config/us/expected/asm/`, gitignored) and included with `INCLUDE_ASM`; the
   repository stores no transcribed assembly.
 - An owner becomes C only when its entire compiled range is byte-exact.
-  Retagging ownership records progress.
-- The oracle is removed only after the replacement passes every gate.
+  Retagging ownership records progress. The oracle is removed only after the
+  replacement passes every gate.
 
 ## 3. Compiler model
 
-- Profiles are per owner and chosen from observed codegen: save style,
-  scheduling, addressing. Directory names and single samples are not
+- Profiles are per owner, chosen from observed codegen (save style,
+  scheduling, addressing). Directory names and single samples are not
   evidence.
 - Per-owner flags require a stated hypothesis and a passing gate. Freeze
-  profile and flags while a candidate is refined.
-- Record which build produced an accepted result.
+  profile and flags while refining a candidate, and record which build produced
+  an accepted result.
 
 ## 4. The unit loop
 
-1. Read the complete target and its callers and callees. Recover types,
+1. Read the complete target plus its callers and callees. Recover types,
    layouts, signatures, and one or two exact siblings.
 2. Write descriptive C for one owned range.
 3. Compile fresh and compare at object level.
 4. Classify the earliest mismatch: CFG, ABI, field width or signedness,
    addressing, lifetime, ordering, scheduling.
-5. Change one hypothesis. Recompile. Keep only a strict improvement and
-   revert to the prior best on regression.
+5. Change one hypothesis. Recompile. Keep only a strict improvement; revert to
+   the prior best on regression.
 6. If the same classification survives three attempts, change the approach:
    recover missing context, try another source family, or escalate to a
    recovery route.
@@ -52,30 +52,29 @@ Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
 - Batch independent variants of one hypothesis (arm mirroring, hoisting,
   width, temporaries) and score them together. Serial probing is slower and
   destabilizes register allocation.
-- Inspect complete aligned instruction streams before proposing order or
-  addressing changes. Filtered mismatch rows are not aligned pairs.
+- Inspect complete aligned instruction streams before changing order or
+  addressing. Filtered mismatch rows are not aligned pairs.
 
 ## 6. Exactness and the gate
 
 - Exact means 100% code, functions, data, and complete-data for the owner,
   plus a byte-identical reconstructed image.
-- A high score is not exactness. Relocation-blind comparisons are not proof.
-  Verify linked bytes at the retail address, then the whole image.
-- Run the aggregate image gate once per promotion batch. On failure, bisect
+- A high score is not exactness, and relocation-blind comparisons are not
+  proof. Verify linked bytes at the retail address, then the whole image.
+- Run the aggregate image gate once per promotion batch; on failure, bisect
   the batch.
 
 ## 7. Promotion transaction
 
 - Normalize the owner's path, keep the canonical symbol and required aliases,
-  resolve relocations and data ownership, and re-verify all four measures
-  from a fresh compile.
-- Remove the oracle only after the transaction succeeds, and update the
-  record.
-- Refresh the audit from fresh evidence; counters are derived, never edited.
+  resolve relocations and data ownership, and re-verify all four measures from
+  a fresh compile.
+- Remove the oracle only after the transaction succeeds, and update the record.
+  Refresh the audit from fresh evidence; counters are derived, never edited.
 - Recovered names (see `docs/recovered-names.md`) are context: keep the
   canonical symbol, record the recovered name as a `ROLE:` comment after the
   state header, and declare it as an alias only when the unit is the whole
-  recovered function and the name is not already used elsewhere.
+  recovered function and the name is not used elsewhere.
 
 ## 8. Evidence discipline
 
@@ -84,9 +83,8 @@ Procedure and acceptance bar used for Ratchet & Clank (PS2, `SCUS_971.99`).
 - Worked files carry a short state header (state, symbol, measures, compiler,
   decision, blocker); see [source-headers.md](source-headers.md). Evidence
   paths stay with the maintainers' artifacts, not in this repository.
-- Raw reports are preserved; summaries do not replace them.
-- Parked work records the tested hypotheses, the blocker class, and a
-  concrete revisit trigger.
+- Raw reports are preserved; summaries do not replace them. Parked work records
+  the tested hypotheses, the blocker class, and a concrete revisit trigger.
 
 ## 9. Recovery ladder
 
@@ -120,8 +118,8 @@ justify a change in behavior.
 
 ## 12. Configuration choices
 
-- Segment boundaries and the undefined-function list are maintained by hand.
-  A matching build must place every byte at its retail address, so automatic
+- Segment boundaries and the undefined-function list are maintained by hand. A
+  matching build must place every byte at its retail address, so automatic
   boundary detection or symbol inference is a starting point, never the
   authority; a wrong entry fails the full-image gate instead of silently
   changing the output.
@@ -130,8 +128,8 @@ justify a change in behavior.
   byte difference at the gate.
 - The build targets the boot executable and its embedded DVP overlay blobs;
   other disc files are out of scope.
-- `verify-baseline.sh` only rebuilds a directory it owns: the staging root
-  must contain its `.rnc-baseline-root` marker, so pointing `BASELINE_ROOT` at
+- `verify-baseline.sh` only rebuilds a directory it owns: the staging root must
+  contain its `.rnc-baseline-root` marker, so pointing `BASELINE_ROOT` at
   unrelated data cannot delete it.
 - Public regression tests for the build scripts live in
   `scripts/test_public_tools.py`.

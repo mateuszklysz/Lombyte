@@ -25,8 +25,7 @@ The canonical layout is:
 4. One blank line, then the code.
 
 Legacy metadata comments (`NON_MATCHING FALLBACK`, `C_EXACT (byte-proven)`,
-`UNIT`, `GATE`) are not part of the standard and are dropped by the
-normalizer:
+`UNIT`, `GATE`) are dropped by the normalizer:
 
 ```sh
 python3 scripts/stamp_source_header.py --normalize src/ --apply
@@ -43,7 +42,7 @@ python3 scripts/stamp_source_header.py --normalize src/ --apply
 | `NOTE`     | Optional implementation note for future readers (no run IDs or private paths)                                                        |
 
 `COMPILER`, `BLOCKER` and `NOTE` may be omitted when no measurement or note
-exists, such as headers backfilled from an audit snapshot.
+exists (e.g. headers backfilled from an audit snapshot).
 
 ## Rules
 
@@ -70,5 +69,5 @@ exists, such as headers backfilled from an audit snapshot.
   with `--normalize` it also fails when the layout is not canonical.
   Pass the same field options to also check values.
 
-The stamper (`scripts/stamp_source_header.py`) is the single writer for the
-block format; maintainers use it to backfill headers from the byte-level audit.
+The stamper is the single writer for this format; maintainers use it to
+backfill headers from the byte-level audit.
