@@ -590,7 +590,7 @@ segments:
           - [0x288d0, c, sdk/library/_slice0]
           - [0x28ac0, c, sdk/library/skip_mb0]
           - [0x28b7c, textbin, text_gap_00127b40_post_sdk_worker]
-          - [0x28b80, c, assembly/sdk/library/_decMB0]
+          - [0x28b80, c, sdk/library/_decMB0]
           - [0x29028, c, assembly/textbin/fun_001280a8]
           - [0x290b0, c, assembly/sdk/library/motion_vectors]
           - [0x2924c, textbin, text_gap_00128130_post_sdk_worker]
