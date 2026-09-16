@@ -1,0 +1,3921 @@
+{
+ "schema": "rnc-overlay-name-evidence-v1",
+ "level": "level-11",
+ "generated": "2026-09-16T08:34:41+00:00",
+ "method": [
+  "exact boot-symbol matches (normalized instruction hashes)"
+ ],
+ "stats": {
+  "functions_with_evidence": 244,
+  "named": 244,
+  "with_assert_evidence": 0,
+  "assert_records": 0,
+  "modules": {}
+ },
+ "functions": [
+  {
+   "function": "FUN_0021c630",
+   "addr": 2213424,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadPifAsPSMT8H",
+    "method": "exact-boot-match",
+    "boot_addr": 2003304,
+    "words": 116
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021c800",
+   "addr": 2213888,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadDebugFont",
+    "method": "exact-boot-match",
+    "boot_addr": 2003768,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021c878",
+   "addr": 2214008,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "STUB_printf",
+    "method": "exact-boot-match",
+    "boot_addr": 2003888,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021c928",
+   "addr": 2214184,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "BackupCurrentCam",
+    "method": "exact-boot-match",
+    "boot_addr": 2014352,
+    "words": 23
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021c9f0",
+   "addr": 2214384,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ExecuteCamPostUpdFuncs",
+    "method": "exact-boot-match",
+    "boot_addr": 2014448,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021caa8",
+   "addr": 2214568,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Cam_InterpValues__FffPffff",
+    "method": "exact-boot-match",
+    "boot_addr": 2014584,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021ccd0",
+   "addr": 2215120,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Camera_handleCollWithHero__FiP9UpdateCam",
+    "method": "exact-boot-match",
+    "boot_addr": 2014824,
+    "words": 24
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021d078",
+   "addr": 2216056,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Camera_ActivationCheckPriority",
+    "method": "exact-boot-match",
+    "boot_addr": 2015760,
+    "words": 113
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0021d288",
+   "addr": 2216584,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateAllCameras__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2016288,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002214d8",
+   "addr": 2233560,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "CollLine_Fix",
+    "method": "exact-boot-match",
+    "boot_addr": 2030184,
+    "words": 1084
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002289d8",
+   "addr": 2263512,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateFog__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2041224,
+    "words": 65
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00228ae0",
+   "addr": 2263776,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ParseOcclGrid",
+    "method": "exact-boot-match",
+    "boot_addr": 2041488,
+    "words": 53
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00228bb8",
+   "addr": 2263992,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "GetOcclGridFromPair__Fiiiiiif",
+    "method": "exact-boot-match",
+    "boot_addr": 2041704,
+    "words": 46
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00228c70",
+   "addr": 2264176,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "BuildOcclVisibility__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2041888,
+    "words": 252
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00229060",
+   "addr": 2265184,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateOcclusion__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2042896,
+    "words": 20
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002290b0",
+   "addr": 2265264,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitViewContext__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2042976,
+    "words": 77
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002291e8",
+   "addr": 2265576,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateViewContext__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2043288,
+    "words": 391
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00229938",
+   "addr": 2267448,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetPalMode__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2045160,
+    "words": 192
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00229c38",
+   "addr": 2268216,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ResetDrawGlobals",
+    "method": "exact-boot-match",
+    "boot_addr": 2045928,
+    "words": 31
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00229cb8",
+   "addr": 2268344,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ResetGsRegisters__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2046056,
+    "words": 59
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00229da8",
+   "addr": 2268584,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ResetGsRegistersPr__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2046296,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00229e20",
+   "addr": 2268704,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawDebugProfiler",
+    "method": "exact-boot-match",
+    "boot_addr": 2046416,
+    "words": 542
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022a8c8",
+   "addr": 2271432,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetupGifPaging__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2048640,
+    "words": 69
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022a9e0",
+   "addr": 2271712,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DoGifPaging__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2048920,
+    "words": 71
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022ab00",
+   "addr": 2272000,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "GetEffectTex__Fii",
+    "method": "exact-boot-match",
+    "boot_addr": 2049208,
+    "words": 82
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022b0a0",
+   "addr": 2273440,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FadeToBlack__FiUi",
+    "method": "exact-boot-match",
+    "boot_addr": 2050648,
+    "words": 98
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022b948",
+   "addr": 2275656,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawRectOverlay_FiiiiUl",
+    "method": "exact-boot-match",
+    "boot_addr": 2052768,
+    "words": 106
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022baf8",
+   "addr": 2276088,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTexturedQuad",
+    "method": "exact-boot-match",
+    "boot_addr": 2053200,
+    "words": 97
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022c6c0",
+   "addr": 2279104,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawUIFrame",
+    "method": "exact-boot-match",
+    "boot_addr": 2055960,
+    "words": 81
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022ca58",
+   "addr": 2280024,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FontPrint",
+    "method": "exact-boot-match",
+    "boot_addr": 2056880,
+    "words": 160
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022d8b0",
+   "addr": 2283696,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FontPrintWindow",
+    "method": "exact-boot-match",
+    "boot_addr": 2060432,
+    "words": 316
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022de88",
+   "addr": 2285192,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FontSetWindow",
+    "method": "exact-boot-match",
+    "boot_addr": 2061928,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022e8f8",
+   "addr": 2287864,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastIntersectVert",
+    "method": "exact-boot-match",
+    "boot_addr": 2063000,
+    "words": 94
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022eb90",
+   "addr": 2288528,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastDrawQuadReal",
+    "method": "exact-boot-match",
+    "boot_addr": 2063664,
+    "words": 365
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022f144",
+   "addr": 2289988,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "writeSetupBlock",
+    "method": "exact-boot-match",
+    "boot_addr": 2065124,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022f1c4",
+   "addr": 2290116,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "writeGSHeader",
+    "method": "exact-boot-match",
+    "boot_addr": 2065252,
+    "words": 16
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022f204",
+   "addr": 2290180,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ScisAndRender",
+    "method": "exact-boot-match",
+    "boot_addr": 2065316,
+    "words": 383
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002308d0",
+   "addr": 2296016,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastDecTimer__FRi",
+    "method": "exact-boot-match",
+    "boot_addr": 2070336,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00230900",
+   "addr": 2296064,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastDecTimer__FRs",
+    "method": "exact-boot-match",
+    "boot_addr": 2070384,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00230980",
+   "addr": 2296192,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastSitAndSpin__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2070464,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002309a8",
+   "addr": 2296232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastMemSet",
+    "method": "exact-boot-match",
+    "boot_addr": 2070504,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002309d0",
+   "addr": 2296272,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastMemZero16__FPvi",
+    "method": "exact-boot-match",
+    "boot_addr": 2070544,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00230a90",
+   "addr": 2296464,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastMemCopy",
+    "method": "exact-boot-match",
+    "boot_addr": 2070736,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00230d00",
+   "addr": 2297088,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecDot",
+    "method": "exact-boot-match",
+    "boot_addr": 2071216,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00230d28",
+   "addr": 2297128,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecCross",
+    "method": "exact-boot-match",
+    "boot_addr": 2071256,
+    "words": 6
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00230d40",
+   "addr": 2297152,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecLength",
+    "method": "exact-boot-match",
+    "boot_addr": 2071280,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00230e68",
+   "addr": 2297448,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecNormalize",
+    "method": "exact-boot-match",
+    "boot_addr": 2071544,
+    "words": 20
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231090",
+   "addr": 2298000,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastVectorFromPackedChars__FR4vec4i",
+    "method": "exact-boot-match",
+    "boot_addr": 2071888,
+    "words": 6
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002310a8",
+   "addr": 2298024,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastVectorToPackedChars__FR4vec4",
+    "method": "exact-boot-match",
+    "boot_addr": 2071912,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231120",
+   "addr": 2298144,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastCountChars__FPvi",
+    "method": "exact-boot-match",
+    "boot_addr": 2071960,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231180",
+   "addr": 2298240,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastArcSin__Ff",
+    "method": "exact-boot-match",
+    "boot_addr": 2072056,
+    "words": 38
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231218",
+   "addr": 2298392,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastArcTan__Fff",
+    "method": "exact-boot-match",
+    "boot_addr": 2072208,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231ae0",
+   "addr": 2300640,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastNormalizeAngle",
+    "method": "exact-boot-match",
+    "boot_addr": 2074128,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231b58",
+   "addr": 2300760,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastDiffRots__Fff",
+    "method": "exact-boot-match",
+    "boot_addr": 2074248,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231c00",
+   "addr": 2300928,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastTweenColor",
+    "method": "exact-boot-match",
+    "boot_addr": 2074336,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231c48",
+   "addr": 2301000,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastBSphereCheck",
+    "method": "exact-boot-match",
+    "boot_addr": 2074408,
+    "words": 62
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00231f50",
+   "addr": 2301776,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetupFS_AA_buffer__Fiiiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2075000,
+    "words": 577
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00232858",
+   "addr": 2304088,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetBackgroundColor__Fiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2077312,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00232880",
+   "addr": 2304128,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PutDispBuffer__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2077352,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002328a8",
+   "addr": 2304168,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PutDrawBufferLarge__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2077392,
+    "words": 37
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002329a8",
+   "addr": 2304424,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PutDrawBufferSmall__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2077648,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00233098",
+   "addr": 2306200,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "mode_freezeInit",
+    "method": "exact-boot-match",
+    "boot_addr": 2079416,
+    "words": 102
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00233230",
+   "addr": 2306608,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawDialogText__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2079824,
+    "words": 1141
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00234408",
+   "addr": 2311176,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateModeFreeze__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2084392,
+    "words": 558
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002353d0",
+   "addr": 2315216,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Help_FindIndex",
+    "method": "exact-boot-match",
+    "boot_addr": 2088096,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00235440",
+   "addr": 2315328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "msg_string__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2088208,
+    "words": 16
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00235628",
+   "addr": 2315816,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Help_Update",
+    "method": "exact-boot-match",
+    "boot_addr": 2088592,
+    "words": 641
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00236030",
+   "addr": 2318384,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Help_DrawPrompt",
+    "method": "exact-boot-match",
+    "boot_addr": 2091160,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0025b878",
+   "addr": 2472056,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_GetIconIndex__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2092600,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0025bbe0",
+   "addr": 2472928,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LinkHudBank__FiPc",
+    "method": "exact-boot-match",
+    "boot_addr": 2092992,
+    "words": 88
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0025bec0",
+   "addr": 2473664,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_SendResidentBank__FiPcb",
+    "method": "exact-boot-match",
+    "boot_addr": 2093352,
+    "words": 78
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0025bff8",
+   "addr": 2473976,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_HeapReset__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2093664,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0025c020",
+   "addr": 2474016,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_HeapAlloc__FUiPcT1i",
+    "method": "exact-boot-match",
+    "boot_addr": 2093704,
+    "words": 29
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002611a8",
+   "addr": 2494888,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "GetIconFrame__Fii",
+    "method": "exact-boot-match",
+    "boot_addr": 2095456,
+    "words": 43
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00261258",
+   "addr": 2495064,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "GetFrameTex__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2095632,
+    "words": 136
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00262750",
+   "addr": 2500432,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_sendTexture__FPciiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2099984,
+    "words": 92
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00263408",
+   "addr": 2503688,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadIRXModule",
+    "method": "exact-boot-match",
+    "boot_addr": 2102560,
+    "words": 45
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002634c0",
+   "addr": 2503872,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitMemSlots__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2102744,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00263538",
+   "addr": 2503992,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitOnce__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2102864,
+    "words": 243
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00263c40",
+   "addr": 2505792,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateAllPointLights",
+    "method": "exact-boot-match",
+    "boot_addr": 2103848,
+    "words": 96
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00263dc0",
+   "addr": 2506176,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "CreatePointLight",
+    "method": "exact-boot-match",
+    "boot_addr": 2104232,
+    "words": 236
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002641a0",
+   "addr": 2507168,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DetachPointLight__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2105224,
+    "words": 186
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002649e0",
+   "addr": 2509280,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ParseParticleTexs",
+    "method": "exact-boot-match",
+    "boot_addr": 2107080,
+    "words": 78
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002651c0",
+   "addr": 2511296,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadHudBanks__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2108056,
+    "words": 157
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00265438",
+   "addr": 2511928,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadCompressedHudBank__FiPc",
+    "method": "exact-boot-match",
+    "boot_addr": 2108688,
+    "words": 25
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002656f8",
+   "addr": 2512632,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetUpVisGifViewer__FPiiiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2109392,
+    "words": 83
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026c558",
+   "addr": 2540888,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UNK_NoMapAvailable",
+    "method": "exact-boot-match",
+    "boot_addr": 2119232,
+    "words": 1075
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002707c0",
+   "addr": 2557888,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_GetName",
+    "method": "exact-boot-match",
+    "boot_addr": 2134064,
+    "words": 77
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00270900",
+   "addr": 2558208,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_RestoreGame",
+    "method": "exact-boot-match",
+    "boot_addr": 2134680,
+    "words": 53
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00270a40",
+   "addr": 2558528,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Update",
+    "method": "exact-boot-match",
+    "boot_addr": 2135000,
+    "words": 1525
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00272218",
+   "addr": 2564632,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_MakeWholeSave",
+    "method": "exact-boot-match",
+    "boot_addr": 2141104,
+    "words": 42
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002722c0",
+   "addr": 2564800,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Init",
+    "method": "exact-boot-match",
+    "boot_addr": 2141272,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002722f0",
+   "addr": 2564848,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_GetDataSize",
+    "method": "exact-boot-match",
+    "boot_addr": 2141320,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00272328",
+   "addr": 2564904,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Checksum",
+    "method": "exact-boot-match",
+    "boot_addr": 2141376,
+    "words": 29
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002723a0",
+   "addr": 2565024,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_TestChecksum",
+    "method": "exact-boot-match",
+    "boot_addr": 2141496,
+    "words": 15
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002723e0",
+   "addr": 2565088,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_PrepData",
+    "method": "exact-boot-match",
+    "boot_addr": 2141560,
+    "words": 58
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002724c8",
+   "addr": 2565320,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_RestoreInfo__FPcii",
+    "method": "exact-boot-match",
+    "boot_addr": 2141792,
+    "words": 47
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00272588",
+   "addr": 2565512,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_RestoreData__FPcT0iP7mc_data",
+    "method": "exact-boot-match",
+    "boot_addr": 2141984,
+    "words": 149
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002727e0",
+   "addr": 2566112,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Save__Fii",
+    "method": "exact-boot-match",
+    "boot_addr": 2142584,
+    "words": 145
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00272a28",
+   "addr": 2566696,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DmaToSpr",
+    "method": "exact-boot-match",
+    "boot_addr": 2143168,
+    "words": 8
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00272a48",
+   "addr": 2566728,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DmaToSprSync",
+    "method": "exact-boot-match",
+    "boot_addr": 2143200,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00272a80",
+   "addr": 2566784,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitDma",
+    "method": "exact-boot-match",
+    "boot_addr": 2143256,
+    "words": 35
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00274668",
+   "addr": 2573928,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "CreateMoby__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2147576,
+    "words": 62
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00274760",
+   "addr": 2574176,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitMobyInstance__FP12MobyInstancei",
+    "method": "exact-boot-match",
+    "boot_addr": 2147824,
+    "words": 142
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00274998",
+   "addr": 2574744,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DeleteMoby",
+    "method": "exact-boot-match",
+    "boot_addr": 2148392,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002753c0",
+   "addr": 2577344,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "AttachManipulator",
+    "method": "exact-boot-match",
+    "boot_addr": 2149136,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275438",
+   "addr": 2577464,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DetachManipulator",
+    "method": "exact-boot-match",
+    "boot_addr": 2149256,
+    "words": 36
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002757f8",
+   "addr": 2578424,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DmaMobyTextures",
+    "method": "exact-boot-match",
+    "boot_addr": 2149872,
+    "words": 66
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275900",
+   "addr": 2578688,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PatchMobyGifs",
+    "method": "exact-boot-match",
+    "boot_addr": 2150136,
+    "words": 54
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275bb0",
+   "addr": 2579376,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ProcessMobyAnimData__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150824,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275bf8",
+   "addr": 2579448,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitMobyClassDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150896,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275c20",
+   "addr": 2579488,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "StashMobyClassDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150936,
+    "words": 11
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275c50",
+   "addr": 2579536,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "RestoreMobyClassDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150984,
+    "words": 11
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275c80",
+   "addr": 2579584,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobysSetup__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2151032,
+    "words": 46
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275d38",
+   "addr": 2579768,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobyList",
+    "method": "exact-boot-match",
+    "boot_addr": 2151216,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275db8",
+   "addr": 2579896,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobysCleanUp",
+    "method": "exact-boot-match",
+    "boot_addr": 2151344,
+    "words": 43
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00275e68",
+   "addr": 2580072,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobys",
+    "method": "exact-boot-match",
+    "boot_addr": 2151520,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00276950",
+   "addr": 2582864,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateMobyGrids",
+    "method": "exact-boot-match",
+    "boot_addr": 2153504,
+    "words": 182
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0027b710",
+   "addr": 2602768,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "MobyAnimProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2168616,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0027b7f0",
+   "addr": 2602992,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "MobyProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2168840,
+    "words": 1288
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028a870",
+   "addr": 2664560,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_StartTrackBody__Fiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2186520,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028a958",
+   "addr": 2664792,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Transition__Fiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2186752,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028aa90",
+   "addr": 2665104,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Stop__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2186984,
+    "words": 90
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028abf8",
+   "addr": 2665464,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Pause__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2187344,
+    "words": 13
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028ac30",
+   "addr": 2665520,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Unpause__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2187400,
+    "words": 7
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028ac90",
+   "addr": 2665616,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_UpdateStream__FR13music_Playing",
+    "method": "exact-boot-match",
+    "boot_addr": 2187432,
+    "words": 122
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028ae78",
+   "addr": 2666104,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Update__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2187920,
+    "words": 277
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028b410",
+   "addr": 2667536,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Load",
+    "method": "exact-boot-match",
+    "boot_addr": 2189352,
+    "words": 31
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028c320",
+   "addr": 2671392,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdatePad__FR3PAD",
+    "method": "exact-boot-match",
+    "boot_addr": 2191560,
+    "words": 125
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028c518",
+   "addr": 2671896,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ClearPadInput__FR3PAD",
+    "method": "exact-boot-match",
+    "boot_addr": 2192064,
+    "words": 25
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028c580",
+   "addr": 2672000,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ProcessPadInput__FR3PADPUci",
+    "method": "exact-boot-match",
+    "boot_addr": 2192168,
+    "words": 442
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028cfd8",
+   "addr": 2674648,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateParts",
+    "method": "exact-boot-match",
+    "boot_addr": 2194312,
+    "words": 35
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028d068",
+   "addr": 2674792,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PartProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2194456,
+    "words": 765
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028dc5c",
+   "addr": 2677852,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "_part_load_tex",
+    "method": "exact-boot-match",
+    "boot_addr": 2197516,
+    "words": 28
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0029b518",
+   "addr": 2733336,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PauseAllSounds",
+    "method": "exact-boot-match",
+    "boot_addr": 2198904,
+    "words": 117
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0029ee30",
+   "addr": 2747952,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMapScreen",
+    "method": "exact-boot-match",
+    "boot_addr": 2211424,
+    "words": 367
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0029fb00",
+   "addr": 2751232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SoundOptionsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2214704,
+    "words": 180
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0029fdd0",
+   "addr": 2751952,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawSoundMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2215424,
+    "words": 218
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a1860",
+   "addr": 2758752,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawQuitGameMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2222224,
+    "words": 110
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a1af0",
+   "addr": 2759408,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawItemsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2222880,
+    "words": 277
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a1f48",
+   "addr": 2760520,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawGBsShipMenu__maybe",
+    "method": "exact-boot-match",
+    "boot_addr": 2223992,
+    "words": 106
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a2338",
+   "addr": 2761528,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMissionsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2225000,
+    "words": 163
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a2658",
+   "addr": 2762328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMissionsMenu2",
+    "method": "exact-boot-match",
+    "boot_addr": 2225800,
+    "words": 152
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a3318",
+   "addr": 2765592,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawCheckingMemoryCardDataMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2229064,
+    "words": 191
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a4000",
+   "addr": 2768896,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawCheatsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2232368,
+    "words": 161
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a5918",
+   "addr": 2775320,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ObtainAllGoldWeaponsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2238792,
+    "words": 84
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a5a68",
+   "addr": 2775656,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawEndScreenMenuMaybe",
+    "method": "exact-boot-match",
+    "boot_addr": 2239128,
+    "words": 191
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a5f58",
+   "addr": 2776920,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SavingDataMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2240392,
+    "words": 212
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a62a8",
+   "addr": 2777768,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadingDataMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2241240,
+    "words": 183
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a6588",
+   "addr": 2778504,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SavingDataMenu2",
+    "method": "exact-boot-match",
+    "boot_addr": 2241976,
+    "words": 266
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002a7338",
+   "addr": 2782008,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadHandGadget",
+    "method": "exact-boot-match",
+    "boot_addr": 2245480,
+    "words": 510
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ac1e8",
+   "addr": 2802152,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawShrubs",
+    "method": "exact-boot-match",
+    "boot_addr": 2263864,
+    "words": 44
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ac298",
+   "addr": 2802328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ShrubProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2264040,
+    "words": 1489
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ae948",
+   "addr": 2812232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetupSkyGifPaging__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2274504,
+    "words": 35
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ae9d8",
+   "addr": 2812376,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DoSkyGifPaging__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2274648,
+    "words": 75
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002aeb10",
+   "addr": 2812688,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SkyDrawShell__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2274960,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002aeb68",
+   "addr": 2812776,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SkyDrawShellTextured",
+    "method": "exact-boot-match",
+    "boot_addr": 2275048,
+    "words": 143
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002aeda8",
+   "addr": 2813352,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SkyDrawShellGouraud",
+    "method": "exact-boot-match",
+    "boot_addr": 2275624,
+    "words": 157
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002af558",
+   "addr": 2815320,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SkyBsphereCheck",
+    "method": "exact-boot-match",
+    "boot_addr": 2278600,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002afae0",
+   "addr": 2816736,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sound_update",
+    "method": "exact-boot-match",
+    "boot_addr": 2280016,
+    "words": 813
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b0f40",
+   "addr": 2821952,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sound_StopAllSounds__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2284752,
+    "words": 42
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b1438",
+   "addr": 2823224,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FUN_0022de10_rename",
+    "method": "exact-boot-match",
+    "boot_addr": 2285072,
+    "words": 76
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b5d00",
+   "addr": 2841856,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DoSpaceTransition",
+    "method": "exact-boot-match",
+    "boot_addr": 2301936,
+    "words": 492
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b6b50",
+   "addr": 2845520,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Stash_SendData",
+    "method": "exact-boot-match",
+    "boot_addr": 2305600,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b6df8",
+   "addr": 2846200,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetTfragDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2306152,
+    "words": 86
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b6f50",
+   "addr": 2846544,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DmaTfragTextures__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2306496,
+    "words": 81
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b7098",
+   "addr": 2846872,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PatchTfragGifs__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2306824,
+    "words": 39
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b7138",
+   "addr": 2847032,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTfrag",
+    "method": "exact-boot-match",
+    "boot_addr": 2306984,
+    "words": 74
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b7260",
+   "addr": 2847328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "TfragProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2310064,
+    "words": 778
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b7e88",
+   "addr": 2850440,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ComputeTfragTextureUsage",
+    "method": "exact-boot-match",
+    "boot_addr": 2313176,
+    "words": 91
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b7ff8",
+   "addr": 2850808,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "BuildTfragTextureDma",
+    "method": "exact-boot-match",
+    "boot_addr": 2313544,
+    "words": 148
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b8248",
+   "addr": 2851400,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LightTfrags",
+    "method": "exact-boot-match",
+    "boot_addr": 2314136,
+    "words": 425
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b8a30",
+   "addr": 2853424,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PatchTieGifs",
+    "method": "exact-boot-match",
+    "boot_addr": 2316160,
+    "words": 48
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b8b78",
+   "addr": 2853752,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTies_1",
+    "method": "exact-boot-match",
+    "boot_addr": 2316488,
+    "words": 50
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b8c40",
+   "addr": 2853952,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTies_2",
+    "method": "exact-boot-match",
+    "boot_addr": 2316688,
+    "words": 150
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002b8e98",
+   "addr": 2854552,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "TieProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2317288,
+    "words": 1333
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ba620",
+   "addr": 2860576,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LightTies",
+    "method": "exact-boot-match",
+    "boot_addr": 2323312,
+    "words": 447
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c35f8",
+   "addr": 2897400,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU0_loadMicroProgram__FPl",
+    "method": "exact-boot-match",
+    "boot_addr": 2307288,
+    "words": 50
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c36f0",
+   "addr": 2897648,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_initChain__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2307536,
+    "words": 23
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c3750",
+   "addr": 2897744,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_swapChain__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2307632,
+    "words": 28
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c37c0",
+   "addr": 2897856,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_sendChain__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2307744,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c38d0",
+   "addr": 2898128,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_syncChain__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2308016,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c3950",
+   "addr": 2898256,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_addDataRef__FPvi",
+    "method": "exact-boot-match",
+    "boot_addr": 2308144,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c3aa0",
+   "addr": 2898592,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_addGSregister__FUiUlb",
+    "method": "exact-boot-match",
+    "boot_addr": 2308480,
+    "words": 45
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c3b60",
+   "addr": 2898784,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_setScissor__Fiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2308672,
+    "words": 71
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c4020",
+   "addr": 2900000,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DMAC_VIF1_Enable__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2309376,
+    "words": 36
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002c40b0",
+   "addr": 2900144,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DMAC_VIF1_Disable__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2309520,
+    "words": 28
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329048",
+   "addr": 3313736,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readMpeg__FP8VideoDecP7ReadBufP7StrFile",
+    "method": "exact-boot-match",
+    "boot_addr": 2335840,
+    "words": 196
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329358",
+   "addr": 3314520,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "switchThread",
+    "method": "exact-boot-match",
+    "boot_addr": 2336624,
+    "words": 7
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_003293a8",
+   "addr": 3314600,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "initAll__Fiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2336704,
+    "words": 169
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329650",
+   "addr": 3315280,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "termAll__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2337384,
+    "words": 67
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329760",
+   "addr": 3315552,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ErrMessage",
+    "method": "exact-boot-match",
+    "boot_addr": 2337656,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_003297b8",
+   "addr": 3315640,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecCreate__FP9_AudioDecPUci14sceMpegStrType",
+    "method": "exact-boot-match",
+    "boot_addr": 2337744,
+    "words": 47
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_003298a0",
+   "addr": 3315872,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecStart",
+    "method": "exact-boot-match",
+    "boot_addr": 2337976,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_003298f8",
+   "addr": 3315960,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecReset__FP9_AudioDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2338064,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329940",
+   "addr": 3316032,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecBeginPut__FP9_AudioDecPPUcPiT1T2",
+    "method": "exact-boot-match",
+    "boot_addr": 2338136,
+    "words": 52
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329a10",
+   "addr": 3316240,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecEndPut__FP9_AudioDeci",
+    "method": "exact-boot-match",
+    "boot_addr": 2338344,
+    "words": 45
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329ad8",
+   "addr": 3316440,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecSend",
+    "method": "exact-boot-match",
+    "boot_addr": 2338544,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329b00",
+   "addr": 3316480,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sendToSPU__FP9_AudioDecPUcii",
+    "method": "exact-boot-match",
+    "boot_addr": 2338584,
+    "words": 42
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329ba8",
+   "addr": 3316648,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sendADPCM__FP9_AudioDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2338752,
+    "words": 147
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329df8",
+   "addr": 3317240,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "setImageTag",
+    "method": "exact-boot-match",
+    "boot_addr": 2339344,
+    "words": 113
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00329fc0",
+   "addr": 3317696,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "vblankHandler",
+    "method": "exact-boot-match",
+    "boot_addr": 2339800,
+    "words": 90
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a128",
+   "addr": 3318056,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "handler_endimage",
+    "method": "exact-boot-match",
+    "boot_addr": 2340160,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a178",
+   "addr": 3318136,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "startDisplay__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2340240,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a1c8",
+   "addr": 3318216,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "endDisplay__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2340320,
+    "words": 4
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a1d8",
+   "addr": 3318232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoCallback",
+    "method": "exact-boot-match",
+    "boot_addr": 2340336,
+    "words": 78
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a310",
+   "addr": 3318544,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "pcmCallback__FP7sceMpegP16sceMpegCbDataStrPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2340648,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a3f8",
+   "addr": 3318776,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "cpy2area__FPUciT0iT0iT0i",
+    "method": "exact-boot-match",
+    "boot_addr": 2340880,
+    "words": 76
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a528",
+   "addr": 3319080,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readBufCreate__FP7ReadBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2341184,
+    "words": 6
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a548",
+   "addr": 3319112,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readBufBeginPut__FP7ReadBufPPUc",
+    "method": "exact-boot-match",
+    "boot_addr": 2341216,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a578",
+   "addr": 3319160,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readBufEndPut__FP7ReadBufi",
+    "method": "exact-boot-match",
+    "boot_addr": 2341264,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a5c0",
+   "addr": 3319232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readBufBeginGet__FP7ReadBufPPUc",
+    "method": "exact-boot-match",
+    "boot_addr": 2341336,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a608",
+   "addr": 3319304,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readBufEndGet__FP7ReadBufi",
+    "method": "exact-boot-match",
+    "boot_addr": 2341408,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a6e0",
+   "addr": 3319520,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "getFIFOindex__FP5ViBufPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2341624,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a808",
+   "addr": 3319816,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "scTag2",
+    "method": "exact-boot-match",
+    "boot_addr": 2341920,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a830",
+   "addr": 3319856,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufCreate",
+    "method": "exact-boot-match",
+    "boot_addr": 2341960,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032a8a8",
+   "addr": 3319976,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufReset__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2342080,
+    "words": 88
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032aa08",
+   "addr": 3320328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufBeginPut__FP5ViBufPPUcPiT1T2",
+    "method": "exact-boot-match",
+    "boot_addr": 2342432,
+    "words": 61
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032ab00",
+   "addr": 3320576,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufEndPut__FP5ViBufi",
+    "method": "exact-boot-match",
+    "boot_addr": 2342680,
+    "words": 21
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032ab58",
+   "addr": 3320664,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufAddDMA__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2342768,
+    "words": 127
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032ad58",
+   "addr": 3321176,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufStopDMA__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2343280,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032ae68",
+   "addr": 3321448,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufRestartDMA__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2343552,
+    "words": 206
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b1a0",
+   "addr": 3322272,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufDelete__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2344376,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b1f8",
+   "addr": 3322360,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufCount__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2344464,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b248",
+   "addr": 3322440,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufFlush__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2344544,
+    "words": 21
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b2a0",
+   "addr": 3322528,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufModifyPts__FP5ViBufP9TimeStamp",
+    "method": "exact-boot-match",
+    "boot_addr": 2344632,
+    "words": 85
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b3f8",
+   "addr": 3322872,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufPutTs__FP5ViBufP9TimeStamp",
+    "method": "exact-boot-match",
+    "boot_addr": 2344976,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b508",
+   "addr": 3323144,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufGetTs__FP5ViBufP9TimeStamp",
+    "method": "exact-boot-match",
+    "boot_addr": 2345248,
+    "words": 105
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b6b0",
+   "addr": 3323568,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecCreate__FP8VideoDecPUciPUxT3iP9TimeStampi",
+    "method": "exact-boot-match",
+    "boot_addr": 2345672,
+    "words": 64
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b820",
+   "addr": 3323936,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecDelete__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346040,
+    "words": 13
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b880",
+   "addr": 3324032,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecPutTs__FP8VideoDecllPUci",
+    "method": "exact-boot-match",
+    "boot_addr": 2346136,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b8f0",
+   "addr": 3324144,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecFlush__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346248,
+    "words": 54
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032b9c8",
+   "addr": 3324360,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecIsFlushed__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346464,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032ba10",
+   "addr": 3324432,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecMain__FPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2346536,
+    "words": 39
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bab0",
+   "addr": 3324592,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "decBs0__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346696,
+    "words": 109
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bc68",
+   "addr": 3325032,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "mpegError__FP7sceMpegP18sceMpegCbDataErrorPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2347136,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bc90",
+   "addr": 3325072,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "mpegNodata__FP7sceMpegP13sceMpegCbDataPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2347176,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bd78",
+   "addr": 3325304,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufCreate__FP5VoBufP6VoDataP5VoTagi",
+    "method": "exact-boot-match",
+    "boot_addr": 2347408,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bdd0",
+   "addr": 3325392,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufReset__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347496,
+    "words": 4
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bde0",
+   "addr": 3325408,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufIsFull__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347512,
+    "words": 5
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bdf8",
+   "addr": 3325432,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufIncCount__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347536,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032be70",
+   "addr": 3325552,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufGetData__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347656,
+    "words": 16
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bec0",
+   "addr": 3325632,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufGetTag__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347736,
+    "words": 25
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0032bf28",
+   "addr": 3325736,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufDecCount__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347840,
+    "words": 8
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  }
+ ]
+}

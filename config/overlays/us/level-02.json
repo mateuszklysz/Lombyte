@@ -1,0 +1,89 @@
+{
+ "id": "level-02",
+ "index": 2,
+ "name": "Aridia",
+ "elf_sha256": "671ff28b640800f45711de680b3284e781d36f503bfc3f5025d92a895ddbc112",
+ "entry": 2389880,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 13472,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1451008,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1467904,
+   "size": 608608,
+   "file_offset": 13760,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2076544,
+   "size": 1908,
+   "file_offset": 622400,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2078464,
+   "size": 160,
+   "file_offset": 624320,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2078720,
+   "size": 40,
+   "file_offset": 624512,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2078848,
+   "size": 1065136,
+   "file_offset": 624576,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1690088,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3105,
+  "jr_ra": 2220
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2078848,
+   "end": 2347872,
+   "bytes": 269024
+  }
+ ],
+ "problems": [],
+ "functions": 1862,
+ "named_functions": 246,
+ "name_evidence_functions": 533
+}

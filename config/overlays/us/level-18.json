@@ -1,0 +1,89 @@
+{
+ "id": "level-18",
+ "index": 18,
+ "name": "Veldin Finale",
+ "elf_sha256": "2f91a356e208965be55aed0637a86abf0164875e716c58e8d30cd3e5ad1b4ef6",
+ "entry": 2391824,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 14488,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1452032,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1468928,
+   "size": 574128,
+   "file_offset": 14784,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2043136,
+   "size": 2016,
+   "file_offset": 588928,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2045184,
+   "size": 160,
+   "file_offset": 590976,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2045440,
+   "size": 48,
+   "file_offset": 591168,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2045568,
+   "size": 1141312,
+   "file_offset": 591232,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1732904,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3271,
+  "jr_ra": 2324
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2045568,
+   "end": 2347872,
+   "bytes": 302304
+  }
+ ],
+ "problems": [],
+ "functions": 1957,
+ "named_functions": 245,
+ "name_evidence_functions": 245
+}

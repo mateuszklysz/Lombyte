@@ -1,0 +1,89 @@
+{
+ "id": "level-11",
+ "index": 11,
+ "name": "Pokitaru",
+ "elf_sha256": "0fd802f1618749b340ce0e16a144c1d7ca537a04adc470801da7afcc125e1135",
+ "entry": 2535384,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 14472,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1452032,
+   "size": 16880,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1468928,
+   "size": 741088,
+   "file_offset": 14784,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2210048,
+   "size": 1872,
+   "file_offset": 755904,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2211968,
+   "size": 140,
+   "file_offset": 757824,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2212224,
+   "size": 32,
+   "file_offset": 758016,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2212352,
+   "size": 1113416,
+   "file_offset": 758080,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1871912,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3218,
+  "jr_ra": 2293
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2212352,
+   "end": 2347872,
+   "bytes": 135520
+  }
+ ],
+ "problems": [],
+ "functions": 1934,
+ "named_functions": 244,
+ "name_evidence_functions": 244
+}

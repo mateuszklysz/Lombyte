@@ -1,0 +1,89 @@
+{
+ "id": "level-12",
+ "index": 12,
+ "name": "Hoven",
+ "elf_sha256": "9be7f791c88be7fb241ae0437795eba1148d4847e40e8e758dc1d3e7832f0446",
+ "entry": 2481688,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 13152,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1450624,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1467520,
+   "size": 681728,
+   "file_offset": 13440,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2149248,
+   "size": 1752,
+   "file_offset": 695168,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2151040,
+   "size": 160,
+   "file_offset": 696960,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2151296,
+   "size": 48,
+   "file_offset": 697152,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2151424,
+   "size": 1100048,
+   "file_offset": 697216,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1797672,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3171,
+  "jr_ra": 2281
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2151424,
+   "end": 2347872,
+   "bytes": 196448
+  }
+ ],
+ "problems": [],
+ "functions": 1915,
+ "named_functions": 244,
+ "name_evidence_functions": 244
+}

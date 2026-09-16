@@ -1,0 +1,89 @@
+{
+ "id": "level-16",
+ "index": 16,
+ "name": "Kalebo III",
+ "elf_sha256": "4006c02ad3f26a032112c3ab81ea34ac05f288cb0e4fef1e91662a30dcec0473",
+ "entry": 2364160,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 12964,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1450496,
+   "size": 16880,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1467392,
+   "size": 533728,
+   "file_offset": 13248,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2001152,
+   "size": 1896,
+   "file_offset": 547008,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2003072,
+   "size": 180,
+   "file_offset": 548928,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2003328,
+   "size": 32,
+   "file_offset": 549120,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2003456,
+   "size": 1113216,
+   "file_offset": 549184,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1662760,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3221,
+  "jr_ra": 2299
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2003456,
+   "end": 2347872,
+   "bytes": 344416
+  }
+ ],
+ "problems": [],
+ "functions": 1933,
+ "named_functions": 245,
+ "name_evidence_functions": 245
+}

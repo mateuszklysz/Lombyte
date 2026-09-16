@@ -1,0 +1,89 @@
+{
+ "id": "level-09",
+ "index": 9,
+ "name": "Gaspar",
+ "elf_sha256": "ba407330fec6983f46c0dbd3f7a0c088f96936e86e6244927b0e9e32d1b8591a",
+ "entry": 2510104,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 12368,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1449856,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1466752,
+   "size": 668048,
+   "file_offset": 12672,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2134912,
+   "size": 1968,
+   "file_offset": 680768,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2136960,
+   "size": 160,
+   "file_offset": 682752,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2137216,
+   "size": 32,
+   "file_offset": 682944,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2137344,
+   "size": 1110160,
+   "file_offset": 683008,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1793576,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3097,
+  "jr_ra": 2216
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2137344,
+   "end": 2347872,
+   "bytes": 210528
+  }
+ ],
+ "problems": [],
+ "functions": 1857,
+ "named_functions": 244,
+ "name_evidence_functions": 244
+}

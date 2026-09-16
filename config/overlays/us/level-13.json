@@ -1,0 +1,89 @@
+{
+ "id": "level-13",
+ "index": 13,
+ "name": "Oltanis Orbit",
+ "elf_sha256": "95425c15c284cd4a76a12aee2a8fd8764cb61273b9f98e52041e1fc3f0aec4c6",
+ "entry": 2428584,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 12744,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1450240,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1467136,
+   "size": 587040,
+   "file_offset": 13056,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2054272,
+   "size": 2340,
+   "file_offset": 600128,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2056704,
+   "size": 160,
+   "file_offset": 602496,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2056960,
+   "size": 24,
+   "file_offset": 602688,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2057088,
+   "size": 1200936,
+   "file_offset": 602752,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1804072,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3295,
+  "jr_ra": 2326
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2057088,
+   "end": 2347872,
+   "bytes": 290784
+  }
+ ],
+ "problems": [],
+ "functions": 1972,
+ "named_functions": 246,
+ "name_evidence_functions": 246
+}

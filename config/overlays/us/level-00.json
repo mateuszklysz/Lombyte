@@ -1,0 +1,89 @@
+{
+ "id": "level-00",
+ "index": 0,
+ "name": "Veldin Tutorial",
+ "elf_sha256": "8f1e00c8be75635db809679890fb5c128ba208e780461699f73e3a5344356ec9",
+ "entry": 2382888,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 12016,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1449472,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1466368,
+   "size": 541360,
+   "file_offset": 12288,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2007808,
+   "size": 1284,
+   "file_offset": 553664,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2009216,
+   "size": 160,
+   "file_offset": 555008,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2009472,
+   "size": 24,
+   "file_offset": 555200,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2009600,
+   "size": 1073872,
+   "file_offset": 555264,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1629544,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3033,
+  "jr_ra": 2171
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2009600,
+   "end": 2347872,
+   "bytes": 338272
+  }
+ ],
+ "problems": [],
+ "functions": 1824,
+ "named_functions": 247,
+ "name_evidence_functions": 247
+}

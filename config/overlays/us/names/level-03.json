@@ -1,0 +1,8792 @@
+{
+ "schema": "rnc-overlay-name-evidence-v1",
+ "level": "level-03",
+ "generated": "2026-09-16T08:34:40+00:00",
+ "method": [
+  "preview-build function matches (normalized instruction hashes)",
+  "exact boot-symbol matches (normalized instruction hashes)"
+ ],
+ "stats": {
+  "functions_with_evidence": 546,
+  "named": 244,
+  "with_assert_evidence": 0,
+  "assert_records": 0,
+  "modules": {}
+ },
+ "functions": [
+  {
+   "function": "FUN_001e4730",
+   "addr": 1984304,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadPifAsPSMT8H",
+    "method": "exact-boot-match",
+    "boot_addr": 2003304,
+    "words": 116
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001e4900",
+   "addr": 1984768,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadDebugFont",
+    "method": "exact-boot-match",
+    "boot_addr": 2003768,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001e4978",
+   "addr": 1984888,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "STUB_printf",
+    "method": "exact-boot-match",
+    "boot_addr": 2003888,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00264c98",
+    "addr": 2509976,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_001e49b0",
+   "addr": 1984944,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d57d0",
+    "addr": 1923024,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001e4a28",
+   "addr": 1985064,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "BackupCurrentCam",
+    "method": "exact-boot-match",
+    "boot_addr": 2014352,
+    "words": 23
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001e4af0",
+   "addr": 1985264,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ExecuteCamPostUpdFuncs",
+    "method": "exact-boot-match",
+    "boot_addr": 2014448,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001e4ba8",
+   "addr": 1985448,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Cam_InterpValues__FffPffff",
+    "method": "exact-boot-match",
+    "boot_addr": 2014584,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001e4db0",
+   "addr": 1985968,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d5bf8",
+    "addr": 1924088,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_001e4dd0",
+   "addr": 1986000,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "Camera_handleCollWithHero__FiP9UpdateCam",
+    "method": "exact-boot-match",
+    "boot_addr": 2014824,
+    "words": 24
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d5c18",
+    "addr": 1924120,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_001e5178",
+   "addr": 1986936,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Camera_ActivationCheckPriority",
+    "method": "exact-boot-match",
+    "boot_addr": 2015760,
+    "words": 113
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001e5388",
+   "addr": 1987464,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateAllCameras__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2016288,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001e5a60",
+   "addr": 1989216,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d6930",
+    "addr": 1927472,
+    "words": 120
+   }
+  },
+  {
+   "function": "FUN_001e6218",
+   "addr": 1991192,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d7118",
+    "addr": 1929496,
+    "words": 44
+   }
+  },
+  {
+   "function": "FUN_001e68a8",
+   "addr": 1992872,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d7698",
+    "addr": 1930904,
+    "words": 72
+   }
+  },
+  {
+   "function": "FUN_001e69c8",
+   "addr": 1993160,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d77b8",
+    "addr": 1931192,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_001e6ee8",
+   "addr": 1994472,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d7cd0",
+    "addr": 1932496,
+    "words": 44
+   }
+  },
+  {
+   "function": "FUN_001e6f98",
+   "addr": 1994648,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001d7d80",
+    "addr": 1932672,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_001e9538",
+   "addr": 2004280,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001da050",
+    "addr": 1941584,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_001e95d8",
+   "addr": 2004440,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "CollLine_Fix",
+    "method": "exact-boot-match",
+    "boot_addr": 2030184,
+    "words": 1084
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001ed0d8",
+   "addr": 2019544,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ddcc8",
+    "addr": 1957064,
+    "words": 156
+   }
+  },
+  {
+   "function": "FUN_001f07b0",
+   "addr": 2033584,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e1b78",
+    "addr": 1973112,
+    "words": 202
+   }
+  },
+  {
+   "function": "FUN_001f0ad8",
+   "addr": 2034392,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateFog__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2041224,
+    "words": 65
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f0be0",
+   "addr": 2034656,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ParseOcclGrid",
+    "method": "exact-boot-match",
+    "boot_addr": 2041488,
+    "words": 53
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f0cb8",
+   "addr": 2034872,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "GetOcclGridFromPair__Fiiiiiif",
+    "method": "exact-boot-match",
+    "boot_addr": 2041704,
+    "words": 46
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f0d70",
+   "addr": 2035056,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "BuildOcclVisibility__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2041888,
+    "words": 252
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f1160",
+   "addr": 2036064,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateOcclusion__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2042896,
+    "words": 20
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e2330",
+    "addr": 1975088,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_001f11b0",
+   "addr": 2036144,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitViewContext__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2042976,
+    "words": 77
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f12e8",
+   "addr": 2036456,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateViewContext__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2043288,
+    "words": 391
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f1908",
+   "addr": 2038024,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e2ad8",
+    "addr": 1977048,
+    "words": 76
+   }
+  },
+  {
+   "function": "FUN_001f1a38",
+   "addr": 2038328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetPalMode__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2045160,
+    "words": 192
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f1d38",
+   "addr": 2039096,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ResetDrawGlobals",
+    "method": "exact-boot-match",
+    "boot_addr": 2045928,
+    "words": 31
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f1db8",
+   "addr": 2039224,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ResetGsRegisters__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2046056,
+    "words": 59
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f1ea8",
+   "addr": 2039464,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ResetGsRegistersPr__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2046296,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f1f20",
+   "addr": 2039584,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawDebugProfiler",
+    "method": "exact-boot-match",
+    "boot_addr": 2046416,
+    "words": 542
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f29c8",
+   "addr": 2042312,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetupGifPaging__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2048640,
+    "words": 69
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f2ae0",
+   "addr": 2042592,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DoGifPaging__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2048920,
+    "words": 71
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f2c00",
+   "addr": 2042880,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "GetEffectTex__Fii",
+    "method": "exact-boot-match",
+    "boot_addr": 2049208,
+    "words": 82
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f2fc8",
+   "addr": 2043848,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e3de0",
+    "addr": 1981920,
+    "words": 118
+   }
+  },
+  {
+   "function": "FUN_001f31a0",
+   "addr": 2044320,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FadeToBlack__FiUi",
+    "method": "exact-boot-match",
+    "boot_addr": 2050648,
+    "words": 98
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e3fb8",
+    "addr": 1982392,
+    "words": 98
+   }
+  },
+  {
+   "function": "FUN_001f3328",
+   "addr": 2044712,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e4140",
+    "addr": 1982784,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_001f3540",
+   "addr": 2045248,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e4358",
+    "addr": 1983320,
+    "words": 136
+   }
+  },
+  {
+   "function": "FUN_001f3760",
+   "addr": 2045792,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e4578",
+    "addr": 1983864,
+    "words": 96
+   }
+  },
+  {
+   "function": "FUN_001f38e0",
+   "addr": 2046176,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e46f8",
+    "addr": 1984248,
+    "words": 54
+   }
+  },
+  {
+   "function": "FUN_001f39b8",
+   "addr": 2046392,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e47d0",
+    "addr": 1984464,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_001f3a48",
+   "addr": 2046536,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawRectOverlay_FiiiiUl",
+    "method": "exact-boot-match",
+    "boot_addr": 2052768,
+    "words": 106
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f3bf8",
+   "addr": 2046968,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTexturedQuad",
+    "method": "exact-boot-match",
+    "boot_addr": 2053200,
+    "words": 97
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f46c0",
+   "addr": 2049728,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawUIFrame",
+    "method": "exact-boot-match",
+    "boot_addr": 2055960,
+    "words": 81
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f49a8",
+   "addr": 2050472,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e4f40",
+    "addr": 1986368,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_001f4a58",
+   "addr": 2050648,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FontPrint",
+    "method": "exact-boot-match",
+    "boot_addr": 2056880,
+    "words": 160
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f54d8",
+   "addr": 2053336,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e5600",
+    "addr": 1988096,
+    "words": 198
+   }
+  },
+  {
+   "function": "FUN_001f57f0",
+   "addr": 2054128,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e5918",
+    "addr": 1988888,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_001f58b0",
+   "addr": 2054320,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FontPrintWindow",
+    "method": "exact-boot-match",
+    "boot_addr": 2060432,
+    "words": 316
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f5e88",
+   "addr": 2055816,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FontSetWindow",
+    "method": "exact-boot-match",
+    "boot_addr": 2061928,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f60a8",
+   "addr": 2056360,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e5e70",
+    "addr": 1990256,
+    "words": 122
+   }
+  },
+  {
+   "function": "FUN_001f68f8",
+   "addr": 2058488,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastIntersectVert",
+    "method": "exact-boot-match",
+    "boot_addr": 2063000,
+    "words": 94
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f6b90",
+   "addr": 2059152,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastDrawQuadReal",
+    "method": "exact-boot-match",
+    "boot_addr": 2063664,
+    "words": 365
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e64a0",
+    "addr": 1991840,
+    "words": 365
+   }
+  },
+  {
+   "function": "FUN_001f7144",
+   "addr": 2060612,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "writeSetupBlock",
+    "method": "exact-boot-match",
+    "boot_addr": 2065124,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e6a54",
+    "addr": 1993300,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_001f71c4",
+   "addr": 2060740,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "writeGSHeader",
+    "method": "exact-boot-match",
+    "boot_addr": 2065252,
+    "words": 16
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e6ad4",
+    "addr": 1993428,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_001f7204",
+   "addr": 2060804,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "ScisAndRender",
+    "method": "exact-boot-match",
+    "boot_addr": 2065316,
+    "words": 383
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e6b14",
+    "addr": 1993492,
+    "words": 383
+   }
+  },
+  {
+   "function": "FUN_001f7800",
+   "addr": 2062336,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e7110",
+    "addr": 1995024,
+    "words": 125
+   }
+  },
+  {
+   "function": "FUN_001f8380",
+   "addr": 2065280,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e7a98",
+    "addr": 1997464,
+    "words": 48
+   }
+  },
+  {
+   "function": "FUN_001f8440",
+   "addr": 2065472,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e7b58",
+    "addr": 1997656,
+    "words": 230
+   }
+  },
+  {
+   "function": "FUN_001f8878",
+   "addr": 2066552,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e82f8",
+    "addr": 1999608,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f88d0",
+   "addr": 2066640,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastDecTimer__FRi",
+    "method": "exact-boot-match",
+    "boot_addr": 2070336,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8350",
+    "addr": 1999696,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_001f8900",
+   "addr": 2066688,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastDecTimer__FRs",
+    "method": "exact-boot-match",
+    "boot_addr": 2070384,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8380",
+    "addr": 1999744,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_001f8930",
+   "addr": 2066736,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e83b0",
+    "addr": 1999792,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_001f8960",
+   "addr": 2066784,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e83e0",
+    "addr": 1999840,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f8970",
+   "addr": 2066800,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e83f0",
+    "addr": 1999856,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f8980",
+   "addr": 2066816,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastSitAndSpin__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2070464,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f89a8",
+   "addr": 2066856,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastMemSet",
+    "method": "exact-boot-match",
+    "boot_addr": 2070504,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f89d0",
+   "addr": 2066896,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastMemZero16__FPvi",
+    "method": "exact-boot-match",
+    "boot_addr": 2070544,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f8a90",
+   "addr": 2067088,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastMemCopy",
+    "method": "exact-boot-match",
+    "boot_addr": 2070736,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f8b48",
+   "addr": 2067272,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e85f0",
+    "addr": 2000368,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_001f8b78",
+   "addr": 2067320,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8668",
+    "addr": 2000488,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_001f8b98",
+   "addr": 2067352,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8688",
+    "addr": 2000520,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001f8bd8",
+   "addr": 2067416,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e86c8",
+    "addr": 2000584,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f8be8",
+   "addr": 2067432,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e86d8",
+    "addr": 2000600,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f8c00",
+   "addr": 2067456,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e86f0",
+    "addr": 2000624,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f8c98",
+   "addr": 2067608,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e87a0",
+    "addr": 2000800,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001f8cb0",
+   "addr": 2067632,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e87b8",
+    "addr": 2000824,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001f8cc8",
+   "addr": 2067656,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e87d0",
+    "addr": 2000848,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001f8d10",
+   "addr": 2067728,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8818",
+    "addr": 2000920,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_001f8d30",
+   "addr": 2067760,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecDot",
+    "method": "exact-boot-match",
+    "boot_addr": 2071216,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8838",
+    "addr": 2000952,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_001f8d58",
+   "addr": 2067800,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecCross",
+    "method": "exact-boot-match",
+    "boot_addr": 2071256,
+    "words": 6
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8860",
+    "addr": 2000992,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001f8d70",
+   "addr": 2067824,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecLength",
+    "method": "exact-boot-match",
+    "boot_addr": 2071280,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8878",
+    "addr": 2001016,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_001f8da0",
+   "addr": 2067872,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e88a8",
+    "addr": 2001064,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_001f8dc8",
+   "addr": 2067912,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e88d0",
+    "addr": 2001104,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_001f8de8",
+   "addr": 2067944,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e88f0",
+    "addr": 2001136,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_001f8e20",
+   "addr": 2068000,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8928",
+    "addr": 2001192,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_001f8e50",
+   "addr": 2068048,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8958",
+    "addr": 2001240,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_001f8e98",
+   "addr": 2068120,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastVecNormalize",
+    "method": "exact-boot-match",
+    "boot_addr": 2071544,
+    "words": 20
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e89a0",
+    "addr": 2001312,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_001f8ee8",
+   "addr": 2068200,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e89f0",
+    "addr": 2001392,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_001f8f30",
+   "addr": 2068272,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8a38",
+    "addr": 2001464,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_001f8f98",
+   "addr": 2068376,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8aa0",
+    "addr": 2001568,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_001f8ff8",
+   "addr": 2068472,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8b00",
+    "addr": 2001664,
+    "words": 28
+   }
+  },
+  {
+   "function": "FUN_001f9068",
+   "addr": 2068584,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8b70",
+    "addr": 2001776,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_001f90c0",
+   "addr": 2068672,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastVectorFromPackedChars__FR4vec4i",
+    "method": "exact-boot-match",
+    "boot_addr": 2071888,
+    "words": 6
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8bc8",
+    "addr": 2001864,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001f90d8",
+   "addr": 2068696,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastVectorToPackedChars__FR4vec4",
+    "method": "exact-boot-match",
+    "boot_addr": 2071912,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f9150",
+   "addr": 2068816,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastCountChars__FPvi",
+    "method": "exact-boot-match",
+    "boot_addr": 2071960,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8c30",
+    "addr": 2001968,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_001f91b0",
+   "addr": 2068912,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastArcSin__Ff",
+    "method": "exact-boot-match",
+    "boot_addr": 2072056,
+    "words": 38
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f9248",
+   "addr": 2069064,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastArcTan__Fff",
+    "method": "exact-boot-match",
+    "boot_addr": 2072208,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f9380",
+   "addr": 2069376,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8ea0",
+    "addr": 2002592,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_001f93b0",
+   "addr": 2069424,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8ed0",
+    "addr": 2002640,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_001f93e8",
+   "addr": 2069480,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8f08",
+    "addr": 2002696,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_001f9408",
+   "addr": 2069512,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8f28",
+    "addr": 2002728,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_001f9428",
+   "addr": 2069544,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e8f48",
+    "addr": 2002760,
+    "words": 138
+   }
+  },
+  {
+   "function": "FUN_001f9650",
+   "addr": 2070096,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9170",
+    "addr": 2003312,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_001f9690",
+   "addr": 2070160,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e91b0",
+    "addr": 2003376,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_001f96e0",
+   "addr": 2070240,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9200",
+    "addr": 2003456,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_001f9720",
+   "addr": 2070304,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9240",
+    "addr": 2003520,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_001f9770",
+   "addr": 2070384,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9290",
+    "addr": 2003600,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_001f97b8",
+   "addr": 2070456,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e92d8",
+    "addr": 2003672,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_001f9800",
+   "addr": 2070528,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9320",
+    "addr": 2003744,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_001f9840",
+   "addr": 2070592,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9360",
+    "addr": 2003808,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_001f98c0",
+   "addr": 2070720,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e93e0",
+    "addr": 2003936,
+    "words": 48
+   }
+  },
+  {
+   "function": "FUN_001f9980",
+   "addr": 2070912,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e94a0",
+    "addr": 2004128,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_001f99f8",
+   "addr": 2071032,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9518",
+    "addr": 2004248,
+    "words": 34
+   }
+  },
+  {
+   "function": "FUN_001f9b10",
+   "addr": 2071312,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FastNormalizeAngle",
+    "method": "exact-boot-match",
+    "boot_addr": 2074128,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001f9b88",
+   "addr": 2071432,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastDiffRots__Fff",
+    "method": "exact-boot-match",
+    "boot_addr": 2074248,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e96c0",
+    "addr": 2004672,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_001f9bc0",
+   "addr": 2071488,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e96f8",
+    "addr": 2004728,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_001f9bd8",
+   "addr": 2071512,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9710",
+    "addr": 2004752,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f9be8",
+   "addr": 2071528,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9720",
+    "addr": 2004768,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_001f9bf8",
+   "addr": 2071544,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9730",
+    "addr": 2004784,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_001f9c30",
+   "addr": 2071600,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastTweenColor",
+    "method": "exact-boot-match",
+    "boot_addr": 2074336,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9768",
+    "addr": 2004840,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_001f9c78",
+   "addr": 2071672,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "FastBSphereCheck",
+    "method": "exact-boot-match",
+    "boot_addr": 2074408,
+    "words": 62
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e97b0",
+    "addr": 2004912,
+    "words": 62
+   }
+  },
+  {
+   "function": "FUN_001f9db0",
+   "addr": 2071984,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e98a8",
+    "addr": 2005160,
+    "words": 62
+   }
+  },
+  {
+   "function": "FUN_001f9f80",
+   "addr": 2072448,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetupFS_AA_buffer__Fiiiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2075000,
+    "words": 577
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fa888",
+   "addr": 2074760,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "SetBackgroundColor__Fiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2077312,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9a80",
+    "addr": 2005632,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_001fa8b0",
+   "addr": 2074800,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PutDispBuffer__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2077352,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fa8d8",
+   "addr": 2074840,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PutDrawBufferLarge__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2077392,
+    "words": 37
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fa970",
+   "addr": 2074992,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9b68",
+    "addr": 2005864,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_001fa9d8",
+   "addr": 2075096,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PutDrawBufferSmall__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2077648,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fad48",
+   "addr": 2075976,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001e9f90",
+    "addr": 2006928,
+    "words": 108
+   }
+  },
+  {
+   "function": "FUN_001faef8",
+   "addr": 2076408,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ea140",
+    "addr": 2007360,
+    "words": 112
+   }
+  },
+  {
+   "function": "FUN_001fb0c8",
+   "addr": 2076872,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "mode_freezeInit",
+    "method": "exact-boot-match",
+    "boot_addr": 2079416,
+    "words": 102
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fb260",
+   "addr": 2077280,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawDialogText__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2079824,
+    "words": 1141
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fc438",
+   "addr": 2081848,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateModeFreeze__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2084392,
+    "words": 558
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fd400",
+   "addr": 2085888,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Help_FindIndex",
+    "method": "exact-boot-match",
+    "boot_addr": 2088096,
+    "words": 27
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fd470",
+   "addr": 2086000,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "msg_string__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2088208,
+    "words": 16
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fd658",
+   "addr": 2086488,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Help_Update",
+    "method": "exact-boot-match",
+    "boot_addr": 2088592,
+    "words": 641
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fe060",
+   "addr": 2089056,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Help_DrawPrompt",
+    "method": "exact-boot-match",
+    "boot_addr": 2091160,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_001fef70",
+   "addr": 2092912,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ebe88",
+    "addr": 2014856,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_001ff018",
+   "addr": 2093080,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ebf30",
+    "addr": 2015024,
+    "words": 204
+   }
+  },
+  {
+   "function": "FUN_001ff818",
+   "addr": 2095128,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ec758",
+    "addr": 2017112,
+    "words": 46
+   }
+  },
+  {
+   "function": "FUN_00200b78",
+   "addr": 2100088,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ecc38",
+    "addr": 2018360,
+    "words": 28
+   }
+  },
+  {
+   "function": "FUN_002020b0",
+   "addr": 2105520,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ed2d8",
+    "addr": 2020056,
+    "words": 62
+   }
+  },
+  {
+   "function": "FUN_00202458",
+   "addr": 2106456,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ed668",
+    "addr": 2020968,
+    "words": 158
+   }
+  },
+  {
+   "function": "FUN_002027c8",
+   "addr": 2107336,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001ed9d8",
+    "addr": 2021848,
+    "words": 132
+   }
+  },
+  {
+   "function": "FUN_00202e38",
+   "addr": 2108984,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001edfc0",
+    "addr": 2023360,
+    "words": 136
+   }
+  },
+  {
+   "function": "FUN_002052c8",
+   "addr": 2118344,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f01c0",
+    "addr": 2032064,
+    "words": 346
+   }
+  },
+  {
+   "function": "FUN_00205a30",
+   "addr": 2120240,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f08e0",
+    "addr": 2033888,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_00205d08",
+   "addr": 2120968,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f0b90",
+    "addr": 2034576,
+    "words": 34
+   }
+  },
+  {
+   "function": "FUN_00205d90",
+   "addr": 2121104,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f0c18",
+    "addr": 2034712,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_00205de8",
+   "addr": 2121192,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f0c70",
+    "addr": 2034800,
+    "words": 146
+   }
+  },
+  {
+   "function": "FUN_00206148",
+   "addr": 2122056,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f0fd0",
+    "addr": 2035664,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_002077f0",
+   "addr": 2127856,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f2368",
+    "addr": 2040680,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_002084b8",
+   "addr": 2131128,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f2f20",
+    "addr": 2043680,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_00209310",
+   "addr": 2134800,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f39c8",
+    "addr": 2046408,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_002098b8",
+   "addr": 2136248,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f3e28",
+    "addr": 2047528,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_00209b10",
+   "addr": 2136848,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f4090",
+    "addr": 2048144,
+    "words": 112
+   }
+  },
+  {
+   "function": "FUN_00209d10",
+   "addr": 2137360,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f4290",
+    "addr": 2048656,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_0020a288",
+   "addr": 2138760,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f47c8",
+    "addr": 2049992,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_0020a390",
+   "addr": 2139024,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f48d0",
+    "addr": 2050256,
+    "words": 84
+   }
+  },
+  {
+   "function": "FUN_0020a4e0",
+   "addr": 2139360,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f4a20",
+    "addr": 2050592,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_0020a618",
+   "addr": 2139672,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f4b58",
+    "addr": 2050904,
+    "words": 86
+   }
+  },
+  {
+   "function": "FUN_0020b648",
+   "addr": 2143816,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f57e8",
+    "addr": 2054120,
+    "words": 38
+   }
+  },
+  {
+   "function": "FUN_0020d078",
+   "addr": 2150520,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_001f7170",
+    "addr": 2060656,
+    "words": 68
+   }
+  },
+  {
+   "function": "FUN_0021a868",
+   "addr": 2205800,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00203858",
+    "addr": 2111576,
+    "words": 152
+   }
+  },
+  {
+   "function": "FUN_0021bad0",
+   "addr": 2210512,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00204928",
+    "addr": 2115880,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_00221518",
+   "addr": 2233624,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00209848",
+    "addr": 2136136,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_002215c0",
+   "addr": 2233792,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002098f0",
+    "addr": 2136304,
+    "words": 50
+   }
+  },
+  {
+   "function": "FUN_00221808",
+   "addr": 2234376,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00209b38",
+    "addr": 2136888,
+    "words": 76
+   }
+  },
+  {
+   "function": "FUN_002219d0",
+   "addr": 2234832,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00209d00",
+    "addr": 2137344,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_00221a30",
+   "addr": 2234928,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00209d60",
+    "addr": 2137440,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_00221ad8",
+   "addr": 2235096,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00209e08",
+    "addr": 2137608,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_00221b30",
+   "addr": 2235184,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00209e60",
+    "addr": 2137696,
+    "words": 38
+   }
+  },
+  {
+   "function": "FUN_00221db0",
+   "addr": 2235824,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020a0b8",
+    "addr": 2138296,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_00221df0",
+   "addr": 2235888,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020a0f8",
+    "addr": 2138360,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_00221e38",
+   "addr": 2235960,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020a140",
+    "addr": 2138432,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_00221e50",
+   "addr": 2235984,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020a158",
+    "addr": 2138456,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_00222a20",
+   "addr": 2239008,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020ac00",
+    "addr": 2141184,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_00222d98",
+   "addr": 2239896,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020af08",
+    "addr": 2141960,
+    "words": 38
+   }
+  },
+  {
+   "function": "FUN_00222ed8",
+   "addr": 2240216,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020b048",
+    "addr": 2142280,
+    "words": 66
+   }
+  },
+  {
+   "function": "FUN_002232f0",
+   "addr": 2241264,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020b460",
+    "addr": 2143328,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_00223400",
+   "addr": 2241536,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020b570",
+    "addr": 2143600,
+    "words": 64
+   }
+  },
+  {
+   "function": "FUN_00223500",
+   "addr": 2241792,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020b670",
+    "addr": 2143856,
+    "words": 34
+   }
+  },
+  {
+   "function": "FUN_00223708",
+   "addr": 2242312,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020b8d8",
+    "addr": 2144472,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_00224618",
+   "addr": 2246168,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_GetIconIndex__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2092600,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00224980",
+   "addr": 2247040,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LinkHudBank__FiPc",
+    "method": "exact-boot-match",
+    "boot_addr": 2092992,
+    "words": 88
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00224c60",
+   "addr": 2247776,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_SendResidentBank__FiPcb",
+    "method": "exact-boot-match",
+    "boot_addr": 2093352,
+    "words": 78
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00224d98",
+   "addr": 2248088,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_HeapReset__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2093664,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00224dc0",
+   "addr": 2248128,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_HeapAlloc__FUiPcT1i",
+    "method": "exact-boot-match",
+    "boot_addr": 2093704,
+    "words": 29
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00224fe0",
+   "addr": 2248672,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020cd48",
+    "addr": 2149704,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_00225048",
+   "addr": 2248776,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020cdb0",
+    "addr": 2149808,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_002250d8",
+   "addr": 2248920,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020ce40",
+    "addr": 2149952,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_00225240",
+   "addr": 2249280,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020cfa8",
+    "addr": 2150312,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_00225550",
+   "addr": 2250064,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020d2b8",
+    "addr": 2151096,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_00226620",
+   "addr": 2254368,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020e0e0",
+    "addr": 2154720,
+    "words": 208
+   }
+  },
+  {
+   "function": "FUN_00228a08",
+   "addr": 2263560,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020f520",
+    "addr": 2159904,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_002297e8",
+   "addr": 2267112,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020fb10",
+    "addr": 2161424,
+    "words": 116
+   }
+  },
+  {
+   "function": "FUN_00229c38",
+   "addr": 2268216,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020fee8",
+    "addr": 2162408,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_00229c70",
+   "addr": 2268272,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0020ff20",
+    "addr": 2162464,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_00229f48",
+   "addr": 2269000,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "GetIconFrame__Fii",
+    "method": "exact-boot-match",
+    "boot_addr": 2095456,
+    "words": 43
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00229ff8",
+   "addr": 2269176,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "GetFrameTex__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2095632,
+    "words": 136
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00210138",
+    "addr": 2163000,
+    "words": 136
+   }
+  },
+  {
+   "function": "FUN_0022a218",
+   "addr": 2269720,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00210358",
+    "addr": 2163544,
+    "words": 122
+   }
+  },
+  {
+   "function": "FUN_0022aa60",
+   "addr": 2271840,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00210a00",
+    "addr": 2165248,
+    "words": 118
+   }
+  },
+  {
+   "function": "FUN_0022b4f0",
+   "addr": 2274544,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "Hud_sendTexture__FPciiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2099984,
+    "words": 92
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002110c8",
+    "addr": 2166984,
+    "words": 92
+   }
+  },
+  {
+   "function": "FUN_0022c1a8",
+   "addr": 2277800,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadIRXModule",
+    "method": "exact-boot-match",
+    "boot_addr": 2102560,
+    "words": 45
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022c260",
+   "addr": 2277984,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitMemSlots__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2102744,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022c2d8",
+   "addr": 2278104,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitOnce__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2102864,
+    "words": 243
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022cb10",
+   "addr": 2280208,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00211cb8",
+    "addr": 2170040,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_0022cb68",
+   "addr": 2280296,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateAllPointLights",
+    "method": "exact-boot-match",
+    "boot_addr": 2103848,
+    "words": 96
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00211d10",
+    "addr": 2170128,
+    "words": 96
+   }
+  },
+  {
+   "function": "FUN_0022cce8",
+   "addr": 2280680,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "CreatePointLight",
+    "method": "exact-boot-match",
+    "boot_addr": 2104232,
+    "words": 236
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00211e90",
+    "addr": 2170512,
+    "words": 236
+   }
+  },
+  {
+   "function": "FUN_0022d0c8",
+   "addr": 2281672,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DetachPointLight__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2105224,
+    "words": 186
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00212270",
+    "addr": 2171504,
+    "words": 186
+   }
+  },
+  {
+   "function": "FUN_0022d908",
+   "addr": 2283784,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ParseParticleTexs",
+    "method": "exact-boot-match",
+    "boot_addr": 2107080,
+    "words": 78
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022db20",
+   "addr": 2284320,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002128c0",
+    "addr": 2173120,
+    "words": 110
+   }
+  },
+  {
+   "function": "FUN_0022e0e8",
+   "addr": 2285800,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadHudBanks__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2108056,
+    "words": 157
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022e360",
+   "addr": 2286432,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadCompressedHudBank__FiPc",
+    "method": "exact-boot-match",
+    "boot_addr": 2108688,
+    "words": 25
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022e3c8",
+   "addr": 2286536,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00212eb8",
+    "addr": 2174648,
+    "words": 150
+   }
+  },
+  {
+   "function": "FUN_0022e620",
+   "addr": 2287136,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetUpVisGifViewer__FPiiiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2109392,
+    "words": 83
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0022e930",
+   "addr": 2287920,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002134a0",
+    "addr": 2176160,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_0022f730",
+   "addr": 2291504,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002142a0",
+    "addr": 2179744,
+    "words": 180
+   }
+  },
+  {
+   "function": "FUN_0022fa00",
+   "addr": 2292224,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00214570",
+    "addr": 2180464,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_00233cf8",
+   "addr": 2309368,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00218440",
+    "addr": 2196544,
+    "words": 80
+   }
+  },
+  {
+   "function": "FUN_00235480",
+   "addr": 2315392,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UNK_NoMapAvailable",
+    "method": "exact-boot-match",
+    "boot_addr": 2119232,
+    "words": 1075
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00236550",
+   "addr": 2319696,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021a6e0",
+    "addr": 2205408,
+    "words": 84
+   }
+  },
+  {
+   "function": "FUN_00237368",
+   "addr": 2323304,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021b2f8",
+    "addr": 2208504,
+    "words": 78
+   }
+  },
+  {
+   "function": "FUN_00237650",
+   "addr": 2324048,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021b5e0",
+    "addr": 2209248,
+    "words": 48
+   }
+  },
+  {
+   "function": "FUN_00238058",
+   "addr": 2326616,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021b960",
+    "addr": 2210144,
+    "words": 72
+   }
+  },
+  {
+   "function": "FUN_00238220",
+   "addr": 2327072,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021bb38",
+    "addr": 2210616,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_00238298",
+   "addr": 2327192,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021bbb0",
+    "addr": 2210736,
+    "words": 140
+   }
+  },
+  {
+   "function": "FUN_002384c8",
+   "addr": 2327752,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021bde0",
+    "addr": 2211296,
+    "words": 116
+   }
+  },
+  {
+   "function": "FUN_00238bc0",
+   "addr": 2329536,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021c540",
+    "addr": 2213184,
+    "words": 154
+   }
+  },
+  {
+   "function": "FUN_002396e8",
+   "addr": 2332392,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_GetName",
+    "method": "exact-boot-match",
+    "boot_addr": 2134064,
+    "words": 77
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00239828",
+   "addr": 2332712,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_RestoreGame",
+    "method": "exact-boot-match",
+    "boot_addr": 2134680,
+    "words": 53
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00239968",
+   "addr": 2333032,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Update",
+    "method": "exact-boot-match",
+    "boot_addr": 2135000,
+    "words": 1525
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b140",
+   "addr": 2339136,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_MakeWholeSave",
+    "method": "exact-boot-match",
+    "boot_addr": 2141104,
+    "words": 42
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b1e8",
+   "addr": 2339304,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Init",
+    "method": "exact-boot-match",
+    "boot_addr": 2141272,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b218",
+   "addr": 2339352,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_GetDataSize",
+    "method": "exact-boot-match",
+    "boot_addr": 2141320,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b250",
+   "addr": 2339408,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Checksum",
+    "method": "exact-boot-match",
+    "boot_addr": 2141376,
+    "words": 29
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b2c8",
+   "addr": 2339528,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_TestChecksum",
+    "method": "exact-boot-match",
+    "boot_addr": 2141496,
+    "words": 15
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b308",
+   "addr": 2339592,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_PrepData",
+    "method": "exact-boot-match",
+    "boot_addr": 2141560,
+    "words": 58
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b3f0",
+   "addr": 2339824,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_RestoreInfo__FPcii",
+    "method": "exact-boot-match",
+    "boot_addr": 2141792,
+    "words": 47
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b4b0",
+   "addr": 2340016,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_RestoreData__FPcT0iP7mc_data",
+    "method": "exact-boot-match",
+    "boot_addr": 2141984,
+    "words": 149
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b708",
+   "addr": 2340616,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "memcard_Save__Fii",
+    "method": "exact-boot-match",
+    "boot_addr": 2142584,
+    "words": 145
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b950",
+   "addr": 2341200,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DmaToSpr",
+    "method": "exact-boot-match",
+    "boot_addr": 2143168,
+    "words": 8
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021e418",
+    "addr": 2221080,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_0023b970",
+   "addr": 2341232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DmaToSprSync",
+    "method": "exact-boot-match",
+    "boot_addr": 2143200,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023b9a8",
+   "addr": 2341288,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitDma",
+    "method": "exact-boot-match",
+    "boot_addr": 2143256,
+    "words": 35
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023ba38",
+   "addr": 2341432,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021e488",
+    "addr": 2221192,
+    "words": 92
+   }
+  },
+  {
+   "function": "FUN_0023bed0",
+   "addr": 2342608,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021e9a8",
+    "addr": 2222504,
+    "words": 206
+   }
+  },
+  {
+   "function": "FUN_0023c208",
+   "addr": 2343432,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0021ece0",
+    "addr": 2223328,
+    "words": 136
+   }
+  },
+  {
+   "function": "FUN_0023d3a8",
+   "addr": 2347944,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "CreateMoby__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2147576,
+    "words": 62
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00220448",
+    "addr": 2229320,
+    "words": 62
+   }
+  },
+  {
+   "function": "FUN_0023d4a0",
+   "addr": 2348192,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "InitMobyInstance__FP12MobyInstancei",
+    "method": "exact-boot-match",
+    "boot_addr": 2147824,
+    "words": 142
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023d6d8",
+   "addr": 2348760,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DeleteMoby",
+    "method": "exact-boot-match",
+    "boot_addr": 2148392,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00220768",
+    "addr": 2230120,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_0023d7f0",
+   "addr": 2349040,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00220880",
+    "addr": 2230400,
+    "words": 38
+   }
+  },
+  {
+   "function": "FUN_0023da48",
+   "addr": 2349640,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00220d60",
+    "addr": 2231648,
+    "words": 54
+   }
+  },
+  {
+   "function": "FUN_0023dfb0",
+   "addr": 2351024,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221330",
+    "addr": 2233136,
+    "words": 84
+   }
+  },
+  {
+   "function": "FUN_0023e100",
+   "addr": 2351360,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "AttachManipulator",
+    "method": "exact-boot-match",
+    "boot_addr": 2149136,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023e178",
+   "addr": 2351480,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DetachManipulator",
+    "method": "exact-boot-match",
+    "boot_addr": 2149256,
+    "words": 36
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221540",
+    "addr": 2233664,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_0023e298",
+   "addr": 2351768,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221650",
+    "addr": 2233936,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_0023e338",
+   "addr": 2351928,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002216f0",
+    "addr": 2234096,
+    "words": 34
+   }
+  },
+  {
+   "function": "FUN_0023e3c0",
+   "addr": 2352064,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221778",
+    "addr": 2234232,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_0023e538",
+   "addr": 2352440,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DmaMobyTextures",
+    "method": "exact-boot-match",
+    "boot_addr": 2149872,
+    "words": 66
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002218f0",
+    "addr": 2234608,
+    "words": 66
+   }
+  },
+  {
+   "function": "FUN_0023e640",
+   "addr": 2352704,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "PatchMobyGifs",
+    "method": "exact-boot-match",
+    "boot_addr": 2150136,
+    "words": 54
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002219f8",
+    "addr": 2234872,
+    "words": 54
+   }
+  },
+  {
+   "function": "FUN_0023e718",
+   "addr": 2352920,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221ad0",
+    "addr": 2235088,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_0023e8f0",
+   "addr": 2353392,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ProcessMobyAnimData__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150824,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023e938",
+   "addr": 2353464,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "InitMobyClassDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150896,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221cf0",
+    "addr": 2235632,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_0023e960",
+   "addr": 2353504,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "StashMobyClassDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150936,
+    "words": 11
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023e990",
+   "addr": 2353552,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "RestoreMobyClassDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2150984,
+    "words": 11
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023e9c0",
+   "addr": 2353600,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobysSetup__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2151032,
+    "words": 46
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221d78",
+    "addr": 2235768,
+    "words": 46
+   }
+  },
+  {
+   "function": "FUN_0023ea78",
+   "addr": 2353784,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobyList",
+    "method": "exact-boot-match",
+    "boot_addr": 2151216,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00221e30",
+    "addr": 2235952,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_0023eaf8",
+   "addr": 2353912,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobysCleanUp",
+    "method": "exact-boot-match",
+    "boot_addr": 2151344,
+    "words": 43
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023eba8",
+   "addr": 2354088,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMobys",
+    "method": "exact-boot-match",
+    "boot_addr": 2151520,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023ee40",
+   "addr": 2354752,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00222048",
+    "addr": 2236488,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_0023ee60",
+   "addr": 2354784,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00222068",
+    "addr": 2236520,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_0023ee90",
+   "addr": 2354832,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00222098",
+    "addr": 2236568,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_0023f5b0",
+   "addr": 2356656,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00222740",
+    "addr": 2238272,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_0023f610",
+   "addr": 2356752,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002227a0",
+    "addr": 2238368,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_0023f690",
+   "addr": 2356880,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateMobyGrids",
+    "method": "exact-boot-match",
+    "boot_addr": 2153504,
+    "words": 182
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0023f968",
+   "addr": 2357608,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00222af8",
+    "addr": 2239224,
+    "words": 104
+   }
+  },
+  {
+   "function": "FUN_0023fb08",
+   "addr": 2358024,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00222c98",
+    "addr": 2239640,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_00242c78",
+   "addr": 2370680,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00225dc8",
+    "addr": 2252232,
+    "words": 660
+   }
+  },
+  {
+   "function": "FUN_00244450",
+   "addr": 2376784,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "MobyAnimProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2168616,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00244530",
+   "addr": 2377008,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "MobyProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2168840,
+    "words": 1288
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00245950",
+   "addr": 2382160,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00228a78",
+    "addr": 2263672,
+    "words": 77
+   }
+  },
+  {
+   "function": "FUN_00245a84",
+   "addr": 2382468,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00228bac",
+    "addr": 2263980,
+    "words": 68
+   }
+  },
+  {
+   "function": "FUN_002467b8",
+   "addr": 2385848,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00229890",
+    "addr": 2267280,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_00246820",
+   "addr": 2385952,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002298f8",
+    "addr": 2267384,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_00246870",
+   "addr": 2386032,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00229948",
+    "addr": 2267464,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_002468e8",
+   "addr": 2386152,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002299c0",
+    "addr": 2267584,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_00246990",
+   "addr": 2386320,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00229a68",
+    "addr": 2267752,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_00246ae0",
+   "addr": 2386656,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00229bb8",
+    "addr": 2268088,
+    "words": 56
+   }
+  },
+  {
+   "function": "FUN_00246bc0",
+   "addr": 2386880,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00229c98",
+    "addr": 2268312,
+    "words": 48
+   }
+  },
+  {
+   "function": "FUN_00246c80",
+   "addr": 2387072,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00229d58",
+    "addr": 2268504,
+    "words": 90
+   }
+  },
+  {
+   "function": "FUN_00246f60",
+   "addr": 2387808,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022a038",
+    "addr": 2269240,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_002476c0",
+   "addr": 2389696,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022a820",
+    "addr": 2271264,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_00248068",
+   "addr": 2392168,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022b258",
+    "addr": 2273880,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_002480a0",
+   "addr": 2392224,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022b290",
+    "addr": 2273936,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_00248140",
+   "addr": 2392384,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022b330",
+    "addr": 2274096,
+    "words": 38
+   }
+  },
+  {
+   "function": "FUN_002488c0",
+   "addr": 2394304,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022ba80",
+    "addr": 2275968,
+    "words": 62
+   }
+  },
+  {
+   "function": "FUN_00248ea8",
+   "addr": 2395816,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022c018",
+    "addr": 2277400,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_002495d0",
+   "addr": 2397648,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022c728",
+    "addr": 2279208,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_00249678",
+   "addr": 2397816,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022c7d0",
+    "addr": 2279376,
+    "words": 44
+   }
+  },
+  {
+   "function": "FUN_0024a130",
+   "addr": 2400560,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022d268",
+    "addr": 2282088,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_0024a1e0",
+   "addr": 2400736,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022d318",
+    "addr": 2282264,
+    "words": 52
+   }
+  },
+  {
+   "function": "FUN_0024a3b8",
+   "addr": 2401208,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022d4f0",
+    "addr": 2282736,
+    "words": 114
+   }
+  },
+  {
+   "function": "FUN_0024a580",
+   "addr": 2401664,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022d6b8",
+    "addr": 2283192,
+    "words": 50
+   }
+  },
+  {
+   "function": "FUN_0024a648",
+   "addr": 2401864,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022d780",
+    "addr": 2283392,
+    "words": 38
+   }
+  },
+  {
+   "function": "FUN_0024bea0",
+   "addr": 2408096,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022ede0",
+    "addr": 2289120,
+    "words": 56
+   }
+  },
+  {
+   "function": "FUN_0024bf80",
+   "addr": 2408320,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022eec0",
+    "addr": 2289344,
+    "words": 154
+   }
+  },
+  {
+   "function": "FUN_0024ce40",
+   "addr": 2412096,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0022fe80",
+    "addr": 2293376,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_0024e328",
+   "addr": 2417448,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00230f70",
+    "addr": 2297712,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_0024e3a8",
+   "addr": 2417576,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00230ff0",
+    "addr": 2297840,
+    "words": 54
+   }
+  },
+  {
+   "function": "FUN_0024e538",
+   "addr": 2417976,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00231180",
+    "addr": 2298240,
+    "words": 34
+   }
+  },
+  {
+   "function": "FUN_0024e650",
+   "addr": 2418256,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00231298",
+    "addr": 2298520,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_0024eac0",
+   "addr": 2419392,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00231688",
+    "addr": 2299528,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_0024eaf0",
+   "addr": 2419440,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002316b8",
+    "addr": 2299576,
+    "words": 60
+   }
+  },
+  {
+   "function": "FUN_0024eec0",
+   "addr": 2420416,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00231a88",
+    "addr": 2300552,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_0024fa88",
+   "addr": 2423432,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002324b8",
+    "addr": 2303160,
+    "words": 72
+   }
+  },
+  {
+   "function": "FUN_002506b8",
+   "addr": 2426552,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00232f50",
+    "addr": 2305872,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_002506e0",
+   "addr": 2426592,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00232f78",
+    "addr": 2305912,
+    "words": 56
+   }
+  },
+  {
+   "function": "FUN_002507c0",
+   "addr": 2426816,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00233058",
+    "addr": 2306136,
+    "words": 142
+   }
+  },
+  {
+   "function": "FUN_002509f8",
+   "addr": 2427384,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00233290",
+    "addr": 2306704,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_00253658",
+   "addr": 2438744,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_StartTrackBody__Fiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2186520,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00253740",
+   "addr": 2438976,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Transition__Fiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2186752,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00253878",
+   "addr": 2439288,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Stop__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2186984,
+    "words": 90
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002539e0",
+   "addr": 2439648,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Pause__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2187344,
+    "words": 13
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00253a18",
+   "addr": 2439704,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Unpause__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2187400,
+    "words": 7
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00253a78",
+   "addr": 2439800,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_UpdateStream__FR13music_Playing",
+    "method": "exact-boot-match",
+    "boot_addr": 2187432,
+    "words": 122
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00253c60",
+   "addr": 2440288,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "music_Update__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2187920,
+    "words": 277
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002541f8",
+   "addr": 2441720,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Load",
+    "method": "exact-boot-match",
+    "boot_addr": 2189352,
+    "words": 31
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00254f18",
+   "addr": 2445080,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002350c8",
+    "addr": 2314440,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_00254fb8",
+   "addr": 2445240,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00235168",
+    "addr": 2314600,
+    "words": 32
+   }
+  },
+  {
+   "function": "FUN_00255108",
+   "addr": 2445576,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdatePad__FR3PAD",
+    "method": "exact-boot-match",
+    "boot_addr": 2191560,
+    "words": 125
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00255300",
+   "addr": 2446080,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ClearPadInput__FR3PAD",
+    "method": "exact-boot-match",
+    "boot_addr": 2192064,
+    "words": 25
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00255368",
+   "addr": 2446184,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ProcessPadInput__FR3PADPUci",
+    "method": "exact-boot-match",
+    "boot_addr": 2192168,
+    "words": 442
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00255dc0",
+   "addr": 2448832,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "UpdateParts",
+    "method": "exact-boot-match",
+    "boot_addr": 2194312,
+    "words": 35
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00255e50",
+   "addr": 2448976,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PartProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2194456,
+    "words": 765
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00256a44",
+   "addr": 2452036,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "_part_load_tex",
+    "method": "exact-boot-match",
+    "boot_addr": 2197516,
+    "words": 28
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00258b58",
+   "addr": 2460504,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00238ba8",
+    "addr": 2329512,
+    "words": 92
+   }
+  },
+  {
+   "function": "FUN_00258f50",
+   "addr": 2461520,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00238f70",
+    "addr": 2330480,
+    "words": 366
+   }
+  },
+  {
+   "function": "FUN_00259a68",
+   "addr": 2464360,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023a168",
+    "addr": 2335080,
+    "words": 96
+   }
+  },
+  {
+   "function": "FUN_00259be8",
+   "addr": 2464744,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023a2e8",
+    "addr": 2335464,
+    "words": 86
+   }
+  },
+  {
+   "function": "FUN_0025ae88",
+   "addr": 2469512,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023b5a0",
+    "addr": 2340256,
+    "words": 64
+   }
+  },
+  {
+   "function": "FUN_0025bd78",
+   "addr": 2473336,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023c560",
+    "addr": 2344288,
+    "words": 80
+   }
+  },
+  {
+   "function": "FUN_0025bff8",
+   "addr": 2473976,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023c7e0",
+    "addr": 2344928,
+    "words": 56
+   }
+  },
+  {
+   "function": "FUN_0025c0d8",
+   "addr": 2474200,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023c8c0",
+    "addr": 2345152,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_0025c428",
+   "addr": 2475048,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023cc10",
+    "addr": 2346000,
+    "words": 148
+   }
+  },
+  {
+   "function": "FUN_0025d320",
+   "addr": 2478880,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023db50",
+    "addr": 2349904,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_0025d558",
+   "addr": 2479448,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023dd50",
+    "addr": 2350416,
+    "words": 178
+   }
+  },
+  {
+   "function": "FUN_0025ddd8",
+   "addr": 2481624,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023e568",
+    "addr": 2352488,
+    "words": 78
+   }
+  },
+  {
+   "function": "FUN_0025eb20",
+   "addr": 2485024,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023f2b8",
+    "addr": 2355896,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_0025eb68",
+   "addr": 2485096,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023f300",
+    "addr": 2355968,
+    "words": 124
+   }
+  },
+  {
+   "function": "FUN_0025f6c8",
+   "addr": 2488008,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0023fe38",
+    "addr": 2358840,
+    "words": 102
+   }
+  },
+  {
+   "function": "FUN_0025fce0",
+   "addr": 2489568,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002403c8",
+    "addr": 2360264,
+    "words": 72
+   }
+  },
+  {
+   "function": "FUN_00260bc8",
+   "addr": 2493384,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00241208",
+    "addr": 2363912,
+    "words": 88
+   }
+  },
+  {
+   "function": "FUN_00261458",
+   "addr": 2495576,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00241a98",
+    "addr": 2366104,
+    "words": 72
+   }
+  },
+  {
+   "function": "FUN_00261578",
+   "addr": 2495864,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00241bb8",
+    "addr": 2366392,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_00262690",
+   "addr": 2500240,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00242a30",
+    "addr": 2370096,
+    "words": 90
+   }
+  },
+  {
+   "function": "FUN_002627f8",
+   "addr": 2500600,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00242b98",
+    "addr": 2370456,
+    "words": 40
+   }
+  },
+  {
+   "function": "FUN_00262898",
+   "addr": 2500760,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00242c38",
+    "addr": 2370616,
+    "words": 92
+   }
+  },
+  {
+   "function": "FUN_00264660",
+   "addr": 2508384,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00243f80",
+    "addr": 2375552,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_002646d8",
+   "addr": 2508504,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00243ff8",
+    "addr": 2375672,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_00264778",
+   "addr": 2508664,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00244098",
+    "addr": 2375832,
+    "words": 110
+   }
+  },
+  {
+   "function": "FUN_00264e00",
+   "addr": 2510336,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PauseAllSounds",
+    "method": "exact-boot-match",
+    "boot_addr": 2198904,
+    "words": 117
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00268718",
+   "addr": 2524952,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMapScreen",
+    "method": "exact-boot-match",
+    "boot_addr": 2211424,
+    "words": 367
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00269398",
+   "addr": 2528152,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002469c0",
+    "addr": 2386368,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_002693e8",
+   "addr": 2528232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SoundOptionsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2214704,
+    "words": 180
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002696b8",
+   "addr": 2528952,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawSoundMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2215424,
+    "words": 218
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026b148",
+   "addr": 2535752,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawQuitGameMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2222224,
+    "words": 110
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026b300",
+   "addr": 2536192,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002478b0",
+    "addr": 2390192,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_0026b3d8",
+   "addr": 2536408,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawItemsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2222880,
+    "words": 277
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026b830",
+   "addr": 2537520,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawGBsShipMenu__maybe",
+    "method": "exact-boot-match",
+    "boot_addr": 2223992,
+    "words": 106
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026bbe8",
+   "addr": 2538472,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002482a0",
+    "addr": 2392736,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_0026bc20",
+   "addr": 2538528,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMissionsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2225000,
+    "words": 163
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026bf40",
+   "addr": 2539328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawMissionsMenu2",
+    "method": "exact-boot-match",
+    "boot_addr": 2225800,
+    "words": 152
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026cc00",
+   "addr": 2542592,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawCheckingMemoryCardDataMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2229064,
+    "words": 191
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026d8e8",
+   "addr": 2545896,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawCheatsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2232368,
+    "words": 161
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026f200",
+   "addr": 2552320,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ObtainAllGoldWeaponsMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2238792,
+    "words": 84
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026f350",
+   "addr": 2552656,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DrawEndScreenMenuMaybe",
+    "method": "exact-boot-match",
+    "boot_addr": 2239128,
+    "words": 191
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026f840",
+   "addr": 2553920,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SavingDataMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2240392,
+    "words": 212
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026fb90",
+   "addr": 2554768,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadingDataMenu",
+    "method": "exact-boot-match",
+    "boot_addr": 2241240,
+    "words": 183
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0026fe70",
+   "addr": 2555504,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SavingDataMenu2",
+    "method": "exact-boot-match",
+    "boot_addr": 2241976,
+    "words": 266
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00270c20",
+   "addr": 2559008,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LoadHandGadget",
+    "method": "exact-boot-match",
+    "boot_addr": 2245480,
+    "words": 510
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00273230",
+   "addr": 2568752,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0024a6c8",
+    "addr": 2401992,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_00273a70",
+   "addr": 2570864,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0024a7b8",
+    "addr": 2402232,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_002741f8",
+   "addr": 2572792,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0024b0e0",
+    "addr": 2404576,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_00274288",
+   "addr": 2572936,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0024b170",
+    "addr": 2404720,
+    "words": 106
+   }
+  },
+  {
+   "function": "FUN_00274ac0",
+   "addr": 2575040,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0024b980",
+    "addr": 2406784,
+    "words": 222
+   }
+  },
+  {
+   "function": "FUN_00275bf0",
+   "addr": 2579440,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DrawShrubs",
+    "method": "exact-boot-match",
+    "boot_addr": 2263864,
+    "words": 44
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0024cab0",
+    "addr": 2411184,
+    "words": 44
+   }
+  },
+  {
+   "function": "FUN_00275ca0",
+   "addr": 2579616,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ShrubProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2264040,
+    "words": 1489
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002782b8",
+   "addr": 2589368,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SetupSkyGifPaging__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2274504,
+    "words": 35
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00278348",
+   "addr": 2589512,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DoSkyGifPaging__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2274648,
+    "words": 75
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00278480",
+   "addr": 2589824,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SkyDrawShell__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2274960,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002784d8",
+   "addr": 2589912,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SkyDrawShellTextured",
+    "method": "exact-boot-match",
+    "boot_addr": 2275048,
+    "words": 143
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00278718",
+   "addr": 2590488,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "SkyDrawShellGouraud",
+    "method": "exact-boot-match",
+    "boot_addr": 2275624,
+    "words": 157
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00278994",
+   "addr": 2591124,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002511bc",
+    "addr": 2429372,
+    "words": 83
+   }
+  },
+  {
+   "function": "FUN_00278ae0",
+   "addr": 2591456,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00251308",
+    "addr": 2429704,
+    "words": 74
+   }
+  },
+  {
+   "function": "FUN_00278ec8",
+   "addr": 2592456,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "SkyBsphereCheck",
+    "method": "exact-boot-match",
+    "boot_addr": 2278600,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002516f0",
+    "addr": 2430704,
+    "words": 56
+   }
+  },
+  {
+   "function": "FUN_00279450",
+   "addr": 2593872,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sound_update",
+    "method": "exact-boot-match",
+    "boot_addr": 2280016,
+    "words": 813
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0027a108",
+   "addr": 2597128,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00252628",
+    "addr": 2434600,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_0027a810",
+   "addr": 2598928,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00252c78",
+    "addr": 2436216,
+    "words": 8
+   }
+  },
+  {
+   "function": "FUN_0027a830",
+   "addr": 2598960,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00252c98",
+    "addr": 2436248,
+    "words": 28
+   }
+  },
+  {
+   "function": "FUN_0027a8a0",
+   "addr": 2599072,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00252d08",
+    "addr": 2436360,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_0027a990",
+   "addr": 2599312,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sound_StopAllSounds__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2284752,
+    "words": 42
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0027ae88",
+   "addr": 2600584,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "FUN_0022de10_rename",
+    "method": "exact-boot-match",
+    "boot_addr": 2285072,
+    "words": 76
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0027f750",
+   "addr": 2619216,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DoSpaceTransition",
+    "method": "exact-boot-match",
+    "boot_addr": 2301936,
+    "words": 492
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002805a0",
+   "addr": 2622880,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "Stash_SendData",
+    "method": "exact-boot-match",
+    "boot_addr": 2305600,
+    "words": 56
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00280818",
+   "addr": 2623512,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002535f0",
+    "addr": 2438640,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_00280848",
+   "addr": 2623560,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "SetTfragDists__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2306152,
+    "words": 86
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002536e0",
+    "addr": 2438880,
+    "words": 86
+   }
+  },
+  {
+   "function": "FUN_002809a0",
+   "addr": 2623904,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DmaTfragTextures__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2306496,
+    "words": 81
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00280ae8",
+   "addr": 2624232,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "PatchTfragGifs__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2306824,
+    "words": 39
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00280b88",
+   "addr": 2624392,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTfrag",
+    "method": "exact-boot-match",
+    "boot_addr": 2306984,
+    "words": 74
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00253a20",
+    "addr": 2439712,
+    "words": 74
+   }
+  },
+  {
+   "function": "FUN_00280cb0",
+   "addr": 2624688,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "TfragProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2310064,
+    "words": 778
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00253b48",
+    "addr": 2440008,
+    "words": 778
+   }
+  },
+  {
+   "function": "FUN_002818d8",
+   "addr": 2627800,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ComputeTfragTextureUsage",
+    "method": "exact-boot-match",
+    "boot_addr": 2313176,
+    "words": 91
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00281a48",
+   "addr": 2628168,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "BuildTfragTextureDma",
+    "method": "exact-boot-match",
+    "boot_addr": 2313544,
+    "words": 148
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002548e0",
+    "addr": 2443488,
+    "words": 148
+   }
+  },
+  {
+   "function": "FUN_00281c98",
+   "addr": 2628760,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LightTfrags",
+    "method": "exact-boot-match",
+    "boot_addr": 2314136,
+    "words": 425
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00282480",
+   "addr": 2630784,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "PatchTieGifs",
+    "method": "exact-boot-match",
+    "boot_addr": 2316160,
+    "words": 48
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00255318",
+    "addr": 2446104,
+    "words": 48
+   }
+  },
+  {
+   "function": "FUN_002825c8",
+   "addr": 2631112,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTies_1",
+    "method": "exact-boot-match",
+    "boot_addr": 2316488,
+    "words": 50
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00255460",
+    "addr": 2446432,
+    "words": 50
+   }
+  },
+  {
+   "function": "FUN_00282690",
+   "addr": 2631312,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DrawTies_2",
+    "method": "exact-boot-match",
+    "boot_addr": 2316688,
+    "words": 150
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00255528",
+    "addr": 2446632,
+    "words": 150
+   }
+  },
+  {
+   "function": "FUN_002828e8",
+   "addr": 2631912,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "TieProc",
+    "method": "exact-boot-match",
+    "boot_addr": 2317288,
+    "words": 1333
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_00284070",
+   "addr": 2637936,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "LightTies",
+    "method": "exact-boot-match",
+    "boot_addr": 2323312,
+    "words": 447
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028a410",
+   "addr": 2663440,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025b750",
+    "addr": 2471760,
+    "words": 132
+   }
+  },
+  {
+   "function": "FUN_0028a730",
+   "addr": 2664240,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025ba70",
+    "addr": 2472560,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_0028a788",
+   "addr": 2664328,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025bac8",
+    "addr": 2472648,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_0028d048",
+   "addr": 2674760,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "VU0_loadMicroProgram__FPl",
+    "method": "exact-boot-match",
+    "boot_addr": 2307288,
+    "words": 50
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025e0a8",
+    "addr": 2482344,
+    "words": 50
+   }
+  },
+  {
+   "function": "FUN_0028d140",
+   "addr": 2675008,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_initChain__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2307536,
+    "words": 23
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028d1a0",
+   "addr": 2675104,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_swapChain__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2307632,
+    "words": 28
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025e200",
+    "addr": 2482688,
+    "words": 28
+   }
+  },
+  {
+   "function": "FUN_0028d210",
+   "addr": 2675216,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_sendChain__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2307744,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025e270",
+    "addr": 2482800,
+    "words": 68
+   }
+  },
+  {
+   "function": "FUN_0028d320",
+   "addr": 2675488,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_syncChain__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2308016,
+    "words": 32
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028d3a0",
+   "addr": 2675616,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_addDataRef__FPvi",
+    "method": "exact-boot-match",
+    "boot_addr": 2308144,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028d4a8",
+   "addr": 2675880,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025e4f8",
+    "addr": 2483448,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_0028d4f0",
+   "addr": 2675952,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_addGSregister__FUiUlb",
+    "method": "exact-boot-match",
+    "boot_addr": 2308480,
+    "words": 45
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028d5b0",
+   "addr": 2676144,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "VU1_setScissor__Fiiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2308672,
+    "words": 71
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028da70",
+   "addr": 2677360,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "DMAC_VIF1_Enable__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2309376,
+    "words": 36
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025eb18",
+    "addr": 2485016,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_0028db00",
+   "addr": 2677504,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "DMAC_VIF1_Disable__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2309520,
+    "words": 28
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_0028dd38",
+   "addr": 2678072,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025ee80",
+    "addr": 2485888,
+    "words": 82
+   }
+  },
+  {
+   "function": "FUN_0028de80",
+   "addr": 2678400,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025efc8",
+    "addr": 2486216,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_0028df10",
+   "addr": 2678544,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0025f058",
+    "addr": 2486360,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_00292890",
+   "addr": 2697360,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00263a18",
+    "addr": 2505240,
+    "words": 288
+   }
+  },
+  {
+   "function": "FUN_00292d10",
+   "addr": 2698512,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00263e98",
+    "addr": 2506392,
+    "words": 98
+   }
+  },
+  {
+   "function": "FUN_002953f8",
+   "addr": 2708472,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002665f0",
+    "addr": 2516464,
+    "words": 66
+   }
+  },
+  {
+   "function": "FUN_00297030",
+   "addr": 2715696,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00268148",
+    "addr": 2523464,
+    "words": 158
+   }
+  },
+  {
+   "function": "FUN_00298250",
+   "addr": 2720336,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00269350",
+    "addr": 2528080,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_002982a0",
+   "addr": 2720416,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002693a0",
+    "addr": 2528160,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_002984e8",
+   "addr": 2721000,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002695e8",
+    "addr": 2528744,
+    "words": 166
+   }
+  },
+  {
+   "function": "FUN_00298780",
+   "addr": 2721664,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00269880",
+    "addr": 2529408,
+    "words": 86
+   }
+  },
+  {
+   "function": "FUN_0029d1b8",
+   "addr": 2740664,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0026dd78",
+    "addr": 2547064,
+    "words": 74
+   }
+  },
+  {
+   "function": "FUN_002a5ba0",
+   "addr": 2775968,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00276d58",
+    "addr": 2583896,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_002b7830",
+   "addr": 2848816,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00284368",
+    "addr": 2638696,
+    "words": 228
+   }
+  },
+  {
+   "function": "FUN_002c0aa0",
+   "addr": 2886304,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0028e2b8",
+    "addr": 2679480,
+    "words": 44
+   }
+  },
+  {
+   "function": "FUN_002c6ca0",
+   "addr": 2911392,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002932d0",
+    "addr": 2699984,
+    "words": 46
+   }
+  },
+  {
+   "function": "FUN_002c6e18",
+   "addr": 2911768,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00293440",
+    "addr": 2700352,
+    "words": 110
+   }
+  },
+  {
+   "function": "FUN_002c9ca0",
+   "addr": 2923680,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00295f48",
+    "addr": 2711368,
+    "words": 134
+   }
+  },
+  {
+   "function": "FUN_002cbe40",
+   "addr": 2932288,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_00297a18",
+    "addr": 2718232,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_002d0bd8",
+   "addr": 2952152,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029bd30",
+    "addr": 2735408,
+    "words": 180
+   }
+  },
+  {
+   "function": "FUN_002d1438",
+   "addr": 2954296,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029c498",
+    "addr": 2737304,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_002d14c8",
+   "addr": 2954440,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029c520",
+    "addr": 2737440,
+    "words": 152
+   }
+  },
+  {
+   "function": "FUN_002d1728",
+   "addr": 2955048,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029c780",
+    "addr": 2738048,
+    "words": 62
+   }
+  },
+  {
+   "function": "FUN_002d1820",
+   "addr": 2955296,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029c878",
+    "addr": 2738296,
+    "words": 208
+   }
+  },
+  {
+   "function": "FUN_002d1c90",
+   "addr": 2956432,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029cce8",
+    "addr": 2739432,
+    "words": 28
+   }
+  },
+  {
+   "function": "FUN_002d30d8",
+   "addr": 2961624,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029e010",
+    "addr": 2744336,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_002d40e8",
+   "addr": 2965736,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029ee08",
+    "addr": 2747912,
+    "words": 104
+   }
+  },
+  {
+   "function": "FUN_002d5208",
+   "addr": 2970120,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029fe50",
+    "addr": 2752080,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_002d52b0",
+   "addr": 2970288,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_0029fef8",
+    "addr": 2752248,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_002d5998",
+   "addr": 2972056,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a05d0",
+    "addr": 2754000,
+    "words": 76
+   }
+  },
+  {
+   "function": "FUN_002d6bc8",
+   "addr": 2976712,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a1898",
+    "addr": 2758808,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_002d8fd8",
+   "addr": 2985944,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a3030",
+    "addr": 2764848,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_002da318",
+   "addr": 2990872,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a40e0",
+    "addr": 2769120,
+    "words": 26
+   }
+  },
+  {
+   "function": "FUN_002da380",
+   "addr": 2990976,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a4148",
+    "addr": 2769224,
+    "words": 102
+   }
+  },
+  {
+   "function": "FUN_002db280",
+   "addr": 2994816,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a4be8",
+    "addr": 2771944,
+    "words": 128
+   }
+  },
+  {
+   "function": "FUN_002dc310",
+   "addr": 2999056,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a5810",
+    "addr": 2775056,
+    "words": 28
+   }
+  },
+  {
+   "function": "FUN_002dee78",
+   "addr": 3010168,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a7d20",
+    "addr": 2784544,
+    "words": 24
+   }
+  },
+  {
+   "function": "FUN_002df320",
+   "addr": 3011360,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a81e8",
+    "addr": 2785768,
+    "words": 128
+   }
+  },
+  {
+   "function": "FUN_002e2ba8",
+   "addr": 3025832,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002a9030",
+    "addr": 2789424,
+    "words": 90
+   }
+  },
+  {
+   "function": "FUN_002e3f60",
+   "addr": 3030880,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002aa1a8",
+    "addr": 2793896,
+    "words": 46
+   }
+  },
+  {
+   "function": "FUN_002e54e0",
+   "addr": 3036384,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002ab098",
+    "addr": 2797720,
+    "words": 90
+   }
+  },
+  {
+   "function": "FUN_002e6c70",
+   "addr": 3042416,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002ac9c8",
+    "addr": 2804168,
+    "words": 14
+   }
+  },
+  {
+   "function": "FUN_002e6ca8",
+   "addr": 3042472,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002aca00",
+    "addr": 2804224,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_002e6dd8",
+   "addr": 3042776,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002acb30",
+    "addr": 2804528,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_002e7e80",
+   "addr": 3047040,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002ad858",
+    "addr": 2807896,
+    "words": 130
+   }
+  },
+  {
+   "function": "FUN_002e8408",
+   "addr": 3048456,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002adde0",
+    "addr": 2809312,
+    "words": 68
+   }
+  },
+  {
+   "function": "FUN_002e94c8",
+   "addr": 3052744,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002aea58",
+    "addr": 2812504,
+    "words": 28
+   }
+  },
+  {
+   "function": "FUN_002e9fa0",
+   "addr": 3055520,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002af548",
+    "addr": 2815304,
+    "words": 42
+   }
+  },
+  {
+   "function": "FUN_002ea048",
+   "addr": 3055688,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002af5f0",
+    "addr": 2815472,
+    "words": 36
+   }
+  },
+  {
+   "function": "FUN_002ea828",
+   "addr": 3057704,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002afc88",
+    "addr": 2817160,
+    "words": 44
+   }
+  },
+  {
+   "function": "FUN_002ecae8",
+   "addr": 3066600,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b1850",
+    "addr": 2824272,
+    "words": 144
+   }
+  },
+  {
+   "function": "FUN_002edb40",
+   "addr": 3070784,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readMpeg__FP8VideoDecP7ReadBufP7StrFile",
+    "method": "exact-boot-match",
+    "boot_addr": 2335840,
+    "words": 196
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ede50",
+   "addr": 3071568,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "switchThread",
+    "method": "exact-boot-match",
+    "boot_addr": 2336624,
+    "words": 7
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002edea0",
+   "addr": 3071648,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "initAll__Fiii",
+    "method": "exact-boot-match",
+    "boot_addr": 2336704,
+    "words": 169
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee148",
+   "addr": 3072328,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "termAll__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2337384,
+    "words": 67
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee258",
+   "addr": 3072600,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "ErrMessage",
+    "method": "exact-boot-match",
+    "boot_addr": 2337656,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee2b0",
+   "addr": 3072688,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecCreate__FP9_AudioDecPUci14sceMpegStrType",
+    "method": "exact-boot-match",
+    "boot_addr": 2337744,
+    "words": 47
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee398",
+   "addr": 3072920,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecStart",
+    "method": "exact-boot-match",
+    "boot_addr": 2337976,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee3f0",
+   "addr": 3073008,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecReset__FP9_AudioDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2338064,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee438",
+   "addr": 3073080,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecBeginPut__FP9_AudioDecPPUcPiT1T2",
+    "method": "exact-boot-match",
+    "boot_addr": 2338136,
+    "words": 52
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee508",
+   "addr": 3073288,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecEndPut__FP9_AudioDeci",
+    "method": "exact-boot-match",
+    "boot_addr": 2338344,
+    "words": 45
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee5d0",
+   "addr": 3073488,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "audioDecSend",
+    "method": "exact-boot-match",
+    "boot_addr": 2338544,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee5f8",
+   "addr": 3073528,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sendToSPU__FP9_AudioDecPUcii",
+    "method": "exact-boot-match",
+    "boot_addr": 2338584,
+    "words": 42
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee6a0",
+   "addr": 3073696,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "sendADPCM__FP9_AudioDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2338752,
+    "words": 147
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ee8f0",
+   "addr": 3074288,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "setImageTag",
+    "method": "exact-boot-match",
+    "boot_addr": 2339344,
+    "words": 113
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002eeab8",
+   "addr": 3074744,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "vblankHandler",
+    "method": "exact-boot-match",
+    "boot_addr": 2339800,
+    "words": 90
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3568",
+    "addr": 2831720,
+    "words": 90
+   }
+  },
+  {
+   "function": "FUN_002eec20",
+   "addr": 3075104,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "handler_endimage",
+    "method": "exact-boot-match",
+    "boot_addr": 2340160,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002eec70",
+   "addr": 3075184,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "startDisplay__Fi",
+    "method": "exact-boot-match",
+    "boot_addr": 2340240,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002eecc0",
+   "addr": 3075264,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "endDisplay__Fv",
+    "method": "exact-boot-match",
+    "boot_addr": 2340320,
+    "words": 4
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3770",
+    "addr": 2832240,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_002eecd0",
+   "addr": 3075280,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "videoCallback",
+    "method": "exact-boot-match",
+    "boot_addr": 2340336,
+    "words": 78
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3780",
+    "addr": 2832256,
+    "words": 78
+   }
+  },
+  {
+   "function": "FUN_002eee08",
+   "addr": 3075592,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "pcmCallback__FP7sceMpegP16sceMpegCbDataStrPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2340648,
+    "words": 57
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002eeef0",
+   "addr": 3075824,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "cpy2area__FPUciT0iT0iT0i",
+    "method": "exact-boot-match",
+    "boot_addr": 2340880,
+    "words": 76
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b39a0",
+    "addr": 2832800,
+    "words": 76
+   }
+  },
+  {
+   "function": "FUN_002ef020",
+   "addr": 3076128,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "readBufCreate__FP7ReadBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2341184,
+    "words": 6
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3ad0",
+    "addr": 2833104,
+    "words": 6
+   }
+  },
+  {
+   "function": "FUN_002ef040",
+   "addr": 3076160,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "readBufBeginPut__FP7ReadBufPPUc",
+    "method": "exact-boot-match",
+    "boot_addr": 2341216,
+    "words": 12
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3af0",
+    "addr": 2833136,
+    "words": 12
+   }
+  },
+  {
+   "function": "FUN_002ef070",
+   "addr": 3076208,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readBufEndPut__FP7ReadBufi",
+    "method": "exact-boot-match",
+    "boot_addr": 2341264,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ef0b8",
+   "addr": 3076280,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "readBufBeginGet__FP7ReadBufPPUc",
+    "method": "exact-boot-match",
+    "boot_addr": 2341336,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3b68",
+    "addr": 2833256,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_002ef100",
+   "addr": 3076352,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "readBufEndGet__FP7ReadBufi",
+    "method": "exact-boot-match",
+    "boot_addr": 2341408,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ef128",
+   "addr": 3076392,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3bd8",
+    "addr": 2833368,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_002ef1d8",
+   "addr": 3076568,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "getFIFOindex__FP5ViBufPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2341624,
+    "words": 17
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ef300",
+   "addr": 3076864,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "scTag2",
+    "method": "exact-boot-match",
+    "boot_addr": 2341920,
+    "words": 9
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ef328",
+   "addr": 3076904,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "viBufCreate",
+    "method": "exact-boot-match",
+    "boot_addr": 2341960,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3db8",
+    "addr": 2833848,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_002ef3a0",
+   "addr": 3077024,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "viBufReset__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2342080,
+    "words": 88
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b3e30",
+    "addr": 2833968,
+    "words": 88
+   }
+  },
+  {
+   "function": "FUN_002ef500",
+   "addr": 3077376,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufBeginPut__FP5ViBufPPUcPiT1T2",
+    "method": "exact-boot-match",
+    "boot_addr": 2342432,
+    "words": 61
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ef5f8",
+   "addr": 3077624,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufEndPut__FP5ViBufi",
+    "method": "exact-boot-match",
+    "boot_addr": 2342680,
+    "words": 21
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ef650",
+   "addr": 3077712,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufAddDMA__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2342768,
+    "words": 127
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002ef850",
+   "addr": 3078224,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "viBufStopDMA__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2343280,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b42e0",
+    "addr": 2835168,
+    "words": 68
+   }
+  },
+  {
+   "function": "FUN_002ef960",
+   "addr": 3078496,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "viBufRestartDMA__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2343552,
+    "words": 206
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b43f0",
+    "addr": 2835440,
+    "words": 206
+   }
+  },
+  {
+   "function": "FUN_002efc98",
+   "addr": 3079320,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "viBufDelete__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2344376,
+    "words": 22
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b4728",
+    "addr": 2836264,
+    "words": 22
+   }
+  },
+  {
+   "function": "FUN_002efcf0",
+   "addr": 3079408,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufCount__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2344464,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002efd40",
+   "addr": 3079488,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufFlush__FP5ViBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2344544,
+    "words": 21
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002efd98",
+   "addr": 3079576,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufModifyPts__FP5ViBufP9TimeStamp",
+    "method": "exact-boot-match",
+    "boot_addr": 2344632,
+    "words": 85
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002efef0",
+   "addr": 3079920,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "viBufPutTs__FP5ViBufP9TimeStamp",
+    "method": "exact-boot-match",
+    "boot_addr": 2344976,
+    "words": 68
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b4980",
+    "addr": 2836864,
+    "words": 68
+   }
+  },
+  {
+   "function": "FUN_002f0000",
+   "addr": 3080192,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "viBufGetTs__FP5ViBufP9TimeStamp",
+    "method": "exact-boot-match",
+    "boot_addr": 2345248,
+    "words": 105
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f01a8",
+   "addr": 3080616,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecCreate__FP8VideoDecPUciPUxT3iP9TimeStampi",
+    "method": "exact-boot-match",
+    "boot_addr": 2345672,
+    "words": 64
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f0318",
+   "addr": 3080984,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecDelete__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346040,
+    "words": 13
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f0378",
+   "addr": 3081080,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecPutTs__FP8VideoDecllPUci",
+    "method": "exact-boot-match",
+    "boot_addr": 2346136,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b4e08",
+    "addr": 2838024,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_002f03e8",
+   "addr": 3081192,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecFlush__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346248,
+    "words": 54
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b4e78",
+    "addr": 2838136,
+    "words": 54
+   }
+  },
+  {
+   "function": "FUN_002f04c0",
+   "addr": 3081408,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecIsFlushed__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346464,
+    "words": 18
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b4f50",
+    "addr": 2838352,
+    "words": 18
+   }
+  },
+  {
+   "function": "FUN_002f0508",
+   "addr": 3081480,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "videoDecMain__FPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2346536,
+    "words": 39
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f05a8",
+   "addr": 3081640,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "decBs0__FP8VideoDec",
+    "method": "exact-boot-match",
+    "boot_addr": 2346696,
+    "words": 109
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f0760",
+   "addr": 3082080,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "mpegError__FP7sceMpegP18sceMpegCbDataErrorPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2347136,
+    "words": 10
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b51e0",
+    "addr": 2839008,
+    "words": 10
+   }
+  },
+  {
+   "function": "FUN_002f0788",
+   "addr": 3082120,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "mpegNodata__FP7sceMpegP13sceMpegCbDataPv",
+    "method": "exact-boot-match",
+    "boot_addr": 2347176,
+    "words": 14
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f0820",
+   "addr": 3082272,
+   "sources": [
+    "preview-match"
+   ],
+   "name_evidence": null,
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b52a0",
+    "addr": 2839200,
+    "words": 20
+   }
+  },
+  {
+   "function": "FUN_002f0870",
+   "addr": 3082352,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufCreate__FP5VoBufP6VoDataP5VoTagi",
+    "method": "exact-boot-match",
+    "boot_addr": 2347408,
+    "words": 19
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f08c8",
+   "addr": 3082440,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "voBufReset__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347496,
+    "words": 4
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b5348",
+    "addr": 2839368,
+    "words": 4
+   }
+  },
+  {
+   "function": "FUN_002f08d8",
+   "addr": 3082456,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufIsFull__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347512,
+    "words": 5
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f08f0",
+   "addr": 3082480,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "voBufIncCount__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347536,
+    "words": 30
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b5370",
+    "addr": 2839408,
+    "words": 30
+   }
+  },
+  {
+   "function": "FUN_002f0968",
+   "addr": 3082600,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "voBufGetData__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347656,
+    "words": 16
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b53e8",
+    "addr": 2839528,
+    "words": 16
+   }
+  },
+  {
+   "function": "FUN_002f09b8",
+   "addr": 3082680,
+   "sources": [
+    "boot-match"
+   ],
+   "name_evidence": {
+    "name": "voBufGetTag__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347736,
+    "words": 25
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": null
+  },
+  {
+   "function": "FUN_002f0a20",
+   "addr": 3082784,
+   "sources": [
+    "boot-match",
+    "preview-match"
+   ],
+   "name_evidence": {
+    "name": "voBufDecCount__FP5VoBuf",
+    "method": "exact-boot-match",
+    "boot_addr": 2347840,
+    "words": 8
+   },
+   "modules": [],
+   "assert_evidence": [],
+   "preview": {
+    "name": "FUN_002b54a0",
+    "addr": 2839712,
+    "words": 8
+   }
+  }
+ ]
+}

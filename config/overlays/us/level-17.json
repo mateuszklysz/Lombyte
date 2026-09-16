@@ -1,0 +1,89 @@
+{
+ "id": "level-17",
+ "index": 17,
+ "name": "Veldin Orbit",
+ "elf_sha256": "06e9ab7ae7786b899a4264854adf742f0b7ffaa77789ea25dfaf1eabec812b42",
+ "entry": 2360096,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 14224,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1451776,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1468672,
+   "size": 526128,
+   "file_offset": 14528,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 1994880,
+   "size": 2028,
+   "file_offset": 540672,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 1996928,
+   "size": 160,
+   "file_offset": 542720,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 1997184,
+   "size": 16,
+   "file_offset": 542912,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 1997312,
+   "size": 1164488,
+   "file_offset": 542976,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1707880,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3257,
+  "jr_ra": 2297
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2002176,
+   "end": 2347872,
+   "bytes": 345696
+  }
+ ],
+ "problems": [],
+ "functions": 1935,
+ "named_functions": 247,
+ "name_evidence_functions": 247
+}

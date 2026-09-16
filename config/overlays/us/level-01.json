@@ -1,0 +1,89 @@
+{
+ "id": "level-01",
+ "index": 1,
+ "name": "Novalis",
+ "elf_sha256": "567937f89174f055f8e895839049ea6304f18117b2344222833cd32ba770bc02",
+ "entry": 2464832,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 13160,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1450624,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1467520,
+   "size": 677456,
+   "file_offset": 13440,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2145024,
+   "size": 2340,
+   "file_offset": 690944,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2147456,
+   "size": 160,
+   "file_offset": 693312,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2147712,
+   "size": 56,
+   "file_offset": 693504,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2147840,
+   "size": 1117192,
+   "file_offset": 693568,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1811176,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3199,
+  "jr_ra": 2290
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2147840,
+   "end": 2347872,
+   "bytes": 200032
+  }
+ ],
+ "problems": [],
+ "functions": 1930,
+ "named_functions": 244,
+ "name_evidence_functions": 545
+}

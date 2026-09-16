@@ -1,0 +1,597 @@
+{
+ "schema": "rnc-overlay-map-v1",
+ "generated": "2026-09-16T08:22:22+00:00",
+ "game": "Ratchet & Clank (USA) SCUS-97199",
+ "iso_sha256": "ab849fe7cc9cc81c487d61b0d3ea15b5849943481b6a6ebf4d9aa9cf7bc40d9d",
+ "method": "section-chain rebuild from LEVELn.WAD (code only; no assets)",
+ "boot_overlap_note": "Overlay .text VMAs overlap the boot executable's game-code window; overlay units are namespaced overlay/us/level-NN/ and are never merged into the boot address space.",
+ "boot_exec_ranges": [
+  {
+   "name": ".vutext",
+   "addr": 1048704,
+   "size": 74384
+  },
+  {
+   "name": "core.text",
+   "addr": 1123200,
+   "size": 118968
+  },
+  {
+   "name": ".text",
+   "addr": 2002176,
+   "size": 345696
+  }
+ ],
+ "levels": [
+  {
+   "id": "level-00",
+   "index": 0,
+   "name": "Veldin Tutorial",
+   "elf_sha256": "8f1e00c8be75635db809679890fb5c128ba208e780461699f73e3a5344356ec9",
+   "entry": 2382888,
+   "text": {
+    "addr": 2009600,
+    "size": 1073872
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3033,
+    "jr_ra": 2171
+   },
+   "functions": 1824,
+   "named_functions": 247,
+   "name_evidence_functions": 247,
+   "boot_overlap_bytes": 338272,
+   "problems": []
+  },
+  {
+   "id": "level-01",
+   "index": 1,
+   "name": "Novalis",
+   "elf_sha256": "567937f89174f055f8e895839049ea6304f18117b2344222833cd32ba770bc02",
+   "entry": 2464832,
+   "text": {
+    "addr": 2147840,
+    "size": 1117192
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3199,
+    "jr_ra": 2290
+   },
+   "functions": 1930,
+   "named_functions": 244,
+   "name_evidence_functions": 545,
+   "boot_overlap_bytes": 200032,
+   "problems": []
+  },
+  {
+   "id": "level-02",
+   "index": 2,
+   "name": "Aridia",
+   "elf_sha256": "671ff28b640800f45711de680b3284e781d36f503bfc3f5025d92a895ddbc112",
+   "entry": 2389880,
+   "text": {
+    "addr": 2078848,
+    "size": 1065136
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3105,
+    "jr_ra": 2220
+   },
+   "functions": 1862,
+   "named_functions": 246,
+   "name_evidence_functions": 533,
+   "boot_overlap_bytes": 269024,
+   "problems": []
+  },
+  {
+   "id": "level-03",
+   "index": 3,
+   "name": "Kerwan",
+   "elf_sha256": "76017c751b5b6eae44c915e85a08f03c4d3f099abf37a215e6ac598e7706dce5",
+   "entry": 2309888,
+   "text": {
+    "addr": 1983232,
+    "size": 1099584
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3141,
+    "jr_ra": 2260
+   },
+   "functions": 1894,
+   "named_functions": 244,
+   "name_evidence_functions": 546,
+   "boot_overlap_bytes": 345696,
+   "problems": []
+  },
+  {
+   "id": "level-04",
+   "index": 4,
+   "name": "Eudora",
+   "elf_sha256": "451acb09d1bac17d2e5a2bd94140e0440143ae2dacac8e7b6b65f077e1e70584",
+   "entry": 2328088,
+   "text": {
+    "addr": 1954560,
+    "size": 1144680
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3148,
+    "jr_ra": 2253
+   },
+   "functions": 1892,
+   "named_functions": 245,
+   "name_evidence_functions": 540,
+   "boot_overlap_bytes": 345696,
+   "problems": []
+  },
+  {
+   "id": "level-05",
+   "index": 5,
+   "name": "Rilgar",
+   "elf_sha256": "2f639ecd58b4c9a0f94456f67a472c8a7772f91a7fbcea3dcd6b3ef6fc45246e",
+   "entry": 2550768,
+   "text": {
+    "addr": 2201088,
+    "size": 1136472
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3219,
+    "jr_ra": 2310
+   },
+   "functions": 1946,
+   "named_functions": 246,
+   "name_evidence_functions": 556,
+   "boot_overlap_bytes": 146784,
+   "problems": []
+  },
+  {
+   "id": "level-06",
+   "index": 6,
+   "name": "Nebula G34",
+   "elf_sha256": "59521b07ae0b02afd6de454fd52f0e1e89e93ca0ee8f6e0e0766a14a254cc3ed",
+   "entry": 2443496,
+   "text": {
+    "addr": 2106752,
+    "size": 1143832
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3217,
+    "jr_ra": 2292
+   },
+   "functions": 1933,
+   "named_functions": 247,
+   "name_evidence_functions": 553,
+   "boot_overlap_bytes": 241120,
+   "problems": []
+  },
+  {
+   "id": "level-07",
+   "index": 7,
+   "name": "Umbris",
+   "elf_sha256": "157a4bee4669fb14be0af05407d7ffc40e59eef117f3c53d87bf3aa09392cc42",
+   "entry": 2544256,
+   "text": {
+    "addr": 2172800,
+    "size": 1155584
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3194,
+    "jr_ra": 2285
+   },
+   "functions": 1928,
+   "named_functions": 246,
+   "name_evidence_functions": 559,
+   "boot_overlap_bytes": 175072,
+   "problems": []
+  },
+  {
+   "id": "level-08",
+   "index": 8,
+   "name": "Batalia",
+   "elf_sha256": "895e591c79ac25068465a05f1ea7b3763a78848802c994a97c26c2c56f8c7bf9",
+   "entry": 2422808,
+   "text": {
+    "addr": 2085888,
+    "size": 1167120
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3244,
+    "jr_ra": 2302
+   },
+   "functions": 1943,
+   "named_functions": 244,
+   "name_evidence_functions": 547,
+   "boot_overlap_bytes": 261984,
+   "problems": []
+  },
+  {
+   "id": "level-09",
+   "index": 9,
+   "name": "Gaspar",
+   "elf_sha256": "ba407330fec6983f46c0dbd3f7a0c088f96936e86e6244927b0e9e32d1b8591a",
+   "entry": 2510104,
+   "text": {
+    "addr": 2137344,
+    "size": 1110160
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3097,
+    "jr_ra": 2216
+   },
+   "functions": 1857,
+   "named_functions": 244,
+   "name_evidence_functions": 244,
+   "boot_overlap_bytes": 210528,
+   "problems": []
+  },
+  {
+   "id": "level-10",
+   "index": 10,
+   "name": "Orxon",
+   "elf_sha256": "781ff91426d7f3c3daea35d51be522dc83a0f974d62a33ebe3ac2d826bd8ea8d",
+   "entry": 2328224,
+   "text": {
+    "addr": 1957888,
+    "size": 1163104
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3203,
+    "jr_ra": 2280
+   },
+   "functions": 1913,
+   "named_functions": 245,
+   "name_evidence_functions": 245,
+   "boot_overlap_bytes": 345696,
+   "problems": []
+  },
+  {
+   "id": "level-11",
+   "index": 11,
+   "name": "Pokitaru",
+   "elf_sha256": "0fd802f1618749b340ce0e16a144c1d7ca537a04adc470801da7afcc125e1135",
+   "entry": 2535384,
+   "text": {
+    "addr": 2212352,
+    "size": 1113416
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3218,
+    "jr_ra": 2293
+   },
+   "functions": 1934,
+   "named_functions": 244,
+   "name_evidence_functions": 244,
+   "boot_overlap_bytes": 135520,
+   "problems": []
+  },
+  {
+   "id": "level-12",
+   "index": 12,
+   "name": "Hoven",
+   "elf_sha256": "9be7f791c88be7fb241ae0437795eba1148d4847e40e8e758dc1d3e7832f0446",
+   "entry": 2481688,
+   "text": {
+    "addr": 2151424,
+    "size": 1100048
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3171,
+    "jr_ra": 2281
+   },
+   "functions": 1915,
+   "named_functions": 244,
+   "name_evidence_functions": 244,
+   "boot_overlap_bytes": 196448,
+   "problems": []
+  },
+  {
+   "id": "level-13",
+   "index": 13,
+   "name": "Oltanis Orbit",
+   "elf_sha256": "95425c15c284cd4a76a12aee2a8fd8764cb61273b9f98e52041e1fc3f0aec4c6",
+   "entry": 2428584,
+   "text": {
+    "addr": 2057088,
+    "size": 1200936
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3295,
+    "jr_ra": 2326
+   },
+   "functions": 1972,
+   "named_functions": 246,
+   "name_evidence_functions": 246,
+   "boot_overlap_bytes": 290784,
+   "problems": []
+  },
+  {
+   "id": "level-14",
+   "index": 14,
+   "name": "Oltanis",
+   "elf_sha256": "41f1b1fb2c612238c88829def40f7ddf4b63ed33f24737717140c04939b47df5",
+   "entry": 2414520,
+   "text": {
+    "addr": 2087808,
+    "size": 1164920
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3335,
+    "jr_ra": 2378
+   },
+   "functions": 2003,
+   "named_functions": 244,
+   "name_evidence_functions": 244,
+   "boot_overlap_bytes": 260064,
+   "problems": []
+  },
+  {
+   "id": "level-15",
+   "index": 15,
+   "name": "Quartu",
+   "elf_sha256": "129bb08dff642d05cb47fa60d8349b94de782a6db837fef10f40ebdc287f05ed",
+   "entry": 2314792,
+   "text": {
+    "addr": 1982592,
+    "size": 1147752
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3246,
+    "jr_ra": 2316
+   },
+   "functions": 1941,
+   "named_functions": 247,
+   "name_evidence_functions": 247,
+   "boot_overlap_bytes": 345696,
+   "problems": []
+  },
+  {
+   "id": "level-16",
+   "index": 16,
+   "name": "Kalebo III",
+   "elf_sha256": "4006c02ad3f26a032112c3ab81ea34ac05f288cb0e4fef1e91662a30dcec0473",
+   "entry": 2364160,
+   "text": {
+    "addr": 2003456,
+    "size": 1113216
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3221,
+    "jr_ra": 2299
+   },
+   "functions": 1933,
+   "named_functions": 245,
+   "name_evidence_functions": 245,
+   "boot_overlap_bytes": 344416,
+   "problems": []
+  },
+  {
+   "id": "level-17",
+   "index": 17,
+   "name": "Veldin Orbit",
+   "elf_sha256": "06e9ab7ae7786b899a4264854adf742f0b7ffaa77789ea25dfaf1eabec812b42",
+   "entry": 2360096,
+   "text": {
+    "addr": 1997312,
+    "size": 1164488
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3257,
+    "jr_ra": 2297
+   },
+   "functions": 1935,
+   "named_functions": 247,
+   "name_evidence_functions": 247,
+   "boot_overlap_bytes": 345696,
+   "problems": []
+  },
+  {
+   "id": "level-18",
+   "index": 18,
+   "name": "Veldin Finale",
+   "elf_sha256": "2f91a356e208965be55aed0637a86abf0164875e716c58e8d30cd3e5ad1b4ef6",
+   "entry": 2391824,
+   "text": {
+    "addr": 2045568,
+    "size": 1141312
+   },
+   "sections": [
+    ".lit",
+    ".bss",
+    ".data",
+    "lvl.vtbl",
+    "lvl.camvtbl",
+    "lvl.sndvtbl",
+    ".text",
+    ".shstrtab"
+   ],
+   "markers": {
+    "prologues": 3271,
+    "jr_ra": 2324
+   },
+   "functions": 1957,
+   "named_functions": 245,
+   "name_evidence_functions": 245,
+   "boot_overlap_bytes": 302304,
+   "problems": []
+  }
+ ]
+}

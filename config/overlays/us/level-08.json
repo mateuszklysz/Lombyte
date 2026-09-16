@@ -1,0 +1,89 @@
+{
+ "id": "level-08",
+ "index": 8,
+ "name": "Batalia",
+ "elf_sha256": "895e591c79ac25068465a05f1ea7b3763a78848802c994a97c26c2c56f8c7bf9",
+ "entry": 2422808,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 14060,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1451520,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1468416,
+   "size": 614560,
+   "file_offset": 14336,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2083072,
+   "size": 2352,
+   "file_offset": 628928,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2085504,
+   "size": 180,
+   "file_offset": 631296,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2085760,
+   "size": 48,
+   "file_offset": 631488,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2085888,
+   "size": 1167120,
+   "file_offset": 631552,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1799080,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3244,
+  "jr_ra": 2302
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2085888,
+   "end": 2347872,
+   "bytes": 261984
+  }
+ ],
+ "problems": [],
+ "functions": 1943,
+ "named_functions": 244,
+ "name_evidence_functions": 547
+}

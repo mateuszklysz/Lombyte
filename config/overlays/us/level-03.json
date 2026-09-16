@@ -1,0 +1,89 @@
+{
+ "id": "level-03",
+ "index": 3,
+ "name": "Kerwan",
+ "elf_sha256": "76017c751b5b6eae44c915e85a08f03c4d3f099abf37a215e6ac598e7706dce5",
+ "entry": 2309888,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 12168,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1449728,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1466624,
+   "size": 513824,
+   "file_offset": 12480,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 1980544,
+   "size": 2220,
+   "file_offset": 526336,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 1982848,
+   "size": 200,
+   "file_offset": 528576,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 1983104,
+   "size": 32,
+   "file_offset": 528832,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 1983232,
+   "size": 1099584,
+   "file_offset": 528896,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1628840,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3141,
+  "jr_ra": 2260
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2002176,
+   "end": 2347872,
+   "bytes": 345696
+  }
+ ],
+ "problems": [],
+ "functions": 1894,
+ "named_functions": 244,
+ "name_evidence_functions": 546
+}

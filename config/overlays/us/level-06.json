@@ -1,0 +1,89 @@
+{
+ "id": "level-06",
+ "index": 6,
+ "name": "Nebula G34",
+ "elf_sha256": "59521b07ae0b02afd6de454fd52f0e1e89e93ca0ee8f6e0e0766a14a254cc3ed",
+ "entry": 2443496,
+ "sections": [
+  {
+   "name": ".lit",
+   "type": 1,
+   "addr": 1437440,
+   "size": 13952,
+   "file_offset": 256,
+   "flags": 3
+  },
+  {
+   "name": ".bss",
+   "type": 8,
+   "addr": 1451392,
+   "size": 16816,
+   "file_offset": 0,
+   "flags": 3
+  },
+  {
+   "name": ".data",
+   "type": 1,
+   "addr": 1468288,
+   "size": 635824,
+   "file_offset": 14208,
+   "flags": 3
+  },
+  {
+   "name": "lvl.vtbl",
+   "type": 1,
+   "addr": 2104192,
+   "size": 2124,
+   "file_offset": 650048,
+   "flags": 3
+  },
+  {
+   "name": "lvl.camvtbl",
+   "type": 1,
+   "addr": 2106368,
+   "size": 180,
+   "file_offset": 652224,
+   "flags": 3
+  },
+  {
+   "name": "lvl.sndvtbl",
+   "type": 1,
+   "addr": 2106624,
+   "size": 8,
+   "file_offset": 652416,
+   "flags": 3
+  },
+  {
+   "name": ".text",
+   "type": 1,
+   "addr": 2106752,
+   "size": 1143832,
+   "file_offset": 652480,
+   "flags": 6
+  },
+  {
+   "name": ".shstrtab",
+   "type": 3,
+   "addr": 0,
+   "size": 66,
+   "file_offset": 1796712,
+   "flags": 0
+  }
+ ],
+ "markers": {
+  "prologues": 3217,
+  "jr_ra": 2292
+ },
+ "boot_overlap": [
+  {
+   "boot_section": ".text",
+   "start": 2106752,
+   "end": 2347872,
+   "bytes": 241120
+  }
+ ],
+ "problems": [],
+ "functions": 1933,
+ "named_functions": 247,
+ "name_evidence_functions": 553
+}

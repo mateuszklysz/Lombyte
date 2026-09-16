@@ -1,0 +1,346 @@
+{
+ "schema": "rnc-overlay-level-table-v1",
+ "game": "Ratchet & Clank (USA) SCUS-97199",
+ "iso": {
+  "path": "dumps/game.iso",
+  "size": 4214095872,
+  "sha256": "ab849fe7cc9cc81c487d61b0d3ea15b5849943481b6a6ebf4d9aa9cf7bc40d9d"
+ },
+ "provenance": {
+  "level_offsets": "wrench v0.5 inspect_iso hidden ToC level table (offsets/sizes in bytes)",
+  "wrench": {
+   "version": "Wrench Build Tool v0.5",
+   "commit": "6c743e54a7087633887709acbc9b42552dac02e6",
+   "release": "v0.5 linux-glibc2.39-0ubuntu8.5",
+   "sha256_zip": "6f8ac62bfe18e29c8f0121f9bbc4007cba09eca622a8f09e75573312386c95a5"
+  },
+  "level_names": "wrench underlay/rac_levels.asset community metadata (rac.levels.NN), research reference",
+  "recorded": "2026-09-16",
+  "notes": "Offsets are absolute byte offsets into the retail ISO. Overlay code images are embedded uncompressed in each LEVELn.WAD at file offset 0x880 (7-section ratchet-executable chain); audio/scene fields are provenance only and are not used by extraction."
+ },
+ "levels": [
+  {
+   "index": 0,
+   "name": "Veldin Tutorial",
+   "entry": 0,
+   "level": {
+    "offset": 3862337536,
+    "size": 14315520
+   },
+   "audio": {
+    "offset": 3162908672,
+    "size": 3293184
+   },
+   "scene": {
+    "offset": 3313176576,
+    "size": 22253568
+   }
+  },
+  {
+   "index": 1,
+   "name": "Novalis",
+   "entry": 0,
+   "level": {
+    "offset": 3876661248,
+    "size": 19714048
+   },
+   "audio": {
+    "offset": 3166199808,
+    "size": 10235904
+   },
+   "scene": {
+    "offset": 3335419904,
+    "size": 29403136
+   }
+  },
+  {
+   "index": 2,
+   "name": "Aridia",
+   "entry": 0,
+   "level": {
+    "offset": 3896383488,
+    "size": 17532928
+   },
+   "audio": {
+    "offset": 3176433664,
+    "size": 10027008
+   },
+   "scene": {
+    "offset": 3364812800,
+    "size": 28717056
+   }
+  },
+  {
+   "index": 3,
+   "name": "Kerwan",
+   "entry": 0,
+   "level": {
+    "offset": 3913924608,
+    "size": 18432000
+   },
+   "audio": {
+    "offset": 3186458624,
+    "size": 11393024
+   },
+   "scene": {
+    "offset": 3393519616,
+    "size": 46698496
+   }
+  },
+  {
+   "index": 4,
+   "name": "Eudora",
+   "entry": 0,
+   "level": {
+    "offset": 3932364800,
+    "size": 17016832
+   },
+   "audio": {
+    "offset": 3197849600,
+    "size": 7276544
+   },
+   "scene": {
+    "offset": 3440207872,
+    "size": 11038720
+   }
+  },
+  {
+   "index": 5,
+   "name": "Rilgar",
+   "entry": 0,
+   "level": {
+    "offset": 3949389824,
+    "size": 19685376
+   },
+   "audio": {
+    "offset": 3205124096,
+    "size": 9048064
+   },
+   "scene": {
+    "offset": 3451236352,
+    "size": 51736576
+   }
+  },
+  {
+   "index": 6,
+   "name": "Nebula G34",
+   "entry": 0,
+   "level": {
+    "offset": 3969083392,
+    "size": 20260864
+   },
+   "audio": {
+    "offset": 3214170112,
+    "size": 16988160
+   },
+   "scene": {
+    "offset": 3502962688,
+    "size": 24834048
+   }
+  },
+  {
+   "index": 7,
+   "name": "Umbris",
+   "entry": 0,
+   "level": {
+    "offset": 3989352448,
+    "size": 16994304
+   },
+   "audio": {
+    "offset": 3231156224,
+    "size": 6680576
+   },
+   "scene": {
+    "offset": 3527786496,
+    "size": 36800512
+   }
+  },
+  {
+   "index": 8,
+   "name": "Batalia",
+   "entry": 0,
+   "level": {
+    "offset": 4006354944,
+    "size": 17315840
+   },
+   "audio": {
+    "offset": 3237834752,
+    "size": 5545984
+   },
+   "scene": {
+    "offset": 3564576768,
+    "size": 45725696
+   }
+  },
+  {
+   "index": 9,
+   "name": "Gaspar",
+   "entry": 0,
+   "level": {
+    "offset": 4023678976,
+    "size": 18102272
+   },
+   "audio": {
+    "offset": 3243378688,
+    "size": 3342336
+   },
+   "scene": {
+    "offset": 3610292224,
+    "size": 1650688
+   }
+  },
+  {
+   "index": 10,
+   "name": "Orxon",
+   "entry": 0,
+   "level": {
+    "offset": 4041789440,
+    "size": 17788928
+   },
+   "audio": {
+    "offset": 3246718976,
+    "size": 6656000
+   },
+   "scene": {
+    "offset": 3611932672,
+    "size": 19896320
+   }
+  },
+  {
+   "index": 11,
+   "name": "Pokitaru",
+   "entry": 0,
+   "level": {
+    "offset": 4059586560,
+    "size": 19558400
+   },
+   "audio": {
+    "offset": 3253372928,
+    "size": 10309632
+   },
+   "scene": {
+    "offset": 3631818752,
+    "size": 42299392
+   }
+  },
+  {
+   "index": 12,
+   "name": "Hoven",
+   "entry": 0,
+   "level": {
+    "offset": 4079153152,
+    "size": 19509248
+   },
+   "audio": {
+    "offset": 3263680512,
+    "size": 7372800
+   },
+   "scene": {
+    "offset": 3674107904,
+    "size": 25112576
+   }
+  },
+  {
+   "index": 13,
+   "name": "Oltanis Orbit",
+   "entry": 0,
+   "level": {
+    "offset": 4098670592,
+    "size": 19509248
+   },
+   "audio": {
+    "offset": 3271051264,
+    "size": 6842368
+   },
+   "scene": {
+    "offset": 3699210240,
+    "size": 15114240
+   }
+  },
+  {
+   "index": 14,
+   "name": "Oltanis",
+   "entry": 0,
+   "level": {
+    "offset": 4118188032,
+    "size": 19249152
+   },
+   "audio": {
+    "offset": 3277891584,
+    "size": 6623232
+   },
+   "scene": {
+    "offset": 3714314240,
+    "size": 26730496
+   }
+  },
+  {
+   "index": 15,
+   "name": "Quartu",
+   "entry": 0,
+   "level": {
+    "offset": 4137445376,
+    "size": 19716096
+   },
+   "audio": {
+    "offset": 3284512768,
+    "size": 6264832
+   },
+   "scene": {
+    "offset": 3741034496,
+    "size": 27848704
+   }
+  },
+  {
+   "index": 16,
+   "name": "Kalebo III",
+   "entry": 0,
+   "level": {
+    "offset": 4157169664,
+    "size": 18726912
+   },
+   "audio": {
+    "offset": 3290775552,
+    "size": 9392128
+   },
+   "scene": {
+    "offset": 3768872960,
+    "size": 26933248
+   }
+  },
+  {
+   "index": 17,
+   "name": "Veldin Orbit",
+   "entry": 0,
+   "level": {
+    "offset": 4175904768,
+    "size": 17387520
+   },
+   "audio": {
+    "offset": 3300165632,
+    "size": 6510592
+   },
+   "scene": {
+    "offset": 3795795968,
+    "size": 5838848
+   }
+  },
+  {
+   "index": 18,
+   "name": "Veldin Finale",
+   "entry": 0,
+   "level": {
+    "offset": 4193300480,
+    "size": 19351552
+   },
+   "audio": {
+    "offset": 3306674176,
+    "size": 6512640
+   },
+   "scene": {
+    "offset": 3801624576,
+    "size": 42072064
+   }
+  }
+ ]
+}
