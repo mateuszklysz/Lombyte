@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: _lastFrame
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_himuro_patched v3 -O2 -g2 -mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns
+COMPILER: cc_ee_gcc_patched v3 -O2 -g2 -mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns
 DECISION: promoted
 BLOCKER: none
 */

@@ -2,10 +2,10 @@
 STATE: C_EXACT
 SYMBOL: FUN_00225dd8
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs (Himuro routing; unit under assembly/textbin)
+COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs (EE-GCC 2.9 routing; unit under assembly/textbin)
 DECISION: promoted (pipeline-2026-09-08-3, wrapper-branch wide scan)
 BLOCKER: none
-NOTE: existing NON_MATCHING #else branch (a2-pinned register loop) compiled byte-identical under Himuro; oracle wrapper stripped.
+NOTE: existing NON_MATCHING #else branch (a2-pinned register loop) compiled byte-identical under EE-GCC 2.9; oracle wrapper stripped.
 */
 
 #include "rnc/assembly_textbin_fun_00225dd8_types.h"

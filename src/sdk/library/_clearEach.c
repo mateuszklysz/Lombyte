@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: _clearEach
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: himuro-O2 (-O2 -g2 -gstabs)
+COMPILER: ee-gcc-2.9-O2 (-O2 -g2 -gstabs)
 DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
 BLOCKER: none
 */

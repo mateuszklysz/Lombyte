@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: FUN_00225e20
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_himuro (EE-GCC 2.9-991111) -O2 -g2 -gstabs
+COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs
 DECISION: promoted
 */
 
@@ -25,4 +25,4 @@ s32 FUN_00225e20(s32 arg0) {
     return 1;
 }
 
-/* ACCEPTED: attempt-1 (himuro-O2) direct 100/100/100; 8-byte record loop, key at 0 / flags at 4, i<5. */
+/* ACCEPTED: attempt-1 (ee-gcc-2.9-O2) direct 100/100/100; 8-byte record loop, key at 0 / flags at 4, i<5. */

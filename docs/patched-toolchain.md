@@ -6,11 +6,11 @@ without it, rebuilding those units from the retail oracle instead of their C.
 Install the profile to compile and verify their C.
 
 The patch lives in
-[`patches/ee-gcc-2.9-991111-01/`](../patches/ee-gcc-2.9-991111-01/): 124
-changed lines over 8 files, adding opt-in `-mastra-*` flags (inert by default),
-R5900 `sq`/`lq` saves, classic `mult`/`mflo` code generation, and the
-in-place `cvt.w.s` conversion (`-mastra-inplace-cvt`), against the
-public snapshot
+[`patches/ee-gcc-2.9-991111-01/`](../patches/ee-gcc-2.9-991111-01/): 166
+inserted and 15 deleted lines over 8 files, adding opt-in `-mastra-*` flags
+(inert by default), R5900 `sq`/`lq` saves, classic `mult`/`mflo` code
+generation, and the in-place `cvt.w.s` conversion (`-mastra-inplace-cvt`),
+against the public snapshot
 [`SSXModding/ps2-ee-toolchain`](https://github.com/SSXModding/ps2-ee-toolchain)
 at `b595ded`.
 
@@ -23,7 +23,7 @@ applies the patch, and builds `cc1`/`cpp`/`xgcc`. It fetches and builds bison
 
 ```sh
 python3 scripts/build-patched-toolchain.py
-export HIMURO_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
+export EE_GCC_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
 make elf
 ```
 

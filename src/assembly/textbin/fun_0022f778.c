@@ -11,7 +11,7 @@
 STATE: C_NON_MATCHING
 SYMBOL: FUN_0022f778
 SCORE: code=70.487656 functions=70.487656 data=100 complete_data=100
-COMPILER: Himuro 2.9-991111-01 -O2 -g2 -gstabs (public map routing); SN 2.95.2 + Ps2EeAs padless with la-gprel measures 87.44763
+COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs (public map routing); SN 2.95.2 + Ps2EeAs padless with la-gprel measures 87.44763
 DECISION: retained
 BLOCKER: register-allocation, delay-slot-scheduling, residual address materialization
 */

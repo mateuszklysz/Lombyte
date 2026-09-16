@@ -7,7 +7,7 @@ Every configured `src/**/*.c` file starts with a short provenance block:
 STATE: C_NON_MATCHING
 SYMBOL: FUN_XXXXXXXX
 SCORE: code=95 functions=100 data=100 complete_data=100
-COMPILER: himuro-O2 -O2 -g2 -gstabs
+COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
 DECISION: retained
 BLOCKER: none
 NOTE: pointer aliases preserve the retail register allocation
@@ -55,7 +55,7 @@ exists (e.g. headers backfilled from an audit snapshot).
   python3 scripts/stamp_source_header.py src/ee/example.c \
       --state C_EXACT --symbol ExampleFunction \
       --score "code=100 functions=100 data=100 complete_data=100" \
-      --compiler "himuro-O2 -O2 -g2 -gstabs" --decision promoted --apply
+      --compiler "ee-gcc-2.9-O2 -O2 -g2 -gstabs" --decision promoted --apply
   ```
 
 - Validate before opening a pull request:

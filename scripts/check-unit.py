@@ -380,7 +380,7 @@ def main(argv=None) -> int:
             unit,
             "oracle-fallback",
             f"{unit} is rebuilt from the retail oracle in this workspace "
-            "because HIMURO_PATCHED_ROOT is not set; run "
+            "because EE_GCC_PATCHED_ROOT is not set; run "
             "scripts/build-patched-toolchain.py, re-run make elf, then measure "
             "its C",
             as_json=args.json,

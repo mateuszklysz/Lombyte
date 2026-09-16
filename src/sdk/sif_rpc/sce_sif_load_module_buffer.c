@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: _sceSifLoadModuleBuffer
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_himuro (EE-GCC 2.9-991111) -O2 -g2 -gstabs
+COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs
 DECISION: promoted
 BLOCKER: none
 */

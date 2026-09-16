@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: get_iob
 SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
-COMPILER: himuro-O2 -O2 -g2 -gstabs
+COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
 DECISION: promoted (pipeline-2026-09-10-4)
 BLOCKER: none
 */

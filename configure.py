@@ -51,7 +51,7 @@ SN_TOOLCHAIN_ROOT = os.environ.get("SN_TOOLCHAIN_ROOT", "").strip()
 # tree falls back to the frozen compilers when it is absent.  The source patch
 # and its build script live in patches/ee-gcc-2.9-991111-01/; see
 # docs/patched-toolchain.md.
-HIMURO_PATCHED_ROOT = os.environ.get("HIMURO_PATCHED_ROOT", "").strip()
+EE_GCC_PATCHED_ROOT = os.environ.get("EE_GCC_PATCHED_ROOT", "").strip()
 # Promoted textbin units matched byte-exact under the SN compiler.
 SN_COMPILER_UNITS = {
     # sdk/debug_print: the EE-GCC 2.9 tree ships no stdarg.h, and the SN
@@ -70,7 +70,7 @@ SN_COMPILER_UNITS = {
     # order-only nop/addiu swap). See the private evidence archive for details.
     "textbin/fun_002172c0",
     # Save-less counting loops (retail style "none"): fresh SN -O2 -g2 objects
-    # are 100/100/100; the Himuro fallback ties at 59.7-91.1% (pipeline-2026-09-13-11
+    # are 100/100/100; the EE-GCC 2.9 fallback ties at 59.7-91.1% (pipeline-2026-09-13-11
     # wave 3, fun_00215300 / fun_00215348 / fun_00215290).
     "textbin/fun_00215300",
     "textbin/fun_00215348",
@@ -80,7 +80,7 @@ SN_COMPILER_UNITS = {
     "textbin/read_buf_begin_get",
     # Save-less leaf (retail style "none", 27 instructions, no frame): fresh
     # SN -O2 -g2 is 100/100/100 with the numeric D_0015F6A0 pointer load and the
-    # v1/a3 pointer roles; the Himuro fingerprint would route it to EE-GCC 2.9.
+    # v1/a3 pointer roles; the EE-GCC 2.9 fingerprint would route it to EE-GCC 2.9.
     "textbin/fun_001fdca0",
     "textbin/fun_001f6250",
     "textbin/fun_001f6270",
@@ -156,15 +156,15 @@ SN_COMPILER_UNITS = {
     # InitializeRenderState: the whole unit is 13 SN-style instructions; fresh
     # SN -O2 with s16 fields at 0x40/0x42/0x5C/0x5E/0x78/0x7A and the retail
     # store order is 100/100/100 direct and patha linked-byte equal
-    # (run-14 mass-d; Himuro EE-GCC 2.9 stages at 76.00).  The unit is a
+    # (run-14 mass-d; EE-GCC 2.9 stages at 76.00).  The unit is a
     # non-textbin prefix, so the per-unit set is the only routing hook.
     "gs/initialize_render_state",
 }
 
 # Units proven byte-exact under the patched 991111 build.  Keep the set
 # explicit: this compiler is a per-unit profile, not a replacement for the
-# frozen SN/Himuro trees (its SN-class controls do not reach 100).
-HIMURO_PATCHED_UNITS = {
+# frozen SN/EE-GCC 2.9 trees (its SN-class controls do not reach 100).
+EE_GCC_PATCHED_UNITS = {
     # Retail uses classic mult/mflo; the frozen trees emit the R5900 rd-form.
     # 100/100/100 + patha linked-byte equal (0x12D3A0), 2026-09-12.
     "sdk/bcd_to_time",
@@ -210,7 +210,7 @@ HIMURO_PATCHED_UNITS = {
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
 # is opt-in and absent by default; flag-absent output is byte-identical.
-HIMURO_PATCHED_FLAG_UNITS = {
+EE_GCC_PATCHED_FLAG_UNITS = {
     "picturecodingextension": "-mastra-volatile-delay -mastra-sd-saves",
     "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
     "textbin/fun_001fa6d0": "-mastra-inplace-cvt",
@@ -248,19 +248,19 @@ RODATA_OVERLAYS = {
     "_getpic": (0x153AA0, 0x54A20),
 }
 
-# Per-unit extra compiler flags for the Himuro (native EE-GCC 2.9) units whose
+# Per-unit extra compiler flags for the native EE-GCC 2.9 units whose
 # exact codegen requires a different scheduling model.  Keyed by unit-name
 # suffix so both the assembly-backed and the normalized/promoted name match.
 # sce_sif_init_iop_heap: retail tail (lui v0; sw; move v0) is byte-exact only
-# under -fno-schedule-insns; applying it globally to all Himuro units changes
+# under -fno-schedule-insns; applying it globally to all EE-GCC 2.9 units changes
 # scePad2Read and other already-exact siblings.
-HIMURO_FLAG_UNITS = {
+EE_GCC_FLAG_UNITS = {
     "sce_sif_init_iop_heap": "-fno-schedule-insns",
     # Absolute-store macros and the final GP store's delay-slot placement.
     "initialize_global_state_entry": "-mno-split-addresses -fno-schedule-insns",
     # Retail writes the absolute global through the assembler `$at` macro
     # (`lui $1,%hi; sw ...,%lo($1)`); the default split-address sequence uses a
-    # general register instead.  Validated 100/100/100 under Himuro + flag.
+    # general register instead.  Validated 100/100/100 under EE-GCC 2.9 + flag.
     "clear_stage_state_flag": "-mno-split-addresses",
     "initialize_streaming_state": "-mno-split-addresses",
     # DIntr: Sony libkernel privileged-loop glue.  The ps2sdk glue.c shape
@@ -268,7 +268,7 @@ HIMURO_FLAG_UNITS = {
     # optimization with the missing-cse-follow-jumps policy; the default
     # -O2 compile picks `daddu a0,v1` for the out arm instead of $zero and
     # schedules the return move out of the jr delay slot.  100/100/100 under
-    # Himuro with this flag pair (campaign pipeline-2026-09-11-7).
+    # EE-GCC 2.9 with this flag pair (campaign pipeline-2026-09-11-7).
     "DIntr": "-Os -fno-cse-follow-jumps",
     # __swrite: retail's field layout is u16@0xC + s16@0xE (not s32@0xE, which
     # the compiler pads to 0x10) and the s64 return is the dsll32/dsra32
@@ -419,14 +419,14 @@ PADLESS_ASM_UNITS = {
 
 
 def _unit_flag(unit: str) -> str:
-    for suffix, flags in HIMURO_FLAG_UNITS.items():
+    for suffix, flags in EE_GCC_FLAG_UNITS.items():
         if unit.endswith(suffix):
             return flags
     return ""
 
 
 def _unit_patched_flag(unit: str) -> str:
-    for suffix, flags in HIMURO_PATCHED_FLAG_UNITS.items():
+    for suffix, flags in EE_GCC_PATCHED_FLAG_UNITS.items():
         if unit.endswith(suffix):
             return flags
     return ""
@@ -591,8 +591,8 @@ def sn_compiler_configured() -> bool:
     )
 
 
-def himuro_patched_configured() -> bool:
-    return bool(HIMURO_PATCHED_ROOT) and (Path(HIMURO_PATCHED_ROOT) / "xgcc").is_file()
+def ee_gcc_patched_configured() -> bool:
+    return bool(EE_GCC_PATCHED_ROOT) and (Path(EE_GCC_PATCHED_ROOT) / "xgcc").is_file()
 
 
 def _win_path(value: str) -> str:
@@ -994,13 +994,13 @@ def build_stuff(
         # Patched public 991111 cc1 (R5900 quad saves + classic mult/mflo) with
         # the same alias normalization + Ps2EeAs + padless finish.  Native
         # driver, so only the assembler step needs Windows paths.
-        if himuro_patched_configured():
-            patched_root = Path(HIMURO_PATCHED_ROOT)
+        if ee_gcc_patched_configured():
+            patched_root = Path(EE_GCC_PATCHED_ROOT)
             patched_driver = str(patched_root / "xgcc")
             patched_include = str(ROOT / "include")
             ninja.rule(
-                "cc_himuro_patched",
-                description="cc_himuro_patched $in",
+                "cc_ee_gcc_patched",
+                description="cc_ee_gcc_patched $in",
                 command=(
                     f"mkdir -p $pat_work && cp $in $pat_work/cand.c && "
                     f"'{patched_driver}' -S -B'{patched_root}/' -I'{patched_include}' "
@@ -1040,7 +1040,7 @@ def build_stuff(
     )
 
     # The patched route needs both the profile and the SN assembler.
-    patched_route = himuro_patched_configured() and sn_compiler_configured()
+    patched_route = ee_gcc_patched_configured() and sn_compiler_configured()
     oracle_fallback_units: list[str] = []
 
     for entry in linker_entries:
@@ -1070,7 +1070,7 @@ def build_stuff(
             use_sn = sn_compiler_configured() and (
                 unit in SN_COMPILER_UNITS or (_unit_uses_sn(unit) and style == "sq")
             )
-            use_patched = patched_route and unit in HIMURO_PATCHED_UNITS
+            use_patched = patched_route and unit in EE_GCC_PATCHED_UNITS
             if use_patched:
                 pat_work = str(ROOT / "build/patched-work/units" / unit)
                 flags = _unit_patched_flag(unit)
@@ -1083,10 +1083,10 @@ def build_stuff(
                 build(
                     entry.object_path,
                     entry.src_paths,
-                    "cc_himuro_patched",
+                    "cc_ee_gcc_patched",
                     variables=variables,
                 )
-            elif not patched_route and unit in HIMURO_PATCHED_UNITS:
+            elif not patched_route and unit in EE_GCC_PATCHED_UNITS:
                 # No patched profile: build from the retail oracle; the C is
                 # verified when the profile is available.
                 oracle_fallback_units.append(unit)
@@ -1152,7 +1152,7 @@ def build_stuff(
             json.dumps(
                 {
                     "schema": "rnc-oracle-fallback-v1",
-                    "reason": "HIMURO_PATCHED_ROOT is not configured",
+                    "reason": "EE_GCC_PATCHED_ROOT is not configured",
                     "units": sorted(oracle_fallback_units),
                 },
                 indent=2,
@@ -1164,7 +1164,7 @@ def build_stuff(
             if source.is_file():
                 alias_entries.update(_alias_symbols(source))
         print(
-            f"HIMURO_PATCHED_ROOT not configured: {len(oracle_fallback_units)} "
+            f"EE_GCC_PATCHED_ROOT not configured: {len(oracle_fallback_units)} "
             "unit(s) will be built from the retail oracle "
             "(see docs/patched-toolchain.md)"
         )

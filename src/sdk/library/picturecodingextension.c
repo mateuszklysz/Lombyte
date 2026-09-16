@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: _pictureCodingExtension
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_himuro_patched -O2 -g2 -mastra-volatile-delay -mastra-sd-saves; Ps2EeAs + padless at-store policy
+COMPILER: cc_ee_gcc_patched -O2 -g2 -mastra-volatile-delay -mastra-sd-saves; Ps2EeAs + padless at-store policy
 DECISION: promoted
 BLOCKER: none
 */

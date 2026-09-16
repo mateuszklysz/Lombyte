@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: _sysbitInit
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: himuro-O2 (-O2 -g2 -gstabs)
+COMPILER: ee-gcc-2.9-O2 (-O2 -g2 -gstabs)
 DECISION: promoted
 BLOCKER: none
 */

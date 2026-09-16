@@ -399,7 +399,7 @@ def main(argv=None) -> int:
         "\nThe published reference hashes identify the maintainer's build; "
         "rebuilds embed their own build paths and normally differ.\n"
         "Use it with:\n"
-        f"  export HIMURO_PATCHED_ROOT={output}"
+        f"  export EE_GCC_PATCHED_ROOT={output}"
     )
     return 0
 

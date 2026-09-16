@@ -7,7 +7,7 @@ Every configured source file carries a short provenance block at the top:
     STATE: C_NON_MATCHING
     SYMBOL: FUN_XXXXXXXX
     SCORE: code=95 functions=100 data=100 complete_data=100
-    COMPILER: himuro-O2 -O2 -g2 -gstabs
+    COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
     DECISION: retained
     BLOCKER: none
     */
@@ -27,7 +27,7 @@ Usage:
     python3 scripts/stamp_source_header.py src/ee/set_background_color.c \
         --state C_EXACT --symbol SetBackgroundColor \
         --score "code=100 functions=100 data=100 complete_data=100" \
-        --compiler "himuro-O2 -O2 -g2 -gstabs" --decision promoted --apply
+        --compiler "ee-gcc-2.9-O2 -O2 -g2 -gstabs" --decision promoted --apply
 
     # structural / value check (exit 1 when a file needs work)
     python3 scripts/stamp_source_header.py --check src/

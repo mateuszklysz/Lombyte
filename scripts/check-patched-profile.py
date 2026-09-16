@@ -4,7 +4,7 @@
 Usage:
   python3 scripts/check-patched-profile.py [--profile DIR] [--patch FILE]
 
-``--profile`` defaults to ``$HIMURO_PATCHED_ROOT``.  A profile built by
+``--profile`` defaults to ``$EE_GCC_PATCHED_ROOT``.  A profile built by
 ``scripts/build-patched-toolchain.py`` records the patch it came from in
 ``provenance.json``; when that hash no longer matches
 ``patches/ee-gcc-2.9-991111-01/patched-ee-gcc.patch``, patched-profile units
@@ -34,8 +34,8 @@ def parse_args(argv=None):
     parser.add_argument(
         "--profile",
         type=Path,
-        default=os.environ.get("HIMURO_PATCHED_ROOT") or None,
-        help="installed profile directory (default: $HIMURO_PATCHED_ROOT)",
+        default=os.environ.get("EE_GCC_PATCHED_ROOT") or None,
+        help="installed profile directory (default: $EE_GCC_PATCHED_ROOT)",
     )
     parser.add_argument(
         "--patch",
@@ -93,7 +93,7 @@ def main(argv=None) -> int:
     args = parse_args(argv)
     if args.profile is None:
         print(
-            "check-patched-profile: error: pass --profile or set HIMURO_PATCHED_ROOT",
+            "check-patched-profile: error: pass --profile or set EE_GCC_PATCHED_ROOT",
             file=sys.stderr,
         )
         return 2

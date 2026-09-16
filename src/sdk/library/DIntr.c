@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: DIntr
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: himuro-O2 -Os -fno-cse-follow-jumps
+COMPILER: ee-gcc-2.9-O2 -Os -fno-cse-follow-jumps
 DECISION: promoted
 BLOCKER: none
 */

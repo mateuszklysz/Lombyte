@@ -83,7 +83,7 @@ A few units were matched with an optional patched EE-GCC profile. `make elf` doe
 
 ```sh
 python3 scripts/build-patched-toolchain.py
-export HIMURO_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
+export EE_GCC_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
 ```
 
 See [docs/patched-toolchain.md](docs/patched-toolchain.md).
@@ -165,7 +165,7 @@ The build and ISO scripts support these environment overrides. Use absolute path
 | `VENV`                | `.venv` in the checkout                                                  |
 | `BASELINE_ROOT`       | `build/baseline` in the checkout; disposable staging directory           |
 | `BINUTILS_ROOT`       | Set to the directory containing your `mips-ps2-decompals-*` tools        |
-| `HIMURO_PATCHED_ROOT` | Optional patched EE-GCC profile                                          |
+| `EE_GCC_PATCHED_ROOT` | Optional patched EE-GCC profile                                          |
 | `COMPILER_ROOT`       | `tools/compilers` in the checkout                                        |
 | `SN_TOOLCHAIN_ROOT`   | `tools/compilers/ee-gcc-2.95.2` in the checkout                          |
 

@@ -2,15 +2,13 @@
 STATE: C_NON_MATCHING
 SYMBOL: memcard_Update
 SCORE: code=72.2 functions=72.2 data=100 complete_data=100
-COMPILER: Himuro 2.9-991111-01 -O2 -g2 -gstabs (production wrapper); SN 2.95.2 profile measures 75.14
+COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs (production wrapper); SN 2.95.2 profile measures 75.14
 DECISION: retained
 BLOCKER: register-allocation,order-scheduling
 NOTE: descriptive C recovered from the retail oracle; oracle remains authoritative for exact builds
 */
 
-/* ROLE: recovered function `memcard_Update` starts here; this unit covers only its beginning.
-   Descriptive C recovered from the retail oracle (m2c seed, refined); the assembly oracle
-   remains authoritative for exact builds. Blocker: allocator/order spread over the 6.1 KB body. */
+/* ROLE: recovered function `memcard_Update` starts here; this unit covers only its beginning. Descriptive C recovered from the retail oracle (m2c seed, refined); the assembly oracle remains authoritative for exact builds. Blocker: allocator/order spread over the 6.1 KB body. */
 
 #include "types.h"
 #include "asm.h"
