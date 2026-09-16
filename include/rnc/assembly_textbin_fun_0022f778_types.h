@@ -351,4 +351,5 @@ struct M2c_var_5_227 {
     u8 pad_36[0x70];
     s16 unkA6;
 };
+
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_0022F778_TYPES_H */

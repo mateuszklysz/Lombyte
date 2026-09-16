@@ -3,9 +3,8 @@
 
 #include "types.h"
 
-struct M2c_D_0013E500 {
-    u8 pad_0[0x4];
-    s32 unk4;
+struct Blob18 {
+    u8 data[0x18];
 };
 
 struct M2c_D_0013F350 {
@@ -25,22 +24,34 @@ struct M2c_D_00193300 {
     s32 unk8;
     s32 unkC;
     s32 unk10;
-    u8 pad_14[0x10];
-    s32 unk24;
-};
-
-struct M2c_temp_16_535 {
-    u8 pad_0[0x4];
-    s32 unk4;
-    u8 pad_8[0x14];
+    u8 pad_14[0x8];
     s32 unk1C;
+    s32 unk20;
+    s32 unk24;
 };
 
 struct M2c_temp_18_388 {
-    u8 pad_0[0x4];
-    s32 unk4;
-    u8 pad_8[0x1C];
-    s32 unk24;
+    /* the 0x18-byte text box descriptor at sp+0x200 / sp+0x220 */
+    s16 unk0;
+    s16 unk2;
+    s16 unk4;
+    s16 unk6;
+    s16 unk8;
+    s16 unkA;
+    s16 unkC;
+    s16 unkE;
+    s16 unk10;
+    u16 unk12;
+    u8 pad_14[0x4];
+    u64 unk18;
+};
+
+struct M2c_Frame {
+    u8 buf[0x200];              /* 0x000 */
+    struct M2c_temp_18_388 box; /* 0x200 */
+    struct M2c_temp_18_388 box2;/* 0x220 */
+    u8 buf2[0x40];              /* 0x240 */
+    s32 sp280;                  /* 0x280 */
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_001FBC50_TYPES_H */
