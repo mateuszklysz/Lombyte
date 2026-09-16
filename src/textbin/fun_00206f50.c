@@ -1,17 +1,13 @@
 /*
-STATE: C_NON_MATCHING
+STATE: C_EXACT
 SYMBOL: FUN_00206f50
-SCORE: code=85.5140 functions=85.5140 data=100 complete_data=100
-DECISION: retained
-BLOCKER: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
+SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: sn-O2
+DECISION: promoted
+BLOCKER: none
+NOTE: Nested final condition and a v1 result barrier preserve the retail return branch.
 */
 
-#include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00206f50/FUN_00206f50.s", FUN_00206f50);
-#else
 #include "types.h"
 extern s32 func_00208818();
 
@@ -23,6 +19,7 @@ s32 FUN_00206f50(s32 arg0, s32 arg1) {
     s32 temp_2_79;
     s32 temp_3_105;
     s32 var_9;
+    register s32 last asm("v1");
 
     if (arg1 < 0xE9) {
         if (func_00208818(arg0, arg1, 0x132, 0xA0, 0x15F, 0xD8) == 0) {
@@ -35,8 +32,10 @@ s32 FUN_00206f50(s32 arg0, s32 arg1) {
             return 0;
         }
         var_9 = func_00208818(arg0, arg1, 0x157, 0x8C, 0x130, 0xAA);
-        if (var_9 == 0) {
-            if (var_9 == 0) {
+        last = var_9;
+        __asm__ volatile ("" : "+r"(last));
+        if (last == 0) {
+            if (last == 0) {
                 return 0;
             } else {
                 return 0;
@@ -56,16 +55,10 @@ s32 FUN_00206f50(s32 arg0, s32 arg1) {
     }
     temp_16_96 = func_00208818(arg0, arg1, 0x132, 0x163, 0x141, 0xCC);
     temp_3_105 = func_00208818(arg0, arg1, 0xC2, 0x108, 0x1A0, 0x12E);
-    if (temp_16_96 != 0) {
-        return 1;
-    }
-    if (temp_3_105 != 0) {
-        if (temp_16_96) {
-            return 1;
-        } else {
-            return 1;
+    if (temp_16_96 == 0) {
+        if (temp_3_105 == 0) {
+            return 0;
         }
     }
-    return 0;
+    return 1;
 }
-#endif /* NON_MATCHING */

@@ -199,6 +199,9 @@ HIMURO_PATCHED_UNITS = {
     # profiles emit .lit4 loads and drop the NOPs. The patched profile plus the
     # permuter shape is 100/100/100 and patha linked-byte equal, 2026-09-14.
     "textbin/fun_002133d0",
+    # fun_00206e18: the patched profile preserves the retail FP hazard NOP
+    # and, with the descriptive-C v1 result barrier, the final result copy.
+    "textbin/fun_00206e18",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
