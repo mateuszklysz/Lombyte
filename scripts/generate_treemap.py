@@ -47,6 +47,7 @@ import argparse
 import datetime as dt
 import html
 import json
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -129,6 +130,31 @@ def load_recovered_full(config_dir: Path) -> dict[str, str]:
     return names
 
 
+def load_overlay_names(repo: Path) -> dict[int, str]:
+    """boot address -> recovered name from the overlay name-evidence tables.
+
+    The overlay maps carry exact boot-match evidence (``name_evidence`` with
+    ``boot_addr``/``words``); a unit that starts at ``boot_addr`` is the same
+    function (or its beginning), so the name is display-safe.
+    """
+    names: dict[int, str] = {}
+    names_dir = repo / "config" / "overlays" / "us" / "names"
+    if not names_dir.is_dir():
+        return names
+    for path in sorted(names_dir.glob("level-*.json")):
+        try:
+            payload = json.loads(path.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        for entry in payload.get("functions", []):
+            evidence = entry.get("name_evidence") or {}
+            name = evidence.get("name")
+            boot = evidence.get("boot_addr")
+            if name and isinstance(boot, int):
+                names.setdefault(boot, str(name))
+    return names
+
+
 def display_for(owner: str, source: Path, recovered: dict[str, str]) -> str | None:
     if source.is_file():
         match = SYMBOL_RE.search(source.read_text(errors="replace")[:600])
@@ -149,11 +175,12 @@ def tile_tooltip(tile) -> str:
     parts.append(tile["owner"])
     parts.append(f"0x{tile['address']:X}")
     parts.append(f"{tile['size']} B")
-    parts.append(
-        {"exact": "exact C", "asm": "intentional asm", "pending": "pending C"}[
-            tile["category"]
-        ]
-    )
+    label = {"exact": "exact C", "asm": "intentional asm", "pending": "pending C"}[
+        tile["category"]
+    ]
+    if tile["category"] == "pending" and tile.get("score") is not None:
+        label = f"{label} · {float(tile['score']):.2f}%"
+    parts.append(label)
     return " · ".join(parts)
 
 
@@ -279,6 +306,7 @@ def load_categories(path: Path | None):
 def build_units(repo: Path, config: Path, categories: Path | None):
     exact_assembly, intentional = load_categories(categories)
     recovered = load_recovered_full(config.parent)
+    overlay = load_overlay_names(repo)
     result = []
     for owner, address, size in parse_units(config):
         source = repo / "src" / f"{owner}.c"
@@ -296,7 +324,8 @@ def build_units(repo: Path, config: Path, categories: Path | None):
                 "address": address,
                 "size": size,
                 "category": category,
-                "display": display_for(owner, source, recovered),
+                "display": display_for(owner, source, recovered)
+                or (demangle_cfront(overlay[address]) if address in overlay else None),
             }
         )
     return result
@@ -387,6 +416,9 @@ def match_percent(tile) -> str:
         return "100.00%"
     if tile["category"] == "asm":
         return "asm"
+    score = tile.get("score")
+    if score is not None:
+        return f"{float(score):.2f}%"
     return "0.00%"
 
 
@@ -472,6 +504,7 @@ def render_svg(
             "category": unit["category"],
             "group": False,
             "display": unit.get("display"),
+            "score": unit.get("score"),
         }
         for unit in big
     ]
@@ -685,6 +718,12 @@ def main(argv=None) -> int:
     )
     parser.add_argument("--title", default="Ratchet & Clank - decompilation progress")
     parser.add_argument(
+        "--no-scores",
+        action="store_true",
+        help="skip the pending-unit measurement (tiles show 0.00%% instead of "
+        "their measured similarity)",
+    )
+    parser.add_argument(
         "--workspace",
         type=Path,
         help="baseline workspace; measure the pending C bodies with "
@@ -715,8 +754,17 @@ def main(argv=None) -> int:
     fuzzy_percent = None
     scores: dict[str, float] = {}
     index_path = None
-    if args.workspace:
-        workspace = args.workspace.expanduser().resolve()
+    workspace = args.workspace
+    if workspace is None and not args.no_scores:
+        candidate = (
+            Path(os.environ["BASELINE_ROOT"]).expanduser()
+            if os.environ.get("BASELINE_ROOT")
+            else repo / "build" / "baseline"
+        )
+        if (candidate / "config").is_dir():
+            workspace = candidate
+    if workspace is not None:
+        workspace = workspace.expanduser().resolve()
         scores_out = (
             args.scores_out.expanduser().resolve()
             if args.scores_out
@@ -727,6 +775,8 @@ def main(argv=None) -> int:
             return 2
         scores, index_path = measured
         fuzzy_percent = fuzzy_progress(units, scores)
+        for unit in units:
+            unit["score"] = scores.get(unit["owner"])
 
     svg = render_svg(
         units,
