@@ -14,30 +14,30 @@
 <text x="644" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 311,320 B</text>
 <text x="619" y="38" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="28.0" font-weight="800" fill="#dd8b30">20.2%</text>
 <text x="619" y="52" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8">of recoverable C decompiled</text>
-<rect x="10.00" y="62.00" width="141.95" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>memcard_Update · assembly/textbin/fun_002093d8 · 0x10A358 · 6100 B · pending C · 72.23%</title></rect>
-<rect x="151.95" y="62.00" width="139.53" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022f778 · 0x1306F8 · 5996 B · pending C · 71.06%</title></rect>
+<rect x="10.00" y="62.00" width="141.95" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>memcard_Update · assembly/textbin/fun_002093d8 · 0x10A358 · 6100 B · pending C · 72.84%</title></rect>
+<rect x="151.95" y="62.00" width="139.53" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022f778 · 0x1306F8 · 5996 B · pending C · 75.25%</title></rect>
 <rect x="291.47" y="62.00" width="138.59" height="116.27" rx="1" fill="#c3cbd8" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>ShrubProc · assembly/textbin/fun_00228be8 · 0x129B68 · 5956 B · intentional asm</title></rect>
 <rect x="430.06" y="62.00" width="124.07" height="116.27" rx="1" fill="#c3cbd8" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>TieProc · assembly/textbin/fun_00235be8 · 0x136B68 · 5332 B · intentional asm</title></rect>
 <rect x="554.14" y="62.00" width="119.89" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>MobyProc · assembly/textbin/fun_00211808 · 0x112788 · 5152 B · pending C · 0.14%</title></rect>
 <rect x="674.02" y="62.00" width="115.98" height="116.27" rx="1" fill="#c3cbd8" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001ee650 · 0xEF5D0 · 4984 B · intentional asm</title></rect>
-<rect x="10.00" y="178.27" width="127.38" height="96.94" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001fbc50 · 0xFCBD0 · 4564 B · pending C · 74.43%</title></rect>
+<rect x="10.00" y="178.27" width="127.38" height="96.94" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001fbc50 · 0xFCBD0 · 4564 B · pending C · 74.75%</title></rect>
 <rect x="137.38" y="178.27" width="127.15" height="96.94" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>_dtoa_r · sdk/library/_dtoa_r · 0x13658 · 4556 B · exact C</title></rect>
 <rect x="264.53" y="178.27" width="121.01" height="96.94" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>CollLine_Fix · assembly/textbin/fun_001efa68 · 0xF09E8 · 4336 B · pending C · 0.13%</title></rect>
 <rect x="385.54" y="178.27" width="120.01" height="96.94" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_00205640 · 0x1065C0 · 4300 B · pending C · 46.17%</title></rect>
 <rect x="505.55" y="178.27" width="97.79" height="96.94" rx="1" fill="#c3cbd8" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>DomcMmi · assembly/sdk/library/domc_mmi · 0x27408 · 3504 B · intentional asm</title></rect>
 <rect x="603.34" y="178.27" width="93.66" height="96.94" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001e9b10 · 0xEAA90 · 3356 B · pending C · 0.17%</title></rect>
 <rect x="697.01" y="178.27" width="92.99" height="96.94" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0020e0e0 · 0x10F060 · 3332 B · pending C · 0.16%</title></rect>
-<rect x="10.00" y="275.21" width="99.07" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022ca50 · 0x12D9D0 · 3252 B · pending C · 52.21%</title></rect>
+<rect x="10.00" y="275.21" width="99.07" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022ca50 · 0x12D9D0 · 3252 B · pending C · 56.34%</title></rect>
 <rect x="109.07" y="275.21" width="98.70" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0020ede8 · 0x10FD68 · 3240 B · pending C · 0.17%</title></rect>
 <rect x="207.77" y="275.21" width="96.75" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0020fa90 · 0x110A10 · 3176 B · pending C · 0.16%</title></rect>
 <rect x="304.53" y="275.21" width="94.80" height="88.81" rx="1" fill="#c3cbd8" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>TfragProc · assembly/textbin/tfrag_proc · 0x134F30 · 3112 B · intentional asm</title></rect>
 <rect x="399.33" y="275.21" width="93.22" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>PartProc · assembly/textbin/part_proc · 0x118B98 · 3060 B · pending C · 0.18%</title></rect>
 <rect x="492.55" y="275.21" width="80.42" height="88.81" rx="1" fill="#c3cbd8" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_002109b8 · 0x111938 · 2640 B · intentional asm</title></rect>
 <rect x="572.97" y="275.21" width="78.11" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001fde90 · 0xFEE10 · 2564 B · pending C · 58.98%</title></rect>
-<rect x="651.08" y="275.21" width="70.31" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001fa978 · 0xFB8F8 · 2308 B · pending C · 27.43%</title></rect>
+<rect x="651.08" y="275.21" width="70.31" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001fa978 · 0xFB8F8 · 2308 B · pending C · 28.05%</title></rect>
 <rect x="721.40" y="275.21" width="68.60" height="88.81" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0021a328 · 0x11B2A8 · 2252 B · pending C · 54.71%</title></rect>
 <rect x="10.00" y="364.02" width="81.35" height="74.23" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>UpdateModeFreeze · assembly/textbin/fun_001fce28 · 0xFDDA8 · 2232 B · pending C · 54.07%</title></rect>
-<rect x="91.35" y="364.02" width="79.02" height="74.23" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001f39d0 · 0xF4950 · 2168 B · pending C · 80.36%</title></rect>
+<rect x="91.35" y="364.02" width="79.02" height="74.23" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001f39d0 · 0xF4950 · 2168 B · pending C · 80.84%</title></rect>
 <rect x="170.37" y="364.02" width="74.36" height="74.23" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>LoadHandGadget · assembly/textbin/fun_00224368 · 0x1252E8 · 2040 B · pending C · 0.27%</title></rect>
 <rect x="244.73" y="364.02" width="73.33" height="74.23" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022eaa8 · 0x12FA28 · 2012 B · pending C · 0.28%</title></rect>
 <rect x="318.06" y="364.02" width="71.73" height="74.23" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>DoSpaceTransition · assembly/textbin/fun_00231ff0 · 0x132F70 · 1968 B · pending C · 0.28%</title></rect>
@@ -1351,9 +1351,9 @@
 <rect x="782.78" y="1553.00" width="7.22" height="3.00" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>voBufDelete · sys/vo_buf_delete · 0x13E160 · 8 B · exact C</title></rect>
 <rect x="10" y="62" width="780" height="1494" fill="url(#sheen)"/>
 <text x="14.00" y="75.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">memcard_Update</text>
-<text x="14.00" y="87.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.10kB · 72.23%</text>
+<text x="14.00" y="87.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.10kB · 72.84%</text>
 <text x="155.95" y="75.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">fun_0022f778</text>
-<text x="155.95" y="87.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.00kB · 71.06%</text>
+<text x="155.95" y="87.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">6.00kB · 75.25%</text>
 <text x="295.47" y="75.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#10161e">ShrubProc</text>
 <text x="295.47" y="87.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#4d5768">5.96kB · asm</text>
 <text x="434.06" y="75.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#10161e">TieProc</text>
@@ -1363,7 +1363,7 @@
 <text x="678.02" y="75.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#10161e">fun_001ee650</text>
 <text x="678.02" y="87.00" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#4d5768">4.98kB · asm</text>
 <text x="14.00" y="191.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">fun_001fbc50</text>
-<text x="14.00" y="203.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">4.56kB · 74.43%</text>
+<text x="14.00" y="203.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">4.56kB · 74.75%</text>
 <text x="141.38" y="191.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#2b1604">_dtoa_r</text>
 <text x="141.38" y="203.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#5d3512">4.56kB · 100.00%</text>
 <text x="268.53" y="191.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">CollLine_Fix</text>
@@ -1377,7 +1377,7 @@
 <text x="701.01" y="191.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">fun_0020e0e0</text>
 <text x="701.01" y="203.27" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">3.33kB · 0.16%</text>
 <text x="14.00" y="288.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">fun_0022ca50</text>
-<text x="14.00" y="300.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">3.25kB · 52.21%</text>
+<text x="14.00" y="300.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">3.25kB · 56.34%</text>
 <text x="113.07" y="288.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">fun_0020ede8</text>
 <text x="113.07" y="300.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8.5" fill="#a6adc8">3.24kB · 0.17%</text>
 <text x="211.77" y="288.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#e8edf5">fun_0020fa90</text>
@@ -1391,13 +1391,13 @@
 <text x="576.97" y="287.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#e8edf5">fun_001fde90</text>
 <text x="576.97" y="299.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">2.56kB · 58.98%</text>
 <text x="655.08" y="286.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#e8edf5">fun_001fa978</text>
-<text x="655.08" y="298.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">2.31kB · 27.43%</text>
+<text x="655.08" y="298.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">2.31kB · 28.05%</text>
 <text x="725.40" y="286.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#e8edf5">fun_0021a328</text>
 <text x="725.40" y="298.21" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">2.25kB · 54.71%</text>
 <text x="14.00" y="375.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#e8edf5">UpdateModeFreeze</text>
 <text x="14.00" y="387.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">2.23kB · 54.07%</text>
 <text x="95.35" y="376.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#e8edf5">fun_001f39d0</text>
-<text x="95.35" y="388.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">2.17kB · 80.36%</text>
+<text x="95.35" y="388.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="7.5" fill="#a6adc8">2.17kB · 80.84%</text>
 <text x="174.37" y="375.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#e8edf5">LoadHandGadget</text>
 <text x="174.37" y="387.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="6.5" fill="#a6adc8">2.04kB · 0.27%</text>
 <text x="248.73" y="376.02" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9" fill="#e8edf5">fun_0022eaa8</text>
@@ -1493,6 +1493,6 @@
 <text x="455.39" y="973.03" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#2b1604">dpdiv</text>
 <line x1="10" y1="1566.0" x2="790" y2="1566.0" stroke="#2e3644" stroke-width="1" opacity="0.8"/>
 <text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">78,768 of 430,720 configured bytes are matching C &#183; 18.3% of all configured code</text>
-<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 20.2% / C_FUZZY 43.0% of recoverable C</text>
+<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 20.2% / C_FUZZY 43.1% of recoverable C</text>
 <text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-16 &#183; scripts/generate_treemap.py</text>
 </svg>
