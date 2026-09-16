@@ -32,7 +32,10 @@ Options: `--source-dir DIR` (reuse a checkout, offline), `--bison PATH`,
 
 The reference hashes are in the patch README and `provenance.json`. GCC embeds
 build paths, so rebuilds elsewhere differ; the script smoke-tests the compiler,
-and `make elf` verifies the result byte-for-byte.
+and `make elf` verifies the result byte-for-byte. It also warns when the
+installed profile records a different patch revision than
+`patches/ee-gcc-2.9-991111-01/patched-ee-gcc.patch`; re-run the build script
+after pulling patch updates.
 
 ## Without the profile
 

@@ -50,6 +50,8 @@ fi
 [[ -x "$SN_TOOLCHAIN_ROOT/bin/ee-gcc.exe" ]] || die "missing textbin ee-gcc under $SN_TOOLCHAIN_ROOT"
 if [[ -n "${HIMURO_PATCHED_ROOT:-}" && -x "$HIMURO_PATCHED_ROOT/xgcc" ]]; then
   printf 'note: patched EE-GCC profile: %s\n' "$HIMURO_PATCHED_ROOT"
+  "$VENV/bin/python" "$PROJECT_ROOT/scripts/check-patched-profile.py" \
+    --profile "$HIMURO_PATCHED_ROOT" || true
 elif [[ -n "${HIMURO_PATCHED_ROOT:-}" ]]; then
   printf 'warning: HIMURO_PATCHED_ROOT has no xgcc; patched-profile units fall back to the retail oracle\n' >&2
 else

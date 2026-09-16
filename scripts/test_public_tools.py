@@ -349,6 +349,54 @@ class BaselineGuardTests(unittest.TestCase):
             self.assertTrue(checkout.is_dir())
 
 
+class PatchedProfileTests(unittest.TestCase):
+    """check-patched-profile.py must flag profiles built from other patches."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.checker = load_module(
+            "check_patched_profile", ROOT / "scripts" / "check-patched-profile.py"
+        )
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.patch = self.root / "patched-ee-gcc.patch"
+        self.patch.write_text("diff --git a/x b/x\n")
+        self.profile = self.root / "profile"
+        self.profile.mkdir()
+        (self.profile / "xgcc").write_text("")
+
+    def write_provenance(self, digest):
+        (self.profile / "provenance.json").write_text(
+            json.dumps({"schema": "rnc-patched-ee-gcc-v1", "patch_sha256": digest})
+        )
+
+    def run_check(self):
+        with contextlib.redirect_stdout(io.StringIO()) as captured:
+            code = self.checker.check(self.profile, self.patch)
+        return code, captured.getvalue()
+
+    def test_matching_patch_is_ok(self):
+        self.write_provenance(self.checker.sha256(self.patch))
+        code, output = self.run_check()
+        self.assertEqual(code, 0)
+        self.assertIn("ok", output)
+
+    def test_other_patch_is_stale(self):
+        self.write_provenance("d" * 64)
+        code, output = self.run_check()
+        self.assertEqual(code, 1)
+        self.assertIn("warning", output)
+        self.assertIn("build-patched-toolchain.py", output)
+
+    def test_missing_provenance_is_unverifiable(self):
+        code, output = self.run_check()
+        self.assertEqual(code, 2)
+        self.assertIn("no provenance.json", output)
+
+
 class RebuildIsoExtentTests(unittest.TestCase):
     """rebuild-iso.py must locate, bounds-check and patch the boot extent."""
 
