@@ -48,9 +48,9 @@ LANG_DEFINE = "-DBUILD_US_VERSION"
 SN_TOOLCHAIN_ROOT = os.environ.get("SN_TOOLCHAIN_ROOT", "").strip()
 # Locally built patched public 991111 cc1 (R5900 quadword saves + classic
 # mult/mflo).  Not vendored: the environment points at the pinned build and the
-# tree falls back to the frozen compilers when it is absent.  Source patches
-# and provenance live in the tools repo
-# (build/workspace/astra-20260912/patches/).
+# tree falls back to the frozen compilers when it is absent.  The source patch
+# and its build script live in patches/ee-gcc-2.9-991111-01/; see
+# docs/patched-toolchain.md.
 HIMURO_PATCHED_ROOT = os.environ.get("HIMURO_PATCHED_ROOT", "").strip()
 # Promoted textbin units matched byte-exact under the SN compiler.
 SN_COMPILER_UNITS = {
@@ -287,6 +287,22 @@ HIMURO_FLAG_UNITS = {
     # `asm("" : "+r"(r1))` one-cycle edge delays the E8 store so reorg fills
     # the call-2 slot instead (pipeline-2026-09-13-12g).
     "cmd_sem_init": "-fno-schedule-insns",
+    # Pending textbin walls (not byte-exact yet): retail's gcse predates
+    # edge-based PRE insertion, so -fno-edge-lcm moves the hoisted computations
+    # to block ends and raises the measured similarity.  A/B on the 2026-09-16
+    # baseline workspace (native 991111-01, objdiff .text percent):
+    #   fun_001f39d0 80.36 -> 80.84   fun_0022f778 71.06 -> 75.25
+    #   fun_001fbc50 74.43 -> 74.75   fun_002093d8 72.23 -> 72.84
+    #   fun_0022ca50 52.21 -> 56.34   fun_001fa978 27.43 -> 28.05
+    # Units that measured worse keep the default route, and fun_0021a328 is
+    # neutral (+0.04): fun_001fce28 54.07 -> 53.87, fun_001fde90 58.98 -> 56.16,
+    # fun_00205640 46.17 -> 45.80.
+    "fun_001f39d0": "-fno-edge-lcm",
+    "fun_0022f778": "-fno-edge-lcm",
+    "fun_001fbc50": "-fno-edge-lcm",
+    "fun_002093d8": "-fno-edge-lcm",
+    "fun_0022ca50": "-fno-edge-lcm",
+    "fun_001fa978": "-fno-edge-lcm",
 }
 
 
