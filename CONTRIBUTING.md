@@ -139,9 +139,9 @@ Every pull request runs the public `tools` job in
 - `python3 scripts/stamp_source_header.py --check --normalize <changed
   src/**/*.c>` — changed sources must carry a valid state header.
 
-These checks need no game data and never upload build outputs. The full
-`make elf` rebuild stays a local, contributor-run gate (see above); CI does not
-run it for you.
+These checks need no game data and never upload build outputs. Run the same
+checks locally with `make check`. The full `make elf` rebuild stays a local,
+contributor-run gate (see above); CI does not run it for you.
 
 ## Not exact yet? That is still useful
 

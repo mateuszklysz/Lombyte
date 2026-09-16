@@ -7,7 +7,19 @@
 # Setup: put a legally owned disc dump in dumps/ (e.g. dumps/game.iso) and
 # install the prerequisites (see README.md). Then run `make`.
 
-.PHONY: elf iso clean-iso
+.PHONY: elf iso clean-iso check
+
+check: ## Run the public CI checks locally (tests, script parse, source headers)
+	python3 scripts/test_public_tools.py -v
+	python3 -m py_compile scripts/*.py
+	@if git rev-parse --git-dir >/dev/null 2>&1; then \
+	  base=$$(git rev-parse HEAD^ 2>/dev/null || true); \
+	  files=$$( { if [ -n "$$base" ]; then git diff --name-only --diff-filter=ACMR "$$base" HEAD -- 'src/**/*.c'; fi; \
+	             git diff --name-only --diff-filter=ACMR HEAD -- 'src/**/*.c'; } | sort -u); \
+	  if [ -z "$$files" ]; then echo "header check: no changed src/*.c files"; \
+	  else echo "header check: $$(printf '%s\n' "$$files" | wc -l) file(s)"; \
+	    python3 scripts/stamp_source_header.py --check --normalize $$files; fi; \
+	else echo "header check: not a git checkout, skipped"; fi
 
 elf: ## Rebuild the boot ELF byte-for-byte (full baseline + SHA gate)
 	./verify-baseline.sh
