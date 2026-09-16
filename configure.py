@@ -219,6 +219,14 @@ HIMURO_PATCHED_FLAG_UNITS = {
 # Per-unit assembler policies applied by the generated padless-asm.py helper.
 PADLESS_POLICY_UNITS = {
     "picturecodingextension": "at-store",
+    # Ps2EeAs is single-pass and cc1 emits `.extern NAME, SIZE` at end of file:
+    # for fun_0022f778 the la-only small-data symbol D_00160510 stayed a
+    # lui+addiu pair; hoisting its directive yields retail's single
+    # `addiu $3,$gp,-0x66f0` (86.117 -> 86.258 on the padless route).  The
+    # route entry itself is added only once the unit stops being a pending
+    # INCLUDE_ASM wrapper (the SN driver -S stage cannot expand the oracle's
+    # `.include`, so a pending unit must keep the native EE-GCC 2.9 route).
+    "fun_0022f778": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -744,6 +752,55 @@ def apply_at_store_policy(assembly):
     return "".join(output)
 
 
+def apply_la_gprel_policy(assembly):
+    """Hoist `.extern` size directives for `la`-only small-data symbols.
+
+    Ps2EeAs is a single-pass assembler: a bare symbol reference is relaxed to
+    gp-relative only when the symbol's `.extern NAME, SIZE` directive has
+    already been seen, while cc1 emits every directive at end of file.  A
+    symbol that is only ever the address operand of `la` therefore expands to
+    lui+addiu instead of retail's single `addiu $r,$gp,%gprel(NAME)`.  Only
+    symbols that (a) declare a size in 1..8 and (b) never appear as a memory
+    operand are moved; hoisting memory-operand externs over-relaxes accesses
+    that retail keeps absolute (measured regression).
+    """
+    import re
+    extern_line = re.compile(r"^[ \t]*\.extern[ \t]+([\w.$]+)[ \t]*,[ \t]*(\d+)[ \t]*(?:#.*)?$")
+    la_line = re.compile(r"^[ \t]*la[ \t]+\$?\w+[ \t]*,[ \t]*([\w.$]+)[ \t]*(?:#.*)?$")
+    label_line = re.compile(r"^[ \t]*([\w.$]+):")
+    lines = assembly.splitlines(keepends=True)
+    # SN's Windows driver writes CRLF; strip the CR for matching only.
+    stripped = [line.rstrip("\r\n") for line in lines]
+    entries = []
+    for index, line in enumerate(stripped):
+        match = extern_line.match(line)
+        if match:
+            entries.append((index, match.group(1), int(match.group(2))))
+    if not entries:
+        return assembly
+    extern_indices = {index for index, _, _ in entries}
+    labels = {m.group(1) for m in (label_line.match(line) for line in stripped) if m}
+    la_lines = {index for index, line in enumerate(stripped) if la_line.match(line)}
+    hoisted = set()
+    for index, name, size in entries:
+        if name in labels or not 1 <= size <= 8:
+            continue
+        pattern = re.compile(r"(?<![\w.$])" + re.escape(name) + r"(?![\w.$])")
+        mentions = [i for i, line in enumerate(stripped) if pattern.search(line) and i not in extern_indices]
+        if not mentions or any(mention not in la_lines for mention in mentions):
+            continue
+        if min(mentions) >= index:
+            continue  # directive already precedes its first use
+        hoisted.add(name)
+    if not hoisted:
+        return assembly
+    moved = [line for index, name, _ in entries if name in hoisted for line in [lines[index]]]
+    body = [line for index, line in enumerate(lines)
+            if not (index in extern_indices and extern_line.match(stripped[index]).group(1) in hoisted)]
+    insert_at = next((i for i, line in enumerate(stripped) if line.strip() == ".text"), 0)
+    return "".join(body[:insert_at] + moved + body[insert_at:])
+
+
 def main(argv):
     if len(argv) not in (4, 5):
         raise SystemExit("usage: padless-asm.py normalize|finish IN OUT [POLICY]")
@@ -754,6 +811,8 @@ def main(argv):
         assembly = normalize_aliases(data.decode())
         if policy == "at-store":
             assembly = apply_at_store_policy(assembly)
+        elif policy == "la-gprel":
+            assembly = apply_la_gprel_policy(assembly)
         elif policy != "none":
             raise SystemExit("unknown assembler policy: " + policy)
         open(destination, "w").write(assembly)
@@ -909,7 +968,7 @@ def build_stuff(
                 f"-I'{sn_inc}' -I'{sn_repo_inc}' "
                 f"-DBUILD_US_VERSION -DMATCHING_DECOMP -O2 -g2 $extra "
                 f"'$sn_work_win/cand.c' -o '$sn_work_win/cand.s' && "
-                f"{sys.executable} padless-asm.py normalize $sn_work/cand.s $sn_work/cand-final.s && "
+                f"{sys.executable} padless-asm.py normalize $sn_work/cand.s $sn_work/cand-final.s $policy && "
                 f"'{ee_assembler}' -o '$sn_work_win/cand-padded.o' '$sn_work_win/cand-final.s' && "
                 f"{sys.executable} padless-asm.py finish $sn_work/cand-padded.o $out && "
                 f"{CROSS}strip $out -N dummy-symbol-name"
@@ -1026,6 +1085,7 @@ def build_stuff(
                 variables = {
                     "sn_work": sn_work,
                     "sn_work_win": _win_path(sn_work),
+                    "policy": _unit_policy(unit),
                 }
                 if sn_extra:
                     variables["extra"] = f"{sn_extra} "
