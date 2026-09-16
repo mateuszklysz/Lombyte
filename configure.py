@@ -202,6 +202,10 @@ HIMURO_PATCHED_UNITS = {
     # fun_00206e18: the patched profile preserves the retail FP hazard NOP
     # and, with the descriptive-C v1 result barrier, the final result copy.
     "textbin/fun_00206e18",
+    # textbin/fun_001fa6d0: retail converts the float argument in place
+    # (cvt.w.s $f12,$f12); the v4 patched profile emits that form under
+    # -mastra-inplace-cvt.
+    "textbin/fun_001fa6d0",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -209,6 +213,7 @@ HIMURO_PATCHED_UNITS = {
 HIMURO_PATCHED_FLAG_UNITS = {
     "picturecodingextension": "-mastra-volatile-delay -mastra-sd-saves",
     "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
+    "textbin/fun_001fa6d0": "-mastra-inplace-cvt",
 }
 
 # Per-unit assembler policies applied by the generated padless-asm.py helper.

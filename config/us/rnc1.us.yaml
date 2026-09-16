@@ -1143,7 +1143,7 @@ segments:
           - [0xfb590, c, assembly/textbin/fast_normalize_angle]
           - [0xfb608, c, assembly/textbin/fun_001fa688]
           - [0xfb640, c, math/convert_integer_to_float]
-          - [0xfb650, c, assembly/textbin/fun_001fa6d0]
+          - [0xfb650, c, textbin/fun_001fa6d0]
           - [0xfb660, c, assembly/textbin/fast_tween_color]
           - [0xfb6a8, c, assembly/textbin/fun_001fa728]
           - [0xfb7a0, c, assembly/textbin/fun_001fa820]

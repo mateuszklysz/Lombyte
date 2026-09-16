@@ -8,13 +8,13 @@ oracle. Build instructions and requirements:
 - File: [`patched-ee-gcc.patch`](patched-ee-gcc.patch), applied with
   `git apply` at the source root.
 - Patch SHA-256:
-  `d1ec36b24eea0d7fbf854690d144a1f19c75ef54cebe1eff6e2ec64a5b863163`.
-Changes (124 inserted, 13 deleted lines across 8 files):
+  `137851ec1fa15279e5f21f0a94ff62862d6ccc41efcece4538222326149dce48`.
+Changes (166 inserted, 15 deleted lines across 8 files):
 | File                                              | Change                                                                  |
 | :------------------------------------------------ | :---------------------------------------------------------------------- |
 | `ee/gcc/c-parse.in`                               | typed midrule actions, so bison 1.28 parses the grammar on modern hosts |
 | `ee/gcc/config/mips/mips.h`                       | opt-in `-mastra-*` target options, inert unless selected                |
-| `ee/gcc/config/mips/mips.c`, `mips.md`            | R5900 `sq`/`lq` callee saves; `mulsi3` uses classic `mult`/`mflo`       |
+| `ee/gcc/config/mips/mips.c`, `mips.md`            | R5900 `sq`/`lq` callee saves; `mulsi3` uses classic `mult`/`mflo`; in-place `cvt.w.s` conversion (`-mastra-inplace-cvt`) |
 | `ee/gcc/calls.c`, `cse.c`, `reload1.c`, `reorg.c` | codegen policies behind the opt-in flags                                |
 Reference binaries (the maintainer's build; rebuilds elsewhere differ because
 GCC embeds build paths):

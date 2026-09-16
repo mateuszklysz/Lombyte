@@ -29,7 +29,7 @@ SOURCE_REVISION = "b595ded"
 PATCH_PATH = (
     ROOT / "patches" / "ee-gcc-2.9-991111-01" / "patched-ee-gcc.patch"
 )
-PATCH_SHA256 = "d1ec36b24eea0d7fbf854690d144a1f19c75ef54cebe1eff6e2ec64a5b863163"
+PATCH_SHA256 = "137851ec1fa15279e5f21f0a94ff62862d6ccc41efcece4538222326149dce48"
 BISON_URL = "https://ftp.gnu.org/gnu/bison/bison-1.28.tar.gz"
 BISON_SHA256 = "c5d3e4858e17cb440cee9de7837f07277bcfb03507e9d2f0c506cab5efe36c3a"
 HOST_CFLAGS = "-O2 -fcommon -std=gnu89 -D_GNU_SOURCE"

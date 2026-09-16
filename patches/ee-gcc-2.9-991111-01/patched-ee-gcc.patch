@@ -298,3 +298,91 @@ index f9b2cc2c..c3aa0cdd 100644
  		  next_trial = prev_nonnote_insn (trial);
  		  if (eligible_for_delay (insn, slots_filled, trial, flags))
  		    {
+diff --git a/ee/gcc/config/mips/mips.c b/ee/gcc/config/mips/mips.c
+index 4ed67273..05642532 100644
+--- a/ee/gcc/config/mips/mips.c
++++ b/ee/gcc/config/mips/mips.c
+@@ -211,6 +211,7 @@ char *mips_astra_no_narrow_andi;
+ char *mips_astra_alloc_order;
+ char *mips_astra_annul_fill;
+ char *mips_astra_sd_saves;
++char *mips_astra_inplace_cvt;
+ char *mips_astra_volatile_delay;
+ int mips_astra_volatile_split_active;
+ char *mips_astra_call_args_reverse;
+diff --git a/ee/gcc/config/mips/mips.h b/ee/gcc/config/mips/mips.h
+index e5ecd487..2fbac709 100644
+--- a/ee/gcc/config/mips/mips.h
++++ b/ee/gcc/config/mips/mips.h
+@@ -601,6 +601,7 @@ extern char *mips_astra_no_narrow_andi;
+ extern char *mips_astra_alloc_order;
+ extern char *mips_astra_annul_fill;
+ extern char *mips_astra_sd_saves;
++extern char *mips_astra_inplace_cvt;
+ 
+ extern char *mips_astra_volatile_delay;
+ extern int mips_astra_volatile_split_active;
+@@ -610,6 +611,7 @@ extern char *mips_astra_call_args_reverse;
+ #define TARGET_OPTIONS							\
+ {									\
+   SUBTARGET_TARGET_OPTIONS						\
++  { "astra-inplace-cvt", &mips_astra_inplace_cvt }, \
+   { "astra-cse-argdup", &mips_astra_cse_argdup }, \
+   { "astra-no-narrow-andi", &mips_astra_no_narrow_andi }, \
+   { "astra-alloc-order=", &mips_astra_alloc_order }, \
+diff --git a/ee/gcc/config/mips/mips.md b/ee/gcc/config/mips/mips.md
+index 83f27f9e..618d3275 100644
+--- a/ee/gcc/config/mips/mips.md
++++ b/ee/gcc/config/mips/mips.md
+@@ -4713,12 +4713,49 @@ move\\t%0,%z4\\n\\
+    (set_attr "length"	"11,9,10,11")])
+ 
+ 
+-(define_insn "fix_truncsfsi2"
++(define_expand "fix_truncsfsi2"
++  [(set (match_operand:SI 0 "general_operand" "")
++	(fix:SI (match_operand:SF 1 "register_operand" "")))]
++  "TARGET_HARD_FLOAT"
++  "
++{
++  if (TARGET_MIPS5900 && mips_astra_inplace_cvt)
++    emit_insn (gen_fix_truncsfsi2_inplace (operands[0], operands[1]));
++  else
++    emit_insn (gen_fix_truncsfsi2_legacy (operands[0], operands[1]));
++  DONE;
++}")
++
++;;; ASTRA: in-place conversion.  Retail emits cvt.w.s into the source float
++;;; register when that value is dead (e.g. the first float argument converted
++;;; and immediately moved to an integer result).  Opt-in per unit.  Defined
++;;; before the scratch alternative so recog prefers it for the plain
++;;; conversion RTL (match_scratch clobbers are optional in matching).
++(define_insn "fix_truncsfsi2_inplace"
++  [(set (match_operand:SI 0 "general_operand" "=d")
++	(fix:SI (match_operand:SF 1 "register_operand" "+f")))]
++  "TARGET_HARD_FLOAT && TARGET_MIPS5900 && mips_astra_inplace_cvt"
++  "*
++{
++  rtx xoperands[10];
++
++  output_asm_insn (\"cvt.w.s %1,%1\", operands);
++
++  xoperands[0] = operands[0];
++  xoperands[1] = operands[1];
++  output_asm_insn (mips_move_1word (xoperands, insn, FALSE), xoperands);
++  return \"\";
++}"
++  [(set_attr "type"	"fcvt")
++   (set_attr "mode"	"SF")
++   (set_attr "length"	"11")])
++
++(define_insn "fix_truncsfsi2_legacy"
+   [(set (match_operand:SI 0 "general_operand" "=d,*f,R,To")
+ 	(fix:SI (match_operand:SF 1 "register_operand" "f,*f,f,f")))
+    (clobber (match_scratch:SI 2 "=d,*d,&d,&d"))
+    (clobber (match_scratch:SF 3 "=f,?*X,f,f"))]
+-  "TARGET_HARD_FLOAT"
++  "TARGET_HARD_FLOAT && !(TARGET_MIPS5900 && mips_astra_inplace_cvt)"
+   "*
+ {
+   rtx xoperands[10];

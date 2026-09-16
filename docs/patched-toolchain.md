@@ -8,7 +8,8 @@ Install the profile to compile and verify their C.
 The patch lives in
 [`patches/ee-gcc-2.9-991111-01/`](../patches/ee-gcc-2.9-991111-01/): 124
 changed lines over 8 files, adding opt-in `-mastra-*` flags (inert by default),
-R5900 `sq`/`lq` saves, and classic `mult`/`mflo` code generation, against the
+R5900 `sq`/`lq` saves, classic `mult`/`mflo` code generation, and the
+in-place `cvt.w.s` conversion (`-mastra-inplace-cvt`), against the
 public snapshot
 [`SSXModding/ps2-ee-toolchain`](https://github.com/SSXModding/ps2-ee-toolchain)
 at `b595ded`.
