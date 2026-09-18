@@ -325,7 +325,7 @@
 <rect x="195.54" y="1246.88" width="32.56" height="31.24" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>_lshift · sdk/library/lshift · 0x16AF0 · 376 B · exact C</title></rect>
 <rect x="195.54" y="1278.13" width="32.56" height="31.24" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>_ipuVdec · assembly/sdk/dma_ipu_gs/ipu_vdec · 0x29528 · 376 B · pending C · 55.38%</title></rect>
 <rect x="195.54" y="1309.37" width="32.56" height="31.24" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>FastIntersectVert · assembly/textbin/fun_001f7a98 · 0xF8A18 · 376 B · pending C · 0.00%</title></rect>
-<rect x="195.54" y="1340.62" width="32.56" height="31.24" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_00226848 · 0x1277C8 · 376 B · pending C · 82.12%</title></rect>
+<rect x="195.54" y="1340.62" width="32.56" height="31.24" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_00226848 · 0x1277C8 · 376 B · pending C · 86.91%</title></rect>
 <rect x="195.54" y="1371.86" width="32.56" height="30.91" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>sceMcWrite · sdk/sce_mc_write · 0x249C8 · 372 B · exact C</title></rect>
 <rect x="195.54" y="1402.77" width="32.56" height="30.91" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0021df98 · 0x11EF18 · 372 B · pending C · 0.00%</title></rect>
 <rect x="195.54" y="1433.68" width="32.56" height="30.58" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_00120a28 · 0x219A8 · 368 B · pending C · 12.60%</title></rect>
@@ -1493,6 +1493,6 @@
 <text x="455.39" y="973.03" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#2b1604">dpdiv</text>
 <line x1="10" y1="1566.0" x2="790" y2="1566.0" stroke="#2e3644" stroke-width="1" opacity="0.8"/>
 <text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">78,768 of 430,720 configured bytes are matching C &#183; 18.3% of all configured code</text>
-<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 20.2% / C_FUZZY 43.1% of recoverable C</text>
+<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 20.2% / C_FUZZY 43.2% of recoverable C</text>
 <text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-18 &#183; scripts/generate_treemap.py</text>
 </svg>

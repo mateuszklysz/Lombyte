@@ -209,12 +209,16 @@ EE_GCC_PATCHED_UNITS = {
     # Promoted by the decomp workbench: exact only under the patched
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
     "assembly/textbin/fun_0022c6f8",
+    # Promoted by the decomp workbench: exact only under the patched
+    # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
+    "assembly/textbin/fun_00226848",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
 # is opt-in and absent by default; flag-absent output is byte-identical.
 EE_GCC_PATCHED_FLAG_UNITS = {
     "picturecodingextension": "-mastra-volatile-delay -mastra-sd-saves",
+    "assembly/textbin/fun_00226848": "-mastra-no-lo-sum-tie",
     "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
     "textbin/fun_001fa6d0": "-mastra-inplace-cvt",
 }
