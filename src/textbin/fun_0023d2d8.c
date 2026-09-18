@@ -1,33 +1,30 @@
 /*
 STATE: C_EXACT
 SYMBOL: FUN_0023d2d8
-SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
-COMPILER: sn-O2 -O2 -g2 -gstabs
-DECISION: promoted (pipeline-2026-09-10-4)
-BLOCKER: none
+SCORE: code=100 functions=100 data=100 complete_data=100
+DECISION: promoted
 */
 
-/* ROLE: recovered function `voBufGetTag__FP5VoBuf` starts here; this unit covers only its beginning. */
-
-
-#include "rnc/assembly_textbin_fun_0023d2d8_types.h"
 #include "types.h"
+struct M2c_arg0 {
+    u8 pad_0[0x4];
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    s32 unk10;
+};
 
 extern s32 func_0023D2C8();
-
-s32 FUN_0023d2d8(s32 arg0) {
-    volatile struct M2c_arg0 *base = (volatile struct M2c_arg0 *)arg0;
-    s32 a;
-    s32 b;
-    s32 c;
-    s32 t;
+s32 FUN_0023d2d8(struct M2c_arg0 *arg0) {
+    s32 temp_3_16;
+    s32 unk8;
+    s32 unkC;
 
     if (func_0023D2C8() != 0) {
         return 0;
     }
-    a = base->unk8;
-    b = base->unkC;
-    c = base->unk10;
-    t = c;
-    return base->unk4 + ((a - b + t) % t) * 0x138C0;
+    unk8 = *((volatile s32 *) (&arg0->unk8));
+    unkC = *((volatile s32 *) (&arg0->unkC));
+    temp_3_16 = arg0->unk10;
+    return arg0->unk4 + (((s32) ((unk8 - unkC) + temp_3_16) % temp_3_16) * 0x138C0);
 }
