@@ -206,6 +206,9 @@ EE_GCC_PATCHED_UNITS = {
     # (cvt.w.s $f12,$f12); the v4 patched profile emits that form under
     # -mastra-inplace-cvt.
     "textbin/fun_001fa6d0",
+    # Promoted by the decomp workbench: exact only under the patched
+    # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
+    "assembly/textbin/fun_0022c6f8",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
