@@ -239,6 +239,20 @@ def build(
 ) -> dict:
     build_dir = work / "build"
     build_dir.mkdir(parents=True, exist_ok=True)
+    # GCC's generated Makefiles do not track tm.h (mips.h) dependencies, so a
+    # reused build directory silently keeps stale option tables after a recipe
+    # change (e.g. a new -mastra-* switch).  Stamp the objects with the recipe
+    # they were built from and start over when it moves.
+    recipe_stamp = build_dir / ".recipe-sha256"
+    recipe_now = sha256(PATCH_PATH)
+    if (
+        (build_dir / "gcc").is_dir()
+        and recipe_stamp.is_file()
+        and recipe_stamp.read_text().strip() != recipe_now
+    ):
+        print("recipe changed: discarding the previous toolchain build")
+        shutil.rmtree(build_dir)
+        build_dir.mkdir(parents=True, exist_ok=True)
     prefix = work / "install"
     host_flags = build_dir / "host-flags.mk"
     host_flags.write_text(HOST_OBJECTS_CFLAGS_MK)
@@ -311,6 +325,7 @@ def build(
     (output / "provenance.json").write_text(
         json.dumps(provenance, indent=2) + "\n"
     )
+    recipe_stamp.write_text(recipe_now + "\n")
     return provenance
 
 
