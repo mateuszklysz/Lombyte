@@ -10,7 +10,7 @@ BLOCKER: none
 #include "types.h"
 
 extern f32 func_001F9B48(s32, u32);
-extern void func_0022C6F8(f32, f32, f32);
+extern void FUN_0022c6f8(f32, f32, f32);
 extern u8 D_00187080[];
 
 void FUN_0022c7e8(s32 *arg0, s32 arg1) {
@@ -18,5 +18,5 @@ void FUN_0022c7e8(s32 *arg0, s32 arg1) {
     register f32 *q __asm__("a0");
 
     q = (f32 *)arg0[2];
-    func_0022C6F8(v, q[0], q[1]);
+    FUN_0022c6f8(v, q[0], q[1]);
 }
