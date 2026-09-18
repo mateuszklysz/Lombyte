@@ -798,6 +798,27 @@ def main(argv=None) -> int:
     pending = [unit for unit in units if unit["category"] == "pending"]
     exact_bytes = sum(unit["size"] for unit in exact)
     asm_bytes = sum(unit["size"] for unit in asm)
+    # Single source of truth for public progress: the workbench status bar and
+    # any other surface reads this file, so the SVG footer and the status values
+    # can never drift apart.
+    stats_path = output.with_suffix(".json")
+    recoverable = total - asm_bytes
+    stats = {
+        "schema": "rnc-public-progress-v1",
+        "source": "scripts/generate_treemap.py",
+        "units_total": len(units),
+        "matching_c": len(exact),
+        "intentional_asm": len(asm),
+        "pending_c": len(pending),
+        "bytes_total": total,
+        "bytes_matching_c": exact_bytes,
+        "bytes_intentional_asm": asm_bytes,
+        "bytes_pending_c": recoverable - exact_bytes,
+        "c_exact_percent_of_recoverable": round(100.0 * exact_bytes / recoverable, 4) if recoverable else 0.0,
+        "c_fuzzy_percent_of_recoverable": round(fuzzy_percent, 4) if fuzzy_percent is not None else None,
+    }
+    stats_path.write_text(json.dumps(stats, indent=2) + "\n")
+    print(f"  stats: {stats_path}")
     shown = sum(1 for unit in units if unit["size"] >= args.min_bytes)
     print(f"wrote {output}")
     print(
