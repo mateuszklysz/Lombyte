@@ -948,7 +948,7 @@ def build_stuff(
     ninja.rule(
         "cc",
         description="cc $in",
-        command=f"{compile_cmd} $in $extra -o $out && {CROSS}strip $out -N dummy-symbol-name",
+        command=f"{compile_cmd} $in $extra -o $out && {CROSS}strip $out -N dummy-symbol-name -R .mdebug",
     )
 
     if sn_compiler_configured():
@@ -972,7 +972,7 @@ def build_stuff(
                 f"-I'{sn_inc}' -I'{sn_repo_inc}' "
                 f"-DBUILD_US_VERSION -DMATCHING_DECOMP -O2 -g2 $extra "
                 f"'$sn_work_win/cand.c' -o '$sn_work_win/cand.o' && "
-                f"cp $sn_work/cand.o $out && {CROSS}strip $out -N dummy-symbol-name"
+                f"cp $sn_work/cand.o $out && {CROSS}strip $out -N dummy-symbol-name -R .mdebug"
             ),
         )
 
@@ -994,7 +994,7 @@ def build_stuff(
                 f"{sys.executable} padless-asm.py normalize $sn_work/cand.s $sn_work/cand-final.s $policy && "
                 f"'{ee_assembler}' -o '$sn_work_win/cand-padded.o' '$sn_work_win/cand-final.s' && "
                 f"{sys.executable} padless-asm.py finish $sn_work/cand-padded.o $out && "
-                f"{CROSS}strip $out -N dummy-symbol-name"
+                f"{CROSS}strip $out -N dummy-symbol-name -R .mdebug"
             ),
         )
 
@@ -1016,7 +1016,7 @@ def build_stuff(
                     f"{sys.executable} padless-asm.py normalize $pat_work/cand.s $pat_work/cand-final.s $policy && "
                     f"'{ee_assembler}' -o '$pat_work_win/cand-padded.o' '$pat_work_win/cand-final.s' && "
                     f"{sys.executable} padless-asm.py finish $pat_work/cand-padded.o $out && "
-                    f"{CROSS}strip $out -N dummy-symbol-name"
+                    f"{CROSS}strip $out -N dummy-symbol-name -R .mdebug"
                 ),
             )
 
