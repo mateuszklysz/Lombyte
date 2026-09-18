@@ -14,6 +14,7 @@ struct M2c_arg0 {
     s32 unk50;
     s32 unk54;
 };
+
 extern s32 func_00225CD8();
 s32 FUN_0021fd78(struct M2c_arg0 *arg0) {
     arg0->unk48 = func_00225CD8(arg0->unk48);
