@@ -144,9 +144,9 @@ SN_COMPILER_UNITS = {
     # gate-verified byte-identical; listed by full unit name because
     # _unit_uses_sn() deliberately excludes the assembly/textbin wrapper units
     # (their INCLUDE_ASM oracles only assemble under the native EE-GCC 2.9).
-    "assembly/textbin/audio_dec_begin_put",
-    "assembly/textbin/fun_002220f0",
-    "assembly/textbin/fun_00238520",
+    "textbin/audio_dec_begin_put",
+    "textbin/fun_002220f0",
+    "textbin/fun_00238520",
     "assembly/ee/clear_dma_queue_entry",
     "ee/clear_dma_queue_entry",
     # AttachManipulator is a save-less leaf (no sq/lq fingerprint), so the
@@ -208,17 +208,17 @@ EE_GCC_PATCHED_UNITS = {
     "textbin/fun_001fa6d0",
     # Promoted by the decomp workbench: exact only under the patched
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
-    "assembly/textbin/fun_0022c6f8",
+    "textbin/fun_0022c6f8",
     # Promoted by the decomp workbench: exact only under the patched
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
-    "assembly/textbin/fun_00226848",
+    "textbin/fun_00226848",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
 # is opt-in and absent by default; flag-absent output is byte-identical.
 EE_GCC_PATCHED_FLAG_UNITS = {
     "picturecodingextension": "-mastra-volatile-delay -mastra-sd-saves",
-    "assembly/textbin/fun_00226848": "-mastra-no-lo-sum-tie",
+    "textbin/fun_00226848": "-mastra-no-lo-sum-tie",
     "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
     "textbin/fun_001fa6d0": "-mastra-inplace-cvt",
 }
