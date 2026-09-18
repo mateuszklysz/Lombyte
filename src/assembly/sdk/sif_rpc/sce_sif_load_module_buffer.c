@@ -1,14 +1,26 @@
 /*
-STATE: C_EXACT
-SYMBOL: sce_sif_load_module_buffer
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
+STATE: C_NON_MATCHING
+SYMBOL: _sceSifLoadModuleBuffer
+SCORE: code=0 functions=0 data=0 complete_data=0
+DECISION: demoted to the retail oracle
+BLOCKER: candidate C compiles to 396 B of .text against the 520 B retail function; the rebuilt ELF did not match retail
 */
 
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+/* Retail oracle: keeps the rebuilt boot ELF byte-identical while the
+   descriptive candidate below stays available for matching work. */
+INCLUDE_ASM("config/us/expected/asm/assembly/sdk/sif_rpc/sce_sif_load_module_buffer/_sceSifLoadModuleBuffer.s", _sceSifLoadModuleBuffer);
+#else
 #include "types.h"
 struct M2c_D_00158200 {
     s32 unk0;
     s32 unk4;
+    /* The object extends past +0x104 (see var_4_34 below); the tail keeps it
+       out of small data so codegen uses absolute lui/addiu like retail. */
+    u8 pad_8[0x100];
 };
 
 struct M2c_var_4_34 {
@@ -125,3 +137,4 @@ block_19:
 block_20:
     return var_2_18;
 }
+#endif /* NON_MATCHING */

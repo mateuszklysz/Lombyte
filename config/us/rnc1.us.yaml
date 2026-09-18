@@ -359,7 +359,7 @@ segments:
           - [0x1d960, c, sdk/sif_rpc/lf_bind]
           - [0x1da60, c, textbin/fun_0011cae0]
           - [0x1daec, textbin, text_gap_0011cb6c_after_fun_0011cae0]
-          - [0x1daf0, c, sdk/sif_rpc/sce_sif_load_module_buffer]
+          - [0x1daf0, c, assembly/sdk/sif_rpc/sce_sif_load_module_buffer]
           - [0x1dcf8, c, core/invoke_iop_status]
           - [0x1dd14, textbin, text_gap_0011cd94]
           - [0x1dd50, c, assembly/sdk/sif_rpc/sce_sif_reset_iop]
