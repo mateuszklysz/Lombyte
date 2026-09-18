@@ -8,7 +8,7 @@ oracle. Build instructions and requirements:
 - File: [`patched-ee-gcc.patch`](patched-ee-gcc.patch), applied with
   `git apply` at the source root.
 - Patch SHA-256:
-  `137851ec1fa15279e5f21f0a94ff62862d6ccc41efcece4538222326149dce48`.
+  `2726db653714629a1239773af36ef02e67dccd0b4e7f7aabe78feed51b93f99e`.
 Changes (166 inserted, 15 deleted lines across 8 files):
 | File                                              | Change                                                                  |
 | :------------------------------------------------ | :---------------------------------------------------------------------- |
