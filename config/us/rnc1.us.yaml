@@ -1214,7 +1214,7 @@ segments:
           - [0x1005d8, c, assembly/textbin/fun_001ff658]
           - [0x100658, textbin, text_gap_001ff6d8_after_fun_001ff658]
           - [0x1006e8, c, core/update_resource_counter]
-          - [0x100700, c, assembly/textbin/fun_001ff780]
+          - [0x100700, c, textbin/fun_001ff780]
           - [0x1008d4, textbin, text_gap_001ff954_before_fun_001ff960]
           - [0x1008e0, c, assembly/textbin/fun_001ff960]
           - [0x10098c, textbin, text_gap_001ffa0c_after_fun_001ff960]
