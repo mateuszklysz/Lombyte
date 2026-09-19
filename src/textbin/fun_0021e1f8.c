@@ -2,7 +2,9 @@
 STATE: C_EXACT
 SYMBOL: FUN_0021e1f8
 SCORE: code=100 functions=100 data=100 complete_data=100
+COMPILER: sn-O2 -O2 -g2 -gstabs
 DECISION: promoted
+BLOCKER: none
 */
 
 #include "types.h"
