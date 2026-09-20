@@ -2,7 +2,7 @@
 
 Second patch surface for the Sony/Cygnus EE line. The published patches form the
 cumulative **game-compiler** stack (P1 prerequisite, P15, P16, P19, P20); the result
-reproduces **30 of 58** parity controls with zero exact regressions.
+reproduces **34 of 58** parity controls with zero exact regressions.
 
 - Archive: `gnu-ee-binutils-gcc-1.1.tar.gz`, 16,510,927 bytes
 - SHA-256: `1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92`
@@ -28,7 +28,12 @@ SHA-256 recorded above and a recipe entry, following the rules in
   - role: R5900 quadword-save parity prerequisite for the cumulative game compiler
 - `0015-no-sibcall.patch` SHA-256: `63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071`
   - cc1: `5f8c800390c82137e3f25de82ec22b8868ede84c54034cab6d8e8844cf3c4193`
-  - fixture: `assembly/textbin/fun_001f6250` -> 100.0 with `-mastra-no-sibcall`
+  - fixtures (with `-mastra-no-sibcall`; retail objects have `jal` + epilogue,
+    no tail `j`): `assembly/textbin/fun_001f6250`, `textbin/fun_00201f58`,
+    `textbin/fun_0020d3b0`, `textbin/fun_00235840`, `textbin/memcard_init`
+    -> 100.0
+  - counter-examples kept on the default route (retail has a tail `j`):
+    `core/set_image_buffer_flag`, `sdk/dma_ipu_gs/sce_mpeg_init`
 - `0016-no-edge-lcm-default.patch` SHA-256: `7a383321db39ad13f82703530909b99e34eb5b04aac8988746eaeda1035f0a15`
   - cc1: `f5c4dd418dc3281eecf00faedd59319e8f504d1c3ae79fcbaa3664f3dff28a1a`
   - fixture: `textbin/fun_001fe898` -> 100.0 with the default route
