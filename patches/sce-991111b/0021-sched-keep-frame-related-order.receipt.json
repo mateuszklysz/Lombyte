@@ -25,15 +25,21 @@
       "symbol": "FUN_0023c610",
       "flags": "-fno-schedule-insns -mastra-keep-frame-order",
       "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_0023aa68",
+      "symbol": "FUN_0023aa68",
+      "flags": "-mastra-keep-frame-order",
+      "code_percent": 100.0
     }
   ],
   "control_parity": {
     "controls": 58,
     "exact_before": 50,
-    "exact_after": 51,
+    "exact_after": 52,
     "exact_regressions": [],
-    "note": "joint gate; game route 37 + SDK-line 14",
-    "evidence": "build/workspace/astra-991111b/p21v3-parity.json (variant) and build/workspace/astra-991111b/game-production-parity.json (installed)"
+    "note": "joint gate; game route 38 + SDK-line 14",
+    "evidence": "build/workspace/astra-991111b/p21v3-parity.json and build/workspace/astra-991111b/game-production-parity.json"
   },
   "published_at": "2026-09-20T11:35:00+00:00"
 }

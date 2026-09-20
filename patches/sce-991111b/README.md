@@ -3,7 +3,7 @@
 Second patch surface for the Sony/Cygnus EE line. The published patches form the
 cumulative **game-compiler** stack (P1 prerequisite, P15, P16, P19, P20); the result
 reproduces **37 of 44 game-line** parity controls with zero exact regressions;
-the joint gate (adding the 14 SDK-line controls on the Sony 991111-01 route) is 51/58.
+the joint gate (adding the 14 SDK-line controls on the Sony 991111-01 route) is 52/58.
 
 - Archive: `gnu-ee-binutils-gcc-1.1.tar.gz`, 16,510,927 bytes
 - SHA-256: `1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92`
@@ -66,6 +66,7 @@ SHA-256 recorded above and a recipe entry, following the rules in
     restores in `save_restore_insns` emission order under the scheduler
     (default scheduler behavior is unchanged, since retail objects mix both
     orders across units)
-  - fixture: `textbin/fun_0023c610` -> 100.0 with
-    `-fno-schedule-insns -mastra-keep-frame-order`
-  - parity: joint gate 50 -> 51 with zero exact regressions
+  - fixtures: `textbin/fun_0023c610` -> 100.0 with
+    `-fno-schedule-insns -mastra-keep-frame-order`; `textbin/fun_0023aa68`
+    -> 100.0 with `-mastra-keep-frame-order`
+  - parity: joint gate 50 -> 52 with zero exact regressions
