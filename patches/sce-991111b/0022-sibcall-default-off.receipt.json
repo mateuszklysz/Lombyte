@@ -1,0 +1,86 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "patch": "0022-sibcall-default-off.patch",
+  "sha256": "b5749a54934b569190571ea5a867f20e6508e9e4ed349333fffc73449a0e2ea0",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
+  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
+  "role": "Sibling-call expansion is OFF by default (retail behavior); -mastra-sibcall re-enables it per unit.",
+  "mechanism": "P15's opt-in -mastra-no-sibcall gate becomes the default: calls.c suppresses sibling calls unless mips_astra_sibcall is set. Evidence: across the 547 measurable promoted sources the default flip converts 37 units and regresses only 6, all of which are genuine retail tail-call idioms (`j _ipuSetMPEG1`, `j` to a callee). In the wider 557-source sample exactness rises 196 -> 231.",
+  "cc1_sha256": "ac549856a020b23b608052c3a6b66bfb52d47ccf3662d318ca725e5091993c98",
+  "cpp_sha256": "c1ab66820a740deb5c2ec95c07bac49d06e2baa46f8e00641c7a9ae54e8e3759",
+  "xgcc_sha256": "54a8bb9dfe0f51f4b6138569564dbc822bb2d67736e627a9c93c42934300e854",
+  "stack": [
+    "0001-r5900-quad-saves.patch",
+    "0015-no-sibcall.patch",
+    "0022-sibcall-default-off.patch",
+    "0016-no-edge-lcm-default.patch",
+    "0019-r5900-post-dbr-loop-pad.patch",
+    "0020-gas-absolute-unknown-symbol.patch",
+    "0021-sched-keep-frame-related-order.patch"
+  ],
+  "exact_fixtures": [
+    {
+      "unit": "textbin/fun_001f6250",
+      "symbol": "FUN_001f6250",
+      "flags": "",
+      "code_percent": 100.0,
+      "note": "default route now; was -mastra-no-sibcall"
+    },
+    {
+      "unit": "textbin/fun_00201f58",
+      "symbol": "FUN_00201f58",
+      "flags": "",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_0020d3b0",
+      "symbol": "FUN_0020d3b0",
+      "flags": "",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_00235840",
+      "symbol": "FUN_00235840",
+      "flags": "",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/memcard_init",
+      "symbol": "FUN_0020ac58",
+      "flags": "",
+      "code_percent": 100.0
+    }
+  ],
+  "opt_out_fixtures": [
+    {
+      "unit": "core/set_image_buffer_flag",
+      "symbol": "SetImageBufferFlag",
+      "flags": "-mastra-sibcall",
+      "code_percent": 100.0
+    }
+  ],
+  "control_parity": {
+    "controls": 58,
+    "exact": 52,
+    "exact_regressions": [],
+    "note": "joint gate unchanged; rows for the five gate units no longer need the flag"
+  },
+  "wide_sample": {
+    "sources": 557,
+    "exact_before": 196,
+    "exact_after": 231,
+    "regressions": 6,
+    "regression_units": [
+      "core/jump_to_image_setup",
+      "core/read_queue_status",
+      "core/set_image_buffer_flag",
+      "sdk/addhour",
+      "sdk/sysbit_init",
+      "sdk/sysbit_jump"
+    ],
+    "note": "the six regressions are retail tail-call idioms and stay exact with -mastra-sibcall (SDK-line units on their own route)"
+  },
+  "published_at": "2026-09-20T12:05:00+00:00"
+}

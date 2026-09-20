@@ -70,3 +70,13 @@ SHA-256 recorded above and a recipe entry, following the rules in
     `-fno-schedule-insns -mastra-keep-frame-order`; `textbin/fun_0023aa68`
     -> 100.0 with `-mastra-keep-frame-order`
   - parity: joint gate 50 -> 52 with zero exact regressions
+
+- `0022-sibcall-default-off.patch` SHA-256: `b5749a54934b569190571ea5a867f20e6508e9e4ed349333fffc73449a0e2ea0`
+  - cc1 (P1+P15+P22+P16+P19+P20+P21 stack): `ac549856a020b23b608052c3a6b66bfb52d47ccf3662d318ca725e5091993c98`
+  - role: sibling-call expansion off by default (retail behavior);
+    `-mastra-sibcall` re-enables it per unit
+  - evidence: 547 measurable promoted sources -> 37 converted, 6 regressions
+    (all genuine retail tail calls); wide 557-source sample exactness 196 -> 231
+  - fixtures: `textbin/fun_001f6250`, `textbin/fun_00201f58`,
+    `textbin/fun_0020d3b0`, `textbin/fun_00235840`, `textbin/memcard_init` on the
+    default route; `core/set_image_buffer_flag` stays exact with `-mastra-sibcall`
