@@ -1,8 +1,11 @@
 /*
-STATE: C_EXACT
+STATE: C_NON_MATCHING
 SYMBOL: FUN_00221968
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
+SCORE: code=8 functions=0 data=100 complete_data=100
+COMPILER: none (stale stamp)
+DECISION: stuck
+BLOCKER: prologue order: retail adjusts sp before the first load; neither the game compiler nor the SN oracle reproduces retail
+NOTE: demoted 2026-09-20: no expected object; best reloc-masked instruction match vs retail 8% (game compiler) / 7% (SN with -mno-split-addresses); see COMPILER_PHASE_PLAN AQ4
 */
 
 #include "types.h"

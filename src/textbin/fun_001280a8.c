@@ -9,15 +9,6 @@ BLOCKER: none
 
 #include "types.h"
 
-typedef volatile s8 vs8;
-typedef volatile u8 vu8;
-typedef volatile s16 vs16;
-typedef volatile u16 vu16;
-typedef volatile s32 vs32;
-typedef volatile u32 vu32;
-typedef volatile s64 vs64;
-typedef volatile u64 vu64;
-typedef s32 b32;
 void FUN_001280a8(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 {
   int new_var;
@@ -76,3 +67,5 @@ void FUN_001280a8(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     *arg0 = (arg4 != 0) ? (var_4_9 * 2) : (var_4_9);
   }
 }
+
+extern void func_001280A8(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) __attribute__((alias("FUN_001280a8")));

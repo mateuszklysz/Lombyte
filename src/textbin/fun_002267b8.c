@@ -1,10 +1,11 @@
 /*
-STATE: C_EXACT
+STATE: C_NON_MATCHING
 SYMBOL: FUN_002267b8
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
+SCORE: code=11 functions=0 data=100 complete_data=100
+COMPILER: none (stale stamp)
+DECISION: stuck
+BLOCKER: address materialization: retail shares the lui page and keeps a base copy (move t2,v0) with member displacements; ours folds the member offset into the address
+NOTE: demoted 2026-09-20: no expected object; best reloc-masked instruction match vs retail 11% (game compiler, -mno-split-addresses); a base-pointer source variant fixes folding but loses 2 instructions; see COMPILER_PHASE_PLAN AQ4
 */
 
 #include "types.h"
@@ -55,3 +56,5 @@ void FUN_002267b8(void) {
     }
     D_001D5BF0.unkAC = 0;
 }
+
+extern void func_002267B8(void) __attribute__((alias("FUN_002267b8")));

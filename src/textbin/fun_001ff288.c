@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: FUN_001ff288
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN 2.73a -O2 -g2 -DMATCHING_DECOMP -DBUILD_US_VERSION
+COMPILER: P37 game compiler (cc1 82b332bbd451) -O2 -g2 -DMATCHING_DECOMP -DBUILD_US_VERSION
 DECISION: promoted
 BLOCKER: none
 */
@@ -30,15 +30,17 @@ s32 FUN_001ff288(s32 arg0) {
     if (D_0019A3E8.unk10 == 0) {
         InitializeResourceEntry();
     }
-    if ((D_0019A3E8.unk14 - D_0019A3E8.unk10) < arg_c) {
-        return 0;
+    if ((D_0019A3E8.unk14 - D_0019A3E8.unk10) >= arg_c) {
+        var_2_20 = D_0019A3E8.unk10;
+        tmp = arg_c + 0xF;
+        size = tmp & 0xFFFFFFF0;
+        __asm__ volatile ("" : "+r" (var_2_20));
+        next = D_0019A3E8.unk10;
+        next = next + size;
+        D_0019A3E8.unk10 = next;
+        return var_2_20;
     }
-    var_2_20 = D_0019A3E8.unk10;
-    tmp = arg_c + 0xF;
-    size = tmp & 0xFFFFFFF0;
-    __asm__ volatile ("" : "+r" (var_2_20));
-    next = D_0019A3E8.unk10;
-    next = next + size;
-    D_0019A3E8.unk10 = next;
-    return var_2_20;
+    return 0;
 }
+
+extern __typeof__(FUN_001ff288) func_001ff288 __attribute__((alias("FUN_001ff288")));
