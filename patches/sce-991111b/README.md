@@ -25,6 +25,30 @@ SHA-256 recorded above and a recipe entry, following the rules in
 
 ## Published patches
 
+- `0038-unannul-redundant.patch` SHA-256: `563a644f5a0102ce4150ffb938db6a287d17eb5d47f638a0ccb49091dc1fe767`
+  - cc1 (P26..P34 + 0036 + 0037 + 0038 stack): `6b66b17be24bff8c47dafad65432ec1575d32c804cbbb54cfe1b4a1f70bea805`
+  - role: default: clear a spuriously-annulled branch (`beqzl` where retail
+    keeps plain `beqz`) in the one narrow shape where `reorg.c`'s generic
+    delay-slot filler picks the annulled form only because its liveness walk
+    (`mark_target_live_regs`/`next_insn_no_annul`) treats the very next
+    already-delay-filled branch as opaque and never sees that branch's own
+    delay-slot write - a genuine blind spot confirmed present in genuine
+    upstream FSF gcc-2.95.2 too, not something this project's own patches
+    introduced (reproduced on the bare P1 baseline)
+  - root cause found by runtime instrumentation (fprintf traces at every real
+    `INSN_ANNULLED_BRANCH_P` assignment site in a rebuilt `cc1`), not static
+    source reading - three earlier static theories about this exact mechanism
+    were each disproven first; see `docs/PROJECT_STATUS.md` in the tools repo
+    for the full trace
+  - fixture: `textbin/fun_002071c0` -> 100.0. The compiler patch alone only
+    narrows this unit's residual (91.111 -> 92.778%, zero movement on every
+    other unit in the corpus); reaching exact also required an independent,
+    unrelated paired source-shape fix on the same file (an early-return guard
+    inverted to the project's established positive-guard pattern)
+  - wide sweep 276 -> 277 exact (+1/0 regressions across all 557); joint gate
+    55/58 unchanged
+  - published via ASTRA 2026-09-20
+
 - `0037-game-no-strict-aliasing.patch` SHA-256: `5c25409ae438dd09e8720c93a0c81898ac3001c30d3f9fe1c59b1ebbbeeed261`
   - cc1 (P26..P34 + 0036 + 0037 stack): `82b332bbd4512c0e7d85c75d8af7d9fef398578b1e68d4b700d2c244aeae4866`
   - role: game-only default: disable strict-aliasing-based optimization at
