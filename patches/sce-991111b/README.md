@@ -2,7 +2,7 @@
 
 Second patch surface for the Sony/Cygnus EE line. The published patches form the
 cumulative **game-compiler** stack (P1 prerequisite, P15, P16, P19, P20); the result
-reproduces **34 of 58** parity controls with zero exact regressions.
+reproduces **36 of 58** parity controls with zero exact regressions.
 
 - Archive: `gnu-ee-binutils-gcc-1.1.tar.gz`, 16,510,927 bytes
 - SHA-256: `1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92`
@@ -47,13 +47,14 @@ SHA-256 recorded above and a recipe entry, following the rules in
     `textbin/fun_002242b8`, `textbin/fun_00225660`, `textbin/fun_0022da68` -> 100.0
   - control parity: 58 controls, 21 -> 26 exact, zero regressions
 
-- `0020-gas-absolute-unknown-symbol.patch` SHA-256: `1d0a65b5e800785b58d8826baa87c1cb44dc217b47cb6da1b255787367e2383b`
+- `0020-gas-absolute-unknown-symbol.patch` SHA-256: `4a1726ac272b83648eea77e07e3fb13c4440a378cb3e69831c71f596838392dc`
   - component: gas from the same recovered tree; assembler SHA-256
-    `2e020354a58d583ac647f051c39702fabd2d5d64816a20173bdd633d8fc3f376`
-  - role: expand a relaxable gp pair to the retail `lui %hi` + `op %lo` form
-    (the default expansion runs twice and left a copy of the second
-    instruction in the first slot); deferred gp relaxation is preserved
+    `4f76f5b6eca8e66240ab7b98efef8071a6740b8d33e32238427dbcba9f87cfba`
+  - role: reproduce the retail R5900 absolute/gp decision: reorder-mode
+    references to a symbol whose size is not yet known become `lui %hi` +
+    `op %lo` at the use, known-small symbols stay `%gp_rel`, and noreorder
+    delay slots always use the single `%gp_rel` form
   - fixtures: `textbin/fun_0023b590`, `textbin/fun_0023aba0`,
-    `ee/initialize_streaming_state` (with `-mno-split-addresses`) -> 100.0
-  - control parity: 58 controls, 26 -> 30 exact, zero exact regressions and no
-    fuzzy changes on the other controls
+    `ee/initialize_streaming_state` (with `-mno-split-addresses`), plus
+    `textbin/fun_001eda60` and `textbin/fun_00233d90` (default route) -> 100.0
+  - control parity: 58 controls, 34 -> 36 exact, zero exact regressions
