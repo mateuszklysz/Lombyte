@@ -2,7 +2,8 @@
 
 Second patch surface for the Sony/Cygnus EE line. The published patches form the
 cumulative **game-compiler** stack (P1 prerequisite, P15, P16, P19, P20); the result
-reproduces **36 of 58** parity controls with zero exact regressions.
+reproduces **37 of 44 game-line** parity controls with zero exact regressions;
+the joint gate (adding the 14 SDK-line controls on the Sony 991111-01 route) is 51/58.
 
 - Archive: `gnu-ee-binutils-gcc-1.1.tar.gz`, 16,510,927 bytes
 - SHA-256: `1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92`
@@ -58,3 +59,13 @@ SHA-256 recorded above and a recipe entry, following the rules in
     `ee/initialize_streaming_state` (with `-mno-split-addresses`), plus
     `textbin/fun_001eda60` and `textbin/fun_00233d90` (default route) -> 100.0
   - control parity: 58 controls, 34 -> 36 exact, zero exact regressions
+
+- `0021-sched-keep-frame-related-order.patch` SHA-256: `5d9feea0d193c4dc7dc376129661084531392dab69735c4b11fcadc2912d9ff5`
+  - cc1 (P1+P15+P16+P19+P20+P21 stack): `52099c6af010389c59593b3f05750a3411634e45ed97da6c6a886e1dee5d2cd9`
+  - role: opt-in `-mastra-keep-frame-order` keeps prologue saves / epilogue
+    restores in `save_restore_insns` emission order under the scheduler
+    (default scheduler behavior is unchanged, since retail objects mix both
+    orders across units)
+  - fixture: `textbin/fun_0023c610` -> 100.0 with
+    `-fno-schedule-insns -mastra-keep-frame-order`
+  - parity: joint gate 50 -> 51 with zero exact regressions
