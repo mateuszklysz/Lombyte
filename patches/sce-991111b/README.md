@@ -80,3 +80,12 @@ SHA-256 recorded above and a recipe entry, following the rules in
   - fixtures: `textbin/fun_001f6250`, `textbin/fun_00201f58`,
     `textbin/fun_0020d3b0`, `textbin/fun_00235840`, `textbin/memcard_init` on the
     default route; `core/set_image_buffer_flag` stays exact with `-mastra-sibcall`
+
+- `0025-annul-dead-delay-slots.patch` SHA-256: `7ea7e0ecdb20ed4be7777eaada61299adb5e1a3a5563b2146b6b505fb1d59659`
+  - cc1 (stack through P25): `4622bb1bd38a03dece9ee49cd2ccc3069c57aff690b32a8fcfdb66668cf00121`
+  - role: opt-in `-mastra-annul-dead-slots`; annuls a branch whose
+    delay slot writes the branch-tested register and that register is dead
+    on the not-taken path (retail `bnezl v0,L; move v0,zero`)
+  - default-neutral (wide sweep byte-identical with the flag off)
+  - fixtures: `textbin/fun_0023d2d8`, `textbin/vo_buf_get_data` -> 100.0
+  - rejected as a default: +2 / -9 narrowed, +2 / -29 blanket
