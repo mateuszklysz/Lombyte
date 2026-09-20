@@ -1,0 +1,18 @@
+diff --git a/gcc/config/mips/mips.c b/gcc/config/mips/mips.c
+index ead5707..eaaa62e 100644
+--- a/gcc/config/mips/mips.c
++++ b/gcc/config/mips/mips.c
+@@ -4668,9 +4668,11 @@ override_options ()
+     }
+ 
+   /* Saves/restores of general purpose registers on the r5900 use
+-     a mode wider than word_mode.  */
++     a mode wider than word_mode.  ASTRA P1: widen every GPR so the
++     prologue/epilogue emit sq/lq like the retail/SN R5900 code.  */
+   if (TARGET_MIPS5900)
+-    mips_reg_mode[0] = TImode;
++    for (regno = GP_REG_FIRST; regno <= GP_REG_LAST; regno++)
++      mips_reg_mode[regno] = TImode;
+ 
+   /* CYGNUS LOCAL law */
+   {

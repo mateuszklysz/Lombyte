@@ -1,6 +1,8 @@
 # Sony EE-GCC 2.9-ee-991111b (recovered source)
 
-Second patch surface for the Sony/Cygnus EE line. No patches are applied yet.
+Second patch surface for the Sony/Cygnus EE line. The published patches form the
+cumulative **game-compiler** stack (P1 prerequisite, P15, P16, P19); the result
+reproduces **26 of 58** parity controls with zero regressions.
 
 - Archive: `gnu-ee-binutils-gcc-1.1.tar.gz`, 16,510,927 bytes
 - SHA-256: `1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92`
@@ -20,10 +22,22 @@ When a patch is produced, add it here as `patched-ee-gcc.patch` with its
 SHA-256 recorded above and a recipe entry, following the rules in
 [`../README.md`](../README.md).
 
-## Published patch
+## Published patches
 
-- Patch SHA-256: `63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071`
+- `0001-r5900-quad-saves.patch` SHA-256: `13f54afb0045ea80d98e03b1b31417593f11abfaaf6fc254a8d41d750f75406f`
+  - role: R5900 quadword-save parity prerequisite for the cumulative game compiler
+- `0015-no-sibcall.patch` SHA-256: `63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071`
+  - cc1: `5f8c800390c82137e3f25de82ec22b8868ede84c54034cab6d8e8844cf3c4193`
+  - fixture: `assembly/textbin/fun_001f6250` -> 100.0 with `-mastra-no-sibcall`
+- `0016-no-edge-lcm-default.patch` SHA-256: `7a383321db39ad13f82703530909b99e34eb5b04aac8988746eaeda1035f0a15`
+  - cc1: `f5c4dd418dc3281eecf00faedd59319e8f504d1c3ae79fcbaa3664f3dff28a1a`
+  - fixture: `textbin/fun_001fe898` -> 100.0 with the default route
 
-- Patch SHA-256: `63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071`
-- Patched cc1 SHA-256: `5f8c800390c82137e3f25de82ec22b8868ede84c54034cab6d8e8844cf3c4193`
-- Fixture: `assembly/textbin/fun_001f6250` -> 100.0 with `-mastra-no-sibcall`
+- `0019-r5900-post-dbr-loop-pad.patch` SHA-256: `9be60b68f35cf775bce2f0b677cd0b3ba459d8531649d99b6993b0d83e290562`
+  - cc1 (P1+P15+P16+P19 stack): `5db99bf745e1df0c77d649ca2f2d6c50ef5619bbd0e7bd46c6cb938624512b5f`
+  - role: reproduce the retail R5900 assembler's short-loop padding in cc1 after
+    delay-slot scheduling; backward-branch loops shorter than 7 instructions get
+    NOPs immediately before the branch
+  - fixtures: `textbin/fun_001ff480`, `textbin/fun_002212b8`,
+    `textbin/fun_002242b8`, `textbin/fun_00225660`, `textbin/fun_0022da68` -> 100.0
+  - control parity: 58 controls, 21 -> 26 exact, zero regressions
