@@ -2,7 +2,7 @@
 STATE: C_EXACT
 SYMBOL: FUN_002071c0
 SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2
+COMPILER: cc_game (991111b + P46 unannul-redundant, default) -O2 -g2 -gstabs
 DECISION: promoted
 BLOCKER: none
 */
@@ -21,15 +21,15 @@ s32 FUN_002071c0(s32 arg0, s32 arg1) {
     if (D_001A03B4[0] == 0) {
         return 0;
     }
-    if (ret1 != 0) {
-        return 1;
-    }
-    if (ret2 != 0) {
-        if (ret1) {
-            return 1;
-        } else {
-            return 1;
+    if (ret1 == 0) {
+        if (ret2 != 0) {
+            if (ret1) {
+                return 1;
+            } else {
+                return 1;
+            }
         }
+        return 0;
     }
-    return 0;
+    return 1;
 }

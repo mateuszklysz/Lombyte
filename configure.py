@@ -326,6 +326,7 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    "textbin/fun_002071c0",
     "textbin/fun_001ff288",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
