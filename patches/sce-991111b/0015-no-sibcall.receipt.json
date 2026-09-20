@@ -1,0 +1,21 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "patch": "0015-no-sibcall.patch",
+  "sha256": "63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071",
+  "lineage": "sdk-compiler - Sony/Cygnus 2.9-ee-991111b (full source; PATCH TARGET for SN parity)",
+  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043...); see analysis/compiler-sources.md",
+  "cc1_sha256": "5f8c800390c82137e3f25de82ec22b8868ede84c54034cab6d8e8844cf3c4193",
+  "cpp_sha256": "",
+  "xgcc_sha256": "",
+  "exact_fixtures": [
+    {
+      "unit": "assembly/textbin/fun_001f6250",
+      "symbol": "FUN_001f6250",
+      "code_percent": 100.0
+    }
+  ],
+  "published_at": "2026-09-20T08:39:26.440650+00:00",
+  "recipe": "same 32-bit host recipe as ../ee-gcc-2.9-991111-01; build dir gcc/, targets cc1 cpp xgcc"
+}

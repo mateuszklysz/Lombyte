@@ -19,3 +19,11 @@ this vintage: `/root/rnc-toolchains/tier2-20260909/991111b-r4` (scores 79.87 on
 When a patch is produced, add it here as `patched-ee-gcc.patch` with its
 SHA-256 recorded above and a recipe entry, following the rules in
 [`../README.md`](../README.md).
+
+## Published patch
+
+- Patch SHA-256: `63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071`
+
+- Patch SHA-256: `63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071`
+- Patched cc1 SHA-256: `5f8c800390c82137e3f25de82ec22b8868ede84c54034cab6d8e8844cf3c4193`
+- Fixture: `assembly/textbin/fun_001f6250` -> 100.0 with `-mastra-no-sibcall`
