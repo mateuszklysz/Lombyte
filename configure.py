@@ -52,6 +52,11 @@ SN_TOOLCHAIN_ROOT = os.environ.get("SN_TOOLCHAIN_ROOT", "").strip()
 # and its build script live in patches/ee-gcc-2.9-991111-01/; see
 # docs/patched-toolchain.md.
 EE_GCC_PATCHED_ROOT = os.environ.get("EE_GCC_PATCHED_ROOT", "").strip()
+# Reconstructed Sony/Cygnus 2.9-ee-991111b game compiler (RncDecomp-tools
+# patch stack, P37 cc1 82b332bbd4512c0e7d85c75d8af7d9fef398578b1e68d4b700d2c244aeae4866).
+# Native Linux toolchain; units listed in
+# GAME_COMPILER_UNITS are built by it instead of the SN binary.
+GAME_COMPILER_ROOT = os.environ.get("GAME_COMPILER_ROOT", "").strip()
 # Promoted textbin units matched byte-exact under the SN compiler.
 SN_COMPILER_UNITS = {
     # sdk/debug_print: the EE-GCC 2.9 tree ships no stdarg.h, and the SN
@@ -89,7 +94,6 @@ SN_COMPILER_UNITS = {
     "textbin/fun_0023ad10",
     "textbin/fun_00216788",
     "textbin/fun_00225a68",
-    "textbin/snd_unk_function_0012eb00",
     "textbin/fun_0012ebd0",
     "textbin/fun_0012f0a8",
     "textbin/fun_0012f178",
@@ -119,7 +123,6 @@ SN_COMPILER_UNITS = {
     "textbin/fun_0021eaf0",
     "textbin/fun_0021f330",
     "textbin/fun_0021f5f8",
-    "textbin/fun_0021f8e8",
     "textbin/fun_00221930",
     "textbin/fun_00221a88",
     "textbin/fun_00222f18",
@@ -318,6 +321,216 @@ EE_GCC_FLAG_UNITS = {
 # with a non-split address sequence (`lui v1,%hi; lw v1,%lo(v1)`), which the SN
 # driver only reproduces with -mno-split-addresses; the default emits a split
 # base register and scores 87.65% instead of 100%.
+# textbin units verified byte-exact under the reconstructed game compiler
+# (objdiff code=100 with the flags below; the first two are also patha
+# link-verified).  Both this compiler and SN reproduce these retail objects
+# only with the per-unit flags, i.e. the original build used them.
+GAME_COMPILER_UNITS = {
+    "textbin/fun_001ff288",
+    "textbin/fun_0012eea8",
+    "textbin/fun_0012ef28",
+    "textbin/snd_stream_safe_cd_get_error",
+    "textbin/snd_stream_safe_cd_read",
+    "textbin/attach_manipulator",
+    "textbin/audio_dec_begin_put",
+    "textbin/fun_00233980",
+    "textbin/fun_0012ee08",
+    "textbin/fun_0023a790",
+    "textbin/fun_0023aba0",
+    "textbin/fun_0023a3b8",
+    "textbin/fun_0023d0a8",
+    "textbin/fun_0023b540",
+    "textbin/fun_0023be20",
+    "textbin/fun_0023b590",
+    "textbin/fun_001f4248",
+    "textbin/fun_001fb2a8",
+    "textbin/fun_0022db10",
+    "textbin/fun_002151d8",
+    "textbin/fun_001f21c0",
+    "textbin/fun_0021f8e8",
+    "textbin/snd_unk_function_0012eb00",
+    "textbin/fun_0021e1f8",
+    "textbin/fun_0021f120",
+    "textbin/fun_001ff780",
+    "textbin/fun_00221968",
+    "textbin/fun_00221930",
+    "textbin/fun_002267b8",
+    "ee/clear_dma_queue_entry",
+    "gs/initialize_render_state",
+    "textbin/audio_dec_start",
+    "textbin/fun_0012e1a8",
+    "textbin/fun_0012e208",
+    "textbin/fun_0012e240",
+    "textbin/fun_0012e280",
+    "textbin/fun_0012e2b8",
+    "textbin/fun_0012e3b8",
+    "textbin/fun_0012e448",
+    "textbin/fun_0012ebd0",
+    "textbin/fun_0012efa8",
+    "textbin/fun_0012efe0",
+    "textbin/fun_0012f068",
+    "textbin/fun_0012f0a8",
+    "textbin/fun_0012f0e0",
+    "textbin/fun_0012f148",
+    "textbin/fun_0012f178",
+    "textbin/fun_001e9338",
+    "textbin/fun_001ebc90",
+    "textbin/fun_001eda60",
+    "textbin/fun_001f6250",
+    "textbin/fun_001f6270",
+    "textbin/fun_001f6290",
+    "textbin/fun_001f6530",
+    "textbin/fun_001f65b0",
+    "textbin/fun_001f6940",
+    "textbin/fun_001f69d0",
+    "textbin/fun_001f6a60",
+    "textbin/fun_001f6af0",
+    "textbin/fun_001f6b88",
+    "textbin/fun_001f6c20",
+    "textbin/fun_001f6fd0",
+    "textbin/fun_001f7580",
+    "textbin/fun_001f75f0",
+    "textbin/fun_001f7978",
+    "textbin/fun_001fdca0",
+    "textbin/fun_001fe898",
+    "textbin/fun_001ff480",
+    "textbin/fun_00201128",
+    "textbin/fun_00201f58",
+    "textbin/fun_00201f88",
+    "textbin/fun_00202d10",
+    "textbin/fun_002049f0",
+    "textbin/fun_00206978",
+    "textbin/fun_00207100",
+    "textbin/fun_00207300",
+    "textbin/fun_00207bb0",
+    "textbin/fun_0020d1a8",
+    "textbin/fun_0020d218",
+    "textbin/fun_0020d248",
+    "textbin/fun_0020d3b0",
+    "textbin/fun_0020d460",
+    "textbin/fun_00213260",
+    "textbin/fun_002132a8",
+    "textbin/fun_002144d8",
+    "textbin/fun_00214530",
+    "textbin/fun_00214cc8",
+    "textbin/fun_00215248",
+    "textbin/fun_00215290",
+    "textbin/fun_00215300",
+    "textbin/fun_00215348",
+    "textbin/fun_00215420",
+    "textbin/fun_00215b10",
+    "textbin/fun_002166e8",
+    "textbin/fun_00216788",
+    "textbin/fun_00216828",
+    "textbin/fun_002168a8",
+    "textbin/fun_00216950",
+    "textbin/fun_002172c0",
+    "textbin/fun_00217a10",
+    "textbin/fun_0021cae0",
+    "textbin/fun_0021d2c8",
+    "textbin/fun_0021df58",
+    "textbin/fun_0021e608",
+    "textbin/fun_0021e890",
+    "textbin/fun_0021eaf0",
+    "textbin/fun_0021f330",
+    "textbin/fun_0021f5f8",
+    "textbin/fun_0021fce0",
+    "textbin/fun_0021fd78",
+    "textbin/fun_00220790",
+    "textbin/fun_002212b8",
+    "textbin/fun_00221a48",
+    "textbin/fun_00221a88",
+    "textbin/fun_00221d68",
+    "textbin/fun_002220f0",
+    "textbin/fun_00222d98",
+    "textbin/fun_00222f18",
+    "textbin/fun_00222f58",
+    "textbin/fun_002242b8",
+    "textbin/fun_00225660",
+    "textbin/fun_00225a68",
+    "textbin/fun_00226718",
+    "textbin/fun_00226f50",
+    "textbin/fun_0022d708",
+    "textbin/fun_0022da68",
+    "textbin/fun_00232ce0",
+    "textbin/fun_00233d90",
+    "textbin/fun_00233f00",
+    "textbin/fun_00235840",
+    "textbin/fun_00235898",
+    "textbin/fun_00237e90",
+    "textbin/fun_00238520",
+    "textbin/fun_00238630",
+    "textbin/fun_00238688",
+    "textbin/fun_002386e8",
+    "textbin/fun_00239750",
+    "textbin/fun_0023a770",
+    "textbin/fun_0023aa68",
+    "textbin/fun_0023ab78",
+    "textbin/fun_0023ac90",
+    "textbin/fun_0023ad10",
+    "textbin/fun_0023aef0",
+    "textbin/fun_0023bb40",
+    "textbin/fun_0023bbb0",
+    "textbin/fun_0023bf18",
+    "textbin/fun_0023c610",
+    "textbin/fun_0023cac8",
+    "textbin/fun_0023cbf0",
+    "textbin/fun_0023cc10",
+    "textbin/fun_0023cc38",
+    "textbin/fun_0023cce0",
+    "textbin/fun_0023d2d8",
+    "textbin/get_occl_grid_from_pair",
+    "textbin/init_moby_class_dists",
+    "textbin/memcard_init",
+    "textbin/read_buf_begin_get",
+    "textbin/snd_continue_all_sounds_in_group",
+    "textbin/snd_continue_vag_stream",
+    "textbin/snd_get_vag_stream_time_remaining_cb",
+    "textbin/snd_is_vag_stream_buffered_cb",
+    "textbin/snd_pause_all_sounds_in_group",
+    "textbin/snd_pause_vag_stream",
+    "textbin/snd_set_reverb_ex",
+    "textbin/snd_stream_safe_check_cd_idle",
+    "textbin/snd_unload_bank",
+    "textbin/update_occlusion",
+    "textbin/vi_buf_delete",
+    "textbin/video_dec_is_flushed",
+    "textbin/video_dec_set_stream",
+    "textbin/vo_buf_get_data",
+    "textbin/fun_00225490",
+    "textbin/fun_0022c7e8",
+}
+
+# Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
+GAME_COMPILER_FLAG_UNITS = {
+    "fun_0012eea8": "-mastra-r5900-extern-buffer",
+    "fun_0012ef28": "-mastra-r5900-extern-buffer",
+    "snd_stream_safe_cd_get_error": "-mastra-r5900-extern-buffer",
+    "snd_stream_safe_cd_read": "-mastra-r5900-extern-buffer",
+    "attach_manipulator": "-fno-strict-aliasing",
+    "audio_dec_begin_put": "-fno-strict-aliasing",
+    "fun_00233980": "-fno-strict-aliasing -mno-split-addresses",
+    "fun_0012ee08": "-fno-gcse -mastra-r5900-extern-buffer",
+    "fun_0023a790": "-mno-split-addresses",
+    "fun_0023aba0": "-mno-split-addresses",
+    "fun_0023a3b8": "-mno-split-addresses",
+    "fun_0023d0a8": "-mno-split-addresses",
+    "fun_0023b540": "-mno-split-addresses",
+    "fun_0023be20": "-mno-split-addresses",
+    "fun_0023b590": "-mno-split-addresses",
+    "fun_001f4248": "-mno-split-addresses",
+    "fun_001fb2a8": "-mno-split-addresses",
+    "fun_0022db10": "-mno-split-addresses",
+    "fun_002151d8": "-mno-split-addresses",
+    "fun_001f21c0": "-mno-split-addresses",
+    "fun_0021f8e8": "-mastra-r5900-extern-buffer",
+    "snd_unk_function_0012eb00": "-mastra-r5900-extern-buffer",
+    "fun_00221968": "-mno-split-addresses",
+    "fun_002267b8": "-mno-split-addresses",
+    "fun_00225490": "-fno-schedule-insns",
+    "fun_0022c7e8": "-fno-schedule-insns",
+}
+
 SN_FLAG_UNITS = {
     # Keep the loop's address register separate from the mode's live range.
     "fun_0012ee08": "-fno-gcse",
@@ -596,6 +809,33 @@ def sn_compiler_configured() -> bool:
         bool(SN_TOOLCHAIN_ROOT)
         and (Path(SN_TOOLCHAIN_ROOT) / "bin/ee-gcc.exe").is_file()
     )
+
+
+def _game_compiler_root() -> Path:
+    """Locate the reconstructed game compiler.
+
+    The repository keeps it under tools/compilers/game-compiler; the baseline
+    staging workspace copies the whole compilers tree to tools/cc, and
+    GAME_COMPILER_ROOT overrides both.
+    """
+    if GAME_COMPILER_ROOT:
+        return Path(GAME_COMPILER_ROOT)
+    for candidate in (ROOT / "tools/compilers/game-compiler", ROOT / "tools/cc/game-compiler"):
+        if (candidate / "ee-gcc").is_file():
+            return candidate
+    return ROOT / "tools/compilers/game-compiler"
+
+
+def game_compiler_configured() -> bool:
+    root = _game_compiler_root()
+    return (root / "ee-gcc").is_file() and (root / "cc1").is_file()
+
+
+def _unit_game_flag(unit: str) -> str:
+    for suffix, flags in GAME_COMPILER_FLAG_UNITS.items():
+        if unit.endswith(suffix):
+            return flags
+    return ""
 
 
 def ee_gcc_patched_configured() -> bool:
@@ -951,6 +1191,17 @@ def build_stuff(
         command=f"{compile_cmd} $in $extra -o $out && {CROSS}strip $out -N dummy-symbol-name -R .mdebug",
     )
 
+    if game_compiler_configured():
+        game_root = _game_compiler_root()
+        ninja.rule(
+            "cc_game",
+            description="cc_game $in",
+            command=(
+                f"{game_root}/ee-gcc -c {common_includes} {LANG_DEFINE} {COMPILER_FLAGS} "
+                f"$in $extra -o $out && {CROSS}strip $out -N dummy-symbol-name -R .mdebug"
+            ),
+        )
+
     if sn_compiler_configured():
         sn_root = Path(SN_TOOLCHAIN_ROOT)
         sn_repo = ROOT
@@ -1078,7 +1329,14 @@ def build_stuff(
                 unit in SN_COMPILER_UNITS or (_unit_uses_sn(unit) and style == "sq")
             )
             use_patched = patched_route and unit in EE_GCC_PATCHED_UNITS
-            if use_patched:
+            use_game = game_compiler_configured() and unit in GAME_COMPILER_UNITS
+            if use_game:
+                game_extra = _unit_game_flag(unit)
+                variables = {}
+                if game_extra:
+                    variables["extra"] = f"{game_extra} "
+                build(entry.object_path, entry.src_paths, "cc_game", variables=variables)
+            elif use_patched:
                 pat_work = str(ROOT / "build/patched-work/units" / unit)
                 flags = _unit_patched_flag(unit)
                 variables = {

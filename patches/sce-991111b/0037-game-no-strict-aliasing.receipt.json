@@ -1,0 +1,60 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "patch": "0037-game-no-strict-aliasing.patch",
+  "sha256": "5c25409ae438dd09e8720c93a0c81898ac3001c30d3f9fe1c59b1ebbbeeed261",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
+  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043...); see analysis/compiler-sources.md",
+  "cc1_sha256": "82b332bbd4512c0e7d85c75d8af7d9fef398578b1e68d4b700d2c244aeae4866",
+  "cpp_sha256": "c1ab66820a740deb5c2ec95c07bac49d06e2baa46f8e00641c7a9ae54e8e3759",
+  "xgcc_sha256": "54a8bb9dfe0f51f4b6138569564dbc822bb2d67736e627a9c93c42934300e854",
+  "exact_fixtures": [
+    {
+      "unit": "assembly/textbin/fun_001f6250",
+      "symbol": "FUN_001f6250",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_001fe898",
+      "symbol": "FUN_001fe898",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/attach_manipulator",
+      "symbol": "FUN_0020cb10",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/audio_dec_begin_put",
+      "symbol": "FUN_0023ad58",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_00233980",
+      "symbol": "FUN_00233980",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/attach_manipulator",
+      "symbol": "FUN_0020cb10",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/audio_dec_begin_put",
+      "symbol": "FUN_0023ad58",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_00233980",
+      "symbol": "FUN_00233980",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_0012ee08",
+      "symbol": "FUN_0012ee08",
+      "code_percent": 100.0
+    }
+  ],
+  "published_at": "2026-09-20T19:08:10.215637+00:00"
+}

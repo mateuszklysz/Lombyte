@@ -1,0 +1,14 @@
+diff --git a/gcc/toplev.c b/gcc/toplev.c
+--- a/gcc/toplev.c
++++ b/gcc/toplev.c
+@@ -4960,7 +4960,9 @@
+       flag_schedule_insns_after_reload = 1;
+ #endif
+       flag_regmove = 1;
+-      flag_strict_aliasing = 1;
++      /* The game-line SN oracle keeps alias set zero at -O2.  Retain
++         conservative aliasing unless -fstrict-aliasing is explicit.  */
++      flag_strict_aliasing = 0;
+     }
+ 
+   if (optimize >= 3)

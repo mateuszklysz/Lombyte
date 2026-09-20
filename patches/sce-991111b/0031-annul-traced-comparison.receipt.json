@@ -1,0 +1,34 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "patch": "0031-annul-traced-comparison.patch",
+  "sha256": "f1b0c7b29178733ef9e9a0994efb3704d736f19b4bd322480b5d11d0ad67d60b",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (game/textbin route)",
+  "role": "Extend the default branch-likely rule (P28) with a fallback for branches whose condition register was produced by an arithmetic comparison (e.g. slt): get_condition then reports the producer comparison instead of the branch's zero test, so use the branch's own comparison. If the branch is `ne dest,0` with a zero delay-slot write, the skipped write is a no-op on the not-taken path (semantically safe).",
+  "mechanism": "gcc/config/mips/mips.c mips_r5900_annul_dead_slots(): when the P28 zero-test checks fail, read the branch's own if_then_else comparison; accept it when it is NE against zero (or $0) and the delay-slot source is zero, setting safe = 1.",
+  "evidence": {
+    "in_scope_conversions": [
+      "textbin/fun_00220790"
+    ],
+    "in_scope_regressions": [],
+    "note": "P28's own path is unchanged for its units (the fallback only runs when the P28 checks reject)"
+  },
+  "measurements": {
+    "wide_sweep_all_557": {
+      "exact": 269,
+      "base": 268,
+      "conversions": 1,
+      "regressions": 0
+    },
+    "joint_control_gate": {
+      "exact": 54,
+      "controls": 58
+    }
+  },
+  "cc1_sha256": "11cd3fac9a5bd1dad6edc57215a27f2d6ff028f3b923eea9913b4061b0f17e2f",
+  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p40annulfb/summary.json",
+    "build/workspace/astra-991111b/parity-p40.json"
+  ]
+}

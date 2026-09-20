@@ -1,0 +1,58 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "patch": "0026-frame-save-first.patch",
+  "sha256": "9d42deb1f3e92ce6ae8f46ae1672a5c03ca93f9fd80d3f4f664461c2c03a12de",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
+  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
+  "role": "Default scheduler order: prefer frame-related stores (prologue saves) in rank_for_schedule so retail's save/move interleaving is reproduced.",
+  "mechanism": "rank_for_schedule() (haifa-sched.c) gains one comparison after the last-scheduled-instruction class rule and before the depend-count heuristic: an insn that is RTX_FRAME_RELATED_P with a memory destination (a prologue save) is preferred over an insn that is not. Retail's sched2 emits the saved registers ahead of the body instructions that reuse the saved registers (parameter moves); the prior chain fell through to depend_count, which ranked the anti-dependent move first.",
+  "evidence": {
+    "instrumented_ready_lists": "fun_001f6530 t=3 candidates save s4 (p10,a3,t0) vs move s0 (p10,a4,t1): retail issues the save first; fun_00201f88 t=2 (already exact) compares save s7 vs save ra (both frame stores) where depend_count must still decide - the narrow rule leaves it untouched",
+    "rejected_variants": [
+      "remove depend_count: 15 conversions / 28 regressions",
+      "anti-dependency forced class 2: 1 / 7",
+      "flip depend_count sign (prefer fewer dependents): 7 / 47",
+      "fewer true dependents only: 9 / 65",
+      "prefer memory insns (any load/store): 5 / 12",
+      "prefer frame-related insns incl. sp adjust: 6 / 1 (hoisted the frame pointer adjust)"
+    ]
+  },
+  "fixtures": [
+    "textbin/fun_001f6530",
+    "textbin/fun_001f65b0",
+    "textbin/fun_001f6fd0",
+    "textbin/fun_001f7580",
+    "textbin/fun_001f75f0",
+    "textbin/fun_00214530"
+  ],
+  "wide_parity_elf_route": {
+    "before": 227,
+    "after": 233,
+    "conversions": 6,
+    "regressions": 0
+  },
+  "wide_parity_harness_wrapper_route": {
+    "before": 231,
+    "after": 237,
+    "conversions": 6,
+    "regressions": 0
+  },
+  "joint_control_gate": {
+    "exact": 52,
+    "controls": 58,
+    "delta": 0
+  },
+  "cc1_sha256": "9ea59250181268d93c75de980c04679e3ae529a262db820408836d4c4f35df6f",
+  "cpp_sha256": "c1ab66820a740deb5c2ec95c07bac49d06e2baa46f8e00641c7a9ae54e8e3759",
+  "xgcc_sha256": "54a8bb9dfe0f51f4b6138569564dbc822bb2d67736e627a9c93c42934300e854",
+  "assembler_sha256": "4f76f5b6eca8e66240ab7b98efef8071a6740b8d33e32238427dbcba9f87cfba",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p26-elf-old/summary.json",
+    "build/workspace/astra-991111b/sweep-p26-elf-new/summary.json",
+    "build/workspace/astra-991111b/sweep-p26c-v1/summary.json",
+    "build/workspace/astra-991111b/parity-installed-final.json",
+    "build/workspace/astra-991111b/corpus/variants/prod-p26-v1/receipt.json"
+  ]
+}

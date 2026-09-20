@@ -1,0 +1,21 @@
+diff --git a/gas/config/tc-mips.c b/gas/config/tc-mips.c
+--- a/gas/config/tc-mips.c
++++ b/gas/config/tc-mips.c
+@@ -7916,13 +7916,10 @@
+ 
+ 		assert (length == (f64 ? 8 : 4));
+ 
+-		if (*args == 'f'
+-		    || (*args == 'l'
+-			&& (! USE_GLOBAL_POINTER_OPT
+-			    || mips_pic == EMBEDDED_PIC
+-			    || g_switch_value < 4
+-			    || (temp[0] == 0 && temp[1] == 0)
+-			    || (temp[2] == 0 && temp[3] == 0))))
++		/* The retail R5900/SN assembler always synthesizes an
++		   li.s constant inline (lui/ori/mtc1) rather than pooling
++		   it in .lit4.  Keep li.d (.lit8) pooling unchanged.  */
++		if (*args == 'f' || *args == 'l')
+ 		  {
+ 		    imm_expr.X_op = O_constant;
+ 		    if (! target_big_endian)

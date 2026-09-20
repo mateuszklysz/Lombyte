@@ -25,6 +25,155 @@ SHA-256 recorded above and a recipe entry, following the rules in
 
 ## Published patches
 
+- `0037-game-no-strict-aliasing.patch` SHA-256: `5c25409ae438dd09e8720c93a0c81898ac3001c30d3f9fe1c59b1ebbbeeed261`
+  - cc1 (P26..P34 + 0036 + 0037 stack): `82b332bbd4512c0e7d85c75d8af7d9fef398578b1e68d4b700d2c244aeae4866`
+  - role: game-only default: disable strict-aliasing-based optimization at
+    `-O2` (matches SN/retail codegen for pointer-aliased loads/stores); scoped
+    to the game compiler, not the SDK route
+  - fixtures: `assembly/textbin/fun_001f6250`, `textbin/fun_001fe898`,
+    `textbin/attach_manipulator`, `textbin/audio_dec_begin_put`,
+    `textbin/fun_00233980`, `textbin/fun_0012ee08` -> 100.0
+  - game-only route-aware battery: 175/213 -> 178/213 exact (+3/0); P37
+    controls 55/58 (not a clean same-stack comparator against the historical
+    52/58 receipt)
+  - Path-A: all four compiled objects link byte-equal to their retail slices;
+    full ELF gate remains blocked by the known missing-expected-object units
+    `fun_00221968`/`fun_002267b8` (documented exception, not a compiler gap)
+  - published via ASTRA 2026-09-20
+
+- `0036-retire-frame-save-pref.patch` SHA-256: `0c0970ecc7e2ca5d18bc3c1e1609a17d3600b35511a400a11e54ea6d0dee7711`
+  - cc1 (P26..P34 + 0036 stack): `5c1bf8e5bcf0c40d03149bc1b50fd470ff260054f192de4844e77e77637940ea`
+  - role: retire the P26/P33 frame-store preference. With P29's call-clobber
+    graph the preference is no longer needed: all six P26 fixtures stay exact
+    without it, and removing it fixes the last blocked `$ra`-placement residual
+  - fixture: `textbin/fun_00201128` -> 100.0 (the `$ra` save now follows the
+    last argument captures, matching retail)
+  - evidence: sched2 ready lists vs the SN oracle are identical at all 38
+    cycles only after the removal (with P26/P33, t=6/t=7 differ); the deciding
+    pairs (ra save 100 vs capture moves 10/12) are never directly compared by
+    qsort, so pairwise predicates could not act
+  - parity: wide 272 -> 273 (+1 / zero regressions across all 557); joint gate
+    54/58 unchanged; installed production cc1 `5c1bf8e5bcf0c40d`
+  - note: 0026/0033 remain in the stack history and are neutralized by 0036;
+    `0035-extern-buffer-default` is not part of the production stack (P34 stays
+    opt-in)
+
+- `0035-extern-buffer-default.patch` SHA-256: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+  - cc1 (P26..P35 stack): `f920538211f2b03699b15e6f8c97e4cc302e1b556f39bd0d8488e0cf5fa2d476`
+  - role: enable the P34 R5900/GAS extern buffering by default
+  - fixtures: `textbin/fun_0021f8e8`, `textbin/snd_unk_function_0012eb00` -> 100.0
+  - in-scope textbin: +2 / 0 (161/213 exact); the 8 all-557 sweep regressions
+    are units owned by other routes (patched profile, padless assembler,
+    native EE-GCC 2.9) and are unaffected in the real build
+  - joint gate 54/58 unchanged
+
+
+- `0034-r5900-extern-buffer-optin.patch` SHA-256: `085ac4b30bf79e56c9f51c58013ac22cd77b62456c8f6669e909bca5435088bc`
+  - cc1 (P26..P34 stack): `ad58bb494426663dcf73317db34eaea91c33449039723be9bf2e905c2deb09ab`
+  - role: opt-in R5900/GAS extern buffering (`-mastra-r5900-extern-buffer`):
+    the body is buffered and the `.extern name,size` declarations of
+    GP-eligible bare integer references are emitted in front of it, so GAS can
+    pick the retail gp-relative form; `TARGET_FILE_SWITCHING` is untouched
+  - default-neutral: flag off = 272 exact, zero diffs
+  - flag on: +4/-8 on the corpus; the 2 in-scope conversions are
+    `textbin/fun_0021f8e8`, `textbin/snd_unk_function_0012eb00`; all 8
+    regressions are units owned by other routes (patched profile, padless
+    assembler, non-textbin)
+
+
+- `0033-ra-not-vs-nonframe.patch` SHA-256: `c399a2055c8a4b743b5b39a826bc72c29a1f0b7d552e98f627a34777042a52e1`
+  - cc1 (P26..P33 stack): `ac97dd50a166706506047e3ff1beed084cd2c5f070564357884e5bc449517165`
+  - role: the P26 frame-save preference no longer applies to the `$ra` save
+    against non-frame instructions (its priority/depend-count order is kept,
+    matching retail), while `$ra` vs other saves is unchanged
+  - fixtures: `textbin/fun_002144d8`, `textbin/fun_00238520` -> 100.0
+  - parity: wide 270 -> 272 (+2 / zero regressions); joint gate 54/58 unchanged
+
+
+- `0032-anchor-all-pads.patch` SHA-256: `da022fae877139914004aefc9e20293b5e7bc2d5fbf6a173602ca2bbf8ffd8dc`
+  - cc1 (P26..P32 stack): `bc32cb311c2908fdce2ef582a1741582aec130725c863c9d58800737f4cd6307`
+  - role: place every pad NOP before the instruction preceding the branch so
+    the delay-slot filler sees that instruction first (retail geometry: two
+    pads before the branch, loop increment in the slot)
+  - fixture: `textbin/fun_002172c0` -> 100.0
+  - parity: wide 268 -> 270 (+2 / zero regressions); joint gate 54/58 unchanged
+
+
+- `0031-annul-traced-comparison.patch` SHA-256: `f1b0c7b29178733ef9e9a0994efb3704d736f19b4bd322480b5d11d0ad67d60b`
+  - cc1 (P26..P31 stack): `11cd3fac9a5bd1dad6edc57215a27f2d6ff028f3b923eea9913b4061b0f17e2f`
+  - role: default branch-likely fallback for branches whose tested register was
+    produced by an arithmetic comparison (`slt` etc.); uses the branch's own
+    zero test, safe because not-taken of `ne dest,0` implies dest is zero
+  - fixture: `textbin/fun_00220790` -> 100.0
+  - parity: wide 268 -> 269 (+1 / zero regressions); joint gate 54/58 unchanged
+
+
+- `0030-pad-before-preceding.patch` SHA-256: `69c094e45910293e0d05a11a8fd6818a5a871246b69136bd6fbddcd01b5bf148`
+  - cc1 (P26+P27+P28+P29+P30 stack): `3fc3a8e6aa24a0c9a538dae5cc933b1e3ace737dfabd2115c2a08bbd39c7fcd8`
+  - role: R5900 short-loop padding placement; a single pad NOP goes before the
+    instruction preceding the branch so the delay-slot filler can place a
+    useful instruction (movn) in the slot, with the NOP as fallback before the
+    branch (retail layout)
+  - fixtures: `textbin/fun_00215290`, `textbin/fun_00215300`,
+    `textbin/fun_00215348` -> 100.0
+  - in-scope textbin parity: +3 / 0 (155/213 exact); all-557 sweep 267 (the
+    four regressions are sdk/* units owned by the other compiler);
+    joint gate 54/58 unchanged
+
+
+- `0029-call-clobber-pending.patch` SHA-256: `c3031b4a0c88a03b19f82f74feb31455c5ee86f06f538ad869fbf9cf734f2af0`
+  - cc1 (P26+P28+P29 stack): `864f7d4e7fa77d2fba88f84831e804ad29b807a8439ff0d93436514cb3ae4b53`
+  - role: port the GCC 2.95.2 call-clobber dependency analysis (pending
+    clobbers instead of `reg_pending_sets`; keep `reg_last_uses`)
+  - effect: the a0/a1 argument-setup order, the `sq ra`/`sq s0` save order and
+    several scheduler tie-break classes now match SN by default
+  - wide promoted parity: 237 -> 266 exact (+29 / zero regressions);
+    joint gate 52 -> 54/58
+  - fixtures: fun_001f6940, fun_001f69d0, fun_001f6a60, fun_001f6af0,
+    fun_001f6b88, fun_001f6c20, fun_0021eaf0, fun_0021fd78, fun_00221a88,
+    fun_00222f58, fun_0023aa68, fun_0023bf18, fun_0023bb40, fun_0023bbb0
+
+
+- `0028-annul-ne-zero-default.patch` SHA-256: `037ca6b28fdd05e81a7bf37fcbe642068f633d3aae315b77f72959c0939690e4`
+  - cc1 (P26+P27+P28 stack): `d68136c9f12b886e0da0c5d4d7fa36a23b622fa569989b17a50e3ec6e7b530fb`
+  - role: default branch-likely for the late fallback; the P25 pass now runs
+    without a flag and only for the SN shape (NE zero-test with a const0
+    delay-slot write of the tested register)
+  - fixtures: `textbin/fun_0023d2d8`, `textbin/vo_buf_get_data` -> 100.0
+  - wide promoted parity: 237 -> 239 exact (+2 / zero regressions);
+    joint gate 52/58 unchanged
+  - counterexamples kept: `fun_002212b8` (EQ zero-clear, retail plain),
+    `fun_00215b10` (register-vs-register `bne`, retail plain)
+
+
+- `0027-gas-inline-float-literals.patch` SHA-256: `0272bee08529c415490f3f565f5a38846a98872fb972c81f8f17f07682605682`
+  - as (gas, with P20): `af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff`
+  - role: default assembler policy; synthesize `li.s` constants inline
+    (lui/ori/mtc1) instead of pooling them in `.lit4`, matching the retail SN
+    R5900 assembler; `li.d`/.lit8 pooling untouched
+  - fixtures: `textbin/fun_00206e18`, `textbin/fun_00207300`,
+    `textbin/fun_00213308`, `textbin/fun_002133d0` -> 100.0
+  - wide promoted parity: 233 -> 237 exact (+4, zero regressions) on the
+    production route; joint gate 52/58 unchanged
+
+
+- `0026-frame-save-first.patch` SHA-256: `9d42deb1f3e92ce6ae8f46ae1672a5c03ca93f9fd80d3f4f664461c2c03a12de`
+  - cc1 (P1+P15+P22+P16+P19+P21+P25+P26 stack): `9ea59250181268d93c75de980c04679e3ae529a262db820408836d4c4f35df6f`
+  - role: default scheduler order; prefer frame-related stores (prologue saves)
+    in `rank_for_schedule`, reproducing retail's save/move interleaving in the
+    prologue (the previous chain let the depend-count heuristic rank the
+    anti-dependent parameter move ahead of the next save)
+  - fixtures: `textbin/fun_001f6530`, `textbin/fun_001f65b0`,
+    `textbin/fun_001f6fd0`, `textbin/fun_001f7580`, `textbin/fun_001f75f0`,
+    `textbin/fun_00214530` -> 100.0
+  - wide promoted parity: 227 -> 233 exact (+6, zero regressions) on the
+    production route (ELF as); 231 -> 237 through the ASTRA wrapper route
+  - joint gate: 52/58 controls, zero change
+  - rejected variants (all measured): remove depend_count 15/28; anti-dep
+    class 2 1/7; flip sign 7/47; fewer true deps 9/65; prefer any memory insn
+    5/12; prefer all frame-related insns 6/1
+
+
 - `0001-r5900-quad-saves.patch` SHA-256: `13f54afb0045ea80d98e03b1b31417593f11abfaaf6fc254a8d41d750f75406f`
   - role: R5900 quadword-save parity prerequisite for the cumulative game compiler
 - `0015-no-sibcall.patch` SHA-256: `63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071`

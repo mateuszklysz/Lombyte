@@ -1,0 +1,43 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "patch": "0030-pad-before-preceding.patch",
+  "sha256": "69c094e45910293e0d05a11a8fd6818a5a871246b69136bd6fbddcd01b5bf148",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (game/textbin route; replaces the SN binary as parity lands)",
+  "role": "R5900 short-loop padding placement: a single pad NOP is emitted before the instruction preceding the branch, so the delayed-branch filler examines that instruction first (allowing a movn to fill the delay slot) while the NOP stays in front of the branch as a fallback, matching the retail layout. The loop length counts the branch itself when the preceding instruction is a slot candidate.",
+  "mechanism": "gcc/config/mips/mips.c mips_r5900_lengthen_loops(): compute stealable = preceding non-note insn is a plain INSN; pads = 7 - (distance + (stealable ? 1 : 0)); anchor = preceding insn when stealable and pads == 1; emit nops before the anchor.",
+  "evidence": {
+    "in_scope_conversions": [
+      "textbin/fun_00215290",
+      "textbin/fun_00215300",
+      "textbin/fun_00215348"
+    ],
+    "in_scope_regressions": [],
+    "out_of_scope": "4 sdk/* units regress under the game compiler; those units are built by the native EE-GCC 2.9 route and are out of this patch stack's scope",
+    "movn_root_cause": "pre-dbr pad NOPs sat between the movn and the branch, so the filler stole the NOP; retail and the SN 2.95.2 oracle both put the movn (insn code 506) into the slot"
+  },
+  "measurements": {
+    "wide_sweep_all_557": {
+      "exact": 267,
+      "base": 268,
+      "conversions": 3,
+      "regressions": 4
+    },
+    "wide_sweep_textbin_scope": {
+      "conversions": 3,
+      "regressions": 0,
+      "exact": 155,
+      "total": 213
+    },
+    "joint_control_gate": {
+      "exact": 54,
+      "controls": 58
+    }
+  },
+  "cc1_sha256": "3fc3a8e6aa24a0c9a538dae5cc933b1e3ace737dfabd2115c2a08bbd39c7fcd8",
+  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p38padsmart/summary.json",
+    "build/workspace/astra-991111b/parity-p38.json"
+  ]
+}

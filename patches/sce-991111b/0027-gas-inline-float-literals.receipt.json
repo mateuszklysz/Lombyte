@@ -1,0 +1,30 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b (gas)",
+  "patch": "0027-gas-inline-float-literals.patch",
+  "sha256": "0272bee08529c415490f3f565f5a38846a98872fb972c81f8f17f07682605682",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b binutils/gas (patched assembler; SN parity target)",
+  "role": "Default assembler policy: synthesize li.s constants inline (lui/ori/mtc1) instead of pooling them in .lit4, matching the retail SN R5900 assembler.",
+  "mechanism": "gas/config/tc-mips.c mips_ip(): the 'l' (li.s) operand format now always takes the immediate path (imm_expr = O_constant) instead of falling through to the .lit4 pool when the value needs both halves. li.d (.lit8) pooling is untouched.",
+  "evidence": {
+    "wrapper_probe": "the ASTRA assembler wrapper (Python, build/workspace/astra-991111b/corpus/variants/prod-p25c-v2/toolchain/as) already reproduced this policy by text rewriting and was worth 4 exact units on the harness route",
+    "measured": "production route (cc1 9ea59250 + patched gas): wide promoted 233 -> 237 exact, +4 / 0 regressions",
+    "units": [
+      "textbin/fun_00206e18",
+      "textbin/fun_00207300",
+      "textbin/fun_00213308",
+      "textbin/fun_002133d0"
+    ]
+  },
+  "joint_control_gate": {
+    "exact": 52,
+    "controls": 58
+  },
+  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
+  "cc1_sha256": "9ea59250181268d93c75de980c04679e3ae529a262db820408836d4c4f35df6f",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p27-gas/summary.json",
+    "build/workspace/astra-991111b/sweep-p26-elf-new/summary.json",
+    "build/workspace/astra-991111b/parity-p27-final.json"
+  ]
+}
