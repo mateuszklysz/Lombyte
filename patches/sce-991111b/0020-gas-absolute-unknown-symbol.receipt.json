@@ -1,0 +1,63 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "component": "gas (GNU assembler from the same recovered tree)",
+  "patch": "0020-gas-absolute-unknown-symbol.patch",
+  "sha256": "1d0a65b5e800785b58d8826baa87c1cb44dc217b47cb6da1b255787367e2383b",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
+  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
+  "role": "R5900 assembler parity: the gp->absolute expansion of a relaxable load/store or la pair must produce the retail `lui base,0` + `op %lo(base)` form.",
+  "mechanism": "md_convert_frag's expansion memcpy copies the pair and is entered twice for the same frag, so the first slot ends up holding a copy of the second instruction. After the copy, rebuild the first word as `lui base,0` with the base register taken from the second instruction's rs field (only the 4/8-byte, NO_PIC ld_st/la pairs). The rewrite is idempotent, and symbols that do get a .extern size keep the deferred gp relaxation.",
+  "assembler_sha256": "2e020354a58d583ac647f051c39702fabd2d5d64816a20173bdd633d8fc3f376",
+  "cc1_sha256": "5db99bf745e1df0c77d649ca2f2d6c50ef5619bbd0e7bd46c6cb938624512b5f",
+  "stack": [
+    "0001-r5900-quad-saves.patch",
+    "0015-no-sibcall.patch",
+    "0016-no-edge-lcm-default.patch",
+    "0019-r5900-post-dbr-loop-pad.patch",
+    "0020-gas-absolute-unknown-symbol.patch"
+  ],
+  "exact_fixtures": [
+    {
+      "unit": "textbin/fun_0023b590",
+      "symbol": "FUN_0023b590",
+      "flags": "-mno-split-addresses",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "textbin/fun_0023aba0",
+      "symbol": "FUN_0023aba0",
+      "flags": "-mno-split-addresses",
+      "code_percent": 100.0
+    },
+    {
+      "unit": "ee/initialize_streaming_state",
+      "symbol": "InitializeStreamingState",
+      "flags": "-mno-split-addresses",
+      "code_percent": 100.0
+    }
+  ],
+  "fidelity_probes": [
+    "`sw $2,D_X` with D_X undefined and no .extern -> gas now emits 0x3c010000 lui at,0 + 0xac220000 sw (was two sw words with HI16/LO16)",
+    "`.extern D_X,4` after the use -> still relaxes to a single gp-relative sw (deferred decision preserved)",
+    "`.extern D_X,16` before the use -> lui+sw (unchanged)",
+    "`la $4,D_X` undefined -> lui a0,0 + addiu a0,a0,0 (was two addiu words)"
+  ],
+  "control_parity": {
+    "controls": 58,
+    "exact_before": 26,
+    "exact_after": 30,
+    "exact_regressions": [],
+    "fuzzy_changes": "none; every other control is byte-identical across the patch",
+    "per_unit_flags": [
+      "textbin/fun_001f6250: -mastra-no-sibcall (P15 gate; corpus row updated to the production per-unit route)"
+    ],
+    "evidence": "build/workspace/astra-991111b/p20v3-parity.json (variant) and build/workspace/astra-991111b/game-production-parity.json (installed)"
+  },
+  "wall_control": {
+    "units": 11,
+    "note": "byte-identical to the P19 stack on every wall probe"
+  },
+  "published_at": "2026-09-20T11:05:00+00:00"
+}
