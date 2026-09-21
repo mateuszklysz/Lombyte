@@ -1,3 +1,12 @@
+/*
+STATE: C_NON_MATCHING
+SYMBOL: FUN_00231ff0
+SCORE: code=74.6809 functions=74.6809 data=100 complete_data=100
+COMPILER: ee-gcc-2.9-991111b/r4 -O2 -g2 -gstabs (SN textbin default)
+DECISION: retained
+BLOCKER: register-allocation,delay-slot-scheduling
+*/
+
 /* NON_MATCHING FALLBACK (descriptive C retained for coverage)
  * direct code match: 74.6809%
  * blocker: the logic is correct but register/stack/delay code generation is blocked
