@@ -1,39 +1,24 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_00221968
-SCORE: code=8 functions=0 data=100 complete_data=100
-COMPILER: none (stale stamp)
-DECISION: stuck
-BLOCKER: prologue order: retail adjusts sp before the first load; neither the game compiler nor the SN oracle reproduces retail
-NOTE: demoted 2026-09-20: no expected object; best reloc-masked instruction match vs retail 8% (game compiler) / 7% (SN with -mno-split-addresses); see COMPILER_PHASE_PLAN AQ4
+SCORE: code=95.5455 functions=95.5455 data=100 complete_data=100
+COMPILER: ee-gcc-2.9-991111b/r4 -O2 -g2 -gstabs (SN textbin default)
+DECISION: retained
+BLOCKER: register-allocation,delay-slot-scheduling
 */
 
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 95.5455%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
+#include "asm.h"
 
-struct M2c_D_001D5BF0
-{
-  u8 pad_0[0x4];
-  struct M2c_D_001D5BF0_unk4 *unk4;
-  s32 unk8;
-  s32 unkC;
-  u8 pad_10[0xD4];
-  s32 unkE4;
-  u8 pad_E8[0x8];
-  s32 unkF0;
-  s32 unkF4;
-  u8 pad_F8[0x2C];
-  s32 unk124;
-};
-struct M2c_D_001D5BF0_unk4
-{
-  u8 pad_0[0x38];
-  s32 unk38;
-};
-struct M2c_arg0
-{
-  u8 pad_0[0x14];
-  s32 unk14;
-};
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00221968/FUN_00221968.s", FUN_00221968);
+#else
+#include "rnc/textbin_fun_00221968_types.h"
 extern s32 D_0013CB04[];
 extern s32 D_0015ED84;
 extern s32 D_001A0314[];
@@ -99,3 +84,4 @@ s32 FUN_00221968(struct M2c_arg0 *arg0)
 
 
 }
+#endif /* NON_MATCHING */

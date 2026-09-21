@@ -1,24 +1,28 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_002267b8
-SCORE: code=11 functions=0 data=100 complete_data=100
-COMPILER: none (stale stamp)
-DECISION: stuck
-BLOCKER: address materialization: retail shares the lui page and keeps a base copy (move t2,v0) with member displacements; ours folds the member offset into the address
-NOTE: demoted 2026-09-20: no expected object; best reloc-masked instruction match vs retail 11% (game compiler, -mno-split-addresses); a base-pointer source variant fixes folding but loses 2 instructions; see COMPILER_PHASE_PLAN AQ4
+SCORE: code=94.1667 functions=94.1667 data=100 complete_data=100
+COMPILER: ee-gcc-2.9-991111b/r4 -O2 -g2 -gstabs (SN textbin default)
+DECISION: retained
+BLOCKER: register-allocation,delay-slot-scheduling
 */
 
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 94.1667%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
-struct M2c_D_001D5BF0 {
-    u8 pad_0[0xA8];
-    s32 unkA8;
-    s32 unkAC;
-};
+#include "asm.h"
 
-struct M2c_var_5_18 {
-    s32 unk0;
-    s32 unk4;
-};
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002267b8/FUN_002267b8.s", FUN_002267b8);
+#else
+#include "rnc/textbin_fun_002267b8_types.h"
+#include "types.h"
+
+
+
 
 extern u8 D_001B3200[];
 extern u8 D_001B3AC0[];
@@ -56,5 +60,4 @@ void FUN_002267b8(void) {
     }
     D_001D5BF0.unkAC = 0;
 }
-
-extern void func_002267B8(void) __attribute__((alias("FUN_002267b8")));
+#endif /* NON_MATCHING */

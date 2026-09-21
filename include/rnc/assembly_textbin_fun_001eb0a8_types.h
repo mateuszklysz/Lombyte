@@ -13,7 +13,7 @@ struct M2c_D_0018CB20 {
     u8 pad_46[0x2];
 };
 
-struct M2c_temp_17_66 {
+struct M2c_temp_17_70 {
     u8 pad_0[0x50];
     u8 unk50;
     u8 unk51;

@@ -1,11 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_001f39d0
-SCORE: code=80.3635 functions=80.3635 data=100 complete_data=100
-DECISION: retained
-BLOCKER: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 84.6458%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -74,8 +71,8 @@ extern s32 func_001F2260();
 extern s32 func_001F2588();
 extern s32 func_001F2C10();
 extern s32 func_001F3868();
-extern s32 func_001F4280();
-extern s32 func_001F4398();
+extern void func_001F4280();
+extern void func_001F4398();
 extern s32 func_001F4650();
 extern s32 func_001F46C8();
 extern s32 func_001F4740();
@@ -97,7 +94,7 @@ extern s32 func_001FF780();
 extern s32 func_0020CC60();
 extern s32 func_0020CEF8();
 extern s32 func_0020D460();
-extern s32 func_00217C18();
+extern void func_00217C18();
 extern s32 func_00228A30();
 extern s32 func_00228B38();
 extern s32 func_0022A5E0();
@@ -108,7 +105,7 @@ extern s32 func_002337B0();
 extern s32 func_00233830();
 extern s32 func_00233980();
 extern s32 func_00233BC8();
-extern s32 func_00233C28();
+extern void func_00233C28();
 extern s32 func_00234F98();
 extern s32 func_00235780();
 extern s32 func_00235840();
@@ -137,7 +134,7 @@ void FUN_001f39d0(void) {
     if (D_0018A2B0.unk8 == 0) {
         goto block_5;
     }
-    if (D_0018C34C == 0) {
+    if ((*(s32 *)0x18C34C) == 0) {
         goto block_6;
     }
 block_5:
@@ -164,13 +161,13 @@ block_10:
     func_001F21B8(D_0015F390, 0xE);
     func_001F21B0(D_0015F390, 0xE);
 block_11:
-    if (!(D_0015F434 & 2)) {
+    if (!(*(s32 *)0x15F434 & 2)) {
         goto block_13;
     }
     func_002333A8();
 block_13:
     AppendDmaTag(0x02010000);
-    if (!(D_0015F434 & 4)) {
+    if (!(*(s32 *)0x15F434 & 4)) {
         goto block_17;
     }
     if (D_0015ED80 == 0) {
@@ -197,7 +194,7 @@ block_20:
 block_21:
     func_001F21B0(D_0015F3A0, 6);
     func_001F21B8(D_0015F3A0, 6);
-    if (!(D_0015F434 & 8)) {
+    if (!(*(s32 *)0x15F434 & 8)) {
         goto block_23;
     }
     func_00228B38();
@@ -212,7 +209,7 @@ block_23:
     func_001F5138(D_0015F370);
 block_26:
 block_27:
-    if (!(D_0015F434 & 0x20)) {
+    if (!(*(s32 *)0x15F434 & 0x20)) {
         goto block_29;
     }
     func_001F4280(1);
@@ -232,14 +229,14 @@ block_29:
     func_00233BC8();
 block_32:
 block_33:
-    if (!(D_0015F434 & 0x10)) {
+    if (!(*(s32 *)0x15F434 & 0x10)) {
         goto block_35;
     }
     func_0020D460();
 block_35:
     AppendDmaTag(0x02080000);
     func_001F4280(0);
-    if (!(D_0015F434 & 0x20)) {
+    if (!(*(s32 *)0x15F434 & 0x20)) {
         goto block_39;
     }
     if (D_0018A2B0.unk30 == 0) {
@@ -248,12 +245,12 @@ block_35:
     if (D_0015F620 == 6) {
         goto block_39;
     }
-    func_00233830(D_0010FAA0, D_0010FA90);
+    func_00233830(D_0010FAA0, *(s32 *)0x10FA90);
     D_0015F620 = 6;
 block_39:
     func_001F21B8(D_0015F3B0, 4);
     func_001F21B0(D_0015F3B0, 4);
-    if (!(D_0015F434 & 0x20)) {
+    if (!(*(s32 *)0x15F434 & 0x20)) {
         goto block_53;
     }
     func_00233C28();
@@ -311,8 +308,8 @@ block_53:
 block_55:
     func_001F21B8(D_0015F3F0, 0xF);
     func_00233C28();
-    temp_2_321 = D_0015F434;
-    if (!(D_0015F434 & 0x10000)) {
+    temp_2_321 = *(s32 *)0x15F434;
+    if (!(*(s32 *)0x15F434 & 0x10000)) {
         goto block_57;
     }
     func_00237A70();
@@ -332,7 +329,7 @@ block_61:
     if (temp_3_329 != 2) {
         goto block_64;
     }
-    if (D_0015EE40 == 0) {
+    if (*(s32 *)0x15EE40 == 0) {
         goto block_64;
     }
     func_001F4BE0();
@@ -340,7 +337,7 @@ block_64:
     func_001F21B8(D_0015F3F8, 0xE);
     func_001F21B0(D_0015F3F8, 0xE);
     func_001F4398();
-    if (!(D_0015F434 & 0x40)) {
+    if (!(*(s32 *)0x15F434 & 0x40)) {
         goto block_83;
     }
     if (D_0018A2B0.unk44 == 0) {
@@ -350,7 +347,7 @@ block_64:
     if (D_001872D4[0] == 0) {
         goto block_68;
     }
-    func_001F5210(D_001610C0, D_001610C1, D_001610C2, D_001610C3);
+    func_001F5210(D_001610C0, *(s32 *)0x1610C1, *(s32 *)0x1610C2, D_001610C3);
 block_68:
     if (D_0015F43C > 0.0f) {
         goto block_70;
@@ -389,6 +386,7 @@ block_83:
     func_002334D8(D_00100AE0);
     FlushCache(0);
     temp_f1_469 = func_001FA6C0(*(s32 *)0x10000800);
+    __asm__ volatile ("" : "+f" (temp_f1_469));
     var_f0_471 = 9600.0f;
     if (D_0015ED80 == 0) {
         goto block_85;
@@ -398,7 +396,7 @@ block_85:
     D_0015F614 = temp_f1_469 / var_f0_471;
     func_002337B0(2);
     func_001F21B0(D_0015F410, 0x11);
-    if (!(D_0015F434 & 2)) {
+    if (!(*(s32 *)0x15F434 & 2)) {
         goto block_89;
     }
     if (D_0018A2B0.unk10 == 0) {
@@ -411,7 +409,7 @@ block_88:
 block_89:
     func_002337B0(4);
     func_001F21B0(D_0015F410, 0x11);
-    if (!(D_0015F434 & 4)) {
+    if (!(*(s32 *)0x15F434 & 4)) {
         goto block_97;
     }
     if (D_0018A2B0.unk18 == 0) {
@@ -433,7 +431,7 @@ block_96:
 block_97:
     func_002337B0(8);
     func_001F21B0(D_0015F410, 0x11);
-    if (!(D_0015F434 & 8)) {
+    if (!(*(s32 *)0x15F434 & 8)) {
         goto block_101;
     }
     if (D_0018A2B0.unk20 == 0) {
@@ -446,7 +444,7 @@ block_100:
 block_101:
     func_002337B0(0x10);
     func_001F21B0(D_0015F410, 0x11);
-    if (!(D_0015F434 & 0x10)) {
+    if (!(*(s32 *)0x15F434 & 0x10)) {
         goto block_105;
     }
     if (D_0018A2B0.unk28 == 0) {

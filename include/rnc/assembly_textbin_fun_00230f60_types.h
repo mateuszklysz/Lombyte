@@ -46,7 +46,7 @@ struct M2c_D_0019E6C0 {
     s64 unk10;
 };
 
-struct M2c_temp_20_93 {
+struct M2c_temp_20_100 {
     s32 unk0;
     s32 unk4;
     s32 unk8;
@@ -71,17 +71,17 @@ struct M2c_temp_20_93 {
     s32 unk64;
 };
 
-struct M2c_var_16_142 {
+struct M2c_var_16_149 {
     s32 unk0;
     s32 unk4;
 };
 
-struct M2c_var_16_175 {
+struct M2c_var_16_182 {
     s32 unk0;
     s32 unk4;
 };
 
-struct M2c_var_5_374 {
+struct M2c_var_5_381 {
     s32 unk0;
     s32 unk4;
 };
