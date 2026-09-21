@@ -3,6 +3,9 @@
 
 #include "types.h"
 
-typedef struct ADXF_PTINFO { char _pad[8]; Sint32 nfile; } ADXF_PTINFO;
+struct M2c_D_00194120 {
+    u8 pad_0[0x8];
+    s32 unk8;
+};
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_00213508_TYPES_H */

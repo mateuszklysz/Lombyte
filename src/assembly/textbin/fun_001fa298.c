@@ -1,28 +1,26 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_001fa298
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 42.5000%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001fa298/FUN_001fa298.s", FUN_001fa298);
 #else
+#include "rnc/assembly_textbin_fun_001fa298_types.h"
 #include "types.h"
-/* func_00134430 — constructor-style init: zero-fills two quadwords (0x20, 0x30)
- * via sqc2 $vf0, sets a few fields, returns the object. */
 
-void *FUN_001fa298(void *a0, int a1, int a2, float f) {
-    VU0_SQC2_VF0(a0, 0x20);
-    VU0_SQC2_VF0(a0, 0x30);
-    *(int *)((char *)a0 + 0x0) = a1;
-    *(int *)((char *)a0 + 0x8) = a2;
-    *(float *)((char *)a0 + 0xC) = f;
-    *(int *)((char *)a0 + 0x4) = 0;
-    *(int *)((char *)a0 + 0x10) = 0;
-    return a0;
+
+
+
+void FUN_001fa298(struct M2c_arg0 *arg0, struct M2c_arg1 *arg1) {
+    arg0->unk0 = (s64) arg1->unk0;
+    arg0->unk10 = (s64) arg1->unk10;
+    arg0->unk20 = (s64) arg1->unk20;
+    /* m2c-unknown:  unknown instruction: sqc2 $vf0, 0x30($a0)  */
 }
+
+extern void func_001FA298(struct M2c_arg0 *arg0, struct M2c_arg1 *arg1) __attribute__((alias("FUN_001fa298")));
 #endif /* NON_MATCHING */

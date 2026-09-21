@@ -1,70 +1,69 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0021e698
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 21.1842%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021e698/FUN_0021e698.s", FUN_0021e698);
 #else
+#include "rnc/assembly_textbin_fun_0021e698_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void func_002A8578(void *a0, int a1, int a2, float f, int a3, int t0, int t1);
-extern int moveMotion(void *a0);
-
-/* sn-2.95.3-136 matched TU. */
 
 
 
 
 
-void FUN_0021e698(void *a0) {
-    char *s0 = (char *)a0;
-    int v0;
-    unsigned long t0 = 0;
-    switch (*(unsigned char *)(s0 + 0x2F6)) {
-    case 0:
-        v0 = *(int *)(s0 + 0x304);
-        func_002A8578(s0, *(int *)(v0 + 0x14) + v0, *(int *)(v0 + 0x18) + v0, 0.0f, 5, t0, 0);
-        *(int *)(s0 + 0x5F0) = 1;
-        *(unsigned char *)(s0 + 0x2F6) = *(unsigned char *)(s0 + 0x2F6) + 1;
-        /* fallthrough */
-    case 1:
-        moveMotion(s0);
-        break;
-    case 2:
-        v0 = *(int *)(s0 + 0x304);
-        func_002A8578(s0, *(int *)(v0 + 0x1C) + v0, *(int *)(v0 + 0x20) + v0, 0.0f, 5, t0, 0);
-        *(int *)(s0 + 0x5F0) = 1;
-        *(unsigned char *)(s0 + 0x2F6) = *(unsigned char *)(s0 + 0x2F6) + 1;
-        /* fallthrough */
-    case 3:
-        if (moveMotion(s0) != 0) {
-            *(unsigned char *)(s0 + 0x2F4) = 0;
-            *(unsigned char *)(s0 + 0x2F5) = 0;
-            *(unsigned char *)(s0 + 0x2F6) = 0;
-            *(unsigned char *)(s0 + 0x2F7) = 0;
-        }
-        break;
-    case 4:
-        v0 = *(int *)(s0 + 0x304);
-        func_002A8578(s0, *(int *)(v0 + 0x24) + v0, *(int *)(v0 + 0x28) + v0, 0.0f, 5, t0, 0);
-        *(int *)(s0 + 0x5F0) = 1;
-        *(unsigned char *)(s0 + 0x2F6) = *(unsigned char *)(s0 + 0x2F6) + 1;
-        /* fallthrough */
-    case 5:
-        if (moveMotion(s0) != 0) {
-            *(unsigned char *)(s0 + 0x2F4) = 0;
-            *(unsigned char *)(s0 + 0x2F5) = 0;
-            *(unsigned char *)(s0 + 0x2F6) = 0;
-            *(unsigned char *)(s0 + 0x2F7) = 0;
-        }
-        break;
+
+
+
+
+
+extern struct M2c_D_00186F40 D_00186F40;
+extern u8 D_001E0408[];
+extern s32 func_001F9DC8();
+extern s32 func_001F9DE0();
+void FUN_0021e698(struct M2c_arg0 *arg0) {
+    f32 temp_f0_59;
+    f32 temp_f20_54;
+    f32 temp_f22_56;
+    f32 temp_f23_60;
+    f32 var_f0_29;
+    s32 temp_4_24;
+    s32 temp_4_32;
+    s32 temp_5_16;
+    s32 var_6_26;
+    struct M2c_temp_2_14 *temp_2_14;
+    struct M2c_temp_2_41 *temp_2_41;
+    struct M2c_temp_3_15 *temp_3_15;
+
+    temp_2_14 = arg0->unk78;
+    temp_3_15 = temp_2_14->unk0;
+    temp_5_16 = temp_2_14->unkC;
+    arg0->unk48 = (f32) temp_3_15->unk38;
+    if (temp_3_15->unk30 & 1) {
+        temp_4_24 = temp_5_16 << 5;
+        var_6_26 = temp_4_24;
+        var_f0_29 = *(temp_4_24 + D_001E0408);
+    __asm__ volatile ("" : "+f" (var_f0_29));
+    } else {
+        temp_4_32 = temp_5_16 << 5;
+        var_6_26 = temp_4_32;
+        var_f0_29 = *(s32 *)((u8 *)(D_001E0408 + temp_4_32) + 0x4);
     }
+    arg0->unk10 = (f32) (D_00186F40.unk140 + var_f0_29);
+    temp_2_41 = D_001E0408 + var_6_26;
+    arg0->unk14 = (f32) (D_00186F40.unk144 + temp_2_41->unk8);
+    arg0->unk18 = (f32) (D_00186F40.unk148 + temp_2_41->unkC);
+    temp_f20_54 = temp_2_41->unk1C;
+    temp_f22_56 = temp_2_41->unk18;
+    temp_f23_60 = func_001F9DC8(&D_00186F40, temp_2_41, var_6_26, &D_00186F40, arg0->unk48);
+    temp_f0_59 = func_001F9DE0(arg0->unk48);
+    arg0->unk14 = (f32) (arg0->unk14 + ((temp_f20_54 * temp_f23_60) + (temp_f22_56 * temp_f0_59)));
+    arg0->unk10 = (f32) (arg0->unk10 + ((-temp_f20_54 * temp_f0_59) + (temp_f22_56 * temp_f23_60)));
 }
+
+extern void func_0021E698(struct M2c_arg0 *arg0) __attribute__((alias("FUN_0021e698")));
 #endif /* NON_MATCHING */

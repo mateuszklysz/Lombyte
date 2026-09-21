@@ -1,61 +1,63 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: UpdateAllPointLights
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered whole function `UpdateAllPointLights`. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 35.4479%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/update_all_point_lights/FUN_00201a28.s", FUN_00201a28);
 #else
+#include "rnc/assembly_textbin_update_all_point_lights_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern unsigned char D_0044AF78;
-extern signed char D_00747A0C;
-extern int D_00583F20[];
-extern char D_0044AF80[];
-extern char D_0044AF90[];
-extern char D_0044AFA8[];
-extern char D_0044AFC0[];
-extern char D_0044AFD8[];
-extern char D_0044AFF0[];
-extern char D_0044B008[];
-extern void func_003A52F0(void *a0, int a1, int a2);
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern void func_003A57C4(void *a0, void *a1);
-extern int cDvd_FileExist(void *a0, void *a1);
 
-int FUN_00201a28(void *a0, void *a1, void *a2, signed char a3) {
-    char buf[0x80];
-    void *s2 = a1;
-    void *s1 = a2;
-    volatile int idx = a3;
-    buf[0] = D_0044AF78;
-    func_003A52F0(&buf[1], 0, 0x7F);
-    if (idx == -1) idx = D_00747A0C;
-    if ((unsigned int)idx < 7) {
-        switch (idx) {
-        case 0: func_003A6C58(buf, D_0044AF80, s1); break;
-        case 1: func_003A6C58(buf, D_0044AF90, s1); break;
-        case 2: func_003A6C58(buf, D_0044AFA8, s1); break;
-        case 3: func_003A6C58(buf, D_0044AFC0, s1); break;
-        case 4: func_003A6C58(buf, D_0044AFD8, s1); break;
-        case 5: func_003A6C58(buf, D_0044AFF0, s1); break;
-        case 6: func_003A6C58(buf, D_0044B008, s1); break;
+
+
+extern s32 D_00187098;
+extern struct M2c_D_0019BDC0 D_0019BDC0;
+extern u8 D_0019C1C0[];
+extern u8 D_0019C3C0[];
+extern s32 func_001F9B48();
+extern s32 func_001F9DC8();
+extern s32 func_001F9DE0();
+extern s32 func_001FA580();
+extern s32 func_00201BA8();
+extern s32 func_00201F58();
+void FUN_00201a28(void) {
+    f32 temp_f0_33;
+    s64 *var_18_57;
+    s32 temp_2_72;
+    s32 var_19_21;
+    struct M2c_var_17_55 *var_17_55;
+
+    var_19_21 = 0;
+    D_0019BDC0.unk34C = -0.3f;
+    D_0019BDC0.unk348 = 0.8f;
+    D_0019BDC0.unk340 = 0.8f;
+    D_0019BDC0.unk344 = 0.8f;
+    temp_f0_33 = func_001FA580(D_00187098, 0xBF4CCCCD);
+    D_0019BDC0.unk350 = (f32) (func_001F9DC8(temp_f0_33) * 0.866f);
+    D_0019BDC0.unk354 = (f32) (func_001F9DE0(temp_f0_33) * 0.866f);
+    var_17_55 = D_0019C3C0 + 0x20;
+    D_0019BDC0.unk358 = -0.5f;
+    var_18_57 = D_0019C1C0 + 0x10;
+    D_0019BDC0.unk35C = 0;
+    do {
+        if ((*(s32 *)((u8 *)var_17_55 - 0x10) != 0) && (func_001F9B48(var_18_57, var_17_55) > 8.0f)) {
+            var_17_55->unk0 = (s64) *var_18_57;
+            temp_2_72 = *(s32 *)((u8 *)var_17_55 - 0x10);
+            if (temp_2_72 == 1) {
+                func_00201BA8(var_19_21);
+                *(s32 *)((u8 *)var_17_55 - 0x10) = 2;
+            } else if (temp_2_72 == 2) {
+                func_00201F58(var_19_21);
+            }
         }
-    }
-    if (cDvd_FileExist(D_00583F20, buf)) {
-        func_003A57C4(s2, buf);
-        return 1;
-    }
-    func_003A6C58(buf, D_0044AF80, s1);
-    func_003A57C4(s2, buf);
-    return 0;
+        var_19_21 += 1;
+        var_17_55 += 0x30;
+        var_18_57 += 0x20;
+    } while (var_19_21 < 8);
 }
 #endif /* NON_MATCHING */

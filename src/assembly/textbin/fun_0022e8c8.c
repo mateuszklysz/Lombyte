@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0022e8c8
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 32.4937%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -12,55 +10,63 @@ DECISION: retained (pending)
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022e8c8/FUN_0022e8c8.s", FUN_0022e8c8);
 #else
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
+extern s32 D_0015ED84[];
+extern u8 D_001604F0[];
+extern s32 D_00160580;
+extern u8 D_001D97B0[];
+extern u8 D_001D9A50[];
+extern u8 D_001D9A90[];
+extern s32 func_001F7D30();
+extern s32 func_001F98D0();
+extern s32 func_001F9A10();
+extern s32 func_001F9A68();
+extern s32 func_00233980();
+void FUN_0022e8c8(void) {
+u8 sp_slot[0x100];    s32 sp40;
+    s32 sp50;
+    s64 sp70;
+    s64 sp78;
+    s64 sp80;
+    s64 sp88;
+    s32 *var_20_46;
+    f32 var_f20_16;
+    s32 *var_17_49;
+    s32 var_19_50;
+    s32 *temp_4_59;
+    s32 *temp_5_60;
+    s32 *var_16_48;
 
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern int D_00747A30;
-extern unsigned char D_0044A920[];
-extern unsigned char D_0044A940[];
-extern unsigned char D_0044A958[];
-extern unsigned char D_005E8640[];
-extern void cRelSys_unlinkNoFree(void *a0, int a1);
-extern void func_00297660(void);
-extern void cEventConfig_setEventNo(void *a0, int a1);
-extern unsigned char D_00586B30[];
-
-void FUN_0022e8c8(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    char buf[0x40];
-    unsigned long b = *(unsigned char *)(s0 + 8);
-    int a1;
-    if ((b >> 7) == 0) {
-        if (D_00747A30 & 0x400) {
-            func_003A6C58(buf, D_0044A920, D_0044A940);
-        } else {
-            func_003A6C58(buf, D_0044A958, D_0044A940);
-        }
-        a1 = *(int *)(s0 + 0x10);
-        if (a1 != 0) {
-            cRelSys_linkNoAlloc(D_005E8640, a1, buf, 2);
-            *(int *)(s0 + 8) = *(int *)(s0 + 8) | 0x80;
-        }
+    func_00233980(0x47, 0x31801);
+    var_f20_16 = 1.0f;
+    sp88 = (0x8000 << 0x18) | 0x44;
+    sp78 = D_00160580;
+    sp80 = (0xFF90 << 0x20) | 0x260;
+    sp70 = 0;
+    func_001F98D0(&sp50, D_001D97B0, 0x20);
+    if ((u32) D_0015ED84[0] >= 0x13U) {
+        goto block_2;
     }
-}
-
-void ClearDisplayText_2974F0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long v0 = *(unsigned char *)(s0 + 8);
-    if (v0 >> 7) {
-        cRelSys_unlinkNoFree(D_005E8640, 2);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) & -0x81;
+    var_f20_16 = *((D_0015ED84[0] * 4) + D_001D9A90);
+block_2:
+    var_20_46 = D_001D9A50;
+    var_16_48 = sp_slot;
+    var_17_49 = &sp40;
+    var_19_50 = 3;
+loop_3:
+    *var_17_49 = 0x80808080;
+    func_001F9A68(var_16_48, var_20_46, var_f20_16);
+    var_20_46 += 0x10;
+    temp_4_59 = var_16_48;
+    temp_5_60 = var_16_48;
+    var_16_48 += 0x10;
+    func_001F9A10(temp_4_59, temp_5_60, D_001604F0);
+    var_19_50 -= 1;
+    var_17_49 += 4;
+    if (var_19_50 >= 0) {
+        goto loop_3;
     }
-}
-
-void InitSubState_2975F8(void *a0, int a1) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long t = *(int *)(s0 + 8);
-    if (((t >> 1) & 1) == 0) {
-        func_00297660();
-        *(int *)(s0 + 0x18) = a1;
-        cEventConfig_setEventNo(D_00586B30, a1);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) | 2;
-    }
+    func_001F7D30(sp_slot, 0, 0);
+    func_00233980(0x47, 0x5360B);
+    return;
 }
 #endif /* NON_MATCHING */

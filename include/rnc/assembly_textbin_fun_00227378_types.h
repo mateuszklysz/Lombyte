@@ -16,12 +16,12 @@ struct M2c_D_00160F00 {
     s32 unkC;
 };
 
-struct M2c_temp_24_53 {
+struct M2c_temp_24_51 {
     u8 pad_0[0x10];
     s64 unk10;
 };
 
-struct M2c_temp_2_54 {
+struct M2c_temp_2_52 {
     u8 pad_0[0x8];
     s32 unk8;
     u8 pad_C[0x4];
@@ -40,7 +40,7 @@ struct M2c_temp_2_54 {
     s32 unk48;
 };
 
-struct M2c_var_5_79 {
+struct M2c_var_5_77 {
     s64 unk0;
     s32 unk8;
 };

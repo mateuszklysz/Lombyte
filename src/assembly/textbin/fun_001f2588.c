@@ -1,69 +1,68 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: UpdateFog__Fi
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `UpdateFog__Fi` starts here; this unit covers only its beginning. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 36.4615%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f2588/FUN_001f2588.s", FUN_001f2588);
 #else
+#include "rnc/assembly_textbin_fun_001f2588_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_00754210[];
-extern char D_00754220[];
-extern char D_00602F80[];
-extern char D_00603310[];
-extern char D_006036A0[];
-extern unsigned short D_00747A50;
 
-void FUN_001f2588(char *a0) {
-    char *a1 = a0;
-    switch (*(int *)(a1 + 0x2C)) {
-    case 0:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 3:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        if (D_00747A50 == 0x504 || D_00747A50 == 0x506 || D_00747A50 == 0x801 ||
-            D_00747A50 == 0x4F || D_00747A50 == 0x4E) {
-            *(void **)(a1 + 0x8) = D_00754220;
-        } else {
-            *(void **)(a1 + 0x8) = D_00754210;
-        }
-        *(void **)(a1 + 0xC) = D_006036A0;
-        break;
-    case 2:
-    case 4:
-    case 5:
-    case 6:
-    case 14:
-    case 15:
-    default:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00603310;
-        break;
+extern s32 D_0015F484;
+extern s32 D_0015F485;
+extern s32 D_0015F486;
+extern s32 D_0015F488;
+extern s32 D_0015F48C;
+extern s32 D_0015F490[];
+extern s32 D_0015F494;
+extern s32 D_0015F498;
+extern s32 D_001600BC;
+extern s32 D_001610C4;
+extern s32 D_001610C5;
+extern s32 D_001610C6;
+extern s32 D_001610C8;
+extern s32 D_001610CC;
+extern s32 D_001610D0;
+extern s32 D_001610D4;
+extern s32 D_001872D4[];
+extern struct M2c_D_0018CD00 D_0018CD00;
+extern s32 func_001F2D98();
+void FUN_001f2588(void) {
+    u8 var_4_15;
+    u8 var_5_12;
+    u8 var_6_16;
+
+    if (D_001872D4[0] != 0) {
+        var_5_12 = *(s32 *)0x1610C5;
+        var_4_15 = D_001610C6;
+        var_6_16 = 0x40000;
+        D_0018CD00.unk230 = (s32) D_001610C4;
+        D_0018CD00.unk22C = (f32) D_001610D4;
+        D_0018CD00.unk234 = (s32) var_5_12;
+        D_0018CD00.unk238 = (s32) var_4_15;
+        D_0018CD00.unk218 = (f32) D_001610C8;
+        D_0018CD00.unk21C = (f32) D_001610CC;
+        D_0018CD00.unk228 = (f32) D_001610D0;
+        *(s32 *)0x1600BC = 0x40000;
+    } else {
+        var_4_15 = D_0015F484;
+        var_6_16 = D_0015F485;
+        var_5_12 = D_0015F486;
+        D_0018CD00.unk230 = (s32) var_4_15;
+        D_0018CD00.unk22C = (f32) D_0015F494;
+        D_0018CD00.unk234 = (s32) var_6_16;
+        D_0018CD00.unk238 = (s32) var_5_12;
+        D_0018CD00.unk218 = (f32) D_0015F488;
+        D_0018CD00.unk21C = (f32) D_0015F48C;
+        D_0018CD00.unk228 = (f32) D_0015F490[0];
+        *(s32 *)0x1600BC = 0x1F4000;
     }
+    func_001F2D98(var_4_15, var_5_12, var_6_16);
+    *(s32 *)0x15F498 = 0;
 }
 #endif /* NON_MATCHING */

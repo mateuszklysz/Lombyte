@@ -1,11 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00219fa0
-SCORE: code=71.0458 functions=71.0458 data=100 complete_data=100
-DECISION: retained
-BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 71.1221%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -21,12 +18,12 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00219fa0/FUN_00219fa0.s
 extern s32 D_0015F438[];
 extern s32 D_001601B0;
 extern s32 SubtractIntegerWithClamp();
-extern s32 func_001F4280();
+extern void func_001F4280();
 extern s32 func_001F4398();
 extern s32 func_001FF960();
 extern s32 func_001FFC30();
 extern s32 func_001FFE18();
-extern s32 func_00200080();
+extern void func_00200080();
 extern s32 func_00200E08();
 s32 FUN_00219fa0(struct M2c_arg0 *arg0) {
     s32 sp0;

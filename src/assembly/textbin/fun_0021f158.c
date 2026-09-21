@@ -1,11 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0021f158
-SCORE: code=75.29915 functions=75.29915 data=100 complete_data=100
-DECISION: retained
-BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 77.1795%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -33,7 +30,7 @@ extern s32 func_001F4280();
 extern s32 func_001F4398();
 extern s32 func_001F7580();
 extern s32 func_001FDD10();
-extern s32 func_00233980();
+extern void func_00233980();
 extern s32 sprintf();
 s32 FUN_0021f158(s32 arg0) {
 u8 sp_slot[0xC0];    s32 sp50;
@@ -62,8 +59,10 @@ u8 sp_slot[0xC0];    s32 sp50;
     } else {
         if (temp_17_38 < 0x3E8) {
             var_2_59 = sprintf(sp_slot, D_001602B8, temp_17_38);
+    __asm__ volatile ("" : "+r" (var_2_59));
         } else {
             var_2_59 = sprintf(sp_slot, D_001602C0, temp_17_38 / 1000, temp_17_38 % 1000);
+    __asm__ volatile ("" : "+r" (var_2_59));
         }
         temp_4_77 = sp_slot + var_2_59;
         if ((s32) temp_18_40 < 0x3E8) {

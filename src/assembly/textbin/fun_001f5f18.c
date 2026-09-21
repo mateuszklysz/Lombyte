@@ -1,12 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: DrawUIFrame
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `DrawUIFrame` starts here; this unit covers only its beginning. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 36.2963%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -14,39 +10,39 @@ DECISION: retained (pending)
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f5f18/FUN_001f5f18.s", FUN_001f5f18);
 #else
 #include "types.h"
-extern s32 func_001F52A0();
+extern void func_001F52A0();
 void FUN_001f5f18(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 sp0;
     s32 sp4;
-    s32 temp_16_15;
-    s32 temp_17_46;
-    s32 temp_18_47;
-    s32 temp_19_54;
-    s32 temp_20_28;
-    s32 temp_20_55;
-    s32 temp_21_39;
-    s32 temp_23_29;
-    s32 temp_2_30;
-    s32 temp_30_38;
+    s32 temp_16_13;
+    s32 temp_17_44;
+    s32 temp_18_45;
+    s32 temp_19_52;
+    s32 temp_20_26;
+    s32 temp_20_53;
+    s32 temp_21_37;
+    s32 temp_23_27;
+    s32 temp_2_28;
+    s32 temp_30_36;
 
-    temp_16_15 = (arg4 << 0x18) | 0x40404;
+    temp_16_13 = (arg4 << 0x18) | 0x40404;
     sp0 = arg0 + 1;
-    temp_20_28 = arg2 - 2;
-    func_001F52A0(temp_16_15);
-    temp_23_29 = arg0 + 2;
-    temp_2_30 = arg1 - 1;
-    sp4 = temp_2_30;
-    temp_30_38 = arg1 - 2;
-    func_001F52A0(sp0, temp_2_30, temp_20_28, arg2, temp_16_15);
-    temp_21_39 = arg2 - 3;
-    temp_17_46 = arg0 + 4;
-    func_001F52A0(temp_23_29, temp_30_38, temp_21_39, temp_20_28, temp_16_15);
-    temp_18_47 = arg1 - 4;
-    temp_19_54 = arg3 + 2;
-    func_001F52A0(temp_17_46, temp_18_47, arg2 - 4, temp_21_39, temp_16_15);
-    temp_20_55 = arg3 + 3;
-    func_001F52A0(sp0, sp4, arg3, temp_19_54, temp_16_15);
-    func_001F52A0(temp_23_29, temp_30_38, temp_19_54, temp_20_55, temp_16_15);
-    func_001F52A0(temp_17_46, temp_18_47, temp_20_55, arg3 + 4, temp_16_15);
+    temp_20_26 = arg2 - 2;
+    func_001F52A0(temp_16_13);
+    temp_23_27 = arg0 + 2;
+    temp_2_28 = arg1 - 1;
+    sp4 = temp_2_28;
+    temp_30_36 = arg1 - 2;
+    func_001F52A0(sp0, temp_2_28, temp_20_26, arg2, temp_16_13);
+    temp_21_37 = arg2 - 3;
+    temp_17_44 = arg0 + 4;
+    func_001F52A0(temp_23_27, temp_30_36, temp_21_37, temp_20_26, temp_16_13);
+    temp_18_45 = arg1 - 4;
+    temp_19_52 = arg3 + 2;
+    func_001F52A0(temp_17_44, temp_18_45, arg2 - 4, temp_21_37, temp_16_13);
+    temp_20_53 = arg3 + 3;
+    func_001F52A0(sp0, sp4, arg3, temp_19_52, temp_16_13);
+    func_001F52A0(temp_23_27, temp_30_36, temp_19_52, temp_20_53, temp_16_13);
+    func_001F52A0(temp_17_44, temp_18_45, temp_20_53, arg3 + 4, temp_16_13);
 }
 #endif /* NON_MATCHING */

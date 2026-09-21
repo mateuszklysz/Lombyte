@@ -18,7 +18,7 @@ struct M2c_arg0 {
     s32 unk38;
 };
 
-struct M2c_var_10_38 {
+struct M2c_var_10_36 {
     s32 unk0;
     s32 unk4;
     s32 unk8;

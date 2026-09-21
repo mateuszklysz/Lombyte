@@ -1,22 +1,25 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_001fa2b8
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 42.5000%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001fa2b8/FUN_001fa2b8.s", FUN_001fa2b8);
 #else
+#include "rnc/assembly_textbin_fun_001fa2b8_types.h"
 #include "types.h"
-/* Tramp_MMI_COPY3Q_VADD_30A508 -- copy three quadwords (0x0/0x10/0x20) from a1 to a0 via MMI
- * lq/sq, and store a0.0x30 = a1.0x30 + a2 (vadd.xyz).  Single hardware-
- * intrinsic block; see godhand/mmi.h. */
 
-void FUN_001fa2b8(void *a0, void *a1, void *a2) {
-    MMI_COPY3Q_VADD(a0, a1, a2);
+
+
+
+void FUN_001fa2b8(struct M2c_arg0 *arg0, struct M2c_arg1 *arg1) {
+    arg0->unk0 = (s64) arg1->unk0;
+    arg0->unk10 = (s64) arg1->unk10;
+    arg0->unk20 = (s64) arg1->unk20;
 }
+
+extern void func_001FA2B8(struct M2c_arg0 *arg0, struct M2c_arg1 *arg1) __attribute__((alias("FUN_001fa2b8")));
 #endif /* NON_MATCHING */

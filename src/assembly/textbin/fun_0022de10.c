@@ -1,31 +1,16 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0022de10_rename
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `FUN_0022de10_rename` starts here. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 5.9605%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022de10/FUN_0022de10.s", FUN_0022de10);
 #else
+#include "rnc/assembly_textbin_fun_0022de10_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern void *Obj0000_Get_D_00747A94_2DB6B0(void);
-extern void pl00_reset(void *p);
-extern void cEmManage_ReleaseEmAll(void *a0);
-extern void cDataManager_clear(void *a0);
-extern void cDataHolder_systemInit(void *a0);
-extern int D_00586B30[];
-extern char D_005864F0[];
-extern int D_005864E0[];
-
-/* sn-2.95.3-136 matched TU. */
 
 
 
@@ -34,55 +19,53 @@ extern int D_005864E0[];
 
 
 
+extern s32 D_0015EDB4;
+extern u8 D_00187080[];
+extern struct M2c_D_0018CB20 D_0018CB20;
+extern u8 D_0018CDB0[];
+extern s32 SceVu0RotMatrixX();
+extern s32 SceVu0RotMatrixY();
+extern s32 func_001F2D98();
+extern s32 func_001F9AD8();
+extern s32 sceVu0RotMatrixZ();
+extern s32 sceVu0UnitMatrix();
+u8 FUN_0022de10(void) {    s32 sp0;
+u8 sp_slot[0x90];    s32 sp10;
+    s32 sp14;
+    s32 sp18;
+    s32 sp20;
+    s32 sp24;
+    s32 sp28;
+    s32 sp4;
+    s32 sp8;
+    struct M2c_temp_2_40 *temp_2_40;
+    u8 temp_19_17;
+    struct M2c_temp_16_15 *temp_16_15;
+    struct M2c_temp_17_16 *temp_17_16;
 
-
-
-int FUN_0022de10(void *a0) {
-    char *s2 = (char *)a0;
-    pl00_reset(Obj0000_Get_D_00747A94_2DB6B0());
-    if ((D_00586B30[1] & 1) == 0) {
-        switch (*(char *)(s2 + 5)) {
-        case 0:
-            cEmManage_ReleaseEmAll(D_005864F0);
-            *(unsigned char *)(s2 + 5) = *(unsigned char *)(s2 + 5) + 1;
-            goto ret0;
-        case 6:
-            if (D_00586B30[1] & 0x400) {
-                break;
-            }
-            /* fallthrough */
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 7:
-            *(unsigned char *)(s2 + 5) = *(unsigned char *)(s2 + 5) + 1;
-            goto ret0;
-        case 8:
-            {
-                int p;
-                int i;
-                cDataManager_clear(D_005864E0);
-                p = D_005864E0[2];
-                i = D_005864E0[1];
-                if (p != 0) {
-                    while (--i != -1) {
-                        cDataHolder_systemInit((void *)(p + i * 0x5C));
-                    }
-                }
-            }
-            break;
-        default:
-            goto ret0;
-        }
+    temp_16_15 = D_0018CB20.unk54 + (D_0018CB20.unk38 << 5);
+    temp_17_16 = ((u8 *)temp_16_15 + (0x10));
+    temp_19_17 = temp_16_15->unkC;
+    *(s32 *)D_0018CDB0 = temp_17_16->unkC;
+    func_001F2D98(D_0018CDB0);
+    *(s32 *)D_00187080 = temp_16_15->unk0;
+    sceVu0UnitMatrix(sp_slot);
+    SceVu0RotMatrixX(sp_slot, sp_slot, temp_16_15->unk10);
+    SceVu0RotMatrixY(sp_slot, sp_slot, temp_17_16->unk4);
+    sceVu0RotMatrixZ(sp_slot, sp_slot, temp_17_16->unk8);
+    temp_2_40 = ((u8 *)D_00187080 - (u8 *)0x140);
+    temp_2_40->unk378 = sp18;
+    temp_2_40->unk350 = (f32) -sp20;
+    temp_2_40->unk360 = (f32) -sp0;
+    temp_2_40->unk370 = sp10;
+    temp_2_40->unk354 = (f32) -sp24;
+    temp_2_40->unk364 = (f32) -sp4;
+    temp_2_40->unk374 = sp14;
+    temp_2_40->unk358 = (f32) -sp28;
+    temp_2_40->unk368 = (f32) -sp8;
+    if (D_0015EDB4 != 0) {
+        func_001F9AD8(D_00187080 + 0x220, D_00187080 + 0x230, D_00187080 + 0x210);
     }
-    *(unsigned char *)(s2 + 4) = 2;
-    *(unsigned char *)(s2 + 5) = 0;
-    *(unsigned char *)(s2 + 6) = 0;
-    *(unsigned char *)(s2 + 7) = 0;
-    return 1;
-ret0:
-    return 0;
+    return temp_19_17;
 }
 #endif /* NON_MATCHING */

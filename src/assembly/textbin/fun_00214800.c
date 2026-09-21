@@ -1,66 +1,28 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00214800
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 18.4857%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214800/FUN_00214800.s", FUN_00214800);
 #else
+#include "rnc/assembly_textbin_fun_00214800_types.h"
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
 
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern int D_00747A30;
-extern unsigned char D_0044A920[];
-extern unsigned char D_0044A940[];
-extern unsigned char D_0044A958[];
-extern unsigned char D_005E8640[];
-extern void cRelSys_unlinkNoFree(void *a0, int a1);
-extern void func_00297660(void);
-extern void cEventConfig_setEventNo(void *a0, int a1);
-extern unsigned char D_00586B30[];
 
-void FUN_00214800(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    char buf[0x40];
-    unsigned long b = *(unsigned char *)(s0 + 8);
-    int a1;
-    if ((b >> 7) == 0) {
-        if (D_00747A30 & 0x400) {
-            func_003A6C58(buf, D_0044A920, D_0044A940);
-        } else {
-            func_003A6C58(buf, D_0044A958, D_0044A940);
-        }
-        a1 = *(int *)(s0 + 0x10);
-        if (a1 != 0) {
-            cRelSys_linkNoAlloc(D_005E8640, a1, buf, 2);
-            *(int *)(s0 + 8) = *(int *)(s0 + 8) | 0x80;
-        }
-    }
-}
-
-void ClearDisplayText_2974F0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long v0 = *(unsigned char *)(s0 + 8);
-    if (v0 >> 7) {
-        cRelSys_unlinkNoFree(D_005E8640, 2);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) & -0x81;
-    }
-}
-
-void InitSubState_2975F8(void *a0, int a1) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long t = *(int *)(s0 + 8);
-    if (((t >> 1) & 1) == 0) {
-        func_00297660();
-        *(int *)(s0 + 0x18) = a1;
-        cEventConfig_setEventNo(D_00586B30, a1);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) | 2;
-    }
+extern s32 func_001F9A68();
+extern s32 func_001FA3C0();
+void FUN_00214800(s32 *arg0, s64 *arg1, struct M2c_arg2 *arg2) {
+u8 sp_slot[0x80];    s64 sp10;
+    s32 sp1C;
+    s32 sp20;
+    func_001F9A68(sp_slot, arg2, 0xBF800000);
+    sp10 = *arg1;
+    sp1C = 0;
+    func_001FA3C0(&sp20, arg2, &sp10, arg2->unkC);
+    func_001FA3C0(arg0, &sp20, sp_slot);
 }
 #endif /* NON_MATCHING */

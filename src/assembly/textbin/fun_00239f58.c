@@ -1,72 +1,102 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00239f58
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 31.1799%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00239f58/FUN_00239f58.s", FUN_00239f58);
 #else
+#include "rnc/assembly_textbin_fun_00239f58_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern char D_0061B7C0[];
-extern void *InitObjectSetVtable_4E090_2FFA90(void *);
-extern void *InitObjectSetVtable_4E820_2FFC20(void *);
-extern void *InitObjectSetVtable_4EA10_2FFC88(void *);
-extern void *InitObjectSetVtable_4EAB8_2FFCC8(void *);
-extern void *InitObjectSetVtable_4EB70_2FFD08(void *);
-extern void *InitObjectSetVtable_4EC68_2FFD48(void *);
-extern void *InitVtablePtrAndClearField_2FFD88(void *);
-extern void *InitObjectSetVtable_4EFA0_2FFE10(void *);
-extern void *InitObjectSetVtable_4F078_2FFE50(void *);
-extern void *InitObjectSetVtable_4F1C8_2FFE90(void *);
-extern void *InitObjectSetVtable_4F270_2FFED0(void *);
-extern void *InitObjectSetVtable_4F3A0_2FFF50(void *);
-extern void *InitObjectSetVtable_4F630_300020(void *);
-extern void *InitObjectFieldsIfNonNull_300060(void *);
-extern void *InitObjectSetVtable_4F880_3000B0(void *);
 
-void *FUN_00239f58(int slot, int type) {
-    char *r;
 
-    switch (type) {
-    case 0:  r = (char *)func_002FFA68(&D_0061B7C0[slot << 10]); break;
-    case 1:  r = (char *)InitObjectSetVtable_4E090_2FFA90(&D_0061B7C0[slot << 10]); break;
-    case 2:  r = (char *)func_002FFAD0(&D_0061B7C0[slot << 10]); break;
-    case 3:  r = (char *)func_002FFB10(&D_0061B7C0[slot << 10]); break;
-    case 4:  r = (char *)func_002FFB38(&D_0061B7C0[slot << 10]); break;
-    case 5:  r = (char *)func_002FFB80(&D_0061B7C0[slot << 10]); break;
-    case 6:  r = (char *)func_002FFBD0(&D_0061B7C0[slot << 10]); break;
-    case 7:  r = (char *)func_002FFBF8(&D_0061B7C0[slot << 10]); break;
-    case 8:  r = (char *)InitObjectSetVtable_4E820_2FFC20(&D_0061B7C0[slot << 10]); break;
-    case 9:  r = (char *)func_002FFC60(&D_0061B7C0[slot << 10]); break;
-    case 15: r = (char *)InitObjectSetVtable_4EA10_2FFC88(&D_0061B7C0[slot << 10]); break;
-    case 16: r = (char *)InitObjectSetVtable_4EAB8_2FFCC8(&D_0061B7C0[slot << 10]); break;
-    case 18: r = (char *)InitObjectSetVtable_4EB70_2FFD08(&D_0061B7C0[slot << 10]); break;
-    case 19: r = (char *)InitObjectSetVtable_4EC68_2FFD48(&D_0061B7C0[slot << 10]); break;
-    case 20: r = (char *)InitVtablePtrAndClearField_2FFD88(&D_0061B7C0[slot << 10]); break;
-    case 21: r = (char *)func_002FFDC8(&D_0061B7C0[slot << 10]); break;
-    case 22: r = (char *)InitObjectSetVtable_4EFA0_2FFE10(&D_0061B7C0[slot << 10]); break;
-    case 24: r = (char *)InitObjectSetVtable_4F078_2FFE50(&D_0061B7C0[slot << 10]); break;
-    case 25: r = (char *)InitObjectSetVtable_4F1C8_2FFE90(&D_0061B7C0[slot << 10]); break;
-    case 26: r = (char *)InitObjectSetVtable_4F270_2FFED0(&D_0061B7C0[slot << 10]); break;
-    case 29: r = (char *)func_002FFF10(&D_0061B7C0[slot << 10]); break;
-    case 30: r = (char *)InitObjectSetVtable_4F3A0_2FFF50(&D_0061B7C0[slot << 10]); break;
-    case 31: r = (char *)func_002FFF90(&D_0061B7C0[slot << 10]); break;
-    case 32: r = (char *)func_002FFFB8(&D_0061B7C0[slot << 10]); break;
-    case 33: r = (char *)func_002FFFE0(&D_0061B7C0[slot << 10]); break;
-    case 35: r = (char *)InitObjectSetVtable_4F630_300020(&D_0061B7C0[slot << 10]); break;
-    case 36: r = (char *)InitObjectFieldsIfNonNull_300060(&D_0061B7C0[slot << 10]); break;
-    case 37: r = (char *)func_00300088(&D_0061B7C0[slot << 10]); break;
-    case 38: r = (char *)InitObjectSetVtable_4F880_3000B0(&D_0061B7C0[slot << 10]); break;
-    default: return 0;
+
+extern s32 D_001610E0;
+extern s32 D_00161190;
+extern struct M2c_D_001E66E0 D_001E66E0;
+extern s32 func_001F9AD8();
+extern s32 func_001F9BF8();
+extern s32 func_001FA6C0();
+extern s32 func_001FA6D0();
+extern s32 func_00239D60();
+s32 FUN_00239f58(f32 *arg0, s32 arg1, f32 fparg0, f32 fparg1) {
+u8 sp_slot[0xC0];    s32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    f32 temp_f13_68;
+    f32 temp_f1_155;
+    f32 temp_f20_38;
+    f32 temp_f20_54;
+    f32 temp_f21_39;
+    f32 temp_f4_70;
+    f32 var_f0_116;
+    f32 var_f3_95;
+    f32 var_f5_75;
+    s32 temp_18_43;
+    s32 temp_19_46;
+    s32 temp_2_19;
+    s32 temp_4_61;
+    s32 temp_5_58;
+    s32 var_2_23;
+    struct M2c_temp_20_32 *temp_20_32;
+    s32 *temp_6_63;
+
+    temp_2_19 = func_00239D60();
+    var_2_23 = 0;
+    if (temp_2_19 >= 0) {
+        temp_20_32 = D_00161190 + (temp_2_19 * 0x1190);
+        temp_f20_38 = fparg0 - (temp_20_32->unk0 + D_001E66E0.unk8);
+        temp_f21_39 = fparg1 - (temp_20_32->unk4 + D_001E66E0.unkC);
+        temp_18_43 = func_001FA6D0(temp_2_19, temp_f20_38 / D_001E66E0.unk10);
+        temp_19_46 = func_001FA6D0((s32)(u32) (temp_f21_39 / D_001E66E0.unk14));
+        temp_f20_54 = (temp_f20_38 - (func_001FA6C0(temp_18_43) * D_001E66E0.unk10)) / D_001E66E0.unk10;
+        temp_5_58 = temp_19_46 << 6;
+        temp_4_61 = D_001610E0 * 0x5C0;
+        temp_6_63 = ((u8 *)temp_20_32) + 0x50;
+        temp_f13_68 = (temp_f21_39 - (func_001FA6C0(temp_19_46) * D_001E66E0.unk14)) / D_001E66E0.unk14;
+        temp_f4_70 = *(temp_6_63 + ((temp_18_43 * 4) + temp_5_58 + temp_4_61));
+        if (temp_18_43 == 0xF) {
+            var_f5_75 = *(s32 *)((u8 *)(((u8 *)temp_20_32) + ((temp_19_46 * 4) + temp_4_61)) + 0x510);
+        } else {
+            var_f5_75 = *(temp_6_63 + (((temp_18_43 + 1) * 4) + temp_5_58 + temp_4_61));
+        }
+        if (temp_19_46 == 0xF) {
+            var_f3_95 = *(s32 *)((u8 *)(((u8 *)temp_20_32) + ((temp_18_43 * 4) + (D_001610E0 * 0x5C0))) + 0x4D0);
+        } else {
+            var_f3_95 = *(s32 *)((u8 *)(((u8 *)temp_20_32) + ((temp_18_43 * 4) + ((temp_19_46 + 1) << 6) + (D_001610E0 * 0x5C0))) + 0x50);
+        }
+        if (temp_18_43 == 0xF) {
+            if (temp_19_46 == temp_18_43) {
+                var_f0_116 = *(s32 *)((u8 *)(((u8 *)temp_20_32 + ((D_001610E0 * 0x5C0)))) + 0x5DC);
+            } else {
+                var_f0_116 = *(s32 *)((u8 *)(((u8 *)temp_20_32) + (((temp_19_46 + 1) * 4) + (D_001610E0 * 0x5C0))) + 0x510);
+            }
+        } else if (temp_19_46 == 0xF) {
+            var_f0_116 = *(s32 *)((u8 *)(((u8 *)temp_20_32) + (((temp_18_43 + 1) * 4) + (D_001610E0 * 0x5C0))) + 0x4D0);
+        } else {
+            var_f0_116 = *(s32 *)((u8 *)(((u8 *)temp_20_32) + (((temp_18_43 + 1) * 4) + ((temp_19_46 + 1) << 6) + (D_001610E0 * 0x5C0))) + 0x50);
+        }
+        if (arg0 != NULL) {
+            temp_f1_155 = temp_f4_70 + ((var_f5_75 - temp_f4_70) * temp_f20_54);
+            *arg0 = temp_f1_155 + (((var_f3_95 + ((var_f0_116 - var_f3_95) * temp_f20_54)) - temp_f1_155) * temp_f13_68) + temp_20_32->unk8;
+        }
+        if (arg1 != 0) {
+            sp14 = D_001E66E0.unk14;
+            sp18 = var_f3_95 - temp_f4_70;
+            sp10 = 0;
+            sp1C = 1.0f;
+            func_001F9AD8(arg1, sp_slot, &sp10, D_001E66E0.unk10, 0, var_f5_75 - temp_f4_70, 1.0f);
+            func_001F9BF8(arg1, arg1, 0x3F800000);
+        }
+        var_2_23 = 1;
     }
-    r[0x102] = type;
-    return r;
+    return var_2_23;
 }
+
+extern s32 func_00239F58(f32 *arg0, s32 arg1, f32 fparg0, f32 fparg1) __attribute__((alias("FUN_00239f58")));
 #endif /* NON_MATCHING */

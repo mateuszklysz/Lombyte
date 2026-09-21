@@ -1,11 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0021f990
-SCORE: code=64.66483 functions=64.66483 data=100 complete_data=100
-DECISION: retained
-BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 71.0934%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -37,7 +34,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021f990/FUN_0021f990.s
 extern struct M2c_D_0013D290 D_0013D290;
 extern s32 D_001516D8;
 extern struct M2c_D_001A00F0 D_001A00F0;
-extern s32 D_001A0314;
+extern s32 D_001A0314[];
 extern struct M2c_D_001D5BF4 *D_001D5BF4[];
 extern s32 func_001F97A0();
 extern s32 func_00204E30();
@@ -45,12 +42,12 @@ extern s32 func_0020B4A8();
 extern s32 func_0020B618();
 extern s32 func_00216788();
 extern s32 func_00225D88();
-extern s32 func_00225DD8();
+extern void func_00225DD8();
 extern s32 func_00225E20();
 s32 FUN_0021f990(struct M2c_arg0 *arg0, s32 *arg1, s32 arg2, s32 *arg3, s32 arg4) {
     struct M2c_var_5_0 *var_5_0;
     s32 *var_7_0;
-    s32 temp_16_46;
+    register s32 temp_16_46 asm("s0");
     s32 temp_16_48;
     s32 temp_16_74;
     s32 temp_18_107;
@@ -87,7 +84,7 @@ block_3:
     if (!(temp_3_11 & 2)) {
         goto block_5;
     }
-    var_16_15 = D_001A0314;
+    var_16_15 = D_001A0314[0];
     goto block_16;
 block_5:
     if (!(temp_3_11 & 4)) {
@@ -155,7 +152,7 @@ block_23:
     if (temp_4_100 == NULL) {
         goto block_39;
     }
-    if (D_001516D8 != 0) {
+    if (*(s32 *)0x1516D8 != 0) {
         goto block_40;
     }
     temp_18_107 = var_16_15 * 8;
@@ -189,7 +186,7 @@ block_32:
     arg0->unk44 = (s32) (arg0->unk44 + 1);
     goto block_39;
 block_34:
-    if (D_001516D8 != 0) {
+    if (*(s32 *)0x1516D8 != 0) {
         goto block_40;
     }
     func_00225E20(arg0->unk48, var_5_0, var_6_0, var_7_0, var_8_0);

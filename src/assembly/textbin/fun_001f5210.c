@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_001f5210
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 44.4722%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -16,19 +14,19 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f5210/FUN_001f5210.s
 
 
 extern u8 D_0013CC90[];
-extern struct M2c_D_00160F00 *D_00160F00;
+extern struct M2c_D_00160F00 *D_00160F00[];
 extern s32 func_00233980();
 void FUN_001f5210(s32 arg0, s64 arg1, s64 arg2, s64 arg3) {
-    s64 temp_6_6;
-    s64 temp_7_10;
+    s64 temp_6_4;
+    s64 temp_7_8;
 
-    temp_6_6 = arg2 << 0x10;
-    temp_7_10 = arg3 << 0x18;
-    func_00233980(1, arg0 | (arg1 << 8) | temp_6_6 | temp_7_10, temp_6_6, temp_7_10);
-    D_00160F00->unk0 = 0x30000014;
-    D_00160F00->unk4 = D_0013CC90;
-    D_00160F00->unk8 = 0;
-    D_00160F00->unkC = 0x50000014;
-    D_00160F00 += 0x10;
+    temp_6_4 = arg2 << 0x10;
+    temp_7_8 = arg3 << 0x18;
+    func_00233980(1, arg0 | (arg1 << 8) | temp_6_4 | temp_7_8, temp_6_4, temp_7_8);
+    D_00160F00[0]->unk0 = 0x30000014;
+    D_00160F00[0]->unk4 = D_0013CC90;
+    D_00160F00[0]->unk8 = 0;
+    D_00160F00[0]->unkC = 0x50000014;
+    D_00160F00[0] += 0x10;
 }
 #endif /* NON_MATCHING */

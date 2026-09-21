@@ -11,7 +11,7 @@ struct M2c_arg5 {
     s32 unkE;
 };
 
-struct M2c_temp_7_12 {
+struct M2c_temp_7_10 {
     s32 unk0;
     u16 unk4;
     s16 unk6;

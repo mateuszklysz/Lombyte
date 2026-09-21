@@ -10,7 +10,7 @@ struct M2c_D_00160F00 {
     s32 unkC;
 };
 
-struct M2c_temp_2_145 {
+struct M2c_temp_2_143 {
     u8 pad_0[0x8];
     s32 unk8;
     u8 pad_C[0x4];
@@ -19,7 +19,7 @@ struct M2c_temp_2_145 {
     s32 unk18;
 };
 
-struct M2c_temp_2_83 {
+struct M2c_temp_2_81 {
     u8 pad_0[0x8];
     s32 unk8;
     u8 pad_C[0x4];
@@ -42,17 +42,17 @@ struct M2c_temp_2_83 {
     s32 unk58;
 };
 
-struct M2c_temp_3_113 {
+struct M2c_temp_3_111 {
     u8 pad_0[0x10];
     s32 unk10;
 };
 
-struct M2c_temp_3_143 {
+struct M2c_temp_3_141 {
     u8 pad_0[0x10];
     s64 unk10;
 };
 
-struct M2c_temp_3_82 {
+struct M2c_temp_3_80 {
     u8 pad_0[0x10];
     s64 unk10;
     u8 pad_18[0x58];

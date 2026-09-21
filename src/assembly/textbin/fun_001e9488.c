@@ -1,11 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_001e9488
-SCORE: code=74.80173 functions=74.80173 data=100 complete_data=100
-DECISION: retained
-BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 74.9741%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -36,7 +33,7 @@ extern struct M2c_D_001940C0 D_001940C0;
 extern s32 FlushCache();
 extern s32 func_00120558();
 extern s32 func_0012EE08();
-extern s32 func_001F4A58();
+extern void func_001F4A58();
 extern s32 func_001F96F8();
 extern s32 func_00200B10();
 extern s32 func_002093D8();
@@ -88,7 +85,7 @@ loop_6:
     if (D_0013D290.unkDC >= 0) {
         goto block_5;
     }
-    func_0023A3B8(var_18_22, var_17_20, D_001940C0.unk1C + 0x100000, D_001940C0.unk1C + 0x400000, 0);
+    func_0023A3B8(var_18_22, var_17_20, (*(struct M2c_D_001940C0 *)0x1940C0).unk1C + 0x100000, (*(struct M2c_D_001940C0 *)0x1940C0).unk1C + 0x400000, 0);
     sceCdSync(0);
     sceGsSyncV(0);
     func_00120558(0, 0);

@@ -19,22 +19,22 @@ struct M2c_arg1 {
     s32 unkE;
 };
 
-struct M2c_temp_17_119 {
+struct M2c_temp_17_117 {
     u8 pad_0[0x10];
     s64 unk10;
 };
 
-struct M2c_temp_17_141 {
+struct M2c_temp_17_139 {
     u8 pad_0[0x10];
     s64 unk10;
 };
 
-struct M2c_temp_17_82 {
+struct M2c_temp_17_80 {
     u8 pad_0[0x10];
     s64 unk10;
 };
 
-struct M2c_var_6_107 {
+struct M2c_var_6_105 {
     s32 unk0;
     u8 pad_4[0xC];
     s32 unk10;

@@ -1,29 +1,33 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00218d10
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 35.4615%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00218d10/FUN_00218d10.s", FUN_00218d10);
 #else
+#include "rnc/assembly_textbin_fun_00218d10_types.h"
 #include "types.h"
-/* ee-2.9-991111 matched TU. */
 
-extern int D_00755C08;
-extern unsigned char D_00755BF8[];
-extern unsigned char D_00755C10[];
 
-void *FUN_00218d10(void) {
-    if (D_00755C08 == 0) {
-        D_00755C08 = 1;
-        func_003A52F0(D_00755BF8, 0, 0x10);
-        *(int*)(D_00755BF8 + 0x4) = (int)D_00755C10;
-    }
-    return D_00755BF8;
+extern struct M2c_D_00186F40 D_00186F40;
+extern s32 D_001872A0;
+extern s32 D_001872B0;
+void FUN_00218d10(void) {
+    D_00186F40.unk144 = 256.0f;
+    D_00186F40.unk148 = 64.0f;
+    D_00186F40.unk140 = 256.0f;
+    D_00186F40.unk350 = 0;
+    D_001872A0 = 0;
+    D_001872B0 = 0;
+    D_00186F40.unk37C = 1.0f;
+    D_00186F40.unk350 = 1.0f;
+    D_00186F40.unk364 = 1.0f;
+    D_00186F40.unk378 = 1.0f;
 }
+
+extern void func_00218D10(void) __attribute__((alias("FUN_00218d10")));
 #endif /* NON_MATCHING */

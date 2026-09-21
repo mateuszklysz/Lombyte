@@ -1,12 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: DoGifPaging__Fv
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `DoGifPaging__Fv` starts here; this unit covers only its beginning. */
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 33.9577%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -23,36 +19,34 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f4398/FUN_001f4398.s
 
 
 
-extern struct M2c_D_0015F450 *D_0015F450;
-extern struct M2c_D_0015F454 *D_0015F454;
-extern struct M2c_D_00160F00 *D_00160F00;
+extern struct M2c_D_0015F450 *D_0015F450[];
+extern struct M2c_D_0015F454 *D_0015F454[];
+extern struct M2c_D_00160F00 *D_00160F00[];
 extern u8 D_0018A2DC[];
 extern s32 func_0020B4A8();
 extern s32 func_00233B68();
 void FUN_001f4398(void) {
-    struct M2c_temp_3_33 *temp_3_33;
+    struct M2c_temp_3_31 *temp_3_31;
 
-    D_0015F454 = D_00160F00;
-    D_00160F00 += 0x10;
-    D_0015F450->unk0 = 0x20000000;
-    D_0015F450->unk4 = (s32 *) D_00160F00;
-    D_0015F450->unk8 = 0;
-    D_0015F450->unkC = 0;
-    temp_3_33 = D_00160F00;
+    D_0015F454[0] = D_00160F00[0];
+    D_00160F00[0] += 0x10;
+    D_0015F450[0]->unk0 = 0x20000000;
+    D_0015F450[0]->unk4 = (s32 *) D_00160F00[0];
+    D_0015F450[0]->unk8 = 0;
+    D_0015F450[0]->unkC = 0;
+    temp_3_31 = D_00160F00[0];
     if (*(s32 *)D_0018A2DC != 0) {
-        func_0020B4A8(D_0015F450, D_0018A2DC);
+        func_0020B4A8(D_0015F450[0], D_0018A2DC);
         func_00233B68();
     }
-    temp_3_33->unk0 = 0x20000000;
-    D_00160F00->unk4 = (void *) (D_0015F450 + 0x10);
-    D_00160F00->unk8 = 0;
-    D_00160F00->unkC = 0;
-    D_00160F00 += 0x10;
-    D_0015F454->unk0 = 0x20000000;
-    D_0015F454->unk4 = (s32 *) D_00160F00;
-    do {
-        D_0015F454->unk8 = 0;
-        D_0015F454->unkC = 0;
-    } while (0);
+    temp_3_31->unk0 = 0x20000000;
+    D_00160F00[0]->unk4 = (void *) (D_0015F450[0] + 0x10);
+    D_00160F00[0]->unk8 = 0;
+    D_00160F00[0]->unkC = 0;
+    D_00160F00[0] += 0x10;
+    D_0015F454[0]->unk0 = 0x20000000;
+    D_0015F454[0]->unk4 = (s32 *) D_00160F00[0];
+    D_0015F454[0]->unk8 = 0;
+    D_0015F454[0]->unkC = 0;
 }
 #endif /* NON_MATCHING */

@@ -24,7 +24,7 @@ struct M2c_D_00160F00 {
     s32 unkC;
 };
 
-struct M2c_temp_3_33 {
+struct M2c_temp_3_31 {
     s32 unk0;
 };
 

@@ -1,10 +1,8 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00214970
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
+/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
+ * direct code match: 33.8194%
+ * blocker: the logic is correct but register/stack/delay code generation is blocked
+ * The default matching build keeps the expected assembly oracle.
+ */
 #include "types.h"
 #include "asm.h"
 
@@ -12,56 +10,36 @@ DECISION: retained (pending)
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214970/FUN_00214970.s", FUN_00214970);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
-
-extern char D_00754210[];
-extern char D_00754220[];
-extern char D_00602F80[];
-extern char D_00603310[];
-extern char D_006036A0[];
-extern unsigned short D_00747A50;
-
-void FUN_00214970(char *a0) {
-    char *a1 = a0;
-    switch (*(int *)(a1 + 0x2C)) {
-    case 0:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 3:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        if (D_00747A50 == 0x504 || D_00747A50 == 0x506 || D_00747A50 == 0x801 ||
-            D_00747A50 == 0x4F || D_00747A50 == 0x4E) {
-            *(void **)(a1 + 0x8) = D_00754220;
-        } else {
-            *(void **)(a1 + 0x8) = D_00754210;
-        }
-        *(void **)(a1 + 0xC) = D_006036A0;
-        break;
-    case 2:
-    case 4:
-    case 5:
-    case 6:
-    case 14:
-    case 15:
-    default:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00603310;
-        break;
+extern s32 D_0015ED60;
+extern s32 D_0015ED64;
+extern s32 D_0015ED68;
+extern s32 D_0015ED6C;
+extern s32 D_0015ED70;
+extern s32 D_0015ED74;
+extern s32 D_0015ED78[];
+extern s32 D_0015ED7C;
+extern s32 D_0015ED80[];
+void FUN_00214970(s32 arg0) {
+    if (arg0 == 0) {
+        *(s32 *)0x15ED68 = 1.0f;
+        *(s32 *)0x15ED70 = 0.00027777778f;
+        D_0015ED74 = 0.0000046296295f;
+        D_0015ED78[0] = 5;
+        D_0015ED7C = 0.016666668f;
+        D_0015ED80[0] = 0;
+        D_0015ED60 = 1.0f;
+        *(s32 *)0x15ED64 = 1.0f;
+        D_0015ED6C = 0.016666668f;
+        return;
     }
+    D_0015ED80[0] = 1;
+    D_0015ED60 = 1.2f;
+    *(s32 *)0x15ED64 = 1.44f;
+    D_0015ED68 = 0.8333333f;
+    D_0015ED6C = 0.020000001f;
+    *(s32 *)0x15ED70 = 0.00040000002f;
+    D_0015ED74 = 0.000008f;
+    D_0015ED78[0] = 6;
+    D_0015ED7C = 0.02f;
 }
 #endif /* NON_MATCHING */
