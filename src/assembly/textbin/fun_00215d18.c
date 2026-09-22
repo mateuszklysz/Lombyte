@@ -12,12 +12,12 @@ extern u8 D_00137B80[];
 extern struct M2c_D_001516D0 D_001516D0;
 extern u8 D_00216AD0[];
 extern s32 func_0012EC08();
-void FUN_00215d18(s16 arg0, s16 arg1, s16 arg2) {
+void FUN_00215d18(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_4_24;
 
     if (D_001516D0.unk3E != 9) {
         if ((D_001516D0.unk34 != 0) && (D_001516D0.unk34 != 0xFFFFFFFF)) {
-            temp_4_24 = *(((arg0 + 1) * 4) + (D_00137B80 + 0x2AA8));
+            temp_4_24 = ((s32 *)(D_00137B80 + 0x2AA8))[arg0 + 1];
             if (temp_4_24 != 0) {
                 D_001516D0.unk38 = arg0;
                 D_001516D0.unk3C = arg1;

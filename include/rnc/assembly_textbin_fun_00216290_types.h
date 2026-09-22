@@ -3,36 +3,7 @@
 
 #include "types.h"
 
-struct M2c_D_001516D0 {
-    u8 pad_0[0xB];
-    u8 unkB;
-    u8 pad_C[0x10];
-    s32 unk1C;
-    s16 unk20;
-    u16 unk22;
-    s32 unk24;
-    s32 unk28;
-    u8 pad_2C[0x8];
-    s32 unk34;
-    s16 unk38;
-    s16 unk3A;
-    s16 unk3C;
-    s16 unk3E;
-    s16 unk40;
-    u8 pad_42[0xE];
-    s32 unk50;
-    u8 pad_54[0x6];
-    u16 unk5A;
-    u8 pad_5C[0x10];
-    s32 unk6C;
-    u8 pad_70[0x6];
-    s16 unk76;
-    s16 unk78;
-    u8 pad_7A[0x2];
-    s16 unk7C;
-    u8 pad_7E[0x6];
-    s32 unk84;
-};
+#include "rnc/d_001516d0.h"
 
 struct M2c_temp_17_273 {
     u8 pad_0[0x8];

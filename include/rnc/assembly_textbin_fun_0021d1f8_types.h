@@ -9,11 +9,7 @@ struct M2c_D_00137B80 {
     s32 unk152C;
 };
 
-struct M2c_D_001516D0 {
-    u8 pad_0[0x8];
-    s16 unk8;
-    u8 pad_A[0x2];
-};
+#include "rnc/d_001516d0.h"
 
 struct M2c_D_001D5BF0 {
     u8 pad_0[0x10C];

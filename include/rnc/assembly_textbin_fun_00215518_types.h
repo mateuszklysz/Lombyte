@@ -3,18 +3,6 @@
 
 #include "types.h"
 
-struct M2c_D_001516D0 {
-    u8 pad_0[0x50];
-    s32 unk50;
-    s16 unk54;
-    s16 unk56;
-    s16 unk58;
-    s32 unk5A;
-    u8 pad_5E[0x2];
-    s16 unk60;
-    u8 pad_62[0x2];
-    s32 unk64;
-    s32 unk68;
-};
+#include "rnc/d_001516d0.h"
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_00215518_TYPES_H */

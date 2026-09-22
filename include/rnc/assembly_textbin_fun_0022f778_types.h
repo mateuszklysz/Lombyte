@@ -59,12 +59,7 @@ struct M2c_D_0013F350_unk2080 {
     s64 unk38;
 };
 
-struct M2c_D_001516D0 {
-    u8 pad_0[0x1C];
-    s32 unk1C;
-    u8 pad_20[0x3A];
-    u16 unk5A;
-};
+#include "rnc/d_001516d0.h"
 
 struct M2c_D_0018CB20 {
     u8 pad_0[0x34];

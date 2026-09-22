@@ -6,34 +6,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/music_stop/FUN_00215ee8.s",
 #else
 #include "types.h"
 
-struct M2c_D_001516D0 {
-    s32 unk0;
-    u8 pad_4[0x18];
-    s32 unk1C;
-    s16 unk20;
-    s8 unk22;
-    s8 unk23;
-    u8 pad_24[0xC];
-    u8 unk30;
-    u8 unk31;
-    u8 unk32;
-    u8 unk33;
-    s32 unk34;
-    s16 unk38;
-    u8 pad_3A[0x2];
-    s16 unk3C;
-    s16 unk3E;
-    u8 pad_40[0x10];
-    s32 unk50;
-    u8 pad_54[0x4];
-    s16 unk58;
-    s16 unk5A;
-    u8 pad_5C[0x10];
-    s32 unk6C;
-    u8 pad_70[0x4];
-    s16 unk74;
-    s16 unk76;
-};
+#include "rnc/d_001516d0.h"
 
 
 extern struct M2c_D_001516D0 D_001516D0;

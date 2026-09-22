@@ -34,12 +34,7 @@ struct M2c_D_0013E030
   u8 pad_28[0x2];
 };
 
-struct M2c_D_001516D0
-{
-  u8 pad_0[0xB];
-  u8 unkB;
-  u8 pad_C[0x3];
-};
+#include "rnc/d_001516d0.h"
 
 struct M2c_D_0015F634
 {

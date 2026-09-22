@@ -3,16 +3,7 @@
 
 #include "types.h"
 
-struct M2c_D_001516D0 {
-    u8 pad_0[0x1C];
-    s32 unk1C;
-    u8 pad_20[0x30];
-    s32 unk50;
-    s16 unk54;
-    u8 pad_56[0x4];
-    s16 unk5A;
-    u8 pad_5C[0x2];
-};
+#include "rnc/d_001516d0.h"
 
 struct M2c_D_001996D0 {
     s32 unk0;
