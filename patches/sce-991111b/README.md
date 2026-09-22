@@ -15,7 +15,15 @@ the joint gate (adding the 14 SDK-line controls on the Sony 991111-01 route) is 
 - Tool dirs used so far: `src/gcc`, `src/binutils`, `src/bfd`, `src/gas`.
 
 Build notes: same 32-bit host recipe as
-[`../ee-gcc-2.9-991111-01/`](../ee-gcc-2.9-991111-01/). Reference binary of
+[`../ee-gcc-2.9-991111-01/`](../ee-gcc-2.9-991111-01/), **plus
+`-fno-strict-aliasing` in the host CFLAGS** (`-O2 -fno-strict-aliasing -fcommon
+-std=gnu89 -D_GNU_SOURCE`). `real.c`'s float emulator type-puns through
+`EMUSHORT` pointers; a modern host compiler with strict aliasing turns
+`REAL_VALUE_NEGATE` into a no-op, so negative float/double constants are sent
+to the `.sdata` pool instead of `li.s`/`li.d` (the retail SN cc1 emits
+`li.s`/`li.d`). With the flag, the patch stack below builds cc1
+`1766b1bda19f2f53…` (parity 55/58, promoted sources unchanged, full-ELF PASS).
+Reference binary of
 this vintage: `/root/rnc-toolchains/tier2-20260909/991111b-r4` (scores 79.87 on
 `fun_0022f778`, so it is not the retail compiler for that unit).
 
