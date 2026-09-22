@@ -5,7 +5,7 @@
 
 struct M2c_D_00194120 {
     u8 pad_0[0x8];
-    s32 unk8;
+    f32 unk8;
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_00213508_TYPES_H */

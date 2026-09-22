@@ -5,9 +5,9 @@
 
 struct M2c_D_00186F40 {
     u8 pad_0[0x140];
-    s32 unk140;
-    s32 unk144;
-    s32 unk148;
+    f32 unk140;
+    f32 unk144;
+    f32 unk148;
 };
 
 struct M2c_arg0 {

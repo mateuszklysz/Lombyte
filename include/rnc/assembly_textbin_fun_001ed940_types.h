@@ -5,7 +5,7 @@
 
 struct M2c_D_0013F350 {
     u8 pad_0[0x2F0];
-    s32 unk2F0;
+    f32 unk2F0;
     u8 pad_2F4[0xFF0];
     u8 unk12E4;
     u8 unk12E5;
@@ -21,7 +21,7 @@ struct M2c_D_0013F350 {
 
 struct M2c_D_00187080 {
     u8 pad_0[0x8];
-    s32 unk8;
+    f32 unk8;
 };
 
 struct M2c_D_001870D0 {

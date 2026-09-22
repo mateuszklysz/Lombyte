@@ -5,10 +5,10 @@
 
 struct M2c_D_001E66E0 {
     u8 pad_0[0x8];
-    s32 unk8;
-    s32 unkC;
-    s32 unk10;
-    s32 unk14;
+    f32 unk8;
+    f32 unkC;
+    f32 unk10;
+    f32 unk14;
 };
 
 struct M2c_temp_20_32 {

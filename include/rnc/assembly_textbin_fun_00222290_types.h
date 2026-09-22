@@ -5,12 +5,14 @@
 
 struct M2c_D_0013D408 {
     u8 pad_0[0x1D];
-    s32 unk1D;
+    u8 unk1D;
+    u8 pad_1E[0x3];
 };
 
 struct M2c_D_0013F350 {
     u8 pad_0[0x20B1];
-    s32 unk20B1;
+    u8 unk20B1;
+    u8 pad_20B2[0x3];
 };
 
 struct M2c_D_001D5BF0 {

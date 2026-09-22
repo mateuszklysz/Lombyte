@@ -14,7 +14,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/set_tfrag_dists/FUN_0023306
 
 extern struct M2c_D_00160EA0 D_00160EA0;
 extern struct M2c_D_00160EB0 D_00160EB0;
-extern s32 D_0018CF20;
+extern f32 D_0018CF20;
 extern struct M2c_D_001DE7F0 D_001DE7F0;
 extern s32 func_001F9810();
 extern s32 func_001FA6D0();

@@ -12,7 +12,7 @@ struct M2c_D_00160F00 {
 
 struct M2c_D_0018CD00 {
     u8 pad_0[0x1A8];
-    s32 unk1A8;
+    f32 unk1A8;
     u8 pad_1AC[0x64];
     s32 unk210;
 };

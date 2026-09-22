@@ -5,7 +5,7 @@
 
 struct M2c_D_0013C940 {
     u8 pad_0[0x104];
-    s32 unk104;
+    f32 unk104;
     u8 pad_108[0x9C];
     s32 unk1A4;
 };

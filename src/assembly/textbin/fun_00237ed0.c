@@ -13,8 +13,8 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00237ed0/FUN_00237ed0.s
 
 
 extern u8 D_001516EC[];
-extern s32 D_0015172A;
-extern s32 D_0015EDB0;
+extern s16 D_0015172A;
+extern u8 D_0015EDB0;
 extern u8 D_00161030[];
 extern u8 D_00161038[];
 extern u8 D_00161040[];

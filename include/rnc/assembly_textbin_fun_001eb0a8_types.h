@@ -8,7 +8,8 @@ struct M2c_D_0018CB20 {
     s32 unk34;
     s32 unk38;
     s32 unk3C;
-    s32 unk40;
+    s16 unk40;
+    u8 pad_42[0x2];
     s16 unk44;
     u8 pad_46[0x2];
 };

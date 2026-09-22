@@ -5,14 +5,14 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214970/FUN_00214970.s", FUN_00214970);
 #else
 #include "types.h"
-extern s32 D_0015ED60;
-extern s32 D_0015ED64;
-extern s32 D_0015ED68;
-extern s32 D_0015ED6C;
-extern s32 D_0015ED70;
-extern s32 D_0015ED74;
+extern f32 D_0015ED60;
+extern f32 D_0015ED64;
+extern f32 D_0015ED68;
+extern f32 D_0015ED6C;
+extern f32 D_0015ED70;
+extern f32 D_0015ED74;
 extern s32 D_0015ED78[];
-extern s32 D_0015ED7C;
+extern f32 D_0015ED7C;
 extern s32 D_0015ED80[];
 void FUN_00214970(s32 arg0) {
     if (arg0 == 0) {

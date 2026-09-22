@@ -7,7 +7,8 @@ struct M2c_D_0013E030 {
     u8 pad_0[0x20];
     s32 unk20;
     s16 unk24;
-    s32 unk26;
+    s16 unk26;
+    u8 pad_28[0x2];
 };
 
 struct M2c_arg0 {

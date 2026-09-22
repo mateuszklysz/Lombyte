@@ -16,27 +16,28 @@ struct M2c_D_0013E500 {
 
 struct M2c_D_00151780 {
     u8 pad_0[0x150];
-    u16 unk150;
-    s32 unk152;
+    s16 unk150;
+    s16 unk152;
+    u8 pad_154[0x2];
 };
 
 struct M2c_D_0018CD00 {
     u8 pad_0[0xA0];
-    s32 unkA0;
-    s32 unkA4;
+    f32 unkA0;
+    f32 unkA4;
     u8 pad_A8[0x8];
-    s32 unkB0;
+    f32 unkB0;
     u8 pad_B4[0x14C];
-    s32 unk200;
-    s32 unk204;
-    s32 unk208;
-    s32 unk20C;
+    f32 unk200;
+    f32 unk204;
+    f32 unk208;
+    f32 unk20C;
     u8 pad_210[0x8];
-    s32 unk218;
-    s32 unk21C;
+    f32 unk218;
+    f32 unk21C;
     u8 pad_220[0x8];
-    s32 unk228;
-    s32 unk22C;
+    f32 unk228;
+    f32 unk22C;
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_001F2C60_TYPES_H */

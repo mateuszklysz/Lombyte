@@ -22,7 +22,7 @@ struct M2c_D_0013E500 {
 
 struct M2c_D_0018CD00 {
     u8 pad_0[0xB0];
-    s32 unkB0;
+    f32 unkB0;
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_0022F288_TYPES_H */

@@ -5,13 +5,13 @@
 
 struct M2c_D_0019BDC0 {
     u8 pad_0[0x340];
-    s32 unk340;
-    s32 unk344;
-    s32 unk348;
-    s32 unk34C;
-    s32 unk350;
-    s32 unk354;
-    s32 unk358;
+    f32 unk340;
+    f32 unk344;
+    f32 unk348;
+    f32 unk34C;
+    f32 unk350;
+    f32 unk354;
+    f32 unk358;
     s32 unk35C;
 };
 

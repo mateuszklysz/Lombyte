@@ -4,9 +4,9 @@
 #include "types.h"
 
 struct M2c_D_00160EA0 {
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
+    f32 unk0;
+    f32 unk4;
+    f32 unk8;
 };
 
 struct M2c_arg0 {

@@ -14,10 +14,9 @@ struct M2c_D_001E65E0 {
     u8 pad_0[0x1];
     u8 unk1;
     u8 pad_2[0x1E];
-    u8 unk20;
-    u8 pad_21[0x3];
-    s32 unk24;
-    s32 unk28;
+    f32 unk20;
+    f32 unk24;
+    f32 unk28;
 };
 
 struct M2c_arg0 {

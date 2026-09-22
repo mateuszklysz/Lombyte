@@ -53,18 +53,18 @@ struct M2c_D_001D5E10 {
     u8 pad_0[0x1];
     u8 unk1;
     u8 pad_2[0x1E];
-    s32 unk20;
-    s32 unk24;
-    s32 unk28;
+    f32 unk20;
+    f32 unk24;
+    f32 unk28;
 };
 
 struct M2c_D_001D5E50 {
     u8 pad_0[0x1];
     u8 unk1;
     u8 pad_2[0x1E];
-    s32 unk20;
+    f32 unk20;
     f32 unk24;
-    s32 unk28;
+    f32 unk28;
 };
 
 struct M2c_arg0 {

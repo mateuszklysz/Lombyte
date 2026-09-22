@@ -12,8 +12,8 @@ struct M2c_D_00137B80 {
 struct M2c_D_0013E030 {
     u8 pad_0[0x20];
     s32 unk20;
-    s32 unk24;
-    u8 pad_28[0x28];
+    s16 unk24;
+    u8 pad_26[0x2A];
     s32 unk50;
     s32 unk54;
     s32 unk58;

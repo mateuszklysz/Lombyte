@@ -6,18 +6,19 @@
 struct M2c_D_00151780 {
     u8 pad_0[0x150];
     s16 unk150;
-    u16 unk152;
+    s16 unk152;
     s16 unk154;
     s16 unk156;
     s16 unk158;
     s16 unk15A;
-    u16 unk15C;
+    s16 unk15C;
     s16 unk15E;
     u8 pad_160[0x4];
-    s32 unk164;
+    s16 unk164;
+    u8 pad_166[0x2];
     u16 unk168;
     u16 unk16A;
-    s16 unk16C;
+    u16 unk16C;
     s16 unk16E;
     s32 unk170;
 };

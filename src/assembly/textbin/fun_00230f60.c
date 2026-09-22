@@ -36,7 +36,7 @@ extern s32 D_0015ED88;
 extern s32 D_0015EE74;
 extern s32 D_0015EE78;
 extern s32 D_0015EE8C;
-extern s32 D_0015F43C;
+extern f32 D_0015F43C;
 extern s32 D_0015F440;
 extern s32 D_0015F460;
 extern s32 D_0015F618;

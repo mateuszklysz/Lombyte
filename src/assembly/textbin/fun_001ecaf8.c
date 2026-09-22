@@ -13,8 +13,8 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ecaf8/FUN_001ecaf8.s
 
 
 extern u8 D_0013F490[];
-extern s32 D_0015ED60;
-extern s32 D_00187080;
+extern f32 D_0015ED60;
+extern f32 D_00187080;
 extern u8 D_00187290[];
 extern struct M2c_D_0018C318 D_0018C318;
 extern s32 func_001F9A10();

@@ -5,7 +5,7 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f79a8/FUN_001f79a8.s", FUN_001f79a8);
 #else
 #include "types.h"
-extern s32 D_0015F348;
+extern f32 D_0015F348;
 extern s32 D_0015F478;
 extern s32 func_001F76A0();
 extern s32 func_001F89A4();

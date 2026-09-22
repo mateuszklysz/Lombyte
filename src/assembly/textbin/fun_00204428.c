@@ -13,12 +13,12 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00204428/FUN_00204428.s
 
 
 extern struct M2c_D_00137B80 D_00137B80;
-extern s32 D_0013E056;
+extern s16 D_0013E056;
 extern s32 D_0015ED58;
 extern u8 D_0015ED5C[];
 extern s32 D_0015ED80[];
-extern s32 D_0015EE48;
-extern s32 D_0015EE4A;
+extern u16 D_0015EE48;
+extern s16 D_0015EE4A;
 extern struct M2c_D_0015EE4C *D_0015EE4C;
 extern s32 D_0015EE50;
 extern s32 D_0015EE54;

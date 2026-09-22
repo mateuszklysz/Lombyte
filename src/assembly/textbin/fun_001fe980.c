@@ -16,8 +16,8 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001fe980/FUN_001fe980.s
 
 
 
-extern s32 D_0015EE1C;
-extern s32 D_0015EE1D;
+extern u8 D_0015EE1C;
+extern u8 D_0015EE1D;
 extern s32 D_0015F6A0;
 extern struct M2c_D_001996D0 D_001996D0;
 extern s32 InitializeDmaPacket();
