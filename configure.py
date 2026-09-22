@@ -59,6 +59,15 @@ EE_GCC_PATCHED_ROOT = os.environ.get("EE_GCC_PATCHED_ROOT", "").strip()
 GAME_COMPILER_ROOT = os.environ.get("GAME_COMPILER_ROOT", "").strip()
 # Promoted textbin units matched byte-exact under the SN compiler.
 SN_COMPILER_UNITS = {
+    # textbin/fun_002267b8: originally promoted 2026-09-18 (commit 78cae12)
+    # under SN, then moved to GAME_COMPILER_UNITS on 2026-09-20 (commit
+    # 3dd9c02, "game-only SN parity") when the game-compiler briefly achieved
+    # parity for it. That parity has since broken (the installed game-compiler
+    # patch revision moved again) -- verified 2026-09-22 with objdiff-cli
+    # against the real expected object: cc_game route 43.77778%, fresh SN
+    # 100/100/100/100. Moved back to SN, which is a fixed binary compiler and
+    # doesn't drift.
+    "textbin/fun_002267b8",
     # sdk/debug_print: the EE-GCC 2.9 tree ships no stdarg.h, and the SN
     # stdarg va_start reproduces the retail varargs save prologue byte-exactly
     # (100/100/100/100 direct objdiff).
@@ -355,7 +364,6 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_001ff780",
     "textbin/fun_00221968",
     "textbin/fun_00221930",
-    "textbin/fun_002267b8",
     "ee/clear_dma_queue_entry",
     "gs/initialize_render_state",
     "textbin/audio_dec_start",
@@ -527,7 +535,6 @@ GAME_COMPILER_FLAG_UNITS = {
     "fun_0021f8e8": "-mastra-r5900-extern-buffer",
     "snd_unk_function_0012eb00": "-mastra-r5900-extern-buffer",
     "fun_00221968": "-mno-split-addresses",
-    "fun_002267b8": "-mno-split-addresses",
     "fun_00225490": "-fno-schedule-insns",
     "fun_0022c7e8": "-fno-schedule-insns",
 }
