@@ -31,6 +31,9 @@ extern s32 func_00200258();
 extern s32 func_00200C80();
 extern s32 func_00200E08();
 extern s32 func_00233980();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015F690, 4");
+
 void FUN_001fd748(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 u8 sp_slot[0xD0];    s32 sp10;
     s32 sp14;

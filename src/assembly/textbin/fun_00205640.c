@@ -90,6 +90,17 @@ extern void func_00208408(void *, f32 *, s32, f32, f32);
 extern void func_00208508(s32, s32, s32, s32);
 extern s32 func_00233980(s32, s64);
 extern void *memset(void *, s32, u32);
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015ED84, 4");
+__asm__(".extern D_0015FD60, 4");
+__asm__(".extern D_0015FD80, 4");
+__asm__(".extern D_0015FD84, 4");
+__asm__(".extern D_0015FD88, 4");
+__asm__(".extern D_0015FD8C, 4");
+__asm__(".extern D_0015FD90, 4");
+__asm__(".extern D_0015FD94, 4");
+__asm__(".extern D_00160F00, 4");
+
 void FUN_00205640(void) {
     struct M2c_D_001A00F0 *p;
     union M2c_slot sp_slot;

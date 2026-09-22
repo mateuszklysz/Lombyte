@@ -101,6 +101,17 @@ extern s32 func_002335D0();
 extern s32 rand();
 extern s32 sceCdSync();
 extern s32 sceGsSyncV();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015F440, 4");
+__asm__(".extern D_0015F460, 4");
+__asm__(".extern D_0015FF00, 4");
+__asm__(".extern D_0015FF08, 4");
+__asm__(".extern D_001600B8, 4");
+__asm__(".extern D_001600BC, 4");
+__asm__(".extern D_001604E0, 4");
+__asm__(".extern D_001604F0, 4");
+__asm__(".extern D_00160588, 8");
+
 void FUN_00230f60(void) {    u64 sp0;
 u8 sp_slot[0xC0];    s32 *temp_16_257;
     s32 *temp_18_145;

@@ -46,6 +46,9 @@ extern s32 func_00218D10();
 extern s32 func_00223E28();
 extern s32 func_00233980();
 extern void func_00237A78();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_001601B0, 4");
+
 void FUN_002196b8(void) {    s32 temp_6_200;
     s64 sp10;
     s64 sp20;

@@ -18,6 +18,10 @@ extern s32 D_0015EF9C[];
 extern s32 D_0015EFA0;
 extern struct M2c_D_00187080 D_00187080;
 extern struct M2c_D_001870D0 D_001870D0;
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015EF98, 4");
+__asm__(".extern D_0015EF9C, 4");
+
 void FUN_001ed940(void) {
     s32 var_2_49;
     s32 var_3_50;

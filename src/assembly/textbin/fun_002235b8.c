@@ -39,6 +39,11 @@ extern s32 func_00209370();
 extern s32 func_00226A70();
 extern s32 func_00226B08();
 extern s32 func_0022DA68();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015EE34, 4");
+__asm__(".extern D_0015EEB0, 4");
+__asm__(".extern D_0015EEB4, 4");
+
 s32 FUN_002235b8(struct M2c_arg0 *arg0) {
     s32 *temp_2_157;
     s32 *var_2_244;

@@ -344,6 +344,10 @@ GAME_COMPILER_UNITS = {
     "textbin/vu1_swap_chain",
     "textbin/fun_00215130",
     "textbin/sky_draw_shell",
+    # fun_001f37e8: exact with default flags once its four same-file small
+    # globals are declared to GAS before the body (__asm__ .extern); retail
+    # only reaches those through gp, every other global absolutely.
+    "textbin/fun_001f37e8",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",

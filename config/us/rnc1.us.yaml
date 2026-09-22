@@ -976,7 +976,7 @@ segments:
           - [0xf4334, textbin, text_gap_001f33b4_before_fun_001f33b8]
           - [0xf4338, c, assembly/textbin/fun_001f33b8]
           - [0xf4468, c, assembly/textbin/set_pal_mode]
-          - [0xf4768, c, assembly/textbin/fun_001f37e8]
+          - [0xf4768, c, textbin/fun_001f37e8]
           - [0xf47e4, textbin, text_gap_001f3864_after_fun_001f37e8]
           - [0xf47e8, c, assembly/textbin/fun_001f3868]
           - [0xf48d4, textbin, text_gap_001f3954_before_fun_001f3958]

@@ -80,6 +80,15 @@ extern s32 func_0020CCA8();
 extern s32 func_0020DEF8();
 extern s32 func_0022DE10();
 extern s32 rand();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015EE48, 2");
+__asm__(".extern D_0015F43C, 4");
+__asm__(".extern D_0015F618, 4");
+__asm__(".extern D_00160404, 4");
+__asm__(".extern D_001604E0, 4");
+__asm__(".extern D_001604F0, 4");
+__asm__(".extern D_00160500, 4");
+
 void FUN_0022eaa8(void) {
 u8 sp_slot[0x170];    s64 sp10;
     s32 sp20;

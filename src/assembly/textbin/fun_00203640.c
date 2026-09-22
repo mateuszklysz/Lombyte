@@ -15,6 +15,9 @@ extern u8 D_001B3AC0[];
 extern u8 D_001B6180[];
 extern s32 func_00203338();
 extern s32 func_00212D68();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015FF00, 4");
+
 void FUN_00203640(struct M2c_arg0 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     s16 *temp_8_26;
     s32 temp_10_11;

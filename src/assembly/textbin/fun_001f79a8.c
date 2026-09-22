@@ -11,6 +11,9 @@ extern s32 func_001F76A0();
 extern s32 func_001F89A4();
 extern s32 func_001F8FF0();
 extern s32 func_00233980();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_0015F348, 4");
+
 void FUN_001f79a8(void) {
     if (D_0015F478 != 0) {
         func_00233980(8, 5);

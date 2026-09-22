@@ -1,10 +1,4 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f37e8/FUN_001f37e8.s", FUN_001f37e8);
-#else
-#include "types.h"
 extern s32 D_0015F330;
 extern s32 D_0015F334;
 extern s32 D_0015F34C;
@@ -12,7 +6,7 @@ extern s32 D_0015F360;
 extern s32 D_0015F370;
 extern s32 D_0015F444;
 extern s32 D_0015F448;
-extern s32 D_0015F464[];
+extern s32 D_0015F464;
 extern s32 D_0015F468;
 extern s32 D_0015F46C;
 extern s32 D_0015F470;
@@ -22,8 +16,13 @@ extern s32 D_00161190;
 extern s32 D_00161194;
 extern s32 D_00161198;
 extern s32 D_0016119C;
+__asm__(".extern D_0015F34C, 4");
+__asm__(".extern D_0015F360, 4");
+__asm__(".extern D_0015F370, 4");
+__asm__(".extern D_0016119C, 4");
+
 void FUN_001f37e8(void) {
-    D_0015F464[0] = 0;
+    D_0015F464 = 0;
     D_0015F46C = 0;
     D_0015F470 = 0;
     D_0015F468 = 0;
@@ -41,4 +40,5 @@ void FUN_001f37e8(void) {
     D_00161198 = 0;
     D_0016119C = 0;
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(FUN_001f37e8) func_001F37E8 __attribute__((alias("FUN_001f37e8")));
