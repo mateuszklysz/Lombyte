@@ -4,9 +4,13 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002336a0/FUN_002336a0.s", FUN_002336a0);
 #else
-#include "rnc/assembly_textbin_fun_002336a0_types.h"
 #include "types.h"
-
+struct M2c_D_00160F00 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
 
 extern s32 D_00160EE0;
 extern u8 D_00160EF8[];
@@ -16,9 +20,15 @@ extern s32 D_00160F10;
 extern s32 D_00160F14[];
 extern u8 D_001E89C8[];
 extern s32 DebugPrint();
-extern s32 FlushCache();
+extern void FlushCache();
 extern s32 sceDmaGetChan();
 extern s32 sceDmaSend();
+/* retail small-data globals, declared to GAS before the body */
+__asm__(".extern D_00160EE0, 4");
+__asm__(".extern D_00160F00, 4");
+__asm__(".extern D_00160F0C, 4");
+__asm__(".extern D_00160F14, 4");
+
 void FUN_002336a0(void) {
     s32 *temp_2_48;
     s32 temp_5_15;
