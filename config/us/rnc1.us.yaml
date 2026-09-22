@@ -838,7 +838,7 @@ segments:
           - [0x3011c, textbin, text_gap_0012f19c_after_fun_0012f178]
           - [0x30120, c, assembly/math/compute_sector_index]
           - [0x30144, textbin, text_gap_0012f1c4_before_fun_0012f208]
-          - [0x30188, c, assembly/textbin/fun_0012f208]
+          - [0x30188, c, textbin/fun_0012f208]
           - [0x30234, textbin, text_gap_0012f2b4_before_fun_0012f2b8]
           - [0x30238, c, assembly/textbin/fun_0012f2b8]
           - [0x302e8, c, assembly/textbin/fun_0012f368]
