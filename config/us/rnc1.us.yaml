@@ -800,7 +800,7 @@ segments:
           - [0x2fa70, c, core/read_global_table_entry]
           - [0x2fa7c, textbin, text_gap_0012eafc_before_fun_0012eb00]
           - [0x2fa80, c, textbin/snd_unk_function_0012eb00]
-          - [0x2faa0, c, assembly/textbin/fun_0012eb20]
+          - [0x2faa0, c, textbin/fun_0012eb20]
           - [0x2fb4c, textbin, text_gap_0012ebcc_before_fun_0012ebd0]
           - [0x2fb50, c, textbin/fun_0012ebd0]
           - [0x2fb7c, textbin, text_gap_0012ebfc_after_fun_0012ebd0]

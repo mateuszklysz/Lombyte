@@ -53,7 +53,7 @@ SN_TOOLCHAIN_ROOT = os.environ.get("SN_TOOLCHAIN_ROOT", "").strip()
 # docs/patched-toolchain.md.
 EE_GCC_PATCHED_ROOT = os.environ.get("EE_GCC_PATCHED_ROOT", "").strip()
 # Reconstructed Sony/Cygnus 2.9-ee-991111b game compiler (RncDecomp-tools
-# patch stack, P37 cc1 82b332bbd4512c0e7d85c75d8af7d9fef398578b1e68d4b700d2c244aeae4866).
+# patch stack through P46, cc1 eb7a3497c39e0f73fc4f01bcda7de426c071c8f2f9d4702ffecefb5a6e1c8743).
 # Native Linux toolchain; units listed in
 # GAME_COMPILER_UNITS are built by it instead of the SN binary.
 GAME_COMPILER_ROOT = os.environ.get("GAME_COMPILER_ROOT", "").strip()
@@ -337,6 +337,7 @@ EE_GCC_FLAG_UNITS = {
 GAME_COMPILER_UNITS = {
     "textbin/fun_002071c0",
     "textbin/fun_001ff288",
+    "textbin/fun_0012eb20",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",
@@ -511,6 +512,11 @@ GAME_COMPILER_UNITS = {
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
 GAME_COMPILER_FLAG_UNITS = {
+    # fun_0012eb20: retail's D_0015EC8C accesses are gp-relative in the body
+    # (the .extern-ordering class); its call loop needs patch
+    # 0046-r5900-pad-unfilled-loops (cc1 eb7a3497...).  100/100/100 and
+    # full-ELF PASS on 2026-09-22.
+    "fun_0012eb20": "-mastra-r5900-extern-buffer",
     "fun_0012eea8": "-mastra-r5900-extern-buffer",
     "fun_0012ef28": "-mastra-r5900-extern-buffer",
     "snd_stream_safe_cd_get_error": "-mastra-r5900-extern-buffer",

@@ -25,6 +25,22 @@ SHA-256 recorded above and a recipe entry, following the rules in
 
 ## Published patches
 
+- `0046-r5900-pad-unfilled-loops.patch` SHA-256: `a29addcdc9e12bba51192f48e38c628d4ad1d8d4695d0462f31aede6189edf31`
+  - cc1 (committed P1..P37 baseline + 0036 + 0044/0045 (installed, unpublished)
+    + 0046): `eb7a3497c39e0f73fc4f01bcda7de426c071c8f2f9d4702ffecefb5a6e1c8743`
+  - role: default: extend the P19 post-dbr R5900 short-loop padding to loops
+    closed by a branch whose delay slot reorg left empty. Such branches (and
+    unfilled calls) are emitted in reorder mode and GAS appends the delay NOP,
+    so each occupies two words; retail pads the loop to 7 words
+    (`jal; nop x4; bnez; nop`). P19 only measured loops closed by a filled
+    `SEQUENCE`, so these loops were never padded
+  - fixture: `textbin/fun_0012eb20` -> 100.0 (with `-mastra-r5900-extern-buffer`
+    and a local `s32 args[4]` argument buffer)
+  - wide sweep 282 -> 284 exact (+`core/read_state_field`,
+    +`textbin/fun_0012f208`; 0 regressions across all 557); joint gate 55/58
+    unchanged; full-ELF gate PASS with `fun_0012eb20` promoted
+  - published via ASTRA 2026-09-22
+
 - `0038-unannul-redundant.patch` SHA-256: `563a644f5a0102ce4150ffb938db6a287d17eb5d47f638a0ccb49091dc1fe767`
   - cc1 (P26..P34 + 0036 + 0037 + 0038 stack): `6b66b17be24bff8c47dafad65432ec1575d32c804cbbb54cfe1b4a1f70bea805`
   - role: default: clear a spuriously-annulled branch (`beqzl` where retail

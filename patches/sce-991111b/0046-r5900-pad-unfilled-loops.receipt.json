@@ -1,0 +1,43 @@
+{
+  "schema": "rnc-compiler-patch-receipt-v1",
+  "compiler": "sony-991111b",
+  "patch": "0046-r5900-pad-unfilled-loops.patch",
+  "sha256": "a29addcdc9e12bba51192f48e38c628d4ad1d8d4695d0462f31aede6189edf31",
+  "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
+  "source": "build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043...); see analysis/compiler-sources.md",
+  "cc1_sha256": "eb7a3497c39e0f73fc4f01bcda7de426c071c8f2f9d4702ffecefb5a6e1c8743",
+  "cpp_sha256": "c1ab66820a740deb5c2ec95c07bac49d06e2baa46f8e00641c7a9ae54e8e3759",
+  "xgcc_sha256": "54a8bb9dfe0f51f4b6138569564dbc822bb2d67736e627a9c93c42934300e854",
+  "exact_fixtures": [
+    {
+      "unit": "textbin/fun_0012eb20",
+      "symbol": "FUN_0012eb20",
+      "code_percent": 100.0,
+      "flags": "-mastra-r5900-extern-buffer",
+      "paired_source_change": "the 5th..8th arguments go into a local s32 args[4] passed as a2 (was a u8 sp_slot[0x60])"
+    }
+  ],
+  "published_at": "2026-09-22T18:45:46.928495+00:00",
+  "role": "Default: extend the P19 post-dbr R5900 short-loop padding to loops closed by a branch whose delay slot reorg left empty. Such branches (and unfilled calls) are emitted in reorder mode and GAS appends the delay NOP, so each occupies two words; retail pads the loop to 7 words (jal; nop x4; bnez; nop).",
+  "mechanism": "config/mips/mips.c mips_r5900_pad_loops: unfilled CALL_INSN/JUMP_INSN count 2 words; an unfilled backward condjump closing a loop shorter than 7 words gets NOPs emitted before it (printed under noreorder, so GAS cannot move one into the empty slot); ADDR_VEC/ADDR_DIFF_VEC jump tables are not counted.",
+  "measurements": {
+    "wide_sweep_all_557": {
+      "before": 282,
+      "after": 284,
+      "conversions": 2,
+      "regressions": 0,
+      "converted": [
+        "core/read_state_field",
+        "textbin/fun_0012f208"
+      ],
+      "note": "5 score drops, all sdk/* units built by the SDK compiler in production"
+    },
+    "joint_control_gate": {
+      "exact": 55,
+      "controls": 58,
+      "delta": 0
+    }
+  },
+  "as_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff"
+}
