@@ -4,7 +4,7 @@
   "patch": "0026-frame-save-first.patch",
   "sha256": "9d42deb1f3e92ce6ae8f46ae1672a5c03ca93f9fd80d3f4f664461c2c03a12de",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
-  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
   "role": "Default scheduler order: prefer frame-related stores (prologue saves) in rank_for_schedule so retail's save/move interleaving is reproduced.",
   "mechanism": "rank_for_schedule() (haifa-sched.c) gains one comparison after the last-scheduled-instruction class rule and before the depend-count heuristic: an insn that is RTX_FRAME_RELATED_P with a memory destination (a prologue save) is preferred over an insn that is not. Retail's sched2 emits the saved registers ahead of the body instructions that reuse the saved registers (parameter moves); the prior chain fell through to depend_count, which ranked the anti-dependent move first.",

@@ -4,7 +4,7 @@
   "patch": "0015-no-sibcall.patch",
   "sha256": "63ff746052f682037413ce7188c3622786ec829674500de36d8bb5d950ceb071",
   "lineage": "sdk-compiler - Sony/Cygnus 2.9-ee-991111b (full source; PATCH TARGET for SN parity)",
-  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043...); see analysis/compiler-sources.md",
   "cc1_sha256": "5f8c800390c82137e3f25de82ec22b8868ede84c54034cab6d8e8844cf3c4193",
   "cpp_sha256": "",

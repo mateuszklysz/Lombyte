@@ -5,7 +5,7 @@
   "patch": "0020-gas-absolute-unknown-symbol.patch",
   "sha256": "4a1726ac272b83648eea77e07e3fb13c4440a378cb3e69831c71f596838392dc",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
-  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
   "role": "R5900 assembler parity: the gp->absolute expansion of a relaxable load/store or la pair must produce the retail `lui base,0` + `op %lo(base)` form.",
   "mechanism": "In reorder mode the retail R5900 assembler decides at the use: a symbol whose .extern size is not yet known gets the absolute lui/<op> form, while a known-small symbol relaxes to the single %gp_rel form (the deferred pair must not be used, and md_convert_frag's expansion also has to rebuild the first word as lui). Inside a noreorder block (the compiler delay-slot pattern) the retail assembler always emits the single gp-relative form.",

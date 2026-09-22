@@ -4,7 +4,7 @@
   "patch": "0021-sched-keep-frame-related-order.patch",
   "sha256": "5d9feea0d193c4dc7dc376129661084531392dab69735c4b11fcadc2912d9ff5",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
-  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
   "role": "Opt-in (-mastra-keep-frame-order) retention of the save_restore_insns emission order for prologue saves / epilogue restores under the scheduler.",
   "mechanism": "haifa-sched.c rank_for_schedule normally compares INSN_PRIORITY first, which reorders independent prologue saves (it sinks the $ra save past the callee-saved ones). With the flag, frame-related insns are ranked by INSN_LUID (program order). The behavior is opt-in because the retail objects mix both orders across units; fun_0023c610 needs the emission order, most other units need the default scheduler result.",

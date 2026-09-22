@@ -63,7 +63,6 @@ mkdir -p "$BASELINE_ROOT"
 touch "$BASELINE_ROOT/.rnc-baseline-root"
 cp -a "$PROJECT_ROOT/configure.py" "$BASELINE_ROOT/configure.py"
 mkdir -p "$BASELINE_ROOT/scripts"
-cp "$PROJECT_ROOT/scripts/fix-report.py" "$BASELINE_ROOT/scripts/fix-report.py"
 mkdir -p "$BASELINE_ROOT/tools/objdiff"
 cp "$PROJECT_ROOT/tools/objdiff/objdiff-cli" "$BASELINE_ROOT/tools/objdiff/objdiff-cli"
 chmod +x "$BASELINE_ROOT/tools/objdiff/objdiff-cli"
@@ -93,8 +92,6 @@ ninja -C config/us
 BUILD_STATUS=$?
 set -e
 tools/objdiff/objdiff-cli report generate -p config/us/ -o config/us/report.json -f json
-python3 scripts/fix-report.py config/us/report.json || \
-    printf 'warning: fix-report.py could not normalize one or more incomplete units; raw objdiff report is authoritative\n' >&2
 if [[ "$BUILD_STATUS" -ne 0 ]]; then
     printf 'baseline build failed with status %s; objdiff report was still generated\n' "$BUILD_STATUS" >&2
     exit "$BUILD_STATUS"

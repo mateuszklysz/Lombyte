@@ -4,7 +4,7 @@
   "patch": "0038-unannul-redundant.patch",
   "sha256": "563a644f5a0102ce4150ffb938db6a287d17eb5d47f638a0ccb49091dc1fe767",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
-  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
   "role": "Default: clear a branch's annulled (branch-likely) flag when reorg.c's generic delay-slot filler set it purely because its own liveness walk (mark_target_live_regs/next_insn_no_annul) treats the very next already-delay-filled branch as opaque and never looks at that branch's own delay-slot write. In the narrow case where that next branch's delay slot unconditionally overwrites the same register with a value independent of its old contents, and the next branch's own condition does not read that register, annulled and plain forms are behaviorally identical; retail keeps the plain form.",
   "mechanism": "config/mips/mips.c: new mips_r5900_unannul_redundant(), wired into MACHINE_DEPENDENT_REORG_AFTER_DBR_2 alongside mips_r5900_annul_dead_slots (P25). New default-on opt-out flag -mastra-unannul-redundant (mirrors P25's pattern: char* initialized to \"\" so it runs unless explicitly disabled).",

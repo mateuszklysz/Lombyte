@@ -4,7 +4,7 @@
   "patch": "0019-r5900-post-dbr-loop-pad.patch",
   "sha256": "9be60b68f35cf775bce2f0b677cd0b3ba459d8531649d99b6993b0d83e290562",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
-  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
   "role": "R5900 short-loop padding parity: reproduce the retail assembler's rule (backward-branch loops shorter than 7 instructions are padded with NOPs immediately before the branch) inside cc1, after delay-slot scheduling.",
   "rule_evidence": [

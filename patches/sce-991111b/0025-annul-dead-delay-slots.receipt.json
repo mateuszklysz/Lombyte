@@ -4,7 +4,7 @@
   "patch": "0025-annul-dead-delay-slots.patch",
   "sha256": "7ea7e0ecdb20ed4be7777eaada61299adb5e1a3a5563b2146b6b505fb1d59659",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
-  "source": "/mnt/wsl/Projects/RncDecomp-tools/build/workspace/astra-991111b/src",
+  "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
   "role": "Opt-in (-mastra-annul-dead-slots): after delay-slot scheduling, mark a conditional branch as annulled (branch-likely) when its delay-slot instruction writes the register the branch tests and that register is dead on the not-taken path.",
   "mechanism": "A post-reorg pass walks filled two-element SEQUENCEs; when the delay insn is a single_set of a register that appears in the branch condition, and the fall-through writes that register before reading it (or a call clobbers it), INSN_ANNULLED_BRANCH_P is set so the branch prints in its likely form (`bnezl v0,L; move v0,zero`).",
