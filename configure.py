@@ -250,14 +250,6 @@ PADLESS_POLICY_UNITS = {
 
 SDK_COMPILER_UNITS = {
     # e.g. "textbin/fun_XXXX" when a textbin unit is proven EE-GCC-2.9-compiled.
-    # fun_00221968: retail uses sq/lq saves (the usual SN signal), but SN
-    # scores worse here (90.454544%) than plain EE-GCC 2.9 (95.545456%) --
-    # measured 2026-09-22 after the unit's game-compiler routing (added
-    # 2026-09-20, commit 3dd9c02) regressed. Neither route is fully exact;
-    # this is the best available and the save-style heuristic alone is
-    # wrong for this specific unit. See fun_00221968.c's header for the
-    # full account.
-    "textbin/fun_00221968",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -649,6 +641,11 @@ PADLESS_ASM_UNITS = {
     # object is instruction-identical (67/67) and patha byte-equal
     # (sha 508793fb...).  No SN flag needed.
     "textbin/fun_0023aa68",
+    # fun_0012f208: promoted exact under SN cc1 + Ps2EeAs (padless policy
+    # "none", 172/172 bytes, verified 2026-09-22).  The plain cc_sn route
+    # drops the retail lui/addiu pair and compiles to 164 B, so the unit
+    # must stay on the padless route.
+    "textbin/fun_0012f208",
 }
 
 
