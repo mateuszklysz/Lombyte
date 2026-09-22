@@ -12,9 +12,10 @@ extern s32 func_00119160();
 extern void func_00233E00();
 extern void func_00233F00();
 void FUN_00233d00(void) {
+
     if (D_00160F18 == 0) {
         if (D_00160F1C == 0) {
-            if (!(*(s32 *)0x1000E010 & 0x20000)) {
+            if (!(*(volatile u32 *)0x1000E010 & 0x20000)) {
                 *(volatile u32 *)0x1000E010 = 0x20000;
             }
             D_00160F18 = func_001187B0(1, &func_00233E00, 0);

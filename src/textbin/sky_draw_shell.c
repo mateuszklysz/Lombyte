@@ -1,33 +1,31 @@
 #include "types.h"
-#include "asm.h"
 
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/sky_draw_shell/FUN_0022b690.s", FUN_0022b690);
-#else
-#include "rnc/assembly_textbin_fun_0022b690_types.h"
-#include "types.h"
+struct SkyShell {
+    u8 pad_0[0x4];
+    s32 unk4;
+};
 
+struct SkyShellSet {
+    u8 pad_0[0x6];
+    s16 unk6;
+    u8 pad_8[0x18];
+    struct SkyShell *unk20[1];
+};
 
-
-
-extern struct M2c_D_0016045C *D_0016045C;
+extern struct SkyShellSet *D_0016045C;
 extern s32 func_0022B6E8();
 extern s32 func_0022B928();
 void FUN_0022b690(s32 arg0) {
-    struct M2c_temp_4_14 *temp_4_14;
+    struct SkyShell *shell;
 
-    if (arg0 >= D_0016045C->unk6) {
-        goto block_4;
+    if (arg0 < D_0016045C->unk6) {
+        shell = D_0016045C->unk20[arg0];
+        if (shell->unk4 != 0) {
+            func_0022B928(shell);
+        } else {
+            func_0022B6E8(shell);
+        }
     }
-    temp_4_14 = *(s32 *)((u8 *)(D_0016045C + (arg0 * 4)) + 0x20);
-    if (temp_4_14->unk4 == 0) {
-        goto block_3;
-    }
-    func_0022B928(temp_4_14);
-    return;
-block_3:
-    func_0022B6E8(temp_4_14);
-block_4:
-    return;
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(FUN_0022b690) func_0022B690 __attribute__((alias("FUN_0022b690")));

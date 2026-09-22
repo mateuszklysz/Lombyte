@@ -339,6 +339,11 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_001ff288",
     "textbin/fun_0012eb20",
     "textbin/fun_00221968",
+    # 2026-09-22 pending-unit sweep follow-up: exact on the game compiler
+    # with default flags (100/100/100, full-ELF PASS).
+    "textbin/vu1_swap_chain",
+    "textbin/fun_00215130",
+    "textbin/sky_draw_shell",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",
