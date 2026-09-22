@@ -20,7 +20,7 @@ struct M2c_D_001D5BF0 {
 extern struct M2c_D_001D5BF0 D_001D5BF0;
 extern s32 FUN_00225530();
 extern s32 func_00225CD8();
-extern s32 func_002267B8();
+extern s32 FUN_002267b8();
 
 s32 FUN_002242b8(s32 arg0) {
     s32 *var_16_8;
@@ -43,7 +43,7 @@ s32 FUN_002242b8(s32 arg0) {
     base->unkC8 = 0xFF;
     base->unkC9 = 0xFF;
     base->unkCA = 0;
-    func_002267B8();
+    FUN_002267b8();
     var_17_24 = ((u8 *)base + 0xB0);
     do {
         var_18_20 -= 1;
