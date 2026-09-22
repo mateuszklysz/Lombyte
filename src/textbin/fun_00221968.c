@@ -1,24 +1,47 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_00221968
-SCORE: code=95.5455 functions=95.5455 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-991111b/r4 -O2 -g2 -gstabs (SN textbin default)
+SCORE: code=62.654545 functions=62.654545 data=100 complete_data=100
 DECISION: retained
-BLOCKER: register-allocation,delay-slot-scheduling
+BLOCKER: register-allocation
+NOTE: restored after an erroneous guarded NON_MATCHING publisher overwrite
+  (commit 22e5297 replaced this promoted body with an INCLUDE_ASM wrapper
+  pointing at a missing oracle, breaking the build). The restored body is
+  byte-identical to its original 2026-09-18 promotion (commit 1691420) and
+  really was C_EXACT then; it no longer matches against the currently
+  installed game-compiler (patch revision has moved since, e.g. P37/P38
+  swaps during later ASTRA compiler work) -- verified 2026-09-22 with
+  objdiff-cli diff against config/us/expected/obj/textbin/fun_00221968.c.o:
+  62.654545% code match, not 100%. Needs re-verification/re-promotion once
+  routed through its correct current compiler, not a straight restore.
 */
 
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 95.5455%
- * blocker: the logic is correct but register/stack/delay code generation is blocked
- * The default matching build keeps the expected assembly oracle.
- */
 #include "types.h"
-#include "asm.h"
 
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00221968/FUN_00221968.s", FUN_00221968);
-#else
-#include "rnc/textbin_fun_00221968_types.h"
+struct M2c_D_001D5BF0
+{
+  u8 pad_0[0x4];
+  struct M2c_D_001D5BF0_unk4 *unk4;
+  s32 unk8;
+  s32 unkC;
+  u8 pad_10[0xD4];
+  s32 unkE4;
+  u8 pad_E8[0x8];
+  s32 unkF0;
+  s32 unkF4;
+  u8 pad_F8[0x2C];
+  s32 unk124;
+};
+struct M2c_D_001D5BF0_unk4
+{
+  u8 pad_0[0x38];
+  s32 unk38;
+};
+struct M2c_arg0
+{
+  u8 pad_0[0x14];
+  s32 unk14;
+};
 extern s32 D_0013CB04[];
 extern s32 D_0015ED84;
 extern s32 D_001A0314[];
@@ -81,7 +104,4 @@ s32 FUN_00221968(struct M2c_arg0 *arg0)
   block_13:
   block_14:
   return 0;
-
-
 }
-#endif /* NON_MATCHING */

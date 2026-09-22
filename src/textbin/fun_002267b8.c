@@ -1,28 +1,33 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_002267b8
-SCORE: code=94.1667 functions=94.1667 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-991111b/r4 -O2 -g2 -gstabs (SN textbin default)
+SCORE: code=43.77778 functions=43.77778 data=100 complete_data=100
 DECISION: retained
-BLOCKER: register-allocation,delay-slot-scheduling
+BLOCKER: register-allocation
+NOTE: restored after an erroneous guarded NON_MATCHING publisher overwrite
+  (commit 22e5297 replaced this promoted body with an INCLUDE_ASM wrapper
+  pointing at a missing oracle, breaking the build). The restored body is
+  byte-identical to its original 2026-09-18 promotion (commit 78cae12) and
+  really was C_EXACT then under COMPILER: sn-O2; the current build config
+  routes this unit through cc_game instead (config/us/build.ninja), whose
+  installed patch revision has moved since (see fun_00221968.c's note).
+  Verified 2026-09-22 with objdiff-cli diff against
+  config/us/expected/obj/textbin/fun_002267b8.c.o: 43.77778% code match
+  under the actual cc_game build, not 100%. Needs re-verification/
+  re-promotion once routed through its correct current compiler.
 */
 
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 94.1667%
- * blocker: the logic is correct but register/stack/delay code generation is blocked
- * The default matching build keeps the expected assembly oracle.
- */
 #include "types.h"
-#include "asm.h"
+struct M2c_D_001D5BF0 {
+    u8 pad_0[0xA8];
+    s32 unkA8;
+    s32 unkAC;
+};
 
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002267b8/FUN_002267b8.s", FUN_002267b8);
-#else
-#include "rnc/textbin_fun_002267b8_types.h"
-#include "types.h"
-
-
-
+struct M2c_var_5_18 {
+    s32 unk0;
+    s32 unk4;
+};
 
 extern u8 D_001B3200[];
 extern u8 D_001B3AC0[];
@@ -60,4 +65,3 @@ void FUN_002267b8(void) {
     }
     D_001D5BF0.unkAC = 0;
 }
-#endif /* NON_MATCHING */
