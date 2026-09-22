@@ -39,7 +39,8 @@ struct M2c_D_00151780 {
     s32 unk152;
     u8 pad_156[0x2];
     s16 unk158;
-    s32 unk15A;
+    s16 unk15A;
+    u8 pad_15C[0x2];
 };
 
 #endif /* RNC_ASSEMBLY_TEXTBIN_FUN_001F34E8_TYPES_H */

@@ -9,7 +9,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022f5b0/FUN_0022f5b0.s
 
 
 extern struct M2c_D_0013E030 D_0013E030;
-extern s32 D_0015ED6C;
+extern f32 D_0015ED6C;
 extern u8 D_001D9B60[];
 extern s32 func_001F96F8();
 extern s32 func_001F9A10();
