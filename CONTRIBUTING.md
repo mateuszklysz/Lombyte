@@ -110,16 +110,10 @@ Once the unit matches, make the C the only compiled code:
    `git mv src/assembly/<path>.c src/<path>.c`.
 3. In [`config/us/rnc1.us.yaml`](config/us/rnc1.us.yaml), change that unit's
    owner from `assembly/<path>` to `<path>`.
-4. Update the file's state header:
+The file location plus the linker-config owner are the whole promotion: no
+per-file metadata is written.
 
-   ```sh
-   python3 scripts/stamp_source_header.py src/<path>.c \
-       --state C_EXACT --symbol <Symbol> \
-       --score "code=100 functions=100 data=100 complete_data=100" \
-       --decision promoted --apply
-   ```
-
-5. Run `make elf` again; it must end with `PASS`.
+4. Run `make elf` again; it must end with `PASS`.
 
 ### 7. Open a pull request
 
@@ -135,9 +129,7 @@ Every pull request runs the public `tools` job in
 [`.github/workflows/checks.yml`](.github/workflows/checks.yml):
 
 - `python3 scripts/test_public_tools.py -v` — the script regression suite;
-- `python3 -m py_compile scripts/*.py` — every public script must parse;
-- `python3 scripts/stamp_source_header.py --check --normalize <changed
-  src/**/*.c>` — changed sources must carry a valid state header.
+- `python3 -m py_compile scripts/*.py` — every public script must parse.
 
 These checks need no game data and never upload build outputs. Run the same
 checks locally with `make check`. The full `make elf` rebuild stays a local,

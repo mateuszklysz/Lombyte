@@ -54,7 +54,6 @@ GLABEL_RE = re.compile(r'(?m)^\s*(?:glabel|\.globl)\s+([A-Za-z_]\w*)\s*$')
 DEF_RE = re.compile(
     r'(?m)^[A-Za-z_][\w \t\*]*?\b([A-Za-z_]\w*)\s*\([^;{]*\)\s*\{'
 )
-STATE_RE = re.compile(r'(?m)^STATE:\s*(\S+)\s*$')
 SCHEMA = "rnc-normalize-report-v1"
 
 
@@ -206,9 +205,8 @@ def unit_plan(unit: str, source: Path, text: str, workspace: Path | None,
     if "INCLUDE_ASM" not in text.split("#else", 1)[0]:
         plan["skipped"] = "no-oracle"
         return plan
-    state_match = STATE_RE.search(text)
-    if state_match and state_match.group(1) == "C_EXACT":
-        plan["skipped"] = "c-exact"
+    if not unit.startswith("assembly/"):
+        plan["skipped"] = "promoted"
         return plan
 
     stripped, count = strip_section_attributes(body)

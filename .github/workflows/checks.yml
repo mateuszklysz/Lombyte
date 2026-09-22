@@ -22,25 +22,3 @@ jobs:
         run: python3 scripts/test_public_tools.py -v
       - name: Byte-compile the public scripts
         run: python3 -m py_compile scripts/*.py
-      - name: Source-header state check (changed files)
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            base="${{ github.event.pull_request.base.sha }}"
-          elif git rev-parse HEAD^ >/dev/null 2>&1; then
-            base="HEAD^"
-          else
-            base=""
-          fi
-          if [ -z "$base" ]; then
-            echo "no base commit; skipping header check"
-            exit 0
-          fi
-          mapfile -t files < <(git diff --name-only --diff-filter=ACMR "$base" HEAD -- 'src/**/*.c' || true)
-          if [ "${#files[@]}" -eq 0 ]; then
-            echo "no changed src/*.c files; skipping header check"
-            exit 0
-          fi
-          printf 'checking %d file(s)\n' "${#files[@]}"
-          python3 scripts/stamp_source_header.py --check --normalize "${files[@]}"

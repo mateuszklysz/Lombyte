@@ -88,13 +88,15 @@ ROW_RE = re.compile(
 # Display names: presentation-only tile labels.  Canonical identity (the unit
 # path and its FUN_xxxx symbol) never changes; every renderer keeps it in the
 # tile tooltip.  Sources, in priority order:
-#   1. the stamped ``SYMBOL:`` field of a promoted source under ``src/``
-#      (recovered roles are recorded there by the source-header stamper),
+#   1. the first function name in the unit's C source,
 #   2. ``config/us/recovered_names.json`` entries with ``match == "full"``
 #      whose recovered function starts exactly at the unit start,
 #   3. no evidence -> the unit basename (address name).
 # --------------------------------------------------------------------------
-SYMBOL_RE = re.compile(r"(?m)^SYMBOL:\s*([A-Za-z_]\w*)\s*$")
+FUNC_DEF_RE = re.compile(
+    r"(?m)^[A-Za-z_][A-Za-z0-9_ \t\*]*?\b([A-Za-z_]\w*)\s*\([^;{]*\)\s*\{"
+)
+INCLUDE_ASM_RE = re.compile(r'INCLUDE_ASM\s*\(\s*"[^"]*"\s*,\s*([A-Za-z_]\w*)\s*\)')
 ADDR_SYMBOL_RE = re.compile(r"^(?:FUN_|func_|D_|DAT_)[0-9A-Fa-f]+$")
 
 
@@ -155,11 +157,21 @@ def load_overlay_names(repo: Path) -> dict[int, str]:
     return names
 
 
+def source_symbol(source: Path) -> str | None:
+    """First function name (or INCLUDE_ASM symbol) in a unit source, or None."""
+    text = source.read_text(errors="replace")
+    match = FUNC_DEF_RE.search(text)
+    if match:
+        return match.group(1)
+    match = INCLUDE_ASM_RE.search(text)
+    return match.group(1) if match else None
+
+
 def display_for(owner: str, source: Path, recovered: dict[str, str]) -> str | None:
     if source.is_file():
-        match = SYMBOL_RE.search(source.read_text(errors="replace")[:600])
-        if match and not ADDR_SYMBOL_RE.match(match.group(1)):
-            return demangle_cfront(match.group(1))
+        name = source_symbol(source)
+        if name and not ADDR_SYMBOL_RE.match(name):
+            return demangle_cfront(name)
     name = recovered.get(owner) or recovered.get(owner.removeprefix("assembly/"))
     return demangle_cfront(name) if name else None
 

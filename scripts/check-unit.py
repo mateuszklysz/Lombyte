@@ -454,7 +454,7 @@ def main(argv=None) -> int:
             notes.append(
                 "the retail function symbol(s) could not be paired with your "
                 "C; check the canonical symbol names in the body "
-                "(see src/README.md and docs/source-headers.md)."
+                "(see src/README.md)."
             )
 
     strict_match = None

@@ -2,7 +2,7 @@
 #
 # The cleanup hooks below deliberately do not rewrite decompilation inputs or
 # build plumbing. The protected paths are still covered by the read-only
-# validation hooks and by the source-header check in the local hook block.
+# validation hooks.
 
 default_stages: [pre-commit]
 fail_fast: false
@@ -49,14 +49,3 @@ repos:
         args: [--autofix, --no-sort-keys, --no-ensure-ascii]
         files: \.json$
         exclude: ^(?:src|include|config|scripts|tools|build|dumps|extracted|assets)/
-
-  - repo: local
-    hooks:
-      # This check never writes source files. It keeps promoted C metadata
-      # canonical while intentionally leaving assembly oracles untouched.
-      - id: decomp-source-headers
-        name: validate promoted C source headers
-        entry: python3 scripts/stamp_source_header.py --check
-        language: system
-        files: ^src/(?!assembly/).*\.c$
-        stages: [pre-commit]

@@ -72,17 +72,14 @@ Procedure and acceptance bar for Ratchet & Clank (PS2, `SCUS_971.99`).
 - Remove the oracle only after the transaction succeeds, and update the record.
   Refresh the audit from fresh evidence; counters are derived, never edited.
 - Recovered names (see `docs/recovered-names.md`) are context: keep the
-  canonical symbol, record the recovered name as a `ROLE:` comment after the
-  state header, and declare it as an alias only when the unit is the whole
+  canonical symbol and declare it as an alias only when the unit is the whole
   recovered function and the name is not used elsewhere.
 
 ## 8. Evidence discipline
 
 - Every attempt keeps a unique set of artifacts: source hash, compiler
   invocation, object, raw comparison report, measures, decision, next action.
-- Worked files carry a short state header (state, symbol, measures, compiler,
-  decision, blocker); see [source-headers.md](source-headers.md). Evidence
-  paths stay with the maintainers' artifacts, not in this repository.
+- Evidence paths stay with the maintainers' artifacts, not in this repository.
 - Raw reports are preserved; summaries do not replace them. Parked work records
   the tested hypotheses, the blocker class, and a concrete revisit trigger.
 
