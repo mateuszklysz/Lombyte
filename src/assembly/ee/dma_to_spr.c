@@ -79,7 +79,7 @@ typedef s64 M2C_UNK64;
 #define M2C_CMP_STR(a, b) (0)
 #define M2C_TAS_B(a) (0)
 
-
+#endif /* M2C_MACROS_H */
 
 void WriteDmaChannelRegisters(s32 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD((void *)0x1000D400, s32 *, 0x80) = arg2;

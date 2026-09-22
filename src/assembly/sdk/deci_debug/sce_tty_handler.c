@@ -203,6 +203,7 @@ typedef s64 M2C_UNK64;
 #define M2C_CMP_STR(a, b) (0)
 #define M2C_TAS_B(a) (0)
 
+#endif /* M2C_MACROS_H */
 
 extern u8 D_00152710[];
 extern u8 D_00152738[];
