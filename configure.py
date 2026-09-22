@@ -250,6 +250,14 @@ PADLESS_POLICY_UNITS = {
 
 SDK_COMPILER_UNITS = {
     # e.g. "textbin/fun_XXXX" when a textbin unit is proven EE-GCC-2.9-compiled.
+    # fun_00221968: retail uses sq/lq saves (the usual SN signal), but SN
+    # scores worse here (90.454544%) than plain EE-GCC 2.9 (95.545456%) --
+    # measured 2026-09-22 after the unit's game-compiler routing (added
+    # 2026-09-20, commit 3dd9c02) regressed. Neither route is fully exact;
+    # this is the best available and the save-style heuristic alone is
+    # wrong for this specific unit. See fun_00221968.c's header for the
+    # full account.
+    "textbin/fun_00221968",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -362,7 +370,6 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_0021e1f8",
     "textbin/fun_0021f120",
     "textbin/fun_001ff780",
-    "textbin/fun_00221968",
     "textbin/fun_00221930",
     "ee/clear_dma_queue_entry",
     "gs/initialize_render_state",
@@ -534,7 +541,6 @@ GAME_COMPILER_FLAG_UNITS = {
     "fun_001f21c0": "-mno-split-addresses",
     "fun_0021f8e8": "-mastra-r5900-extern-buffer",
     "snd_unk_function_0012eb00": "-mastra-r5900-extern-buffer",
-    "fun_00221968": "-mno-split-addresses",
     "fun_00225490": "-fno-schedule-insns",
     "fun_0022c7e8": "-fno-schedule-insns",
 }

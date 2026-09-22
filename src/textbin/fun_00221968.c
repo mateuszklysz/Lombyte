@@ -1,19 +1,31 @@
 /*
 STATE: C_NON_MATCHING
 SYMBOL: FUN_00221968
-SCORE: code=62.654545 functions=62.654545 data=100 complete_data=100
+SCORE: code=95.163635 functions=95.163635 data=100 complete_data=100
 DECISION: retained
 BLOCKER: register-allocation
 NOTE: restored after an erroneous guarded NON_MATCHING publisher overwrite
   (commit 22e5297 replaced this promoted body with an INCLUDE_ASM wrapper
-  pointing at a missing oracle, breaking the build). The restored body is
-  byte-identical to its original 2026-09-18 promotion (commit 1691420) and
-  really was C_EXACT then; it no longer matches against the currently
-  installed game-compiler (patch revision has moved since, e.g. P37/P38
-  swaps during later ASTRA compiler work) -- verified 2026-09-22 with
-  objdiff-cli diff against config/us/expected/obj/textbin/fun_00221968.c.o:
-  62.654545% code match, not 100%. Needs re-verification/re-promotion once
-  routed through its correct current compiler, not a straight restore.
+  pointing at a missing oracle, breaking the build). Body byte-identical to
+  the original 2026-09-18 promotion (commit 1691420), which really was
+  C_EXACT then. Neither the currently installed game-compiler (62.654545%,
+  patch revision moved) nor SN (90.454544%) reproduce that anymore; the
+  best available route is the default EE-GCC 2.9 compiler (sony-2.9),
+  95.163635% verified via the real build (objdiff-cli against the expected
+  object; a standalone score-proposal.py reproduction reads 95.545456%, a
+  small tool/flag discrepancy not yet root-caused). Routed here via
+  SDK_COMPILER_UNITS in configure.py, since the save-style auto-heuristic
+  (retail uses sq/lq, which normally selects SN) would otherwise route it
+  to SN, which scores worse (90.454544%) for this specific unit -- the
+  residual is a genuine register-allocator artifact
+  (retail keeps arg0's pointer in a3 directly; every route tried relays it
+  through a4 first, matching the register-relay wall class documented
+  elsewhere this session, e.g. fun_0021bda0/fun_00231608/fun_0021be60) and
+  a small relocation-spelling difference (symbolic %hi/%lo vs retail's
+  pre-resolved constants, not a real mismatch). Not source-shape reachable
+  as far as tested 2026-09-22: removing the explicit `asm("a3")` register
+  pin regresses to 92.09091%, so the pin stays. Needs either the exact
+  original compiler build or ASTRA-level compiler work to close fully.
 */
 
 #include "types.h"
