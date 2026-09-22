@@ -1,8 +1,3 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 74.4286%
- * blocker: run-20260916 retained improvement; remaining mismatch is register allocation, stack alignment or delay-slot/scheduling placement; assembly oracle remains authoritative
- * The default matching build keeps the expected assembly oracle.
- */
 #include "types.h"
 #include "asm.h"
 

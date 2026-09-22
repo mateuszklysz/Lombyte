@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001280a8
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 
 void FUN_001280a8(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)

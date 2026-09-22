@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: sceTtyRead
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 typedef struct { u8 pad_0[4]; volatile s32 avail; } TtyQueue;
 typedef struct { u8 pad_0[8]; u8 *data; } TtyRcv;

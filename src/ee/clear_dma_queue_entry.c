@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: ClearDmaQueueEntry
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 extern u8 D_0018A2B0[];
 void ClearDmaQueueEntry(void) {

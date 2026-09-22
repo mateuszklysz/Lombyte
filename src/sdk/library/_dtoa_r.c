@@ -1,21 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _dtoa_r
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* C_EXACT — promoted 2026-09-09
- * SYMBOL: _dtoa_r
- * SCORE: code=100 functions=100 data=100 complete_data=100
- * COMPILER: ee-gcc-2.9-O2
- * DECISION: promoted (staged whole-owner + full-ELF SHA gate PASS e05058…c0c9)
- * BLOCKER: none
- * ROLE: newlib dtoa reference implementation recovered from upstream dtoa.c
- *   (vintage 2000-02-17 placement matching retail); recovers the original
- *   _dtoa_r floating-point-to-string algorithm and ABI.
- */
-
 /****************************************************************
  *
  * The author of this software is David M. Gay.

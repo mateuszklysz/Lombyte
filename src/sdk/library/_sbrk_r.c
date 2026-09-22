@@ -1,11 +1,4 @@
 /*
-STATE: C_EXACT
-SYMBOL: _sbrk_r
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/*
  * Derived from newlib, which is distributed under permissive BSD-style
  * terms. See THIRD_PARTY_NOTICES.md and licenses/COPYING.NEWLIB.txt.
  */

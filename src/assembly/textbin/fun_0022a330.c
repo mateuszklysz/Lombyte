@@ -1,12 +1,3 @@
-/*
-STATE: INTENTIONAL_LOW_LEVEL_ASM
-SYMBOL: BuildShrubTextureDma
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (intentional asm)
-*/
-
-/* ROLE: recovered function `BuildShrubTextureDma` starts here. */
-
 #include "types.h"
 #include "asm.h"
 

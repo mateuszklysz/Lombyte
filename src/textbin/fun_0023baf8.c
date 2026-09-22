@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: getFIFOindex__FP5ViBufPv
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `getFIFOindex__FP5ViBufPv` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;

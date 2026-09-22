@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: ClearStageStateFlag
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `endDisplay__Fv` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 
 extern u32 D_001611E0[];

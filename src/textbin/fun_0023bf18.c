@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: viBufEndPut__FP5ViBufi
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `viBufEndPut__FP5ViBufi` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 struct M2c_arg0 {
     u8 pad_0[0x14];

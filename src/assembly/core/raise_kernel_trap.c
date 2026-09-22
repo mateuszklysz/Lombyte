@@ -1,10 +1,3 @@
-/*
-STATE: INTENTIONAL_LOW_LEVEL_ASM
-SYMBOL: RaiseKernelTrap
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (intentional asm)
-*/
-
 #include "asm.h"
 
 /* Deliberate EE trap leaf used by the original error path. */

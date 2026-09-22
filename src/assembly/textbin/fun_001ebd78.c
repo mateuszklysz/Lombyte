@@ -1,12 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: Cam_InterpValues__FffPffff
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `Cam_InterpValues__FffPffff` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 #include "asm.h"
 

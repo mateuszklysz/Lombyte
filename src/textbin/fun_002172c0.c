@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: ClearPadInput__FR3PAD
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `ClearPadInput__FR3PAD` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 #include "rnc/assembly_textbin_fun_002172c0_types.h"
 

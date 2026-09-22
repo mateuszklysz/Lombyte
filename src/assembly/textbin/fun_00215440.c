@@ -1,11 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_00215440
-SCORE: code=64.28302 functions=64.28302 data=100 complete_data=100
-DECISION: retained
-BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
-*/
-
 #include "types.h"
 #include "asm.h"
 

@@ -1,10 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: sceSifInitIopHeap
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
 /* C_EXACT - promoted 2026-09-09 (per-unit -fno-schedule-insns routing)
  * SYMBOL: sceSifInitIopHeap
  * COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs -fno-schedule-insns

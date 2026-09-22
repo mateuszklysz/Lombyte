@@ -1,11 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: DmaTfragTextures__Fv
-SCORE: code=47.814816 functions=47.814816 data=100 complete_data=100
-DECISION: retained
-BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
-*/
-
 #include "types.h"
 #include "asm.h"
 

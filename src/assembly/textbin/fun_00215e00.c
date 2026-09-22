@@ -1,12 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: music_Transition__Fiiii
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `music_Transition__Fiiii` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 #include "asm.h"
 

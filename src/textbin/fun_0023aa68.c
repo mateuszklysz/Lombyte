@@ -1,15 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0023aa68
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN ee-gcc2.95.2 cc1 + Ps2EeAs (cc_sn_padless); register pin v0 on the second D_0016120C pointer load
-DECISION: promoted
-BLOCKER: none
-*/
-
-/* ROLE: recovered function `termAll__Fv` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 struct M2c_D_0016120C {
     u8 pad_0[0xD90F8];

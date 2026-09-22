@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00220790
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_sn (SN 2.95.2 v2.73a) -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct M2c_arg0 {
     u8 pad_0[0x44];

@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: AppendDmaTag
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9 -O2 -g2 -gstabs -G0 -mno-split-addresses
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 extern u32 D_00160F00;
 void AppendDmaTag(u32 addr) {

@@ -1,14 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: InitializeRenderState
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `music_Pause__Fi` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 struct M2c_D_001516D0 {
     u8 pad_0[0x40];

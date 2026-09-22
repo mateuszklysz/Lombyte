@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _type2id
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 (-O2 -g2 -gstabs)
-DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
-BLOCKER: none
-*/
-
 /* type2id exact recovery: named c1 + empty-asm barrier on shift after its initial 0 keeps the
    cg `shift = 0` assignment alive (branch-likely delay fill), reproducing retail scheduling. */
 

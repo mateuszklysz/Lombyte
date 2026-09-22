@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: AddMpegCallback
-SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted (pipeline-2026-09-10-4)
-BLOCKER: none
-*/
-
 #include "types.h"
 
 s32 AddMpegCallback(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {

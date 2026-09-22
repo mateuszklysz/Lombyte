@@ -1,14 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00201f88
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs; constant-address cast spelling
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `DetachPointLight__Fi` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 struct M2c_temp_17_156 {
     u8 pad_0[0x1B];

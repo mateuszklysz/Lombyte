@@ -1,15 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001ff288
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: P37 game compiler (cc1 82b332bbd451) -O2 -g2 -DMATCHING_DECOMP -DBUILD_US_VERSION
-DECISION: promoted
-BLOCKER: none
-*/
-
-/* ROLE: recovered function `Hud_HeapAlloc__FUiPcT1i` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 struct M2c_D_0019A3E8 {
     u8 pad_0[0x10];

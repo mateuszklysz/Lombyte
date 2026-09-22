@@ -1,14 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: EnableIntc
-SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted (pipeline-2026-09-10-4)
-BLOCKER: none
-*/
-
-/* ROLE: EnableIntc: interrupt-guarded public wrapper over the `_EnableIntc` kernel entry (callee and guard-pattern evidence). */
-
 #include "types.h"
 
 extern s32 _EnableIntc();

@@ -1,11 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: VU1_addDataRef__FPvi
-SCORE: code=50.789474 functions=50.789474 data=100 complete_data=100
-DECISION: retained
-BLOCKER: register-allocation, stack-alignment, delay-slot-scheduling
-*/
-
 #include "types.h"
 #include "asm.h"
 

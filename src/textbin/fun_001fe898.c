@@ -1,15 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001fe898
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN ee-gcc2.95.2-v2.73a cc1 + SN Ps2EeAs (padless, run-7 resume 2026-09-12)
-DECISION: promoted
-BLOCKER: none
-*/
-
-/* ROLE: recovered function `Help_DrawPrompt` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 struct M2c_D_001996D0 {
     s32 unk0;

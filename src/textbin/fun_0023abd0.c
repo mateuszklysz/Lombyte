@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0023abd0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `audioDecCreate__FP9_AudioDecPUci14sceMpegStrType` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;

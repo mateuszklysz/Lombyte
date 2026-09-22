@@ -1,15 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_002049f0
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2
-DECISION: promoted
-BLOCKER: none
-*/
-
-/* ROLE: recovered function `ParseSpaceSceneChunk__Fi` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 struct TransferState {
     u8 pad[0x5C];

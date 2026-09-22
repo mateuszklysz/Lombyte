@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: cmd_sem_init
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs -fno-schedule-insns
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct Sema {
     s32 count;

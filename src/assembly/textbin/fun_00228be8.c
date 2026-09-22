@@ -1,12 +1,3 @@
-/*
-STATE: INTENTIONAL_LOW_LEVEL_ASM
-SYMBOL: ShrubProc
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (intentional asm)
-*/
-
-/* ROLE: recovered function `ShrubProc` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 #include "asm.h"
 

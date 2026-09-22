@@ -1,10 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001f7978
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
 #include "types.h"
 extern s32 FUN_001f2c60();
 extern s32 FUN_001f2d98();

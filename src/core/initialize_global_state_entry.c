@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: InitializeGlobalStateEntry
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9 -O2 -g2 -mno-split-addresses -fno-schedule-insns
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 extern s32 D_0015F600[4];
 extern s32 D_0015F618[4];

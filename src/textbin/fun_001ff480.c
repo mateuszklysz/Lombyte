@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001ff480
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN ee-gcc2.95.2-v2.73a cc1 + Sony Ps2EeAs (padless, ASTRA 2026-09-12)
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct M2c_D_00199B60 {
     u8 pad_0[0x64];

@@ -1,15 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0021e890
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2
-DECISION: promoted
-BLOCKER: none
-*/
-
-/* ROLE: recovered function `DrawQuitGameMenu` starts here; this unit covers only its beginning. */
-
-
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

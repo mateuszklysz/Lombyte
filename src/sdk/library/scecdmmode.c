@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: sceCdMmode
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: retained
-BLOCKER: none
-*/
-
 #include "types.h"
 extern u32 D_001312EC[];
 extern u8 D_001324C0[];

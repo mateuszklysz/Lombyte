@@ -1,13 +1,4 @@
 /*
-STATE: C_EXACT
-SYMBOL: sceDmaReset
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
-/*
  * sceDmaReset - EE DMA controller reset (Ratchet & Clank, SCUS_971.99).
  *
  * Exact (EE-GCC 2.9 profile, code/function/data 100, byte-equal via patha).

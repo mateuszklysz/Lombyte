@@ -1,15 +1,4 @@
 /*
-STATE: C_EXACT
-SYMBOL: __sbprintf
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2
-DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
-BLOCKER: none
-*/
-
-/* ROLE: newlib unbuffered-stream vfprintf fallback */
-
-/*
  * Derived from newlib, which is distributed under permissive BSD-style
  * terms. See THIRD_PARTY_NOTICES.md and licenses/COPYING.NEWLIB.txt.
  */

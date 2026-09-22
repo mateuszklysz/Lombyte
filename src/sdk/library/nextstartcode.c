@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _nextStartCode
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 (-O2 -g2 -gstabs)
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 extern void _waitIpuIdle(s32 *ctx);
 extern s32 _peepBit(s32 *ctx, s32 count);

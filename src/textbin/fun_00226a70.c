@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00226a70
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2 -O2 -g2 -gstabs
-DECISION: promoted
-NOTE: input-consumer empty-asm barrier holds the LO_SUM before the call (retail addiu-before-jal + nop slot)
-*/
-
 #include "types.h"
 struct M2c_D_0013D290 {
     u8 pad_0[0x14];

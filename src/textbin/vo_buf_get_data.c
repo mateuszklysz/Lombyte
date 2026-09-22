@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: voBufGetData__FP5VoBuf
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered whole function `voBufGetData__FP5VoBuf`. */
-
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;

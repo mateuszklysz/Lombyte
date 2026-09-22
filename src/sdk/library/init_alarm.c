@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: InitAlarm
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 /* InitAlarm a11: apply the timer/syscall patches when needed.
  * Hypothesis: declaring the return-ignored patch installer void frees v0
  * for the loop-test sltiu (retail v0; a2 ties at v1). */

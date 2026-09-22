@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0012bc20
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs
-DECISION: promoted (pipeline-2026-09-07-1)
-BLOCKER: none
-*/
-
 #include "types.h"
 struct M2c_arg1 {
     s32 unk0;

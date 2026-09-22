@@ -1,10 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00215290
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
 #include "types.h"
 extern u8 D_0014BEC0[];
 s32 FUN_00215290(void) {

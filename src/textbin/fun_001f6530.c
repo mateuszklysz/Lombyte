@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FontPrintLarge
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `FontPrintLarge` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 extern u8 D_001DF050[];
 extern s32 FUN_001f44b8();

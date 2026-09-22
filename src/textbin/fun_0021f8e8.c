@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0021f8e8 (alias func_0021F8E8)
-SCORE: code=100 functions=100 data=100 complete_data=100 (staged)
-COMPILER: SN ee-gcc2.95.2-v2.73a -O2 -g2 -gstabs
-DECISION: promoted (pipeline-2026-09-08-2)
-BLOCKER: none
-*/
-
 #include "types.h"
 extern s32 D_001601B0;
 extern s32 func_001FF960();

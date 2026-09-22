@@ -1,10 +1,3 @@
-/*
-STATE: INTENTIONAL_LOW_LEVEL_ASM
-SYMBOL: DomcMmi
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (intentional asm)
-*/
-
 /* INTENTIONAL_LOW_LEVEL_ASM
  * 18 handwritten MMI/COP2 motion-compensation kernels (qfsrv, pextlb/ub,
  * paddh, psrlh, psrah, pminh, pmaxh, pnor, por, pcpyld, pcgth, ppacb,

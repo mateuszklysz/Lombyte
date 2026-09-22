@@ -1,15 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001f6c20
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2
-DECISION: promoted
-BLOCKER: none
-*/
-
-/* ROLE: recovered function `FontPrintCenterLarge` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 extern u8 D_001DF790[];
 extern s32 func_001F44B8();

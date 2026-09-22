@@ -1,11 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0022f288
-SCORE: code=57.1238 functions=57.1238 data=100 complete_data=100
-DECISION: retained
-BLOCKER: descriptive coverage from the run-14 campaign banks; exact code generation remains unproven (register allocation and scheduling residuals)
-*/
-
 #include "types.h"
 #include "asm.h"
 

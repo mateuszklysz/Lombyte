@@ -1,10 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0012ef68
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
 #include "types.h"
 extern s32 func_0012E6E0();
 void FUN_0012ef68(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4) {

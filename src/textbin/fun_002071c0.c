@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_002071c0
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_game (991111b + P46 unannul-redundant, default) -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 
 extern s32 func_00208818();

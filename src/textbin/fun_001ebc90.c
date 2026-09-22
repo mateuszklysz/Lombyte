@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: BackupCurrentCam
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `BackupCurrentCam` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 struct M2c_D_00189210 {
     u8 pad_0[0x70];

@@ -1,11 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0012eef0
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: p37-game-no-strict-aliasing -O2 -g2 -gstabs -mastra-r5900-extern-buffer
-DECISION: promoted
-*/
-
 #include "types.h"
 extern u8 D_00137B00[];
 extern s32 D_0015EC8C;

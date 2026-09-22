@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: sceIpuRestartDMA
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct IpuContext {
     s32 unk0; s32 unk4; s32 unk8; s32 unkC;

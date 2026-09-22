@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0022db10
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2 -O2 -g2 -gstabs -mno-split-addresses
-DECISION: promoted
-BLOCKER: none
-NOTE: slot base materialized as 0x140000-0x1AB0 (lui+addiu) with an empty-asm opacity barrier; mult result accumulated into the addend register
-*/
-
 #include "types.h"
 struct M2c_temp_3_30 {
     u8 pad_0[0x7E];

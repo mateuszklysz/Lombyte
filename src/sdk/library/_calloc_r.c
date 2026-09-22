@@ -1,15 +1,4 @@
 /*
-STATE: C_EXACT
-SYMBOL: _calloc_r
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2
-DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
-BLOCKER: none
-*/
-
-/* ROLE: newlib mallocr.c calloc with 32-bit INTERNAL_SIZE_T */
-
-/*
  * A version of malloc/free/realloc written by Doug Lea and released to the
  * public domain (dlmalloc 2.6.5), adapted by newlib. See
  * THIRD_PARTY_NOTICES.md.

@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00221a48
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN 2.73a -O2 -g2 -DMATCHING_DECOMP -DBUILD_US_VERSION
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct M2c_D_001D5BF4 {
     u8 pad_0[0x84];

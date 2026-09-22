@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: sceSifCallRpc
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-NOTE: named sync-flag local keeps the hoisted andi; zero-byte empty-asm memory barrier pins the arg0->unk0/unk4 store order
-*/
-
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

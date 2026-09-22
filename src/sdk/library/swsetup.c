@@ -1,13 +1,4 @@
 /*
-STATE: C_EXACT
-SYMBOL: __swsetup
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
-/*
  * __swsetup - guarantee a stream is set up for writing (PS2 SDK newlib).
  *
  * Reconstructed from the upstream newlib libc/stdio/wsetup.c shipped with

@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: GetOcclGridFromPair__Fiiiiiif
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered whole function `GetOcclGridFromPair__Fiiiiiif`. */
-
 #include "types.h"
 extern s32 FUN_001f2690();
 void FUN_001f2768(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 fparg0) {

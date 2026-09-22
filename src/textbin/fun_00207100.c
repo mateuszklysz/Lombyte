@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00207100
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN ee-gcc2.95.2 cc1 + Ps2EeAs (cc_sn_padless)
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct M2c_D_0013F350 {
     u8 pad_0[0x12E4];

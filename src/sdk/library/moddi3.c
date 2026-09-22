@@ -1,14 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: __moddi3
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2
-DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
-BLOCKER: none
-*/
-
-/* ROLE: GCC 2.95.2 libgcc2 signed 64-bit modulo */
-
 /* Copyright (C) 1989, 92-98, 1999 Free Software Foundation, Inc.
 
 This file is part of GNU CC.

@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00202d10
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `LoadCompressedHudBank__FiPc` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 extern u32 D_0015EE4C[];
 extern u32 D_0019A400[];

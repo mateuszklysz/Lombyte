@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: __muldi3
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 (-O2 -g2 -gstabs)
-DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
-BLOCKER: none
-*/
-
 /* Copyright (C) 1989, 92-98, 1999 Free Software Foundation, Inc.
 
 This file is part of GNU CC.

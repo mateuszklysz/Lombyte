@@ -1,10 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0023acb8
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;

@@ -1,11 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_002133d0
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_ee_gcc_patched (v3) + Ps2EeAs padless -O2 -g2 -gstabs
-DECISION: promoted
-*/
-
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

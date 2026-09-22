@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00221d68
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 
 struct M2c_D_0013C940

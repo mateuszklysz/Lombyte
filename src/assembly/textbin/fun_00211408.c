@@ -1,10 +1,3 @@
-/*
-STATE: INTENTIONAL_LOW_LEVEL_ASM
-SYMBOL: FUN_00211408
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (intentional asm)
-*/
-
 #include "types.h"
 #include "asm.h"
 

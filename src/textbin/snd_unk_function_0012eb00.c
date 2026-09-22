@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: snd_UnkFunction_0012eb00
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered whole function `snd_UnkFunction_0012eb00`. */
-
 #include "types.h"
 extern s32 D_0015ECC4;
 extern s32 FUN_0012dc80();

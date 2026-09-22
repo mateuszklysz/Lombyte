@@ -1,11 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00207300
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_sn_padless (SN cc1 + Ps2EeAs, -G0) -O2 -g2 -gstabs
-DECISION: promoted
-*/
-
 #include "types.h"
 struct M2c_D_0013F350 {
     u8 pad_0[0x12E4];

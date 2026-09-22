@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _lf_bind
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: retained
-BLOCKER: none
-*/
-
 #include "types.h"
 struct M2c_D_00158400 {
     u8 pad_0[0x24];

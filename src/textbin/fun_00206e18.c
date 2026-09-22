@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00206e18
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: patched-O2
-DECISION: promoted
-BLOCKER: none
-NOTE: Descriptive CFG with a v1 result barrier matches the patched retail schedule.
-*/
-
 #include "types.h"
 
 struct M2c_D_0013F350 {

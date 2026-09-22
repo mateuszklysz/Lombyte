@@ -1,11 +1,4 @@
 /*
-STATE: C_EXACT
-SYMBOL: __sinit
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *

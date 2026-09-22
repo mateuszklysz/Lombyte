@@ -1,15 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0023ad58 (alias func_0023AD58)
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN ee-gcc-2.95.2 -O2 -g2
-DECISION: promoted (pipeline-2026-09-08-3)
-BLOCKER: none
-NOTE: re-verified 100/100/100 fresh SN on 2026-09-08 resume; wrapper INCLUDE_ASM oracle replaced by matching C.
-*/
-
-/* ROLE: recovered whole function `audioDecBeginPut__FP9_AudioDecPPUcPiT1T2`. */
-
 #include "types.h"
 struct M2c_arg0 {
     s32 unk0;

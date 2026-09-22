@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001f4600
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: patched-O2 (v3 root a1f7ac64; padless finish)
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 extern s32 D_0015F464;
 extern u8 D_0018DB40[];

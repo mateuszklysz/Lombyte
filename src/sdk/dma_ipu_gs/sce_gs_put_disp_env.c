@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: sceGsPutDispEnv
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct DispEnv { u64 f0; u64 f8; u64 f10; u64 f18; u64 f20; };
 extern s32 GetCoreDataTable();

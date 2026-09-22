@@ -1,12 +1,3 @@
-/*
-STATE: INTENTIONAL_LOW_LEVEL_ASM
-SYMBOL: vblankHandler
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (intentional asm)
-*/
-
-/* ROLE: recovered whole function `vblankHandler`. */
-
 #include "types.h"
 #include "asm.h"
 

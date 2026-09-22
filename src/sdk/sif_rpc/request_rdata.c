@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _request_rdata
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 typedef signed char s8; typedef unsigned char u8; typedef signed short s16; typedef unsigned short u16; typedef signed int s32; typedef unsigned int u32; typedef signed long long s64; typedef unsigned long long u64; typedef float f32; typedef double f64;
 struct M2c_arg0 {
     u8 pad_0[0x14];

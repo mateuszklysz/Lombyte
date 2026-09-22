@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_002212b8
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_sn_padless (SN cc1 + Ps2EeAs) -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-NOTE: Per-unit padless assembler route: the bundled GNU as drops the short-loop padding NOP, Ps2EeAs emits it.
-*/
-
 #include "types.h"
 struct M2c_D_0013C940 {
     u8 pad_0[0x1C4];

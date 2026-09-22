@@ -1,10 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _hi0bits
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
 /****************************************************************
  *
  * The author of this software is David M. Gay.

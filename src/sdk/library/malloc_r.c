@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _malloc_r
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 (-O2 -g2 -gstabs)
-DECISION: promoted via pipeline-2026-09-11-6 transactional staged + full-ELF gate
-BLOCKER: none
-*/
-
 /* _malloc_r exact recovery: the smallbin branch expresses bck/bin_at(0) from the unsorted-bin
    head (u8*)&D_0012F790 - 8 so the compiler keeps &D_0012F790 in a1 and derives the bins base
    with `addiu a1,a1,-8`, matching retail's register reuse and store order. */

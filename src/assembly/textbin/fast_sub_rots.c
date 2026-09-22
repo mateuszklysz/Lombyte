@@ -1,12 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FastSubRots__Fff
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered whole function `FastSubRots__Fff`. */
-
 #include "types.h"
 #include "asm.h"
 

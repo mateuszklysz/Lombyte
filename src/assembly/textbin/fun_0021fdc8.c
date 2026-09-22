@@ -1,17 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: FUN_0021fdc8
-SCORE: code=54.6011 functions=54.6011 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-991111b/r4 -O2 -g2 -gstabs (SN textbin default)
-DECISION: retained
-BLOCKER: register-allocation,delay-slot-scheduling
-*/
-
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 54.6011%
- * blocker: the logic is correct but register/stack/delay code generation is blocked
- * The default matching build keeps the expected assembly oracle.
- */
 #include "types.h"
 #include "asm.h"
 

@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: VU1_addGSregister__FUiUlb
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `VU1_addGSregister__FUiUlb` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 
 extern s32 *D_00160F00[4];

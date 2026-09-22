@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001fd6e0
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc2.9-991111-01-patched (-O2 -g2 -gstabs; R5900 quad saves + classic mult) + Ps2EeAs padless
-DECISION: promoted via ASTRA full-ELF gate (2026-09-12)
-BLOCKER: none
-*/
-
 /* FUN_001fd6e0 exact recovery: size-bounded ring-buffer pointer setup; the patched profile (lq/sq saves) reproduces all 25 instructions. */
 
 #include "types.h"

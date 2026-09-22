@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00225490 (alias func_00225490)
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: SN -O2 -g2 -fno-schedule-insns
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct RenderResource {
     u8 pad0[6];

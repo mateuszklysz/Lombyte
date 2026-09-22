@@ -1,27 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_002267b8
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-NOTE: restored after an erroneous guarded NON_MATCHING publisher overwrite
-  (commit 22e5297 replaced this promoted body with an INCLUDE_ASM wrapper
-  pointing at a missing oracle, breaking the build). Body byte-identical to
-  the original 2026-09-18 promotion (commit 78cae12). The unit was moved to
-  GAME_COMPILER_UNITS on 2026-09-20 (commit 3dd9c02) when the game-compiler
-  briefly achieved parity; that parity broke again by 2026-09-22 (installed
-  patch revision moved), measured at only 43.77778% under cc_game. Moved
-  back to SN_COMPILER_UNITS in configure.py (a fixed binary compiler, no
-  drift risk) -- re-verified 2026-09-22 as genuinely 100% exact:
-  score-proposal.py --profile sn reports code_percent=100.0 exact=True; a
-  raw objdiff-cli diff against the unlinked expected object shows only
-  relocation-spelling differences (%hi/%lo symbolic vs the retail object's
-  pre-resolved numeric constants for the same addresses), not a real
-  mismatch -- confirmed by cross-checking the referenced symbols/addresses
-  are identical on both sides.
-*/
-
 #include "types.h"
 struct M2c_D_001D5BF0 {
     u8 pad_0[0xA8];

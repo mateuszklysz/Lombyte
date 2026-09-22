@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: sceDbcReceiveData
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 struct DbCState { s32 unk0; s32 unk4; s32 unk8; u8 payload[0x80]; s32 unk8C; };
 extern u8 D_001536A0[]; extern u8 D_0015B008[]; extern struct DbCState D_0015B080;

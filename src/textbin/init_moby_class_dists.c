@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: InitMobyClassDists__Fv
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered whole function `InitMobyClassDists__Fv`. */
-
 #include "types.h"
 extern s32 FUN_001f97e8();
 void FUN_0020d1f0(void) {

@@ -1,10 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: SetGlobalStateSlot
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
 /* Store a value in the shared state record's third word. */
 
 struct GlobalStatePointer {

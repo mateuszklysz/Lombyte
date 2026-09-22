@@ -1,12 +1,3 @@
-/*
-STATE: C_NON_MATCHING
-SYMBOL: SkyDrawShellGouraud
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: retained (pending)
-*/
-
-/* ROLE: recovered function `SkyDrawShellGouraud` starts here. */
-
 #include "types.h"
 #include "asm.h"
 

@@ -1,14 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _pow5mult
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2 (-O2 -g2)
-DECISION: promoted (staged object + full-ELF SHA gate PASS e05058...c0c9)
-BLOCKER: none
-*/
-
-/* ROLE: Multiply a Bigint by a power of 5 */
-
 /****************************************************************
  *
  * The author of this software is David M. Gay.

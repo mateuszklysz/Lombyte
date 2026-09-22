@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0020d3b0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `DrawMobysCleanUp` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 
 struct M2c_D_0018A2B0 {

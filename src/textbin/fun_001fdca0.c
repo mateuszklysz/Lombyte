@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_001fdca0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: Help_FindIndex: recovered function `Help_FindIndex` starts here; this unit covers only its beginning (recovered_names.json fragment). */
-
 #include "types.h"
 struct M2c_D_0015F6A0 {
     u8 pad_0[0x4];

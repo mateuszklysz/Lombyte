@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_002386e8
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: sn-O2 -O2 -g2 -gstabs
-DECISION: promoted
-BLOCKER: none
-NOTE: Recovered from retail disassembly (Ghidra/m2c seed then manual); exact under the configured SN route.
-*/
-
 #include "types.h"
 struct M2c_D_001E63C0 {
     u8 pad_0[0x4];

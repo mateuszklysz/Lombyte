@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _decMB0
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: EE-GCC 2.9-991111-01 -O2 -g2 -gstabs -DBUILD_US_VERSION -DMATCHING_DECOMP
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 #include "rnc/assembly_sdk_library__decMB0_types.h"
 

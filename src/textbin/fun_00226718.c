@@ -1,11 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_00226718
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: cc_sn (SN ee-gcc2.95.2-v2.73a) -O2 -g2 -gstabs
-DECISION: promoted
-*/
-
 #include "types.h"
 struct M2c_D_001D5BF0 {
     u8 pad_0[0xCB];

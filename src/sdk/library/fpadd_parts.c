@@ -1,14 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: _fpadd_parts
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2
-DECISION: promoted via pipeline-2026-09-11-5 transactional staged + full-ELF gate
-BLOCKER: none
-*/
-
-/* ROLE: GCC 2.95.2 fp-bit add/sub core */
-
 /* This is a software floating point library which can be used instead of
    the floating point routines in libgcc1.c for targets without hardware
    floating point. 

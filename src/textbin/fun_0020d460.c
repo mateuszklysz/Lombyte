@@ -1,13 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0020d460
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `DrawMobys` starts here; this unit covers only its beginning. */
-
-
 #include "types.h"
 extern s32 D_0015FF14;
 extern u8 D_001E8400[];

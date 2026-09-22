@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: audioDecSend
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `audioDecSend` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 extern s32 FUN_0023afc0();
 void FUN_0023aef0(s32 *arg0) {

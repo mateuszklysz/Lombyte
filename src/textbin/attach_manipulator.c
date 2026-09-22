@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: AttachManipulator
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered whole function `AttachManipulator`. */
-
 #include "types.h"
 
 typedef struct Manipulator Manipulator;

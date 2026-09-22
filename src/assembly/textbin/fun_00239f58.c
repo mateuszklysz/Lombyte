@@ -1,8 +1,3 @@
-/* NON_MATCHING FALLBACK (descriptive C retained for coverage)
- * direct code match: 31.1799%
- * blocker: the logic is correct but register/stack/delay code generation is blocked
- * The default matching build keeps the expected assembly oracle.
- */
 #include "types.h"
 #include "asm.h"
 

@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: FUN_0023aba0
-SCORE: code=100 functions=100 data=100 complete_data=100
-DECISION: promoted
-*/
-
-/* ROLE: recovered function `proceedAudio__Fv` starts here; this unit covers only its beginning. */
-
 #include "types.h"
 
 extern s32 D_0016120C[];

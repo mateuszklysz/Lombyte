@@ -1,12 +1,3 @@
-/*
-STATE: C_EXACT
-SYMBOL: scePad2CheckDma
-SCORE: code=100 functions=100 data=100 complete_data=100
-COMPILER: ee-gcc-2.9-O2
-DECISION: promoted
-BLOCKER: none
-*/
-
 #include "types.h"
 
 typedef struct PadPort {
