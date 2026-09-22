@@ -6,14 +6,11 @@
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (patched game default; SN parity target)",
   "source": "build/workspace/astra-991111b/src",
   "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
-  "role": "Default: clear a branch's annulled (branch-likely) flag when reorg.c's generic delay-slot filler set it purely because its own liveness walk (mark_target_live_regs/next_insn_no_annul) treats the very next already-delay-filled branch as opaque and never looks at that branch's own delay-slot write. In the narrow case where that next branch's delay slot unconditionally overwrites the same register with a value independent of its old contents, and the next branch's own condition does not read that register, annulled and plain forms are behaviorally identical; retail keeps the plain form.",
-  "mechanism": "config/mips/mips.c: new mips_r5900_unannul_redundant(), wired into MACHINE_DEPENDENT_REORG_AFTER_DBR_2 alongside mips_r5900_annul_dead_slots (P25). New default-on opt-out flag -mastra-unannul-redundant (mirrors P25's pattern: char* initialized to \"\" so it runs unless explicitly disabled).",
-  "root_cause_diagnosis": {
-    "method": "Runtime instrumentation (fprintf traces at all 6 real INSN_ANNULLED_BRANCH_P assignment sites in reorg.c/mips.c on a rebuilt cc1, reading stderr while compiling just the failing function), not static source reading - three earlier static-reasoning theories about this mechanism were each disproven or found inert in this and a prior session; see docs/PROJECT_STATUS.md 'RESOLVED: the exact annul-branch mechanism, found by instrumentation not reading'.",
-    "responsible_function": "reorg.c fill_slots_from_thread (the else-if branch gated by #ifdef ANNUL_IFFALSE_SLOTS around line 2647), calling the real (non-stub) genattrtab-generated eligible_for_annul_false - confirmed present in genuine upstream FSF gcc-2.95.2 too via insn-attr.h's ANNUL_IFFALSE_SLOTS (not insn-config.h/genconfig.c, which several earlier sessions checked instead and found nothing).",
-    "blind_spot": "resource.c's mark_target_live_regs walks forward via next_insn_no_annul, which on encountering an already delay-filled branch (a SEQUENCE) returns just the branch sub-insn (XVECEXP(seq,0,0)) and never inspects the SEQUENCE's own delay-slot insn. So a register genuinely killed by the very next branch's delay slot can still show as 'needed' at that point, forcing reorg onto the annul-only path for an otherwise-plain-eligible delay-slot fill.",
-    "reproduced_with": "P1 baseline only, no other ASTRA patches applied - confirmed base GCC 2.9 behavior, not introduced by any prior patch in this stack."
-  },
+  "cc1_sha256": "6b66b17be24bff8c47dafad65432ec1575d32c804cbbb54cfe1b4a1f70bea805",
+  "cpp_sha256": "c1ab66820a740deb5c2ec95c07bac49d06e2baa46f8e00641c7a9ae54e8e3759",
+  "xgcc_sha256": "54a8bb9dfe0f51f4b6138569564dbc822bb2d67736e627a9c93c42934300e854",
+  "exact_fixtures": null,
+  "published_at": "2026-09-20T21:30:00+00:00",
   "measurements": {
     "wide_sweep_all_557": {
       "before": 276,
@@ -31,15 +28,19 @@
     },
     "patch_alone_no_source_change": "0 conversions / 0 regressions across all 557 units and the 58-control gate - the compiler patch alone only narrows fun_002071c0's residual (91.111 -> 92.778%, isolated to that single unit, verified against every other unit's code_percent moving by < 0.001); the conversion to exact additionally required the paired source-shape fix below."
   },
+  "root_cause_diagnosis": {
+    "method": "Runtime instrumentation (fprintf traces at all 6 real INSN_ANNULLED_BRANCH_P assignment sites in reorg.c/mips.c on a rebuilt cc1, reading stderr while compiling just the failing function), not static source reading - three earlier static-reasoning theories about this mechanism were each disproven or found inert in this and a prior session; see docs/PROJECT_STATUS.md 'RESOLVED: the exact annul-branch mechanism, found by instrumentation not reading'.",
+    "responsible_function": "reorg.c fill_slots_from_thread (the else-if branch gated by #ifdef ANNUL_IFFALSE_SLOTS around line 2647), calling the real (non-stub) genattrtab-generated eligible_for_annul_false - confirmed present in genuine upstream FSF gcc-2.95.2 too via insn-attr.h's ANNUL_IFFALSE_SLOTS (not insn-config.h/genconfig.c, which several earlier sessions checked instead and found nothing).",
+    "blind_spot": "resource.c's mark_target_live_regs walks forward via next_insn_no_annul, which on encountering an already delay-filled branch (a SEQUENCE) returns just the branch sub-insn (XVECEXP(seq,0,0)) and never inspects the SEQUENCE's own delay-slot insn. So a register genuinely killed by the very next branch's delay slot can still show as 'needed' at that point, forcing reorg onto the annul-only path for an otherwise-plain-eligible delay-slot fill.",
+    "reproduced_with": "P1 baseline only, no other ASTRA patches applied - confirmed base GCC 2.9 behavior, not introduced by any prior patch in this stack."
+  },
   "fixture": {
     "unit": "textbin/fun_002071c0",
     "symbol": "FUN_002071c0",
     "code_percent": 100.0,
     "paired_source_change": "The promoted src/textbin/fun_002071c0.c also inverts the `ret1 != 0 return 1;` early-return guard into a `ret1 == 0 { ... } return 1;` nested-positive-guard shape (matching the project's established 'positive-guard/early-return inversion' pattern, e.g. fun_001ff288). This was a second, independent, unrelated residual (a branch-polarity/source-shape difference, not an annul defect) on the same function; both had to be fixed for the unit to reach 100%."
   },
-  "cc1_sha256": "6b66b17be24bff8c47dafad65432ec1575d32c804cbbb54cfe1b4a1f70bea805",
-  "cpp_sha256": "c1ab66820a740deb5c2ec95c07bac49d06e2baa46f8e00641c7a9ae54e8e3759",
-  "xgcc_sha256": "54a8bb9dfe0f51f4b6138569564dbc822bb2d67736e627a9c93c42934300e854",
-  "as_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
-  "published_at": "2026-09-20T21:30:00+00:00"
+  "mechanism": "config/mips/mips.c: new mips_r5900_unannul_redundant(), wired into MACHINE_DEPENDENT_REORG_AFTER_DBR_2 alongside mips_r5900_annul_dead_slots (P25). New default-on opt-out flag -mastra-unannul-redundant (mirrors P25's pattern: char* initialized to \"\" so it runs unless explicitly disabled).",
+  "role": "Default: clear a branch's annulled (branch-likely) flag when reorg.c's generic delay-slot filler set it purely because its own liveness walk (mark_target_live_regs/next_insn_no_annul) treats the very next already-delay-filled branch as opaque and never looks at that branch's own delay-slot write. In the narrow case where that next branch's delay slot unconditionally overwrites the same register with a value independent of its old contents, and the next branch's own condition does not read that register, annulled and plain forms are behaviorally identical; retail keeps the plain form.",
+  "as_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff"
 }

@@ -4,15 +4,17 @@
   "patch": "0032-anchor-all-pads.patch",
   "sha256": "da022fae877139914004aefc9e20293b5e7bc2d5fbf6a173602ca2bbf8ffd8dc",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (game/textbin route)",
-  "role": "R5900 short-loop padding: place every pad NOP (not only a single one) before the instruction preceding the branch, so the delayed-branch filler always examines that instruction first and the NOPs remain as fallbacks in front of the branch (retail geometry with two pads and the loop increment in the delay slot).",
-  "mechanism": "gcc/config/mips/mips.c mips_r5900_lengthen_loops(): drop the `pads == 1` restriction on the anchor selection (anchor = preceding plain INSN whenever stealable).",
-  "evidence": {
-    "in_scope_conversions": [
-      "textbin/fun_002172c0"
-    ],
-    "in_scope_regressions": [],
-    "note": "ee/clear_dma_queue_entry also converts (out of scope); objdump elides repeated NOPs, retail actually has two pads before the branch and addiu v1,v1,4 in the slot"
-  },
+  "source": "build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
+  "cc1_sha256": "bc32cb311c2908fdce2ef582a1741582aec130725c863c9d58800737f4cd6307",
+  "cpp_sha256": null,
+  "xgcc_sha256": null,
+  "exact_fixtures": null,
+  "published_at": "2026-09-20T21:42:54+02:00",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p41anchorall/summary.json",
+    "build/workspace/astra-991111b/parity-p41.json"
+  ],
   "measurements": {
     "wide_sweep_all_557": {
       "exact": 270,
@@ -25,10 +27,14 @@
       "controls": 58
     }
   },
-  "cc1_sha256": "bc32cb311c2908fdce2ef582a1741582aec130725c863c9d58800737f4cd6307",
-  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
-  "evidence_paths": [
-    "build/workspace/astra-991111b/sweep-p41anchorall/summary.json",
-    "build/workspace/astra-991111b/parity-p41.json"
-  ]
+  "role": "R5900 short-loop padding: place every pad NOP (not only a single one) before the instruction preceding the branch, so the delayed-branch filler always examines that instruction first and the NOPs remain as fallbacks in front of the branch (retail geometry with two pads and the loop increment in the delay slot).",
+  "mechanism": "gcc/config/mips/mips.c mips_r5900_lengthen_loops(): drop the `pads == 1` restriction on the anchor selection (anchor = preceding plain INSN whenever stealable).",
+  "evidence": {
+    "in_scope_conversions": [
+      "textbin/fun_002172c0"
+    ],
+    "in_scope_regressions": [],
+    "note": "ee/clear_dma_queue_entry also converts (out of scope); objdump elides repeated NOPs, retail actually has two pads before the branch and addiu v1,v1,4 in the slot"
+  },
+  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff"
 }

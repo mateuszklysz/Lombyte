@@ -4,9 +4,19 @@
   "patch": "0034-r5900-extern-buffer-optin.patch",
   "sha256": "d89e409cf719c103e2bda039326b77162396a8b799b2c6077de40a3164aedd66",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (game/textbin route; ChatGPT-Web design)",
-  "role": "Opt-in (-mastra-r5900-extern-buffer): buffer the assembly body and emit .extern name,size in front of it for GP-eligible externals that actually reach assembly as a bare integer memory reference, so the single-pass GAS can choose the retail gp-relative form. HIGH/LO_SUM references and FP accesses are never marked; TARGET_FILE_SWITCHING stays at its original definition.",
-  "mechanism": "mips.c: extern_list gains r5900_bare_int_ref; mips_asm_file_start redirects output to a tmpfile when the flag is set; print_operand's MEM case marks bare SYMBOL_REF integer references whose SYMBOL_REF_FLAG is set; mips_asm_file_end emits the marked .extern declarations to the real stream, then copies the buffered body and restores the stream state.",
+  "source": "build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
+  "cc1_sha256": "ff6ddaa1fbd030b933dffa0c3917e994e9a2870d3bfcd6f3d52ead5e1cd4cc75",
+  "cpp_sha256": null,
+  "xgcc_sha256": null,
+  "exact_fixtures": null,
+  "published_at": "2026-09-20T21:42:54+02:00",
   "default_neutrality": "Flag off: wide sweep byte-identical (272 exact, zero diffs) - verified.",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p34cneutral/summary.json",
+    "build/workspace/astra-991111b/sweep-p34extbuf/summary.json",
+    "/tmp/chatgpt_fileswitch_crash_answer.txt"
+  ],
   "flag_on_effect": {
     "wide_sweep_all_557": {
       "exact": 268,
@@ -20,12 +30,8 @@
     ],
     "regressions_classification": "5 EE_GCC_PATCHED_UNITS (other profile), 2 PADLESS_ASM_UNITS (other assembler route), 1 non-textbin - all owned by other routes, not the default game compiler"
   },
-  "cc1_sha256": "ff6ddaa1fbd030b933dffa0c3917e994e9a2870d3bfcd6f3d52ead5e1cd4cc75",
-  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
-  "evidence_paths": [
-    "build/workspace/astra-991111b/sweep-p34cneutral/summary.json",
-    "build/workspace/astra-991111b/sweep-p34extbuf/summary.json",
-    "/tmp/chatgpt_fileswitch_crash_answer.txt"
-  ],
-  "note": "patch regenerated with shell-level concatenation (empty context line had lost its marker); cumulative apply verified"
+  "role": "Opt-in (-mastra-r5900-extern-buffer): buffer the assembly body and emit .extern name,size in front of it for GP-eligible externals that actually reach assembly as a bare integer memory reference, so the single-pass GAS can choose the retail gp-relative form. HIGH/LO_SUM references and FP accesses are never marked; TARGET_FILE_SWITCHING stays at its original definition.",
+  "mechanism": "mips.c: extern_list gains r5900_bare_int_ref; mips_asm_file_start redirects output to a tmpfile when the flag is set; print_operand's MEM case marks bare SYMBOL_REF integer references whose SYMBOL_REF_FLAG is set; mips_asm_file_end emits the marked .extern declarations to the real stream, then copies the buffered body and restores the stream state.",
+  "note": "patch regenerated with shell-level concatenation (empty context line had lost its marker); cumulative apply verified",
+  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff"
 }

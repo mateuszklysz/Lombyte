@@ -4,16 +4,17 @@
   "patch": "0028-annul-ne-zero-default.patch",
   "sha256": "037ca6b28fdd05e81a7bf37fcbe642068f633d3aae315b77f72959c0939690e4",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (default game route; SN parity target)",
-  "role": "Default branch-likely: the P25 late fallback (fall-through-filled delay slots) now runs by default and only for the SN shape NE zero-test with a const0 delay-slot write of the tested register.",
-  "mechanism": "gcc/config/mips/mips.c mips_r5900_annul_dead_slots: enabled without a flag; added guards (condition is NE, one operand is const0_rtx, delay set source is const0_rtx). EQ-likely branches still come from stock reorg target stealing.",
-  "evidence": {
-    "conversions": [
-      "textbin/fun_0023d2d8",
-      "textbin/vo_buf_get_data"
-    ],
-    "counterexample_fixed": "fun_002212b8 (EQ zero-clear) and fun_00215b10 (register-vs-register bne) are no longer annulled; retail leaves them plain",
-    "corpus_scan": "retail has 430 beqzl / 373 bnezl sites; the late-fallback shape (zero-clear delay slot) is 6 bnezl / 2 beqzl"
-  },
+  "source": "build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
+  "cc1_sha256": "d68136c9f12b886e0da0c5d4d7fa36a23b622fa569989b17a50e3ec6e7b530fb",
+  "cpp_sha256": null,
+  "xgcc_sha256": null,
+  "exact_fixtures": null,
+  "published_at": "2026-09-20T21:42:54+02:00",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p25ne2/summary.json",
+    "build/workspace/astra-991111b/parity-p25ne2.json"
+  ],
   "measurements": {
     "wide_sweep": {
       "exact": 239,
@@ -26,10 +27,15 @@
       "controls": 58
     }
   },
-  "cc1_sha256": "d68136c9f12b886e0da0c5d4d7fa36a23b622fa569989b17a50e3ec6e7b530fb",
-  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
-  "evidence_paths": [
-    "build/workspace/astra-991111b/sweep-p25ne2/summary.json",
-    "build/workspace/astra-991111b/parity-p25ne2.json"
-  ]
+  "role": "Default branch-likely: the P25 late fallback (fall-through-filled delay slots) now runs by default and only for the SN shape NE zero-test with a const0 delay-slot write of the tested register.",
+  "mechanism": "gcc/config/mips/mips.c mips_r5900_annul_dead_slots: enabled without a flag; added guards (condition is NE, one operand is const0_rtx, delay set source is const0_rtx). EQ-likely branches still come from stock reorg target stealing.",
+  "evidence": {
+    "conversions": [
+      "textbin/fun_0023d2d8",
+      "textbin/vo_buf_get_data"
+    ],
+    "counterexample_fixed": "fun_002212b8 (EQ zero-clear) and fun_00215b10 (register-vs-register bne) are no longer annulled; retail leaves them plain",
+    "corpus_scan": "retail has 430 beqzl / 373 bnezl sites; the late-fallback shape (zero-clear delay slot) is 6 bnezl / 2 beqzl"
+  },
+  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff"
 }

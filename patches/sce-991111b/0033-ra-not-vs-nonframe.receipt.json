@@ -4,16 +4,17 @@
   "patch": "0033-ra-not-vs-nonframe.patch",
   "sha256": "c399a2055c8a4b743b5b39a826bc72c29a1f0b7d552e98f627a34777042a52e1",
   "lineage": "game-compiler - Sony/Cygnus 2.9-ee-991111b (game/textbin route)",
-  "role": "Refine the P26 frame-save preference: the $ra save is preferred only over other frame-related insns. Against non-frame instructions its own priority/depend-count ordering applies, which is what retail keeps (ra save after the argument moves).",
-  "mechanism": "gcc/haifa-sched.c rank_for_schedule(): the frame-store preference now also requires that the preferred insn is not the $ra save competing with a non-store insn; a frame store that stores $ra is never preferred over a non-frame insn.",
-  "evidence": {
-    "in_scope_conversions": [
-      "textbin/fun_002144d8",
-      "textbin/fun_00238520"
-    ],
-    "in_scope_regressions": [],
-    "note": "instrumented ready list for fun_002144d8 showed sq ra (p13) tied with move s0 (p13); retail schedules the move first. Excluding $ra from the preference only against non-frame insns keeps the ra-vs-save ordering used by the P21 units (a blanket $ra exclusion measured +2/-26)."
-  },
+  "source": "build/workspace/astra-991111b/src",
+  "provenance": "SN-distributed GNUPro/SCE source; Wayback ps2dev.sourceforge.net ee/gnu-ee-binutils-gcc-1.1.tar.gz (sha256 1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92)",
+  "cc1_sha256": "ac97dd50a166706506047e3ff1beed084cd2c5f070564357884e5bc449517165",
+  "cpp_sha256": null,
+  "xgcc_sha256": null,
+  "exact_fixtures": null,
+  "published_at": "2026-09-20T21:42:54+02:00",
+  "evidence_paths": [
+    "build/workspace/astra-991111b/sweep-p43full/summary.json",
+    "build/workspace/astra-991111b/parity-p43.json"
+  ],
   "measurements": {
     "wide_sweep_all_557": {
       "exact": 272,
@@ -26,10 +27,15 @@
       "controls": 58
     }
   },
-  "cc1_sha256": "ac97dd50a166706506047e3ff1beed084cd2c5f070564357884e5bc449517165",
-  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff",
-  "evidence_paths": [
-    "build/workspace/astra-991111b/sweep-p43full/summary.json",
-    "build/workspace/astra-991111b/parity-p43.json"
-  ]
+  "role": "Refine the P26 frame-save preference: the $ra save is preferred only over other frame-related insns. Against non-frame instructions its own priority/depend-count ordering applies, which is what retail keeps (ra save after the argument moves).",
+  "mechanism": "gcc/haifa-sched.c rank_for_schedule(): the frame-store preference now also requires that the preferred insn is not the $ra save competing with a non-store insn; a frame store that stores $ra is never preferred over a non-frame insn.",
+  "evidence": {
+    "in_scope_conversions": [
+      "textbin/fun_002144d8",
+      "textbin/fun_00238520"
+    ],
+    "in_scope_regressions": [],
+    "note": "instrumented ready list for fun_002144d8 showed sq ra (p13) tied with move s0 (p13); retail schedules the move first. Excluding $ra from the preference only against non-frame insns keeps the ra-vs-save ordering used by the P21 units (a blanket $ra exclusion measured +2/-26)."
+  },
+  "assembler_sha256": "af95ed125045dcc0dd3549b25e2d73f44ed03b283d4129d09979e879eab34fff"
 }
