@@ -1,16 +1,4 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-/* Retail oracle: keeps the rebuilt boot ELF byte-identical while the
-   descriptive candidate below stays available for matching work.  The
-   candidate is the best measured route (EE-GCC 2.9, 95.55%); retail uses
-   sq/lq saves but every route relays arg0 through a4 before the pinned a3
-   (register-relay wall), so the oracle is authoritative until a compiler
-   route reproduces it. */
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00221968/FUN_00221968.s", FUN_00221968);
-#else
-#include "types.h"
 
 struct M2c_D_001D5BF0
 {
@@ -99,4 +87,5 @@ s32 FUN_00221968(struct M2c_arg0 *arg0)
   block_14:
   return 0;
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(FUN_00221968) func_00221968 __attribute__((alias("FUN_00221968")));

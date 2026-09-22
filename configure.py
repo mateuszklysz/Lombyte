@@ -338,6 +338,7 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_002071c0",
     "textbin/fun_001ff288",
     "textbin/fun_0012eb20",
+    "textbin/fun_00221968",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",
@@ -517,6 +518,10 @@ GAME_COMPILER_FLAG_UNITS = {
     # 0046-r5900-pad-unfilled-loops (cc1 eb7a3497...).  100/100/100 and
     # full-ELF PASS on 2026-09-22.
     "fun_0012eb20": "-mastra-r5900-extern-buffer",
+    # fun_00221968: 100/100/100 on the game compiler only with
+    # -fno-expensive-optimizations (the bank flag; without it 90.45).  Its
+    # 2026-09-22 demotion measured cc_game without the flag (62.65).
+    "fun_00221968": "-fno-expensive-optimizations",
     "fun_0012eea8": "-mastra-r5900-extern-buffer",
     "fun_0012ef28": "-mastra-r5900-extern-buffer",
     "snd_stream_safe_cd_get_error": "-mastra-r5900-extern-buffer",
