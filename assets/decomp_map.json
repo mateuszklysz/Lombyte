@@ -2,13 +2,13 @@
   "schema": "rnc-public-progress-v1",
   "source": "scripts/generate_treemap.py",
   "units_total": 1335,
-  "matching_c": 563,
+  "matching_c": 564,
   "intentional_asm": 129,
-  "pending_c": 643,
+  "pending_c": 642,
   "bytes_total": 430720,
-  "bytes_matching_c": 81640,
+  "bytes_matching_c": 81784,
   "bytes_intentional_asm": 40632,
-  "bytes_pending_c": 308448,
-  "c_exact_percent_of_recoverable": 20.9286,
-  "c_fuzzy_percent_of_recoverable": 47.8935
+  "bytes_pending_c": 308304,
+  "c_exact_percent_of_recoverable": 20.9655,
+  "c_fuzzy_percent_of_recoverable": 47.9042
 }

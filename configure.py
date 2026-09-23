@@ -348,6 +348,10 @@ GAME_COMPILER_UNITS = {
     # globals are declared to GAS before the body (__asm__ .extern); retail
     # only reaches those through gp, every other global absolutely.
     "textbin/fun_001f37e8",
+    # dmac_vif1_enable: exact with default flags; the source shape (D_0015F1C
+    # read through the pointer later reused for the DMAC register store) came
+    # from a decomp-permuter run on the game-compiler route.
+    "textbin/dmac_vif1_enable",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",

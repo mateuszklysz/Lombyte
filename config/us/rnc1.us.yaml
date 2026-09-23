@@ -1898,7 +1898,7 @@ segments:
           - [0x134c04, textbin, text_gap_00233c84_before_fun_00233c90]
           - [0x134c10, c, assembly/textbin/fun_00233c90]
           - [0x134c6c, textbin, text_gap_00233cec_after_fun_00233c90]
-          - [0x134c80, c, assembly/textbin/dmac_vif1_enable]
+          - [0x134c80, c, textbin/dmac_vif1_enable]
           - [0x134d10, c, textbin/fun_00233d90]
           - [0x134d80, c, assembly/textbin/sub_00233e00]
           - [0x134e80, c, textbin/fun_00233f00]
