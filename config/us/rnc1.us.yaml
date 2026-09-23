@@ -1576,7 +1576,7 @@ segments:
           - [0x11acfc, textbin, text_gap_00219d7c_before_fun_00219e10]
           - [0x11ad90, c, assembly/textbin/fun_00219e10]
           - [0x11af1c, textbin, text_gap_00219f9c_after_fun_00219e10]
-          - [0x11af20, c, assembly/textbin/fun_00219fa0]
+          - [0x11af20, c, textbin/fun_00219fa0]
           - [0x11b12c, textbin, text_gap_0021a1ac_before_fun_0021a1e0]
           - [0x11b160, c, assembly/textbin/fun_0021a1e0]
           - [0x11b284, textbin, text_gap_0021a304_after_fun_0021a1e0]

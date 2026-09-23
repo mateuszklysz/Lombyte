@@ -1,10 +1,4 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00219fa0/FUN_00219fa0.s", FUN_00219fa0);
-#else
-#include "types.h"
 struct M2c_arg0
 {
   u8 pad_0[0x20];
@@ -23,7 +17,7 @@ struct M2c_temp_22_35
   u16 unk0;
   s16 unk2;
 };
-extern s32 D_0015F438[];
+extern s32 D_0015F438;
 extern s32 D_001601B0;
 extern s32 SubtractIntegerWithClamp();
 extern void func_001F4280();
@@ -33,10 +27,6 @@ extern void func_001FFC30();
 extern void func_001FFE18();
 extern void func_00200080();
 extern void func_00200E08();
-inline s32 inline_fn(s32 arg0, int arg1)
-{
-  return arg0 >> arg1;
-}
 
 s32 FUN_00219fa0(struct M2c_arg0 *arg0)
 {
@@ -53,7 +43,7 @@ s32 FUN_00219fa0(struct M2c_arg0 *arg0)
   var_19_11 = 0;
   var_18_18 = (*arg0).unk5C;
   sp0 = var_18_18;
-  temp_21_23 = inline_fn((s32) ((arg0->unk20 * 0x10) - 0x200), 1);
+  temp_21_23 = ((s32) ((arg0->unk20 * 0x10) - 0x200)) >> 1;
   func_001F4280(0);
   new_var3 = 0;
   new_var = new_var3;
@@ -62,10 +52,10 @@ s32 FUN_00219fa0(struct M2c_arg0 *arg0)
     var_30_28 = new_var3;
     do
     {
-      temp_22_35 = var_30_28 + arg0->unk48;
+      temp_22_35 = (struct M2c_temp_22_35 *) ((u8 *) arg0->unk48 + var_30_28);
       if (arg0->unk3C == var_19_11)
       {
-        func_00200E08(temp_21_23 - 0x30, var_18_18 - 0x30, 0x230 + temp_21_23, var_18_18 + 0x230, inline_fn((u64) ((((SubtractIntegerWithClamp(D_0015F438[new_var] + (-0x20)) + 0x40) * 0x10202) | 0x80000000) << 0x20), 0x20), 1);
+        func_00200E08(temp_21_23 - 0x30, var_18_18 - 0x30, 0x230 + temp_21_23, var_18_18 + 0x230, (u64) (u32) (((SubtractIntegerWithClamp(((*(s32 *) 0x15F438) & 0x3F) - 0x20) + 0x40) * 0x10202) | 0x80000000), 1);
         func_00200E08(temp_21_23 - 0x10, var_18_18 - 0x10, temp_21_23 + 0x210, var_18_18 + 0x210, (u64) D_001601B0, 1);
       }
       var_19_11 = var_19_11 + 1;
@@ -78,16 +68,15 @@ s32 FUN_00219fa0(struct M2c_arg0 *arg0)
   if (sp0 < new_var)
   {
     func_00200E08(new_var, new_var, arg0->unk20, 0x14, (u64) D_001601B0, new_var);
-    func_001FFC30(func_001FF960(0xE99EU, 6), inline_fn(temp_21_23, 4), 2, 0x20, 0x10, 0x80);
+    func_001FFC30(func_001FF960(0xE99EU, 6), (temp_21_23 >> 4), 2, 0x20, 0x10, 0x80);
   }
   temp_5_100 = arg0->unk24;
   if ((temp_5_100 * 0x10) < var_18_18)
   {
     var_30_28 = new_var;
     func_00200E08(var_30_28, temp_5_100 - 0x14, arg0->unk20, temp_5_100, (u64) D_001601B0, var_30_28);
-    func_001FFE18(func_001FF960(0xE99EU, 6), inline_fn(temp_21_23, 4), arg0->unk24 - 0x12, 0x20, 0x10, 0x80);
+    func_001FFE18(func_001FF960(0xE99EU, 6), (temp_21_23 >> 4), arg0->unk24 - 0x12, 0x20, 0x10, 0x80);
   }
   func_001F4398();
   return 2;
 }
-#endif /* NON_MATCHING */

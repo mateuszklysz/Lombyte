@@ -224,6 +224,9 @@ EE_GCC_PATCHED_UNITS = {
     # Promoted by the decomp workbench: exact only under the patched
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
     "textbin/fun_00226848",
+    # Promoted by the decomp workbench: exact only under the patched
+    # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
+    "textbin/fun_00219fa0",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -233,6 +236,7 @@ EE_GCC_PATCHED_FLAG_UNITS = {
     "textbin/fun_00226848": "-mastra-no-lo-sum-tie",
     "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
     "textbin/fun_001fa6d0": "-mastra-inplace-cvt",
+    "textbin/fun_00219fa0": "-mastra-r5900-extern-buffer",
 }
 
 # Per-unit assembler policies applied by the generated padless-asm.py helper.
