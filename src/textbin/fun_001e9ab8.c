@@ -1,15 +1,10 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001e9ab8/FUN_001e9ab8.s", FUN_001e9ab8);
-#else
-#include "types.h"
 extern s32 D_0015EE88;
 extern s32 func_0022AE70();
 extern s32 func_0022B4C8();
 extern s32 func_0022B558();
-extern s32 func_00233980();
+extern void func_00233980(s32, s64);
+
 void FUN_001e9ab8(void) {
     func_0022B4C8();
     func_0022AE70();
@@ -17,4 +12,5 @@ void FUN_001e9ab8(void) {
     func_00233980(0x47, 0x5360B);
     func_00233980(0x4E, 0x01000000 | ((s32) D_0015EE88 >> 0xD));
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(FUN_001e9ab8) func_001E9AB8 __attribute__((alias("FUN_001e9ab8")));

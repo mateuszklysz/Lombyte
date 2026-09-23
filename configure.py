@@ -360,6 +360,18 @@ GAME_COMPILER_UNITS = {
     # void (an s32 declaration gives the call a dead v0 set, which pushes the
     # final D_0015FF14 value into v1) and the second argument is (long).
     "textbin/draw_moby_list",
+    # fun_001e9ab8: exact with default flags once func_00233980 has its
+    # promoted prototype (s32, s64): the second argument is passed as a
+    # 64-bit value (callee-proto-fix.py).
+    "textbin/fun_001e9ab8",
+    # fun_001f79a8: exact with default flags: func_00233980(s32, s64) prototype,
+    # the D_0015F348 constant written as -0.04f (m2c had its bit pattern as an
+    # integer), and the gp .extern for D_0015F348.
+    "textbin/fun_001f79a8",
+    # fun_0020c940: exact with default flags; clean rewrite of the permuter
+    # body (unk7D is tested, then re-read into the index, which gives retail's
+    # v1 -> a1 copy).
+    "textbin/fun_0020c940",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",
