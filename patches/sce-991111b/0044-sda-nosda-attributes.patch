@@ -1,0 +1,102 @@
+diff --git a/gcc/tree.h b/gcc/tree.h
+index f914cdd..e0a6528 100644
+--- a/gcc/tree.h
++++ b/gcc/tree.h
+@@ -1244,6 +1244,10 @@ struct tree_type
+ /* Used to indicate that this DECL has weak linkage.  */
+ #define DECL_WEAK(NODE) (DECL_CHECK (NODE)->decl.weak_flag)
+ 
++/* SN port: sda/nosda attributes (small-data placement).  */
++#define DECL_SDA(NODE) (DECL_CHECK (NODE)->decl.sda_flag)
++#define DECL_NOSDA(NODE) (DECL_CHECK (NODE)->decl.no_sda_flag)
++
+ /* Used in TREE_PUBLIC decls to indicate that copies of this DECL in
+    multiple translation units should be merged.  */
+ #define DECL_ONE_ONLY(NODE) (DECL_CHECK (NODE)->decl.transparent_union)
+@@ -1311,6 +1315,10 @@ struct tree_decl
+   unsigned artificial_flag : 1;
+   unsigned weak_flag : 1;
+ 
++  /* SN port: sda/nosda attributes force (or forbid) small-data placement.  */
++  unsigned sda_flag : 1;
++  unsigned no_sda_flag : 1;
++
+   unsigned lang_flag_0 : 1;
+   unsigned lang_flag_1 : 1;
+   unsigned lang_flag_2 : 1;
+diff --git a/gcc/c-common.c b/gcc/c-common.c
+index de72e60..d021554 100644
+--- a/gcc/c-common.c
++++ b/gcc/c-common.c
+@@ -55,7 +55,7 @@ enum attrs {A_PACKED, A_NOCOMMON, A_COMMON, A_NORETURN, A_CONST, A_T_UNION,
+ 	    A_NO_CHECK_MEMORY_USAGE, A_NO_INSTRUMENT_FUNCTION,
+ 	    A_CONSTRUCTOR, A_DESTRUCTOR, A_MODE, A_SECTION, A_ALIGNED,
+ 	    A_UNUSED, A_FORMAT, A_FORMAT_ARG, A_WEAK, A_ALIAS,
+-	    A_INIT_PRIORITY};
++	    A_INIT_PRIORITY, A_SDA, A_NOSDA};
+ 
+ enum format_type { printf_format_type, scanf_format_type,
+ 		   strftime_format_type };
+@@ -400,6 +400,9 @@ init_attributes ()
+   add_attribute (A_INIT_PRIORITY, "init_priority", 0, 1, 0);
+   add_attribute (A_NO_INSTRUMENT_FUNCTION, "no_instrument_function", 0, 0, 1);
+   add_attribute (A_NO_CHECK_MEMORY_USAGE, "no_check_memory_usage", 0, 0, 1);
++  /* SN port: SDA ATTR MODS */
++  add_attribute (A_SDA, "sda", 0, 0, 1);
++  add_attribute (A_NOSDA, "nosda", 0, 0, 1);
+ }
+ 
+ /* Process the attributes listed in ATTRIBUTES and PREFIX_ATTRIBUTES
+@@ -869,6 +872,33 @@ decl_attributes (node, attributes, prefix_attributes)
+ 	  declare_weak (decl);
+ 	  break;
+ 
++	/* SN port: SDA ATTR MODS (from SN 2.95.3 source, c-common.c)  */
++	case A_SDA:
++	  if (TREE_CODE (decl) == VAR_DECL)
++	    {
++	      if (DECL_NOSDA (decl))
++		error_with_decl (decl,
++				 "cannot have both sda and nosda attributes for `%s'");
++	      else
++		DECL_SDA (decl) = 1;
++	    }
++	  else
++	    error_with_decl (decl, "sda attribute not allowed for `%s'");
++	  break;
++
++	case A_NOSDA:
++	  if (TREE_CODE (decl) == VAR_DECL)
++	    {
++	      if (DECL_SDA (decl))
++		error_with_decl (decl,
++				 "cannot have both sda and nosda attributes for `%s'");
++	      else
++		DECL_NOSDA (decl) = 1;
++	    }
++	  else
++	    error_with_decl (decl, "nosda attribute not allowed for `%s'");
++	  break;
++
+ 	case A_ALIAS:
+ 	  if ((TREE_CODE (decl) == FUNCTION_DECL && DECL_INITIAL (decl))
+ 	      || (TREE_CODE (decl) != FUNCTION_DECL && ! DECL_EXTERNAL (decl)))
+diff --git a/gcc/config/mips/mips.c b/gcc/config/mips/mips.c
+index 0d962c4..a248659 100644
+--- a/gcc/config/mips/mips.c
++++ b/gcc/config/mips/mips.c
+@@ -7433,8 +7433,13 @@ mips_select_section (decl, reloc)
+       /* For hosted applications, always put an object in small data if
+ 	 possible, as this gives the best performance.  */
+ 
+-      if (size > 0 && size <= mips_section_threshold)
++      /* SN port: sda/nosda attributes override the -G threshold.  */
++      if (TREE_CODE (decl) == VAR_DECL && DECL_NOSDA (decl))
++	;				/* never small data */
++      else if (size > 0 && size <= mips_section_threshold)
+ 	SMALL_DATA_SECTION ();
++      else if (TREE_CODE (decl) == VAR_DECL && DECL_SDA (decl) && size > 0)
++	SMALL_DATA_SECTION ();		/* force small data */
+       else if (((TREE_CODE (decl) == VAR_DECL
+ 		 && TREE_READONLY (decl) && !TREE_SIDE_EFFECTS (decl)
+ 		 && DECL_INITIAL (decl)

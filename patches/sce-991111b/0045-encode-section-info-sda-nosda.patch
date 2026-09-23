@@ -1,0 +1,18 @@
+diff --git a/gcc/config/mips/mips.h b/gcc/config/mips/mips.h
+index 3aff617..9f1ba8e 100644
+--- a/gcc/config/mips/mips.h
++++ b/gcc/config/mips/mips.h
+@@ -3399,6 +3401,13 @@ do									\
+       {									\
+         HALF_PIC_ENCODE (DECL);						\
+       }									\
++									\
++    /* SN port: sda/nosda attributes win over the size/section		\
++       heuristics above (reference side of the small-data decision).  */	\
++    if (TREE_CODE (DECL) == VAR_DECL && DECL_NOSDA (DECL))		\
++      SYMBOL_REF_FLAG (XEXP (DECL_RTL (DECL), 0)) = 0;			\
++    else if (TREE_CODE (DECL) == VAR_DECL && DECL_SDA (DECL))		\
++      SYMBOL_REF_FLAG (XEXP (DECL_RTL (DECL), 0)) = 1;			\
+   }									\
+ while (0)
+ 

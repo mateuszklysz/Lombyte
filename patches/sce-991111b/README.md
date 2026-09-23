@@ -1,9 +1,10 @@
 # Sony EE-GCC 2.9-ee-991111b (recovered source)
 
-Second patch surface for the Sony/Cygnus EE line. The published patches form the
-cumulative **game-compiler** stack (P1 prerequisite, P15, P16, P19, P20); the result
-reproduces **37 of 44 game-line** parity controls with zero exact regressions;
-the joint gate (adding the 14 SDK-line controls on the Sony 991111-01 route) is 52/58.
+Second patch surface for the Sony/Cygnus EE line and the source of the
+project's **game compiler**: the production stack below, applied to the pinned
+archive, rebuilds the installed game-compiler `cc1` byte for byte
+(`4dfa3cf0f0fa8d31a5efa074d4fede0d31a75c8a3e3d1d5e7f4862968b33aab9`; joint
+parity gate 55/58, full-ELF gate PASS).
 
 - Archive: `gnu-ee-binutils-gcc-1.1.tar.gz`, 16,510,927 bytes
 - SHA-256: `1f518043e252d6eda726386971d52eda26541ab936ea73a9783d73712b595f92`
@@ -21,17 +22,73 @@ Build notes: same 32-bit host recipe as
 `EMUSHORT` pointers; a modern host compiler with strict aliasing turns
 `REAL_VALUE_NEGATE` into a no-op, so negative float/double constants are sent
 to the `.sdata` pool instead of `li.s`/`li.d` (the retail SN cc1 emits
-`li.s`/`li.d`). With the flag, the patch stack below builds cc1
-`1766b1bda19f2f53…` (parity 55/58, promoted sources unchanged, full-ELF PASS).
+`li.s`/`li.d`).
 Reference binary of
 this vintage: `/root/rnc-toolchains/tier2-20260909/991111b-r4` (scores 79.87 on
 `fun_0022f778`, so it is not the retail compiler for that unit).
 
-When a patch is produced, add it here as `patched-ee-gcc.patch` with its
-SHA-256 recorded above and a recipe entry, following the rules in
-[`../README.md`](../README.md).
+## Production stack (game compiler)
+
+Apply with `git apply` at the root of the extracted archive, in this order:
+
+1. `0000-modern-host-fixes.patch` (host build only: `include/obstack.h`
+   lvalue-cast fix and the generated `gcc/c-gperf.h`)
+2. `0001`, `0015`, `0016`, `0019`, `0020`, `0021`, `0022`, `0025`, `0026`,
+   `0027`, `0028`, `0029`, `0030`, `0031`, `0032`, `0033`, `0034`, `0037`
+3. `0036`, `0044`, `0045`, `0046`, `0047`, `0048`
+
+Configure for `--target=mips64r5900-sf-elf --host=i686-linux-gnu
+--build=i686-linux-gnu --disable-nls --enable-languages=c --without-headers`
+and build `cc1` with `make LANGUAGES=c 'CC=gcc -m32' 'CFLAGS=-O2
+-fno-strict-aliasing -fcommon -std=gnu89 -D_GNU_SOURCE' cc1`; the result is
+`cc1` `4dfa3cf0f0fa8d31…` (verified 2026-09-23 from a fresh extraction).
+`0035` and `0038` are published but not part of the production stack.
+
+Patches marked *production dependency* are in that stack but turned no
+fixture exact on their own; they are published so the production compiler is
+reproducible from this directory. Every other entry names its exact fixture.
 
 ## Published patches
+
+- `0047-pathb-reload1-localalloc-regclass-2952.patch` SHA-256: `5817432d64f0835407fe5d68a8364bf628e403aeba35a20fe3472b1bc8fde0fa`
+  - role: production dependency. Path B slice 1: the whole gcc-2.95.2
+    `reload1.c`, the gcc-2.95.2 `local-alloc.c` equivalence fixes (the hard
+    frame pointer is not invariant; `REG_EQUIV` is tested on the
+    initialising insn) and the `regclass.c` `'p'` constraint
+  - measured: promoted sources 0 lost, pending units +4/-0 (all below 80 %),
+    joint gate 55/58, full-ELF gate PASS
+  - published via ASTRA 2026-09-23 (production dependency)
+
+- `0045-encode-section-info-sda-nosda.patch` SHA-256: `de44f2608b06689b9e9885d6fa09dcd9f951599ef78d36eee74bce00e7cf7d0f`
+  - role: production dependency. `ENCODE_SECTION_INFO`: `DECL_NOSDA` forces
+    an absolute reference, `DECL_SDA` a gp-relative one (after SN's
+    section/size heuristics); reference half of the SN `sda`/`nosda` port
+  - inert without annotations: joint gate 55/58 unchanged, full-ELF PASS
+  - published via ASTRA 2026-09-23 (production dependency)
+
+- `0044-sda-nosda-attributes.patch` SHA-256: `b14f446a4f03387aae3a78a21a245e0d10c5274e592fb95673674d3636c5bd46`
+  - role: production dependency. SN's `sda`/`nosda` variable attributes
+    (`tree.h` decl bits, `c-common.c` handler with SN's mutual exclusion and
+    `VAR_DECL`-only rule, `mips_select_section` placement); definition half of
+    the port (`.data` <-> `.sdata` proven on an A/B object)
+  - inert without annotations: joint gate 55/58 unchanged, full-ELF PASS
+  - published via ASTRA 2026-09-23 (production dependency)
+
+- `0000-modern-host-fixes.patch` SHA-256: `90cec417b339e7afd8407e50c49b28a6ad438aa91e5a994f40a25bba0d1d73ad`
+  - role: production dependency (host build only, no codegen change):
+    `include/obstack.h` lvalue-cast fix for modern host compilers and the
+    `gcc/c-gperf.h` that `gperf` generates from `c-parse.gperf`
+  - published via ASTRA 2026-09-23 (production dependency)
+
+- `0048-pathb-cse-2952.patch` SHA-256: `8dda70c9c214edd67b1b34febe7b49bb0d3bea5e3bb391c1958e39da46e12e34`
+  - cc1 (production stack): `4dfa3cf0f0fa8d31a5efa074d4fede0d31a75c8a3e3d1d5e7f4862968b33aab9`
+  - role: default. Path B slice 2: the whole gcc-2.95.2 `cse.c` on the 2.9
+    tree, with shims for what the 2.9 tree lacks (`splay_tree_compare_ints`,
+    `fnotice`, `do_float_handler`, `shallow_copy_rtx` taken from 2.95.2)
+  - fixture: `textbin/fun_00226a70` -> 100.0 (84.26 without it)
+  - promoted sources +1 / 0 lost; joint gate 55/58; full-ELF gate PASS with
+    `fun_00226a70` promoted
+  - published via ASTRA 2026-09-23
 
 - `0046-r5900-pad-unfilled-loops.patch` SHA-256: `a29addcdc9e12bba51192f48e38c628d4ad1d8d4695d0462f31aede6189edf31`
   - cc1 (committed P1..P37 baseline + 0036 + 0044/0045 (installed, unpublished)

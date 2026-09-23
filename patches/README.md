@@ -21,7 +21,7 @@ patched toolchain.
 | id | lineage | source | patch | status |
 | :--- | :--- | :--- | :--- | :--- |
 | `ee-gcc-2.9-991111-01` | Sony/Cygnus EE 2.9-ee-991111-01 | <https://github.com/SSXModding/ps2-ee-toolchain> @ `b595ded` | [`patched-ee-gcc.patch`](ee-gcc-2.9-991111-01/patched-ee-gcc.patch) | built, used by the `patched` route |
-| `sce-991111b` | Sony/Cygnus EE 2.9-ee-991111b | recovered archive, see [`sce-991111b/README.md`](sce-991111b/README.md) | P1/P15/P22/P16/P19/P20/P21/P25 in [`sce-991111b/`](sce-991111b/) | patched game default; 52/58 joint (38/44 game-line + 14 SDK-line); 231/557 promoted sources exact |
+| `sce-991111b` | Sony/Cygnus EE 2.9-ee-991111b | recovered archive, see [`sce-991111b/README.md`](sce-991111b/README.md) | production stack in [`sce-991111b/`](sce-991111b/README.md#production-stack-game-compiler) | game compiler, cc1 `4dfa3cf0…` rebuilt byte for byte from the archive; 55/58 joint gate |
 
 ## Building
 
