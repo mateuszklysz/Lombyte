@@ -44,7 +44,7 @@ extern s32 D_0015ED5C;
 extern s32 D_0015ED84;
 extern s32 D_0015EE48;
 extern s32 D_0015EE4A;
-extern s32 D_0015F43C;
+extern f32 D_0015F43C;
 extern s32 D_0015F618;
 extern s32 D_00160404;
 extern u8 D_00160460[];
