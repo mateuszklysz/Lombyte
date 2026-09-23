@@ -336,6 +336,30 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_00214720: plain C Vec4 transform and six ordered bounds checks
+    # reproduce retail
+    "textbin/fun_00214720",
+    # fun_0023a318: a packed Pair64 copy preserves the retail split 64-bit loads
+    # and stores while float-return helper prototypes match the call shape
+    "textbin/fun_0023a318",
+    # fun_00205000: a typed global table with arrays at byte offsets 0x278,
+    # 0x28c, and 0x2a4 preserves the retail indices and register order
+    "textbin/fun_00205000",
+    # fun_001f6200: initializing total and count before the empty-input branch
+    # matches the retail delay-slot ordering
+    "textbin/fun_001f6200",
+    # fun_0023ba60: the four-argument sceCdRead call uses a 16-byte command
+    # buffer and the initialized return value survives the call
+    "textbin/fun_0023ba60",
+    # fun_00214c48: drop the stale integer callee argument and assign the float
+    # helper result back through the incoming FPU parameter
+    "textbin/fun_00214c48",
+    # memcard_make_whole_save: mutable byte pointer preserves the byte-stride
+    # descriptor walk and helper argument order
+    "textbin/memcard_make_whole_save",
+    # fun_001fb368: volatile global pointer plus cached first access matches
+    # repeated retail loads
+    "textbin/fun_001fb368",
     # fun_00230ee8: Dropping stale call arguments and using the retail state
     # switch matches exactly.
     "textbin/fun_00230ee8",
