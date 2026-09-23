@@ -335,6 +335,45 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_00220648: switch on unk44; D_001516D8 read as D_001516D0.unk8 (struct,
+    # not gp-small), D_00137B80 as a struct with 8-byte pair arrays at
+    # 0x2C8/0x2F8; exact with default flags.
+    "textbin/fun_00220648",
+    # fun_0012f2b8: plain rewrite (as promoted fun_0012f208): 0x3000-byte read
+    # buffer then the 4-byte sceCdRMode, retry loop, 0x2960-byte copy to
+    # D_00137B80; exact with default flags.
+    "textbin/fun_0012f2b8",
+    # fun_0022dba0: plain rewrite (idx = arg0 + D_0015F5B4, arg1 passed through,
+    # unk88 stored before unk7E), exact with default flags
+    "textbin/fun_0022dba0",
+    # fun_00235780: plain rewrite: -1-terminated index list over D_001E1700
+    # object pointers, 0x50-byte parts, s16 pair table merged into the low 14
+    # bits; exact with default flags.
+    "textbin/fun_00235780",
+    # fun_0022c5a8: plain rewrite: float callee arguments as literals
+    # (0.5f/6.0f/0.75f with f32 prototypes), void callees, D_0013E5BC[0]; exact
+    # with default flags.
+    "textbin/fun_0022c5a8",
+    # fun_00225c18: plain rewrite: 5-entry {unk0, flags} table scan (flags^1
+    # when arg0), exact with default flags
+    "textbin/fun_00225c18",
+    # fun_001ed940: plain rewrite: &D_001870D0 held in a pointer, D_0015EF9C a
+    # scalar the assembler does not size (retail lui/at stores, gp only in delay
+    # slots), if/else chain; exact with default flags.
+    "textbin/fun_001ed940",
+    # fun_00207b08: plain rewrite: void callees, D_0013D560 as s32[] indexed by
+    # D_0015ED84 re-read after func_00208030; exact with default flags.
+    "textbin/fun_00207b08",
+    # fun_00204f60: plain rewrite: early return of func_00204EF8's result in the
+    # loop variable, unk278[]/unk28C[] arrays, func_00205000(0, i); exact with
+    # default flags.
+    "textbin/fun_00204f60",
+    # fun_001ff570: plain rewrite: 13-entry 0x90-byte struct array search on
+    # unk64, direct array indexing for the stores; exact with default flags.
+    "textbin/fun_001ff570",
+    # fun_002270e8: plain rewrite (byte-pointer advance 0x20/0x30, both callees
+    # take arg0), exact with default flags.
+    "textbin/fun_002270e8",
     # fun_00219fa0 is exact with the game's reconstructed 991111 compiler and
     # -mastra-r5900-extern-buffer. Keep it off EE_GCC_PATCHED_ROOT: that
     # separate patched SDK profile does not implement this game-only option.
