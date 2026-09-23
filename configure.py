@@ -224,9 +224,6 @@ EE_GCC_PATCHED_UNITS = {
     # Promoted by the decomp workbench: exact only under the patched
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
     "textbin/fun_00226848",
-    # Promoted by the decomp workbench: exact only under the patched
-    # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
-    "textbin/fun_00219fa0",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -236,7 +233,6 @@ EE_GCC_PATCHED_FLAG_UNITS = {
     "textbin/fun_00226848": "-mastra-no-lo-sum-tie",
     "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
     "textbin/fun_001fa6d0": "-mastra-inplace-cvt",
-    "textbin/fun_00219fa0": "-mastra-r5900-extern-buffer",
 }
 
 # Per-unit assembler policies applied by the generated padless-asm.py helper.
@@ -339,6 +335,10 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_00219fa0 is exact with the game's reconstructed 991111 compiler and
+    # -mastra-r5900-extern-buffer. Keep it off EE_GCC_PATCHED_ROOT: that
+    # separate patched SDK profile does not implement this game-only option.
+    "textbin/fun_00219fa0",
     "textbin/fun_002071c0",
     "textbin/fun_001ff288",
     "textbin/fun_0012eb20",
@@ -573,6 +573,7 @@ GAME_COMPILER_FLAG_UNITS = {
     # 0046-r5900-pad-unfilled-loops (cc1 eb7a3497...).  100/100/100 and
     # full-ELF PASS on 2026-09-22.
     "fun_0012eb20": "-mastra-r5900-extern-buffer",
+    "fun_00219fa0": "-mastra-r5900-extern-buffer",
     # fun_00221968: 100/100/100 on the game compiler only with
     # -fno-expensive-optimizations (the bank flag; without it 90.45).  Its
     # 2026-09-22 demotion measured cc_game without the flag (62.65).
