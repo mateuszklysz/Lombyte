@@ -8,6 +8,11 @@ Install into the repository (idempotent):
 
 The standard is one lowercase `<type>: <summary>` prefix per subject
 (`decomp`, `docs`, `chore`, `fix`, `config`), with no repeated scope token.
+
+The hook also rewrites the message file before validation: every line
+containing `co-authored-by` (case-insensitive) is dropped, so agent trailers
+never enter the history.  Messages without such a line are left untouched,
+byte for byte.
 """
 
 import importlib.util
@@ -25,6 +30,38 @@ NON_IMPERATIVE_RE = re.compile(
 # Prefer the shared validator from a tooling checkout; fall back to the local rule.
 NAMING = Path(os.environ.get("RNC_COMMIT_NAMING", ""))
 problems: list[str] = []
+
+# Trailer form only (line starts with the token + ":"): prose that merely
+# mentions the term, e.g. in a commit about this hook, must survive.
+TRAILER_RE = re.compile(r"^\s*co[-_]?authored[-_]?by\s*:",
+                        re.IGNORECASE | re.MULTILINE)
+
+
+def strip_trailers(path: Path) -> bool:
+    """Drop co-authored-by lines from the message file; True if it was rewritten.
+
+    git lets this hook edit the message file.  Blank-line runs caused by the
+    removal are collapsed and trailing blanks are dropped; a message that does
+    not mention co-authored-by is never rewritten.
+    """
+    raw = path.read_text(errors="replace")
+    if not TRAILER_RE.search(raw):
+        return False
+    kept = [line for line in raw.split("\n") if not TRAILER_RE.search(line)]
+    out: list[str] = []
+    blank = False
+    for line in kept:
+        if not line.strip():
+            if blank:
+                continue
+            blank = True
+        else:
+            blank = False
+        out.append(line)
+    while out and not out[-1].strip():
+        out.pop()
+    path.write_text("\n".join(out) + ("\n" if out else ""))
+    return True
 
 
 def validate(subject: str) -> list[str]:
@@ -56,7 +93,10 @@ if NAMING.is_file():
     spec.loader.exec_module(module)
     validate = module.validate_subject
 
-text = Path(sys.argv[1]).read_text(errors="replace") if len(sys.argv) > 1 else ""
+MSG = Path(sys.argv[1]) if len(sys.argv) > 1 else None
+if MSG is not None and strip_trailers(MSG):
+    print("commit-msg: dropped co-authored-by line(s) from the message", file=sys.stderr)
+text = MSG.read_text(errors="replace") if MSG else ""
 subject = ""
 for line in text.splitlines():
     if line.strip() and not line.lstrip().startswith("#"):
