@@ -12,8 +12,8 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/hud_send_resident_bank/FUN_
 
 extern s32 D_0015EE88;
 extern struct M2c_D_0019A3E8 D_0019A3E8;
-extern s32 func_001FEFC0();
-extern s32 func_00200B10();
+extern void func_001FEFC0();
+extern void func_00200B10();
 void FUN_001ff128(s32 arg1, s32 arg0, s32 arg2) {
     struct M2c_temp_2_57 *temp_2_57;
     s32 temp_17_54;

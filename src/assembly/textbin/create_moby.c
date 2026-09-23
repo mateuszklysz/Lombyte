@@ -5,56 +5,65 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/create_moby/FUN_0020c4f8.s", FUN_0020c4f8);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+extern s32 D_0015F60C;
+extern s32 D_0015FEFC;
+extern s32 D_0015FF1C;
+extern s32 D_0015FF20;
+extern s32 D_0015FF28;
+extern u8 D_001E83C0[];
+extern void DebugPrint();
+extern void FillTransferWords();
+extern void func_0020C5F0();
+s32 *FUN_0020c4f8(s32 arg0, s32 arg3) {
+    s32 temp_3_42;
+    s32 var_7_0;
+    u32 var_16_9;
+    u8 var_4_15;
 
-extern char D_00754210[];
-extern char D_00754220[];
-extern char D_00602F80[];
-extern char D_00603310[];
-extern char D_006036A0[];
-extern unsigned short D_00747A50;
-
-void FUN_0020c4f8(char *a0) {
-    char *a1 = a0;
-    switch (*(int *)(a1 + 0x2C)) {
-    case 0:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 3:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        if (D_00747A50 == 0x504 || D_00747A50 == 0x506 || D_00747A50 == 0x801 ||
-            D_00747A50 == 0x4F || D_00747A50 == 0x4E) {
-            *(void **)(a1 + 0x8) = D_00754220;
-        } else {
-            *(void **)(a1 + 0x8) = D_00754210;
-        }
-        *(void **)(a1 + 0xC) = D_006036A0;
-        break;
-    case 2:
-    case 4:
-    case 5:
-    case 6:
-    case 14:
-    case 15:
-    default:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00603310;
-        break;
+    var_7_0 = arg3;
+    var_16_9 = D_0015FF1C;
+    if (var_16_9 >= (u32) D_0015FF20) {
+        goto block_16;
     }
+    var_7_0 = 0xFF;
+    var_4_15 = *(s32 *)((u8 *)var_16_9 + 0x20);
+loop_2:
+    if (var_4_15 >= 0xFEU) {
+        goto block_4;
+    }
+    var_16_9 += 0x100;
+    goto block_13;
+block_4:
+    if ((u32) D_0015F60C >= (u64) *(s32 *)((u8 *)var_16_9 + 0x38)) {
+        goto block_7;
+    }
+    var_16_9 += 0x100;
+    goto block_13;
+block_7:
+    if (var_4_15 != 0xFF) {
+        goto block_10;
+    }
+    *(s32 *)((u8 *)var_16_9 + 0x120) = var_4_15;
+block_10:
+    func_0020C5F0((void *) var_16_9, arg0, arg0, 0xFF);
+    temp_3_42 = D_0015FF28 + (((s32) (var_16_9 - D_0015FF1C) >> 8) << 7);
+    *(s32 *)((u8 *)var_16_9 + 0x78) = temp_3_42;
+    FillTransferWords(temp_3_42, 0, 0x80);
+    if (D_0015FEFC == 0) {
+        goto block_12;
+    }
+    D_0015FEFC -= 1;
+block_12:
+    return (void *) var_16_9;
+block_13:
+    if (var_16_9 >= (u32) D_0015FF20) {
+        goto block_15;
+    }
+    var_4_15 = *(s32 *)((u8 *)var_16_9 + 0x20);
+    goto loop_2;
+block_15:
+block_16:
+    DebugPrint(D_001E83C0, D_0015F60C, arg0, var_7_0);
+    return NULL;
 }
 #endif /* NON_MATCHING */

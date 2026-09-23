@@ -4,18 +4,31 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00220850/FUN_00220850.s", FUN_00220850);
 #else
-#include "rnc/assembly_textbin_fun_00220850_types.h"
 #include "types.h"
+struct M2c_D_00151780 {
+    u8 pad_0[0x160];
+    s16 unk160;
+    s16 unk162;
+    u8 pad_164[0x2];
+};
 
-
-
+struct M2c_D_001A00F0 {
+    u8 pad_0[0x228];
+    s32 unk228;
+    u8 pad_22C[0x2C];
+    s32 unk258;
+    u8 pad_25C[0x4];
+    s32 unk260;
+    u8 pad_264[0x4];
+    s32 unk268;
+};
 
 extern struct M2c_D_00151780 D_00151780;
 extern s32 D_0015F438;
 extern struct M2c_D_001A00F0 D_001A00F0;
 extern u8 D_001DDF68[];
-extern s32 func_00200468();
-extern s32 func_00233980();
+extern void func_00200468();
+extern void func_00233980();
 s32 FUN_00220850(s32 arg2) {
     s32 temp_17_109;
     s32 temp_18_116;
@@ -23,7 +36,7 @@ s32 FUN_00220850(s32 arg2) {
     s32 temp_7_111;
     s32 temp_8_113;
     s32 var_2_16;
-    s32 var_6_0;
+    register s32 var_6_0 asm("s5");
 
     var_6_0 = arg2;
     var_2_16 = 0;
@@ -33,16 +46,16 @@ s32 FUN_00220850(s32 arg2) {
             func_00233980(8, 5);
             func_00200468(D_001A00F0.unk258, 0, 0, 7, 7, D_00151780.unk160 * 0x10, D_00151780.unk162 * 0x10, 0, 0, 0x80);
             func_00233980(0x47, 0x360B);
-            if (((s32) D_0015F438 % 60) < 0x28) {
+            if (((s32) *(s32 *)0x15F438 % 60) < 0x28) {
                 func_00200468(D_001A00F0.unk260, 0, 0, 7, 7, D_00151780.unk160 * 0x10, D_00151780.unk162 * 0x10, 0, 0, 0x80);
             }
-            if (((s32) D_0015F438 % 150) < 0x5A) {
+            if (((s32) *(s32 *)0x15F438 % 150) < 0x5A) {
                 func_00200468(D_001A00F0.unk268, 0, 0, 7, 7, D_00151780.unk160 * 0x10, D_00151780.unk162 * 0x10, 0, 0, 0x80);
             }
         } else {
             temp_6_103 = D_001A00F0.unk228 * 0x2AB;
             temp_17_109 = *((D_001A00F0.unk228 * 4) + D_001DDF68);
-            temp_7_111 = D_0015F438 + temp_6_103;
+            temp_7_111 = *(s32 *)0x15F438 + temp_6_103;
             temp_8_113 = temp_7_111 > -1;
             temp_18_116 = temp_17_109 * 2;
             func_00233980(0x47, 0, temp_6_103, temp_7_111, temp_8_113);

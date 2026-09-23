@@ -5,30 +5,25 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002337b0/FUN_002337b0.s", FUN_002337b0);
 #else
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
+extern s32 D_00160EE0;
+extern u8 D_001E89E0[];
+extern void DebugPrint();
+extern void SpinWait();
+extern void func_001F21C0();
+void FUN_002337b0(s32 arg0) {
+    s32 var_17_12;
 
-extern unsigned int D_00747A84;
-extern int D_00586B34;
-extern char D_00747470[];
-extern int D_00747A30;
-extern char D_0044A920[];
-extern char D_0044A940[];
-extern char D_0044A958[];
-extern char D_00583F20[];
-extern int D_003C3CF0;
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-
-void FUN_002337b0(void *a0) {
-    char *s = (char*)a0;
-    unsigned long b = *(unsigned char*)(s + 8);
-    int buf[16];
-    if ((b >> 7) != 0) return;
-    if ((D_00747A30 & 0x400) != 0) {
-        func_003A6C58(buf, D_0044A920, D_0044A940);
-    } else {
-        func_003A6C58(buf, D_0044A958, D_0044A940);
+    var_17_12 = 0;
+loop_1:
+    if (*(s32 *)0x160EE0 & arg0) {
+        SpinWait(0x400);
+        var_17_12 += 1;
+        if (var_17_12 > 0x186A0) {
+            DebugPrint(D_001E89E0);
+            func_001F21C0();
+        } else {
+            goto loop_1;
+        }
     }
-    *(int*)(s + 0x10) = 0;
-    *(int*)(s + 0xC) = cDvd_ReadAlloc(D_00583F20, buf, s + 0x10, D_003C3CF0, 0, 0, 0, 0);
 }
 #endif /* NON_MATCHING */

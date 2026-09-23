@@ -16,9 +16,9 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f5ab0/FUN_001f5ab0.s
 
 extern struct M2c_D_0013E500 D_0013E500;
 extern struct M2c_D_00160F00 *D_00160F00;
-extern s32 func_001F9A10();
-extern s32 func_001F9A28();
-extern s32 func_001F9A68();
+extern void func_001F9A10();
+extern void func_001F9A28();
+extern void func_001F9A68();
 extern s32 func_001F9DC8();
 extern s32 func_001F9DE0();
 extern s32 func_001FA6D0();

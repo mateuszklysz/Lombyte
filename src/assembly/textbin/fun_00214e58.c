@@ -8,8 +8,8 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214e58/FUN_00214e58.s
 #include "types.h"
 
 
-extern s32 func_001F9A28();
-extern s32 func_001F9A40();
+extern void func_001F9A28();
+extern void func_001F9A40();
 extern s32 func_001F9B20();
 extern s32 func_001F9E90();
 extern s32 func_001FA580();

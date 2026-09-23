@@ -5,139 +5,97 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0023bf70/FUN_0023bf70.s", FUN_0023bf70);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+struct M2c_arg0 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    s32 unk10;
+    s32 unk14;
+    u8 pad_18[0x28];
+    s32 unk40;
+    s32 unk44;
+};
 
-extern void *SearchData(void *a, void *b, int c);
-extern void cModel_setTextureExchange(void *self, void *tex, int tbl, int n);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
+extern u8 D_001E8B20[];
+extern void SignalSema();
+extern void WaitSema();
+extern void func_0023AB78();
+extern s32 func_0023BAF8();
+extern void func_0023BBB0();
+extern void func_0023BC20();
+s32 FUN_0023bf70(struct M2c_arg0 *arg0) {
+    s32 temp_19_59;
+    s32 temp_2_112;
+    s32 temp_2_48;
+    s32 temp_3_38;
+    s32 temp_3_55;
+    s32 temp_7_36;
+    s32 temp_8_52;
+    s32 temp_8_72;
+    s32 temp_hi_44;
+    s32 temp_hi_49;
+    s32 temp_hi_71;
+    s32 var_16_62;
+    s32 var_17_84;
+    s32 var_21_31;
+    s32 var_23_6;
 
-/* sn-2.95.3-136 matched TU. */
-
-
-
-
-
-
-void FUN_0023bf70(void *a0, int a1) {
-    char *s0 = (char *)a0;
-    int s1 = a1;
-    void *m;
-    int val;
-
-    if (*(unsigned char *)(s0 + 0x4D0) == 0) {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, 0);
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, 0);
-        }
-    } else {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, *(int *)(s0 + 0x4D4));
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, *(int *)(s0 + 0x4D4));
-        }
+    var_23_6 = 0;
+    WaitSema(arg0->unk40);
+    if (arg0->unk44 != 0) {
+        goto block_2;
     }
-    switch (*(unsigned short *)(s0 + 0x2FE)) {
-    case 0x227: {
-        char *p0 = *(char **)(s0 + 0x304);
-        int f0 = *(int *)(p0 + 0x44);
-        val = f0 + (int)p0;
-        break;
+    func_0023AB78(D_001E8B20);
+    return 0;
+block_2:
+    func_0023BBB0(5);
+    var_21_31 = *(s32 *)0x1000B400;
+    temp_7_36 = arg0->unk8;
+    temp_3_38 = arg0->unkC;
+    temp_hi_44 = (s32) ((func_0023BAF8(arg0, *(s32 *)0x1000B410) + temp_7_36) - temp_3_38) % temp_7_36;
+    temp_2_48 = arg0->unk10 - temp_hi_44;
+    temp_hi_49 = (s32) (temp_3_38 + temp_hi_44) % temp_7_36;
+    arg0->unk10 = temp_2_48;
+    temp_8_52 = temp_2_48; temp_8_52 += temp_hi_49;
+    arg0->unkC = temp_hi_49;
+    temp_3_55 = arg0->unk14;
+    temp_19_59 = (s32) ((temp_3_55 > -1) ? temp_3_55 : (temp_3_55 + 0x7FF)) >> 0xB;
+    var_16_62 = temp_8_52 % temp_7_36;
+    arg0->unk14 = (s32) (temp_3_55 - (temp_19_59 << 0xB));
+    if (temp_19_59 <= 0) {
+        goto block_4;
     }
-    case 0x228: {
-        char *p1 = *(char **)(s0 + 0x304);
-        int f1 = *(int *)(p1 + 0x48);
-        val = f1 + (int)p1;
-        break;
+    temp_hi_71 = (s32) (temp_8_52 + (temp_7_36 - 1)) % temp_7_36;
+    temp_8_72 = arg0->unk4;
+    var_23_6 = 1;
+    func_0023BC20(temp_8_72 + (temp_hi_71 * 0x10), arg0->unk0 + (temp_hi_71 << 0xB), 3, 0x80, temp_8_72);
+block_4:
+    var_17_84 = 0;
+    if (temp_19_59 <= 0) {
+        goto block_7;
     }
-    case 0x229: {
-        char *p2 = *(char **)(s0 + 0x304);
-        int f2 = *(int *)(p2 + 0x4C);
-        val = f2 + (int)p2;
-        break;
+loop_6:
+    func_0023BC20(arg0->unk4 + (var_16_62 * 0x10), arg0->unk0 + (var_16_62 << 0xB), ((var_17_84 ^ (temp_19_59 - 1)) != 0) ? 3 : 0, 0x80);
+    var_17_84 += 1;
+    var_16_62 = (s32) (var_16_62 + 1) % (s32) arg0->unk8;
+    if (var_17_84 < temp_19_59) {
+        goto loop_6;
     }
-    case 0x22A: {
-        char *p3 = *(char **)(s0 + 0x304);
-        int f3 = *(int *)(p3 + 0x50);
-        val = f3 + (int)p3;
-        break;
+block_7:
+    temp_2_112 = arg0->unk10 + temp_19_59;
+    arg0->unk10 = temp_2_112;
+    if (temp_2_112 == 0) {
+        goto block_11;
     }
-    case 0x22B: {
-        char *p4 = *(char **)(s0 + 0x304);
-        int f4 = *(int *)(p4 + 0x54);
-        val = f4 + (int)p4;
-        break;
+    if (var_23_6 == 0) {
+        goto block_10;
     }
-    case 0x22C: {
-        char *p5 = *(char **)(s0 + 0x304);
-        int f5 = *(int *)(p5 + 0x58);
-        val = f5 + (int)p5;
-        break;
-    }
-    case 0x22D: {
-        char *p6 = *(char **)(s0 + 0x304);
-        int f6 = *(int *)(p6 + 0x78);
-        val = f6 + (int)p6;
-        break;
-    }
-    case 0x22E: {
-        char *p7 = *(char **)(s0 + 0x304);
-        int f7 = *(int *)(p7 + 0x70);
-        val = f7 + (int)p7;
-        break;
-    }
-    case 0x243: {
-        char *p8 = *(char **)(s0 + 0x304);
-        int f8 = *(int *)(p8 + 0x80);
-        val = f8 + (int)p8;
-        break;
-    }
-    case 0x24A: {
-        char *p9 = *(char **)(s0 + 0x304);
-        int f9 = *(int *)(p9 + 0x64);
-        val = f9 + (int)p9;
-        break;
-    }
-    case 0x24B: {
-        char *p10 = *(char **)(s0 + 0x304);
-        int f10 = *(int *)(p10 + 0x6C);
-        val = f10 + (int)p10;
-        break;
-    }
-    case 0x24C: {
-        char *p11 = *(char **)(s0 + 0x304);
-        int f11 = *(int *)(p11 + 0x74);
-        val = f11 + (int)p11;
-        break;
-    }
-    case 0x24D: {
-        char *p12 = *(char **)(s0 + 0x304);
-        int f12 = *(int *)(p12 + 0x7C);
-        val = f12 + (int)p12;
-        break;
-    }
-    case 0x24E: {
-        char *p13 = *(char **)(s0 + 0x304);
-        int f13 = *(int *)(p13 + 0x88);
-        val = f13 + (int)p13;
-        break;
-    }
-    case 0x271:
-    case 0x272:
-    case 0x273: {
-        char *p14 = *(char **)(s0 + 0x304);
-        int f14 = *(int *)(p14 + 0x5C);
-        val = f14 + (int)p14;
-        break;
-    }
-    default:
-        val = 0;
-        break;
-    }
-    if (m != 0) {
-        if (val != 0) {
-            *(int *)(s0 + 0x254) = *(int *)(s0 + 0x254) | 0x10000000;
-            cModel_setTextureExchange(s0, m, val, s1);
-        }
-    }
+    var_21_31 = (var_21_31 & 0x0FFFFFFF) | 0x30000000;
+block_10:
+    func_0023BBB0(var_21_31 | 0x100);
+block_11:
+    SignalSema(arg0->unk40);
+    return 1;
 }
 #endif /* NON_MATCHING */

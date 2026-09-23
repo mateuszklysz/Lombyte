@@ -5,55 +5,32 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/draw_shrubs/FUN_00228b38.s", FUN_00228b38);
 #else
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
-
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern int D_00747A30;
-extern unsigned char D_0044A920[];
-extern unsigned char D_0044A940[];
-extern unsigned char D_0044A958[];
-extern unsigned char D_005E8640[];
-extern void cRelSys_unlinkNoFree(void *a0, int a1);
-extern void func_00297660(void);
-extern void cEventConfig_setEventNo(void *a0, int a1);
-extern unsigned char D_00586B30[];
-
-void FUN_00228b38(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    char buf[0x40];
-    unsigned long b = *(unsigned char *)(s0 + 8);
-    int a1;
-    if ((b >> 7) == 0) {
-        if (D_00747A30 & 0x400) {
-            func_003A6C58(buf, D_0044A920, D_0044A940);
-        } else {
-            func_003A6C58(buf, D_0044A958, D_0044A940);
-        }
-        a1 = *(int *)(s0 + 0x10);
-        if (a1 != 0) {
-            cRelSys_linkNoAlloc(D_005E8640, a1, buf, 2);
-            *(int *)(s0 + 8) = *(int *)(s0 + 8) | 0x80;
-        }
+extern s32 D_0015EE74;
+extern s32 D_0015EE78;
+extern u8 D_001603B0[];
+extern u8 D_001603C0[];
+extern s32 D_001603F0;
+extern s32 D_00160F00;
+extern s32 D_0018A2D0;
+extern u8 D_001D8EB0[];
+extern void FlushCache();
+extern void WriteDmaChannel();
+extern void func_001F21B0();
+extern void func_001F21B8();
+extern void func_002288F0();
+extern void func_00228BE8();
+void FUN_00228b38(void) {
+    D_001603F0 = D_00160F00;
+    D_0015EE74 = D_0015EE78;
+    D_00160F00 += 0x10;
+    func_001F21B8(D_001603B0, 1);
+    if (D_0018A2D0 != 0) {
+        FlushCache(0);
+        func_00228BE8();
+        WriteDmaChannel(D_001D8EB0, 0x3200, 0x40);
     }
-}
-
-void ClearDisplayText_2974F0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long v0 = *(unsigned char *)(s0 + 8);
-    if (v0 >> 7) {
-        cRelSys_unlinkNoFree(D_005E8640, 2);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) & -0x81;
-    }
-}
-
-void InitSubState_2975F8(void *a0, int a1) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long t = *(int *)(s0 + 8);
-    if (((t >> 1) & 1) == 0) {
-        func_00297660();
-        *(int *)(s0 + 0x18) = a1;
-        cEventConfig_setEventNo(D_00586B30, a1);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) | 2;
-    }
+    func_001F21B8(D_001603C0, 7);
+    func_002288F0();
+    func_001F21B0(D_001603C0, 7);
 }
 #endif /* NON_MATCHING */

@@ -87,7 +87,7 @@ extern u8 D_001A2BC0[];
 extern struct M2c_D_001A2C10 D_001A2C10;
 extern s32 func_001F75F0();
 extern s32 func_00208280();
-extern s32 func_00208408();
+extern void func_00208408();
 extern s32 memset();
 extern void spC0();
 extern void spC4();

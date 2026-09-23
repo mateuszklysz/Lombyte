@@ -28,7 +28,7 @@ void FUN_00215390(void) {
     D_001516D0.unk6C = 0;
     D_001516D0.unk76 = 0;
     D_001516D0.unk1C = neg;
-    func_0012EB20(4, 0xF000, 0, 1, neg);
+    func_0012EB20(4, 0xF000, 0, 1);
     while (func_0012DC80() != 0) {
     }
     func_00215420();

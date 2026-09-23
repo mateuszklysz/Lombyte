@@ -25,7 +25,7 @@ extern s32 D_0015EE84;
 extern s32 D_0015EE88;
 extern s32 D_0015EE8C;
 extern u8 D_001941C0[];
-extern s32 func_00118A80();
+extern void func_00118A80();
 extern s32 func_00120558();
 extern s32 func_00122330();
 extern s32 func_00122658();

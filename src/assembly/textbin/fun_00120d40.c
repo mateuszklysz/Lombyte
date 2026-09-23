@@ -19,13 +19,13 @@ extern s32 D_00159750;
 extern u8 D_00159758[];
 extern u8 D_FFFFF[];
 extern s32 PollSema();
-extern s32 ReferThreadStatus();
-extern s32 SignalSema();
-extern s32 cmd_sem_init();
+extern void ReferThreadStatus();
+extern void SignalSema();
+extern void cmd_sem_init();
 extern s32 sceCdSyncS();
-extern s32 scePrintf();
+extern void scePrintf();
 extern s32 sceSifBindRpc();
-extern s32 sceSifInitRpc();
+extern void sceSifInitRpc();
 s32 FUN_00120d40(s32 arg0) {
     s32 *var_2_55;
     s32 *var_2_78;

@@ -71,7 +71,7 @@ extern s32 func_001F2D98();
 extern s32 func_001F96F8();
 extern s32 func_001F98D0();
 extern s32 func_001F9A10();
-extern s32 func_001F9A68();
+extern void func_001F9A68();
 extern s32 func_001FA6C0();
 extern s32 func_002049F0();
 extern s32 func_0020C828();

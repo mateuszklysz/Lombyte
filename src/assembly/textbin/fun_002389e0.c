@@ -4,11 +4,21 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002389e0/FUN_002389e0.s", FUN_002389e0);
 #else
-#include "rnc/assembly_textbin_fun_002389e0_types.h"
 #include "types.h"
+struct M2c_D_0013D4C0 {
+    u8 pad_0[0x23];
+    u8 unk23;
+    u8 pad_24[0x3];
+};
 
-
-
+struct M2c_D_001E63C0 {
+    u8 pad_0[0x20];
+    s32 unk20;
+    u8 pad_24[0x1C];
+    s32 unk40;
+    u8 pad_44[0x14];
+    s32 unk58;
+};
 
 extern struct M2c_D_0013D4C0 D_0013D4C0;
 extern u8 D_001863D0[];
@@ -16,10 +26,10 @@ extern u8 D_001DFFB0[];
 extern struct M2c_D_001E63C0 D_001E63C0;
 extern s32 func_001F6250();
 extern s32 func_001F65B0();
-extern s32 func_001F69D0();
-extern s32 func_001FB8F0();
+extern void func_001F69D0();
+extern void func_001FB8F0();
 extern s32 func_001FDD10();
-extern s32 func_00200E08();
+extern void func_00200E08();
 extern s32 func_0020D330();
 extern s32 func_00238688();
 void FUN_002389e0(void) {

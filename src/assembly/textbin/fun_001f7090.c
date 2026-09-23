@@ -17,9 +17,9 @@ extern s32 D_0015F49C;
 extern s32 D_0015F4A0;
 extern u8 D_0018CAF8[];
 extern s32 func_001F6200();
-extern s32 func_001F62B0();
-extern s32 func_001F6638();
-extern s32 func_00233A40();
+extern void func_001F62B0();
+extern void func_001F6638();
+extern void func_00233A40();
 /* retail small-data globals, declared to GAS before the body */
 __asm__(".extern D_0015F4A0, 4");
 

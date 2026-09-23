@@ -8,13 +8,13 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/obtain_all_gold_weapons_men
 #include "types.h"
 
 
-extern s32 func_001153FC();
-extern s32 func_001F4280();
-extern s32 func_001F4398();
-extern s32 func_001F7580();
+extern void func_001153FC();
+extern void func_001F4280();
+extern void func_001F4398();
+extern void func_001F7580();
 extern s32 func_001FDD10();
 extern s32 func_001FF960();
-extern s32 func_001FFC30();
+extern void func_001FFC30();
 s32 FUN_00222948(struct M2c_arg0 *arg0) {    u16 spE;
 u8 sp_slot[0x70];    s32 sp20;
     u16 sp22;

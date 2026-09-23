@@ -8,12 +8,12 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/music_update_stream/FUN_002
 #include "types.h"
 
 
-extern s32 func_0012E368();
-extern s32 func_0012E448();
-extern s32 func_0012EC70();
-extern s32 func_0012ECA0();
-extern s32 func_0012ECD0();
-extern s32 func_0012ED00();
+extern void func_0012E368();
+extern void func_0012E448();
+extern void func_0012EC70();
+extern void func_0012ECA0();
+extern void func_0012ECD0();
+extern void func_0012ED00();
 extern s32 func_001F9770();
 extern void func_00216990();
 extern void func_00216B68();

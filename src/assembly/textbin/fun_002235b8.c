@@ -33,7 +33,7 @@ extern s32 D_001D2640;
 extern u8 D_001D4E38[];
 extern u8 D_001D4F98[];
 extern struct M2c_D_001D5BF0 D_001D5BF0;
-extern s32 InitializeGlobalStateEntry();
+extern void InitializeGlobalStateEntry();
 extern s32 func_001FBAB8();
 extern s32 func_00209370();
 extern s32 func_00226A70();

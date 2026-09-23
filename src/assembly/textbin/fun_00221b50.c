@@ -10,12 +10,12 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00221b50/FUN_00221b50.s
 
 extern u8 D_001602E8[];
 extern s32 D_001D5CC4;
-extern s32 func_001F4280();
-extern s32 func_001F4398();
-extern s32 func_001F75F0();
+extern void func_001F4280();
+extern void func_001F4398();
+extern void func_001F75F0();
 extern s32 func_001FDD10();
-extern s32 func_00233980();
-extern s32 memset();
+extern void func_00233980();
+extern void memset();
 s32 FUN_00221b50(struct M2c_arg0 *arg0) {    u16 spE;
 u8 sp_slot[0x70];    u16 sp0;
     u16 sp2;

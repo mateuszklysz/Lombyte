@@ -21,11 +21,11 @@ extern u8 D_0015EE98[];
 extern s32 D_0015EEB4[];
 extern u8 D_001A04C0[];
 extern u8 D_001A07C0[];
-extern s32 func_00207B08();
-extern s32 func_00208770();
-extern s32 func_0020AD78();
-extern s32 sceCdReadClock();
-extern s32 sceScfGetLocalTimefromRTC();
+extern void func_00207B08();
+extern void func_00208770();
+extern void func_0020AD78();
+extern void sceCdReadClock();
+extern void sceScfGetLocalTimefromRTC();
 s32 FUN_0020b178(s32 arg0, s32 arg1) {
     s32 temp_2_43;
     u8 *temp_3_70;

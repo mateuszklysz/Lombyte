@@ -4,15 +4,41 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002239e0/FUN_002239e0.s", FUN_002239e0);
 #else
-#include "rnc/assembly_textbin_fun_002239e0_types.h"
 #include "types.h"
+struct M2c_D_0013D290 {
+    u8 pad_0[0xD4];
+    s32 unkD4;
+    u8 pad_D8[0x4];
+    s32 unkDC;
+};
 
+struct M2c_arg0 {
+    u8 pad_0[0x20];
+    s32 unk20;
+    u8 pad_24[0x1C];
+    s32 unk40;
+};
 
+struct M2c_temp_18_72 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    u8 pad_10[0x5];
+    u8 unk15;
+    u8 unk16;
+    u8 unk17;
+    u8 pad_18[0x3];
+};
 
-
-
-
-
+struct M2c_temp_5_68 {
+    u8 pad_0[0x8];
+    s32 unk8;
+    u8 pad_C[0xC8];
+    s32 unkD4;
+    u8 pad_D8[0x4];
+    s32 unkDC;
+};
 
 extern struct M2c_D_0013D290 D_0013D290;
 extern u8 D_0013D2B0[];
@@ -23,15 +49,15 @@ extern u8 D_001602D0[];
 extern u8 D_00160300[];
 extern u8 D_00160310[];
 extern u8 D_00160320[];
-extern s32 func_001F4280();
-extern s32 func_001F4398();
-extern s32 func_001F65B0();
-extern s32 func_001F6B88();
+extern void func_001F4280();
+extern void func_001F4398();
+extern void func_001F65B0();
+extern void func_001F6B88();
 extern s32 func_001FDD10();
 extern s32 func_001FF960();
-extern s32 func_001FFC30();
-extern s32 func_00200E08();
-extern s32 sprintf();
+extern void func_001FFC30();
+extern void func_00200E08();
+extern void sprintf();
 s32 FUN_002239e0(struct M2c_arg0 *arg0) {
 u8 sp_slot[0xF0];    s32 temp_16_126;
     s32 temp_19_128;

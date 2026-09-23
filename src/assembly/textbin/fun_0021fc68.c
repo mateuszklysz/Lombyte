@@ -12,7 +12,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021fc68/FUN_0021fc68.s
 
 extern struct M2c_D_00151780 D_00151780;
 extern s32 D_001A0348;
-extern s32 func_001F5450();
+extern void func_001F5450();
 s32 FUN_0021fc68(struct M2c_arg0 *arg0) {
     if (arg0->unk44 < 2) {
         return 0;

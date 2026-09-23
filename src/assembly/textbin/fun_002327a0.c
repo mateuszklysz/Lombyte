@@ -35,7 +35,7 @@ extern u8 D_001DC4E0[];
 extern u8 D_001DCB40[];
 extern u8 D_001DCE70[];
 extern s32 func_001F44B8();
-extern s32 func_001F7D30();
+extern void func_001F7D30();
 extern s32 func_001F96F8();
 extern s32 func_001F9740();
 extern s32 func_001F9988();

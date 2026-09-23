@@ -5,133 +5,131 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00235990/FUN_00235990.s", FUN_00235990);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+struct M2c_D_0018A2B0 {
+    u8 pad_0[0x18];
+    s32 unk18;
+};
 
-extern void func_002CA798(void *a0);
-extern int cDvd_ReadAlloc(void *a0, void *a1, void *a2, void *a3, int t0, int t1, int t2, int t3);
-extern void func_00201108(void *a0, int a1);
-extern void FileNameFromObjId(char *buf, int id);
-extern int EnsureInitThenForward_2A9538_30EE08(void *, int, void *);
-extern int cCoreSave_getCostumeNo(void *a0);
-extern void func_0030D8E0(int a0);
-extern void cTaskWork_exit(int a0);
-extern int D_00747A24;
-extern char D_005FEE00[];
-extern int D_003C3BC8[];
-extern char D_00583F20[];
-extern char D_00754200[];
-extern int *D_003C3CC4;
-extern char D_00752C38[];
-extern char D_00752C00[];
-extern char D_00569B70[];
+struct M2c_temp_2_140 {
+    u8 pad_0[0x24];
+    u16 unk24;
+};
 
-/* sn-2.95.3-136 matched TU. */
+struct M2c_temp_2_18 {
+    u8 pad_0[0x24];
+    u16 unk24;
+};
 
+struct M2c_temp_2_79 {
+    u8 pad_0[0x24];
+    u16 unk24;
+};
 
+struct M2c_temp_2_95 {
+    u8 pad_0[0x24];
+    u16 unk24;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+extern s32 D_0015EE74;
+extern s32 D_0015EE78;
+extern s32 D_00160F00;
+extern u8 D_00160F30[];
+extern u8 D_00160F40[];
+extern s32 D_00160F4C;
+extern s32 D_00160F68;
+extern struct M2c_D_0018A2B0 D_0018A2B0;
+extern u8 D_001DF030[];
+extern u8 D_001E1700[];
+extern u8 D_001E2A00[];
+extern u8 D_001E3000[];
+extern u8 D_001E3200[];
+extern u8 D_001E3E00[];
+extern u8 D_001E4200[];
+extern u8 D_001E4400[];
+extern void FlushCache();
+extern void WriteDmaChannel();
+extern void func_001F21B0();
+extern void func_001F21B8();
+extern void func_001F98D0();
+extern void func_00235640();
+extern void func_00235BE8();
 void FUN_00235990(void) {
-    char buf[16];
-    int h;
-    int v;
-    int i;
-    int *p;
+    s32 var_5_135;
+    s32 var_5_71;
+    s32 var_5_91;
+    s32 var_6_7;
+    void **var_5_16;
+    void **var_6_138;
+    void **var_6_77;
+    void **var_6_93;
+    struct M2c_temp_2_140 *temp_2_140;
+    struct M2c_temp_2_18 *temp_2_18;
+    struct M2c_temp_2_79 *temp_2_79;
+    struct M2c_temp_2_95 *temp_2_95;
 
-    {
-        int a = D_00747A24;
-        a |= 0x4000;
-        D_00747A24 = a;
-        if ((a & 0x40000) == 0) {
-            func_002CA798(D_005FEE00);
-        }
+    var_6_7 = 1;
+    if (D_00160F4C > 1) {
+        var_5_16 = D_001E1700 + 4;
+        do {
+            temp_2_18 = *var_5_16;
+            var_6_7 += 2;
+            var_5_16 += 8;
+            temp_2_18->unk24 = (u16) (temp_2_18->unk24 | 8);
+        } while (var_6_7 < D_00160F4C);
     }
-    {
-        int b = D_00747A24;
-        D_00747A24 = b & 0xFFFBFFFF;
-        h = 0;
-        if ((b & 0x2000) == 0) {
-        h = cDvd_ReadAlloc(D_00583F20, (void *)D_003C3BC8[1],
-                           (char *)&D_00747A24 - 0x34, D_00754200, 0, 0, 0, 0);
-        func_00201108(D_00583F20, h);
-        func_00201108(D_00583F20, h);
-        h = cDvd_ReadAlloc(D_00583F20, (void *)D_003C3BC8[10],
-                           (char *)&D_00747A24 + 0x20, D_00754200, h, 0, 0, 0);
-        }
+    *(s32 *)0x160F68 = *(s32 *)0x160F00;
+    D_0015EE74 = D_0015EE78;
+    *(s32 *)0x160F00 += 0x10;
+    func_001F21B8(D_00160F30, 1, var_6_7, D_00160F4C);
+    if (D_0018A2B0.unk18 != 0) {
+        FlushCache(0);
+        func_00235BE8();
+        WriteDmaChannel(D_001E4400, 0x3600, 0x40);
     }
-    {
-        int c = D_00747A24;
-        c |= 0x2000;
-        D_00747A24 = c;
-        if ((c & 0x400) == 0) {
-        p = D_003C3CC4;
-        i = 0;
-        if (p[0] != 0xFFFF) {
-            do {
-                func_00201108(D_00583F20, h);
-                i++;
-                FileNameFromObjId(buf, p[0]);
-                h = cDvd_ReadAlloc(D_00583F20, buf, D_00752C38 + (p[1] << 2),
-                                   D_00754200, h, 0, 0, 0);
-                p = D_003C3CC4 + i * 2;
-            } while (p[0] != 0xFFFF);
-        }
-        func_00201108(D_00583F20, h);
-        }
+    func_00235640();
+    func_001F98D0(D_001E4200, D_001E3000, 0x200);
+    func_001F98D0(D_001E3E00, D_001E2A00, 0x400);
+    var_5_71 = 1;
+    if (D_00160F4C > 1) {
+        var_6_77 = D_001E1700 + 4;
+        do {
+            temp_2_79 = *var_6_77;
+            var_5_71 += 2;
+            var_6_77 += 8;
+            temp_2_79->unk24 = (u16) (temp_2_79->unk24 & ~8);
+        } while (var_5_71 < D_00160F4C);
     }
-    if ((D_00747A24 & 0x10000) == 0) {
-        *(int *)D_00752C38 = EnsureInitThenForward_2A9538_30EE08((void *)0x1E6800, 0x40, D_00754200);
-        *(int *)(D_00752C38 + 4) = EnsureInitThenForward_2A9538_30EE08((void *)0x19800, 0x40, D_00754200);
-        switch (cCoreSave_getCostumeNo(D_00569B70)) {
-        case 0:
-        default:
-            func_0030D8E0(0x100);
-            break;
-        case 1:
-            func_0030D8E0(0x102);
-            break;
-        case 2:
-            func_0030D8E0(0x105);
-            break;
-        case 3:
-            func_0030D8E0(0x10F);
-            break;
-        case 4:
-            func_0030D8E0(0x107);
-            break;
-        case 5:
-            func_0030D8E0(0x110);
-            break;
-        case 6:
-            func_0030D8E0(0x10E);
-            break;
-        case 7:
-            func_0030D8E0(0x111);
-            break;
-        }
+    var_5_91 = 0;
+    if (D_00160F4C > 0) {
+        var_6_93 = D_001E1700;
+        do {
+            temp_2_95 = *var_6_93;
+            var_5_91 += 2;
+            var_6_93 += 8;
+            temp_2_95->unk24 = (u16) (temp_2_95->unk24 | 8);
+        } while (var_5_91 < D_00160F4C);
     }
-    v = D_00747A24;
-    v |= 0x10400;
-    v &= ~0x4000;
-    D_00747A24 = v;
-    {
-        int *r = (int *)D_00752C00;
-        cTaskWork_exit(r[1]);
+    *(s32 *)0x160F68 = *(s32 *)0x160F00;
+    D_0015EE74 = D_0015EE78;
+    *(s32 *)0x160F00 += 0x10;
+    if (D_0018A2B0.unk18 != 0) {
+        FlushCache(0, D_0018A2B0.unk18);
+        func_00235BE8();
+        WriteDmaChannel(D_001E3200, 0x3600, 0x40);
     }
+    func_001F21B8(D_00160F40, 5);
+    func_00235640();
+    var_5_135 = 0;
+    if (D_00160F4C > 0) {
+        var_6_138 = D_001E1700;
+        do {
+            temp_2_140 = *var_6_138;
+            var_5_135 += 2;
+            var_6_138 += 8;
+            temp_2_140->unk24 = (u16) (temp_2_140->unk24 & ~8);
+        } while (var_5_135 < D_00160F4C);
+    }
+    func_001F98D0(*(s32 *)0x160F00, D_001DF030, 0x20, D_00160F4C);
+    func_001F21B0(D_00160F40, 5);
 }
 #endif /* NON_MATCHING */
