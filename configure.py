@@ -372,6 +372,9 @@ GAME_COMPILER_UNITS = {
     # body (unk7D is tested, then re-read into the index, which gives retail's
     # v1 -> a1 copy).
     "textbin/fun_0020c940",
+    # fun_0021bda0: exact with default flags; clean rewrite (unk28C[] array,
+    # FUN_002166e8 called without arguments, unused parameters dropped).
+    "textbin/fun_0021bda0",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",
