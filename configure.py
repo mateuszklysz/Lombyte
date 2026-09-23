@@ -265,6 +265,7 @@ RODATA_OVERLAYS = {
     # as the splat symbol jtbl_00153AA0, so the compiled .rodata must land at
     # the same VMA/file offset for the relocations to resolve content-equal.
     "_getpic": (0x153AA0, 0x54A20),
+    "fun_00230ee8": (0x1E8960, 0xE98E0),  # retail switch table
 }
 
 # Per-unit extra compiler flags for the native EE-GCC 2.9 units whose
@@ -335,6 +336,15 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_00230ee8: Dropping stale call arguments and using the retail state
+    # switch matches exactly.
+    "textbin/fun_00230ee8",
+    # draw_ties_1: Plain register hints and corrected void prototypes match the
+    # retail call and cache sequence.
+    "textbin/draw_ties_1",
+    # draw_mobys_setup: Plain register hints preserve the retail callback
+    # argument and pointer increment.
+    "textbin/draw_mobys_setup",
     # fun_00214db0: plain trigonometric expansion preserves the retail
     # call/multiply order; native game-compiler exact 100/100/100
     "textbin/fun_00214db0",
