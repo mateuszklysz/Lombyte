@@ -1406,7 +1406,7 @@ segments:
           - [0x10e1c8, c, textbin/fun_0020d248]
           - [0x10e1f4, textbin, text_gap_0020d274_after_fun_0020d248]
           - [0x10e1f8, c, assembly/textbin/draw_mobys_setup]
-          - [0x10e2b0, c, assembly/textbin/draw_moby_list]
+          - [0x10e2b0, c, textbin/draw_moby_list]
           - [0x10e330, c, textbin/fun_0020d3b0]
           - [0x10e3dc, textbin, text_gap_0020d45c_before_fun_0020d460]
           - [0x10e3e0, c, textbin/fun_0020d460]

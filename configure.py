@@ -356,6 +356,10 @@ GAME_COMPILER_UNITS = {
     # include/rnc/d_001516d0.h; the final unk22/unk23 store order came from a
     # decomp-permuter run).
     "textbin/music_stop",
+    # draw_moby_list: exact with default flags once func_0020D218 is declared
+    # void (an s32 declaration gives the call a dead v0 set, which pushes the
+    # final D_0015FF14 value into v1) and the second argument is (long).
+    "textbin/draw_moby_list",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",
