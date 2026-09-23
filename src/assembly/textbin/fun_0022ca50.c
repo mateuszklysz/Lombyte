@@ -4,33 +4,120 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022ca50/FUN_0022ca50.s", FUN_0022ca50);
 #else
-#include "rnc/assembly_textbin_fun_0022ca50_types.h"
 #include "types.h"
+struct M2c_D_0013E550 {
+    u8 pad_0[0x40];
+    s32 unk40;
+    u8 pad_44[0x4];
+    s32 unk48;
+    s32 unk4C;
+    s32 unk50;
+    s32 unk54;
+    s32 unk58;
+    s32 unk5C;
+    u8 pad_60[0x4];
+    s32 unk64;
+    u8 unk68;
+    u8 unk69;
+    u8 unk6A;
+    u8 unk6B;
+    s32 unk6C;
+    u8 pad_70[0xD28];
+    s32 unkD98;
+};
 
+struct M2c_temp_16_261 {
+    u8 pad_0[0x20];
+    s32 unk20;
+};
 
+struct M2c_temp_16_383 {
+    u8 pad_0[0x75];
+    u8 unk75;
+    u8 pad_76[0x2];
+    struct M2c_temp_16_383_unk78 * unk78;
+    u8 pad_7C[0x4];
+    s32 unk80;
+};
 
+struct M2c_temp_16_383_unk78 {
+    u8 pad_0[0x19];
+    u8 unk19;
+    u8 pad_1A[0x3];
+};
 
+struct M2c_temp_16_504 {
+    u8 pad_0[0x74];
+    u8 unk74;
+    u8 unk75;
+    u8 pad_76[0x3A];
+    s32 unkB0;
+};
 
+struct M2c_temp_16_722 {
+    u8 pad_0[0x70];
+    s32 unk70;
+    u8 unk74;
+    u8 pad_75[0x3];
+    struct M2c_temp_16_722_unk78 * unk78;
+    u8 pad_7C[0x8];
+    s32 unk84;
+    s32 unk88;
+    s32 unk8C;
+};
 
+struct M2c_temp_16_722_unk78 {
+    u8 pad_0[0x19];
+    u8 unk19;
+    u8 pad_1A[0x3];
+};
 
+struct M2c_temp_17_306 {
+    u8 pad_0[0x75];
+    u8 unk75;
+    u8 pad_76[0x12];
+    struct M2c_temp_17_306_unk88 * unk88;
+    u8 pad_8C[0xC];
+    f32 unk98;
+};
 
+struct M2c_temp_17_306_unk88 {
+    u8 pad_0[0x10];
+    f32 unk10;
+};
 
+struct M2c_temp_3_826 {
+    u8 pad_0[0x1A];
+    s16 unk1A;
+    s32 unk1C;
+};
 
+struct M2c_temp_4_809 {
+    u8 pad_0[0x74];
+    u8 unk74;
+    u8 pad_75[0x3];
+    struct M2c_temp_3_826 * unk78;
+};
 
+struct M2c_var_19_223 {
+    u8 pad_0[0x70];
+    f32 unk70;
+    u8 unk74;
+    u8 unk75;
+    u8 pad_76[0x2];
+    struct M2c_var_19_223_unk78 * unk78;
+    u8 pad_7C[0xC];
+    struct M2c_temp_16_261 * unk88;
+    u8 pad_8C[0xC];
+    f32 unk98;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+struct M2c_var_19_223_unk78 {
+    u8 pad_0[0x18];
+    u8 unk18;
+    u8 unk19;
+    u8 pad_1A[0x3];
+};
 
 extern struct M2c_D_0013E550 D_0013E550;
 extern u8 D_0013E5C0[];
@@ -68,7 +155,7 @@ extern s32 func_001F9BF8();
 extern s32 func_001F9CF8();
 extern s32 func_001FA2D8();
 extern s32 func_001FA6C0();
-extern s32 func_001FA6D0();
+extern s32 func_001FA6D0(f32);
 extern s32 func_00216290();
 extern s32 func_0022C5A8();
 extern s32 func_0022C658();
@@ -101,9 +188,9 @@ u8 sp_slot[0x300];    s64 sp10;
     f32 var_f21_18;
     s64 *temp_16_340;
     s64 *var_23_230;
-    s32 *temp_5_848;
+    register s32 * temp_5_848 asm("s3");
     s32 *var_20_216;
-    s32 *var_20_491;
+    register s32 * var_20_491 asm("s2");
     s32 *var_23_714;
     s32 *var_30_228;
     s32 *var_30_711;
@@ -115,36 +202,36 @@ u8 sp_slot[0x300];    s64 sp10;
     s32 temp_3_157;
     s32 temp_3_254;
     s32 temp_3_399;
-    s32 temp_4_145;
+    register u32 temp_4_145 asm("s1");
     s32 temp_4_463;
     s32 temp_4_716;
-    s32 temp_4_85;
-    s32 temp_4_91;
-    s32 temp_5_105;
-    s32 temp_8_480;
-    s32 var_16_114;
+    u32 temp_4_85;
+    register s32 temp_4_91 asm("s4");
+    register s32 temp_5_105 asm("s1");
+    u32 temp_8_480;
+    register s32 var_16_114 asm("s0");
     s32 var_16_523;
     s32 var_16_542;
     s32 var_17_548;
     s32 var_17_766;
     s32 var_19_521;
     s32 var_19_769;
-    s32 var_20_116;
-    s32 var_21_707;
-    s32 var_22_220;
+    register s32 var_20_116 asm("s0");
+    register s32 var_21_707 asm("s5");
+    register s32 var_22_220 asm("s0");
     s32 var_22_767;
     s32 var_2_302;
     s32 var_2_596;
     s32 var_2_619;
-    s32 var_3_568;
+    register u32 var_3_568 asm("s5");
     s32 var_4_264;
     s32 var_5_123;
     s32 var_5_195;
-    s32 var_6_396;
-    s32 var_7_100;
-    u32 temp_hi_615;
+    register s32 var_6_396 asm("s7");
+    register s32 var_7_100 asm("s1");
+    register u32 temp_hi_615 asm("s2");
     u8 *temp_2_580;
-    u8 *temp_3_559;
+    register u8 * temp_3_559 asm("s5");
     u8 *var_4_567;
     u8 temp_3_265;
     u8 temp_3_277;
@@ -155,7 +242,7 @@ u8 sp_slot[0x300];    s64 sp10;
     struct M2c_temp_16_722 *temp_16_722;
     struct M2c_temp_17_306 *temp_17_306;
     s32 *temp_22_546;
-    s32 *temp_30_545;
+    register s32 * temp_30_545 asm("s5");
     struct M2c_temp_3_826 *temp_3_826;
     struct M2c_temp_4_809 *temp_4_809;
     s32 *temp_5_307;
@@ -195,7 +282,7 @@ block_8:
         goto block_12;
     }
 block_10:
-    if (D_0015F5E8[0] != 0) {
+    if (((s32 *)0x15F5E8)[0] != 0) {
         goto block_12;
     }
     func_0022C5A8(sp_slot);
@@ -264,13 +351,13 @@ block_25:
     sp200 = 0;
     var_19_223 = &D_0013E550;
     func_0012E208(2, D_0013E550.unk50);
-    var_30_228 = sp218;
+    var_30_228 = ((s32 *)&spB0);
     var_23_230 = D_0013E5E0;
     sp22C = 0;
     func_0012E208(4, D_0013E550.unk58);
     func_0012E208(5, D_0013E550.unk5C);
     FillTransferWords(sp214, 0, 0x78);
-    FillTransferWords(sp218, 0, 0x78);
+    FillTransferWords(((s32 *)&spB0), 0, 0x78);
     FillTransferWords(sp208, 0, 0x78);
 loop_26:
     if (var_19_223->unk74 == 7) {
@@ -380,7 +467,7 @@ block_50:
     goto block_54;
 block_53:
     var_6_396 = 0x400;
-    *(s32 *)((u8 *)sp218 + sp22C) = temp_16_383->unk80;
+    *(s32 *)((u8 *)((s32 *)&spB0) + sp22C) = temp_16_383->unk80;
 block_54:
 block_55:
     if (sp204 == 0) {
@@ -398,7 +485,7 @@ block_59:
     if (var_6_396 >= 0x20) {
         goto block_63;
     }
-    if (*(s32 *)((u8 *)sp218 + sp22C) >= 0x20) {
+    if (*(s32 *)((u8 *)((s32 *)&spB0) + sp22C) >= 0x20) {
         goto block_63;
     }
     if (!(var_19_223->unk75 & 4)) {
@@ -432,7 +519,7 @@ block_68:
         goto loop_26;
     }
     sp200 = 0;
-    var_20_491 = sp218;
+    var_20_491 = ((s32 *)&spB0);
     sp224 = D_0013E604;
     sp228 = 0;
     sp230 = sp214;
@@ -451,11 +538,11 @@ loop_70:
         goto block_101;
     }
 block_74:
-    if (D_0015F5E8[0] != 0) {
+    if (((s32 *)0x15F5E8)[0] != 0) {
         goto block_101;
     }
     var_19_521 = 0;
-    if (D_0015F60C == D_0013E550.unkD98) {
+    if (*(s32 *)0x15F60C == D_0013E550.unkD98) {
         goto block_79;
     }
     var_17_522 = ((u8 *)&D_0013E550) + 0xDA0;
@@ -467,7 +554,7 @@ loop_77:
     if (var_16_523 >= 0) {
         goto loop_77;
     }
-    D_0013E550.unkD98 = (s32) D_0015F60C;
+    D_0013E550.unkD98 = (s32) *(s32 *)0x15F60C;
 block_79:
     var_16_542 = 0;
     temp_18_543 = sp200 * 0x70;
@@ -479,6 +566,7 @@ loop_80:
     sp240 = (s64) var_9_547;
     temp_3_559 = var_16_542 + temp_18_543 + temp_22_546;
     *temp_3_559 = func_0022C658(temp_18_543 + D_0013E5C0, (var_17_548 * 0x10) + var_9_547);
+    __asm__ volatile ("" : "+r" (temp_3_559));
     var_4_567 = var_16_542 + (temp_18_543 + 0xB4) + temp_30_545 + 1;
     var_3_568 = 4;
 loop_81:
@@ -511,20 +599,21 @@ block_86:
         goto block_95;
     }
 block_88:
-    if (D_0015F5E8[0] != 0) {
+    if (((s32 *)0x15F5E8)[0] != 0) {
         goto block_95;
     }
     temp_hi_615 = (u32) (temp_16_504->unkB0 + 1) % 36U;
-    var_2_619 = (sp200 ^ D_0015F60C) & 1;
+    var_2_619 = (sp200 ^ *(s32 *)0x15F60C) & 1;
     temp_16_504->unkB0 = temp_hi_615;
     if (temp_16_504->unk75 & 4) {
         goto block_91;
     }
-    var_2_619 = ((D_0015F60C ^ sp200) & 3) == 0;
+    var_2_619 = ((*(s32 *)sp200 ^ 0x15F60C) & 3) == 0;
 block_91:
     if (var_2_619 == 0) {
         goto block_93;
-    }
+    }__asm__ volatile ("" : : "r" (&D_0013E550));
+    
     *(temp_16_504->unkB0 + sp228 + D_0013E604) = func_0022C658(sp228 + (((u8 *)&D_0013E550) + 0x70), sp_slot, 0x24, &D_0013E550, sp200);
     goto block_94;
 block_93:
@@ -557,11 +646,11 @@ block_101:
         goto loop_70;
     }
     var_21_707 = 0;
-    func_001FA2D8(sp210, D_00187290);
+    func_001FA2D8(((s32 *)&sp1C0), D_00187290);
     var_30_711 = sp214;
     sp220 = sp208;
     sp21C = D_0013E5C0;
-    var_23_714 = sp218;
+    var_23_714 = ((s32 *)&spB0);
 loop_103:
     temp_4_716 = *var_30_711;
     if (temp_4_716 == 0) {
@@ -600,7 +689,7 @@ block_110:
         goto block_112;
     }
     var_17_766 |= 6;
-    var_22_767 = func_0022C830(var_21_707 + D_0013E5C0, var_21_707 + (((u8 *)&D_0013E550) + 0x90), sp210);
+    var_22_767 = func_0022C830(var_21_707 + D_0013E5C0, var_21_707 + (((u8 *)&D_0013E550) + 0x90), ((s32 *)&sp1C0));
 block_112:
     if (!(*var_30_711 & 4)) {
         goto block_114;
@@ -636,7 +725,7 @@ block_121:
     sp21C = temp_4_847;
     sp220 = temp_5_848;
     var_30_711 += 4;
-    if ((s32) var_23_714 < (s32) (sp218 + 0x78)) {
+    if ((s32) var_23_714 < (s32) (((s32 *)&spB0) + 0x78)) {
         goto loop_103;
     }
     func_00216290(temp_4_847, temp_5_848);

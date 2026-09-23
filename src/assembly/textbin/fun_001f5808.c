@@ -17,7 +17,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f5808/FUN_001f5808.s
 extern struct M2c_D_0013E500 D_0013E500;
 extern s32 D_00160860;
 extern struct M2c_D_00160F00 *D_00160F00[];
-extern s32 func_001FA6D0();
+extern s32 func_001FA6D0(f32);
 void FUN_001f5808(s64 arg0, s64 arg1, s32 arg2, s32 arg3, s64 arg4, s64 arg5, f32 fparg0, f32 fparg1, f32 fparg2, f32 fparg3) {
     s64 sp0;
     s32 temp_10_130;

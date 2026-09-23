@@ -4,13 +4,16 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214a98/FUN_00214a98.s", FUN_00214a98);
 #else
-#include "rnc/assembly_textbin_fun_00214a98_types.h"
 #include "types.h"
-
+struct M2c_arg0 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+};
 
 extern f32 func_001F99C0();
 extern s32 func_001F9D68(s32, s32, f32, f32, f32, f32);
-extern s32 func_001FA6D0();
+extern s32 func_001FA6D0(f32);
 void FUN_00214a98(struct M2c_arg0 *arg0, s32 *arg1) {
 u8 sp_slot[0x50];    f32 temp_f0_17;
     f32 temp_f0_60;
@@ -28,6 +31,7 @@ u8 sp_slot[0x50];    f32 temp_f0_17;
         var_f20_18 = temp_f21_15;
     }
     var_f1_27 = temp_f0_17;
+    __asm__ volatile ("" : "+f" (var_f1_27));
     if (temp_f0_17 < var_f20_18) {
         var_f1_27 = var_f20_18;
     }

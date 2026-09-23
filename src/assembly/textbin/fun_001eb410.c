@@ -35,14 +35,14 @@ extern u64 func_001F44B8();
 extern s32 func_001F4650();
 extern s32 func_001F5210();
 extern s32 func_001F5450();
-extern s32 func_001FA6D0(u8 *, f32);
+extern s32 func_001FA6D0(f32);
 extern s32 func_001FB368();
 extern s32 func_001FB680();
 extern s32 func_001FBC50();
 extern s32 func_0020CC60();
 extern s32 func_0020CEF8();
 extern s32 func_0020D460();
-extern s32 func_00217C18();
+extern void func_00217C18();
 extern s32 func_002196B8();
 extern s32 func_00228A30();
 extern s32 func_00228B38();
@@ -59,7 +59,6 @@ extern s32 func_002358C8();
 extern s32 func_00237370();
 void FUN_001eb410(s32 *arg0)
 {
-  unsigned short new_var6;
   s32 *new_var3;
   s32 *new_var;
   s32 *var_4_0;
@@ -121,11 +120,7 @@ void FUN_001eb410(s32 *arg0)
     func_00233C28();
     FlushCache(0);
     func_00217C18();
-      {
-        register s32 new_var8 asm("v0");
-        new_var8 = 8;
-        D_0015F620 = new_var8;
-      }
+    D_0015F620 = 8;
   }
   func_001FB680();
   func_001F3868();
@@ -147,8 +142,7 @@ void FUN_001eb410(s32 *arg0)
     {
       D_0015F43C = 1.0f;
     }
-    new_var6 = 0x100AE0;
-    func_001F5210((float) 0, 0, 0, func_001FA6D0((u8 *) new_var6, D_0015F43C * 128.0f));
+    func_001F5210((float) 0, 0, 0, func_001FA6D0(D_0015F43C * 128.0f));
   }
   func_002334D8(D_00100AE0);
   FlushCache(0);

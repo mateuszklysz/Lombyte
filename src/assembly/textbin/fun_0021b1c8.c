@@ -27,7 +27,7 @@ extern s32 func_001F6200();
 extern void func_001F62B0();
 extern s32 func_001FDD10();
 extern s32 func_0021B6D8();
-extern void func_00233980();
+extern void func_00233980(s32, s64);
 s32 FUN_0021b1c8(struct M2c_arg0 *arg0) {
 u8 *sp0;
     s32 *sp4;

@@ -18,7 +18,7 @@ extern u8 D_00151704[];
 extern u8 D_00216B68[];
 extern void func_0012E4C0();
 extern void func_0012ECA0();
-extern s32 func_0012EE08();
+extern s32 func_0012EE08(s32);
 extern void func_001F96F8();
 extern s32 func_001F9740();
 extern void func_00215970();
@@ -27,7 +27,7 @@ extern void func_00215C40();
 extern void func_00215D18();
 extern s32 func_00215E00();
 extern void func_002160A8();
-extern void func_00216788();
+extern s32 func_00216788(s32, s32, s32);
 void FUN_00216290(void) {
     s32 *var_17_47;
     s16 temp_16_280;

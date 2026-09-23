@@ -12,7 +12,7 @@ extern void func_0012E368();
 extern void func_0012E448();
 extern void func_0012EC70();
 extern void func_0012ECA0();
-extern void func_0012ECD0();
+extern void func_0012ECD0(s32, s32, s32);
 extern void func_0012ED00();
 extern s32 func_001F9770();
 extern void func_00216990();

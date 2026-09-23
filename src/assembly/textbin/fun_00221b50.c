@@ -14,7 +14,7 @@ extern void func_001F4280();
 extern void func_001F4398();
 extern void func_001F75F0();
 extern s32 func_001FDD10();
-extern void func_00233980();
+extern void func_00233980(s32, s64);
 extern void memset();
 s32 FUN_00221b50(struct M2c_arg0 *arg0) {    u16 spE;
 u8 sp_slot[0x70];    u16 sp0;

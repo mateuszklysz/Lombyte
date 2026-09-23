@@ -22,7 +22,7 @@ extern s32 D_00160F08;
 extern s32 func_001F21B8();
 extern s32 func_002334D8();
 extern s32 func_00233830();
-extern s32 func_00233980();
+extern void func_00233980(s32, s64);
 void FUN_0020d278(void) {
     func_00233830(D_0010FAA0, D_0010FA90);
     D_0015F620 = 6;

@@ -8,7 +8,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022ea08/FUN_0022ea08.s
 extern s32 D_0013E504[];
 extern s32 D_00160588;
 extern s32 func_001F5450();
-extern s32 func_00233980();
+extern void func_00233980(s32, s64);
 void FUN_0022ea08(s32 arg0) {
     func_00233980(0x47, 0x31801);
     func_00233980(0x42, (0x8000 << 0x18) | 0x44);

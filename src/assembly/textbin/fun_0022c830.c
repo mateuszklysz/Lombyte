@@ -11,7 +11,7 @@ extern s32 func_001F9A28();
 extern s32 func_001F9B20();
 extern s32 func_001F9D20();
 extern s32 func_001F9E90();
-extern s32 func_001FA6D0();
+extern s32 func_001FA6D0(f32);
 void FUN_0022c830(s32 arg0, s32 arg1, s32 arg2) {    s32 sp0;
 u8 sp_slot[0x40];    s32 sp4;
     f32 temp_f20_27;
