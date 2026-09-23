@@ -335,6 +335,22 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_00214db0: plain trigonometric expansion preserves the retail
+    # call/multiply order; native game-compiler exact 100/100/100
+    "textbin/fun_00214db0",
+    # fun_002334d8: rewrite MMIO busy waits around the real SpinWait callee;
+    # native game-compiler exact 100/100/100
+    "textbin/fun_002334d8",
+    # fun_00222290: plain control-flow rewrite with preserved caller
+    # save/restore and non-small-data halfword store; native game-compiler exact
+    # 100/100/100
+    "textbin/fun_00222290",
+    # fun_0020cd48: plain rewrite: correct pointer argument order and read the
+    # float field with lwc1; native game-compiler exact 100/100/100
+    "textbin/fun_0020cd48",
+    # fun_0023ce28: plain retail-listing rewrite: reload the state base in the
+    # wait loop; native game-compiler exact 100/100/100
+    "textbin/fun_0023ce28",
     # fun_00220648: switch on unk44; D_001516D8 read as D_001516D0.unk8 (struct,
     # not gp-small), D_00137B80 as a struct with 8-byte pair arrays at
     # 0x2C8/0x2F8; exact with default flags.
