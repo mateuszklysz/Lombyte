@@ -894,7 +894,7 @@ segments:
           - [0xec028, c, assembly/textbin/fun_001eb0a8]
           - [0xec38c, textbin, text_gap_001eb40c_before_fun_001eb410]
           - [0xec390, c, assembly/textbin/fun_001eb410]
-          - [0xec6c0, c, assembly/textbin/fun_001eb740]
+          - [0xec6c0, c, textbin/fun_001eb740]
           - [0xec718, c, assembly/textbin/fun_001eb798]
           - [0xec950, c, assembly/textbin/sub_001eb9d0]
           - [0xeca80, c, assembly/textbin/sub_001ebb00]

@@ -3,7 +3,7 @@
 Second patch surface for the Sony/Cygnus EE line and the source of the
 project's **game compiler**: the production stack below, applied to the pinned
 archive, rebuilds the installed game-compiler `cc1` byte for byte
-(`4dfa3cf0f0fa8d31a5efa074d4fede0d31a75c8a3e3d1d5e7f4862968b33aab9`; joint
+(`05ff323f6e75accbcec5129b233d7ec16a3045805ea3c2098572985bdcf0a19f`; joint
 parity gate 55/58, full-ELF gate PASS).
 
 - Archive: `gnu-ee-binutils-gcc-1.1.tar.gz`, 16,510,927 bytes
@@ -35,13 +35,14 @@ Apply with `git apply` at the root of the extracted archive, in this order:
    lvalue-cast fix and the generated `gcc/c-gperf.h`)
 2. `0001`, `0015`, `0016`, `0019`, `0020`, `0021`, `0022`, `0025`, `0026`,
    `0027`, `0028`, `0029`, `0030`, `0031`, `0032`, `0033`, `0034`, `0037`
-3. `0036`, `0044`, `0045`, `0046`, `0047`, `0048`
+3. `0036`, `0044`, `0045`, `0046`, `0047`, `0048`, `0049`
 
 Configure for `--target=mips64r5900-sf-elf --host=i686-linux-gnu
 --build=i686-linux-gnu --disable-nls --enable-languages=c --without-headers`
 and build `cc1` with `make LANGUAGES=c 'CC=gcc -m32' 'CFLAGS=-O2
 -fno-strict-aliasing -fcommon -std=gnu89 -D_GNU_SOURCE' cc1`; the result is
-`cc1` `4dfa3cf0f0fa8d31…` (verified 2026-09-23 from a fresh extraction).
+`cc1` `05ff323f6e75accb…` (verified 2026-09-23 from a fresh extraction;
+through `0048` it is `4dfa3cf0f0fa8d31…`).
 `0035` and `0038` are published but not part of the production stack.
 
 Patches marked *production dependency* are in that stack but turned no
@@ -49,6 +50,25 @@ fixture exact on their own; they are published so the production compiler is
 reproducible from this directory. Every other entry names its exact fixture.
 
 ## Published patches
+
+- `0049-sibcall-pass-needs-placeholder.patch` SHA-256: `6b9dae8921c7cdcc9cae3879f92990c969fd098aed7594afa7d98db8c33e714a`
+  - cc1 (production stack): `05ff323f6e75accbcec5129b233d7ec16a3045805ea3c2098572985bdcf0a19f`
+  - role: default. The Cygnus 2.9 sibcall pass (absent from gcc-2.95.2 and
+    from the SN compiler) ran `jump_optimize_minimal` and a CFG rebuild on
+    every function before the RTL dump, even with sibling calls off (0022).
+    That deleted the jump to the return label after the last `return`, so
+    the first jump pass if-converted `return 1; ... return 0;` tails
+    (`v0 = 0` hoisted above the first branch, `sltu` into `v0`), which moved
+    parameters out of `v0`/`v1`. The pass now returns early when no
+    `CALL_PLACEHOLDER` exists; `-mastra-cygnus-cfg` restores the old
+    behavior per unit
+  - fixture: `textbin/fun_001eb740` -> 100.0 (76.36 before; SN emits the
+    same code for the same source)
+  - ten promoted sources matched against the old behavior take
+    `-mastra-cygnus-cfg` (`configure.py`); full-ELF gate PASS; joint gate
+    55/58; without per-unit flags the promoted sweep gains `fun_001fdd10`,
+    `fun_00206f50`, `fun_002073b8`, `fun_0020c9e0` (SN-exact sources)
+  - published via ASTRA 2026-09-23
 
 - `0047-pathb-reload1-localalloc-regclass-2952.patch` SHA-256: `5817432d64f0835407fe5d68a8364bf628e403aeba35a20fe3472b1bc8fde0fa`
   - role: production dependency. Path B slice 1: the whole gcc-2.95.2

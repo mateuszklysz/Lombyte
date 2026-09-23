@@ -375,6 +375,10 @@ GAME_COMPILER_UNITS = {
     # fun_0021bda0: exact with default flags; clean rewrite (unk28C[] array,
     # FUN_002166e8 called without arguments, unused parameters dropped).
     "textbin/fun_0021bda0",
+    # fun_001eb740: exact with default flags on the 0049 compiler (a plain
+    # rewrite; SN 2.95.2 emits the same code, the pre-0049 cc1 if-converted
+    # the return tail).
+    "textbin/fun_001eb740",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",
@@ -549,6 +553,17 @@ GAME_COMPILER_UNITS = {
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
 GAME_COMPILER_FLAG_UNITS = {
+    # -mastra-cygnus-cfg (patch 0049): these sources were matched while the
+    # Cygnus sibcall pass still ran its CFG cleanup before the first jump pass
+    # (it deletes the jump after the last return, so jump.c if-converts
+    # `return 1; ... return 0;' tails).  Retail/SN do not; the flag keeps the
+    # old behavior for them.  The five below plus fun_0012eea8, fun_0012ef28,
+    # fun_00207300 and the two snd_stream_safe_cd_* entries.
+    "fun_001ff288": "-mastra-cygnus-cfg",
+    "fun_00215290": "-mastra-cygnus-cfg",
+    "fun_00220790": "-mastra-cygnus-cfg",
+    "fun_0023d2d8": "-mastra-cygnus-cfg",
+    "vo_buf_get_data": "-mastra-cygnus-cfg",
     # fun_0012eb20: retail's D_0015EC8C accesses are gp-relative in the body
     # (the .extern-ordering class); its call loop needs patch
     # 0046-r5900-pad-unfilled-loops (cc1 eb7a3497...).  100/100/100 and
@@ -558,10 +573,10 @@ GAME_COMPILER_FLAG_UNITS = {
     # -fno-expensive-optimizations (the bank flag; without it 90.45).  Its
     # 2026-09-22 demotion measured cc_game without the flag (62.65).
     "fun_00221968": "-fno-expensive-optimizations",
-    "fun_0012eea8": "-mastra-r5900-extern-buffer",
-    "fun_0012ef28": "-mastra-r5900-extern-buffer",
-    "snd_stream_safe_cd_get_error": "-mastra-r5900-extern-buffer",
-    "snd_stream_safe_cd_read": "-mastra-r5900-extern-buffer",
+    "fun_0012eea8": "-mastra-r5900-extern-buffer -mastra-cygnus-cfg",
+    "fun_0012ef28": "-mastra-r5900-extern-buffer -mastra-cygnus-cfg",
+    "snd_stream_safe_cd_get_error": "-mastra-r5900-extern-buffer -mastra-cygnus-cfg",
+    "snd_stream_safe_cd_read": "-mastra-r5900-extern-buffer -mastra-cygnus-cfg",
     "attach_manipulator": "-fno-strict-aliasing",
     "audio_dec_begin_put": "-fno-strict-aliasing",
     "fun_00233980": "-fno-strict-aliasing -mno-split-addresses",
@@ -590,7 +605,7 @@ SN_FLAG_UNITS = {
     "fun_00225490": "-fno-schedule-insns",
     # run 14 mass-c: 47.7f must materialize inline (lui/ori/mtc1), not via
     # .lit4; verified with p07 97.78 -> padless 100/100/100.
-    "fun_00207300": "-G0",
+    "fun_00207300": "-G0 -mastra-cygnus-cfg",
     "fun_00225530": "-mno-split-addresses",
     "fun_00233980": "-mno-split-addresses",
     # Two independent tiny-FPU field loads must stay in retail's order; the
