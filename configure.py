@@ -352,6 +352,10 @@ GAME_COMPILER_UNITS = {
     # read through the pointer later reused for the DMAC register store) came
     # from a decomp-permuter run on the game-compiler route.
     "textbin/dmac_vif1_enable",
+    # music_stop: exact with default flags (shared D_001516D0 layout from
+    # include/rnc/d_001516d0.h; the final unk22/unk23 store order came from a
+    # decomp-permuter run).
+    "textbin/music_stop",
     "textbin/fun_0012eea8",
     "textbin/fun_0012ef28",
     "textbin/snd_stream_safe_cd_get_error",

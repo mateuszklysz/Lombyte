@@ -1522,7 +1522,7 @@ segments:
           - [0x116d7c, textbin, text_gap_00215dfc_before_fun_00215e00]
           - [0x116d80, c, assembly/textbin/fun_00215e00]
           - [0x116e60, textbin, text_gap_00215ee0_after_fun_00215e00]
-          - [0x116e68, c, assembly/textbin/music_stop]
+          - [0x116e68, c, textbin/music_stop]
           - [0x116fd0, c, gs/initialize_render_state]
           - [0x117004, textbin, text_gap_00216084]
           - [0x117008, c, gs/update_render_state_command]

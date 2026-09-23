@@ -1,13 +1,6 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/music_stop/FUN_00215ee8.s", FUN_00215ee8);
-#else
-#include "types.h"
 
 #include "rnc/d_001516d0.h"
-
 
 extern struct M2c_D_001516D0 D_001516D0;
 extern s32 func_0012DC80();
@@ -43,7 +36,6 @@ void FUN_00215ee8(void) {
     if (cur != -1) {
         D_001516D0.unk38 = cur;
     }
-    D_001516D0.unk23 = -1;
     D_001516D0.unk5A = 0;
     D_001516D0.unk58 = 0;
     D_001516D0.unk50 = 0;
@@ -52,5 +44,7 @@ void FUN_00215ee8(void) {
     D_001516D0.unk6C = 0;
     D_001516D0.unk20 = 0;
     D_001516D0.unk22 = -1;
+    D_001516D0.unk23 = -1;
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(FUN_00215ee8) func_00215EE8 __attribute__((alias("FUN_00215ee8")));
