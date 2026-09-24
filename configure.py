@@ -336,6 +336,12 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_00225d88: A five-record do/while with one 8-byte pointer step matches
+    # the target exactly.
+    "textbin/fun_00225d88",
+    # send_to_spu: Four-word stack DMA descriptor with retail SIF calls
+    # reproduces the target object exactly.
+    "textbin/send_to_spu",
     # fun_00214720: plain C Vec4 transform and six ordered bounds checks
     # reproduce retail
     "textbin/fun_00214720",
