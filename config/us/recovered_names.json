@@ -11,7 +11,7 @@
   "symbols": [
     {
       "name": "FlushCache",
-      "unit": "assembly/kernel/flush_cache",
+      "unit": "assembly/sdk/memory/cache/flush_cache",
       "unit_size": "0x10",
       "match": "fragment",
       "address": "0x118a80",
@@ -19,7 +19,7 @@
     },
     {
       "name": "__main",
-      "unit": "assembly/kernel/update_rfu_dispatch_state",
+      "unit": "assembly/sdk/syscalls/update_rfu_dispatch_state",
       "unit_size": "0x20",
       "match": "fragment",
       "address": "0x11dcc8",
@@ -27,7 +27,7 @@
     },
     {
       "name": "scePad2Read",
-      "unit": "sdk/sce_pad2_read",
+      "unit": "sdk/input/sce_pad2_read",
       "unit_size": "0xd4",
       "match": "fragment",
       "address": "0x124bd8",
@@ -43,7 +43,7 @@
     },
     {
       "name": "_exit",
-      "unit": "assembly/kernel/jump_to_rfu_status",
+      "unit": "assembly/sdk/syscalls/jump_to_rfu_status",
       "unit_size": "0x8",
       "match": "fragment",
       "address": "0x12d8e8",
@@ -91,7 +91,7 @@
     },
     {
       "name": "snd_PrepareReturnBuffer",
-      "unit": "core/store_object_index",
+      "unit": "runtime/objects/store_object_index",
       "unit_size": "0x1c",
       "match": "fragment",
       "address": "0x12def8",
@@ -251,7 +251,7 @@
     },
     {
       "name": "snd_UnkFunction_0012eaf0",
-      "unit": "core/read_global_table_entry",
+      "unit": "runtime/data/read_global_table_entry",
       "unit_size": "0xc",
       "match": "fragment",
       "address": "0x12eaf0",
@@ -787,7 +787,7 @@
     },
     {
       "name": "STUB_printf",
-      "unit": "sdk/debug_print",
+      "unit": "sdk/debug/debug_print",
       "unit_size": "0x38",
       "match": "fragment",
       "address": "0x1e93b0",
@@ -1131,7 +1131,7 @@
     },
     {
       "name": "FontSetWindow",
-      "unit": "ee/initialize_dma_packet",
+      "unit": "runtime/dma/initialize_dma_packet",
       "unit_size": "0x38",
       "match": "entry_size_unknown",
       "address": "0x1f7668",
@@ -1195,7 +1195,7 @@
     },
     {
       "name": "FastSitAndSpin__Fi",
-      "unit": "assembly/core/spin_wait",
+      "unit": "assembly/runtime/scheduling/spin_wait",
       "unit_size": "0x28",
       "match": "fragment",
       "address": "0x1f97c0",
@@ -1203,7 +1203,7 @@
     },
     {
       "name": "FastMemSet",
-      "unit": "assembly/core/fill_transfer_words",
+      "unit": "assembly/runtime/memory/fill_transfer_words",
       "unit_size": "0x28",
       "match": "fragment",
       "address": "0x1f97e8",
@@ -1379,7 +1379,7 @@
     },
     {
       "name": "SetBackgroundColor__Fiii",
-      "unit": "ee/set_background_color",
+      "unit": "rendering/color/set_background_color",
       "unit_size": "0x28",
       "match": "full",
       "address": "0x1fb280",
@@ -1499,7 +1499,7 @@
     },
     {
       "name": "Hud_HeapReset__Fv",
-      "unit": "core/hud_heap_reset",
+      "unit": "ui/memory/hud_heap_reset",
       "unit_size": "0x28",
       "match": "full",
       "address": "0x1ff260",
@@ -1683,7 +1683,7 @@
     },
     {
       "name": "memcard_GetDataSize",
-      "unit": "ee/memcard_get_data_size",
+      "unit": "storage/memory_card/memcard_get_data_size",
       "unit_size": "0x38",
       "match": "full",
       "address": "0x20ac88",
@@ -1739,7 +1739,7 @@
     },
     {
       "name": "DmaToSpr",
-      "unit": "assembly/ee/dma_to_spr",
+      "unit": "assembly/runtime/dma/dma_to_spr",
       "unit_size": "0x20",
       "match": "full",
       "address": "0x20b3c0",
@@ -1955,7 +1955,7 @@
     },
     {
       "name": "music_Pause__Fi",
-      "unit": "gs/initialize_render_state",
+      "unit": "rendering/state/initialize_render_state",
       "unit_size": "0x34",
       "match": "fragment",
       "address": "0x216050",
@@ -1963,7 +1963,7 @@
     },
     {
       "name": "music_Unpause__Fv",
-      "unit": "gs/update_render_state_command",
+      "unit": "rendering/commands/update_render_state_command",
       "unit_size": "0x1c",
       "match": "fragment",
       "address": "0x216088",
@@ -2723,7 +2723,7 @@
     },
     {
       "name": "endDisplay__Fv",
-      "unit": "core/clear_stage_state_flag",
+      "unit": "gameplay/state/clear_stage_state_flag",
       "unit_size": "0x10",
       "match": "entry_size_unknown",
       "address": "0x23b5e0",
@@ -2755,7 +2755,7 @@
     },
     {
       "name": "readBufCreate__FP7ReadBuf",
-      "unit": "core/read_buf_create",
+      "unit": "runtime/buffers/read_buf_create",
       "unit_size": "0x18",
       "match": "full",
       "address": "0x23b940",
@@ -2763,7 +2763,7 @@
     },
     {
       "name": "readBufDelete__FP7ReadBuf",
-      "unit": "sys/read_buf_delete",
+      "unit": "runtime/buffers/read_buf_delete",
       "unit_size": "0x8",
       "match": "full",
       "address": "0x23b958",
@@ -2771,7 +2771,7 @@
     },
     {
       "name": "readBufBeginPut__FP7ReadBufPPUc",
-      "unit": "core/read_buf_begin_put",
+      "unit": "runtime/buffers/read_buf_begin_put",
       "unit_size": "0x30",
       "match": "full",
       "address": "0x23b960",
@@ -2795,7 +2795,7 @@
     },
     {
       "name": "readBufEndGet__FP7ReadBufi",
-      "unit": "core/get_state_table_word",
+      "unit": "runtime/data/get_state_table_word",
       "unit_size": "0x24",
       "match": "entry_size_unknown",
       "address": "0x23ba20",
@@ -2827,7 +2827,7 @@
     },
     {
       "name": "scTag2",
-      "unit": "core/pack_state_value",
+      "unit": "runtime/state/pack_state_value",
       "unit_size": "0x24",
       "match": "fragment",
       "address": "0x23bc20",
@@ -2971,7 +2971,7 @@
     },
     {
       "name": "videoDecReset__FP8VideoDec",
-      "unit": "core/video_dec_reset",
+      "unit": "video/decoder/video_dec_reset",
       "unit_size": "0x8",
       "match": "full",
       "address": "0x23cc30",
@@ -2987,7 +2987,7 @@
     },
     {
       "name": "videoDecAbort__FP8VideoDec",
-      "unit": "core/set_state_field",
+      "unit": "runtime/state/set_state_field",
       "unit_size": "0xc",
       "match": "fragment",
       "address": "0x23cc70",
@@ -2995,7 +2995,7 @@
     },
     {
       "name": "videoDecGetState",
-      "unit": "core/video_dec_get_state",
+      "unit": "video/decoder/video_dec_get_state",
       "unit_size": "0x8",
       "match": "full",
       "address": "0x23cc80",
@@ -3003,7 +3003,7 @@
     },
     {
       "name": "videoDecSetState__FP8VideoDecUi",
-      "unit": "core/replace_state_field",
+      "unit": "runtime/state/replace_state_field",
       "unit_size": "0xc",
       "match": "fragment",
       "address": "0x23cc88",
@@ -3083,7 +3083,7 @@
     },
     {
       "name": "voBufDelete__FP5VoBuf",
-      "unit": "sys/vo_buf_delete",
+      "unit": "video/decoder/vo_buf_delete",
       "unit_size": "0x8",
       "match": "full",
       "address": "0x23d1e0",
@@ -3091,7 +3091,7 @@
     },
     {
       "name": "voBufReset__FP5VoBuf",
-      "unit": "core/vo_buf_reset",
+      "unit": "video/decoder/vo_buf_reset",
       "unit_size": "0x10",
       "match": "full",
       "address": "0x23d1e8",
@@ -3099,7 +3099,7 @@
     },
     {
       "name": "voBufIsFull__FP5VoBuf",
-      "unit": "core/compare_state_fields",
+      "unit": "runtime/state/compare_state_fields",
       "unit_size": "0x14",
       "match": "fragment",
       "address": "0x23d1f8",
@@ -3123,7 +3123,7 @@
     },
     {
       "name": "voBufIsEmpty",
-      "unit": "core/is_state_field_zero",
+      "unit": "runtime/state/is_state_field_zero",
       "unit_size": "0xc",
       "match": "fragment",
       "address": "0x23d2c8",
@@ -3139,7 +3139,7 @@
     },
     {
       "name": "voBufDecCount__FP5VoBuf",
-      "unit": "core/decrement_state_field",
+      "unit": "runtime/state/decrement_state_field",
       "unit_size": "0x20",
       "match": "entry_size_unknown",
       "address": "0x23d340",
@@ -3421,7 +3421,7 @@
           {
             "kind": "git_log",
             "commit": "2985a67",
-            "excerpt": "textbin/fun_00118f88, sdk/library/{init_tlb,scefsseminit, sce_fs_iob_sema_mk,sceCdCallback,get_iob}."
+            "excerpt": "sdk/set_d4_chcr{, _variant}, textbin/fun_00119028/0090/00f8/0160, textbin/fun_00118f88, sdk/library/{init_tlb,scefsseminit,"
           },
           {
             "kind": "neighboring_group_context",

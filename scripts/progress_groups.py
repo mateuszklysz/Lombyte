@@ -22,35 +22,68 @@ def report_category_for_owner(owner: str) -> str:
 
 
 def fallback_group(owner: str) -> str:
-    """Assign a conservative logical bucket when the catalog has no group.
+    """Return a semantic source bucket, or an address-range bucket if unknown.
 
-    These fallbacks use existing source-module context. EE/VU source roots are
-    deliberately folded into ``unclassified`` so hardware implementation
-    boundaries do not become the public function taxonomy.
+    Most sources already live under logical names. Unrenamed flat textbin
+    oracles have no reliable module label, so keep them visibly unresolved but
+    divide them into stable 0x2000-byte address ranges instead of one enormous
+    ``unclassified`` bucket.
     """
     parts = canonical_owner(owner).split("/")
     root = parts[0]
-    child = parts[1] if len(parts) > 1 else ""
+    leaf = parts[-1]
 
-    if root in {"ee", "vu", "asm"}:
-        return "unclassified"
+    def address_bucket() -> str:
+        match = re.search(r"(?:fun|sub)_([0-9a-f]{8})$", leaf, re.IGNORECASE)
+        if match:
+            address = int(match.group(1), 16)
+            start = address & ~0x1FFF
+            return f"unclassified/region_{start:08x}"
+        return "unclassified/other"
+
+    if root in {"ee", "vu", "asm", "core", "gs", "sys"}:
+        # Legacy owners should not reintroduce architecture-based categories.
+        return address_bucket()
+    if root == "textbin":
+        if len(parts) == 2:
+            known_flat = {
+                "fast_draw_quad_real": "rendering/geometry",
+                "write_setup_block": "rendering/commands",
+                "write_gs_header": "rendering/commands",
+                "fast_dec_timer": "runtime/time",
+                "fast_vec_dot": "math/vectors",
+                "fast_vec_cross": "math/vectors",
+                "fast_vector_from_packed_chars": "math/vectors",
+                "fast_cos": "math/trigonometry",
+                "fast_sin": "math/trigonometry",
+                "fast_arc_sin": "math/trigonometry",
+                "fast_tween_color": "rendering/color",
+                "moby_anim_proc": "gameplay/animation",
+                "part_proc": "gameplay/entities",
+                "sky_sprite_proc": "rendering/sky",
+                "tfrag_proc": "rendering/terrain",
+                "build_tfrag_texture_dma": "rendering/terrain",
+                "vblank_handler": "runtime/interrupts",
+            }
+            return known_flat.get(leaf, address_bucket())
+        module_parts = parts[1:-1]
+        if module_parts and module_parts[0] == "unclassified":
+            known = {
+                "load_irx_module": "runtime/modules",
+                "init_mem_slots": "runtime/memory",
+                "init_once": "runtime/startup",
+            }
+            return known.get(leaf, address_bucket())
+        return "/".join(module_parts) if module_parts else address_bucket()
     if root == "sdk":
-        if child == "library":
+        if len(parts) == 2:
             return "sdk/library"
-        if child == "deci_debug":
-            return "runtime/debug"
-        if child == "sif_rpc":
-            return "runtime/rpc"
-        return f"sdk/{child}" if child else "sdk/core"
+        return "/".join(parts[:-1])
+    if root in {"runtime", "rendering", "gameplay", "audio", "video", "storage", "ui", "math"}:
+        return "/".join(parts[:-1]) if len(parts) > 1 else root
     if root == "kernel":
-        return "runtime/interrupts" if "interrupt" in parts[-1] else "runtime/kernel"
-    return {
-        "core": "runtime/core",
-        "gs": "rendering",
-        "math": "math",
-        "sys": "runtime/system",
-        "textbin": "unclassified",
-    }.get(root, root)
+        return "sdk/interrupts"
+    return root
 
 
 def load_group_assignments(repo: Path) -> dict[str, dict[str, str | None]]:

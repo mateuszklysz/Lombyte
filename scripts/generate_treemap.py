@@ -36,7 +36,7 @@ Layout
 Usage
   python3 scripts/generate_treemap.py
   python3 scripts/generate_treemap.py --min-bytes 512 --output assets/decomp_map.svg
-  python3 scripts/generate_treemap.py --width 800 --height 400   # compact variant
+  python3 scripts/generate_treemap.py --width 1000 --height 800  # default landscape map
 """
 
 from __future__ import annotations
@@ -490,11 +490,15 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
             if tile.get("fuzzy_percent") is not None:
                 detail += f" · {tile['fuzzy_percent']:.1f}% fuzzy"
             compact = f"{exact:.1f}% exact"
+        short_name = name.rsplit("/", 1)[-1]
         options = [
             (name, detail),
+            (short_name, detail),
             (f"{name} · {compact}", None),
+            (f"{short_name} · {compact}", None),
             (compact, None),
             (name, None),
+            (short_name, None),
         ]
     else:
         options = [
@@ -798,8 +802,8 @@ def main(argv=None) -> int:
     parser.add_argument(
         "--output", type=Path, help="SVG path (default: <repo>/assets/decomp_map.svg)"
     )
-    parser.add_argument("--width", type=int, default=800)
-    parser.add_argument("--height", type=int, default=1600)
+    parser.add_argument("--width", type=int, default=1000)
+    parser.add_argument("--height", type=int, default=800)
     parser.add_argument("--margin", type=int, default=10)
     parser.add_argument(
         "--header",

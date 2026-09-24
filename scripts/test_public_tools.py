@@ -215,10 +215,10 @@ class ProgressReportTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             report = self._build(self._repo(Path(tmp)), {"textbin/pending": 100.0})
         units = {unit["name"]: unit for unit in report["units"]}
-        self.assertEqual(set(units), {"game/unclassified", "sdk/library"})
+        self.assertEqual(set(units), {"game/unclassified/other", "sdk/library"})
         self.assertEqual(report["measures"]["total_code"], str(0x100 + 0x100 + 0x80))
         self.assertEqual(report["measures"]["matched_code"], str(0x100 + 0x80))
-        game_group = units["game/unclassified"]
+        game_group = units["game/unclassified/other"]
         pending = next(function for function in game_group["functions"]
                        if function["name"] == "FUN_00112480")
         self.assertEqual(len(game_group["functions"]), 2)
@@ -670,13 +670,13 @@ class UnitListHelpersTests(unittest.TestCase):
                 json.dumps(
                     {
                         "schema": "rnc-oracle-fallback-v1",
-                        "units": ["sdk/bcd_to_time", "textbin/fun_002133d0"],
+                        "units": ["sdk/time/bcd_to_time", "textbin/fun_002133d0"],
                     }
                 )
             )
             self.assertEqual(
                 self.units.oracle_fallback_units(workspace),
-                {"sdk/bcd_to_time", "textbin/fun_002133d0"},
+                {"sdk/time/bcd_to_time", "textbin/fun_002133d0"},
             )
 
 

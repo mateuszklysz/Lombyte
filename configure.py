@@ -70,10 +70,10 @@ SN_COMPILER_UNITS = {
     # 100/100/100/100. Moved back to SN, which is a fixed binary compiler and
     # doesn't drift.
     "textbin/fun_002267b8",
-    # sdk/debug_print: the EE-GCC 2.9 tree ships no stdarg.h, and the SN
+    # sdk/debug/debug_print: the EE-GCC 2.9 tree ships no stdarg.h, and the SN
     # stdarg va_start reproduces the retail varargs save prologue byte-exactly
     # (100/100/100/100 direct objdiff).
-    "sdk/debug_print",
+    "sdk/debug/debug_print",
     # fun_00233980 is a save-less leaf, so the sq/lq fingerprint classifies it
     # as "none" and sends it to EE-GCC 2.9, which hoists the bump-pointer load
     # and diverges from retail. Fresh SN -O2 -g2 -mno-split-addresses reproduces
@@ -161,8 +161,8 @@ SN_COMPILER_UNITS = {
     "textbin/audio/decoder/audio_dec_begin_put",
     "textbin/fun_002220f0",
     "textbin/ui/text/update_scrolling_status_message",
-    "assembly/ee/clear_dma_queue_entry",
-    "ee/clear_dma_queue_entry",
+    "assembly/runtime/dma/clear_dma_queue_entry",
+    "runtime/dma/clear_dma_queue_entry",
     # AttachManipulator is a save-less leaf (no sq/lq fingerprint), so the
     # retail-save-style routing would send it to EE-GCC 2.9; SN -O2 reproduces
     # the retail schedule byte-exactly.
@@ -172,7 +172,7 @@ SN_COMPILER_UNITS = {
     # store order is 100/100/100 direct and patha linked-byte equal
     # (run-14 mass-d; EE-GCC 2.9 stages at 76.00).  The unit is a
     # non-textbin prefix, so the per-unit set is the only routing hook.
-    "gs/initialize_render_state",
+    "rendering/state/initialize_render_state",
     # fun_00209298: validate the two DMA packet sizes in a header, then
     # initialise one A and twenty B packets
     "textbin/world/streaming/initialize_dma_packet_payloads",
@@ -184,14 +184,14 @@ SN_COMPILER_UNITS = {
 EE_GCC_PATCHED_UNITS = {
     # Retail uses classic mult/mflo; the frozen trees emit the R5900 rd-form.
     # 100/100/100 + patha linked-byte equal (0x12D3A0), 2026-09-12.
-    "sdk/bcd_to_time",
+    "sdk/time/bcd_to_time",
     # Retail keeps the ORed value in v0 and the 0x15 constant in v1; the
     # patched profile plus a v0 register pin reproduces all 30 instructions
     # (98.67 without the pin). patha linked-byte equal, 2026-09-12.
     "textbin/fun_00208f28",
     # lq/sq-save class exacts recovered by the extended pool sweep; promoted
     # as a batch (patha byte-equal each; batch2 gate 2026-09-12).
-    "core/read_state_field",
+    "runtime/state/read_state_field",
     "textbin/runtime/memory/calculate_ring_buffer_bounds",
     "textbin/math/random/random_angle_radians",
     "textbin/video/decoder/callbacks/handle_mpeg_error",
@@ -611,8 +611,8 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_0021f120",
     "textbin/fun_001ff780",
     "textbin/fun_00221930",
-    "ee/clear_dma_queue_entry",
-    "gs/initialize_render_state",
+    "runtime/dma/clear_dma_queue_entry",
+    "rendering/state/initialize_render_state",
     "textbin/audio/decoder/audio_dec_start",
     "textbin/audio/banks/snd_resolve_bank_xrefs",
     "textbin/audio/mixer/snd_set_master_volume",
