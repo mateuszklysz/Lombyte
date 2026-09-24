@@ -252,6 +252,34 @@ PADLESS_POLICY_UNITS = {
     "fun_001f7a30": "la-gprel",
     # fun_0020cc18: exact on padless with la-gprel
     "fun_0020cc18": "la-gprel",
+    # fun_001f5210: exact on padless with la-gprel
+    "fun_001f5210": "la-gprel",
+    # fun_002169c0: exact on padless with la-gprel
+    "fun_002169c0": "la-gprel",
+    # fun_00216a20: exact on padless with la-gprel
+    "fun_00216a20": "la-gprel",
+    # fun_001ff418: exact on padless with la-gprel
+    "fun_001ff418": "la-gprel",
+    # fun_001ff500: exact on padless with la-gprel
+    "fun_001ff500": "la-gprel",
+    # fun_00209370: exact on padless with la-gprel
+    "fun_00209370": "la-gprel",
+    # fun_001ebcf0: exact on padless with la-gprel
+    "fun_001ebcf0": "la-gprel",
+    # fun_001f4650: exact on padless with la-gprel
+    "fun_001f4650": "la-gprel",
+    # fun_001f46c8: exact on padless with la-gprel
+    "fun_001f46c8": "la-gprel",
+    # fun_001f4740: exact on padless with la-gprel
+    "fun_001f4740": "la-gprel",
+    # fun_001f4808: exact on padless with la-gprel
+    "fun_001f4808": "la-gprel",
+    # fun_0020acc0: exact on padless with la-gprel
+    "fun_0020acc0": "la-gprel",
+    # fun_001ff658: exact on padless with la-gprel
+    "fun_001ff658": "la-gprel",
+    # fun_002043b0: exact on padless with la-gprel
+    "fun_002043b0": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -747,6 +775,15 @@ GAME_COMPILER_UNITS = {
     # video_dec_put_ts: timestamp entry built on the stack, position relative to
     # the decoder base
     "textbin/video_dec_put_ts",
+    # fun_001fb2d0: GIF tag into the packet when one is open, else
+    # sceGsPutDrawEnv
+    "textbin/fun_001fb2d0",
+    # fun_00233888: VIF packet: DMA cnt tag, STCYCL, UNPACK V4-32 header, then
+    # the payload copy
+    "textbin/fun_00233888",
+    # fun_001ff308: queue an animation on a channel unless it is already the
+    # queued one; returns its serial
+    "textbin/fun_001ff308",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -911,6 +948,42 @@ PADLESS_ASM_UNITS = {
     "textbin/fun_001f7a30",
     # fun_0020cc18: first free or matching slot in a 16-entry table
     "textbin/fun_0020cc18",
+    # fun_001f5210: RGBA packed from four int arguments as u64 (GS register
+    # style), then a GIF tag
+    "textbin/fun_001f5210",
+    # fun_002169c0: handle callback: store the id, bump the state or report the
+    # saved position
+    "textbin/fun_002169c0",
+    # fun_00216a20: handle callback: store the id, bump the state or report the
+    # saved position
+    "textbin/fun_00216a20",
+    # fun_001ff418: switch to the queued animation: copy the next fields and run
+    # its callback
+    "textbin/fun_001ff418",
+    # fun_001ff500: look up an animation definition and copy id, index, flags
+    # and frame count
+    "textbin/fun_001ff500",
+    # fun_00209370: read the level chunk, start the loader and run the chunk at
+    # its stored offset
+    "textbin/fun_00209370",
+    # fun_001ebcf0: run and clear the deferred callback list
+    "textbin/fun_001ebcf0",
+    # fun_001f4650: run each registered callback with its argument
+    "textbin/fun_001f4650",
+    # fun_001f46c8: run each registered callback with its argument
+    "textbin/fun_001f46c8",
+    # fun_001f4740: run each registered callback with its argument
+    "textbin/fun_001f4740",
+    # fun_001f4808: run each registered callback with its argument
+    "textbin/fun_001f4808",
+    # fun_0020acc0: 16-bit CRC (poly 0x1F45 step) over at most 0x1800 bytes
+    "textbin/fun_0020acc0",
+    # fun_001ff658: name buffer: default text block-copied when the name fits,
+    # then strcpy
+    "textbin/fun_001ff658",
+    # fun_002043b0: place the level buffer below the top of RAM, page- and
+    # quadword-aligned, then load into it
+    "textbin/fun_002043b0",
 }
 
 
