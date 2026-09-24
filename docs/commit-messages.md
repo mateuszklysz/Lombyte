@@ -33,6 +33,10 @@ the map is a derived artifact. Prefer `decomp:` whenever the commit changes
 - One commit, one primary area; split unrelated areas instead of stacking
   prefixes.
 - Bodies are free-form and optional; put detail (metrics, notes) there.
+- No agent trailers (`Co-Authored-By:`, `Claude-Session:`) and no links to AI
+  chat or agent sessions, in commit messages, pull request descriptions, or
+  review comments. Sessions are private; this repository is public. The hook
+  drops the trailers and rejects any remaining session link.
 
 ## Examples
 

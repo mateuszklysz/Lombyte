@@ -9,9 +9,11 @@ Install into the repository (idempotent):
 The standard is one lowercase `<type>: <summary>` prefix per subject
 (`decomp`, `docs`, `chore`, `fix`, `config`), with no repeated scope token.
 
-The hook also rewrites the message file before validation: every line
-containing `co-authored-by` (case-insensitive) is dropped, so agent trailers
-never enter the history.  Messages without such a line are left untouched,
+The hook also rewrites the message file before validation: every
+`co-authored-by:` and `claude-session:` trailer line (case-insensitive) is
+dropped, so agent trailers and links to private AI sessions never enter the
+history.  A message that still contains a link to an AI chat or agent session
+anywhere else is rejected.  Messages without such lines are left untouched,
 byte for byte.
 """
 
@@ -33,8 +35,11 @@ problems: list[str] = []
 
 # Trailer form only (line starts with the token + ":"): prose that merely
 # mentions the term, e.g. in a commit about this hook, must survive.
-TRAILER_RE = re.compile(r"^\s*co[-_]?authored[-_]?by\s*:",
+TRAILER_RE = re.compile(r"^\s*(?:co[-_]?authored[-_]?by|claude[-_]?session)\s*:",
                         re.IGNORECASE | re.MULTILINE)
+# Links to private AI chat/agent sessions must never be published.
+SESSION_LINK_RE = re.compile(r"(?:claude\.ai|chatgpt\.com|chat\.openai\.com)/\S*(?:session|chat|share|c/)",
+                             re.IGNORECASE)
 
 
 def strip_trailers(path: Path) -> bool:
@@ -103,6 +108,8 @@ for line in text.splitlines():
         subject = line
         break
 problems = validate(subject)
+if SESSION_LINK_RE.search(text):
+    problems.append("message links to a private AI session; remove the link")
 if problems:
     for problem in problems:
         print(f"commit-msg: {problem}", file=sys.stderr)
