@@ -224,6 +224,8 @@ EE_GCC_PATCHED_UNITS = {
     # Promoted by the decomp workbench: exact only under the patched
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
     "textbin/fun_00226848",
+    # fun_0023d140: 16-byte result read through a 0x18-byte stack buffer
+    "textbin/fun_0023d140",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -246,6 +248,38 @@ PADLESS_POLICY_UNITS = {
     # INCLUDE_ASM wrapper (the SN driver -S stage cannot expand the oracle's
     # `.include`, so a pending unit must keep the native EE-GCC 2.9 route).
     "fun_0022f778": "la-gprel",
+    # fun_001f7a30: exact on padless with la-gprel
+    "fun_001f7a30": "la-gprel",
+    # fun_0020cc18: exact on padless with la-gprel
+    "fun_0020cc18": "la-gprel",
+    # fun_001f5210: exact on padless with la-gprel
+    "fun_001f5210": "la-gprel",
+    # fun_002169c0: exact on padless with la-gprel
+    "fun_002169c0": "la-gprel",
+    # fun_00216a20: exact on padless with la-gprel
+    "fun_00216a20": "la-gprel",
+    # fun_001ff418: exact on padless with la-gprel
+    "fun_001ff418": "la-gprel",
+    # fun_001ff500: exact on padless with la-gprel
+    "fun_001ff500": "la-gprel",
+    # fun_00209370: exact on padless with la-gprel
+    "fun_00209370": "la-gprel",
+    # fun_001ebcf0: exact on padless with la-gprel
+    "fun_001ebcf0": "la-gprel",
+    # fun_001f4650: exact on padless with la-gprel
+    "fun_001f4650": "la-gprel",
+    # fun_001f46c8: exact on padless with la-gprel
+    "fun_001f46c8": "la-gprel",
+    # fun_001f4740: exact on padless with la-gprel
+    "fun_001f4740": "la-gprel",
+    # fun_001f4808: exact on padless with la-gprel
+    "fun_001f4808": "la-gprel",
+    # fun_0020acc0: exact on padless with la-gprel
+    "fun_0020acc0": "la-gprel",
+    # fun_001ff658: exact on padless with la-gprel
+    "fun_001ff658": "la-gprel",
+    # fun_002043b0: exact on padless with la-gprel
+    "fun_002043b0": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -261,6 +295,12 @@ SDK_COMPILER_UNITS = {
     # fun_0011ace8: rpc packet scan with the pid wrap written as if/else, as
     # Sony libkernl sifrpc.o
     "textbin/fun_0011ace8",
+    # newlib reentrant wrappers (errno cleared, copied into the reent block on
+    # -1); retail saves with sd/ld, so the SDK compiler, not SN.
+    "textbin/fun_00114000",
+    "textbin/fun_00114518",
+    "textbin/fun_00116108",  # _read_r
+    "textbin/fun_001185d0",  # _write_r
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -697,6 +737,53 @@ GAME_COMPILER_UNITS = {
     "textbin/vo_buf_get_data",
     "textbin/fun_00225490",
     "textbin/fun_0022c7e8",
+    # fun_0012e368: RPC wrapper: one-word request buffer passed to func_0012E6E0
+    # (0x15)
+    "textbin/fun_0012e368",
+    # fun_0012e4c0: RPC wrapper: six-word request buffer, two pass-through args
+    # (0x21)
+    "textbin/fun_0012e4c0",
+    # fun_0012e308: RPC wrapper: six-word request buffer, two pass-through args
+    # (0x11)
+    "textbin/fun_0012e308",
+    # fun_0020ad38: result preset to 0, compare only when the count is set
+    "textbin/fun_0020ad38",
+    # fun_0023c660: semaphore-guarded round up to a 2048-byte sector
+    "textbin/fun_0023c660",
+    # fun_0020c828: state byte from a pointer compare, s64 timestamp
+    "textbin/fun_0020c828",
+    # fun_0012f108: RPC wrapper: five-word request buffer (0x3E)
+    "textbin/fun_0012f108",
+    # fun_001ebec8: class-table dispatch through the update slot (+0x8)
+    "textbin/fun_001ebec8",
+    # fun_001ec3d8: class-table dispatch through the draw slot (+0x10)
+    "textbin/fun_001ec3d8",
+    # fun_0012d9d8: main loop: each step returns the next step function
+    "textbin/fun_0012d9d8",
+    # fun_00216b68: handle claim: 64-bit handle argument narrowed to the
+    # pointer, 0xFFFFFFFF marks a free slot
+    "textbin/fun_00216b68",
+    # fun_001fb680: GIF tag through the byte packet pointer, re-read after each
+    # store
+    "textbin/fun_001fb680",
+    # fun_001fb6e0: GIF tag through the byte packet pointer, re-read after each
+    # store
+    "textbin/fun_001fb6e0",
+    # fun_001fb3d0: GIF tag with a physical address (masked to 0x0FFFFFFF)
+    # through the byte packet pointer
+    "textbin/fun_001fb3d0",
+    # video_dec_put_ts: timestamp entry built on the stack, position relative to
+    # the decoder base
+    "textbin/video_dec_put_ts",
+    # fun_001fb2d0: GIF tag into the packet when one is open, else
+    # sceGsPutDrawEnv
+    "textbin/fun_001fb2d0",
+    # fun_00233888: VIF packet: DMA cnt tag, STCYCL, UNPACK V4-32 header, then
+    # the payload copy
+    "textbin/fun_00233888",
+    # fun_001ff308: queue an animation on a channel unless it is already the
+    # queued one; returns its serial
+    "textbin/fun_001ff308",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -857,6 +944,46 @@ PADLESS_ASM_UNITS = {
     # drops the retail lui/addiu pair and compiles to 164 B, so the unit
     # must stay on the padless route.
     "textbin/fun_0012f208",
+    # fun_001f7a30: table fill with bits 3 and 4 of the index swapped
+    "textbin/fun_001f7a30",
+    # fun_0020cc18: first free or matching slot in a 16-entry table
+    "textbin/fun_0020cc18",
+    # fun_001f5210: RGBA packed from four int arguments as u64 (GS register
+    # style), then a GIF tag
+    "textbin/fun_001f5210",
+    # fun_002169c0: handle callback: store the id, bump the state or report the
+    # saved position
+    "textbin/fun_002169c0",
+    # fun_00216a20: handle callback: store the id, bump the state or report the
+    # saved position
+    "textbin/fun_00216a20",
+    # fun_001ff418: switch to the queued animation: copy the next fields and run
+    # its callback
+    "textbin/fun_001ff418",
+    # fun_001ff500: look up an animation definition and copy id, index, flags
+    # and frame count
+    "textbin/fun_001ff500",
+    # fun_00209370: read the level chunk, start the loader and run the chunk at
+    # its stored offset
+    "textbin/fun_00209370",
+    # fun_001ebcf0: run and clear the deferred callback list
+    "textbin/fun_001ebcf0",
+    # fun_001f4650: run each registered callback with its argument
+    "textbin/fun_001f4650",
+    # fun_001f46c8: run each registered callback with its argument
+    "textbin/fun_001f46c8",
+    # fun_001f4740: run each registered callback with its argument
+    "textbin/fun_001f4740",
+    # fun_001f4808: run each registered callback with its argument
+    "textbin/fun_001f4808",
+    # fun_0020acc0: 16-bit CRC (poly 0x1F45 step) over at most 0x1800 bytes
+    "textbin/fun_0020acc0",
+    # fun_001ff658: name buffer: default text block-copied when the name fits,
+    # then strcpy
+    "textbin/fun_001ff658",
+    # fun_002043b0: place the level buffer below the top of RAM, page- and
+    # quadword-aligned, then load into it
+    "textbin/fun_002043b0",
 }
 
 
