@@ -336,6 +336,12 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_001eb410: A register-constrained page-relative read reproduces
+    # retail's D_0018A2E8 lui/lw pair.
+    "textbin/fun_001eb410",
+    # fun_0021d1f8: A fixed local table pointer and explicit unsigned threshold
+    # test reproduce the four-record scan and helper result branch.
+    "textbin/fun_0021d1f8",
     # fun_00225d88: A five-record do/while with one 8-byte pointer step matches
     # the target exactly.
     "textbin/fun_00225d88",

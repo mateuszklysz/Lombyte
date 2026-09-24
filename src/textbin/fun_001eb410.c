@@ -1,9 +1,3 @@
-#include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001eb410/FUN_001eb410.s", FUN_001eb410);
-#else
 #include "rnc/assembly_textbin_fun_001eb410_types.h"
 extern u8 D_00100AE0[];
 extern s32 D_0013E504[];
@@ -35,11 +29,11 @@ extern u64 func_001F44B8();
 extern s32 func_001F4650();
 extern s32 func_001F5210();
 extern s32 func_001F5450();
-extern s32 func_001FA6D0(f32);
+extern s32 FUN_001fa6d0(f32);
 extern s32 func_001FB368();
 extern s32 func_001FB680();
 extern s32 func_001FBC50();
-extern s32 func_0020CC60();
+extern s32 FUN_0020cc60();
 extern s32 func_0020CEF8();
 extern s32 func_0020D460();
 extern void func_00217C18();
@@ -66,6 +60,8 @@ void FUN_001eb410(s32 *arg0)
   int new_var4;
   s32 temp_4_123;
   long new_var5;
+  register s32 *address_D_0018A2E8 __asm__("$2");
+  register s32 value_D_0018A2E8 __asm__("$3");
   new_var4 = -1;
   new_var3 = (var_4_0 = (u8 *) 0x193FC0);
   var_4_0 = arg0;
@@ -82,7 +78,7 @@ void FUN_001eb410(s32 *arg0)
   FillTransferWords(D_00193FC0, new_var4, 0x80);
   func_001EAF88();
   func_001F2260();
-  func_0020CC60();
+  FUN_0020cc60();
   func_001F3868();
   D_0015F620 = new_var4;
   if (D_0016045C != 0)
@@ -114,7 +110,11 @@ void FUN_001eb410(s32 *arg0)
     func_001F4650();
   }
   func_00233C28();
-  if (*((s32 *) 0x18A2E8) != 0)
+  address_D_0018A2E8 = (s32 *) 0x190000;
+  __asm__ volatile ("" : "+r" (address_D_0018A2E8));
+  value_D_0018A2E8 = address_D_0018A2E8[-0x1746];
+  __asm__ volatile ("" : "+r" (value_D_0018A2E8));
+  if (value_D_0018A2E8 != 0)
   {
     func_00233980(8, 5);
     func_00233C28();
@@ -142,7 +142,7 @@ void FUN_001eb410(s32 *arg0)
     {
       D_0015F43C = 1.0f;
     }
-    func_001F5210((float) 0, 0, 0, func_001FA6D0(D_0015F43C * 128.0f));
+    func_001F5210((float) 0, 0, 0, FUN_001fa6d0(D_0015F43C * 128.0f));
   }
   func_002334D8(D_00100AE0);
   FlushCache(0);
@@ -164,5 +164,4 @@ void FUN_001eb410(s32 *arg0)
   func_001F2588();
 }
 
-__attribute__((alias("FUN_001eb410"))) extern void func_001EB410(s32 *arg0);
-#endif /* NON_MATCHING */
+extern __typeof__(FUN_001eb410) func_001EB410 __attribute__((alias("FUN_001eb410")));

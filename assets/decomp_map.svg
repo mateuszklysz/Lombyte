@@ -5,14 +5,14 @@
 <defs><linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/><stop offset="0.45" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.16"/></linearGradient></defs>
 <path d="M6 0.7 L11.3 3.5 L11.3 8.5 L6 11.3 L0.7 8.5 L0.7 3.5 Z M3.8 6 A2.2 2.2 0 1 1 8.2 6 A2.2 2.2 0 1 1 3.8 6 Z" fill="#dd8b30" fill-rule="evenodd" transform="translate(10 14) scale(0.833)"/>
 <text x="26" y="24" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="14.0" font-weight="700" letter-spacing="0.2"><tspan fill="#dd8b30">Ratchet</tspan><tspan fill="#c3cbd8"> &amp; Clank</tspan><tspan fill="#a6adc8" font-weight="500"> - decompilation progress</tspan></text>
-<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">601 matching C &#183; 129 intentional asm &#183; 605 pending</text>
+<text x="10" y="41" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">603 matching C &#183; 129 intentional asm &#183; 603 pending</text>
 <rect x="629" y="14" width="10" height="10" rx="2" fill="#dd8b30"/>
-<text x="644" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 88,368 B</text>
+<text x="644" y="23" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">matching C &#183; 89,388 B</text>
 <rect x="629" y="31" width="10" height="10" rx="2" fill="#c3cbd8"/>
 <text x="644" y="40" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">intentional asm &#183; 40,632 B</text>
 <rect x="629" y="48" width="10" height="10" rx="2" fill="#2e3644"/>
-<text x="644" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 301,720 B</text>
-<text x="619" y="38" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="28.0" font-weight="800" fill="#dd8b30">22.7%</text>
+<text x="644" y="57" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10.0" fill="#a6adc8">pending C &#183; 300,700 B</text>
+<text x="619" y="38" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="28.0" font-weight="800" fill="#dd8b30">22.9%</text>
 <text x="619" y="52" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8">of recoverable C decompiled</text>
 <rect x="10.00" y="62.00" width="141.95" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_002093d8 · 0x10A358 · 6100 B · pending C · 76.80%</title></rect>
 <rect x="151.95" y="62.00" width="139.53" height="116.27" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022f778 · 0x1306F8 · 5996 B · pending C · 75.25%</title></rect>
@@ -118,7 +118,7 @@
 <rect x="743.37" y="674.17" width="46.63" height="48.51" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001fe980 · 0xFF900 · 836 B · pending C · 56.49%</title></rect>
 <rect x="10.00" y="722.67" width="47.82" height="46.62" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>viBufRestartDMA · assembly/textbin/vi_buf_restart_dma · 0x13D200 · 824 B · pending C · 51.82%</title></rect>
 <rect x="57.82" y="722.67" width="47.59" height="46.62" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0020b618 · 0x10C598 · 820 B · pending C · 0.00%</title></rect>
-<rect x="105.41" y="722.67" width="47.36" height="46.62" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001eb410 · 0xEC390 · 816 B · pending C · 93.20%</title></rect>
+<rect x="105.41" y="722.67" width="47.36" height="46.62" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>textbin/fun_001eb410 · 0xEC390 · 816 B · exact C</title></rect>
 <rect x="152.77" y="722.67" width="46.89" height="46.62" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_001f2260 · 0xF31E0 · 808 B · pending C · 0.00%</title></rect>
 <rect x="199.66" y="722.67" width="46.89" height="46.62" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0022f288 · 0x130208 · 808 B · pending C · 62.18%</title></rect>
 <rect x="246.55" y="722.67" width="46.66" height="46.62" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>SkySpriteProc · assembly/textbin/sky_sprite_proc · 0x12CB20 · 804 B · pending C · 0.70%</title></rect>
@@ -540,7 +540,7 @@
 <rect x="362.19" y="1274.14" width="23.08" height="23.92" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0012f368 · 0x302E8 · 204 B · pending C · 48.65%</title></rect>
 <rect x="362.19" y="1298.06" width="23.08" height="23.92" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_002157d0 · 0x116750 · 204 B · pending C · 64.98%</title></rect>
 <rect x="362.19" y="1321.98" width="23.08" height="23.92" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_002158a0 · 0x116820 · 204 B · pending C · 64.98%</title></rect>
-<rect x="362.19" y="1345.90" width="23.08" height="23.92" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>assembly/textbin/fun_0021d1f8 · 0x11E178 · 204 B · pending C · 76.51%</title></rect>
+<rect x="362.19" y="1345.90" width="23.08" height="23.92" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>textbin/fun_0021d1f8 · 0x11E178 · 204 B · exact C</title></rect>
 <rect x="362.19" y="1369.82" width="23.08" height="23.45" rx="1" fill="#2e3644" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>sceGszbufaddr · assembly/sdk/dma_ipu_gs/sce_gszbufaddr · 0x22E80 · 200 B · pending C · 44.06%</title></rect>
 <rect x="362.19" y="1393.26" width="23.08" height="23.45" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>sceDbcCreateSocket · sdk/library/sceDbcCreateSocket · 0x25698 · 200 B · exact C</title></rect>
 <rect x="362.19" y="1416.71" width="23.08" height="23.45" rx="1" fill="#dd8b30" stroke="#0d1117" stroke-width="0.6" shape-rendering="geometricPrecision"><title>_clearEach · sdk/library/_clearEach · 0x2D198 · 200 B · exact C</title></rect>
@@ -1499,7 +1499,7 @@
 <text x="199.54" y="1038.85" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="10" fill="#2b1604">d2b</text>
 <text x="455.39" y="973.03" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="8" fill="#2b1604">IsNaN</text>
 <line x1="10" y1="1566.0" x2="790" y2="1566.0" stroke="#2e3644" stroke-width="1" opacity="0.8"/>
-<text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">88,368 of 430,720 configured bytes are matching C &#183; 20.5% of all configured code</text>
-<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 22.7% / C_FUZZY 49.7% of recoverable C</text>
+<text x="10" y="1580" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">89,388 of 430,720 configured bytes are matching C &#183; 20.8% of all configured code</text>
+<text x="10" y="1592" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">C_EXACT 22.9% / C_FUZZY 49.7% of recoverable C</text>
 <text x="790" y="1592" text-anchor="end" font-family="ui-sans-serif, -apple-system, &#x27;Segoe UI&#x27;, Roboto, Helvetica, Arial, sans-serif" font-size="9.0" fill="#a6adc8" opacity="0.85">generated 2026-09-24 &#183; scripts/generate_treemap.py</text>
 </svg>
