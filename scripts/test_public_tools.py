@@ -169,6 +169,79 @@ class TreemapClassificationTests(unittest.TestCase):
             self.assertIn("C_FUZZY", stdout.getvalue())
 
 
+class ProgressReportTests(unittest.TestCase):
+    """gen_progress_report.py must count only C_EXACT units as matched."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.report = load_module(
+            "rnc_gen_progress_report", ROOT / "scripts" / "gen_progress_report.py"
+        )
+
+    def _repo(self, tmp: Path) -> Path:
+        (tmp / "config" / "us").mkdir(parents=True)
+        (tmp / "config" / "us" / "rnc1.us.yaml").write_text(
+            textwrap.dedent(
+                """
+            segments:
+              - name: main
+                subsegments:
+                  - [0x13300, c, textbin/promoted]
+                  - [0x13400, c, assembly/textbin/pending]
+                  - [0x13500, c, assembly/sdk/vu0_asm]
+                  - [0x13600, c, sdk/library/exact_sdk]
+                  - [0x13680, textbin, text_gap_end]
+            """
+            )
+        )
+        (tmp / "config" / "us" / "unit_categories.json").write_text(
+            json.dumps({"intentional_asm": ["assembly/sdk/vu0_asm"]})
+        )
+        (tmp / "src" / "textbin").mkdir(parents=True)
+        (tmp / "src" / "textbin" / "promoted.c").write_text("void Promoted(void) {\n}\n")
+        (tmp / "src" / "sdk" / "library").mkdir(parents=True)
+        (tmp / "src" / "sdk" / "library" / "exact_sdk.c").write_text("int sceExact(void) {\n}\n")
+        (tmp / "src" / "assembly" / "textbin").mkdir(parents=True)
+        (tmp / "src" / "assembly" / "textbin" / "pending.c").write_text(
+            '#ifndef NON_MATCHING\nINCLUDE_ASM("x/FUN_00112480.s", FUN_00112480);\n#endif\n'
+        )
+        return tmp
+
+    def _build(self, repo: Path, scores: dict) -> dict:
+        with mock.patch.object(self.report, "REPO", repo):
+            return self.report.build_report(scores)
+
+    def test_only_exact_units_are_matched(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            report = self._build(self._repo(Path(tmp)), {"textbin/pending": 100.0})
+        units = {unit["name"]: unit for unit in report["units"]}
+        self.assertEqual(set(units), {"textbin/promoted", "textbin/pending", "sdk/library/exact_sdk"})
+        self.assertEqual(report["measures"]["total_code"], str(0x100 + 0x100 + 0x80))
+        self.assertEqual(report["measures"]["matched_code"], str(0x100 + 0x80))
+        pending = units["textbin/pending"]
+        self.assertEqual(pending["measures"]["matched_code"], "0")
+        self.assertLess(pending["functions"][0]["fuzzy_match_percent"], 100.0)
+        self.assertEqual(pending["functions"][0]["name"], "FUN_00112480")
+        self.assertEqual(units["sdk/library/exact_sdk"]["metadata"]["progress_categories"], ["sdk"])
+        game = next(c for c in report["categories"] if c["id"] == "game")
+        self.assertEqual(game["measures"]["complete_units"], 1)
+
+    def test_check_detects_a_stale_report(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = self._repo(Path(tmp))
+            path = repo / "progress" / "report.json"
+            with mock.patch.object(self.report, "REPO", repo):
+                self.assertEqual(self.report.main(["--report", str(path)]), 0)
+                self.assertEqual(self.report.main(["--check", "--report", str(path)]), 0)
+                (repo / "src" / "assembly" / "textbin" / "pending.c").unlink()
+                (repo / "src" / "textbin" / "pending.c").write_text("void P(void) {\n}\n")
+                (repo / "config" / "us" / "rnc1.us.yaml").write_text(
+                    (repo / "config" / "us" / "rnc1.us.yaml").read_text().replace(
+                        "assembly/textbin/pending", "textbin/pending"))
+                with contextlib.redirect_stderr(io.StringIO()):
+                    self.assertEqual(self.report.main(["--check", "--report", str(path)]), 1)
+
+
 class BaselineGuardTests(unittest.TestCase):
     """verify-baseline.sh must never delete a non-baseline directory."""
 

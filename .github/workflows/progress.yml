@@ -1,0 +1,71 @@
+# Publishes Lombyte's progress to decomp.dev.
+#
+# decomp.dev picks up an objdiff report from a workflow artifact called
+# SCUS_971.99_report on main. Building the executable here is not an option:
+# it needs the retail SCUS_971.99 and compilers that are not public. Instead,
+# maintainers regenerate progress/report.json after a local `make elf` with
+# `make progress` and commit it. This workflow checks that the committed file
+# still agrees with src/ and the linker config, validates it with objdiff and
+# publishes it. No secrets are used. The report lists unit names, symbols,
+# addresses, sizes and match percentages; it never contains game bytes.
+#
+# Registering the repository on decomp.dev (/manage/new) is a one-time manual
+# step outside this workflow.
+name: progress
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      # Fails if units were promoted, retagged or added without regenerating
+      # the report, so the published numbers cannot fall behind src/.
+      - name: Check the committed report is current
+        run: python3 scripts/gen_progress_report.py --check
+
+      - name: Validate the report with objdiff
+        run: |
+          curl --fail --location --retry 3 -o "$RUNNER_TEMP/objdiff-cli" \
+            https://github.com/encounter/objdiff/releases/download/v3.8.0/objdiff-cli-linux-x86_64
+          echo "bc1e047126f9c6914bd1695798175234642ab9eaf45e886f841b59a4231e1a81  $RUNNER_TEMP/objdiff-cli" | sha256sum --check
+          chmod +x "$RUNNER_TEMP/objdiff-cli"
+          "$RUNNER_TEMP/objdiff-cli" report changes progress/report.json progress/report.json \
+            -o "$RUNNER_TEMP/validation.json"
+
+      - name: Summarise
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          r = json.load(open("progress/report.json"))
+          m = r["measures"]
+          print("| Measure | Value |")
+          print("| --- | --- |")
+          print("| C_EXACT code | %.2f%% (%s / %s bytes) |"
+                % (m["matched_code_percent"], m["matched_code"], m["total_code"]))
+          print("| C_FUZZY | %.2f%% |" % m["fuzzy_match_percent"])
+          print("| Units complete | %s / %s |" % (m["complete_units"], m["total_units"]))
+          for c in r["categories"]:
+              cm = c["measures"]
+              print("| %s | %.2f%% code, %s / %s units |"
+                    % (c["name"], cm["matched_code_percent"], cm["complete_units"], cm["total_units"]))
+          PY
+
+      - name: Upload the progress report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: SCUS_971.99_report
+          path: progress/report.json
+          if-no-files-found: error
