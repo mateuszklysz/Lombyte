@@ -1,0 +1,12 @@
+#include "types.h"
+extern s32 FUN_0012b9e0();
+extern s32 FUN_0023c5b8();
+s32 video_dec_delete(s32 arg0) __asm__("FUN_0023cc38");
+
+s32 video_dec_delete(s32 arg0) {
+    FUN_0023c5b8(arg0 + 0x48);
+    FUN_0012b9e0(arg0);
+    return 1;
+}
+
+extern s32 func_0023CC38(s32 arg0) __attribute__((alias("FUN_0023cc38")));

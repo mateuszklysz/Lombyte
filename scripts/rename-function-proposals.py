@@ -912,6 +912,10 @@ def main() -> int:
             category_text = json.dumps(category_payload, indent=2, ensure_ascii=False) + "\n"
 
     catalog_owner_count = update_catalog_owners(payload, active)
+    if args.apply and not issues and active:
+        proposals = payload["rename_proposals"]
+        proposals["status"] = "applied"
+        proposals.setdefault("naming", {})["source_changes"] = True
     map_text = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
 
     moved_candidates = [m.candidate for m in moves]

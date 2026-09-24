@@ -816,7 +816,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1057952",
-            "source_path": "src/assembly/textbin/fun_00201520.c"
+            "source_path": "src/assembly/textbin/unclassified/load_irx_module.c"
           }
         },
         {
@@ -826,7 +826,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1058136",
-            "source_path": "src/assembly/textbin/init_mem_slots.c"
+            "source_path": "src/assembly/textbin/unclassified/init_mem_slots.c"
           }
         },
         {
@@ -836,7 +836,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1058256",
-            "source_path": "src/assembly/textbin/fun_00201650.c"
+            "source_path": "src/assembly/textbin/unclassified/init_once.c"
           }
         },
         {
@@ -4988,7 +4988,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "85888",
-            "source_path": "src/textbin/fun_00114000.c"
+            "source_path": "src/textbin/runtime/newlib/reentrant_syscall_with_two_arguments.c"
           }
         },
         {
@@ -4998,7 +4998,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "87192",
-            "source_path": "src/textbin/fun_00114518.c"
+            "source_path": "src/textbin/runtime/newlib/reentrant_syscall_with_three_arguments.c"
           }
         },
         {
@@ -5008,7 +5008,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "94344",
-            "source_path": "src/textbin/fun_00116108.c"
+            "source_path": "src/textbin/runtime/newlib/reentrant_read.c"
           }
         },
         {
@@ -5018,7 +5018,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "103760",
-            "source_path": "src/textbin/fun_001185d0.c"
+            "source_path": "src/textbin/runtime/newlib/reentrant_write.c"
           }
         }
       ],
@@ -5503,7 +5503,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "94440",
-            "source_path": "src/assembly/textbin/fun_00116168.c"
+            "source_path": "src/assembly/textbin/math/floating_point/double_is_not_nan.c"
           }
         }
       ],
@@ -5662,7 +5662,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106248",
-            "source_path": "src/textbin/fun_00118f88.c"
+            "source_path": "src/textbin/runtime/cache/synchronize_cache_range.c"
           }
         }
       ],
@@ -5695,7 +5695,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106408",
-            "source_path": "src/textbin/fun_00119028.c"
+            "source_path": "src/textbin/runtime/interrupts/disable_intc.c"
           }
         },
         {
@@ -5705,7 +5705,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106512",
-            "source_path": "src/textbin/fun_00119090.c"
+            "source_path": "src/textbin/runtime/interrupts/enable_intc.c"
           }
         }
       ],
@@ -5738,7 +5738,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106616",
-            "source_path": "src/textbin/fun_001190f8.c"
+            "source_path": "src/textbin/runtime/dma/disable_dmac.c"
           }
         },
         {
@@ -5748,7 +5748,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106720",
-            "source_path": "src/textbin/fun_00119160.c"
+            "source_path": "src/textbin/runtime/dma/enable_dmac.c"
           }
         }
       ],
@@ -6281,7 +6281,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "113768",
-            "source_path": "src/textbin/fun_0011ace8.c"
+            "source_path": "src/textbin/runtime/rpc/get_available_rpc_packet.c"
           }
         },
         {
@@ -6301,7 +6301,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "121016",
-            "source_path": "src/textbin/fun_0011c938.c"
+            "source_path": "src/textbin/runtime/rpc/free_sif_system_memory.c"
           }
         },
         {
@@ -6321,7 +6321,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1260640",
-            "source_path": "src/textbin/fun_00232ce0.c"
+            "source_path": "src/textbin/runtime/rpc/initialize_sif_rpc.c"
           }
         }
       ],
@@ -6552,7 +6552,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "125848",
-            "source_path": "src/textbin/fun_0011dc18.c"
+            "source_path": "src/textbin/runtime/startup/run_global_constructors.c"
           }
         }
       ],
@@ -6585,7 +6585,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "136792",
-            "source_path": "src/textbin/fun_001206d8.c"
+            "source_path": "src/textbin/storage/cd/handle_cd_read_callback.c"
           }
         },
         {
@@ -6595,7 +6595,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "197176",
-            "source_path": "src/textbin/fun_0012f2b8.c"
+            "source_path": "src/textbin/storage/cd/load_disc_sectors_into_global_buffer.c"
           }
         },
         {
@@ -6605,7 +6605,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "197352",
-            "source_path": "src/textbin/fun_0012f368.c"
+            "source_path": "src/textbin/storage/cd/read_file_entry_with_retry.c"
           }
         }
       ],
@@ -7618,7 +7618,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "154016",
-            "source_path": "src/textbin/fun_00124a20.c"
+            "source_path": "src/textbin/runtime/debug/debug_print_stub.c"
           }
         }
       ],
@@ -8245,7 +8245,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "183200",
-            "source_path": "src/textbin/fun_0012bc20.c"
+            "source_path": "src/textbin/runtime/memory/reserve_aligned_buffer_space.c"
           }
         },
         {
@@ -8255,7 +8255,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1026424",
-            "source_path": "src/assembly/textbin/fun_001f99f8.c"
+            "source_path": "src/assembly/textbin/runtime/memory/clear_u64_value.c"
           }
         },
         {
@@ -8265,7 +8265,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1034808",
-            "source_path": "src/assembly/textbin/mode_freeze_init.c"
+            "source_path": "src/assembly/textbin/runtime/memory/mode_freeze_init.c"
           }
         },
         {
@@ -8275,7 +8275,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1039784",
-            "source_path": "src/assembly/textbin/fun_001fce28.c"
+            "source_path": "src/assembly/textbin/runtime/memory/update_mode_freeze.c"
           }
         },
         {
@@ -8285,7 +8285,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1042016",
-            "source_path": "src/textbin/fun_001fd6e0.c"
+            "source_path": "src/textbin/runtime/memory/calculate_ring_buffer_bounds.c"
           }
         }
       ],
@@ -8549,7 +8549,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "189248",
-            "source_path": "src/textbin/fun_0012d3c0.c"
+            "source_path": "src/textbin/runtime/time/decode_bcd_time_fields.c"
           }
         },
         {
@@ -8559,7 +8559,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "189352",
-            "source_path": "src/textbin/fun_0012d428.c"
+            "source_path": "src/textbin/runtime/time/encode_bcd_time_fields.c"
           }
         }
       ],
@@ -8658,7 +8658,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "190584",
-            "source_path": "src/assembly/textbin/fun_0012d8f8.c"
+            "source_path": "src/assembly/textbin/gameplay/state/parse_bin.c"
           }
         },
         {
@@ -8668,7 +8668,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "190808",
-            "source_path": "src/textbin/fun_0012d9d8.c"
+            "source_path": "src/textbin/gameplay/state/run_game_main_loop.c"
           }
         },
         {
@@ -8678,7 +8678,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "961080",
-            "source_path": "src/textbin/fun_001e9ab8.c"
+            "source_path": "src/textbin/gameplay/state/transition_draw_sky.c"
           }
         },
         {
@@ -8698,7 +8698,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "964528",
-            "source_path": "src/assembly/textbin/fun_001ea830.c"
+            "source_path": "src/assembly/textbin/gameplay/state/transition_load_wad.c"
           }
         },
         {
@@ -8718,7 +8718,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "967568",
-            "source_path": "src/textbin/fun_001eb410.c"
+            "source_path": "src/textbin/gameplay/state/transition_default_draw.c"
           }
         },
         {
@@ -8728,7 +8728,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "968384",
-            "source_path": "src/textbin/fun_001eb740.c"
+            "source_path": "src/textbin/gameplay/state/is_active_state_entry.c"
           }
         },
         {
@@ -8738,7 +8738,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "968472",
-            "source_path": "src/assembly/textbin/fun_001eb798.c"
+            "source_path": "src/assembly/textbin/gameplay/state/transition_do_transition.c"
           }
         },
         {
@@ -8748,7 +8748,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1104224",
-            "source_path": "src/textbin/fun_0020c9e0.c"
+            "source_path": "src/textbin/gameplay/state/compute_interpolated_record_value.c"
           }
         },
         {
@@ -8758,7 +8758,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1137736",
-            "source_path": "src/textbin/fun_00214cc8.c"
+            "source_path": "src/textbin/gameplay/state/is_value_within_interpolated_window.c"
           }
         },
         {
@@ -8778,7 +8778,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1192464",
-            "source_path": "src/textbin/fun_00222290.c"
+            "source_path": "src/textbin/gameplay/state/process_global_state_flags.c"
           }
         },
         {
@@ -8788,7 +8788,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1212112",
-            "source_path": "src/textbin/fun_00226f50.c"
+            "source_path": "src/textbin/gameplay/state/clear_scene_state_buffers.c"
           }
         },
         {
@@ -8798,7 +8798,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1252968",
-            "source_path": "src/textbin/fun_00230ee8.c"
+            "source_path": "src/textbin/gameplay/state/dispatch_game_state_update.c"
           }
         },
         {
@@ -8858,7 +8858,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1257328",
-            "source_path": "src/assembly/textbin/fun_00231ff0.c"
+            "source_path": "src/assembly/textbin/gameplay/state/do_space_transition.c"
           }
         }
       ],
@@ -8891,7 +8891,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "190888",
-            "source_path": "src/assembly/textbin/snd_start_sound_system.c"
+            "source_path": "src/assembly/textbin/audio/snd_start_sound_system.c"
           }
         },
         {
@@ -8901,7 +8901,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "191488",
-            "source_path": "src/assembly/textbin/fun_0012dc80.c"
+            "source_path": "src/assembly/textbin/audio/snd_flush_sound_commands.c"
           }
         },
         {
@@ -8911,7 +8911,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "191984",
-            "source_path": "src/textbin/snd_got_returns.c"
+            "source_path": "src/textbin/audio/snd_got_returns.c"
           }
         },
         {
@@ -8921,7 +8921,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144744",
-            "source_path": "src/textbin/fun_00216828.c"
+            "source_path": "src/textbin/audio/load.c"
           }
         }
       ],
@@ -8954,7 +8954,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192160",
-            "source_path": "src/assembly/textbin/fun_0012df20.c"
+            "source_path": "src/assembly/textbin/audio/banks/snd_bank_load_by_loc.c"
           }
         },
         {
@@ -8964,7 +8964,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192520",
-            "source_path": "src/assembly/textbin/fun_0012e088.c"
+            "source_path": "src/assembly/textbin/audio/banks/snd_bank_load_from_ee_cb.c"
           }
         },
         {
@@ -8974,7 +8974,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192808",
-            "source_path": "src/textbin/fun_0012e1a8.c"
+            "source_path": "src/textbin/audio/banks/snd_resolve_bank_xrefs.c"
           }
         },
         {
@@ -8984,7 +8984,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192856",
-            "source_path": "src/textbin/snd_unload_bank.c"
+            "source_path": "src/textbin/audio/banks/snd_unload_bank.c"
           }
         },
         {
@@ -8994,7 +8994,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1238664",
-            "source_path": "src/textbin/fun_0022d708.c"
+            "source_path": "src/textbin/audio/banks/load_audio_bank_by_location.c"
           }
         }
       ],
@@ -9027,7 +9027,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192904",
-            "source_path": "src/textbin/fun_0012e208.c"
+            "source_path": "src/textbin/audio/mixer/snd_set_master_volume.c"
           }
         },
         {
@@ -9037,7 +9037,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192960",
-            "source_path": "src/textbin/fun_0012e240.c"
+            "source_path": "src/textbin/audio/mixer/snd_set_playback_mode.c"
           }
         },
         {
@@ -9047,7 +9047,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193024",
-            "source_path": "src/textbin/fun_0012e280.c"
+            "source_path": "src/textbin/audio/mixer/snd_set_mixer_mode.c"
           }
         },
         {
@@ -9057,7 +9057,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193080",
-            "source_path": "src/textbin/fun_0012e2b8.c"
+            "source_path": "src/textbin/audio/mixer/snd_set_group_voice_range.c"
           }
         }
       ],
@@ -9090,7 +9090,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193160",
-            "source_path": "src/textbin/fun_0012e308.c"
+            "source_path": "src/textbin/audio/voices/snd_play_sound_vol_pan_pmpb.c"
           }
         },
         {
@@ -9100,7 +9100,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193256",
-            "source_path": "src/textbin/fun_0012e368.c"
+            "source_path": "src/textbin/audio/voices/snd_stop_sound.c"
           }
         },
         {
@@ -9110,7 +9110,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193336",
-            "source_path": "src/textbin/fun_0012e3b8.c"
+            "source_path": "src/textbin/audio/voices/snd_stop_all_sounds.c"
           }
         },
         {
@@ -9120,7 +9120,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193384",
-            "source_path": "src/textbin/snd_pause_all_sounds_in_group.c"
+            "source_path": "src/textbin/audio/voices/snd_pause_all_sounds_in_group.c"
           }
         },
         {
@@ -9130,7 +9130,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193432",
-            "source_path": "src/textbin/snd_continue_all_sounds_in_group.c"
+            "source_path": "src/textbin/audio/voices/snd_continue_all_sounds_in_group.c"
           }
         },
         {
@@ -9140,7 +9140,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193480",
-            "source_path": "src/textbin/fun_0012e448.c"
+            "source_path": "src/textbin/audio/voices/snd_sound_is_still_playing_cb.c"
           }
         },
         {
@@ -9150,7 +9150,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193600",
-            "source_path": "src/textbin/fun_0012e4c0.c"
+            "source_path": "src/textbin/audio/voices/snd_set_sound_params_cb.c"
           }
         },
         {
@@ -9160,7 +9160,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1145576",
-            "source_path": "src/textbin/fun_00216b68.c"
+            "source_path": "src/textbin/audio/voices/set_sound_handle_id.c"
           }
         },
         {
@@ -9180,7 +9180,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1154296",
-            "source_path": "src/assembly/textbin/fun_00218d78.c"
+            "source_path": "src/assembly/textbin/audio/voices/pause_all_sounds.c"
           }
         },
         {
@@ -9190,7 +9190,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1235408",
-            "source_path": "src/assembly/textbin/fun_0022ca50.c"
+            "source_path": "src/assembly/textbin/audio/voices/sound_update.c"
           }
         },
         {
@@ -9200,7 +9200,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1238808",
-            "source_path": "src/textbin/fun_0022d798.c"
+            "source_path": "src/textbin/audio/voices/release_voice_slot.c"
           }
         },
         {
@@ -9220,7 +9220,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1239696",
-            "source_path": "src/textbin/fun_0022db10.c"
+            "source_path": "src/textbin/audio/voices/allocate_voice_for_bank_entry.c"
           }
         },
         {
@@ -9230,7 +9230,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1239840",
-            "source_path": "src/textbin/fun_0022dba0.c"
+            "source_path": "src/textbin/audio/voices/allocate_voice_for_group_entry.c"
           }
         },
         {
@@ -9240,7 +9240,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1240016",
-            "source_path": "src/assembly/textbin/fun_0022dc50.c"
+            "source_path": "src/assembly/textbin/audio/voices/enqueue_voice_request.c"
           }
         },
         {
@@ -9250,7 +9250,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1240144",
-            "source_path": "src/assembly/textbin/fun_0022dcd0.c"
+            "source_path": "src/assembly/textbin/audio/voices/sound_stop_all_sounds.c"
           }
         }
       ],
@@ -9283,7 +9283,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193736",
-            "source_path": "src/assembly/textbin/fun_0012e548.c"
+            "source_path": "src/assembly/textbin/audio/rpc/snd_send_iop_command_and_wait.c"
           }
         },
         {
@@ -9293,7 +9293,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "194144",
-            "source_path": "src/assembly/textbin/snd_send_iop_command_no_wait.c"
+            "source_path": "src/assembly/textbin/audio/rpc/snd_send_iop_command_no_wait.c"
           }
         },
         {
@@ -9303,7 +9303,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "194848",
-            "source_path": "src/textbin/snd_post_message.c"
+            "source_path": "src/textbin/audio/rpc/snd_post_message.c"
           }
         },
         {
@@ -9313,7 +9313,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "194904",
-            "source_path": "src/assembly/textbin/fun_0012e9d8.c"
+            "source_path": "src/assembly/textbin/audio/rpc/snd_send_current_batch.c"
           }
         },
         {
@@ -9323,7 +9323,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195200",
-            "source_path": "src/textbin/snd_unk_function_0012eb00.c"
+            "source_path": "src/textbin/audio/rpc/snd_reset_state_and_flush_commands.c"
           }
         }
       ],
@@ -9356,7 +9356,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195232",
-            "source_path": "src/textbin/fun_0012eb20.c"
+            "source_path": "src/textbin/audio/streaming/snd_init_vag_streaming_ex.c"
           }
         },
         {
@@ -9366,7 +9366,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195408",
-            "source_path": "src/textbin/fun_0012ebd0.c"
+            "source_path": "src/textbin/audio/streaming/snd_stop_all_streams.c"
           }
         },
         {
@@ -9376,7 +9376,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195464",
-            "source_path": "src/assembly/textbin/fun_0012ec08.c"
+            "source_path": "src/assembly/textbin/audio/streaming/snd_play_vag_stream_by_loc_ex_cb.c"
           }
         },
         {
@@ -9386,7 +9386,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195568",
-            "source_path": "src/textbin/snd_pause_vag_stream.c"
+            "source_path": "src/textbin/audio/streaming/snd_pause_vag_stream.c"
           }
         },
         {
@@ -9396,7 +9396,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195616",
-            "source_path": "src/textbin/snd_continue_vag_stream.c"
+            "source_path": "src/textbin/audio/streaming/snd_continue_vag_stream.c"
           }
         },
         {
@@ -9406,7 +9406,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195664",
-            "source_path": "src/textbin/snd_get_vag_stream_time_remaining_cb.c"
+            "source_path": "src/textbin/audio/streaming/snd_get_vag_stream_time_remaining_cb.c"
           }
         },
         {
@@ -9416,7 +9416,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195712",
-            "source_path": "src/textbin/snd_is_vag_stream_buffered_cb.c"
+            "source_path": "src/textbin/audio/streaming/snd_is_vag_stream_buffered_cb.c"
           }
         },
         {
@@ -9426,7 +9426,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195760",
-            "source_path": "src/textbin/snd_stream_safe_check_cd_idle.c"
+            "source_path": "src/textbin/audio/streaming/snd_stream_safe_check_cd_idle.c"
           }
         },
         {
@@ -9436,7 +9436,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195800",
-            "source_path": "src/textbin/snd_stream_safe_cd_read.c"
+            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_read.c"
           }
         },
         {
@@ -9446,7 +9446,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195976",
-            "source_path": "src/textbin/fun_0012ee08.c"
+            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_sync.c"
           }
         },
         {
@@ -9456,7 +9456,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196136",
-            "source_path": "src/textbin/fun_0012eea8.c"
+            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_break.c"
           }
         },
         {
@@ -9466,7 +9466,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196208",
-            "source_path": "src/textbin/snd_stream_safe_cd_get_error.c"
+            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_get_error.c"
           }
         },
         {
@@ -9476,7 +9476,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196264",
-            "source_path": "src/textbin/fun_0012ef28.c"
+            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_callback.c"
           }
         },
         {
@@ -9486,7 +9486,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139616",
-            "source_path": "src/textbin/fun_00215420.c"
+            "source_path": "src/textbin/audio/streaming/register_audio_stream_callback.c"
           }
         },
         {
@@ -9496,7 +9496,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1141392",
-            "source_path": "src/textbin/fun_00215b10.c"
+            "source_path": "src/textbin/audio/streaming/continue_audio_stream_if_ready.c"
           }
         },
         {
@@ -9506,7 +9506,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144424",
-            "source_path": "src/textbin/fun_002166e8.c"
+            "source_path": "src/textbin/audio/streaming/request_audio_stream_break.c"
           }
         },
         {
@@ -9516,7 +9516,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144488",
-            "source_path": "src/assembly/textbin/fun_00216728.c"
+            "source_path": "src/assembly/textbin/audio/streaming/submit_audio_stream_io_request.c"
           }
         },
         {
@@ -9526,7 +9526,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144584",
-            "source_path": "src/textbin/fun_00216788.c"
+            "source_path": "src/textbin/audio/streaming/start_audio_stream_read.c"
           }
         },
         {
@@ -9536,7 +9536,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144872",
-            "source_path": "src/textbin/fun_002168a8.c"
+            "source_path": "src/textbin/audio/streaming/update_audio_stream_until_idle.c"
           }
         },
         {
@@ -9546,7 +9546,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1145040",
-            "source_path": "src/textbin/fun_00216950.c"
+            "source_path": "src/textbin/audio/streaming/finish_audio_stream_read.c"
           }
         },
         {
@@ -9556,7 +9556,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1185224",
-            "source_path": "src/textbin/fun_00220648.c"
+            "source_path": "src/textbin/audio/streaming/advance_audio_stream_state.c"
           }
         },
         {
@@ -9576,7 +9576,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207192",
-            "source_path": "src/textbin/fun_00225c18.c"
+            "source_path": "src/textbin/audio/streaming/select_next_stream_buffer.c"
           }
         },
         {
@@ -9586,7 +9586,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207384",
-            "source_path": "src/textbin/fun_00225cd8.c"
+            "source_path": "src/textbin/audio/streaming/complete_stream_buffer_transfer.c"
           }
         },
         {
@@ -9596,7 +9596,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207560",
-            "source_path": "src/textbin/fun_00225d88.c"
+            "source_path": "src/textbin/audio/streaming/get_stream_buffer_size.c"
           }
         },
         {
@@ -9616,7 +9616,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207712",
-            "source_path": "src/textbin/fun_00225e20.c"
+            "source_path": "src/textbin/audio/streaming/clear_record_flag_by_key.c"
           }
         },
         {
@@ -9659,7 +9659,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196328",
-            "source_path": "src/textbin/snd_set_reverb_ex.c"
+            "source_path": "src/textbin/audio/effects/snd_set_reverb_ex.c"
           }
         },
         {
@@ -9669,7 +9669,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196392",
-            "source_path": "src/textbin/fun_0012efa8.c"
+            "source_path": "src/textbin/audio/effects/snd_pre_alloc_reverb_work_area.c"
           }
         },
         {
@@ -9679,7 +9679,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196448",
-            "source_path": "src/textbin/fun_0012efe0.c"
+            "source_path": "src/textbin/audio/effects/snd_auto_reverb.c"
           }
         }
       ],
@@ -9712,7 +9712,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196584",
-            "source_path": "src/textbin/fun_0012f068.c"
+            "source_path": "src/textbin/audio/movie/snd_init_movie_sound.c"
           }
         },
         {
@@ -9722,7 +9722,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196648",
-            "source_path": "src/textbin/fun_0012f0a8.c"
+            "source_path": "src/textbin/audio/movie/snd_reset_movie_sound.c"
           }
         },
         {
@@ -9732,7 +9732,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196704",
-            "source_path": "src/textbin/fun_0012f0e0.c"
+            "source_path": "src/textbin/audio/movie/snd_close_movie_sound.c"
           }
         },
         {
@@ -9742,7 +9742,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196744",
-            "source_path": "src/textbin/fun_0012f108.c"
+            "source_path": "src/textbin/audio/movie/snd_start_movie_sound.c"
           }
         },
         {
@@ -9752,7 +9752,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196808",
-            "source_path": "src/textbin/fun_0012f148.c"
+            "source_path": "src/textbin/audio/movie/snd_update_movie_adpcm.c"
           }
         },
         {
@@ -9762,7 +9762,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196856",
-            "source_path": "src/textbin/fun_0012f178.c"
+            "source_path": "src/textbin/audio/movie/snd_get_movie_nax.c"
           }
         }
       ],
@@ -9795,7 +9795,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "197000",
-            "source_path": "src/textbin/fun_0012f208.c"
+            "source_path": "src/textbin/storage/wad/wad_get_sectors.c"
           }
         }
       ],
@@ -9828,7 +9828,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "958696",
-            "source_path": "src/assembly/textbin/load_pif_as_psmt8_h.c"
+            "source_path": "src/assembly/textbin/rendering/texture/load_pif_as_psmt8_h.c"
           }
         },
         {
@@ -9838,7 +9838,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1008592",
-            "source_path": "src/assembly/textbin/fun_001f5450.c"
+            "source_path": "src/assembly/textbin/rendering/texture/draw_textured_quad.c"
           }
         },
         {
@@ -9848,7 +9848,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1018288",
-            "source_path": "src/textbin/fun_001f7a30.c"
+            "source_path": "src/textbin/rendering/texture/initialize_alpha_lookup_table.c"
           }
         },
         {
@@ -9858,7 +9858,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1033728",
-            "source_path": "src/textbin/fun_001fb680.c"
+            "source_path": "src/textbin/rendering/texture/append_texture_transfer_packet.c"
           }
         },
         {
@@ -9868,7 +9868,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1033824",
-            "source_path": "src/textbin/fun_001fb6e0.c"
+            "source_path": "src/textbin/rendering/texture/append_palette_transfer_packet.c"
           }
         },
         {
@@ -9878,7 +9878,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1062472",
-            "source_path": "src/assembly/textbin/fun_002026c8.c"
+            "source_path": "src/assembly/textbin/rendering/texture/parse_particle_textures.c"
           }
         },
         {
@@ -9888,7 +9888,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1074008",
-            "source_path": "src/textbin/fun_002053d8.c"
+            "source_path": "src/textbin/rendering/texture/compose_bitmap_from_mask.c"
           }
         },
         {
@@ -9898,7 +9898,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1105264",
-            "source_path": "src/assembly/textbin/dma_moby_textures.c"
+            "source_path": "src/assembly/textbin/rendering/texture/dma_moby_textures.c"
           }
         },
         {
@@ -9908,7 +9908,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1218672",
-            "source_path": "src/assembly/textbin/fun_002288f0.c"
+            "source_path": "src/assembly/textbin/rendering/texture/dma_shrub_textures.c"
           }
         },
         {
@@ -9918,7 +9918,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1261888",
-            "source_path": "src/assembly/textbin/fun_002331c0.c"
+            "source_path": "src/assembly/textbin/rendering/texture/dma_tfrag_textures.c"
           }
         },
         {
@@ -9928,7 +9928,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271232",
-            "source_path": "src/assembly/textbin/fun_00235640.c"
+            "source_path": "src/assembly/textbin/rendering/texture/dma_tie_textures.c"
           }
         },
         {
@@ -9938,7 +9938,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271552",
-            "source_path": "src/textbin/fun_00235780.c"
+            "source_path": "src/textbin/rendering/texture/patch_tie_texture_fields.c"
           }
         }
       ],
@@ -9971,7 +9971,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "959160",
-            "source_path": "src/textbin/fun_001e9338.c"
+            "source_path": "src/textbin/ui/fonts/load_debug_font.c"
           }
         }
       ],
@@ -10237,7 +10237,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "996616",
-            "source_path": "src/assembly/textbin/fun_001f2588.c"
+            "source_path": "src/assembly/textbin/rendering/update_fog.c"
           }
         },
         {
@@ -10247,7 +10247,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "996880",
-            "source_path": "src/assembly/textbin/fun_001f2690.c"
+            "source_path": "src/assembly/textbin/rendering/parse_occlusion_grid.c"
           }
         },
         {
@@ -10257,7 +10257,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "997096",
-            "source_path": "src/textbin/get_occl_grid_from_pair.c"
+            "source_path": "src/textbin/rendering/get_occlusion_grid_from_pair.c"
           }
         },
         {
@@ -10267,7 +10267,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "997280",
-            "source_path": "src/assembly/textbin/build_occl_visibility.c"
+            "source_path": "src/assembly/textbin/rendering/build_occlusion_visibility.c"
           }
         },
         {
@@ -10277,7 +10277,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "998288",
-            "source_path": "src/textbin/update_occlusion.c"
+            "source_path": "src/textbin/rendering/update_occlusion.c"
           }
         },
         {
@@ -10287,7 +10287,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1001808",
-            "source_path": "src/assembly/textbin/fun_001f39d0.c"
+            "source_path": "src/assembly/textbin/rendering/draw_debug_profiler.c"
           }
         },
         {
@@ -10297,7 +10297,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1004032",
-            "source_path": "src/assembly/textbin/fun_001f4280.c"
+            "source_path": "src/assembly/textbin/rendering/setup_gif_paging.c"
           }
         },
         {
@@ -10307,7 +10307,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1004312",
-            "source_path": "src/assembly/textbin/fun_001f4398.c"
+            "source_path": "src/assembly/textbin/rendering/do_gif_paging.c"
           }
         },
         {
@@ -10317,7 +10317,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1008160",
-            "source_path": "src/assembly/textbin/fun_001f52a0.c"
+            "source_path": "src/assembly/textbin/rendering/draw_rect_overlay.c"
           }
         },
         {
@@ -10337,7 +10337,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1035216",
-            "source_path": "src/assembly/textbin/fun_001fbc50.c"
+            "source_path": "src/assembly/textbin/rendering/draw_dialog_text.c"
           }
         },
         {
@@ -10347,7 +10347,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1059240",
-            "source_path": "src/assembly/textbin/update_all_point_lights.c"
+            "source_path": "src/assembly/textbin/rendering/update_all_point_lights.c"
           }
         },
         {
@@ -10357,7 +10357,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1059624",
-            "source_path": "src/assembly/textbin/create_point_light.c"
+            "source_path": "src/assembly/textbin/rendering/create_point_light.c"
           }
         },
         {
@@ -10367,7 +10367,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1060568",
-            "source_path": "src/textbin/fun_00201f58.c"
+            "source_path": "src/textbin/rendering/refresh_point_light.c"
           }
         },
         {
@@ -10377,7 +10377,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1060616",
-            "source_path": "src/textbin/fun_00201f88.c"
+            "source_path": "src/textbin/rendering/detach_point_light.c"
           }
         },
         {
@@ -10387,7 +10387,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1064784",
-            "source_path": "src/assembly/textbin/fun_00202fd0.c"
+            "source_path": "src/assembly/textbin/rendering/set_up_vis_gif_viewer.c"
           }
         },
         {
@@ -10407,7 +10407,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1098592",
-            "source_path": "src/assembly/textbin/dma_to_spr_sync.c"
+            "source_path": "src/assembly/textbin/rendering/dma_to_spr_sync.c"
           }
         },
         {
@@ -10417,7 +10417,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1098648",
-            "source_path": "src/assembly/textbin/fun_0020b418.c"
+            "source_path": "src/assembly/textbin/rendering/init_dma.c"
           }
         },
         {
@@ -10457,7 +10457,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1185552",
-            "source_path": "src/textbin/fun_00220790.c"
+            "source_path": "src/textbin/rendering/draw_two_texture_panels.c"
           }
         },
         {
@@ -10487,7 +10487,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1219256",
-            "source_path": "src/textbin/draw_shrubs.c"
+            "source_path": "src/textbin/rendering/draw_shrubs.c"
           }
         },
         {
@@ -10497,7 +10497,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1261544",
-            "source_path": "src/assembly/textbin/set_tfrag_dists.c"
+            "source_path": "src/assembly/textbin/rendering/set_tfrag_dists.c"
           }
         },
         {
@@ -10507,7 +10507,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1262216",
-            "source_path": "src/assembly/textbin/fun_00233308.c"
+            "source_path": "src/assembly/textbin/rendering/patch_tfrag_gifs.c"
           }
         },
         {
@@ -10517,7 +10517,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1262376",
-            "source_path": "src/assembly/textbin/fun_002333a8.c"
+            "source_path": "src/assembly/textbin/rendering/draw_tfrag.c"
           }
         },
         {
@@ -10527,7 +10527,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1262928",
-            "source_path": "src/assembly/textbin/fun_002335d0.c"
+            "source_path": "src/assembly/textbin/rendering/vu1_init_chain.c"
           }
         },
         {
@@ -10537,7 +10537,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263136",
-            "source_path": "src/assembly/textbin/fun_002336a0.c"
+            "source_path": "src/assembly/textbin/rendering/vu1_send_chain.c"
           }
         },
         {
@@ -10547,7 +10547,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263408",
-            "source_path": "src/assembly/textbin/fun_002337b0.c"
+            "source_path": "src/assembly/textbin/rendering/vu1_sync_chain.c"
           }
         },
         {
@@ -10557,7 +10557,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263536",
-            "source_path": "src/textbin/fun_00233830.c"
+            "source_path": "src/textbin/rendering/vu1_add_data_ref.c"
           }
         },
         {
@@ -10577,7 +10577,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263872",
-            "source_path": "src/textbin/fun_00233980.c"
+            "source_path": "src/textbin/rendering/vu1_add_g_sregister.c"
           }
         },
         {
@@ -10587,7 +10587,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264064",
-            "source_path": "src/assembly/textbin/fun_00233a40.c"
+            "source_path": "src/assembly/textbin/rendering/vu1_set_scissor.c"
           }
         },
         {
@@ -10597,7 +10597,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264360",
-            "source_path": "src/textbin/fun_00233b68.c"
+            "source_path": "src/textbin/rendering/vu1_tex_flush.c"
           }
         },
         {
@@ -10607,7 +10607,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264456",
-            "source_path": "src/textbin/fun_00233bc8.c"
+            "source_path": "src/textbin/rendering/vu1_gs_regs_normal.c"
           }
         },
         {
@@ -10637,7 +10637,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264768",
-            "source_path": "src/textbin/dmac_vif1_enable.c"
+            "source_path": "src/textbin/rendering/dmac_vif1_enable.c"
           }
         },
         {
@@ -10647,7 +10647,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264912",
-            "source_path": "src/textbin/fun_00233d90.c"
+            "source_path": "src/textbin/rendering/dmac_vif1_disable.c"
           }
         },
         {
@@ -10657,7 +10657,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271880",
-            "source_path": "src/textbin/draw_ties_1.c"
+            "source_path": "src/textbin/rendering/draw_ties_1.c"
           }
         },
         {
@@ -10667,7 +10667,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1272080",
-            "source_path": "src/assembly/textbin/fun_00235990.c"
+            "source_path": "src/assembly/textbin/rendering/draw_ties_2.c"
           }
         },
         {
@@ -10710,7 +10710,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "959960",
-            "source_path": "src/assembly/textbin/fun_001e9658.c"
+            "source_path": "src/assembly/textbin/world/startlevel.c"
           }
         },
         {
@@ -10730,7 +10730,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1071472",
-            "source_path": "src/textbin/fun_002049f0.c"
+            "source_path": "src/textbin/world/parse_space_scene_chunk.c"
           }
         }
       ],
@@ -10763,7 +10763,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "966408",
-            "source_path": "src/assembly/textbin/fun_001eaf88.c"
+            "source_path": "src/assembly/textbin/gameplay/camera/transition_update_movie_camera.c"
           }
         },
         {
@@ -10773,7 +10773,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "969744",
-            "source_path": "src/textbin/fun_001ebc90.c"
+            "source_path": "src/textbin/gameplay/camera/backup_current_cam.c"
           }
         },
         {
@@ -10783,7 +10783,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "969840",
-            "source_path": "src/textbin/fun_001ebcf0.c"
+            "source_path": "src/textbin/gameplay/camera/execute_camera_post_update_callbacks.c"
           }
         },
         {
@@ -10793,7 +10793,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "969976",
-            "source_path": "src/assembly/textbin/fun_001ebd78.c"
+            "source_path": "src/assembly/textbin/gameplay/camera/cam_interp_values.c"
           }
         },
         {
@@ -10803,7 +10803,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "970216",
-            "source_path": "src/assembly/textbin/camera_handle_coll_with_hero.c"
+            "source_path": "src/assembly/textbin/gameplay/camera/handle_camera_collision_with_hero.c"
           }
         },
         {
@@ -10813,7 +10813,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "971152",
-            "source_path": "src/assembly/textbin/fun_001ec210.c"
+            "source_path": "src/assembly/textbin/gameplay/camera/camera_activation_check_priority.c"
           }
         },
         {
@@ -10823,7 +10823,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "971680",
-            "source_path": "src/assembly/textbin/fun_001ec420.c"
+            "source_path": "src/assembly/textbin/gameplay/camera/update_all_cameras.c"
           }
         },
         {
@@ -10833,7 +10833,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1137968",
-            "source_path": "src/textbin/fun_00214db0.c"
+            "source_path": "src/textbin/gameplay/camera/build_spherical_offset.c"
           }
         }
       ],
@@ -10866,7 +10866,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "970312",
-            "source_path": "src/textbin/fun_001ebec8.c"
+            "source_path": "src/textbin/gameplay/entities/update_moby.c"
           }
         },
         {
@@ -10876,7 +10876,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1102968",
-            "source_path": "src/assembly/textbin/create_moby.c"
+            "source_path": "src/assembly/textbin/gameplay/entities/create_moby.c"
           }
         },
         {
@@ -10886,7 +10886,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1103216",
-            "source_path": "src/assembly/textbin/init_moby_instance.c"
+            "source_path": "src/assembly/textbin/gameplay/entities/init_moby_instance.c"
           }
         },
         {
@@ -10896,7 +10896,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1103784",
-            "source_path": "src/textbin/fun_0020c828.c"
+            "source_path": "src/textbin/gameplay/entities/mark_moby_for_removal.c"
           }
         },
         {
@@ -10906,7 +10906,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1104528",
-            "source_path": "src/textbin/attach_manipulator.c"
+            "source_path": "src/textbin/gameplay/entities/attach_manipulator.c"
           }
         },
         {
@@ -10916,7 +10916,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1104648",
-            "source_path": "src/assembly/textbin/fun_0020cb88.c"
+            "source_path": "src/assembly/textbin/gameplay/entities/detach_manipulator.c"
           }
         },
         {
@@ -10926,7 +10926,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1104792",
-            "source_path": "src/textbin/fun_0020cc18.c"
+            "source_path": "src/textbin/gameplay/entities/find_or_allocate_id_slot.c"
           }
         },
         {
@@ -10936,7 +10936,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1105528",
-            "source_path": "src/assembly/textbin/fun_0020cef8.c"
+            "source_path": "src/assembly/textbin/gameplay/entities/patch_moby_gifs.c"
           }
         },
         {
@@ -10966,7 +10966,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106216",
-            "source_path": "src/textbin/fun_0020d1a8.c"
+            "source_path": "src/textbin/gameplay/entities/process_moby_anim_data.c"
           }
         },
         {
@@ -10976,7 +10976,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106288",
-            "source_path": "src/textbin/init_moby_class_dists.c"
+            "source_path": "src/textbin/gameplay/entities/init_moby_class_dists.c"
           }
         },
         {
@@ -10986,7 +10986,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106328",
-            "source_path": "src/textbin/fun_0020d218.c"
+            "source_path": "src/textbin/gameplay/entities/stash_moby_class_dists.c"
           }
         },
         {
@@ -10996,7 +10996,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106376",
-            "source_path": "src/textbin/fun_0020d248.c"
+            "source_path": "src/textbin/gameplay/entities/restore_moby_class_dists.c"
           }
         },
         {
@@ -11006,7 +11006,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106424",
-            "source_path": "src/textbin/draw_mobys_setup.c"
+            "source_path": "src/textbin/gameplay/entities/draw_mobys_setup.c"
           }
         },
         {
@@ -11016,7 +11016,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106608",
-            "source_path": "src/textbin/draw_moby_list.c"
+            "source_path": "src/textbin/gameplay/entities/draw_moby_list.c"
           }
         },
         {
@@ -11026,7 +11026,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106736",
-            "source_path": "src/textbin/fun_0020d3b0.c"
+            "source_path": "src/textbin/gameplay/entities/draw_mobys_clean_up.c"
           }
         },
         {
@@ -11036,7 +11036,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106912",
-            "source_path": "src/textbin/fun_0020d460.c"
+            "source_path": "src/textbin/gameplay/entities/draw_mobys.c"
           }
         }
       ],
@@ -11112,7 +11112,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "971608",
-            "source_path": "src/textbin/fun_001ec3d8.c"
+            "source_path": "src/textbin/rendering/entities/draw_moby.c"
           }
         },
         {
@@ -11122,7 +11122,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1206760",
-            "source_path": "src/textbin/fun_00225a68.c"
+            "source_path": "src/textbin/rendering/entities/draw_moby_entries_from_object.c"
           }
         },
         {
@@ -11132,7 +11132,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271832",
-            "source_path": "src/textbin/fun_00235898.c"
+            "source_path": "src/textbin/rendering/entities/register_entity_render_resources.c"
           }
         }
       ],
@@ -11198,7 +11198,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "998368",
-            "source_path": "src/assembly/textbin/fun_001f2c60.c"
+            "source_path": "src/assembly/textbin/rendering/view/init_view_context.c"
           }
         },
         {
@@ -11208,7 +11208,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "998680",
-            "source_path": "src/assembly/textbin/fun_001f2d98.c"
+            "source_path": "src/assembly/textbin/rendering/view/update_view_context.c"
           }
         },
         {
@@ -11218,7 +11218,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1136656",
-            "source_path": "src/assembly/textbin/fun_00214890.c"
+            "source_path": "src/assembly/textbin/rendering/view/build_look_at_matrix.c"
           }
         }
       ],
@@ -11251,7 +11251,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1000552",
-            "source_path": "src/assembly/textbin/set_pal_mode.c"
+            "source_path": "src/assembly/textbin/video/display/set_pal_mode.c"
           }
         },
         {
@@ -11261,7 +11261,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1295632",
-            "source_path": "src/textbin/fun_0023b590.c"
+            "source_path": "src/textbin/video/display/wait_for_display_vsync.c"
           }
         }
       ],
@@ -11294,7 +11294,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1001320",
-            "source_path": "src/textbin/fun_001f37e8.c"
+            "source_path": "src/textbin/gameplay/callbacks/reset_callback_registries.c"
           }
         },
         {
@@ -11304,7 +11304,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1004928",
-            "source_path": "src/textbin/fun_001f4600.c"
+            "source_path": "src/textbin/gameplay/callbacks/enqueue_callback_list_1.c"
           }
         },
         {
@@ -11314,7 +11314,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005008",
-            "source_path": "src/textbin/fun_001f4650.c"
+            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_1.c"
           }
         },
         {
@@ -11324,7 +11324,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005128",
-            "source_path": "src/textbin/fun_001f46c8.c"
+            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_2.c"
           }
         },
         {
@@ -11334,7 +11334,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005248",
-            "source_path": "src/textbin/fun_001f4740.c"
+            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_3.c"
           }
         },
         {
@@ -11344,7 +11344,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005368",
-            "source_path": "src/textbin/fun_001f47b8.c"
+            "source_path": "src/textbin/gameplay/callbacks/enqueue_callback_list_4.c"
           }
         },
         {
@@ -11354,7 +11354,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005448",
-            "source_path": "src/textbin/fun_001f4808.c"
+            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_4.c"
           }
         }
       ],
@@ -11387,7 +11387,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1001448",
-            "source_path": "src/assembly/textbin/fun_001f3868.c"
+            "source_path": "src/assembly/textbin/rendering/state/reset_gs_registers.c"
           }
         },
         {
@@ -11397,7 +11397,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1001688",
-            "source_path": "src/assembly/textbin/fun_001f3958.c"
+            "source_path": "src/assembly/textbin/rendering/state/reset_gs_registers_pr.c"
           }
         }
       ],
@@ -11430,7 +11430,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1003976",
-            "source_path": "src/textbin/fun_001f4248.c"
+            "source_path": "src/textbin/rendering/debug/prepare_debug_profiler_render.c"
           }
         }
       ],
@@ -11463,7 +11463,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1004600",
-            "source_path": "src/assembly/textbin/fun_001f44b8.c"
+            "source_path": "src/assembly/textbin/rendering/effects/get_effect_texture.c"
           }
         },
         {
@@ -11473,7 +11473,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1007800",
-            "source_path": "src/textbin/fun_001f5138.c"
+            "source_path": "src/textbin/rendering/effects/draw_fogged_fullscreen_sprite.c"
           }
         }
       ],
@@ -11506,7 +11506,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1006040",
-            "source_path": "src/assembly/textbin/fun_001f4a58.c"
+            "source_path": "src/assembly/textbin/rendering/transitions/fade_to_black.c"
           }
         },
         {
@@ -11516,7 +11516,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1182696",
-            "source_path": "src/textbin/fun_0021fc68.c"
+            "source_path": "src/textbin/rendering/transitions/draw_transition_overlay.c"
           }
         }
       ],
@@ -11549,7 +11549,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1008016",
-            "source_path": "src/textbin/fun_001f5210.c"
+            "source_path": "src/textbin/rendering/packets/emit_rgba_draw_packet.c"
           }
         },
         {
@@ -11559,7 +11559,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1032744",
-            "source_path": "src/textbin/fun_001fb2a8.c"
+            "source_path": "src/textbin/rendering/packets/put_disp_buffer.c"
           }
         },
         {
@@ -11569,7 +11569,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1032784",
-            "source_path": "src/textbin/fun_001fb2d0.c"
+            "source_path": "src/textbin/rendering/packets/append_draw_environment_packet.c"
           }
         },
         {
@@ -11579,7 +11579,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1032936",
-            "source_path": "src/textbin/fun_001fb368.c"
+            "source_path": "src/textbin/rendering/packets/append_gif_transfer_packet.c"
           }
         },
         {
@@ -11589,7 +11589,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1033040",
-            "source_path": "src/textbin/fun_001fb3d0.c"
+            "source_path": "src/textbin/rendering/packets/append_draw_buffer_packet.c"
           }
         },
         {
@@ -11599,7 +11599,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263624",
-            "source_path": "src/textbin/fun_00233888.c"
+            "source_path": "src/textbin/rendering/packets/write_vif_unpack_packet.c"
           }
         }
       ],
@@ -11632,7 +11632,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1011352",
-            "source_path": "src/assembly/textbin/fun_001f5f18.c"
+            "source_path": "src/assembly/textbin/ui/frames/draw_ui_frame.c"
           }
         },
         {
@@ -11642,7 +11642,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1056936",
-            "source_path": "src/textbin/fun_00201128.c"
+            "source_path": "src/textbin/ui/frames/draw_stretchable_ui_frame.c"
           }
         },
         {
@@ -11652,7 +11652,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1057152",
-            "source_path": "src/assembly/textbin/fun_00201200.c"
+            "source_path": "src/assembly/textbin/ui/frames/draw_framed_text.c"
           }
         }
       ],
@@ -11685,7 +11685,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012096",
-            "source_path": "src/textbin/fun_001f6200.c"
+            "source_path": "src/textbin/ui/text/measure_text_width.c"
           }
         },
         {
@@ -11695,7 +11695,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012176",
-            "source_path": "src/textbin/fun_001f6250.c"
+            "source_path": "src/textbin/ui/text/measure_text_width_regular.c"
           }
         },
         {
@@ -11705,7 +11705,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012208",
-            "source_path": "src/textbin/fun_001f6270.c"
+            "source_path": "src/textbin/ui/text/measure_text_width_small.c"
           }
         },
         {
@@ -11715,7 +11715,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012240",
-            "source_path": "src/textbin/fun_001f6290.c"
+            "source_path": "src/textbin/ui/text/measure_text_width_large.c"
           }
         },
         {
@@ -11725,7 +11725,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012272",
-            "source_path": "src/assembly/textbin/font_print.c"
+            "source_path": "src/assembly/textbin/ui/text/font_print.c"
           }
         },
         {
@@ -11735,7 +11735,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012912",
-            "source_path": "src/textbin/fun_001f6530.c"
+            "source_path": "src/textbin/ui/text/font_print_large.c"
           }
         },
         {
@@ -11745,7 +11745,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1013040",
-            "source_path": "src/textbin/fun_001f65b0.c"
+            "source_path": "src/textbin/ui/text/font_print_small.c"
           }
         },
         {
@@ -11755,7 +11755,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1013952",
-            "source_path": "src/textbin/fun_001f6940.c"
+            "source_path": "src/textbin/ui/text/font_print_right.c"
           }
         },
         {
@@ -11765,7 +11765,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014096",
-            "source_path": "src/textbin/fun_001f69d0.c"
+            "source_path": "src/textbin/ui/text/font_print_right_small.c"
           }
         },
         {
@@ -11775,7 +11775,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014240",
-            "source_path": "src/textbin/fun_001f6a60.c"
+            "source_path": "src/textbin/ui/text/font_print_right_large.c"
           }
         },
         {
@@ -11785,7 +11785,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014384",
-            "source_path": "src/textbin/fun_001f6af0.c"
+            "source_path": "src/textbin/ui/text/font_print_center.c"
           }
         },
         {
@@ -11795,7 +11795,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014536",
-            "source_path": "src/textbin/fun_001f6b88.c"
+            "source_path": "src/textbin/ui/text/font_print_center_small.c"
           }
         },
         {
@@ -11805,7 +11805,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014688",
-            "source_path": "src/textbin/fun_001f6c20.c"
+            "source_path": "src/textbin/ui/text/font_print_center_large.c"
           }
         },
         {
@@ -11835,7 +11835,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1015824",
-            "source_path": "src/assembly/textbin/fun_001f7090.c"
+            "source_path": "src/assembly/textbin/ui/text/font_print_window.c"
           }
         },
         {
@@ -11845,7 +11845,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1017088",
-            "source_path": "src/textbin/fun_001f7580.c"
+            "source_path": "src/textbin/ui/text/font_print_window_regular.c"
           }
         },
         {
@@ -11855,7 +11855,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1017200",
-            "source_path": "src/textbin/fun_001f75f0.c"
+            "source_path": "src/textbin/ui/text/font_print_window_small.c"
           }
         },
         {
@@ -11865,7 +11865,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1043672",
-            "source_path": "src/assembly/textbin/fun_001fdd58.c"
+            "source_path": "src/assembly/textbin/ui/text/link_localized_display_text.c"
           }
         },
         {
@@ -11875,7 +11875,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1050072",
-            "source_path": "src/textbin/fun_001ff658.c"
+            "source_path": "src/textbin/ui/text/copy_text_to_shared_buffer.c"
           }
         },
         {
@@ -11885,7 +11885,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1137472",
-            "source_path": "src/assembly/textbin/fun_00214bc0.c"
+            "source_path": "src/assembly/textbin/ui/text/load_display_text_resource_entry.c"
           }
         },
         {
@@ -11895,7 +11895,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1281552",
-            "source_path": "src/textbin/fun_00237e90.c"
+            "source_path": "src/textbin/ui/text/set_scrolling_status_message.c"
           }
         },
         {
@@ -11905,7 +11905,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1283232",
-            "source_path": "src/textbin/fun_00238520.c"
+            "source_path": "src/textbin/ui/text/update_scrolling_status_message.c"
           }
         }
       ],
@@ -11938,7 +11938,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1013176",
-            "source_path": "src/assembly/textbin/fun_001f6638.c"
+            "source_path": "src/assembly/textbin/audio/music/process_bgm_display_text_event.c"
           }
         },
         {
@@ -11948,7 +11948,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1141480",
-            "source_path": "src/assembly/textbin/fun_00215b68.c"
+            "source_path": "src/assembly/textbin/audio/music/music_preseek_track.c"
           }
         },
         {
@@ -11958,7 +11958,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1141696",
-            "source_path": "src/assembly/textbin/fun_00215c40.c"
+            "source_path": "src/assembly/textbin/audio/music/music_start_track.c"
           }
         },
         {
@@ -11968,7 +11968,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1141912",
-            "source_path": "src/assembly/textbin/fun_00215d18.c"
+            "source_path": "src/assembly/textbin/audio/music/music_start_track_body.c"
           }
         },
         {
@@ -11978,7 +11978,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1142144",
-            "source_path": "src/assembly/textbin/fun_00215e00.c"
+            "source_path": "src/assembly/textbin/audio/music/music_transition.c"
           }
         },
         {
@@ -11988,7 +11988,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1142376",
-            "source_path": "src/textbin/music_stop.c"
+            "source_path": "src/textbin/audio/music/music_stop.c"
           }
         },
         {
@@ -11998,7 +11998,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1142824",
-            "source_path": "src/assembly/textbin/music_update_stream.c"
+            "source_path": "src/assembly/textbin/audio/music/music_update_stream.c"
           }
         },
         {
@@ -12008,7 +12008,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1143312",
-            "source_path": "src/assembly/textbin/fun_00216290.c"
+            "source_path": "src/assembly/textbin/audio/music/music_update.c"
           }
         }
       ],
@@ -12041,7 +12041,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1029376",
-            "source_path": "src/assembly/textbin/fast_add_rots.c"
+            "source_path": "src/assembly/textbin/math/rotations/fast_add_rotations.c"
           }
         },
         {
@@ -12051,7 +12051,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1029448",
-            "source_path": "src/assembly/textbin/fast_sub_rots.c"
+            "source_path": "src/assembly/textbin/math/rotations/fast_subtract_rotations.c"
           }
         },
         {
@@ -12061,7 +12061,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1029520",
-            "source_path": "src/assembly/textbin/fast_normalize_angle.c"
+            "source_path": "src/assembly/textbin/math/rotations/fast_normalize_angle.c"
           }
         },
         {
@@ -12071,7 +12071,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1029640",
-            "source_path": "src/assembly/textbin/fun_001fa688.c"
+            "source_path": "src/assembly/textbin/math/rotations/fast_difference_between_rotations.c"
           }
         },
         {
@@ -12081,7 +12081,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1135792",
-            "source_path": "src/textbin/fun_00214530.c"
+            "source_path": "src/textbin/math/rotations/build_quaternion_from_axis_angle.c"
           }
         }
       ],
@@ -12114,7 +12114,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1029712",
-            "source_path": "src/textbin/fun_001fa6d0.c"
+            "source_path": "src/textbin/math/conversion/truncate_float_to_s32.c"
           }
         },
         {
@@ -12124,7 +12124,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1137608",
-            "source_path": "src/textbin/fun_00214c48.c"
+            "source_path": "src/textbin/math/conversion/round_float_to_decimal_places.c"
           }
         }
       ],
@@ -12157,7 +12157,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1030392",
-            "source_path": "src/assembly/textbin/fun_001fa978.c"
+            "source_path": "src/assembly/textbin/rendering/buffers/setup_fs_aa_buffer.c"
           }
         },
         {
@@ -12167,7 +12167,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263024",
-            "source_path": "src/textbin/vu1_swap_chain.c"
+            "source_path": "src/textbin/rendering/buffers/swap_render_buffer_chain.c"
           }
         },
         {
@@ -12177,7 +12177,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271744",
-            "source_path": "src/textbin/fun_00235840.c"
+            "source_path": "src/textbin/rendering/buffers/copy_render_buffer_pair.c"
           }
         }
       ],
@@ -12210,7 +12210,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1043488",
-            "source_path": "src/textbin/fun_001fdca0.c"
+            "source_path": "src/textbin/ui/help/find_help_message_index.c"
           }
         },
         {
@@ -12220,7 +12220,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1043600",
-            "source_path": "src/textbin/fun_001fdd10.c"
+            "source_path": "src/textbin/ui/help/get_help_message_text.c"
           }
         },
         {
@@ -12230,7 +12230,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1043984",
-            "source_path": "src/assembly/textbin/fun_001fde90.c"
+            "source_path": "src/assembly/textbin/ui/help/update_help_state.c"
           }
         },
         {
@@ -12240,7 +12240,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1046552",
-            "source_path": "src/textbin/fun_001fe898.c"
+            "source_path": "src/textbin/ui/help/help_draw_prompt.c"
           }
         },
         {
@@ -12250,7 +12250,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1138864",
-            "source_path": "src/textbin/fun_00215130.c"
+            "source_path": "src/textbin/ui/help/try_set_help_message.c"
           }
         },
         {
@@ -12260,7 +12260,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139032",
-            "source_path": "src/textbin/fun_002151d8.c"
+            "source_path": "src/textbin/ui/help/force_help_message.c"
           }
         }
       ],
@@ -12293,7 +12293,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1047992",
-            "source_path": "src/textbin/fun_001fee38.c"
+            "source_path": "src/textbin/gameplay/animation/find_animation_definition_index.c"
           }
         },
         {
@@ -12303,7 +12303,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049224",
-            "source_path": "src/textbin/fun_001ff308.c"
+            "source_path": "src/textbin/gameplay/animation/queue_animation_update.c"
           }
         },
         {
@@ -12313,7 +12313,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049496",
-            "source_path": "src/textbin/fun_001ff418.c"
+            "source_path": "src/textbin/gameplay/animation/apply_pending_animation.c"
           }
         },
         {
@@ -12333,7 +12333,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049728",
-            "source_path": "src/textbin/fun_001ff500.c"
+            "source_path": "src/textbin/gameplay/animation/load_animation_definition.c"
           }
         },
         {
@@ -12343,7 +12343,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049840",
-            "source_path": "src/textbin/fun_001ff570.c"
+            "source_path": "src/textbin/gameplay/animation/set_animation_parameter.c"
           }
         },
         {
@@ -12353,7 +12353,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1050848",
-            "source_path": "src/textbin/fun_001ff960.c"
+            "source_path": "src/textbin/gameplay/animation/find_valid_animation_frame_index.c"
           }
         },
         {
@@ -12363,7 +12363,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1051024",
-            "source_path": "src/assembly/textbin/fun_001ffa10.c"
+            "source_path": "src/assembly/textbin/gameplay/animation/get_frame_texture.c"
           }
         },
         {
@@ -12373,7 +12373,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1103872",
-            "source_path": "src/textbin/fun_0020c880.c"
+            "source_path": "src/textbin/gameplay/animation/update_moby_animation_state.c"
           }
         }
       ],
@@ -12406,7 +12406,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1048384",
-            "source_path": "src/assembly/textbin/fun_001fefc0.c"
+            "source_path": "src/assembly/textbin/ui/hud/link_hud_bank.c"
           }
         },
         {
@@ -12416,7 +12416,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1048744",
-            "source_path": "src/assembly/textbin/hud_send_resident_bank.c"
+            "source_path": "src/assembly/textbin/ui/hud/hud_send_resident_bank.c"
           }
         },
         {
@@ -12426,7 +12426,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049096",
-            "source_path": "src/textbin/fun_001ff288.c"
+            "source_path": "src/textbin/ui/hud/hud_heap_alloc.c"
           }
         },
         {
@@ -12436,7 +12436,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1055376",
-            "source_path": "src/assembly/textbin/fun_00200b10.c"
+            "source_path": "src/assembly/textbin/ui/hud/hud_send_texture.c"
           }
         },
         {
@@ -12446,7 +12446,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1063448",
-            "source_path": "src/assembly/textbin/fun_00202a98.c"
+            "source_path": "src/assembly/textbin/ui/hud/load_hud_banks.c"
           }
         },
         {
@@ -12456,7 +12456,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1064080",
-            "source_path": "src/textbin/fun_00202d10.c"
+            "source_path": "src/textbin/ui/hud/load_compressed_hud_bank.c"
           }
         }
       ],
@@ -12489,7 +12489,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1065568",
-            "source_path": "src/textbin/fun_002032e0.c"
+            "source_path": "src/textbin/runtime/relocation/relocate_asset_entry_pointers.c"
           }
         }
       ],
@@ -12522,7 +12522,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1069872",
-            "source_path": "src/textbin/fun_002043b0.c"
+            "source_path": "src/textbin/world/streaming/load_level_chunk_from_disc.c"
           }
         },
         {
@@ -12542,7 +12542,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1090072",
-            "source_path": "src/textbin/fun_00209298.c"
+            "source_path": "src/textbin/world/streaming/initialize_dma_packet_payloads.c"
           }
         },
         {
@@ -12552,7 +12552,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1090288",
-            "source_path": "src/textbin/fun_00209370.c"
+            "source_path": "src/textbin/world/streaming/load_and_initialize_level_chunk.c"
           }
         }
       ],
@@ -12585,7 +12585,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1070864",
-            "source_path": "src/assembly/textbin/fun_00204790.c"
+            "source_path": "src/assembly/textbin/world/animation/update_world_object_animation.c"
           }
         }
       ],
@@ -12618,7 +12618,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1071552",
-            "source_path": "src/assembly/textbin/fun_00204a40.c"
+            "source_path": "src/assembly/textbin/world/data/select_world_object_resource_tables.c"
           }
         },
         {
@@ -12628,7 +12628,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1073568",
-            "source_path": "src/assembly/textbin/fun_00205220.c"
+            "source_path": "src/assembly/textbin/world/data/find_id_in_terminated_table.c"
           }
         },
         {
@@ -12638,7 +12638,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1212520",
-            "source_path": "src/textbin/fun_002270e8.c"
+            "source_path": "src/textbin/world/data/parse_typed_resource_record.c"
           }
         },
         {
@@ -12648,7 +12648,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1260992",
-            "source_path": "src/assembly/textbin/fun_00232e40.c"
+            "source_path": "src/assembly/textbin/world/data/stash_send_data.c"
           }
         }
       ],
@@ -12681,7 +12681,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1072864",
-            "source_path": "src/textbin/fun_00204f60.c"
+            "source_path": "src/textbin/ui/map/promote_first_available_map_entry.c"
           }
         },
         {
@@ -12691,7 +12691,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1073024",
-            "source_path": "src/textbin/fun_00205000.c"
+            "source_path": "src/textbin/ui/map/move_map_entry_slot.c"
           }
         },
         {
@@ -12701,7 +12701,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1073184",
-            "source_path": "src/textbin/fun_002050a0.c"
+            "source_path": "src/textbin/ui/map/find_map_entry_slot.c"
           }
         },
         {
@@ -12711,7 +12711,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1074624",
-            "source_path": "src/assembly/textbin/fun_00205640.c"
+            "source_path": "src/assembly/textbin/ui/map/draw_map_overlay.c"
           }
         },
         {
@@ -12731,7 +12731,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1166816",
-            "source_path": "src/assembly/textbin/fun_0021be60.c"
+            "source_path": "src/assembly/textbin/ui/map/draw_map_screen.c"
           }
         },
         {
@@ -12741,7 +12741,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1180336",
-            "source_path": "src/textbin/fun_0021f330.c"
+            "source_path": "src/textbin/ui/map/draw_map_screen_overlay.c"
           }
         }
       ],
@@ -12774,7 +12774,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1079544",
-            "source_path": "src/textbin/fun_00206978.c"
+            "source_path": "src/textbin/ui/menus/hit_test_fixed_screen_rectangle.c"
           }
         },
         {
@@ -12784,7 +12784,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139144",
-            "source_path": "src/textbin/fun_00215248.c"
+            "source_path": "src/textbin/ui/menus/compute_clamped_count_difference.c"
           }
         },
         {
@@ -12794,7 +12794,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139216",
-            "source_path": "src/textbin/fun_00215290.c"
+            "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_40.c"
           }
         },
         {
@@ -12804,7 +12804,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139328",
-            "source_path": "src/textbin/fun_00215300.c"
+            "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_10.c"
           }
         },
         {
@@ -12814,7 +12814,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139400",
-            "source_path": "src/textbin/fun_00215348.c"
+            "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_30.c"
           }
         },
         {
@@ -12834,7 +12834,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1177616",
-            "source_path": "src/textbin/fun_0021e890.c"
+            "source_path": "src/textbin/ui/menus/draw_quit_game_menu.c"
           }
         },
         {
@@ -12844,7 +12844,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1179384",
-            "source_path": "src/assembly/textbin/fun_0021ef78.c"
+            "source_path": "src/assembly/textbin/ui/menus/setup_menu_display_text.c"
           }
         },
         {
@@ -12854,7 +12854,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1181800",
-            "source_path": "src/textbin/fun_0021f8e8.c"
+            "source_path": "src/textbin/ui/menus/draw_menu_selection_marker.c"
           }
         },
         {
@@ -12864,7 +12864,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1187760",
-            "source_path": "src/assembly/textbin/fun_00221030.c"
+            "source_path": "src/assembly/textbin/ui/menus/draw_cheats_menu.c"
           }
         },
         {
@@ -12874,7 +12874,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1194520",
-            "source_path": "src/assembly/textbin/fun_00222a98.c"
+            "source_path": "src/assembly/textbin/ui/menus/draw_localized_three_option_menu.c"
           }
         },
         {
@@ -12884,7 +12884,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1283592",
-            "source_path": "src/textbin/fun_00238688.c"
+            "source_path": "src/textbin/ui/menus/format_scaled_display_value.c"
           }
         }
       ],
@@ -12917,7 +12917,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1089456",
-            "source_path": "src/assembly/textbin/fun_00209030.c"
+            "source_path": "src/assembly/textbin/storage/memory_card/memcard_get_name.c"
           }
         },
         {
@@ -12927,7 +12927,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1090392",
-            "source_path": "src/assembly/textbin/fun_002093d8.c"
+            "source_path": "src/assembly/textbin/storage/memory_card/memcard_update_state.c"
           }
         },
         {
@@ -12937,7 +12937,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096496",
-            "source_path": "src/textbin/memcard_make_whole_save.c"
+            "source_path": "src/textbin/storage/memory_card/memcard_make_whole_save.c"
           }
         },
         {
@@ -12947,7 +12947,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096664",
-            "source_path": "src/textbin/memcard_init.c"
+            "source_path": "src/textbin/storage/memory_card/memcard_initialize.c"
           }
         },
         {
@@ -12957,7 +12957,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1097976",
-            "source_path": "src/assembly/textbin/fun_0020b178.c"
+            "source_path": "src/assembly/textbin/storage/memory_card/memcard_save_data.c"
           }
         }
       ],
@@ -12990,7 +12990,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096768",
-            "source_path": "src/textbin/fun_0020acc0.c"
+            "source_path": "src/textbin/storage/memory_card/data/calculate_crc16.c"
           }
         },
         {
@@ -13000,7 +13000,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096888",
-            "source_path": "src/textbin/fun_0020ad38.c"
+            "source_path": "src/textbin/storage/memory_card/data/validate_data_crc.c"
           }
         },
         {
@@ -13010,7 +13010,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096952",
-            "source_path": "src/assembly/textbin/memcard_prep_data.c"
+            "source_path": "src/assembly/textbin/storage/memory_card/data/memcard_prepare_data.c"
           }
         },
         {
@@ -13020,7 +13020,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1097184",
-            "source_path": "src/assembly/textbin/fun_0020ae60.c"
+            "source_path": "src/assembly/textbin/storage/memory_card/data/memcard_restore_info.c"
           }
         },
         {
@@ -13030,7 +13030,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1097376",
-            "source_path": "src/assembly/textbin/fun_0020af20.c"
+            "source_path": "src/assembly/textbin/storage/memory_card/data/memcard_restore_data.c"
           }
         }
       ],
@@ -13063,7 +13063,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1105096",
-            "source_path": "src/textbin/fun_0020cd48.c"
+            "source_path": "src/textbin/rendering/geometry/transform_scaled_vertex_batch.c"
           }
         }
       ],
@@ -13096,7 +13096,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1130976",
-            "source_path": "src/textbin/fun_00213260.c"
+            "source_path": "src/textbin/math/random/random_integer_below.c"
           }
         },
         {
@@ -13106,7 +13106,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1131048",
-            "source_path": "src/textbin/fun_002132a8.c"
+            "source_path": "src/textbin/math/random/random_float_between.c"
           }
         },
         {
@@ -13116,7 +13116,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1131144",
-            "source_path": "src/textbin/fun_00213308.c"
+            "source_path": "src/textbin/math/random/random_angle_radians.c"
           }
         }
       ],
@@ -13159,7 +13159,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1134760",
-            "source_path": "src/textbin/fun_00214128.c"
+            "source_path": "src/textbin/math/vectors/normalize_vector_triplet.c"
           }
         }
       ],
@@ -13192,7 +13192,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1136288",
-            "source_path": "src/textbin/fun_00214720.c"
+            "source_path": "src/textbin/rendering/culling/is_point_inside_clip_volume.c"
           }
         }
       ],
@@ -13268,7 +13268,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1146952",
-            "source_path": "src/assembly/textbin/fun_002170c8.c"
+            "source_path": "src/assembly/textbin/input/pad/poll_pad_device_state.c"
           }
         },
         {
@@ -13278,7 +13278,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1147456",
-            "source_path": "src/textbin/fun_002172c0.c"
+            "source_path": "src/textbin/input/pad/clear_pad_input.c"
           }
         },
         {
@@ -13288,7 +13288,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1147560",
-            "source_path": "src/assembly/textbin/process_pad_input.c"
+            "source_path": "src/assembly/textbin/input/pad/process_pad_input.c"
           }
         },
         {
@@ -13298,7 +13298,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1149328",
-            "source_path": "src/textbin/fun_00217a10.c"
+            "source_path": "src/textbin/input/pad/update_primary_pad_state.c"
           }
         }
       ],
@@ -13331,7 +13331,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1170096",
-            "source_path": "src/assembly/textbin/sound_options_menu.c"
+            "source_path": "src/assembly/textbin/ui/menus/audio/sound_options_menu.c"
           }
         },
         {
@@ -13341,7 +13341,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1170816",
-            "source_path": "src/assembly/textbin/fun_0021ce00.c"
+            "source_path": "src/assembly/textbin/ui/menus/audio/draw_sound_menu.c"
           }
         }
       ],
@@ -13437,7 +13437,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1178272",
-            "source_path": "src/assembly/textbin/fun_0021eb20.c"
+            "source_path": "src/assembly/textbin/ui/menus/inventory/draw_items_menu.c"
           }
         }
       ],
@@ -13470,7 +13470,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1180392",
-            "source_path": "src/assembly/textbin/fun_0021f368.c"
+            "source_path": "src/assembly/textbin/ui/menus/missions/draw_missions_menu.c"
           }
         },
         {
@@ -13480,7 +13480,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1181048",
-            "source_path": "src/textbin/fun_0021f5f8.c"
+            "source_path": "src/textbin/ui/menus/missions/draw_mission_menu_labels.c"
           }
         },
         {
@@ -13490,7 +13490,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1181192",
-            "source_path": "src/assembly/textbin/fun_0021f688.c"
+            "source_path": "src/assembly/textbin/ui/menus/missions/draw_missions_menu2.c"
           }
         }
       ],
@@ -13523,7 +13523,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1184456",
-            "source_path": "src/assembly/textbin/fun_00220348.c"
+            "source_path": "src/assembly/textbin/ui/menus/save_data/draw_checking_memory_card_data_menu.c"
           }
         },
         {
@@ -13533,7 +13533,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1195784",
-            "source_path": "src/assembly/textbin/saving_data_menu.c"
+            "source_path": "src/assembly/textbin/ui/menus/save_data/saving_data_menu.c"
           }
         },
         {
@@ -13543,7 +13543,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1196632",
-            "source_path": "src/assembly/textbin/fun_002232d8.c"
+            "source_path": "src/assembly/textbin/ui/menus/save_data/loading_data_menu.c"
           }
         },
         {
@@ -13553,7 +13553,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1197368",
-            "source_path": "src/assembly/textbin/fun_002235b8.c"
+            "source_path": "src/assembly/textbin/ui/menus/save_data/saving_data_menu2.c"
           }
         }
       ],
@@ -13586,7 +13586,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1194184",
-            "source_path": "src/assembly/textbin/obtain_all_gold_weapons_menu.c"
+            "source_path": "src/assembly/textbin/ui/menus/weapons/obtain_all_gold_weapons_menu.c"
           }
         }
       ],
@@ -13619,7 +13619,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1200872",
-            "source_path": "src/assembly/textbin/fun_00224368.c"
+            "source_path": "src/assembly/textbin/gameplay/gadgets/load_hand_gadget.c"
           }
         }
       ],
@@ -13652,7 +13652,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1228272",
-            "source_path": "src/assembly/textbin/fun_0022ae70.c"
+            "source_path": "src/assembly/textbin/rendering/sky/update_sky_effects.c"
           }
         },
         {
@@ -13672,7 +13672,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1229896",
-            "source_path": "src/assembly/textbin/fun_0022b4c8.c"
+            "source_path": "src/assembly/textbin/rendering/sky/setup_sky_gif_paging.c"
           }
         },
         {
@@ -13682,7 +13682,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1230040",
-            "source_path": "src/assembly/textbin/fun_0022b558.c"
+            "source_path": "src/assembly/textbin/rendering/sky/do_sky_gif_paging.c"
           }
         },
         {
@@ -13692,7 +13692,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1230352",
-            "source_path": "src/textbin/sky_draw_shell.c"
+            "source_path": "src/textbin/rendering/sky/sky_draw_shell.c"
           }
         },
         {
@@ -13702,7 +13702,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1230440",
-            "source_path": "src/assembly/textbin/fun_0022b6e8.c"
+            "source_path": "src/assembly/textbin/rendering/sky/sky_draw_shell_textured.c"
           }
         },
         {
@@ -13712,7 +13712,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1231016",
-            "source_path": "src/assembly/textbin/fun_0022b928.c"
+            "source_path": "src/assembly/textbin/rendering/sky/sky_draw_shell_gouraud.c"
           }
         }
       ],
@@ -13745,7 +13745,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1240464",
-            "source_path": "src/assembly/textbin/fun_0022de10.c"
+            "source_path": "src/assembly/textbin/world/transforms/build_object_rotation_matrix.c"
           }
         }
       ],
@@ -13778,7 +13778,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1262680",
-            "source_path": "src/textbin/fun_002334d8.c"
+            "source_path": "src/textbin/rendering/dma/start_vif1_dma_transfer.c"
           }
         }
       ],
@@ -13811,7 +13811,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1265280",
-            "source_path": "src/textbin/fun_00233f00.c"
+            "source_path": "src/textbin/runtime/diagnostics/print_register_values_and_halt.c"
           }
         }
       ],
@@ -13864,7 +13864,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1291232",
-            "source_path": "src/assembly/textbin/read_mpeg.c"
+            "source_path": "src/assembly/textbin/video/decoder/read_mpeg.c"
           }
         },
         {
@@ -13874,7 +13874,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1294736",
-            "source_path": "src/assembly/textbin/fun_0023b210.c"
+            "source_path": "src/assembly/textbin/video/decoder/build_image_transfer_tag.c"
           }
         },
         {
@@ -13884,7 +13884,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297352",
-            "source_path": "src/assembly/textbin/vi_buf_create.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_create.c"
           }
         },
         {
@@ -13894,7 +13894,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297472",
-            "source_path": "src/assembly/textbin/vi_buf_reset.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_reset.c"
           }
         },
         {
@@ -13904,7 +13904,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297824",
-            "source_path": "src/textbin/fun_0023be20.c"
+            "source_path": "src/textbin/video/decoder/vi_buf_begin_put.c"
           }
         },
         {
@@ -13914,7 +13914,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1298072",
-            "source_path": "src/textbin/fun_0023bf18.c"
+            "source_path": "src/textbin/video/decoder/vi_buf_end_put.c"
           }
         },
         {
@@ -13924,7 +13924,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1298160",
-            "source_path": "src/assembly/textbin/fun_0023bf70.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_add_dma.c"
           }
         },
         {
@@ -13934,7 +13934,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1298672",
-            "source_path": "src/assembly/textbin/vi_buf_stop_dma.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_stop_dma.c"
           }
         },
         {
@@ -13944,7 +13944,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1298944",
-            "source_path": "src/assembly/textbin/vi_buf_restart_dma.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_restart_dma.c"
           }
         },
         {
@@ -13954,7 +13954,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1299768",
-            "source_path": "src/textbin/vi_buf_delete.c"
+            "source_path": "src/textbin/video/decoder/vi_buf_delete.c"
           }
         },
         {
@@ -13964,7 +13964,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1299856",
-            "source_path": "src/textbin/fun_0023c610.c"
+            "source_path": "src/textbin/video/decoder/vi_buf_count.c"
           }
         },
         {
@@ -13974,7 +13974,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1299936",
-            "source_path": "src/textbin/fun_0023c660.c"
+            "source_path": "src/textbin/video/decoder/vi_buf_flush.c"
           }
         },
         {
@@ -13984,7 +13984,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1300024",
-            "source_path": "src/assembly/textbin/fun_0023c6b8.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_modify_pts.c"
           }
         },
         {
@@ -13994,7 +13994,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1300368",
-            "source_path": "src/assembly/textbin/vi_buf_put_ts.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_put_ts.c"
           }
         },
         {
@@ -14004,7 +14004,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1300640",
-            "source_path": "src/assembly/textbin/fun_0023c920.c"
+            "source_path": "src/assembly/textbin/video/decoder/vi_buf_get_ts.c"
           }
         },
         {
@@ -14014,7 +14014,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301064",
-            "source_path": "src/textbin/fun_0023cac8.c"
+            "source_path": "src/textbin/video/decoder/video_dec_create.c"
           }
         },
         {
@@ -14024,7 +14024,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301328",
-            "source_path": "src/textbin/video_dec_set_stream.c"
+            "source_path": "src/textbin/video/decoder/video_dec_set_stream.c"
           }
         },
         {
@@ -14034,7 +14034,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301360",
-            "source_path": "src/textbin/fun_0023cbf0.c"
+            "source_path": "src/textbin/video/decoder/video_dec_begin_put.c"
           }
         },
         {
@@ -14044,7 +14044,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301392",
-            "source_path": "src/textbin/fun_0023cc10.c"
+            "source_path": "src/textbin/video/decoder/video_dec_end_put.c"
           }
         },
         {
@@ -14054,7 +14054,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301432",
-            "source_path": "src/textbin/fun_0023cc38.c"
+            "source_path": "src/textbin/video/decoder/video_dec_delete.c"
           }
         },
         {
@@ -14064,7 +14064,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301528",
-            "source_path": "src/textbin/video_dec_put_ts.c"
+            "source_path": "src/textbin/video/decoder/video_dec_put_ts.c"
           }
         },
         {
@@ -14074,7 +14074,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301600",
-            "source_path": "src/textbin/fun_0023cce0.c"
+            "source_path": "src/textbin/video/decoder/video_dec_input_count.c"
           }
         },
         {
@@ -14084,7 +14084,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301640",
-            "source_path": "src/textbin/video_dec_flush.c"
+            "source_path": "src/textbin/video/decoder/video_dec_flush.c"
           }
         },
         {
@@ -14094,7 +14094,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301856",
-            "source_path": "src/textbin/video_dec_is_flushed.c"
+            "source_path": "src/textbin/video/decoder/video_dec_is_flushed.c"
           }
         },
         {
@@ -14104,7 +14104,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301928",
-            "source_path": "src/textbin/fun_0023ce28.c"
+            "source_path": "src/textbin/video/decoder/run_video_decoder.c"
           }
         },
         {
@@ -14114,7 +14114,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302088",
-            "source_path": "src/assembly/textbin/fun_0023cec8.c"
+            "source_path": "src/assembly/textbin/video/decoder/decode_bitstream_0.c"
           }
         },
         {
@@ -14124,7 +14124,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302800",
-            "source_path": "src/assembly/textbin/fun_0023d190.c"
+            "source_path": "src/assembly/textbin/video/decoder/vo_buf_create.c"
           }
         },
         {
@@ -14134,7 +14134,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302928",
-            "source_path": "src/assembly/textbin/vo_buf_inc_count.c"
+            "source_path": "src/assembly/textbin/video/decoder/vo_buf_inc_count.c"
           }
         },
         {
@@ -14144,7 +14144,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1303048",
-            "source_path": "src/textbin/vo_buf_get_data.c"
+            "source_path": "src/textbin/video/decoder/vo_buf_get_data.c"
           }
         },
         {
@@ -14154,7 +14154,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1303128",
-            "source_path": "src/textbin/fun_0023d2d8.c"
+            "source_path": "src/textbin/video/decoder/vo_buf_get_tag.c"
           }
         }
       ],
@@ -14187,7 +14187,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1292016",
-            "source_path": "src/textbin/fun_0023a770.c"
+            "source_path": "src/textbin/runtime/threads/switch_thread.c"
           }
         }
       ],
@@ -14220,7 +14220,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1292048",
-            "source_path": "src/textbin/fun_0023a790.c"
+            "source_path": "src/textbin/audio/decoder/is_audio_ok.c"
           }
         },
         {
@@ -14230,7 +14230,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1292096",
-            "source_path": "src/assembly/textbin/fun_0023a7c0.c"
+            "source_path": "src/assembly/textbin/audio/decoder/initialize_audio_system.c"
           }
         },
         {
@@ -14240,7 +14240,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1292776",
-            "source_path": "src/textbin/fun_0023aa68.c"
+            "source_path": "src/textbin/audio/decoder/terminate_audio_system.c"
           }
         },
         {
@@ -14250,7 +14250,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293048",
-            "source_path": "src/textbin/fun_0023ab78.c"
+            "source_path": "src/textbin/audio/decoder/log_audio_error.c"
           }
         },
         {
@@ -14260,7 +14260,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293088",
-            "source_path": "src/textbin/fun_0023aba0.c"
+            "source_path": "src/textbin/audio/decoder/process_audio_stream.c"
           }
         },
         {
@@ -14270,7 +14270,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293136",
-            "source_path": "src/textbin/fun_0023abd0.c"
+            "source_path": "src/textbin/audio/decoder/audio_dec_create.c"
           }
         },
         {
@@ -14280,7 +14280,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293328",
-            "source_path": "src/textbin/fun_0023ac90.c"
+            "source_path": "src/textbin/audio/decoder/audio_dec_delete.c"
           }
         },
         {
@@ -14290,7 +14290,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293368",
-            "source_path": "src/textbin/audio_dec_start.c"
+            "source_path": "src/textbin/audio/decoder/audio_dec_start.c"
           }
         },
         {
@@ -14300,7 +14300,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293456",
-            "source_path": "src/textbin/fun_0023ad10.c"
+            "source_path": "src/textbin/audio/decoder/audio_dec_reset.c"
           }
         },
         {
@@ -14310,7 +14310,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293528",
-            "source_path": "src/textbin/audio_dec_begin_put.c"
+            "source_path": "src/textbin/audio/decoder/audio_dec_begin_put.c"
           }
         },
         {
@@ -14320,7 +14320,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293736",
-            "source_path": "src/assembly/textbin/fun_0023ae28.c"
+            "source_path": "src/assembly/textbin/audio/decoder/audio_dec_end_put.c"
           }
         },
         {
@@ -14330,7 +14330,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293936",
-            "source_path": "src/textbin/fun_0023aef0.c"
+            "source_path": "src/textbin/audio/decoder/audio_dec_send.c"
           }
         },
         {
@@ -14340,7 +14340,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293976",
-            "source_path": "src/textbin/send_to_spu.c"
+            "source_path": "src/textbin/audio/decoder/send_to_spu.c"
           }
         },
         {
@@ -14350,7 +14350,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1294144",
-            "source_path": "src/assembly/textbin/fun_0023afc0.c"
+            "source_path": "src/assembly/textbin/audio/decoder/send_adpcm.c"
           }
         }
       ],
@@ -14383,7 +14383,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1295552",
-            "source_path": "src/textbin/fun_0023b540.c"
+            "source_path": "src/textbin/video/decoder/callbacks/handle_end_image.c"
           }
         },
         {
@@ -14393,7 +14393,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1295728",
-            "source_path": "src/assembly/textbin/video_callback.c"
+            "source_path": "src/assembly/textbin/video/decoder/callbacks/video_callback.c"
           }
         },
         {
@@ -14403,7 +14403,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302528",
-            "source_path": "src/textbin/mpeg_error.c"
+            "source_path": "src/textbin/video/decoder/callbacks/handle_mpeg_error.c"
           }
         },
         {
@@ -14413,7 +14413,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302568",
-            "source_path": "src/textbin/fun_0023d0a8.c"
+            "source_path": "src/textbin/video/decoder/callbacks/handle_mpeg_no_data.c"
           }
         },
         {
@@ -14423,7 +14423,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302720",
-            "source_path": "src/textbin/fun_0023d140.c"
+            "source_path": "src/textbin/video/decoder/callbacks/get_mpeg_timestamp.c"
           }
         }
       ],
@@ -14456,7 +14456,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1296040",
-            "source_path": "src/assembly/textbin/fun_0023b728.c"
+            "source_path": "src/assembly/textbin/audio/decoder/callbacks/pcm_callback.c"
           }
         }
       ],
@@ -14489,7 +14489,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1296272",
-            "source_path": "src/assembly/textbin/fun_0023b810.c"
+            "source_path": "src/assembly/textbin/video/decoder/buffers/copy_video_buffer_region.c"
           }
         },
         {
@@ -14499,7 +14499,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1296728",
-            "source_path": "src/textbin/read_buf_begin_get.c"
+            "source_path": "src/textbin/video/decoder/buffers/read_buf_begin_get.c"
           }
         },
         {
@@ -14509,7 +14509,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297016",
-            "source_path": "src/textbin/fun_0023baf8.c"
+            "source_path": "src/textbin/video/decoder/buffers/get_fifo_index.c"
           }
         }
       ],
@@ -14542,7 +14542,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297088",
-            "source_path": "src/textbin/fun_0023bb40.c"
+            "source_path": "src/textbin/video/decoder/dma/set_dma_channel_3_control_register.c"
           }
         },
         {
@@ -14552,7 +14552,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297200",
-            "source_path": "src/textbin/fun_0023bbb0.c"
+            "source_path": "src/textbin/video/decoder/dma/set_dma_channel_4_control_register.c"
           }
         }
       ],
