@@ -250,6 +250,17 @@ PADLESS_POLICY_UNITS = {
 
 SDK_COMPILER_UNITS = {
     # e.g. "textbin/fun_XXXX" when a textbin unit is proven EE-GCC-2.9-compiled.
+    # fun_00124a20: empty varargs DPRINT, as Sony libdbc.o
+    "textbin/fun_00124a20",
+    # fun_0011c938: array externs keep lui/lw addressing, as Sony libkernl
+    # iopheap.o
+    "textbin/fun_0011c938",
+    # fun_001206d8: volatile cdvd statics keep loads out of delay slots, as Sony
+    # libcdvd cdvd000.o
+    "textbin/fun_001206d8",
+    # fun_0011ace8: rpc packet scan with the pid wrap written as if/else, as
+    # Sony libkernl sifrpc.o
+    "textbin/fun_0011ace8",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
