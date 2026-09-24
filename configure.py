@@ -336,6 +336,25 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_00233c90: Builds the 0x3000000B / 0x5000000B DMA tag for D_0013CF10
+    # and advances the 0x10-byte cursor.
+    "textbin/fun_00233c90",
+    # fun_00233c28: Builds the 0x30000003 / 0x50000003 DMA tag for D_001DE3F0
+    # and advances the 0x10-byte cursor.
+    "textbin/fun_00233c28",
+    # fun_00233bc8: Builds the 0x30000003 / 0x50000003 DMA tag for D_001DE3C0
+    # and advances the 0x10-byte cursor.
+    "textbin/fun_00233bc8",
+    # fun_00233b68: Builds the 0x30000003 / 0x50000003 DMA tag for D_001DEE00
+    # and advances the 0x10-byte cursor.
+    "textbin/fun_00233b68",
+    # fun_00233830: The register-bound tag writes and cursor increment match
+    # retail; the $gp-relative cursor address resolves to D_00160F00.
+    "textbin/fun_00233830",
+    # fun_00233938: Register-bound stores reproduce the DMA tag and preserve the
+    # four retail pointer reloads; the final cursor store uses D_00160F00 = $gp
+    # - 0x5D00.
+    "textbin/fun_00233938",
     # fun_001eb410: A register-constrained page-relative read reproduces
     # retail's D_0018A2E8 lui/lw pair.
     "textbin/fun_001eb410",
