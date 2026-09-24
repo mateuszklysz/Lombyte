@@ -38,6 +38,8 @@ Each tile is one configured C unit, sized by its share of the executable's code 
 
 After a baseline build, pass `--workspace build/baseline` to also measure the pending C bodies and report C_FUZZY alongside C_EXACT.
 
+The same numbers are published on [decomp.dev](https://decomp.dev) from the committed objdiff-format report `progress/report.json` (C_EXACT units count as matched, pending units carry their measured similarity, intentional asm is excluded). Regenerate it after `make elf` with `make progress`; the `progress` workflow only checks, validates and uploads it and never builds the game.
+
 Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. The map's classification input is `config/us/unit_categories.json`.
 
 A matching executable does not mean the decompilation is complete. Unconverted

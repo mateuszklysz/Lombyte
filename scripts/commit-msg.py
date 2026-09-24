@@ -9,15 +9,22 @@ Install into the repository (idempotent):
 The standard is one lowercase `<type>: <summary>` prefix per subject
 (`decomp`, `docs`, `chore`, `fix`, `config`), with no repeated scope token.
 
-The hook also rewrites the message file before validation: every line
-containing `co-authored-by` (case-insensitive) is dropped, so agent trailers
-never enter the history.  Messages without such a line are left untouched,
+The hook also rewrites the message file before validation: every
+`co-authored-by:` and `claude-session:` trailer line (case-insensitive) is
+dropped, so agent trailers and links to private AI sessions never enter the
+history.  A message that still contains a link to an AI chat or agent session
+anywhere else is rejected.  Messages without such lines are left untouched,
 byte for byte.
+
+Commits are authored and committed by the maintainer, under the same name and
+e-mail as the existing history; the hook rejects an AI agent identity (an
+anthropic.com or openai.com address) as author or committer.
 """
 
 import importlib.util
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -33,8 +40,24 @@ problems: list[str] = []
 
 # Trailer form only (line starts with the token + ":"): prose that merely
 # mentions the term, e.g. in a commit about this hook, must survive.
-TRAILER_RE = re.compile(r"^\s*co[-_]?authored[-_]?by\s*:",
+TRAILER_RE = re.compile(r"^\s*(?:co[-_]?authored[-_]?by|claude[-_]?session)\s*:",
                         re.IGNORECASE | re.MULTILINE)
+# Links to private AI chat/agent sessions must never be published.
+SESSION_LINK_RE = re.compile(r"(?:claude\.ai|chatgpt\.com|chat\.openai\.com)/\S*(?:session|chat|share|c/)",
+                             re.IGNORECASE)
+# Author and committer must be the maintainer, never an AI agent identity.
+AGENT_IDENT_RE = re.compile(r"<[^>]*@(?:[\w.-]+\.)?(?:anthropic|openai)\.com>", re.IGNORECASE)
+
+
+def agent_identities() -> list[str]:
+    found = []
+    for role in ("GIT_AUTHOR_IDENT", "GIT_COMMITTER_IDENT"):
+        ident = subprocess.run(["git", "var", role], stdout=subprocess.PIPE,
+                               stderr=subprocess.DEVNULL, text=True).stdout
+        if AGENT_IDENT_RE.search(ident):
+            found.append(f"{role.split('_')[1].lower()} is an AI agent identity "
+                         f"({ident.rsplit('>', 1)[0]}>); commit as the maintainer")
+    return found
 
 
 def strip_trailers(path: Path) -> bool:
@@ -103,6 +126,10 @@ for line in text.splitlines():
         subject = line
         break
 problems = validate(subject)
+if SESSION_LINK_RE.search(text):
+    problems.append("message links to a private AI session; remove the link")
+if MSG is not None:
+    problems += agent_identities()
 if problems:
     for problem in problems:
         print(f"commit-msg: {problem}", file=sys.stderr)

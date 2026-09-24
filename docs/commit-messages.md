@@ -33,6 +33,15 @@ the map is a derived artifact. Prefer `decomp:` whenever the commit changes
 - One commit, one primary area; split unrelated areas instead of stacking
   prefixes.
 - Bodies are free-form and optional; put detail (metrics, notes) there.
+- No agent trailers (`Co-Authored-By:`, `Claude-Session:`) and no links to AI
+  chat or agent sessions, in commit messages, pull request descriptions, or
+  review comments. Sessions are private; this repository is public. The hook
+  drops the trailers and rejects any remaining session link.
+- Author and committer are the maintainer, with the same name and e-mail as
+  the existing history (`git log -1 --format='%an <%ae>' main`), including
+  for commits prepared by an AI agent. Never commit under an agent identity
+  such as `Claude <noreply@anthropic.com>`; the hook rejects anthropic.com
+  and openai.com addresses.
 
 ## Examples
 
