@@ -7,11 +7,15 @@
 # Setup: put a legally owned disc dump in dumps/ (e.g. dumps/game.iso) and
 # install the prerequisites (see README.md). Then run `make`.
 
-.PHONY: elf iso clean-iso check
+.PHONY: elf iso clean-iso check progress
 
 check: ## Run the public CI checks locally (tests, script parse)
 	python3 scripts/test_public_tools.py -v
 	python3 -m py_compile scripts/*.py
+	python3 scripts/gen_progress_report.py --check
+
+progress: ## Regenerate progress/report.json for decomp.dev (after `make elf`)
+	$${VENV:-.venv}/bin/python scripts/gen_progress_report.py --workspace build/baseline
 
 elf: ## Rebuild the boot ELF byte-for-byte (full baseline + SHA gate)
 	./verify-baseline.sh

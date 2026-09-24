@@ -114,6 +114,8 @@ The file location plus the linker-config owner are the whole promotion: no
 per-file metadata is written.
 
 4. Run `make elf` again; it must end with `PASS`.
+5. Regenerate the decomp.dev progress report with `make progress` and commit
+   `progress/report.json` with the promotion; CI fails if it is stale.
 
 ### 7. Open a pull request
 
@@ -134,6 +136,15 @@ Every pull request runs the public `tools` job in
 These checks need no game data and never upload build outputs. Run the same
 checks locally with `make check`. The full `make elf` rebuild stays a local,
 contributor-run gate (see above); CI does not run it for you.
+
+The `progress` job in
+[`.github/workflows/progress.yml`](.github/workflows/progress.yml) feeds
+[decomp.dev](https://decomp.dev). It does not build the game and uses no
+secrets: it checks that the committed `progress/report.json` matches the
+repository (`scripts/gen_progress_report.py --check`), validates it with
+objdiff, and uploads it as the `SCUS_971.99_report` artifact. The report is
+made locally by `make progress` after `make elf`; it contains unit names,
+symbols, addresses, sizes and match percentages only, never retail bytes.
 
 ## Not exact yet? That is still useful
 
