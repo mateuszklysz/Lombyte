@@ -171,6 +171,9 @@ SN_COMPILER_UNITS = {
     # (run-14 mass-d; EE-GCC 2.9 stages at 76.00).  The unit is a
     # non-textbin prefix, so the per-unit set is the only routing hook.
     "gs/initialize_render_state",
+    # fun_00209298: validate the two DMA packet sizes in a header, then
+    # initialise one A and twenty B packets
+    "textbin/fun_00209298",
 }
 
 # Units proven byte-exact under the patched 991111 build.  Keep the set
@@ -280,6 +283,16 @@ PADLESS_POLICY_UNITS = {
     "fun_001ff658": "la-gprel",
     # fun_002043b0: exact on padless with la-gprel
     "fun_002043b0": "la-gprel",
+    # fun_001fee38: exact on padless with la-gprel
+    "fun_001fee38": "la-gprel",
+    # fun_001ff960: exact on padless with la-gprel
+    "fun_001ff960": "la-gprel",
+    # fun_0020c880: exact on padless with la-gprel
+    "fun_0020c880": "la-gprel",
+    # video_dec_flush: exact on padless with la-gprel
+    "video_dec_flush": "la-gprel",
+    # fun_001f5138: exact on padless with la-gprel
+    "fun_001f5138": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -301,6 +314,9 @@ SDK_COMPILER_UNITS = {
     "textbin/fun_00114518",
     "textbin/fun_00116108",  # _read_r
     "textbin/fun_001185d0",  # _write_r
+    # fun_0011dc18: libgcc __do_global_ctors (gbl-ctors.h DO_GLOBAL_CTORS_BODY),
+    # SDK compiler
+    "textbin/fun_0011dc18",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -784,6 +800,9 @@ GAME_COMPILER_UNITS = {
     # fun_001ff308: queue an animation on a channel unless it is already the
     # queued one; returns its serial
     "textbin/fun_001ff308",
+    # fun_0012f368: read a file entry through sceCdRead with retries and copy it
+    # into the resident buffer
+    "textbin/fun_0012f368",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -984,6 +1003,19 @@ PADLESS_ASM_UNITS = {
     # fun_002043b0: place the level buffer below the top of RAM, page- and
     # quadword-aligned, then load into it
     "textbin/fun_002043b0",
+    # fun_001fee38: index of an id in the 0xFFFF-terminated animation table
+    "textbin/fun_001fee38",
+    # fun_001ff960: frame index of an animation, 0 when the frame or its data is
+    # missing
+    "textbin/fun_001ff960",
+    # fun_0020c880: current and next animation frame pointers of a moby
+    "textbin/fun_0020c880",
+    # video_dec_flush: append the 4-byte end code to the ring buffer, send it,
+    # round the stream position
+    "textbin/video_dec_flush",
+    # fun_001f5138: fog/alpha GS registers around a full-screen sprite when
+    # enabled
+    "textbin/fun_001f5138",
 }
 
 

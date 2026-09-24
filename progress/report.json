@@ -1,16 +1,16 @@
 {
  "measures": {
-  "fuzzy_match_percent": 58.366408,
+  "fuzzy_match_percent": 58.684284,
   "total_code": "342436",
-  "matched_code": "101176",
-  "matched_code_percent": 29.545959,
+  "matched_code": "102636",
+  "matched_code_percent": 29.972316,
   "total_functions": 1103,
-  "matched_functions": 677,
-  "matched_functions_percent": 61.37806,
-  "complete_code": "101176",
-  "complete_code_percent": 29.545959,
+  "matched_functions": 685,
+  "matched_functions_percent": 62.103354,
+  "complete_code": "102636",
+  "complete_code_percent": 29.972316,
   "total_units": 1103,
-  "complete_units": 677
+  "complete_units": 685
  },
  "units": [
   {
@@ -5098,23 +5098,23 @@
   {
    "name": "textbin/fun_0011dc18",
    "measures": {
-    "fuzzy_match_percent": 0.0,
+    "fuzzy_match_percent": 100.0,
     "total_code": "176",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "176",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "176",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_0011dc18",
      "size": "176",
-     "fuzzy_match_percent": 0.0,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "125848"
@@ -5125,7 +5125,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/fun_0011dc18.c"
+    "source_path": "src/textbin/fun_0011dc18.c"
    }
   },
   {
@@ -13612,23 +13612,23 @@
   {
    "name": "textbin/fun_0012f368",
    "measures": {
-    "fuzzy_match_percent": 48.6471,
+    "fuzzy_match_percent": 100.0,
     "total_code": "204",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "204",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "204",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_0012f368",
      "size": "204",
-     "fuzzy_match_percent": 48.6471,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "197352"
@@ -13639,7 +13639,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/fun_0012f368.c"
+    "source_path": "src/textbin/fun_0012f368.c"
    }
   },
   {
@@ -17011,23 +17011,23 @@
   {
    "name": "textbin/fun_001f5138",
    "measures": {
-    "fuzzy_match_percent": 60.1296,
+    "fuzzy_match_percent": 100.0,
     "total_code": "216",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "216",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "216",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_001f5138",
      "size": "216",
-     "fuzzy_match_percent": 60.1296,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "1007800"
@@ -17038,7 +17038,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/fun_001f5138.c"
+    "source_path": "src/textbin/fun_001f5138.c"
    }
   },
   {
@@ -19585,23 +19585,23 @@
   {
    "name": "textbin/fun_001fee38",
    "measures": {
-    "fuzzy_match_percent": 0.0,
+    "fuzzy_match_percent": 100.0,
     "total_code": "76",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "76",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "76",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_001fee38",
      "size": "76",
-     "fuzzy_match_percent": 0.0,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "1047992"
@@ -19612,7 +19612,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/fun_001fee38.c"
+    "source_path": "src/textbin/fun_001fee38.c"
    }
   },
   {
@@ -20047,23 +20047,23 @@
   {
    "name": "textbin/fun_001ff960",
    "measures": {
-    "fuzzy_match_percent": 0.0,
+    "fuzzy_match_percent": 100.0,
     "total_code": "172",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "172",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "172",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_001ff960",
      "size": "172",
-     "fuzzy_match_percent": 0.0,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "1050848"
@@ -20074,7 +20074,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/fun_001ff960.c"
+    "source_path": "src/textbin/fun_001ff960.c"
    }
   },
   {
@@ -22720,23 +22720,23 @@
   {
    "name": "textbin/fun_00209298",
    "measures": {
-    "fuzzy_match_percent": 8.0943,
+    "fuzzy_match_percent": 100.0,
     "total_code": "212",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "212",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "212",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_00209298",
      "size": "212",
-     "fuzzy_match_percent": 8.0943,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "1090072"
@@ -22747,7 +22747,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/fun_00209298.c"
+    "source_path": "src/textbin/fun_00209298.c"
    }
   },
   {
@@ -23446,23 +23446,23 @@
   {
    "name": "textbin/fun_0020c880",
    "measures": {
-    "fuzzy_match_percent": 0.0,
+    "fuzzy_match_percent": 100.0,
     "total_code": "188",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "188",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "188",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_0020c880",
      "size": "188",
-     "fuzzy_match_percent": 0.0,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "1103872"
@@ -23473,7 +23473,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/fun_0020c880.c"
+    "source_path": "src/textbin/fun_0020c880.c"
    }
   },
   {
@@ -35887,23 +35887,23 @@
   {
    "name": "textbin/video_dec_flush",
    "measures": {
-    "fuzzy_match_percent": 57.963,
+    "fuzzy_match_percent": 100.0,
     "total_code": "216",
-    "matched_code": "0",
-    "matched_code_percent": 0.0,
+    "matched_code": "216",
+    "matched_code_percent": 100.0,
     "total_functions": 1,
-    "matched_functions": 0,
-    "matched_functions_percent": 0.0,
-    "complete_code": "0",
-    "complete_code_percent": 0.0,
+    "matched_functions": 1,
+    "matched_functions_percent": 100.0,
+    "complete_code": "216",
+    "complete_code_percent": 100.0,
     "total_units": 1,
-    "complete_units": 0
+    "complete_units": 1
    },
    "functions": [
     {
      "name": "FUN_0023cd08",
      "size": "216",
-     "fuzzy_match_percent": 57.963,
+     "fuzzy_match_percent": 100.0,
      "address": "0",
      "metadata": {
       "virtual_address": "1301640"
@@ -35914,7 +35914,7 @@
     "progress_categories": [
      "game"
     ],
-    "source_path": "src/assembly/textbin/video_dec_flush.c"
+    "source_path": "src/textbin/video_dec_flush.c"
    }
   },
   {
@@ -36419,17 +36419,17 @@
    "id": "game",
    "name": "Game",
    "measures": {
-    "fuzzy_match_percent": 49.10533,
+    "fuzzy_match_percent": 49.525933,
     "total_code": "258800",
-    "matched_code": "40700",
-    "matched_code_percent": 15.72643,
+    "matched_code": "42160",
+    "matched_code_percent": 16.290572,
     "total_functions": 803,
-    "matched_functions": 416,
-    "matched_functions_percent": 51.805729,
-    "complete_code": "40700",
-    "complete_code_percent": 15.72643,
+    "matched_functions": 424,
+    "matched_functions_percent": 52.801993,
+    "complete_code": "42160",
+    "complete_code_percent": 16.290572,
     "total_units": 803,
-    "complete_units": 416
+    "complete_units": 424
    }
   },
   {
