@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
-"""Generate decomp_map.svg - a treemap of decompilation progress.
+"""Generate decomp_map.svg - a treemap of logical function-group progress.
 
 What the map shows
-  Every configured C unit from the linker config
-  (``config/us/rnc1.us.yaml`` rows ``- [0xADDR, c, owner]``) is one tile whose
-  area is proportional to the unit's executable byte size (the distance to the
-  next configured row).
+  Every logical subsystem group is one tile. Its area is proportional to the
+  total executable bytes of its configured C units, and its labels show the
+  group's byte-weighted exact and fuzzy progress. Groups come from
+  ``rename_proposals.entries[].logical_group`` where available; conservative
+  fallbacks use non-architectural source-module buckets.
 
-    * bolt orange (#dd8b30) - unit is matching C: either a promoted path (not
-      under ``src/assembly/``) with a source file in ``src/``, or a legacy
-      exact unit listed in ``config/us/unit_categories.json``. Promotions retag
-      the linker config, so the map keeps up automatically.
-    * chrome (#c3cbd8) - intentional low-level asm: hand-written SIMD/VU0/MMI
-      code that is kept as assembly and excluded from the C goal, listed in
+    * bolt orange (#dd8b30) - every recoverable function in the group is
+      matching C: promoted source or a legacy exact unit listed in
       ``config/us/unit_categories.json``.
-    * dark plate (#2e3644) - C still pending: assembly-backed units whose
-      readable C is not byte-exact yet.
+    * chrome (#c3cbd8) - the group contains intentional low-level asm only:
+      hand-written SIMD/VU0/MMI code excluded from the C goal.
+    * dark plate (#2e3644) - the group contains pending C, including groups
+      that mix exact and pending functions.
 
   The palette follows the *Ratchet & Clank* (2002) logo: Ratchet's bolt
   orange, Clank's chrome, and the dark riveted plate behind them.
@@ -25,15 +24,14 @@ What the map shows
   its measured objdiff ``.text`` similarity, weighted by unit bytes.  The
   scores come from ``scripts/list-functions.py --score``.
 
-  Units below ``--min-bytes`` are grouped per class so a compact map stays
-  readable; the default (0) draws every configured C unit as its own tile and
-  relies on the tall default canvas for label room.
+  Logical groups below ``--min-bytes`` are combined per status class to keep
+  compact variants readable; the default (0) draws every logical group.
 
 Layout
   The treemap is laid out with the ``squarify`` package when it is installed
   (``pip install squarify``), otherwise with the bundled equivalent
-  implementation. The tile order is stable across runs, so a unit's rectangle
-  keeps its place and flips grey -> green when it is promoted.
+  implementation. The tile order is stable across runs, so groups retain their
+  relative place as their member functions are promoted.
 
 Usage
   python3 scripts/generate_treemap.py
@@ -47,11 +45,19 @@ import argparse
 import datetime as dt
 import html
 import json
-import os
 import re
 import subprocess
 from pathlib import Path
 import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from progress_groups import (  # noqa: E402
+    committed_function_scores,
+    group_for_owner,
+    load_group_assignments,
+    report_category_for_owner,
+    report_group_name,
+)
 
 # Ratchet & Clank (2002) logo palette: Ratchet's bolt orange, Clank's chrome,
 # and the dark riveted plate behind them. The canvas stays GitHub dark.
@@ -177,10 +183,29 @@ def display_for(owner: str, source: Path, recovered: dict[str, str]) -> str | No
 
 
 def tile_tooltip(tile) -> str:
-    if tile.get("group"):
+    if tile.get("small_bucket"):
         return (
-            f"{tile['count']} units < {tile.get('threshold', 0)} B ({tile['category']})"
+            f"{tile['group_count']} logical groups below {tile['threshold']} B "
+            f"({tile['category']}) · {tile['count']} functions · {tile['size']:,} B"
         )
+    if tile.get("group"):
+        parts = [
+            tile["logical_group"],
+            tile["category"],
+            f"{tile['count']} functions",
+            f"{tile['size']:,} B",
+        ]
+        if tile.get("exact_percent") is not None:
+            parts.append(f"C_EXACT {tile['exact_percent']:.2f}%")
+        else:
+            parts.append("intentional asm only")
+        if tile.get("fuzzy_percent") is not None:
+            parts.append(f"C_FUZZY {tile['fuzzy_percent']:.2f}%")
+        parts.append(
+            f"{tile['matching_c']} matching C · {tile['pending_c']} pending · "
+            f"{tile['intentional_asm']} intentional asm"
+        )
+        return " · ".join(parts)
     parts = []
     if tile.get("display"):
         parts.append(tile["display"])
@@ -319,6 +344,7 @@ def build_units(repo: Path, config: Path, categories: Path | None):
     exact_assembly, intentional = load_categories(categories)
     recovered = load_recovered_full(config.parent)
     overlay = load_overlay_names(repo)
+    assignments = load_group_assignments(repo)
     result = []
     for owner, address, size in parse_units(config):
         source = repo / "src" / f"{owner}.c"
@@ -336,7 +362,11 @@ def build_units(repo: Path, config: Path, categories: Path | None):
                 "address": address,
                 "size": size,
                 "category": category,
-                "display": display_for(owner, source, recovered)
+                "logical_group": group_for_owner(owner, assignments),
+                "display": assignments.get(owner.removeprefix("assembly/"), {}).get(
+                    "proposed_name"
+                )
+                or display_for(owner, source, recovered)
                 or (demangle_cfront(overlay[address]) if address in overlay else None),
             }
         )
@@ -362,7 +392,10 @@ def fuzzy_progress(units, scores) -> float:
         if unit["category"] == "exact":
             similarity = 100.0
         elif unit["category"] == "pending":
-            similarity = min(100.0, max(0.0, float(scores.get(unit["owner"], 0.0))))
+            score = unit.get("score")
+            if score is None:
+                score = scores.get(unit["owner"], 0.0)
+            similarity = min(100.0, max(0.0, float(score)))
         else:
             continue
         similar += unit["size"] * similarity
@@ -418,8 +451,10 @@ def esc(value) -> str:
 
 
 def base_name(tile) -> str:
+    if tile.get("small_bucket"):
+        return "small logical groups"
     if tile.get("group"):
-        return f"{tile['count']} units"
+        return tile["logical_group"]
     return tile["owner"].rsplit("/", 1)[-1]
 
 
@@ -435,11 +470,7 @@ def match_percent(tile) -> str:
 
 
 def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
-    """Draw `name · sizekB · percent`, degrading gracefully on small tiles.
-
-    Evidence-backed display names replace the unit path; unnamed units show
-    their basename (the tooltip keeps the full owner and canonical identity).
-    """
+    """Draw a logical group and its aggregate decompilation percentages."""
     name = tile.get("display") or base_name(tile)
     short = name
     kb = f"{tile['size'] / 1000:.2f}kB"
@@ -449,15 +480,32 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
     def fits(text: str, size: float) -> bool:
         return len(text) * size * 0.56 <= dx - 8
 
-    options = [
-        (name, f"{kb} · {pct}"),  # two lines: path, then size + percent
-        (f"{name} · {kb} · {pct}", None),  # single line, full detail
-        (f"{name} · {kb}", None),
-        (short, f"{kb} · {pct}"),  # compact two-line: name, then details
-        (f"{short} · {kb} · {pct}", None),
-        (f"{short} · {kb}", None),
-        (short, None),
-    ]
+    if tile.get("group"):
+        exact = tile.get("exact_percent")
+        if exact is None:
+            detail = f"{tile['count']} functions · asm"
+            compact = "asm"
+        else:
+            detail = f"{tile['count']} fn · {exact:.1f}% exact"
+            if tile.get("fuzzy_percent") is not None:
+                detail += f" · {tile['fuzzy_percent']:.1f}% fuzzy"
+            compact = f"{exact:.1f}% exact"
+        options = [
+            (name, detail),
+            (f"{name} · {compact}", None),
+            (compact, None),
+            (name, None),
+        ]
+    else:
+        options = [
+            (name, f"{kb} · {pct}"),
+            (f"{name} · {kb} · {pct}", None),
+            (f"{name} · {kb}", None),
+            (short, f"{kb} · {pct}"),
+            (f"{short} · {kb} · {pct}", None),
+            (f"{short} · {kb}", None),
+            (short, None),
+        ]
     for line1, line2 in options:
         for size in (10, 9, 8, 7):
             needed = size * 3.3 if line2 else size + 6
@@ -477,6 +525,63 @@ def draw_tile_label(lines, tile, x, y, dx, dy) -> None:
                     f"{esc(line2)}</text>"
                 )
             return
+
+
+def summarize_group(category: str, logical_group: str, members: list[dict]) -> dict:
+    total_bytes = sum(unit["size"] for unit in members)
+    exact = [unit for unit in members if unit["category"] == "exact"]
+    pending = [unit for unit in members if unit["category"] == "pending"]
+    asm = [unit for unit in members if unit["category"] == "asm"]
+    exact_bytes = sum(unit["size"] for unit in exact)
+    asm_bytes = sum(unit["size"] for unit in asm)
+    recoverable = total_bytes - asm_bytes
+    fuzzy_bytes = sum(unit["size"] * 100.0 for unit in exact)
+    fuzzy_bytes += sum(
+        unit["size"] * min(100.0, max(0.0, float(unit.get("score") or 0.0)))
+        for unit in pending
+    )
+    has_pending_scores = any(unit.get("score") is not None for unit in pending)
+    fuzzy_percent = None
+    if recoverable and not pending:
+        fuzzy_percent = 100.0
+    elif recoverable and has_pending_scores:
+        fuzzy_percent = fuzzy_bytes / recoverable
+    if not recoverable:
+        tile_category = "asm"
+    elif exact_bytes == recoverable:
+        tile_category = "exact"
+    else:
+        tile_category = "pending"
+    return {
+        "owner": report_group_name(category, logical_group),
+        "logical_group": logical_group,
+        "category": tile_category,
+        "report_category": category,
+        "address": min(unit["address"] for unit in members),
+        "size": total_bytes,
+        "group": True,
+        "count": len(members),
+        "matching_c": len(exact),
+        "pending_c": len(pending),
+        "intentional_asm": len(asm),
+        "bytes_matching_c": exact_bytes,
+        "bytes_intentional_asm": asm_bytes,
+        "bytes_pending_c": sum(unit["size"] for unit in pending),
+        "recoverable_bytes": recoverable,
+        "exact_percent": 100.0 * exact_bytes / recoverable if recoverable else None,
+        "fuzzy_percent": fuzzy_percent,
+        "members": members,
+    }
+
+
+def build_group_tiles(units: list[dict]) -> list[dict]:
+    grouped: dict[tuple[str, str], list[dict]] = {}
+    for unit in units:
+        key = (report_category_for_owner(unit["owner"]), unit["logical_group"])
+        grouped.setdefault(key, []).append(unit)
+    tiles = [summarize_group(category, name, members)
+             for (category, name), members in grouped.items()]
+    return sorted(tiles, key=lambda tile: (-tile["size"], tile["address"], tile["owner"]))
 
 
 def render_svg(
@@ -506,34 +611,21 @@ def render_svg(
     map_dx = width - 2 * margin_px
     map_dy = height - header_px - footer_px - margin_px
 
-    big = [unit for unit in units if unit["size"] >= min_bytes]
-    small = [unit for unit in units if unit["size"] < min_bytes]
-    tiles = [
-        {
-            "owner": unit["owner"],
-            "address": unit["address"],
-            "size": unit["size"],
-            "category": unit["category"],
-            "group": False,
-            "display": unit.get("display"),
-            "score": unit.get("score"),
-        }
-        for unit in big
-    ]
+    group_tiles = build_group_tiles(units)
+    tiles = [tile for tile in group_tiles if tile["size"] >= min_bytes]
+    small_groups = [tile for tile in group_tiles if tile["size"] < min_bytes]
     for category in ("exact", "asm", "pending"):
-        group = [unit for unit in small if unit["category"] == category]
-        if group:
-            tiles.append(
-                {
-                    "owner": f"{len(group)} units < {min_bytes} B",
-                    "address": min(unit["address"] for unit in group),
-                    "size": sum(unit["size"] for unit in group),
-                    "category": category,
-                    "group": True,
-                    "count": len(group),
-                    "threshold": min_bytes,
-                }
-            )
+        selected = [tile for tile in small_groups if tile["category"] == category]
+        if not selected:
+            continue
+        members = [unit for tile in selected for unit in tile["members"]]
+        tile = summarize_group("all", f"small_{category}_groups", members)
+        tile["owner"] = report_group_name("all", f"small_{category}_groups")
+        tile["logical_group"] = f"{len(selected)} small {category} groups"
+        tile["small_bucket"] = True
+        tile["group_count"] = len(selected)
+        tile["threshold"] = min_bytes
+        tiles.append(tile)
 
     total_units = len(units)
     total_bytes = sum(unit["size"] for unit in units)
@@ -725,15 +817,14 @@ def main(argv=None) -> int:
         "--min-bytes",
         type=int,
         default=0,
-        help="units below this size are grouped per class; 0 (default) "
-        "draws every unit as its own tile",
+        help="groups below this size are combined per status class; 0 (default) "
+        "draws every logical group",
     )
     parser.add_argument("--title", default="Ratchet & Clank - decompilation progress")
     parser.add_argument(
         "--no-scores",
         action="store_true",
-        help="skip the pending-unit measurement (tiles show 0.00%% instead of "
-        "their measured similarity)",
+        help="skip workspace and committed similarity scores; omit C_FUZZY values",
     )
     parser.add_argument(
         "--workspace",
@@ -764,17 +855,9 @@ def main(argv=None) -> int:
         return 1
 
     fuzzy_percent = None
-    scores: dict[str, float] = {}
+    scores: dict[object, float] = {}
     index_path = None
     workspace = args.workspace
-    if workspace is None and not args.no_scores:
-        candidate = (
-            Path(os.environ["BASELINE_ROOT"]).expanduser()
-            if os.environ.get("BASELINE_ROOT")
-            else repo / "build" / "baseline"
-        )
-        if (candidate / "config").is_dir():
-            workspace = candidate
     if workspace is not None:
         workspace = workspace.expanduser().resolve()
         scores_out = (
@@ -786,9 +869,19 @@ def main(argv=None) -> int:
         if measured is None:
             return 2
         scores, index_path = measured
+    elif not args.no_scores:
+        scores = committed_function_scores(repo / "progress" / "report.json")
+
+    for unit in units:
+        score = scores.get(unit["owner"])
+        if score is None:
+            score = scores.get(unit["owner"].removeprefix("assembly/"))
+        if score is None:
+            score = scores.get(unit["address"])
+        if score is not None:
+            unit["score"] = float(score)
+    if scores:
         fuzzy_percent = fuzzy_progress(units, scores)
-        for unit in units:
-            unit["score"] = scores.get(unit["owner"])
 
     svg = render_svg(
         units,
@@ -804,6 +897,7 @@ def main(argv=None) -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(svg)
 
+    group_tiles = build_group_tiles(units)
     total = sum(unit["size"] for unit in units)
     exact = [unit for unit in units if unit["category"] == "exact"]
     asm = [unit for unit in units if unit["category"] == "asm"]
@@ -816,9 +910,10 @@ def main(argv=None) -> int:
     stats_path = output.with_suffix(".json")
     recoverable = total - asm_bytes
     stats = {
-        "schema": "rnc-public-progress-v1",
+        "schema": "rnc-public-progress-v2",
         "source": "scripts/generate_treemap.py",
         "units_total": len(units),
+        "groups_total": len(group_tiles),
         "matching_c": len(exact),
         "intentional_asm": len(asm),
         "pending_c": len(pending),
@@ -828,10 +923,30 @@ def main(argv=None) -> int:
         "bytes_pending_c": recoverable - exact_bytes,
         "c_exact_percent_of_recoverable": round(100.0 * exact_bytes / recoverable, 4) if recoverable else 0.0,
         "c_fuzzy_percent_of_recoverable": round(fuzzy_percent, 4) if fuzzy_percent is not None else None,
+        "groups": [
+            {
+                "name": report_group_name(group["report_category"], group["logical_group"]),
+                "logical_group": group["logical_group"],
+                "category": group["report_category"],
+                "functions": group["count"],
+                "matching_c": group["matching_c"],
+                "pending_c": group["pending_c"],
+                "intentional_asm": group["intentional_asm"],
+                "bytes_total": group["size"],
+                "bytes_matching_c": group["bytes_matching_c"],
+                "bytes_pending_c": group["bytes_pending_c"],
+                "bytes_intentional_asm": group["bytes_intentional_asm"],
+                "c_exact_percent_of_recoverable": round(group["exact_percent"], 4)
+                if group["exact_percent"] is not None else None,
+                "c_fuzzy_percent_of_recoverable": round(group["fuzzy_percent"], 4)
+                if group["fuzzy_percent"] is not None else None,
+            }
+            for group in group_tiles
+        ],
     }
     stats_path.write_text(json.dumps(stats, indent=2) + "\n")
     print(f"  stats: {stats_path}")
-    shown = sum(1 for unit in units if unit["size"] >= args.min_bytes)
+    shown = sum(1 for group in group_tiles if group["size"] >= args.min_bytes)
     print(f"wrote {output}")
     print(
         f"  matching C: {len(exact)}/{len(units)} units, {exact_bytes:,}/{total:,} bytes "
@@ -839,7 +954,7 @@ def main(argv=None) -> int:
         f"{100.0 * exact_bytes / (total - asm_bytes):.2f}% of recoverable C)"
     )
     if fuzzy_percent is not None:
-        measured = sum(1 for unit in pending if unit["owner"] in scores)
+        measured = sum(1 for unit in pending if unit.get("score") is not None)
         print(
             f"  fuzzy C (C_FUZZY): {fuzzy_percent:.2f}% of recoverable C "
             f"({measured}/{len(pending)} pending units measured)"
@@ -849,9 +964,9 @@ def main(argv=None) -> int:
     print(f"  intentional asm: {len(asm)} units, {asm_bytes:,} B")
     print(f"  pending C: {len(pending)} units, {total - exact_bytes - asm_bytes:,} B")
     print(
-        f"  tiles: {shown} individual + grouped units below {args.min_bytes} B"
+        f"  tiles: {shown} logical groups + {len(group_tiles) - shown} groups below {args.min_bytes} B"
         if args.min_bytes > 0
-        else f"  tiles: {shown} individual (no grouping)"
+        else f"  tiles: {shown} logical groups"
     )
     print(
         f"  layout: {'squarify' if _squarify_pkg is not None else 'bundled fallback'}"

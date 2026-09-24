@@ -215,16 +215,18 @@ class ProgressReportTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             report = self._build(self._repo(Path(tmp)), {"textbin/pending": 100.0})
         units = {unit["name"]: unit for unit in report["units"]}
-        self.assertEqual(set(units), {"textbin/promoted", "textbin/pending", "sdk/library/exact_sdk"})
+        self.assertEqual(set(units), {"game/unclassified", "sdk/library"})
         self.assertEqual(report["measures"]["total_code"], str(0x100 + 0x100 + 0x80))
         self.assertEqual(report["measures"]["matched_code"], str(0x100 + 0x80))
-        pending = units["textbin/pending"]
-        self.assertEqual(pending["measures"]["matched_code"], "0")
-        self.assertLess(pending["functions"][0]["fuzzy_match_percent"], 100.0)
-        self.assertEqual(pending["functions"][0]["name"], "FUN_00112480")
-        self.assertEqual(units["sdk/library/exact_sdk"]["metadata"]["progress_categories"], ["sdk"])
+        game_group = units["game/unclassified"]
+        pending = next(function for function in game_group["functions"]
+                       if function["name"] == "FUN_00112480")
+        self.assertEqual(len(game_group["functions"]), 2)
+        self.assertEqual(game_group["measures"]["matched_code"], str(0x100))
+        self.assertLess(pending["fuzzy_match_percent"], 100.0)
+        self.assertEqual(units["sdk/library"]["metadata"]["progress_categories"], ["sdk"])
         game = next(c for c in report["categories"] if c["id"] == "game")
-        self.assertEqual(game["measures"]["complete_units"], 1)
+        self.assertEqual(game["measures"]["complete_units"], 0)
 
     def test_check_detects_a_stale_report(self):
         with tempfile.TemporaryDirectory() as tmp:

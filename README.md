@@ -30,7 +30,7 @@ The long-term goal is a **PC runtime**: a native program that runs the game on m
 
 <img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
 
-Each tile is one configured C unit, sized by its share of the executable's code bytes. **Orange** tiles are matching C, **chrome** tiles are intentional low-level asm (SIMD/VU0 helpers excluded from the C goal), and **dark steel** tiles are C still pending. Rebuild the map locally with:
+Each tile is one logical function group, sized by the combined executable bytes of its functions. Its label shows byte-weighted **C_EXACT** progress, and **C_FUZZY** when similarity scores are available. **Orange** groups have all recoverable C functions matching exactly, **chrome** groups contain intentional low-level asm only (SIMD/VU0 helpers excluded from the C goal), and **dark steel** groups contain pending C. On [decomp.dev](https://decomp.dev), selecting a group opens its member functions. Rebuild the map locally with:
 
 ```sh
 .venv/bin/python scripts/generate_treemap.py
@@ -38,9 +38,9 @@ Each tile is one configured C unit, sized by its share of the executable's code 
 
 After a baseline build, pass `--workspace build/baseline` to also measure the pending C bodies and report C_FUZZY alongside C_EXACT.
 
-The same numbers are published on [decomp.dev](https://decomp.dev) from the committed objdiff-format report `progress/report.json` (C_EXACT units count as matched, pending units carry their measured similarity, intentional asm is excluded). Regenerate it after `make elf` with `make progress`; the `progress` workflow only checks, validates and uploads it and never builds the game.
+The same progress is published on [decomp.dev](https://decomp.dev) from the committed objdiff-format report `progress/report.json`. Report units are logical groups containing their member functions; C_EXACT functions count as matched, pending functions carry their measured similarity, and intentional asm is excluded. Regenerate it after `make elf` with `make progress`; the `progress` workflow only checks, validates and uploads it and never builds the game.
 
-Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. The map's classification input is `config/us/unit_categories.json`.
+Percentages cover the configured code in the boot executable, not the entire disc. Its embedded DVP overlay blobs are rebuilt as raw data; overlays or executables elsewhere on the disc are out of scope. C versus intentional-asm classification comes from `config/us/unit_categories.json`; group assignments and proposed names come from `config/us/recovered_names.json`.
 
 A matching executable does not mean the decompilation is complete. Unconverted
 units keep using assembly or raw machine-code _oracles_ to preserve the
@@ -216,7 +216,7 @@ Work-in-progress C is welcome too: keep the oracle, make sure `make elf` still p
 ## Credits
 
 - **[Himuro](https://github.com/Mikompilation/Himuro)** — for insight into the PS2 decompilation process and the reference EE-GCC toolchain work this project's matching compiler profiles build on.
-- **[bordplate/RC1](https://codeberg.org/bordplate/RC1)** — a dormant matching-decompilation skeleton for the same game; its recovered symbol names and structure were used as reference, with attribution. The derived mapping lives in [`config/us/recovered_names.json`](config/us/recovered_names.json), [`config/us/symbol_addrs_recovered.txt`](config/us/symbol_addrs_recovered.txt), and [`docs/recovered-names.md`](docs/recovered-names.md).
+- **[bordplate/RC1](https://codeberg.org/bordplate/RC1)** — a dormant matching-decompilation skeleton for the same game; its recovered symbol names and structure were used as reference, with attribution. Recovered symbol evidence and the address-bound semantic naming catalog are consolidated in [`config/us/recovered_names.json`](config/us/recovered_names.json); [`docs/recovered-names.md`](docs/recovered-names.md) describes the catalog and naming rules.
 - **[splat](https://github.com/ethteck/splat)** and **[spimdisasm](https://github.com/Decompollaborate/spimdisasm)** — executable splitting and disassembly.
 - **[objdiff](https://github.com/encounter/objdiff)** — object-level comparison.
 - The PS2 reverse-engineering and decompilation communities for the tools and research that make matching projects possible.

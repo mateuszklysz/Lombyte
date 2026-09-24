@@ -66,14 +66,17 @@ Procedure and acceptance bar for Ratchet & Clank (PS2, `SCUS_971.99`).
 
 ## 7. Promotion transaction
 
-- Normalize the owner's path, keep the canonical symbol and required aliases,
-  resolve relocations and data ownership, and re-verify all four measures from
-  a fresh compile.
+- Place the owner under its logical subsystem path. Pending assembly-backed
+  owners stay under `assembly/textbin/`. Keep the canonical linker symbol and
+  required external aliases, resolve relocations and data ownership, and
+  re-verify all four measures from a fresh compile.
 - Remove the oracle only after the transaction succeeds, and update the record.
   Refresh the audit from fresh evidence; counters are derived, never edited.
-- Recovered names (see `docs/recovered-names.md`) are context: keep the
-  canonical symbol and declare it as an alias only when the unit is the whole
-  recovered function and the name is not used elsewhere.
+- Use the semantic C identifier from `docs/recovered-names.md` when its evidence
+  supports the function's role. Bind it to the existing `FUN_<address>` linker
+  symbol with a GNU assembler label; this keeps the emitted symbol stable while
+  making C references descriptive. Keep other aliases only when code or
+  configuration requires them.
 
 ## 8. Evidence discipline
 
