@@ -336,6 +336,19 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # fun_0021fc68: The final helper arguments are 64-bit; reading
+    # D_001A00F0 + 0x258 preserves the retail 0x001A0348 ld/sd call setup.
+    "textbin/fun_0021fc68",
+    # fun_00214128: The 3x3 matrix pass uses a 16-byte scratch record, zeroes
+    # its pad lane, and passes a true 1.0f to the vector helper.
+    "textbin/fun_00214128",
+    # draw_shrubs: Direct byte-pointer update preserves retail ordering;
+    # volatile D_0015EE74 keeps its write before WriteDmaChannel.
+    "textbin/draw_shrubs",
+    # fun_00225cd8: The promoted helper is void with one ignored argument; a
+    # separate table-base pointer plus byte offset reproduces the retail loop
+    # and address setup.
+    "textbin/fun_00225cd8",
     # fun_00233c90: Builds the 0x3000000B / 0x5000000B DMA tag for D_0013CF10
     # and advances the 0x10-byte cursor.
     "textbin/fun_00233c90",
