@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Install stable raw-word oracles for textbin functions in a build workspace.
+"""Install stable raw-word oracles for textbin and FUN-labeled functions.
 
 Splat's textbin disassembly is useful for analysis, but the frozen EE
 compiler's inline assembler does not accept every VU/relocation spelling.
 This helper leaves splat output intact and adds a stable ``FUN_*.s`` byte
-oracle plus its expected object, which is what NON_MATCHING wrappers include.
+oracle plus its expected object. Semantic source units that retain an explicit
+FUN assembler label also get raw oracles, regardless of their source path.
 Build-only: it reads the segment table and raw bytes from the retail ELF.
 """
 
@@ -126,6 +127,18 @@ def _textbin_oracle_labels(source_root: Path, symbol: str, address: int) -> list
     return [symbol] + [alias for alias in aliases if alias != symbol]
 
 
+def _has_address_asm_label(source: Path, address: int) -> bool:
+    """Whether a relocated fallback C unit still binds to its FUN symbol."""
+    try:
+        text = source.read_text(errors="replace")
+    except OSError:
+        return False
+    label = re.escape(f"FUN_{address:08x}")
+    return re.search(
+        r'__asm__\s*\(\s*"' + label + r'"\s*\)', text, re.IGNORECASE
+    ) is not None
+
+
 def map_rows(path: Path) -> dict[int, dict[str, object]]:
     rows: dict[int, dict[str, object]] = {}
     with path.open(newline="") as stream:
@@ -144,28 +157,37 @@ def map_rows(path: Path) -> dict[int, dict[str, object]]:
 
 
 def configured_textbin_functions(
-    config: Path, function_map: Path
+    config: Path,
+    function_map: Path,
+    source_root: Path | None = None,
 ) -> list[dict[str, object]]:
     mapped = map_rows(function_map)
     rows: list[dict[str, object]] = []
     for item in parse_main_subsegments(config):
-        name = str(item["name"])
-        # Retained NON_MATCHING units keep the ``assembly/textbin/`` prefix;
-        # exact promotion normalizes them to ``textbin/``.  Both are backed by
-        # verified ELF ranges and need a target oracle in a fresh baseline.
-        if item["kind"] != "c" or not (
-            name.startswith("assembly/textbin/") or name.startswith("textbin/")
-        ):
+        if item["kind"] != "c":
             continue
+        name = str(item["name"])
+        # Validate before using the configured name to inspect a source path.
+        if rnc_units.unsafe_unit_name(name):
+            raise ValueError(f"unsafe unit name in configuration: {name!r}")
+        is_textbin_unit = name.startswith(("assembly/textbin/", "textbin/"))
         address = int(item["start"])
+        has_address_asm_label = (
+            source_root is not None
+            and _has_address_asm_label(source_root / f"{name}.c", address)
+        )
+        # Retained NON_MATCHING units keep the ``assembly/textbin/`` prefix;
+        # exact promotion used to normalize them to ``textbin/``. Semantic
+        # source moves no longer carry that prefix, so also select C units
+        # whose source explicitly binds its function to a FUN assembler label.
+        if not (is_textbin_unit or has_address_asm_label):
+            continue
         row = mapped.get(address)
         if row is None or int(row["size"]) != int(item["size"]):
             continue
         symbol = str(row["symbol"])
         # Unit and symbol names become file paths and assembler arguments:
         # fail closed instead of writing outside the workspace.
-        if rnc_units.unsafe_unit_name(name):
-            raise ValueError(f"unsafe unit name in configuration: {name!r}")
         if rnc_units.unsafe_unit_name(symbol):
             raise ValueError(f"unsafe symbol name in function map: {symbol!r}")
         rows.append(
@@ -174,13 +196,18 @@ def configured_textbin_functions(
                 "address": address,
                 "size": row["size"],
                 "symbol": symbol,
+                "has_address_asm_label": bool(has_address_asm_label),
             }
         )
     return rows
 
 
 def install(
-    workspace: Path, *, config: Path, function_map: Path, elf: Path
+    workspace: Path,
+    *,
+    config: Path,
+    function_map: Path,
+    elf: Path,
 ) -> dict[str, object]:
     assembler = Path(
         shutil.which("mips-ps2-decompals-as")
@@ -188,7 +215,9 @@ def install(
     )
     installed: list[str] = []
     errors: list[dict[str, str]] = []
-    for row in configured_textbin_functions(config, function_map):
+    for row in configured_textbin_functions(
+        config, function_map, workspace / "src"
+    ):
         unit = str(row["unit"])
         symbol = str(row["symbol"])
         address = int(row["address"])
@@ -210,6 +239,7 @@ def install(
             labels = (
                 [symbol]
                 if unit.startswith("textbin/")
+                and not row["has_address_asm_label"]
                 else _textbin_oracle_labels(workspace / "src", symbol, address)
             )
             body = "".join(f"glabel {label}\n" for label in labels)
