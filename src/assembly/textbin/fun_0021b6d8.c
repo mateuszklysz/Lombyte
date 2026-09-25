@@ -6,20 +6,24 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021b6d8/FUN_0021b6d8.s
 #else
 #include "types.h"
 extern s32 D_001601B4;
-extern s32 func_001F96F8();
-extern s32 func_001FA6E0(s32, s32, f32);
-void FUN_0021b6d8(s32 arg0, s32 arg1, s32 arg2) {
-    f32 var_f12_42;
-    s32 temp_16_30;
-    s32 temp_19_10;
+extern s32 func_001F96F8(s32);
+extern void func_001FA6E0(s32, s32, f32);
+void FUN_0021b6d8(s32 delay, s32 from, s32 to) {
+    s32 start;
+    s32 b;
+    s32 a;
+    s32 now;
+    f32 t;
 
-    temp_19_10 = (arg0 > -1) ? arg0 : 0;
-    if (func_001F96F8(D_001601B4) >= temp_19_10) {
-        temp_16_30 = func_001F96F8(D_001601B4);
-        var_f12_42 = 1.0f - ((f32) (temp_16_30 - temp_19_10) / (f32) func_001F96F8(D_001601B4));
+    start = delay > -1 ? delay : 0;
+    a = from != -1 ? from : 0x80FFA888;
+    b = to != -1 ? to : 0x8020FFFF;
+    if (func_001F96F8(D_001601B4) >= start) {
+        now = func_001F96F8(D_001601B4);
+        t = 1.0f - (f32)(now - start) / (f32)func_001F96F8(D_001601B4);
     } else {
-        var_f12_42 = 1.0f;
+        t = 1.0f;
     }
-    func_001FA6E0((~arg1 != 0) ? arg1 : 0x80FFA888, (~arg2 != 0) ? arg2 : 0x8020FFFF, var_f12_42);
+    func_001FA6E0(a, b, t);
 }
 #endif /* NON_MATCHING */

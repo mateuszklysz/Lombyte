@@ -5,42 +5,18 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/audio/voices/enqueue_voice_request/FUN_0022dc50.s", FUN_0022dc50);
 #else
 #include "types.h"
-/* ee-2.9-991111 matched TU. */
+struct Handler;
+struct Handler { s32 id; void (*fn)(struct Handler *); u8 pad8[0x88]; };
+struct Table { u8 pad0[0xD90]; s32 count; struct Handler *handlers; };
+extern struct Table D_0013E550;
+void FUN_0022dc50(void) {
+    s32 i;
 
-extern void func_003B0A40(int a);
+    for (i = 0; i < D_0013E550.count; i++) {
+        struct Handler *h = &D_0013E550.handlers[i];
 
-/* compiler: ee-2.9-991111 ; extra keys: none */
-
-
-__attribute__((section(".text._request_call")))
-void enqueue_voice_request(char *p) __asm__("FUN_0022dc50");
-
-void enqueue_voice_request(char *p) {
-    char *r;
-    char *q;
-    int t0;
-    int t1;
-    r = *(char **)(p + 0x34);
-    q = *(char **)(r + 0x40);
-    if (*(int *)(q + 0xC) == 0) {
-        *(int *)(q + 0xC) = (int)r;
-    } else {
-        *(int *)(*(int *)(q + 0x10) + 0x3C) = (int)r;
-    }
-    *(int *)(q + 0x10) = (int)r;
-    t0 = *(int *)(p + 0x14);
-    t1 = *(int *)(p + 0x1C);
-    *(int *)(r + 0x20) = t0;
-    *(int *)(r + 0x1C) = t1;
-    *(int *)(r + 0x24) = *(int *)(p + 0x20);
-    *(int *)(r + 0xC) = *(int *)(p + 0x24);
-    *(int *)(r + 0x28) = *(int *)(p + 0x28);
-    *(int *)(r + 0x2C) = *(int *)(p + 0x2C);
-    *(int *)(r + 0x30) = *(int *)(p + 0x30);
-    *(int *)(r + 0x34) = *(int *)(p + 0x10);
-    if (*(int *)(q + 0x0) >= 0) {
-        if (*(int *)(q + 0x4) == 0) {
-            func_003B0A40(*(int *)(q + 0x0));
+        if (h->fn != 0) {
+            h->fn(h);
         }
     }
 }
