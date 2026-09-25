@@ -179,6 +179,13 @@ SN_COMPILER_UNITS = {
     # fun_0020cca8: Typed helper prototypes, one scratch record, and the retail
     # float field preserve the SN match.
     "textbin/fun_0020cca8",
+    # vu1_sync_chain: wait for DMA channels in a mask to go idle, report a
+    # timeout after 100000 spins
+    "textbin/rendering/vu1_sync_chain",
+    # fun_001f0bd0: queue a debug text entry and sprintf it into the text pool
+    "textbin/fun_001f0bd0",
+    # fun_00217048: pad setup: DBC and pad2 init, then open socket slot 0
+    "textbin/fun_00217048",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -491,6 +498,9 @@ EE_GCC_PATCHED_UNITS = {
     # load_irx_module: Four-word SIF DMA transfer record and wait/execute
     # sequence match the patched route.
     "textbin/unclassified/load_irx_module",
+    # fun_001fecc8: find an id in the 150-entry pair table and return its
+    # partner
+    "textbin/fun_001fecc8",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -585,6 +595,8 @@ SDK_COMPILER_UNITS = {
     # (cc), so the full build must not fall back
     # to the default route.
     "sdk/library/cpr8",
+    # fun_00116da8: newlib vfprintf: CHECK_INIT then _vfprintf_r
+    "textbin/fun_00116da8",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -1081,6 +1093,15 @@ GAME_COMPILER_UNITS = {
     # fun_0012f368: read a file entry through sceCdRead with retries and copy it
     # into the resident buffer
     "storage/cd/read_file_entry_with_retry",
+    # handle_camera_collision_with_hero: spawn or free the camera collision moby
+    # when the hero's collision flag changes
+    "textbin/gameplay/camera/handle_camera_collision_with_hero",
+    # submit_audio_stream_io_request: start a CD read with the default mode and
+    # clear the read state
+    "textbin/audio/streaming/submit_audio_stream_io_request",
+    # fun_00208840: run the current state handler and reset the frame counter
+    # when the state changed
+    "textbin/fun_00208840",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
