@@ -176,6 +176,9 @@ SN_COMPILER_UNITS = {
     # fun_00209298: validate the two DMA packet sizes in a header, then
     # initialise one A and twenty B packets
     "world/streaming/initialize_dma_packet_payloads",
+    # fun_0020cca8: Typed helper prototypes, one scratch record, and the retail
+    # float field preserve the SN match.
+    "textbin/fun_0020cca8",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -485,6 +488,9 @@ EE_GCC_PATCHED_UNITS = {
     "textbin/fun_00226848",
     # get_mpeg_timestamp: 16-byte result read through a 0x18-byte stack buffer
     "video/decoder/callbacks/get_mpeg_timestamp",
+    # load_irx_module: Four-word SIF DMA transfer record and wait/execute
+    # sequence match the patched route.
+    "textbin/unclassified/load_irx_module",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -549,6 +555,8 @@ PADLESS_POLICY_UNITS = {
     "video_dec_flush": "la-gprel",
     # fun_001f5138: exact on padless with la-gprel
     "draw_fogged_fullscreen_sprite": "la-gprel",
+    # vo_buf_create: exact on padless with la-gprel
+    "vo_buf_create": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -1272,6 +1280,9 @@ PADLESS_ASM_UNITS = {
     # fun_001f5138: fog/alpha GS registers around a full-screen sprite when
     # enabled
     "rendering/effects/draw_fogged_fullscreen_sprite",
+    # vo_buf_create: Volatile field writes and buffer-stride loop preserve
+    # retail store order.
+    "textbin/video/decoder/vo_buf_create",
 }
 
 
