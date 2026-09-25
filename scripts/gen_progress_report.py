@@ -23,8 +23,9 @@ What the report counts (the same contract as ``assets/decomp_map.json``):
   with a semantic name. Grouping hints are independent of name status, and
   conservative fallback groups cover units absent from the proposal catalog.
 
-The file holds group and function names, source paths, addresses, sizes and
-percentages only; no retail bytes.
+The file holds group and function names, addresses, sizes and percentages only;
+source paths remain in the project map because objdiff's report metadata has a
+fixed schema. No retail bytes are included.
 
 Usage::
 
@@ -152,7 +153,6 @@ def build_report(scores: dict[object, float]) -> dict:
             "category": unit_category(owner),
             "logical_group": group_for_owner(owner, assignments),
             "symbol": proposed_name or unit_symbol(unit),
-            "source_path": f"src/{owner}.c",
         })
     functions.sort(key=lambda function: function["address"])
 
@@ -183,14 +183,8 @@ def build_report(scores: dict[object, float]) -> dict:
                 "size": str(function["size"]),
                 "fuzzy_match_percent": function["fuzzy"],
                 "address": "0",
-                "metadata": {
-                    "virtual_address": str(function["address"]),
-                    "source_path": function["source_path"],
-                },
+                "metadata": {"virtual_address": str(function["address"])},
             } for function in members],
-            # Groups can span many source files, so retain source paths on
-            # each member instead of assigning the group one misleading path.
-            "metadata": {"progress_categories": [group["category"]]},
         })
     return {
         "measures": measures(functions, report_groups),

@@ -224,7 +224,7 @@ class ProgressReportTests(unittest.TestCase):
         self.assertEqual(len(game_group["functions"]), 2)
         self.assertEqual(game_group["measures"]["matched_code"], str(0x100))
         self.assertLess(pending["fuzzy_match_percent"], 100.0)
-        self.assertEqual(units["sdk/library"]["metadata"]["progress_categories"], ["sdk"])
+        self.assertNotIn("metadata", units["sdk/library"])
         game = next(c for c in report["categories"] if c["id"] == "game")
         self.assertEqual(game["measures"]["complete_units"], 0)
 
