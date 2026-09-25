@@ -3,7 +3,7 @@
 
 extern struct M2c_D_001D5BF0 D_001D5BF0;
 extern u8 D_001D60B8[];
-extern void FUN_002166e8(s32);
+extern void request_audio_stream_break(s32) __asm__("FUN_002166e8");
 
 s32 complete_stream_buffer_transfer(s32 arg0) __asm__("FUN_00225cd8");
 
@@ -21,7 +21,7 @@ s32 complete_stream_buffer_transfer(s32 arg0) {
                 if ((p->unk0 & 4) != 0) {
                     p->unk0 ^= 4;
                     if (D_001D5BF0.unkCB != 0) {
-                        FUN_002166e8(arg0);
+                        request_audio_stream_break(arg0);
                         D_001D5BF0.unkCB = 0;
                     }
                 }

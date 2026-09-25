@@ -1,6 +1,6 @@
 #include "types.h"
 
-extern s32 FUN_001fa6d0(f32);
+extern s32 truncate_float_to_s32(f32) __asm__("FUN_001fa6d0");
 
 f32 round_float_to_decimal_places(s32 arg0, f32 fparg0) __asm__("FUN_00214c48");
 
@@ -25,7 +25,7 @@ f32 round_float_to_decimal_places(s32 arg0, f32 fparg0)
     half = 1.0f / (2.0f * scale);
     fparg0 = fparg0 + half;
     fparg0 = fparg0 * scale;
-    fparg0 = (f32)FUN_001fa6d0(fparg0);
+    fparg0 = (f32)truncate_float_to_s32(fparg0);
     return fparg0 / scale;
 }
 

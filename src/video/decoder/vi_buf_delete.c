@@ -5,7 +5,7 @@ struct M2c_arg0 {
     s32 unk40;
 };
 
-extern s32 FUN_0023bbb0(s32 arg0);
+extern s32 set_dma_channel_4_control_register(s32 arg0) __asm__("FUN_0023bbb0");
 extern s32 DeleteSema(s32 arg0);
 
 s32 vi_buf_delete(struct M2c_arg0 *arg0) __asm__("FUN_0023c5b8");
@@ -14,7 +14,7 @@ s32 vi_buf_delete(struct M2c_arg0 *arg0) {
     volatile s32 *p1;
     volatile s32 *p2;
     volatile s32 *p3;
-    FUN_0023bbb0(5);
+    set_dma_channel_4_control_register(5);
     p1 = (volatile s32 *)0x1000B420;
     p2 = (volatile s32 *)0x1000B410;
     p3 = (volatile s32 *)0x1000B430;

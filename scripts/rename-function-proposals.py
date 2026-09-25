@@ -4,7 +4,8 @@
 Dry-run is the default. The tool reads config/us/recovered_names.json and can
 move source files into logical subsystem folders, rename C function identifiers
 while retaining their canonical assembler symbols with GNU asm labels, rename
-proposed locals/parameters, and update configured unit paths. This temporary
+proposed locals/parameters, rewrite C call sites to semantic identifiers while
+retaining FUN_ linker symbols, and update configured unit paths. This temporary
 migration tool is intended to be removed after the source migration is complete.
 """
 
@@ -63,6 +64,16 @@ class Move:
     content: str
     mode: int
     aliases_rebound: int = 0
+
+
+@dataclass
+class ReferenceEdit:
+    path: Path
+    original: str
+    content: str
+    mode: int
+    references: int
+    declarations: int
 
 
 def safe_repo_path(root: Path, relative: str) -> Path:
@@ -136,7 +147,13 @@ def matching_brace(text: str, open_at: int) -> int:
     raise ValueError("unclosed function body")
 
 
-def replace_code_identifiers(text: str, renames: dict[str, str]) -> tuple[str, int]:
+def replace_code_identifiers(
+    text: str,
+    renames: dict[str, str],
+    *,
+    skip_include_asm: bool = False,
+    replacement_counts: dict[str, int] | None = None,
+) -> tuple[str, int]:
     """Replace C identifier tokens outside comments and string/char literals."""
     if not renames:
         return text, 0
@@ -198,12 +215,23 @@ def replace_code_identifiers(text: str, renames: dict[str, str]) -> tuple[str, i
             while j < len(text) and (text[j] == "_" or text[j].isalnum()):
                 j += 1
             token = text[i:j]
+            if skip_include_asm and token == "INCLUDE_ASM":
+                try:
+                    close = signature_close(text, j)
+                except ValueError:
+                    close = -1
+                if close >= 0:
+                    out.append(text[i:close + 1])
+                    i = close + 1
+                    continue
             replacement = lookup.get(token)
             if replacement is None:
                 out.append(token)
             else:
                 out.append(replacement)
                 changed += 1
+                if replacement_counts is not None:
+                    replacement_counts[token] = replacement_counts.get(token, 0) + 1
             i = j
             continue
         out.append(ch)
@@ -342,6 +370,187 @@ def function_asm_label(text: str, function_name: str) -> str | None:
     if len(labels) > 1:
         raise ValueError(f"conflicting asm labels for {function_name}: {sorted(labels)}")
     return next(iter(labels)) if labels else None
+
+
+def rewrite_function_alias_references(
+    text: str, aliases: dict[str, str]
+) -> tuple[str, int, int, dict[str, int], dict[str, int], list[str]]:
+    """Use semantic C identifiers while binding declarations to FUN_ symbols."""
+    lines = text.splitlines(keepends=True)
+    declarations: dict[str, int] = {}
+    declaration_updates = 0
+    issues: list[str] = []
+    aliases_by_identifier: dict[str, list[tuple[str, str]]] = {}
+    for canonical, semantic in aliases.items():
+        for identifier in {canonical, semantic}:
+            aliases_by_identifier.setdefault(identifier, []).append(
+                (canonical, semantic)
+            )
+    function_identifier = re.compile(r"\b([A-Za-z_]\w*)\s*\(")
+
+    for index, line in enumerate(lines):
+        if not re.match(r"^[ \t]*extern\b", line):
+            continue
+        found_by_canonical: dict[str, tuple[str, str, str]] = {}
+        for match in function_identifier.finditer(line):
+            identifier = match.group(1)
+            for canonical, semantic in aliases_by_identifier.get(identifier, ()):
+                found_by_canonical.setdefault(
+                    canonical, (canonical, semantic, identifier)
+                )
+        found = list(found_by_canonical.values())
+        if not found:
+            continue
+        if len(found) > 1:
+            issues.append("one extern line declares multiple mapped functions")
+            continue
+
+        canonical, semantic, identifier = found[0]
+        semicolon = line.find(";")
+        if semicolon < 0 or not re.search(
+            r"\b" + re.escape(identifier) + r"\s*\([^;\n]*\)", line[:semicolon]
+        ):
+            issues.append(f"cannot parse extern declaration for {canonical}")
+            continue
+
+        rewritten, _ = replace_code_identifiers(
+            line, {canonical: semantic}
+        )
+        rewritten_semicolon = rewritten.find(";")
+        if rewritten_semicolon < 0:
+            issues.append(f"cannot find extern terminator for {canonical}")
+            continue
+        existing_labels = re.findall(
+            r'__asm__\s*\(\s*"([^"]+)"\s*\)',
+            rewritten[:rewritten_semicolon],
+        )
+        if existing_labels and existing_labels != [canonical]:
+            issues.append(
+                f"extern {semantic} binds to {existing_labels}, expected {canonical}"
+            )
+            continue
+        if not existing_labels:
+            rewritten = (
+                rewritten[:rewritten_semicolon].rstrip()
+                + f' __asm__("{canonical}")'
+                + rewritten[rewritten_semicolon:]
+            )
+        if rewritten != line:
+            declaration_updates += 1
+        lines[index] = rewritten
+        declarations[canonical] = declarations.get(canonical, 0) + 1
+
+    declared_text = "".join(lines)
+    reference_counts: dict[str, int] = {}
+    updated, reference_count = replace_code_identifiers(
+        declared_text,
+        aliases,
+        skip_include_asm=True,
+        replacement_counts=reference_counts,
+    )
+    return (
+        updated,
+        reference_count,
+        declaration_updates,
+        declarations,
+        reference_counts,
+        issues,
+    )
+
+
+def plan_function_reference_aliases(
+    root: Path, candidates: list[Candidate], moves: list[Move]
+) -> tuple[list[ReferenceEdit], int, int, int, list[str]]:
+    """Plan semantic call-site identifiers across source and public headers."""
+    aliases: dict[str, str] = {}
+    issues: list[str] = []
+    for candidate in candidates:
+        if candidate.error:
+            continue
+        previous = aliases.get(candidate.current_name)
+        if previous is not None and previous != candidate.proposed_name:
+            issues.append(
+                f"{candidate.current_name} maps to multiple semantic names"
+            )
+        aliases[candidate.current_name] = candidate.proposed_name
+    if not aliases:
+        return [], 0, 0, 0, issues
+
+    move_by_source = {move.candidate.old_source: move for move in moves}
+    source_roots = [root / "src", root / "include"]
+    source_files = sorted(
+        path
+        for source_root in source_roots
+        if source_root.is_dir()
+        for path in source_root.rglob("*")
+        if path.is_file() and path.suffix in {".c", ".h"}
+    )
+    edits: list[ReferenceEdit] = []
+    file_results: list[tuple[Path, str, dict[str, int], dict[str, int]]] = []
+    total_references = 0
+    total_declarations = 0
+    updated_files = 0
+
+    for path in source_files:
+        move = move_by_source.get(path)
+        if move is not None:
+            original = path.read_text(encoding="utf-8")
+            source_text = move.content
+        else:
+            original = path.read_text(encoding="utf-8")
+            source_text = original
+
+        (
+            updated,
+            references,
+            declaration_updates,
+            declarations,
+            reference_counts,
+            file_issues,
+        ) = rewrite_function_alias_references(source_text, aliases)
+        issues.extend(f"{path}: {issue}" for issue in file_issues)
+        total_references += references
+        total_declarations += declaration_updates
+        if updated != source_text:
+            updated_files += 1
+            if move is not None:
+                move.content = updated
+            else:
+                edits.append(ReferenceEdit(
+                    path=path,
+                    original=original,
+                    content=updated,
+                    mode=stat.S_IMODE(path.stat().st_mode),
+                    references=references,
+                    declarations=declaration_updates,
+                ))
+        file_results.append((path, updated, declarations, reference_counts))
+
+    header_declarations = {
+        canonical
+        for path, _text, declarations, _references in file_results
+        if path.suffix == ".h"
+        for canonical, count in declarations.items()
+        if count
+    }
+    for path, text, declarations, reference_counts in file_results:
+        if path.suffix != ".c":
+            continue
+        for canonical, count in reference_counts.items():
+            if not count or declarations.get(canonical) or canonical in header_declarations:
+                continue
+            semantic = aliases[canonical]
+            try:
+                label = function_asm_label(text, semantic)
+            except ValueError as exc:
+                issues.append(f"{path}: {exc}")
+                continue
+            if label != canonical:
+                issues.append(
+                    f"{path}: {semantic} references {canonical} without an asm-labeled declaration"
+                )
+
+    return edits, total_references, total_declarations, updated_files, issues
 
 
 def rename_function_with_asm_label(
@@ -900,6 +1109,15 @@ def main() -> int:
         return 2
 
     active, moves, issues = inspect_candidates(root, candidates)
+    (
+        reference_edits,
+        reference_count,
+        reference_declaration_count,
+        reference_file_count,
+        reference_issues,
+    ) = plan_function_reference_aliases(root, active, moves)
+    issues.extend(reference_issues)
+
     yaml_text = yaml_path.read_text(encoding="utf-8")
     updated_yaml, yaml_errors = replace_config_owners(yaml_text, active)
     issues.extend(yaml_errors)
@@ -942,6 +1160,11 @@ def main() -> int:
     if already:
         print(f"Already applied: {already}")
     print("Linker policy: keep FUN_<address> as the emitted symbol via __asm__; use the proposed name in C.")
+    print(
+        f"C references planned for semantic aliases: {reference_count} references, "
+        f"{reference_declaration_count} asm-labeled declarations, "
+        f"{reference_file_count} files."
+    )
     print()
 
     for candidate in active:
@@ -974,6 +1197,15 @@ def main() -> int:
                 str(move.candidate.new_source.relative_to(root)),
                 old,
                 move.content,
+            )
+        )
+    for edit in reference_edits:
+        content_changes.append(
+            (
+                str(edit.path.relative_to(root)),
+                str(edit.path.relative_to(root)),
+                edit.original,
+                edit.content,
             )
         )
     if updated_yaml != yaml_text:
@@ -1017,6 +1249,8 @@ def main() -> int:
     for move in moves:
         writes[move.candidate.new_source] = (move.content, move.mode)
         deletes.add(move.candidate.old_source)
+    for edit in reference_edits:
+        writes[edit.path] = (edit.content, edit.mode)
     if updated_yaml != yaml_text:
         writes[yaml_path] = (updated_yaml, stat.S_IMODE(yaml_path.stat().st_mode))
     if map_text != map_original:
@@ -1031,7 +1265,14 @@ def main() -> int:
     except Exception as exc:
         print(f"error applying changes; rollback attempted: {exc}", file=sys.stderr)
         return 1
-    print(f"Applied {len(moves)} source moves and {len(writes) - len(moves)} config updates.")
+    config_paths = {yaml_path, map_path}
+    if categories_path.is_file():
+        config_paths.add(categories_path)
+    config_updates = sum(path in config_paths for path in writes)
+    print(
+        f"Applied {len(moves)} function source changes, updated "
+        f"{len(reference_edits)} caller files, and wrote {config_updates} config files."
+    )
     return 0
 
 

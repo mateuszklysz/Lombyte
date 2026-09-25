@@ -674,15 +674,22 @@ def group_display_name(category: str, logical_group: str) -> str:
         parts = ["general"]
     if parts == ["unclassified"]:
         return "Unclassified functions"
-    label = " / ".join(part.replace("_", " ").replace("-", " ").title() for part in parts)
+    label = " / ".join(format_group_part(part) for part in parts)
     return f"SDK / {label}" if category == "sdk" else label
+
+
+def format_group_part(part: str) -> str:
+    label = part.replace("_", " ").replace("-", " ")
+    if label.casefold() == "ui":
+        return "UI"
+    return label.title()
 
 
 def group_short_name(category: str, logical_group: str) -> str:
     part = logical_group.rsplit("/", 1)[-1]
     if part == "unclassified":
         return "Unclassified"
-    return part.replace("_", " ").replace("-", " ").title()
+    return format_group_part(part)
 
 
 def assign_unique_short_names(tiles: list[dict]) -> None:

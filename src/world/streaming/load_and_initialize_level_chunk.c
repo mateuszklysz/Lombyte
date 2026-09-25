@@ -4,7 +4,7 @@ struct Loader { u8 pad0[0x10]; s32 dest; s32 sector; };
 extern struct Loader D_00137B80;
 extern s32 D_0015ED84;
 extern void func_001FD6E0(s32, struct Chunk **, s32 *);
-extern void FUN_002168a8(s32);
+extern void update_audio_stream_until_idle(s32) __asm__("FUN_002168a8");
 extern s32 func_00216828(struct Chunk *, s32, s32);
 extern void func_00209298(void *);
 void load_and_initialize_level_chunk(void) __asm__("FUN_00209370");
@@ -14,7 +14,7 @@ void load_and_initialize_level_chunk(void) {
     s32 size;
 
     func_001FD6E0(D_00137B80.sector << 11, &chunk, &size);
-    FUN_002168a8(1);
+    update_audio_stream_until_idle(1);
     func_00216828(chunk, D_00137B80.dest, D_00137B80.sector);
     func_00209298((u8 *)chunk + chunk->offset);
     D_0015ED84 = 0;

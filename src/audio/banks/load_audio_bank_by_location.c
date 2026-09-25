@@ -5,10 +5,10 @@ struct M2c_D_0013E550 {
 };
 
 extern struct M2c_D_0013E550 D_0013E550;
-extern s32 FUN_0012df20();
-extern s32 FUN_0012e1a8();
-extern s32 FUN_0012ed30();
-extern s32 FUN_0012ee08();
+extern s32 snd_bank_load_by_loc() __asm__("FUN_0012df20");
+extern s32 snd_resolve_bank_xrefs() __asm__("FUN_0012e1a8");
+extern s32 snd_stream_safe_check_cd_idle() __asm__("FUN_0012ed30");
+extern s32 snd_stream_safe_cd_sync() __asm__("FUN_0012ee08");
 extern s32 sceCdSync();
 s32 load_audio_bank_by_location(s32 arg0) __asm__("FUN_0022d708");
 
@@ -19,10 +19,10 @@ s32 load_audio_bank_by_location(s32 arg0) {
     if (D_0013E550.unk44 == 0) {
         D_0013E550.unk44 = 1;
         sceCdSync(0);
-        var_18_7 = FUN_0012df20(arg0, 0);
-        FUN_0012ed30(1);
-        FUN_0012ee08(0);
-        FUN_0012e1a8();
+        var_18_7 = snd_bank_load_by_loc(arg0, 0);
+        snd_stream_safe_check_cd_idle(1);
+        snd_stream_safe_cd_sync(0);
+        snd_resolve_bank_xrefs();
         D_0013E550.unk44 = 0;
     }
     return var_18_7;

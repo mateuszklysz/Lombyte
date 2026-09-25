@@ -1,11 +1,11 @@
 #include "types.h"
 extern s32 D_0015ECC4;
-extern s32 FUN_0012dc80();
+extern s32 snd_flush_sound_commands() __asm__("FUN_0012dc80");
 void snd_reset_state_and_flush_commands(s32 arg0) __asm__("FUN_0012eb00");
 
 void snd_reset_state_and_flush_commands(s32 arg0) {
     D_0015ECC4 = 0;
-    FUN_0012dc80();
+    snd_flush_sound_commands();
 }
 
 extern void func_0012EB00(s32 arg0) __attribute__((alias("FUN_0012eb00")));

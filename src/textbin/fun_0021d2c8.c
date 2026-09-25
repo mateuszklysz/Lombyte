@@ -10,14 +10,14 @@ struct M2c_arg0 {
 extern s16 D_001516D8[];
 extern s32 D_0015F6A0[];
 extern s32 D_001996FC[];
-extern s32 FUN_002166e8();
+extern s32 request_audio_stream_break() __asm__("FUN_002166e8");
 extern s32 func_00225AC0();
 s32 FUN_0021d2c8(struct M2c_arg0 *arg0) {
     register s32 temp_5_19 __asm__("a1");
     register s32 v38 __asm__("v1");
 
     if ((D_001516D8[0] != 0) && (arg0->unk50 == 1)) {
-        FUN_002166e8();
+        request_audio_stream_break();
     }
     func_00225AC0(1);
     temp_5_19 = arg0->unk54;

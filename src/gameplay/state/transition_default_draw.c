@@ -29,7 +29,7 @@ extern u64 func_001F44B8();
 extern s32 func_001F4650();
 extern s32 func_001F5210();
 extern s32 func_001F5450();
-extern s32 FUN_001fa6d0(f32);
+extern s32 truncate_float_to_s32(f32) __asm__("FUN_001fa6d0");
 extern s32 func_001FB368();
 extern s32 func_001FB680();
 extern s32 func_001FBC50();
@@ -144,7 +144,7 @@ void transition_default_draw(s32 *arg0)
     {
       D_0015F43C = 1.0f;
     }
-    func_001F5210((float) 0, 0, 0, FUN_001fa6d0(D_0015F43C * 128.0f));
+    func_001F5210((float) 0, 0, 0, truncate_float_to_s32(D_0015F43C * 128.0f));
   }
   func_002334D8(D_00100AE0);
   FlushCache(0);

@@ -12,7 +12,7 @@ struct M2c_temp_3_16 {
 };
 
 extern u8 D_0013E550[];
-extern void FUN_0022d798(s32);
+extern void release_voice_slot(s32) __asm__("FUN_0022d798");
 extern s32 func_0022DA68();
 
 void FUN_0020c940(struct M2c_arg0 *arg0) {
@@ -25,7 +25,7 @@ void FUN_0020c940(struct M2c_arg0 *arg0) {
         if (e->unk88 != (s32)arg0) {
             arg0->unk7D = 0xFF;
         } else if (e->unk7E != arg0->unk7C) {
-            FUN_0022d798(idx);
+            release_voice_slot(idx);
             arg0->unk7D = 0xFF;
         }
     } else if (arg0->unk7C != 0xFF) {

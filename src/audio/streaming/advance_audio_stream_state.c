@@ -14,7 +14,7 @@ struct M2c_D_00137B80 {
 extern struct M2c_D_00137B80 D_00137B80;
 extern struct M2c_D_001516D0 D_001516D0;
 extern s32 D_0015ED88;
-extern s32 FUN_00216788();
+extern s32 start_audio_stream_read() __asm__("FUN_00216788");
 
 s32 advance_audio_stream_state(struct M2c_arg0 *arg0) __asm__("FUN_00220648");
 
@@ -28,7 +28,7 @@ s32 advance_audio_stream_state(struct M2c_arg0 *arg0) {
         if (D_00137B80.e2C8[D_0015ED88].b == 0) {
             break;
         }
-        if (FUN_00216788(arg0->unk48, D_00137B80.e2C8[D_0015ED88].a, D_00137B80.e2C8[D_0015ED88].b) != 0) {
+        if (start_audio_stream_read(arg0->unk48, D_00137B80.e2C8[D_0015ED88].a, D_00137B80.e2C8[D_0015ED88].b) != 0) {
             arg0->unk44 = arg0->unk44 + 1;
         } else {
             arg0->unk44 = -1;
@@ -46,7 +46,7 @@ s32 advance_audio_stream_state(struct M2c_arg0 *arg0) {
         if (D_00137B80.e2F8[D_0015ED88].b == 0) {
             break;
         }
-        if (FUN_00216788(arg0->unk4C, D_00137B80.e2F8[D_0015ED88].a, D_00137B80.e2F8[D_0015ED88].b) != 0) {
+        if (start_audio_stream_read(arg0->unk4C, D_00137B80.e2F8[D_0015ED88].a, D_00137B80.e2F8[D_0015ED88].b) != 0) {
             arg0->unk44 = arg0->unk44 + 1;
         } else {
             arg0->unk44 = -1;

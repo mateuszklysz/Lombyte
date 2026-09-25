@@ -12,9 +12,9 @@ extern s32 D_0015FF40;
 extern struct M2c_D_0018A2B0 D_0018A2B0;
 extern s32 func_001F21B0();
 extern s32 func_001F21B8();
-extern s32 FUN_0020cdf0();
+extern s32 dma_moby_textures() __asm__("FUN_0020cdf0");
 extern s32 FUN_0020d060();
-extern s32 FUN_0020d1a8();
+extern s32 process_moby_anim_data() __asm__("FUN_0020d1a8");
 extern s32 FUN_002116b8();
 
 void draw_mobys_clean_up(void) __asm__("FUN_0020d3b0");
@@ -24,12 +24,12 @@ void draw_mobys_clean_up(void) {
     register struct M2c_D_0018A2B0 *base __asm__("v0");
     register s32 q __asm__("v1");
     func_001F21B8(D_0015FEE0, 3);
-    FUN_0020cdf0();
+    dma_moby_textures();
     func_001F21B0(D_0015FEE0, 5);
     base = &D_0018A2B0;
     q = base->unk28;
     if (q != 0) {
-        FUN_0020d1a8();
+        process_moby_anim_data();
         f = *(s32 *)0x15FF38;
         if (f != 0) {
             FUN_002116b8();
