@@ -6,9 +6,9 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/sequenceheader/_sequenceHeader.s", _sequenceHeader);
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/sequenceheader/func_0012C4C8.s", func_0012C4C8);
 #else
+
 #include "rnc/assembly_sdk_library_sequenceheader_types.h"
 #include "types.h"
-
 
 extern u8 D_00132FC0[];
 extern u8 D_00133000[];
@@ -19,17 +19,17 @@ extern s32 _nextBit();
 extern s32 _sendIpuCommand();
 extern s32 _setDefaultQM();
 extern s32 _waitIpuIdle();
+
 void _sequenceHeader(struct M2c_arg0 *arg0) {
-    register s32 temp_2_12 __asm__("v0");
-    register u32 temp_2_24 __asm__("v1");
+    u32 temp_2_8;
+    s32 temp_2_12;
+    u32 temp_2_24;
     u32 temp_2_33;
     u32 temp_2_54;
-    register u32 temp_2_8 __asm__("v1");
 
     arg0->unkD4 = 0;
     temp_2_8 = _nextBit(arg0, 0x20);
     temp_2_12 = (temp_2_8 >> 8) & 0xFFF;
-    __asm__ volatile ("" : : : "memory");
     arg0->unk124 = (u32) (temp_2_8 >> 0x14);
     arg0->unk128 = temp_2_12;
     if (temp_2_12 >= 0xAF1) {
@@ -57,17 +57,14 @@ void _sequenceHeader(struct M2c_arg0 *arg0) {
         _setDefaultQM(arg0, 0x58000000, D_00133000);
     }
     _extensionAndUserData(arg0);
-    func_0012C4C8(arg0->unk858);
+    func_0012C4C8((struct M2c_arg0__func_0012C4C8 *)arg0->unk858);
 }
-
-
-
-
 
 extern s32 InitializeReferenceImage();
 extern s32 _initRefImages();
 extern s32 func_0012BC10();
 extern s32 func_0012BC20();
+
 void func_0012C4C8(struct M2c_arg0__func_0012C4C8 *arg0) {
     s32 *sp30;
     s32 *sp34;
@@ -128,7 +125,7 @@ block_6:
         temp_16_77 = (u32) (temp_23_51 * (temp_22_48 * 0x180)) >> 8;
         sp3C = ((u8 *)temp_30_15 + (0x458));
         sp40 = ((u8 *)temp_30_15 + (0x4C0));
-        func_0012BC10(temp_17_63, arg0, temp_6_16);
+        func_0012BC10(temp_17_63);
         temp_30_15->unkFC = func_0012BC20(temp_30_15, temp_17_63, temp_16_77, 0x40);
         temp_30_15->unk100 = func_0012BC20(temp_30_15, temp_17_63, temp_16_77, 0x40);
         temp_30_15->unk104 = func_0012BC20(temp_30_15, temp_17_63, temp_16_77, 0x40);

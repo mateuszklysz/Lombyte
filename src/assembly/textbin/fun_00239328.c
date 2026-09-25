@@ -69,6 +69,7 @@ block_4:
         temp_16_70 = temp_16_66 * 2;
         func_00233980(0x42, (((temp_16_70 < 0x81) ? temp_16_70 : 0x80) << 0x20) | 0x68);
         temp_f0_78 = fparg0 + temp_f21_58;
+    __asm__ volatile ("" : "+f" (temp_f0_78));
         func_001F55D8(temp_f0_78, temp_f0_78, 0 /*  Read from unset register $f2  */, temp_f0_78, 0x808080, func_001F44B8(0x1A), 0, 0.0f, fparg0, fparg1);
         if (*temp_20_43 >= 0x100) {
             *temp_20_43 = 0;
@@ -89,6 +90,7 @@ block_4:
             temp_16_142 = 0x100 - SubtractIntegerWithClamp(temp_4_132 - 0xFE);
             temp_16_146 = (temp_16_142 >= 0x51) ? 0x50 : temp_16_142;
             temp_f0_147 = func_001FA6C0(0x200 - temp_5_141, temp_5_141);
+    __asm__ volatile ("" : "+r" (temp_f0_147));
             temp_16_164 = temp_f0_147;
             temp_f20_166 = -(temp_f0_147 * 0.03125f);
             func_001F55D8(0.0f, 0.0f, temp_f0_126, temp_16_164, (temp_16_146 << 0x18) | 0x505050, func_001F44B8(0x1C), 0, temp_f20_166, fparg0, fparg1 + 16.0f);

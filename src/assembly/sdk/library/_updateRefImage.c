@@ -5,51 +5,101 @@
 /* Exact SDK/library unit _updateRefImage; symbolic expected assembly retained pending source recovery. */
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/_updateRefImage/_updateRefImage.s", _updateRefImage);
 #else
-#include "rnc/assembly_sdk_library__updateRefImage_types.h"
 #include "types.h"
+struct M2c_ref {
+    u8 pad_0[0x18];
+    s64 unk18;
+    s64 unk20;
+    s32 unk28;
+    s32 unk2C;
+    s32 unk30;
+    s32 unk34;
+    s32 unk38;
+    s32 unk3C;
+    s32 unk40;
+    s32 unk44;
+    s32 unk48;
+    s32 unk4C;
+    s32 unk50;
+    s32 unk54;
+    s32 unk58;
+    s32 unk5C;
+    s32 unk60;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+struct M2c_arg0 {
+    u8 pad_0[0xA0];
+    s32 unkA0;
+    s32 unkA4;
+    u8 pad_A8[0x40];
+    s32 unkE8;
+    u8 pad_EC[0x50];
+    s32 unk13C;
+    u8 pad_140[0x8];
+    s32 unk148;
+    s32 unk14C;
+    s32 unk150;
+    u8 pad_154[0x20];
+    s32 unk174;
+    s32 unk178;
+    u8 pad_17C[0x8];
+    s32 unk184;
+    s32 unk188;
+    s32 unk18C;
+    s32 unk190;
+    s32 unk194;
+    s32 unk198;
+    s32 unk19C;
+    s32 unk1A0;
+    s32 unk1A4;
+    s32 unk1A8;
+    u8 pad_1AC[0xC];
+    struct M2c_ref * unk1B8;
+    struct M2c_ref * unk1BC;
+    struct M2c_ref * unk1C0;
+    s32 unk1C4;
+    struct M2c_ref * unk1C8;
+    struct M2c_ref * unk1CC;
+    struct M2c_ref * unk1D0;
+    s32 unk1D4;
+    struct M2c_ref * unk1D8;
+    struct M2c_ref * unk1DC;
+    struct M2c_ref * unk1E0;
+    s32 unk1E4;
+    u8 pad_1E8[0x640];
+    s64 unk828;
+    s64 unk830;
+};
 
 
 s32 _updateRefImage(struct M2c_arg0 *arg0, s32 arg1) {
     s32 temp_10_7;
     s32 temp_4_64;
     s32 temp_9_5;
+    s32 var_11_9;
     s32 var_13_10;
     s32 var_4_115;
     s32 var_4_52;
-    s32 *temp_3_106;
-    s32 *temp_3_95;
-    s32 *temp_4_105;
-    s32 *temp_4_92;
-    s32 *temp_6_97;
-    struct M2c_var_2_113 *var_2_113;
-    struct M2c_var_3_55 *var_3_55;
-    struct M2c_var_8_8 *var_8_8;
+    struct M2c_ref *temp_2_111;
+    struct M2c_ref *temp_4_92;
+    struct M2c_ref *temp_3_95;
+    struct M2c_ref *temp_6_97;
+    struct M2c_ref *var_2_113;
+    struct M2c_ref *var_3_55;
+    struct M2c_ref *var_8_8;
 
     temp_9_5 = arg0->unk174;
+    var_11_9 = ((temp_9_5 ^ 3) == 0) ? 2 : 4;
     temp_10_7 = arg0->unk150;
     var_8_8 = NULL;
     var_13_10 = 0;
     if (temp_10_7 != 3) {
         goto block_19;
     }
-    arg0->unk1C0 = (void *) arg0->unk1C4;
-    arg0->unk1D0 = (void *) arg0->unk1D4;
-    arg0->unk1E0 = (void *) arg0->unk1E4;
-    if ((arg0->unkA0 + arg0->unkA4) < (((temp_9_5 ^ 3) == 0) ? 2 : 4)) {
+    arg0->unk1C0 = (struct M2c_ref *) arg0->unk1C4;
+    arg0->unk1D0 = (struct M2c_ref *) arg0->unk1D4;
+    arg0->unk1E0 = (struct M2c_ref *) arg0->unk1E4;
+    if ((arg0->unkA0 + arg0->unkA4) < var_11_9) {
         goto block_3;
     }
     arg0->unkE8 = 0;
@@ -112,21 +162,22 @@ block_19:
     if (arg1 != 0) {
         goto block_21;
     }
-    temp_4_92 = arg0->unk1BC;
-    arg0->unk1BC = (void *) arg0->unk1B8;
-    temp_3_95 = arg0->unk1CC;
-    arg0->unk1CC = (void *) arg0->unk1C8;
-    temp_6_97 = arg0->unk1D8;
-    arg0->unk1B8 = temp_4_92;
-    arg0->unk1C8 = temp_3_95;
-    arg0->unk1D8 = (void *) arg0->unk1DC;
-    arg0->unk1DC = temp_6_97;
+    temp_4_92 = arg0->unk1B8;
+    temp_3_95 = arg0->unk1BC;
+    arg0->unk1BC = temp_4_92;
+    temp_4_92 = arg0->unk1C8;
+    temp_6_97 = arg0->unk1CC;
+    arg0->unk1CC = temp_4_92;
+    temp_4_92 = arg0->unk1D8;
+    temp_2_111 = arg0->unk1DC;
+    arg0->unk1B8 = temp_3_95;
+    arg0->unk1C8 = temp_6_97;
+    arg0->unk1D8 = temp_2_111;
+    arg0->unk1DC = temp_4_92;
 block_21:
-    temp_4_105 = arg0->unk1CC;
-    temp_3_106 = arg0->unk1DC;
-    arg0->unk1C0 = (void *) arg0->unk1BC;
-    arg0->unk1D0 = temp_4_105;
-    arg0->unk1E0 = temp_3_106;
+    arg0->unk1C0 = arg0->unk1BC;
+    arg0->unk1D0 = arg0->unk1CC;
+    arg0->unk1E0 = arg0->unk1DC;
     if (temp_9_5 != 3) {
         goto block_24;
     }
@@ -140,14 +191,13 @@ block_24:
     if (temp_10_7 != 2) {
         goto block_30;
     }
+    var_2_113 = arg0->unk1C8;
     if (arg1 == 0) {
-        goto block_27;
-    }
-    if (*(s32 *)((u8 *)(((temp_9_5 ^ 1) != 0) ? temp_4_105 : temp_3_106) + 0x28) == 1) {
+        var_2_113 = (temp_9_5 ^ 1) ? arg0->unk1CC : arg0->unk1DC;
+    } else if (arg0->unk1C8->unk28 == 1) {
         goto block_30;
     }
-block_27:
-    var_4_115 = arg0->unk1C8->unk28;
+    var_4_115 = var_2_113->unk28;
     if (var_4_115 != 1) {
         goto block_32;
     }
@@ -185,22 +235,22 @@ block_42:
     var_8_8 = arg0->unk1E0;
 block_43:
     var_8_8->unk28 = 0;
-    var_8_8->unk18 = (s64) arg0->unk828;
-    var_8_8->unk2C = (s32) arg0->unk150;
-    var_8_8->unk20 = (s64) arg0->unk830;
-    var_8_8->unk30 = (s32) arg0->unk174;
-    var_8_8->unk34 = (s32) arg0->unk13C;
-    var_8_8->unk38 = (s32) arg0->unk188;
-    var_8_8->unk3C = (s32) arg0->unk178;
-    var_8_8->unk40 = (s32) arg0->unk184;
-    var_8_8->unk44 = (s32) arg0->unk18C;
-    var_8_8->unk48 = (s32) arg0->unk190;
-    var_8_8->unk4C = (s32) arg0->unk194;
-    var_8_8->unk50 = (s32) arg0->unk198;
-    var_8_8->unk54 = (s32) arg0->unk19C;
-    var_8_8->unk58 = (s32) arg0->unk1A0;
-    var_8_8->unk5C = (s32) arg0->unk148;
-    var_8_8->unk60 = (s32) arg0->unk14C;
+    var_8_8->unk18 = arg0->unk828;
+    var_8_8->unk2C = arg0->unk150;
+    var_8_8->unk20 = arg0->unk830;
+    var_8_8->unk30 = arg0->unk174;
+    var_8_8->unk34 = arg0->unk13C;
+    var_8_8->unk38 = arg0->unk188;
+    var_8_8->unk3C = arg0->unk178;
+    var_8_8->unk40 = arg0->unk184;
+    var_8_8->unk44 = arg0->unk18C;
+    var_8_8->unk48 = arg0->unk190;
+    var_8_8->unk4C = arg0->unk194;
+    var_8_8->unk50 = arg0->unk198;
+    var_8_8->unk54 = arg0->unk19C;
+    var_8_8->unk58 = arg0->unk1A0;
+    var_8_8->unk5C = arg0->unk148;
+    var_8_8->unk60 = arg0->unk14C;
     return var_13_10;
 }
 #endif /* NON_MATCHING */

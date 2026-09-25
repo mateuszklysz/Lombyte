@@ -4,15 +4,32 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021ddf8/FUN_0021ddf8.s", FUN_0021ddf8);
 #else
-#include "rnc/assembly_textbin_fun_0021ddf8_types.h"
+
+
 #include "types.h"
+struct M2c_arg0 {
+    u8 pad_0[0x44];
+    struct M2c_temp_5_52 * unk44;
+    u8 pad_48[0x18];
+    struct M2c_arg0_unk60 * unk60;
+};
 
+struct M2c_arg0_unk60 {
+    u8 pad_0[0xA6];
+    s16 unkA6;
+    u8 pad_A8[0x2];
+};
 
+struct M2c_temp_2_35 {
+    u8 pad_0[0x52];
+    u8 unk52;
+    s32 unk53;
+};
 
-
-
-
-
+struct M2c_temp_5_52 {
+    u8 pad_0[0x50];
+    s32 unk50;
+};
 
 extern u8 D_001D5020[];
 extern s32 func_0020D330();
@@ -30,7 +47,7 @@ s32 FUN_0021ddf8(struct M2c_arg0 *arg0) {
     var_3_9 = ((u8 *)arg0 + (0x44));
     do {
         temp_4_12 = var_17_6 * 4;
-        if ((*(s32 *)((u8 *)var_3_9 + temp_4_12) != 0) && ((*(s32 *)((u8 *)arg0 + var_17_6 + 0xA4)) == 0) && (*(temp_4_12 + D_001D5020) != 0)) {
+        if ((*(s32 *)((u8 *)var_3_9 + temp_4_12) != 0) && ((*(u8 *)((u8 *)arg0 + var_17_6 + 0xA4)) == 0) && (*(temp_4_12 + D_001D5020) != 0)) {
             var_3_29 = var_17_6 - 1;
             if ((var_17_6 == 7) && (var_3_29 = var_17_6 - 1, (arg0->unk60->unkA6 == 0x4A))) {
                 temp_2_35 = arg0->unk44;

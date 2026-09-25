@@ -4,19 +4,60 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ffe18/FUN_001ffe18.s", FUN_001ffe18);
 #else
-#include "rnc/assembly_textbin_fun_001ffe18_types.h"
 #include "types.h"
+struct M2c_D_0013E500 {
+    u8 pad_0[0x10];
+    s32 unk10;
+    s32 unk14;
+};
 
+struct M2c_D_00160F00 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
 
+struct M2c_D_0019A3E8 {
+    u8 pad_0[0xC];
+    s32 unkC;
+    u8 pad_10[0x10];
+    s32 unk20;
+    s32 unk24;
+};
 
+struct M2c_temp_10_42 {
+    u8 pad_0[0x6];
+    u8 unk6;
+    s32 unk7;
+};
 
+struct M2c_temp_18_59 {
+    u8 pad_0[0x8];
+    s64 unk8;
+    s32 unk10;
+    u8 pad_14[0x4];
+    s32 unk18;
+    u8 pad_1C[0x4];
+    s64 unk20;
+    s32 unk28;
+    u8 pad_2C[0x4];
+    s64 unk30;
+    s64 unk38;
+    s64 unk40;
+    s32 unk48;
+    u8 pad_4C[0x4];
+    s64 unk50;
+    s32 unk58;
+    u8 pad_5C[0x4];
+    s64 unk60;
+    s32 unk68;
+};
 
-
-
-
-
-
-
+struct M2c_temp_2_58 {
+    u8 pad_0[0x10];
+    s64 unk10;
+};
 
 extern struct M2c_D_0013E500 D_0013E500;
 extern struct M2c_D_00160F00 *D_00160F00;
@@ -49,6 +90,7 @@ void FUN_001ffe18(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s64 arg5) {
     temp_2_58->unk10 = (s64) ((0xB400 << 0x30) | 0x8001);
     temp_18_59->unk8 = (s64) ((((0xA6A6 << 0x10) | 0xA6A6) << 0xB) | 0x106);
     temp_2_63 = func_001FFA10(temp_10_42, 0x10000007);
+    __asm__ volatile ("" : "+r" (temp_2_63));
     temp_20_68 = temp_20_49 * 0x10;
     temp_18_59->unk20 = (s64) ((arg5 << 0x18) | 0x7F7F7F);
     temp_18_59->unk28 = temp_20_68;

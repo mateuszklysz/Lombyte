@@ -5,254 +5,206 @@
 /* Exact SDK/library unit _PES_packet; symbolic expected assembly retained pending source recovery. */
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/_PES_packet/_PES_packet.s", _PES_packet);
 #else
-#include "rnc/assembly_sdk_library__PES_packet_types.h"
 #include "types.h"
-
-
-
 
 extern u8 D_001539C8[];
 extern u8 D_001539D8[];
 extern s32 _Error();
 extern s32 _sysbitGet();
 extern s32 _sysbitJump();
-extern s32 _sysbitMarker();
-s32 _PES_packet(s32 arg0, struct M2c_arg1 *arg1, struct M2c_arg2 *arg2) {
-u8 sp_slot[0xC0];    s32 sp10;
-    s32 sp14;
-    s32 sp18;
-    s32 temp_16_288;
-    s32 temp_5_277;
-    s32 temp_5_367;
-    s32 var_16_344;
-    s32 var_2_237;
-    s32 var_5_289;
-    s64 temp_22_110;
-    s64 temp_4_40;
-    s64 var_2_316;
-    u32 var_16_253;
-    u64 temp_16_119;
-    u64 temp_16_155;
-    u64 temp_16_200;
-    u64 temp_17_125;
-    u64 temp_17_161;
-    u64 temp_17_220;
-    u64 temp_18_131;
-    u64 temp_18_167;
-    u64 temp_18_208;
-    u64 temp_21_102;
-    u64 temp_23_212;
-    u64 temp_23_90;
-    u64 temp_2_255;
-    u64 temp_30_204;
-    u64 temp_30_98;
+extern void _sysbitMarker();
 
-    sp10 = arg0;
-    arg2->unk28 = (s32) arg1->unk18;
-    /* m2c-unknown:  unknown instruction: ldl $v0, 0x7($a4)  */
-    /* m2c-unknown:  unknown instruction: ldr $v0, ($a4)  */
-    /* m2c-unknown:  unknown instruction: ldl $a2, 0xf($a4)  */
-    /* m2c-unknown:  unknown instruction: ldr $a2, 0x8($a4)  */
-    /* m2c-unknown:  unknown instruction: sdl $v0, 0x7($sp_slot)  */
-    /* m2c-unknown:  unknown instruction: sdr $v0, ($sp_slot)  */
-    /* m2c-unknown:  unknown instruction: sdl $a2, 0xf($sp_slot)  */
-    _sysbitGet(arg1, 0x18U, 0 /*  unknown instruction: sdr $a2, 0x8($sp_slot)  */, D_001539C8);
-    arg2->unk0 = (s64) (_sysbitGet(arg1, 8U) << 0x20);
-    temp_4_40 = arg2->unk0;
-    arg2->unk8 = _sysbitGet(arg1, 0x10U);
-    arg2->unk10 = -1;
-    arg2->unk18 = -1;
-    if (temp_4_40 == (0xBC00 << 0x18)) {
-        goto block_43;
+struct PES_BS {
+    u8 pad_0[0x18];
+    s64 stamp;
+};
+
+struct PES_HDR {
+    s64 unk0;
+    s32 unk8;
+    s32 unkC;
+    s64 unk10;
+    s64 unk18;
+    s32 unk20;
+    s32 unk24;
+    s32 unk28;
+};
+
+struct PES_TBL {
+    u8 v[16];
+} __attribute__((packed));
+
+s32 _PES_packet(s32 arg0, struct PES_BS *bs, struct PES_HDR *hdr) {
+    struct PES_TBL tbl;
+    s32 sp[3];          /* frame slots 0x10/0x14/0x18: id, flag1, len */
+    s64 base;        /* (s32)bs->stamp, captured before the bit reads */
+    s64 t;           /* the 64-bit stamp; base is its 32-bit truncation */
+    s64 now;         /* the same stamp, re-read at the sync point */
+    s32 v7;          /* 2-bit flags field */
+    s32 v8;          /* 4-bit length, indexes tbl */
+    s32 v5;          /* 1-bit descriptor == 1 selects the extension block */
+    u32 a; u32 b; u32 c;  /* the 3/15/15-bit pack pieces */
+
+    sp[0] = arg0;
+    hdr->unk28 = (s32)bs->stamp;
+    tbl = *(struct PES_TBL *)D_001539C8;
+    _sysbitGet(bs, 0x18);
+    hdr->unk0 = (s64)_sysbitGet(bs, 8) << 0x20;
+    hdr->unk8 = _sysbitGet(bs, 0x10);
+    hdr->unk10 = -1;
+    hdr->unk18 = -1;
+    if (hdr->unk0 == ((u64)0xBC00 << 0x18)) goto L688;
+    if (hdr->unk0 == ((u64)0xBE00 << 0x18)) goto L618;
+    if (hdr->unk0 == ((u64)0xBF00 << 0x18)) goto L618;
+    if (hdr->unk0 == ((u64)0xF000 << 0x18)) goto L618;
+    if (hdr->unk0 == ((u64)0xF100 << 0x18)) goto L618;
+    if (hdr->unk0 == ((u64)0xFF00 << 0x18)) goto L618;
+    if (hdr->unk0 == ((u64)0xF200 << 0x18)) goto L618;
+    if (hdr->unk0 == ((u64)0xF800 << 0x18)) goto L618;
+    _sysbitGet(bs, 2);
+    hdr->unkC = _sysbitGet(bs, 2);
+    _sysbitGet(bs, 4);
+    v7 = _sysbitGet(bs, 2);
+    sp[1] = _sysbitGet(bs, 1);
+    v8 = _sysbitGet(bs, 4);
+    v5 = _sysbitGet(bs, 1);
+    sp[2] = _sysbitGet(bs, 8);
+    t = bs->stamp;
+    base = (s32)t;
+    if (v7 & 2) {
+        _sysbitGet(bs, 4);
+        a = _sysbitGet(bs, 3);
+        _sysbitMarker(bs);
+        b = _sysbitGet(bs, 0xF);
+        _sysbitMarker(bs);
+        c = _sysbitGet(bs, 0xF);
+        _sysbitMarker(bs);
+        hdr->unk10 = ((s64)((a >> 2) & 1) << 0x20) | (s64)(u32)(a << 30 | b << 15 | c);
     }
-    if (temp_4_40 == (0xBE00 << 0x18)) {
-        goto block_36;
+L3BC:
+    if (v7 == 3) {
+        _sysbitGet(bs, 4);
+        a = _sysbitGet(bs, 3);
+        _sysbitMarker(bs);
+        b = _sysbitGet(bs, 0xF);
+        _sysbitMarker(bs);
+        c = _sysbitGet(bs, 0xF);
+        _sysbitMarker(bs);
+        hdr->unk18 = ((s64)((a >> 2) & 1) << 0x20) | (s64)(u32)(a << 30 | b << 15 | c);
     }
-    if (temp_4_40 == (0xBF00 << 0x18)) {
-        goto block_36;
+L448:
+    if (sp[1] == 1) {
+        _sysbitGet(bs, 0x30);
     }
-    if (temp_4_40 == (0xF000 << 0x18)) {
-        goto block_36;
+L45C:
+    if (v8 != 0) {
+        _sysbitGet(bs, tbl.v[v8]);
     }
-    if (temp_4_40 == (0xF100 << 0x18)) {
-        goto block_36;
+L470:
+    if (v5 == 1) {
+        s32 a1;
+        s32 a2;
+        s32 a3;
+        s32 a4;
+        s32 a5;
+        a1 = _sysbitGet(bs, 1);
+        a2 = _sysbitGet(bs, 1);
+        a3 = _sysbitGet(bs, 1);
+        a4 = _sysbitGet(bs, 1);
+        _sysbitGet(bs, 3);
+        a5 = _sysbitGet(bs, 1);
+        if (a1 != v5) goto L4FC;
+        _sysbitGet(bs, 0x30);
+        _sysbitGet(bs, 0x30);
+        _sysbitGet(bs, 0x20);
+L4FC:
+        if (a2 == v5) {
+            _Error(sp[0], D_001539D8);
+            return 0;
+        }
+L518:
+        if (a3 == v5) {
+            _sysbitGet(bs, 0x10);
+        }
+L528:
+        if (a4 == v5) {
+            _sysbitGet(bs, 0x10);
+        }
+L538:
+        if (a5 == v5) {
+            u32 i;
+            u32 n;
+            _sysbitMarker(bs);
+            i = 0;
+            n = _sysbitGet(bs, 7);
+            if (n != 0) {
+                do {
+                    _sysbitGet(bs, 8);
+                    i++;
+                } while (i < n);
+            }
+        }
     }
-    if (temp_4_40 == (0xFF00 << 0x18)) {
-        goto block_36;
+L588:
+    now = bs->stamp;
+    {
+    s32 delta = sp[2] - (s32)((now - base) >> 3);
+    if (delta != 0) {
+        _sysbitJump(bs, delta);
     }
-    if (temp_4_40 == (0xF200 << 0x18)) {
-        goto block_36;
     }
-    if (temp_4_40 == (0xF800 << 0x18)) {
-        goto block_36;
+L5B4:
+    {
+    s32 n = hdr->unk8 - sp[2];
+    s32 m;
+    hdr->unk24 = n - 3;
+    hdr->unk20 = (s32)bs->stamp;
+    if (hdr->unk0 == ((u64)0xBD00 << 0x18)) {
+        hdr->unk0 |= (u64)(u32)_sysbitGet(bs, 0x20);
+        m = n - 7;
+    } else {
+        m = n - 3;
     }
-    _sysbitGet(arg1, 2U);
-    arg2->unkC = _sysbitGet(arg1, 2U);
-    _sysbitGet(arg1, 4U);
-    temp_23_90 = _sysbitGet(arg1, 2U);
-    sp14 = _sysbitGet(arg1, 1U);
-    temp_30_98 = _sysbitGet(arg1, 4U);
-    temp_21_102 = _sysbitGet(arg1, 1U);
-    sp18 = _sysbitGet(arg1, 8U);
-    temp_22_110 = (s64) ((s64) arg1->unk18 << 0x20) >> 0x20;
-    if (!(temp_23_90 & 2)) {
-        goto block_10;
+    if (m == 0) {
+        return 1;
     }
-    _sysbitGet(arg1, 4U);
-    temp_16_119 = _sysbitGet(arg1, 3U);
-    _sysbitMarker(arg1);
-    temp_17_125 = _sysbitGet(arg1, 0xFU);
-    _sysbitMarker(arg1);
-    temp_18_131 = _sysbitGet(arg1, 0xFU);
-    _sysbitMarker(arg1);
-    arg2->unk10 = (s64) ((((temp_16_119 >> 2) & 1) << 0x20) | ((u64) (((temp_16_119 << 0x1E) | (temp_17_125 << 0xF) | temp_18_131) << 0x20) >> 0x20));
-block_10:
-    if (temp_23_90 != 3) {
-        goto block_12;
+    _sysbitJump(bs, m);
+    return 1;
     }
-    _sysbitGet(arg1, 4U);
-    temp_16_155 = _sysbitGet(arg1, 3U);
-    _sysbitMarker(arg1);
-    temp_17_161 = _sysbitGet(arg1, 0xFU);
-    _sysbitMarker(arg1);
-    temp_18_167 = _sysbitGet(arg1, 0xFU);
-    _sysbitMarker(arg1);
-    arg2->unk18 = (s64) ((((temp_16_155 >> 2) & 1) << 0x20) | ((u64) (((temp_16_155 << 0x1E) | (temp_17_161 << 0xF) | temp_18_167) << 0x20) >> 0x20));
-block_12:
-    if (sp14 != 1) {
-        goto block_14;
+L618:
+    if (hdr->unk0 == ((u64)0xBC00 << 0x18)) goto L688;
+    if (hdr->unk0 == ((u64)0xBF00 << 0x18)) goto L690;
+    if (hdr->unk0 == ((u64)0xF000 << 0x18)) goto L688;
+    if (hdr->unk0 == ((u64)0xF100 << 0x18)) goto L688;
+    if (hdr->unk0 == ((u64)0xFF00 << 0x18)) goto L688;
+    if (hdr->unk0 == ((u64)0xF200 << 0x18)) goto L688;
+    if (hdr->unk0 != ((u64)0xF800 << 0x18)) goto L6D8;
+L688:
+L690:
+    {
+    s32 n = hdr->unk8;
+    if (hdr->unk0 == ((u64)0xBF00 << 0x18)) {
+        n -= 4;
+        hdr->unk0 |= (u64)(u32)_sysbitGet(bs, 0x20);
     }
-    _sysbitGet(arg1, 0x30U);
-block_14:
-    if (temp_30_98 == 0) {
-        goto block_16;
+    if (n == 0) {
+        return 1;
     }
-    _sysbitGet(arg1, *(sp_slot + temp_30_98));
-block_16:
-    if (temp_21_102 != 1) {
-        goto block_30;
+    _sysbitJump(bs, n);
+    return 1;
     }
-    temp_16_200 = _sysbitGet(arg1, 1U);
-    temp_30_204 = _sysbitGet(arg1, 1U);
-    temp_18_208 = _sysbitGet(arg1, 1U);
-    temp_23_212 = _sysbitGet(arg1, 1U);
-    _sysbitGet(arg1, 3U);
-    temp_17_220 = _sysbitGet(arg1, 1U);
-    if (temp_16_200 != temp_21_102) {
-        goto block_19;
+L6D8:
+    {
+    s32 n;
+    if (hdr->unk0 != ((u64)0xBE00 << 0x18)) {
+        return 1;
     }
-    _sysbitGet(arg1, 0x30U);
-    _sysbitGet(arg1, 0x30U);
-    _sysbitGet(arg1, 0x20U);
-block_19:
-    if (temp_30_204 != temp_21_102) {
-        goto block_21;
+    n = hdr->unk8;
+    if (n == 0) {
+        return 1;
     }
-    _Error(sp10, D_001539D8);
-    var_2_237 = 0;
-    goto block_52;
-block_21:
-    if (temp_18_208 != temp_21_102) {
-        goto block_23;
+    _sysbitJump(bs, n);
+    return 1;
     }
-    _sysbitGet(arg1, 0x10U);
-block_23:
-    if (temp_23_212 != temp_21_102) {
-        goto block_25;
-    }
-    _sysbitGet(arg1, 0x10U);
-block_25:
-    if (temp_17_220 != temp_21_102) {
-        goto block_30;
-    }
-    var_16_253 = 0;
-    _sysbitMarker(arg1);
-    temp_2_255 = _sysbitGet(arg1, 7U);
-    if (temp_2_255 == 0) {
-        goto block_30;
-    }
-loop_28:
-    _sysbitGet(arg1, 8U);
-    var_16_253 += 1;
-    if (var_16_253 < temp_2_255) {
-        goto loop_28;
-    }
-block_30:
-    temp_5_277 = sp18 - ((s64) (((s64) arg1->unk18 - temp_22_110) << 0x1D) >> 0x20);
-    if (temp_5_277 == 0) {
-        goto block_32;
-    }
-    _sysbitJump(arg1, temp_5_277);
-block_32:
-    temp_16_288 = arg2->unk8 - sp18;
-    var_5_289 = temp_16_288 - 3;
-    arg2->unk24 = var_5_289;
-    arg2->unk20 = (s32) arg1->unk18;
-    if (arg2->unk0 != (0xBD00 << 0x18)) {
-        goto block_34;
-    }
-    var_5_289 = temp_16_288 - 7;
-    arg2->unk0 = (s64) (arg2->unk0 | ((u64) (_sysbitGet(arg1, 0x20U) << 0x20) >> 0x20));
-block_34:
-    var_2_237 = 1;
-    if (var_5_289 == 0) {
-        goto block_52;
-    }
-    _sysbitJump(arg1, var_5_289);
-    goto block_51;
-block_36:
-    if (temp_4_40 == (0xBC00 << 0x18)) {
-        goto block_43;
-    }
-    var_2_316 = 0xBF00 << 0x18;
-    if (temp_4_40 == var_2_316) {
-        goto block_44;
-    }
-    if (temp_4_40 == (0xF000 << 0x18)) {
-        goto block_43;
-    }
-    if (temp_4_40 == (0xF100 << 0x18)) {
-        goto block_43;
-    }
-    if (temp_4_40 == (0xFF00 << 0x18)) {
-        goto block_43;
-    }
-    if (temp_4_40 == (0xF200 << 0x18)) {
-        goto block_43;
-    }
-    if (temp_4_40 != (0xF800 << 0x18)) {
-        goto block_48;
-    }
-block_43:
-    var_2_316 = 0xBF00 << 0x18;
-block_44:
-    var_16_344 = arg2->unk8;
-    if (temp_4_40 != var_2_316) {
-        goto block_46;
-    }
-    var_16_344 -= 4;
-    arg2->unk0 = (s64) (arg2->unk0 | ((u64) (_sysbitGet(arg1, 0x20U) << 0x20) >> 0x20));
-block_46:
-    var_2_237 = 1;
-    if (var_16_344 == 0) {
-        goto block_52;
-    }
-    _sysbitJump(arg1, var_16_344);
-    goto block_51;
-block_48:
-    var_2_237 = 1;
-    if (temp_4_40 != (0xBE00 << 0x18)) {
-        goto block_52;
-    }
-    temp_5_367 = arg2->unk8;
-    if (temp_5_367 == 0) {
-        goto block_53;
-    }
-    _sysbitJump(arg1, temp_5_367);
-block_51:
-    var_2_237 = 1;
-block_52:
-block_53:
-    return var_2_237;
 }
 #endif /* NON_MATCHING */

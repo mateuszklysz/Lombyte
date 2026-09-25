@@ -4,63 +4,109 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00225180/FUN_00225180.s", FUN_00225180);
 #else
-#include "types.h"
-/* sn-2.95.3-136 matched TU. */
+#include "eetypes.h"
+struct M2c_arg0 {
+    u8 pad_0[0x10];
+    s64 unk10;
+    u8 pad_18[0xC];
+    struct M2c_arg0_unk24 * unk24;
+    u8 pad_28[0x4];
+    s32 unk2C;
+    u8 pad_30[0x48];
+    s32 unk78;
+    u8 pad_7C[0x40];
+    u8 unkBC;
+    u8 pad_BD[0x3];
+};
 
-extern char D_0061B7C0[];
-extern void *InitObjectSetVtable_4E090_2FFA90(void *);
-extern void *InitObjectSetVtable_4E820_2FFC20(void *);
-extern void *InitObjectSetVtable_4EA10_2FFC88(void *);
-extern void *InitObjectSetVtable_4EAB8_2FFCC8(void *);
-extern void *InitObjectSetVtable_4EB70_2FFD08(void *);
-extern void *InitObjectSetVtable_4EC68_2FFD48(void *);
-extern void *InitVtablePtrAndClearField_2FFD88(void *);
-extern void *InitObjectSetVtable_4EFA0_2FFE10(void *);
-extern void *InitObjectSetVtable_4F078_2FFE50(void *);
-extern void *InitObjectSetVtable_4F1C8_2FFE90(void *);
-extern void *InitObjectSetVtable_4F270_2FFED0(void *);
-extern void *InitObjectSetVtable_4F3A0_2FFF50(void *);
-extern void *InitObjectSetVtable_4F630_300020(void *);
-extern void *InitObjectFieldsIfNonNull_300060(void *);
-extern void *InitObjectSetVtable_4F880_3000B0(void *);
+struct M2c_arg0_unk24 {
+    u8 pad_0[0x24];
+    s32 unk24;
+};
 
-__attribute__((section(".text.func_002FACA8")))
-void *FUN_00225180(int slot, int type) {
-    char *r;
+struct M2c_temp_17_18 {
+    u8 pad_0[0x10];
+    s32 unk10;
+};
 
-    switch (type) {
-    case 0:  r = (char *)func_002FFA68(&D_0061B7C0[slot << 10]); break;
-    case 1:  r = (char *)InitObjectSetVtable_4E090_2FFA90(&D_0061B7C0[slot << 10]); break;
-    case 2:  r = (char *)func_002FFAD0(&D_0061B7C0[slot << 10]); break;
-    case 3:  r = (char *)func_002FFB10(&D_0061B7C0[slot << 10]); break;
-    case 4:  r = (char *)func_002FFB38(&D_0061B7C0[slot << 10]); break;
-    case 5:  r = (char *)func_002FFB80(&D_0061B7C0[slot << 10]); break;
-    case 6:  r = (char *)func_002FFBD0(&D_0061B7C0[slot << 10]); break;
-    case 7:  r = (char *)func_002FFBF8(&D_0061B7C0[slot << 10]); break;
-    case 8:  r = (char *)InitObjectSetVtable_4E820_2FFC20(&D_0061B7C0[slot << 10]); break;
-    case 9:  r = (char *)func_002FFC60(&D_0061B7C0[slot << 10]); break;
-    case 15: r = (char *)InitObjectSetVtable_4EA10_2FFC88(&D_0061B7C0[slot << 10]); break;
-    case 16: r = (char *)InitObjectSetVtable_4EAB8_2FFCC8(&D_0061B7C0[slot << 10]); break;
-    case 18: r = (char *)InitObjectSetVtable_4EB70_2FFD08(&D_0061B7C0[slot << 10]); break;
-    case 19: r = (char *)InitObjectSetVtable_4EC68_2FFD48(&D_0061B7C0[slot << 10]); break;
-    case 20: r = (char *)InitVtablePtrAndClearField_2FFD88(&D_0061B7C0[slot << 10]); break;
-    case 21: r = (char *)func_002FFDC8(&D_0061B7C0[slot << 10]); break;
-    case 22: r = (char *)InitObjectSetVtable_4EFA0_2FFE10(&D_0061B7C0[slot << 10]); break;
-    case 24: r = (char *)InitObjectSetVtable_4F078_2FFE50(&D_0061B7C0[slot << 10]); break;
-    case 25: r = (char *)InitObjectSetVtable_4F1C8_2FFE90(&D_0061B7C0[slot << 10]); break;
-    case 26: r = (char *)InitObjectSetVtable_4F270_2FFED0(&D_0061B7C0[slot << 10]); break;
-    case 29: r = (char *)func_002FFF10(&D_0061B7C0[slot << 10]); break;
-    case 30: r = (char *)InitObjectSetVtable_4F3A0_2FFF50(&D_0061B7C0[slot << 10]); break;
-    case 31: r = (char *)func_002FFF90(&D_0061B7C0[slot << 10]); break;
-    case 32: r = (char *)func_002FFFB8(&D_0061B7C0[slot << 10]); break;
-    case 33: r = (char *)func_002FFFE0(&D_0061B7C0[slot << 10]); break;
-    case 35: r = (char *)InitObjectSetVtable_4F630_300020(&D_0061B7C0[slot << 10]); break;
-    case 36: r = (char *)InitObjectFieldsIfNonNull_300060(&D_0061B7C0[slot << 10]); break;
-    case 37: r = (char *)func_00300088(&D_0061B7C0[slot << 10]); break;
-    case 38: r = (char *)InitObjectSetVtable_4F880_3000B0(&D_0061B7C0[slot << 10]); break;
-    default: return 0;
+extern s32 D_0015ED6C[];
+extern s32 D_0015ED70;
+extern s32 D_0015F438;
+extern u8 D_001D5E90[];
+extern u8 D_001D5EA8[];
+extern s32 func_001F99F8();
+extern s32 func_001F9A10();
+extern s32 func_001F9CF8();
+extern s32 func_001F9DC8();
+extern s32 func_001F9DE0();
+extern s32 func_001FA030();
+extern s32 func_001FA2B8();
+extern s32 func_001FA328();
+extern s32 func_001FA580();
+extern s32 func_001FA610();
+extern s32 func_001FA6C0();
+extern s32 func_0020D580();
+extern s32 func_0020DEF8();
+extern s32 func_0020E098();
+extern s32 func_00213F38();
+extern s32 func_00214128();
+void FUN_00225180(struct M2c_arg0 *arg0) {
+    u8 sp_slot[0xC0]; s32 sp10;
+    s32 sp40;
+    u32 sp48;
+    f32 *temp_4_126;
+    f32 temp_f20_111;
+    f32 temp_f20_70;
+    f32 temp_f21_89;
+    f32 temp_f22_105;
+    u32 temp_f22_124;
+    u32 temp_f24_118;
+    f32 temp_f24_84;
+    s32 temp_3_125;
+    s32 temp_hi_74;
+    s32 var_hi_44;
+    s32 *temp_16_25;
+    struct M2c_temp_17_18 *temp_17_18;
+    s32 *temp_4_171;
+    s32 *temp_4_188;
+    temp_17_18 = *(s32 *)((u8 *)(*(s32 *)arg0->unk78) + 0x44);
+    func_0020D580();
+    func_0020DEF8(arg0);
+    arg0->unk10 = (s64) temp_17_18->unk10;
+    temp_16_25 = ((u8 *)arg0) + 0xC0;
+    func_001FA2B8(temp_16_25, ((u8 *)temp_17_18) + 0xC0);
+    func_00214128(temp_16_25);
+    arg0->unk2C = (f32) arg0->unk24->unk24;
+    if ((u8) arg0->unkBC < 3U) {
+        var_hi_44 = (s32) (arg0->unkBC * 2) % 6;
+    } else {
+        var_hi_44 = (s32) ((arg0->unkBC * 2) + 1) % 6;
     }
-    r[0x102] = type;
-    return r;
+    temp_f20_70 = (f32) var_hi_44;
+    temp_hi_74 = (s32) *(s32 *)0x15F438 % 200;
+    temp_f24_84 = (((f32) temp_hi_74 / func_001FA6C0(0xC8)) * 6.28318f) - 3.14159f;
+    temp_f21_89 = ((temp_f20_70 * 6.28318f) / func_001FA6C0(6, temp_hi_74)) - 3.14159f;
+    temp_f22_105 = (((f32) ((s32) *(s32 *)0x15F438 % 170) / func_001FA6C0(0xAA)) * 6.28318f) - 3.14159f;
+    temp_f20_111 = (temp_f20_70 * 12.56636f) / func_001FA6C0(6, *(s32 *)0x15F438);
+    func_001FA610(temp_f20_111);
+    temp_f24_118 = func_001FA580(temp_f24_84, temp_f21_89);
+    __asm__ volatile ("" : "+r" (temp_f24_118));
+    temp_f22_124 = func_001FA580(temp_f22_105, temp_f20_111);
+    temp_3_125 = arg0->unkBC * 4;
+    temp_4_126 = temp_3_125 + D_001D5E90;
+    if (*temp_4_126 != 0.0f) {
+        func_00213F38(temp_4_126, temp_3_125 + D_001D5EA8, 0, 0x3F800000, D_0015ED70 * 6.0f, D_0015ED6C[0] * 6.0f);
+    }
+    func_001F9CF8(sp_slot, sp_slot, ((u8 *)temp_17_18) + 0xC0, (func_001F9DE0(temp_f22_124, func_001F9DE0(temp_f24_118, func_001F9DC8(temp_f24_118)), 0.0f) * 0.25f) + 0.5f + *(s32 *)((arg0->unkBC * 4) + D_001D5E90));
+    temp_4_171 = ((u8 *)arg0) + 0x10;
+    func_001F9A10(temp_4_171, temp_4_171, sp_slot);
+    func_001F99F8(&sp40);
+    sp48 = func_001FA580(temp_f24_118, 1.5707964f);
+    func_001FA030(&sp10, &sp40);
+    temp_4_188 = ((u8 *)arg0) + 0xC0;
+    func_001FA328(temp_4_188, &sp10, temp_4_188);
+    func_0020E098(arg0);
 }
+
+extern void func_00225180(struct M2c_arg0 *arg0) __attribute__((alias("FUN_00225180")));
 #endif /* NON_MATCHING */

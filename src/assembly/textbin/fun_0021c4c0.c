@@ -5,140 +5,185 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021c4c0/FUN_0021c4c0.s", FUN_0021c4c0);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+struct M2c_D_0013C940 {
+    u8 pad_0[0x1C4];
+    s32 unk1C4;
+};
 
-extern void *SearchData(void *a, void *b, int c);
-extern void cModel_setTextureExchange(void *self, void *tex, int tbl, int n);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
+struct M2c_D_001A00F0 {
+    u8 pad_0[0x224];
+    s32 unk224;
+};
 
-/* sn-2.95.3-136 matched TU. */
+struct M2c_D_001D5BF0 {
+    u8 pad_0[0x4];
+    struct M2c_D_001D5BF0_unk4 * unk4;
+    s32 unk8;
+    u8 pad_C[0x118];
+    s32 unk124;
+};
 
+struct M2c_D_001D5BF0_unk4 {
+    u8 pad_0[0x38];
+    s32 unk38;
+    u8 pad_3C[0x4];
+    s32 unk40;
+};
 
+struct M2c_arg0 {
+    u8 pad_0[0x14];
+    s32 unk14;
+    u8 pad_18[0x64];
+    s32 unk7C;
+};
 
-
-
-
-__attribute__((section(".text.cObjSimple__SetTexChange")))
-void FUN_0021c4c0(void *a0, int a1) {
-    char *s0 = (char *)a0;
-    int s1 = a1;
-    void *m;
-    int val;
-
-    if (*(unsigned char *)(s0 + 0x4D0) == 0) {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, 0);
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, 0);
-        }
-    } else {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, *(int *)(s0 + 0x4D4));
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, *(int *)(s0 + 0x4D4));
-        }
+extern struct M2c_D_0013C940 D_0013C940;
+extern u8 D_0013DD40[];
+extern s32 D_0015ED84;
+extern struct M2c_D_001A00F0 D_001A00F0;
+extern s32 D_001CF758;
+extern s32 D_001CF874[];
+extern struct M2c_D_001D5BF0 D_001D5BF0;
+extern s32 func_0020B950();
+extern s32 func_0020BC00();
+extern s32 func_0022DA68();
+s32 FUN_0021c4c0(struct M2c_arg0 *arg0, s32 *arg3) {
+    s32 *var_7_0;
+    s32 *temp_4_126;
+    s32 *temp_4_166;
+    s32 *temp_5_107;
+    s32 temp_17_104;
+    s32 temp_20_22;
+    s32 temp_2_185;
+    s32 temp_4_100;
+    s32 temp_6_110;
+    s32 var_2_192;
+    s32 var_4_50;
+    s32 var_4_78;
+    s32 *temp_18_105;
+    var_7_0 = arg3;
+    temp_20_22 = D_001A00F0.unk224;
+    if (D_001D5BF0.unk4->unk40 == arg0) {
+        goto block_3;
     }
-    switch (*(unsigned short *)(s0 + 0x2FE)) {
-    case 0x227: {
-        char *p0 = *(char **)(s0 + 0x304);
-        int f0 = *(int *)(p0 + 0x44);
-        val = f0 + (int)p0;
-        break;
+    if (temp_20_22 >= 0x14) {
+        goto block_39;
     }
-    case 0x228: {
-        char *p1 = *(char **)(s0 + 0x304);
-        int f1 = *(int *)(p1 + 0x48);
-        val = f1 + (int)p1;
-        break;
+    *(s32 *)((u8 *)(((u8 *)arg0) + (temp_20_22 * 4)) + 0x30) = -1;
+    goto block_39;
+block_3:
+    if (!(D_0013C940.unk1C4 & 0xD00)) {
+        goto block_6;
     }
-    case 0x229: {
-        char *p2 = *(char **)(s0 + 0x304);
-        int f2 = *(int *)(p2 + 0x4C);
-        val = f2 + (int)p2;
-        break;
+    if (D_001D5BF0.unk124 != 0) {
+        goto block_6;
     }
-    case 0x22A: {
-        char *p3 = *(char **)(s0 + 0x304);
-        int f3 = *(int *)(p3 + 0x50);
-        val = f3 + (int)p3;
-        break;
+    return 1;
+block_6:
+    if (!(D_0013C940.unk1C4 & 8)) {
+        goto block_12;
     }
-    case 0x22B: {
-        char *p4 = *(char **)(s0 + 0x304);
-        int f4 = *(int *)(p4 + 0x54);
-        val = f4 + (int)p4;
-        break;
+    var_4_50 = D_001A00F0.unk224;
+    var_7_0 = &D_001A00F0;
+loop_8:
+    var_4_50 += 1;
+    if (var_4_50 >= 0x14) {
+        goto block_12;
     }
-    case 0x22C: {
-        char *p5 = *(char **)(s0 + 0x304);
-        int f5 = *(int *)(p5 + 0x58);
-        val = f5 + (int)p5;
-        break;
+    if (*(s32 *)(var_4_50 + D_0013DD40) != 0) {
+        goto block_11;
     }
-    case 0x22D: {
-        char *p6 = *(char **)(s0 + 0x304);
-        int f6 = *(int *)(p6 + 0x78);
-        val = f6 + (int)p6;
-        break;
+    if (D_0015ED84 != var_4_50) {
+        goto loop_8;
     }
-    case 0x22E: {
-        char *p7 = *(char **)(s0 + 0x304);
-        int f7 = *(int *)(p7 + 0x70);
-        val = f7 + (int)p7;
-        break;
+block_11:
+    D_001A00F0.unk224 = var_4_50;
+block_12:
+    if (!(D_0013C940.unk1C4 & 4)) {
+        goto block_20;
     }
-    case 0x243: {
-        char *p8 = *(char **)(s0 + 0x304);
-        int f8 = *(int *)(p8 + 0x80);
-        val = f8 + (int)p8;
-        break;
+    var_7_0 = &D_001A00F0;
+    var_4_78 = D_001A00F0.unk224 - 1;
+loop_14:
+    if (var_4_78 < 0) {
+        goto block_20;
     }
-    case 0x24A: {
-        char *p9 = *(char **)(s0 + 0x304);
-        int f9 = *(int *)(p9 + 0x64);
-        val = f9 + (int)p9;
-        break;
+    if (*(s32 *)(var_4_78 + D_0013DD40) != 0) {
+        goto block_19;
     }
-    case 0x24B: {
-        char *p10 = *(char **)(s0 + 0x304);
-        int f10 = *(int *)(p10 + 0x6C);
-        val = f10 + (int)p10;
-        break;
+    if (D_0015ED84 == var_4_78) {
+        goto block_18;
     }
-    case 0x24C: {
-        char *p11 = *(char **)(s0 + 0x304);
-        int f11 = *(int *)(p11 + 0x74);
-        val = f11 + (int)p11;
-        break;
+    var_4_78 -= 1;
+    goto loop_14;
+block_18:
+block_19:
+    D_001A00F0.unk224 = var_4_78;
+block_20:
+    if (D_001A00F0.unk224 == temp_20_22) {
+        goto block_22;
     }
-    case 0x24D: {
-        char *p12 = *(char **)(s0 + 0x304);
-        int f12 = *(int *)(p12 + 0x7C);
-        val = f12 + (int)p12;
-        break;
+    func_0022DA68(1, 0x11, arg0->unk14, var_7_0, &D_001A00F0);
+    func_0020B950();
+block_22:
+    temp_4_100 = arg0->unk7C;
+    if (temp_4_100 == 0) {
+        goto block_32;
     }
-    case 0x24E: {
-        char *p13 = *(char **)(s0 + 0x304);
-        int f13 = *(int *)(p13 + 0x88);
-        val = f13 + (int)p13;
-        break;
+    temp_17_104 = D_0013C940.unk1C4;
+    temp_18_105 = ((u8 *)arg0) + 0x30;
+    temp_5_107 = temp_18_105 + (D_001A00F0.unk224 * 4);
+    temp_6_110 = *temp_5_107;
+    if (!(temp_17_104 & 0x1000)) {
+        goto block_25;
     }
-    case 0x271:
-    case 0x272:
-    case 0x273: {
-        char *p14 = *(char **)(s0 + 0x304);
-        int f14 = *(int *)(p14 + 0x5C);
-        val = f14 + (int)p14;
-        break;
+    *temp_5_107 = (s32) ((temp_6_110 + temp_4_100) - 1) % temp_4_100;
+block_25:
+    if (!(temp_17_104 & 0x4000)) {
+        goto block_27;
     }
-    default:
-        val = 0;
-        break;
+    temp_4_126 = temp_18_105 + (D_001A00F0.unk224 * 4);
+    *temp_4_126 = (s32) (*temp_4_126 + 1) % (s32) arg0->unk7C;
+block_27:
+    if (*(temp_18_105 + (D_001A00F0.unk224 * 4)) == temp_6_110) {
+        goto block_29;
     }
-    if (m != 0) {
-        if (val != 0) {
-            *(int *)(s0 + 0x254) = *(int *)(s0 + 0x254) | 0x10000000;
-            cModel_setTextureExchange(s0, m, val, s1);
-        }
+    func_0022DA68(1, 0x11, arg0->unk14);
+block_29:
+    if (temp_17_104 & 0x5000) {
+        goto block_31;
     }
+    if (D_001A00F0.unk224 == temp_20_22) {
+        goto block_33;
+    }
+block_31:
+    arg0->unk7C = func_0020BC00(0x70000000, 0, 0x70000100, 1);
+    temp_4_166 = temp_18_105 + (D_001A00F0.unk224 * 4);
+    D_001CF874[0] = *(volatile u32 *)(0x70000000 + (*temp_4_166 * 4));
+    D_001CF758 = *(volatile u32 *)(0x70000100 + (*temp_4_166 * 4));
+block_32:
+block_33:
+    if (!(D_0013C940.unk1C4 & 0x10)) {
+        goto block_39;
+    }
+    temp_2_185 = D_001D5BF0.unk4->unk38;
+    if (temp_2_185 != 0) {
+        goto block_36;
+    }
+    goto block_38;
+block_36:
+    D_001D5BF0.unk8 = temp_2_185;
+    goto block_39;
+block_38:
+    var_2_192 = -1;
+    if (D_001D5BF0.unk124 == 0) {
+        goto block_40;
+    }
+block_39:
+    var_2_192 = 0;
+block_40:
+    return var_2_192;
 }
+
+extern s32 func_0021C4C0(struct M2c_arg0 *arg0, s32 *arg3) __attribute__((alias("FUN_0021c4c0")));
 #endif /* NON_MATCHING */

@@ -5,106 +5,105 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/audio/snd_start_sound_system/FUN_0012da28.s", FUN_0012da28);
 #else
 #include "types.h"
-/* TU: BlackJack [casino] - recovered C++ class. */
+struct M2c_D_00137B00 {
+    s32 unk0;
+    u8 pad_4[0xC];
+    s32 unk10;
+};
 
+struct M2c_D_0015EBC0 {
+    u8 pad_0[0x24];
+    s32 unk24;
+};
 
-extern char D_003BDF58[];
-extern int D_00569B70;
-extern void func_001D0CE8();
-extern void func_001D0DF8();
-extern void func_001D5780();
-extern int GetTimerValue_1FA710();
-extern void BlackJackId_Move();
-extern void BlackJackId__Trans();
+struct M2c_D_0015EBE8 {
+    u8 pad_0[0x24];
+    s32 unk24;
+};
 
-void snd_start_sound_system(void) __asm__("FUN_0012da28");
+extern u8 D_00133280[];
+extern u8 D_00134280[];
+extern u8 D_00135280[];
+extern u8 D_00136280[];
+extern u8 D_00137280[];
+extern u8 D_001376C0[];
+extern struct M2c_D_00137B00 D_00137B00;
+extern u8 D_00153C50[];
+extern u8 D_00153C78[];
+extern struct M2c_D_0015EBC0 D_0015EBC0;
+extern struct M2c_D_0015EBE8 D_0015EBE8;
+extern s32 D_0015ECA0;
+extern s32 D_0015ECA4;
+extern s32 D_0015ECA8;
+extern s32 D_0015ECAC;
+extern s32 D_0015ECB0;
+extern s32 D_0015ECB4;
+extern s32 D_0015ECB8;
+extern s32 D_0015ECBC;
+extern s32 D_0015ECC8;
+extern s32 D_0015ECD0;
+extern s32 D_0015ECD8;
+extern s32 D_0015ED00;
+extern s32 func_0012E548();
+extern s32 printf();
+extern s32 sceSifBindRpc();
+extern s32 sceSifInitRpc();
+void FUN_0012da28(void) {
+u8 sp_slot[0xB0];    s32 var_2_121;
+    s32 var_2_70;
 
-void snd_start_sound_system(void) {
-    func_001D4F48();
-}
-
-extern char D_00463050[];
-
-
-void BlackJack_Main(int a0)
-{
-    int s1;
-    int *s0;
-    int *s3;
-    int i = *(int *)(a0 + 0x1804);
-    short off = *(short *)(D_003BDF58 + i * 8);
-    void (*fn)() = *(void (**)())(D_003BDF58 + i * 8 + 4);
-    fn(a0 + off);
-
-    s3 = (int *)(a0 + 0x17D4);
-    s1 = 4;
-    s0 = s3;
-    do {
-        if (*s0 != 0) {
-            func_001D0CE8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    s3 = (int *)(a0 + 0x17E8);
-    do {
-        if (*s0 != 0) {
-            func_001D0DF8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    do {
-        if (*s0 != 0) {
-            func_001D0CE8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    do {
-        if (*s0 != 0) {
-            func_001D0DF8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    func_001D5780(a0, GetTimerValue_1FA710(&D_00569B70));
-    BlackJackId_Move(a0);
-    BlackJackId__Trans(a0);
-}
-
-void BlackJack_SetBlackJackCamera(int a0, float *a1, float *a2) {
-    float *dst1;
-    float *dst2;
-
-    cCamManager_setSubScrCamera(D_00463050, 0);
-    *(int *)(a0 + 0x181C) = (int)(D_00463050 + 0xC90);
-    dst1 = (float *)(D_00463050 + 0xEA0);
-    if (a1 != dst1) {
-        dst1[0] = a1[0];
-        dst1[1] = a1[1];
-        dst1[2] = a1[2];
+    D_0015ECA0 = D_00133280;
+    D_0015ECA4 = D_00134280;
+    D_0015ECB8 = D_00137280;
+    D_0015ECBC = D_001376C0;
+    D_0015ECB0 = D_00135280;
+    D_0015ECB4 = D_00136280;
+    sceSifInitRpc(0, D_00137280, D_001376C0, D_00135280, D_00136280);
+loop_1:
+    if (sceSifBindRpc(&D_0015EBC0, 0x123456, 0) < 0) {
+        printf(D_00153C50, D_00153C78, 0x73);
+loop_3:
+        goto loop_3;
     }
-    dst2 = (float *)(*(int *)(a0 + 0x181C) + 0x200);
-    if (dst2 != a2) {
-        dst2[0] = a2[0];
-        dst2[1] = a2[1];
-        dst2[2] = a2[2];
+    if (0x270F != -1) {
+        var_2_70 = 0x270E;
+loop_6:
+        if (var_2_70 != -1) {
+            var_2_70 -= 1;
+            goto loop_6;
+        }
     }
-}
-
-
-void BlackJack_ClearBlackJackCamera(void) {
-    cCamManager_setPlCamera(D_00463050, 0);
+    if (D_0015EBC0.unk24 != 0) {
+        D_0015ECC8 = 0;
+        D_0015ECD0 = 0;
+        D_0015ECD8 = 0;
+        D_0015ED00 = 0;
+loop_12:
+        if (sceSifBindRpc(&D_0015EBE8, 0x123457, 0) < 0) {
+            printf(D_00153C50, D_00153C78, 0x88);
+loop_14:
+            goto loop_14;
+        }
+        if (0x270F != -1) {
+            var_2_121 = 0x270E;
+loop_17:
+            if (var_2_121 != -1) {
+                var_2_121 -= 1;
+                goto loop_17;
+            }
+        }
+        if (D_0015EBE8.unk24 != 0) {
+            *(s32 *)D_00133280 = 0;
+            D_00137B00.unk0 = 0;
+            *(s32 *)D_00134280 = 0;
+            D_0015ECAC = 0xFFC;
+            D_00137B00.unk10 = 0;
+            D_0015ECA8 = 0xFFC;
+            func_0012E548(0, 4, sp_slot, &D_00137B00);
+            return;
+        }
+        goto loop_12;
+    }
+    goto loop_1;
 }
 #endif /* NON_MATCHING */

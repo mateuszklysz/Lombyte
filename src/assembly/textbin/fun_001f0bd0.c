@@ -4,48 +4,34 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f0bd0/FUN_001f0bd0.s", FUN_001f0bd0);
 #else
-#include "rnc/assembly_textbin_fun_001f0bd0_types.h"
 #include "types.h"
-/* cygnus-2.96 matched TU. */
+struct M2c_temp_9_12 {
+    u8 pad_0[0x4];
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
 
-extern int CreateThread(void *);
-extern void func_003B0BA8(int, int);
-extern void ChangeThreadPriority(int, int);
-extern void func_00325100(void);
-extern int D_003CF9D8;
-extern int D_003C80C8;
-extern unsigned char D_003CB9D0[];
-extern int D_00468CF0;
-extern volatile int D_003C814C;
+extern s32 D_0015F000;
+extern s32 D_0015F004;
+extern u8 D_0015F008[];
+extern u8 D_0018AB00[];
+extern s32 sprintf();
+void FUN_001f0bd0(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 *temp_8_10;
+    s32 temp_10_17;
+    s32 temp_3_7;
+    struct M2c_temp_9_12 *temp_9_12;
 
-
-
-void FUN_001f0bd0(void) {
-    ThreadParam param;
-    param.func = (void *)func_00325100;
-    param.stack = D_003CB9D0;
-    param.stackSize = 0x2000;
-    param.initPriority = D_003CF9D8;
-    param.gpReg = &D_00468CF0;
-    D_003C814C = CreateThread(&param);
-    D_003C814C;
-    func_003B0BA8(D_003C814C, 0);
-    ChangeThreadPriority(D_003C814C, D_003C80C8);
-    func_00325360(D_003C814C);
-    D_003C814C;
-}
-
-int func_0035B9B0(char *a0) {
-    int local0, local1;
-    int a1val, s0, s1, r;
-    char *p;
-    a1val = *(int *)(a0 + 0x950);
-    p = a0 + 0xD30;
-    s1 = *(int *)(p + 0x27C);
-    s0 = *(int *)(p + 0x280);
-    if (!(a1val == 0)) return 0; return 1;
-    func_0035AB98(a0, &local0, &local1);
-    r = func_00366918(s1 + s0 * 2000 / 59940, s0, local0, local1);
-    return r != 0;
+    temp_3_7 = D_0015F004 * 0x10;
+    temp_8_10 = temp_3_7 + D_0018AB00;
+    *temp_8_10 = arg0;
+    temp_9_12 = D_0018AB00 + temp_3_7;
+    temp_9_12->unk4 = arg1;
+    temp_9_12->unk8 = arg2;
+    temp_10_17 = D_0015F004 + 1;
+    temp_9_12->unkC = (s32) D_0015F000;
+    *(s32 *)0x15F004 = temp_10_17;
+    D_0015F000 += sprintf(D_0015F000, D_0015F008, arg3, temp_8_10, temp_9_12, temp_10_17, D_0015F000) + 1;
 }
 #endif /* NON_MATCHING */

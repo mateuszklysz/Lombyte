@@ -4,7 +4,25 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021f990/FUN_0021f990.s", FUN_0021f990);
 #else
-#include "types.h"
+typedef signed char s8;
+typedef unsigned char u8;
+typedef signed short s16;
+typedef unsigned short u16;
+typedef signed int s32;
+typedef unsigned int u32;
+typedef signed long long s64;
+typedef unsigned long long u64;
+typedef volatile s8 vs8;
+typedef volatile u8 vu8;
+typedef volatile s16 vs16;
+typedef volatile u16 vu16;
+typedef volatile s32 vs32;
+typedef volatile u32 vu32;
+typedef volatile s64 vs64;
+typedef volatile u64 vu64;
+typedef float f32;
+typedef double f64;
+typedef s32 b32;
 struct M2c_D_0013D290
 {
   u8 pad_0[0xD4];
@@ -73,7 +91,7 @@ struct M2c_var_5_0_unk40
   s32 unk40;
 };
 extern struct M2c_D_0013D290 D_0013D290;
-extern s32 D_001516D8;
+extern s16 D_001516D8;
 extern struct M2c_D_001A00F0 D_001A00F0;
 extern s32 D_001A0314[];
 extern struct M2c_D_001D5BF4 *D_001D5BF4[];
@@ -81,9 +99,9 @@ extern s32 func_001F97A0();
 extern s32 func_00204E30();
 extern s32 func_0020B4A8();
 extern s32 func_0020B618();
-extern s32 func_00216788(s32, s32, s32);
+extern s32 func_00216788();
 extern s32 func_00225D88();
-extern s32 func_00225DD8(s32);
+extern void func_00225DD8();
 extern s32 func_00225E20();
 inline u8 *inline_fn(s32 arg0, struct M2c_arg0 *arg1)
 {
@@ -250,7 +268,7 @@ s32 FUN_0021f990(struct M2c_arg0 *arg0, s32 *arg1, s32 arg2, s32 *arg3, s32 arg4
   {
     goto block_39;
   }
-  if ((*((s32 *) 0x1516D8)) != 0)
+  if ((*((s16 *) 0x1516D8)) != 0)
   {
     goto block_40;
   }
@@ -293,7 +311,7 @@ s32 FUN_0021f990(struct M2c_arg0 *arg0, s32 *arg1, s32 arg2, s32 *arg3, s32 arg4
   new_var = arg0;
   goto block_39;
   block_34:
-  if ((*((s32 *) 0x1516D8)) != 0)
+  if ((*((s16 *) 0x1516D8)) != 0)
   {
     goto block_40;
   }

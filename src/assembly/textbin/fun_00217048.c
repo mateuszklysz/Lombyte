@@ -4,28 +4,36 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00217048/FUN_00217048.s", FUN_00217048);
 #else
-#include "rnc/assembly_textbin_fun_00217048_types.h"
 #include "types.h"
+struct M2c_D_0013C940 {
+    u8 pad_0[0x194];
+    s32 unk194;
+    s32 unk198;
+    s32 unk19C;
+};
 
-
-
+struct M2c_D_001CD760 {
+    s32 unk0;
+    s32 unk4;
+};
 
 extern struct M2c_D_0013C940 D_0013C940;
 extern struct M2c_D_001CD760 D_001CD760;
-extern s32 func_00124510();
-extern s32 func_00124A48();
-extern s32 func_00124A88();
+extern s32 sceDbcInit();
+extern s32 scePad2CreateSocket();
+extern s32 scePad2Init();
 void FUN_00217048(void) {
-    s32 temp_2_22;
+    s32 temp_2_20;
 
-    func_00124510();
-    func_00124A48(0);
+    sceDbcInit();
+    scePad2Init(0);
     D_001CD760.unk0 = 2;
     D_001CD760.unk4 = 0;
-    temp_2_22 = func_00124A88(&D_001CD760, &D_0013C940);
+    temp_2_20 = scePad2CreateSocket(&D_001CD760, &D_0013C940);
+    __asm__ volatile ("" : "+r" (temp_2_20));
     D_001CD760.unk0 = 2;
     D_001CD760.unk4 = 1;
-    D_0013C940.unk194 = temp_2_22;
+    D_0013C940.unk194 = temp_2_20;
     D_0013C940.unk19C = 0;
     D_0013C940.unk198 = 0;
 }

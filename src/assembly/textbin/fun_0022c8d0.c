@@ -4,11 +4,26 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022c8d0/FUN_0022c8d0.s", FUN_0022c8d0);
 #else
-#include "rnc/assembly_textbin_fun_0022c8d0_types.h"
 #include "types.h"
+struct M2c_D_0013E550 {
+    u8 pad_0[0x40];
+    s32 unk40;
+    s32 unk44;
+    s32 unk48;
+    s32 unk4C;
+    s32 unk50;
+    s32 unk54;
+    s32 unk58;
+    s32 unk5C;
+    u8 pad_60[0x10];
+    s32 unk70;
+};
 
-
-
+struct M2c_var_3_18 {
+    u8 pad_0[0x70];
+    s32 unk70;
+    s32 unk74;
+};
 
 extern struct M2c_D_0013E550 D_0013E550;
 extern s32 D_0015EDE8[];
@@ -55,15 +70,15 @@ loop_3:
     func_0012E2B8(1, 0x18, 0x2F);
     func_0012E2B8(2, 0x18, 0x2F);
     func_0012E2B8(4, 0x18, 0x2F);
-    temp_lo_66 = (s32) (D_0015EDF0 * 8) / 10;
-    D_0013E550.unk4C = (s32) D_0015EDEC;
-    temp_lo_71 = (s32) (D_0015EDF0 * 7) / 10;
+    temp_lo_66 = (s32) (*(s32 *)0x15EDF0 * 8) / 10;
+    D_0013E550.unk4C = (s32) *(s32 *)0x15EDEC;
+    temp_lo_71 = (s32) (*(s32 *)0x15EDF0 * 7) / 10;
     D_0013E550.unk48 = temp_lo_66;
     D_0013E550.unk50 = temp_lo_66;
     D_0013E550.unk54 = temp_lo_71;
     D_0013E550.unk58 = temp_lo_71;
-    D_0013E550.unk5C = (s32) D_0015EDF0;
-    func_00215390(0xA, D_0015EDF0, temp_lo_66, 0xA);
+    D_0013E550.unk5C = (s32) *(s32 *)0x15EDF0;
+    func_00215390(0xA, *(s32 *)0x15EDF0, temp_lo_66, 0xA);
     func_0012E208(0, D_0013E550.unk48);
     func_0012E208(1, D_0013E550.unk4C);
     func_0012E208(2, D_0013E550.unk50);

@@ -4,15 +4,35 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/rpc/sce_sif_init_cmd/sceSifInitCmd.s", sceSifInitCmd);
 #else
-#include "rnc/assembly_sdk_sif_rpc_sce_sif_init_cmd_types.h"
 #include "types.h"
+struct M2c_D_00154E40 {
+    u8 pad_0[0xC];
+    s32 unkC;
+    s32 unk10;
+};
 
+struct M2c_D_00154E58 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+    s32 unk1C;
+};
 
+struct M2c_D_00154E80 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
 
-
-
-
-
+struct M2c_var_3_42 {
+    s32 unk0;
+    s32 unk4;
+};
 
 extern u8 D_0011A428[];
 extern u8 D_0011A448[];
@@ -34,6 +54,7 @@ extern s32 sceSifSetDChain();
 extern s32 sceSifSetReg();
 extern void _sceSifCmdIntrHdlr();
 void sceSifInitCmd(void) {
+    u32 ipval;
     struct M2c_var_3_42 *var_3_42;
     s32 *var_2_61;
     s32 temp_2_113;
@@ -50,6 +71,7 @@ void sceSifInitCmd(void) {
     EnableInterrupts();
     return;
 block_3:
+    ipval = 0x20;
     temp_5_29 = (s32) D_00154E00 | 0x20000000;
     temp_6_30 = (s32) D_00154D80 | 0x20000000;
     *(s32 *)D_0012FC04 = 1;
@@ -57,7 +79,7 @@ block_3:
     D_00154E58.unk1C = D_00154F80;
     D_00154E58.unk4 = temp_5_29;
     var_3_42 = &D_00154E80;
-    D_00154E58.unk10 = 0x20;
+    D_00154E58.unk10 = ipval;
     D_00154E58.unk8 = 0;
     var_16_46 = 0x1F;
     D_00154E58.unkC = &D_00154E80;
@@ -76,26 +98,28 @@ loop_4:
 loop_6:
     *var_2_61 = 0;
     var_16_59 -= 1;
-    var_2_61 -= 4;
+    var_2_61 -= 1;
     if (var_16_59 >= 0) {
         goto loop_6;
     }
     D_00154E80.unk0 = D_0011A448;
+    D_00154E80.unk4 = &D_00154E58;
     D_00154E80.unk8 = D_0011A428;
     D_00154E80.unkC = &D_00154E58;
-    D_00154E80.unk4 = &D_00154E58;
-    EnableInterrupts(&D_00154E80, temp_5_29, temp_6_30, 0x20, &D_00154E80, &D_00154E80, D_0012FC04);
+    EnableInterrupts();
     FlushCache(0);
-    if (!(*(s32 *)0x1000E010 & 0x20)) {
-        goto block_9;
+    {
+        volatile u32 *ip0 = (volatile u32 *)0x1000E010;
+        if (*ip0 & 0x20) {
+            *ip0 = ipval;
+        }
     }
-    *(volatile u32 *)0x1000E010 = 0x20;
-block_9:
-    if (*(s32 *)0x1000C000 & 0x100) {
-        goto block_11;
+    {
+        volatile u32 *ip1 = (volatile u32 *)0x1000C000;
+        if (!(*ip1 & 0x100)) {
+            sceSifSetDChain();
+        }
     }
-    sceSifSetDChain();
-block_11:
     D_00154E54[0] = AddDmacHandler(5, &_sceSifCmdIntrHdlr, 0);
     func_00119160(5);
     temp_2_113 = sceSifGetReg(0x80000000);

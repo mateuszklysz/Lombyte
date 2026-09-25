@@ -5,55 +5,38 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ec710/FUN_001ec710.s", FUN_001ec710);
 #else
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
+struct M2c_D_0013F350 {
+    u8 pad_0[0x2080];
+    s32 unk2080;
+};
 
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern int D_00747A30;
-extern unsigned char D_0044A920[];
-extern unsigned char D_0044A940[];
-extern unsigned char D_0044A958[];
-extern unsigned char D_005E8640[];
-extern void cRelSys_unlinkNoFree(void *a0, int a1);
-extern void func_00297660(void);
-extern void cEventConfig_setEventNo(void *a0, int a1);
-extern unsigned char D_00586B30[];
+struct M2c_D_001871B0 {
+    u8 pad_0[0x90];
+    s32 unk90;
+    u8 pad_94[0xC];
+    s64 unkA0;
+    u8 pad_A8[0x8];
+    s64 unkB0;
+    u8 pad_B8[0x18];
+    s32 unkD0;
+};
 
-void FUN_001ec710(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    char buf[0x40];
-    unsigned long b = *(unsigned char *)(s0 + 8);
-    int a1;
-    if ((b >> 7) == 0) {
-        if (D_00747A30 & 0x400) {
-            func_003A6C58(buf, D_0044A920, D_0044A940);
-        } else {
-            func_003A6C58(buf, D_0044A958, D_0044A940);
-        }
-        a1 = *(int *)(s0 + 0x10);
-        if (a1 != 0) {
-            cRelSys_linkNoAlloc(D_005E8640, a1, buf, 2);
-            *(int *)(s0 + 8) = *(int *)(s0 + 8) | 0x80;
-        }
-    }
+extern struct M2c_D_0013F350 D_0013F350;
+extern struct M2c_D_001871B0 D_001871B0;
+extern s32 func_001EC530();
+extern s32 func_001F9BF8();
+void FUN_001ec710(void) {    s32 sp0;
+u8 sp_slot[0x90];    s64 sp10;
+    s64 sp20;
+
+    func_001F9BF8(sp_slot, D_0013F350.unk2080 + 0xC0, 0x3F800000);
+    func_001F9BF8(&sp10, D_0013F350.unk2080 + 0xD0, 0x3F800000);
+    func_001F9BF8(&sp20, D_0013F350.unk2080 + 0xE0, 0x3F800000);
+    D_001871B0.unk90 = sp0;
+    D_001871B0.unkA0 = (s64) sp20;
+    func_001EC530(((u8 *)&D_001871B0) + 0x70, ((u8 *)&D_001871B0) + 0xC0, ((u8 *)&D_0013F350) + 0x80, sp_slot, &sp10, &sp20);
+    D_001871B0.unkB0 = (s64) D_001871B0.unkD0;
 }
 
-void ClearDisplayText_2974F0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long v0 = *(unsigned char *)(s0 + 8);
-    if (v0 >> 7) {
-        cRelSys_unlinkNoFree(D_005E8640, 2);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) & -0x81;
-    }
-}
-
-void InitSubState_2975F8(void *a0, int a1) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long t = *(int *)(s0 + 8);
-    if (((t >> 1) & 1) == 0) {
-        func_00297660();
-        *(int *)(s0 + 0x18) = a1;
-        cEventConfig_setEventNo(D_00586B30, a1);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) | 2;
-    }
-}
+extern void func_001EC710(void) __attribute__((alias("FUN_001ec710")));
 #endif /* NON_MATCHING */

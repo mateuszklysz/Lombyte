@@ -4,17 +4,32 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00225ac0/FUN_00225ac0.s", FUN_00225ac0);
 #else
-#include "rnc/assembly_textbin_fun_00225ac0_types.h"
 #include "types.h"
+struct M2c_D_001D5BF0 {
+    u8 pad_0[0x108];
+    s32 unk108;
+    s32 unk10C;
+};
 
+struct M2c_var_2_23 {
+    s32 unk0;
+    s32 unk4;
+};
 
+struct M2c_var_3_44 {
+    s32 unk0;
+    s32 unk4;
+};
 
+struct M2c_var_3_65 {
+    s32 unk0;
+    s32 unk4;
+};
 
-
-
-
-
-
+struct M2c_var_3_85 {
+    s32 unk0;
+    s32 unk4;
+};
 
 extern struct M2c_D_001D5BF0 D_001D5BF0;
 extern u8 D_001D60B8[];
@@ -47,7 +62,6 @@ void FUN_00225ac0(s32 arg0) {
         var_2_9 = 1;
         var_10_11 = 2;
     }
-    var_4_18 = 0;
     temp_9_20 = var_5_8 + var_2_9;
     if (var_5_8 > 0) {
         var_2_23 = D_001D60B8;
@@ -73,7 +87,7 @@ void FUN_00225ac0(s32 arg0) {
         } while (var_4_45 != 0);
         var_4_18 = temp_9_20;
     }
-    temp_6_57 = temp_9_20 + var_10_11;
+    temp_6_57 = temp_9_20; temp_6_57 += var_10_11;
     var_2_60 = var_4_18 < 5;
     if (var_4_18 < temp_6_57) {
         var_3_65 = (var_4_18 * 8) + D_001D60B8;

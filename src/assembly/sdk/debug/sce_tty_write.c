@@ -6,12 +6,25 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/debug/sce_tty_write/sceTtyWrite.s", sceTtyWrite);
 #else
 #include "types.h"
+
 struct M2c_D_00154A50 {
-    s32 unk0;
-    s32 unk4;
-    u8 pad_8[0x4];
-    s32 unkC;
-    s32 unk10;
+    s32 unk0;           /* deci2 handle from sceDeci2Open */
+    volatile s32 unk4;  /* published payload length */
+    volatile s32 unk8;
+    volatile s32 unkC;  /* busy flag, also written by sceTtyHandler */
+    s32 unk10;          /* MMIO block pointer (with 0x20000000 flag bit) */
+    s32 unk14;
+    s32 unk18;
+};
+
+struct Mmio {
+    u16 unk0;           /* transmit length */
+    u16 unk2;
+    u16 unk4;
+    u8 unk6;
+    s8 unk7;            /* CallDebugCharacter mode byte (read with `lb`) */
+    u32 unk8;
+    u8 data[0xF4];      /* payload window, addressed at block + 0xC */
 };
 
 extern struct M2c_D_00154A50 D_00154A50;
@@ -20,53 +33,50 @@ extern s32 CallDebugCharacter();
 extern s32 DIntr();
 extern s32 EnableInterrupts();
 extern s32 SceDeci2Poll();
-s32 sceTtyWrite(s8 *arg0, s32 arg1) {
-    s32 temp_6_26;
-    s32 var_17_14;
-    s32 var_18_12;
-    s32 var_20_8;
-    s32 var_2_19;
-    s8 *var_16_16;
-    u8 *var_4_32;
+
+s32 sceTtyWrite(s8 *arg0, s32 arg1)
+{
+    s32 var_20_8;      /* characters consumed -> return value */
+    s32 var_18_12;     /* countdown, hits -1 after len+1 tests */
+    s32 var_17_14;     /* bytes resident in the payload window */
+    s8 *var_16_16;     /* source cursor */
+    struct Mmio *var_6_26;
+    u8 *var_4_32;      /* payload cursor */
 
     var_20_8 = 0;
     var_18_12 = arg1;
     var_17_14 = 0;
     var_16_16 = arg0;
-    var_2_19 = -1;
     if (D_00154A50.unkC == 0) {
         DIntr();
-        temp_6_26 = (s32) D_00154A80 | 0x20000000;
-            D_00154A50.unkC = 0;
         D_00154A50.unkC = 1;
-        var_4_32 = temp_6_26 + 0xC;
-loop_2:
-        var_18_12 -= 1;
-        if (var_18_12 != -1) {
+        var_6_26 = (struct Mmio *) ((u32) D_00154A80 | 0x20000000);
+        D_00154A50.unk10 = (s32) var_6_26;
+        var_4_32 = var_6_26->data;
+        do {
+            var_18_12 = var_18_12 - 1;
+            if (var_18_12 == -1) {
+                break;
+            }
             if (*var_16_16 == 0xA) {
                 *var_4_32 = 0xD;
-                var_17_14 += 1;
-                var_4_32 += 1;
-                if (var_17_14 < 0x100) {
-                    goto block_6;
-                }
-            } else {
-block_6:
-                *var_4_32 = (u8) *var_16_16;
-                var_17_14 += 1;
-                var_16_16 += 1;
-                var_4_32 += 1;
-                var_20_8 += 1;
-                if (var_17_14 < 0x100) {
-                    goto loop_2;
+                var_17_14 = var_17_14 + 1;
+                var_4_32 = var_4_32 + 1;
+                if (var_17_14 >= 0x100) {
+                    break;
                 }
             }
-        }
-        D_00154A50.unk10 = temp_6_26;
-        *(s32 *)((u8 *)temp_6_26 + 0x0) = (s16) D_00154A50.unk4;
-        if (CallDebugCharacter(D_00154A50.unk0, *(s32 *)((u8 *)temp_6_26 + 0x7), temp_6_26, 0xA, -1) < 0) {
-        D_00154A50.unk4 = (s32) (var_17_14 + 0xC);
+            *var_4_32 = (u8) *var_16_16;
+            var_17_14 = var_17_14 + 1;
+            var_16_16 = var_16_16 + 1;
+            var_4_32 = var_4_32 + 1;
+            var_20_8 = var_20_8 + 1;
+        } while (var_17_14 < 0x100);
+        D_00154A50.unk4 = var_17_14 + 0xC;
+        *(u16 *) ((u8 *) D_00154A50.unk10 + 0x0) = D_00154A50.unk4;
+        if (CallDebugCharacter(D_00154A50.unk0, *(s8 *) ((u8 *) D_00154A50.unk10 + 7), var_6_26) < 0) {
             EnableInterrupts();
+            D_00154A50.unkC = 0;
             return -1;
         }
         if (D_00154A50.unkC != 0) {
@@ -75,10 +85,8 @@ block_6:
             } while (D_00154A50.unkC != 0);
         }
         EnableInterrupts();
-        var_2_19 = var_20_8;
-        /* Duplicate return node #12. Try simplifying control flow for better match */
-        return var_2_19;
+        return var_20_8;
     }
-    return var_2_19;
+    return -1;
 }
 #endif /* NON_MATCHING */

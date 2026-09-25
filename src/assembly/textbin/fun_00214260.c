@@ -4,13 +4,32 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00214260/FUN_00214260.s", FUN_00214260);
 #else
-#include "rnc/assembly_textbin_fun_00214260_types.h"
 #include "types.h"
+struct M2c_D_0015FFD8 {
+    u8 pad_0[0x8];
+    s32 unk8;
+};
 
+struct M2c_arg0 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+};
 
-
-
-
+struct M2c_arg1 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    u8 pad_C[0x4];
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+    u8 pad_1C[0x4];
+    s32 unk20;
+    s32 unk24;
+    s32 unk28;
+};
 
 extern struct M2c_D_0015FFD8 D_0015FFD8;
 extern f32 func_001F9988();
@@ -44,6 +63,7 @@ u8 sp_slot[0xD0];    f32 sp10;
 
     temp_f7_17 = arg1->unk0;
     temp_f6_18 = arg1->unk14;
+    __asm__ volatile ("" : "+f" (temp_f6_18));
     temp_f8_19 = arg1->unk28;
     /* m2c-unknown:  unknown instruction: ldl $v1, 0x7($a2)  */
     /* m2c-unknown:  unknown instruction: ldr $v1, ($a2)  */

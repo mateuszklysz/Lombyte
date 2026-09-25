@@ -4,105 +4,161 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00121190/FUN_00121190.s", FUN_00121190);
 #else
-#include "types.h"
-/* TU: BlackJack [casino] - recovered C++ class. */
-
-
-extern char D_003BDF58[];
-extern int D_00569B70;
-extern void func_001D0CE8();
-extern void func_001D0DF8();
-extern void func_001D5780();
-extern int GetTimerValue_1FA710();
-extern void BlackJackId_Move();
-extern void BlackJackId__Trans();
-
-void FUN_00121190(void) {
-    func_001D4F48();
-}
-
-extern char D_00463050[];
-
-
-void BlackJack_Main(int a0)
+typedef signed char s8;
+typedef unsigned char u8;
+typedef signed short s16;
+typedef unsigned short u16;
+typedef signed int s32;
+typedef unsigned int u32;
+typedef signed long long s64;
+typedef unsigned long long u64;
+typedef volatile s8 vs8;
+typedef volatile u8 vu8;
+typedef volatile s16 vs16;
+typedef volatile u16 vu16;
+typedef volatile s32 vs32;
+typedef volatile u32 vu32;
+typedef volatile s64 vs64;
+typedef volatile u64 vu64;
+typedef float f32;
+typedef double f64;
+typedef s32 b32;
+struct M2c_D_00159990
 {
-    int s1;
-    int *s0;
-    int *s3;
-    int i = *(int *)(a0 + 0x1804);
-    short off = *(short *)(D_003BDF58 + i * 8);
-    void (*fn)() = *(void (**)())(D_003BDF58 + i * 8 + 4);
-    fn(a0 + off);
+  u8 pad_0[0x24];
+  s32 unk24;
+};
+extern s32 D_001312D0[];
+extern s32 D_001312EC;
+extern s32 D_00131304;
+extern u8 D_001324C0[];
+extern u8 D_00152F80[];
+extern u8 D_00152F90[];
+extern u8 D_00152FB0[];
+extern struct M2c_D_00159990 D_00159990;
+extern u8 D_001599D0[];
+extern u8 D_FFFFF[];
+extern s32 PollSema();
+extern s32 SignalSema();
+extern unsigned long cmd_sem_init();
+extern s32 sceCdSyncS();
+extern s32 scePrintf();
+extern s32 sceSifBindRpc();
+extern s32 sceSifCallRpc();
+extern s32 sceSifInitRpc();
+extern s32 sceSifWriteBackDCache();
+s32 FUN_00121190(s32 arg0)
+{
+  s32 *var_2_46;
+  int new_var;
+  s32 *var_2_65;
+  s32 temp_16_129;
+  s32 var_2_28;
+  s32 *new_var2;
+  s32 *new_var3;
+  if (D_001312D0[0] <= 0)
+  {
+    goto block_2;
+  }
+  scePrintf(D_00152F80);
+  block_2:
+  cmd_sem_init();
 
-    s3 = (int *)(a0 + 0x17D4);
-    s1 = 4;
-    s0 = s3;
-    do {
-        if (*s0 != 0) {
-            func_001D0CE8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    s3 = (int *)(a0 + 0x17E8);
-    do {
-        if (*s0 != 0) {
-            func_001D0DF8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    do {
-        if (*s0 != 0) {
-            func_001D0CE8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    do {
-        if (*s0 != 0) {
-            func_001D0DF8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    func_001D5780(a0, GetTimerValue_1FA710(&D_00569B70));
-    BlackJackId_Move(a0);
-    BlackJackId__Trans(a0);
-}
-
-void BlackJack_SetBlackJackCamera(int a0, float *a1, float *a2) {
-    float *dst1;
-    float *dst2;
-
-    cCamManager_setSubScrCamera(D_00463050, 0);
-    *(int *)(a0 + 0x181C) = (int)(D_00463050 + 0xC90);
-    dst1 = (float *)(D_00463050 + 0xEA0);
-    if (a1 != dst1) {
-        dst1[0] = a1[0];
-        dst1[1] = a1[1];
-        dst1[2] = a1[2];
+  new_var = 1;
+  var_2_28 = 6;
+  if (D_001312EC != PollSema(D_001312EC))
+  {
+    goto block_27;
+  }
+  if (sceCdSyncS(1) != 0)
+  {
+    do
+    {
+      goto block_23;
     }
-    dst2 = (float *)(*(int *)(a0 + 0x181C) + 0x200);
-    if (dst2 != a2) {
-        dst2[0] = a2[0];
-        dst2[1] = a2[1];
-        dst2[2] = a2[2];
-    }
-}
+    while (0);
+  }
+  new_var2 = D_001312D0;
+  sceSifInitRpc(0);
+  if ((*((s32 *) 0x131304)) >= 0)
+  {
+    goto block_19;
+  }
+  goto loop_9;
+  block_7:
+  loop_8:
+  if (((void *) (-new_var)) != var_2_46)
+  {
+    goto loop_8;
+  }
 
 
-void BlackJack_ClearBlackJackCamera(void) {
-    cCamManager_setPlCamera(D_00463050, 0);
+  loop_9:
+  if (sceSifBindRpc(&D_00159990, 0x8000059A, 0) < 0)
+  {
+    goto block_11;
+  }
+
+  goto block_17;
+  block_11:
+  var_2_65 = D_FFFFF;
+
+  if (new_var2[0] <= 0)
+  {
+    goto block_14;
+  }
+  scePrintf(D_00152F90);
+  var_2_65 = (void *) 0x100000;
+  block_14:
+  loop_15:
+  if (((void *) (-new_var)) != var_2_65)
+  {
+    goto loop_15;
+  }
+
+
+  goto loop_9;
+  block_17:
+  var_2_46 = D_FFFFF;
+
+  if (D_00159990.unk24 == 0)
+  {
+    goto block_7;
+  }
+  *((s32 *) 0x131304) = 0;
+  new_var3 = (s32 *) D_001599D0;
+  goto block_20;
+  block_19:
+  block_20:
+  *new_var3 = arg0;
+
+
+  sceSifWriteBackDCache(D_001599D0, 4);
+  if (sceSifCallRpc(&D_00159990, 0, 0, D_001599D0, 4, (s32) D_001324C0, 4, 0, 0) < 0)
+  {
+    goto block_22;
+  }
+  goto block_24;
+  block_22:
+  block_23:
+  SignalSema(D_001312EC);
+
+
+  return ((arg0 ^ 8) != 0) ? (6) : (-1);
+  block_24:
+  if (new_var2[0] <= 0)
+  {
+    goto block_26;
+  }
+
+  scePrintf(D_00152FB0);
+  block_26:
+  temp_16_129 = *((volatile u32 *) (((u32) D_001324C0) | 0x20000000));
+
+  SignalSema(D_001312EC);
+  var_2_28 = temp_16_129;
+  block_27:
+  return var_2_28;
+
 }
 #endif /* NON_MATCHING */

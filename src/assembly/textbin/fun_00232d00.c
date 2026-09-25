@@ -5,56 +5,65 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00232d00/FUN_00232d00.s", FUN_00232d00);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+struct M2c_D_001DD1A0 {
+    u8 pad_0[0x2C];
+    s32 unk2C;
+};
 
-extern char D_00754210[];
-extern char D_00754220[];
-extern char D_00602F80[];
-extern char D_00603310[];
-extern char D_006036A0[];
-extern unsigned short D_00747A50;
+struct M2c_temp_2_65 {
+    u8 pad_0[0x4];
+    s32 unk4;
+    u8 pad_8[0x28];
+    s32 unk30;
+    s32 unk34;
+};
 
-void FUN_00232d00(char *a0) {
-    char *a1 = a0;
-    switch (*(int *)(a1 + 0x2C)) {
-    case 0:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 3:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        if (D_00747A50 == 0x504 || D_00747A50 == 0x506 || D_00747A50 == 0x801 ||
-            D_00747A50 == 0x4F || D_00747A50 == 0x4E) {
-            *(void **)(a1 + 0x8) = D_00754220;
-        } else {
-            *(void **)(a1 + 0x8) = D_00754210;
-        }
-        *(void **)(a1 + 0xC) = D_006036A0;
-        break;
-    case 2:
-    case 4:
-    case 5:
-    case 6:
-    case 14:
-    case 15:
-    default:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00603310;
-        break;
+struct M2c_var_3_69 {
+    s32 unk0;
+    s32 unk4;
+};
+
+extern struct M2c_D_001DD1A0 D_001DD1A0;
+extern u8 D_001DD1A8[];
+extern u8 D_001DD1D8[];
+extern s32 SceSifCheckStatRpc();
+extern s32 sceSifBindRpc();
+extern s32 sceSifCallRpc();
+void FUN_00232d00(void) {    s32 sp14;
+    s32 sp10;
+    struct M2c_var_3_69 *var_3_69;
+    s32 var_4_41;
+    s32 var_4_72;
+    struct M2c_temp_2_65 *temp_2_65;
+
+loop_1:
+    if (sceSifBindRpc(D_001DD1A8, 0x11, 1) < 0) {
+loop_3:
+        goto loop_3;
     }
+    do {
+
+    } while (SceSifCheckStatRpc(D_001DD1A8) != 0);
+    if (D_001DD1A0.unk2C == 0) {
+        var_4_41 = 0xFFFE;
+        do {
+            var_4_41 -= 1;
+        } while (var_4_41 != -1);
+        goto loop_1;
+    }
+    sceSifCallRpc(D_001DD1A8, 2, 0, 0, 0, &sp10, 0x10, 0, 0);
+    temp_2_65 = ((u8 *)D_001DD1A8 - (u8 *)8);
+    *(s32 *)((u8 *)((u8 *)D_001DD1A8 - (u8 *)0x8)) = sp10;
+    var_3_69 = D_001DD1D8;
+    temp_2_65->unk4 = sp14;
+    temp_2_65->unk30 = sp10;
+    var_4_72 = 0x3F;
+    temp_2_65->unk34 = 0;
+    do {
+        var_3_69->unk0 = 0;
+        var_4_72 -= 1;
+        var_3_69->unk4 = 0;
+        var_3_69 += 0x10;
+    } while (var_4_72 >= 0);
 }
 #endif /* NON_MATCHING */

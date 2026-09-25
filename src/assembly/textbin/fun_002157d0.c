@@ -12,7 +12,7 @@ extern u8 D_00137B80[];
 extern struct M2c_D_001516D0 D_001516D0;
 extern u8 D_002169C0[];
 extern s32 func_0012EC08();
-void FUN_002157d0(s16 arg0, s16 arg1, s16 arg2) {
+void FUN_002157d0(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_4_12;
 
     temp_4_12 = *(s32 *)((u8 *)(D_00137B80 + ((arg0 - 0x4E20) * 8)) + 0x2988);
