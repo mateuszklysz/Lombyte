@@ -4,7 +4,9 @@ typedef struct { u8 pad0[0x40]; s32 sema; u8 pad44[0xC]; TimeStamp *ts; s32 size
 extern s32 WaitSema(s32);
 extern s32 SignalSema(s32);
 extern void func_0023C6B8(ViBuf *, TimeStamp *);
-s32 FUN_0023c810(ViBuf *f, TimeStamp *ts) {
+s32 vi_buf_put_ts(ViBuf *f, TimeStamp *ts) __asm__("FUN_0023c810");
+
+s32 vi_buf_put_ts(ViBuf *f, TimeStamp *ts) {
     s32 ret;
 
     ret = 0;
@@ -25,4 +27,4 @@ s32 FUN_0023c810(ViBuf *f, TimeStamp *ts) {
     return ret;
 }
 
-extern __typeof__(FUN_0023c810) func_0023C810 __attribute__((alias("FUN_0023c810")));
+extern __typeof__(vi_buf_put_ts) func_0023C810 __attribute__((alias("FUN_0023c810")));

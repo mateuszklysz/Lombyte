@@ -7,7 +7,9 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/ui/frames/draw_framed_text/
 #include "types.h"
 extern s32 func_001F6C20(s32, s32, u32, s32, s32);
 extern void func_00201128(s32, s32, s32, s32, s32);
-void FUN_00201200(s32 x, s32 y, u32 color, s32 text) {
+void draw_framed_text(s32 x, s32 y, u32 color, s32 text) __asm__("FUN_00201200");
+
+void draw_framed_text(s32 x, s32 y, u32 color, s32 text) {
     s32 alpha = (s32)color >> 24;
     s32 w;
     s32 left;

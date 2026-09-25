@@ -11,7 +11,9 @@ struct Stash { s32 base; s32 size; u8 pad8[0x28]; s32 cur; s32 n; };
 extern struct Stash D_001DD1A0;
 extern struct StashEntry D_001DD1D8[];
 extern u32 sceSifSetDma(struct SifDmaData *, s32);
-s32 FUN_00232e40(u32 src, s32 qw, s32 count, s32 tag) {
+s32 stash_send_data(u32 src, s32 qw, s32 count, s32 tag) __asm__("FUN_00232e40");
+
+s32 stash_send_data(u32 src, s32 qw, s32 count, s32 tag) {
     struct SifDmaData dma;
     s32 bytes;
     s32 n;

@@ -8,7 +8,9 @@ extern s32 WaitSema(s32);
 extern s32 SignalSema(s32);
 extern void set_dma_channel_4_control_register(s32) __asm__("FUN_0023bbb0");
 extern void set_dma_channel_3_control_register(s32) __asm__("FUN_0023bb40");
-s32 FUN_0023c170(ViBuf *f) {
+s32 vi_buf_stop_dma(ViBuf *f) __asm__("FUN_0023c170");
+
+s32 vi_buf_stop_dma(ViBuf *f) {
     WaitSema(f->sema);
     f->active = 0;
     set_dma_channel_4_control_register(5);
@@ -30,4 +32,4 @@ s32 FUN_0023c170(ViBuf *f) {
     return 1;
 }
 
-extern __typeof__(FUN_0023c170) func_0023C170 __attribute__((alias("FUN_0023c170")));
+extern __typeof__(vi_buf_stop_dma) func_0023C170 __attribute__((alias("FUN_0023c170")));

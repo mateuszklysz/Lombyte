@@ -9,7 +9,9 @@ struct Handler;
 struct Handler { s32 id; void (*fn)(struct Handler *); u8 pad8[0x88]; };
 struct Table { u8 pad0[0xD90]; s32 count; struct Handler *handlers; };
 extern struct Table D_0013E550;
-void FUN_0022dc50(void) {
+void enqueue_voice_request(void) __asm__("FUN_0022dc50");
+
+void enqueue_voice_request(void) {
     s32 i;
 
     for (i = 0; i < D_0013E550.count; i++) {

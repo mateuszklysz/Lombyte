@@ -5,7 +5,9 @@ struct TexRemap { s16 lo; s16 hi; };
 extern s32 D_001B6500[];
 extern struct MobyClass *D_001B3200[];
 extern struct TexRemap D_001B5D80[];
-void FUN_0020cef8(void) {
+void patch_moby_gifs(void) __asm__("FUN_0020cef8");
+
+void patch_moby_gifs(void) {
     s32 *id;
     struct GifEntry *e;
     u8 *tex;
@@ -37,4 +39,4 @@ void FUN_0020cef8(void) {
     }
 }
 
-extern __typeof__(FUN_0020cef8) func_0020CEF8 __attribute__((alias("FUN_0020cef8")));
+extern __typeof__(patch_moby_gifs) func_0020CEF8 __attribute__((alias("FUN_0020cef8")));

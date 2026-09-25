@@ -21,7 +21,9 @@ extern s32 func_0012DC80(void);
 extern s32 FlushCache(s32);
 extern s32 SceSifCheckStatRpc(void *);
 extern s32 sceSifCallRpc(void *, s32, s32, void *, s32, void *, s32, void *, void *);
-void FUN_0012e088(s32 cmd, s32 arg, s64 data) {
+void snd_bank_load_from_ee_cb(s32 cmd, s32 arg, s64 data) __asm__("FUN_0012e088");
+
+void snd_bank_load_from_ee_cb(s32 cmd, s32 arg, s64 data) {
     D_0015EC88 = 0;
     if (D_0015ECC8 != 0) {
         printf(D_00153EC0);

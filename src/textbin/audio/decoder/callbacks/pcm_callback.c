@@ -5,7 +5,9 @@ extern u8 *D_0016120C;
 extern void func_0023AD58(void *, void **, s32 *, void **, s32 *);
 extern s32 func_0023B810(void *, s32, void *, s32, u8 *, s32, struct AudioBuf *, s32);
 extern void func_0023AE28(void *, s32);
-s32 FUN_0023b728(void *mp, struct CbDataStr *cb, struct AudioBuf *ab) {
+s32 pcm_callback(void *mp, struct CbDataStr *cb, struct AudioBuf *ab) __asm__("FUN_0023b728");
+
+s32 pcm_callback(void *mp, struct CbDataStr *cb, struct AudioBuf *ab) {
     void *ptr0;
     s32 len0;
     void *ptr1;
@@ -34,4 +36,4 @@ s32 FUN_0023b728(void *mp, struct CbDataStr *cb, struct AudioBuf *ab) {
     return ret > 0;
 }
 
-extern __typeof__(FUN_0023b728) func_0023B728 __attribute__((alias("FUN_0023b728")));
+extern __typeof__(pcm_callback) func_0023B728 __attribute__((alias("FUN_0023b728")));

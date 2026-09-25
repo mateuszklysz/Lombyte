@@ -25,7 +25,9 @@ extern struct Display D_0018CD00;
 extern s32 D_001600BC;
 extern s32 D_0015F498;
 extern void func_001F2D98(void);
-void FUN_001f2588(void) {
+void update_fog(void) __asm__("FUN_001f2588");
+
+void update_fog(void) {
     if (D_001872D4 != 0) {
         D_0018CD00.fog_r = D_001610C4[0];
         D_0018CD00.fog_g = D_001610C5[0];

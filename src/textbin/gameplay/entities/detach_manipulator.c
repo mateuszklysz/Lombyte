@@ -2,7 +2,9 @@
 struct Manip { u8 pad0[8]; struct Manip *next; };
 struct Moby { u8 pad0[0x64]; struct Manip *manips; };
 extern void FillTransferWords(void *, s32, s32);
-void FUN_0020cb88(struct Moby *moby, struct Manip *manip) {
+void detach_manipulator(struct Moby *moby, struct Manip *manip) __asm__("FUN_0020cb88");
+
+void detach_manipulator(struct Moby *moby, struct Manip *manip) {
     struct Manip *p;
 
     if (manip == 0) {
@@ -22,4 +24,4 @@ void FUN_0020cb88(struct Moby *moby, struct Manip *manip) {
     FillTransferWords(manip, 0, 0x40);
 }
 
-extern __typeof__(FUN_0020cb88) func_0020CB88 __attribute__((alias("FUN_0020cb88")));
+extern __typeof__(detach_manipulator) func_0020CB88 __attribute__((alias("FUN_0020cb88")));

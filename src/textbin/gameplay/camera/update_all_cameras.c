@@ -11,7 +11,9 @@ extern s32 func_001EC210(struct Camera *, struct Camera *);
 extern void func_001EBF10(struct Camera *);
 extern void func_001EBE68(struct Camera *);
 extern void func_001EBCF0(void);
-s32 FUN_001ec420(void) {
+s32 update_all_cameras(void) __asm__("FUN_001ec420");
+
+s32 update_all_cameras(void) {
     struct Camera *best;
     s32 changed;
     s32 i;
@@ -45,4 +47,4 @@ s32 FUN_001ec420(void) {
     return -1;
 }
 
-extern __typeof__(FUN_001ec420) func_001EC420 __attribute__((alias("FUN_001ec420")));
+extern __typeof__(update_all_cameras) func_001EC420 __attribute__((alias("FUN_001ec420")));

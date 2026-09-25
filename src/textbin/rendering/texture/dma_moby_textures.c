@@ -8,7 +8,9 @@ extern struct TexState D_0018A2B0;
 extern s32 D_0015EE74;
 extern void FUN_00211408(s32);
 extern void func_00233B68(void);
-void FUN_0020cdf0(void) {
+void dma_moby_textures(void) __asm__("FUN_0020cdf0");
+
+void dma_moby_textures(void) {
     struct DmaTag *tag;
 
     tag = D_00160F00.p;
@@ -32,4 +34,4 @@ void FUN_0020cdf0(void) {
     tag->w3 = 0;
 }
 
-extern __typeof__(FUN_0020cdf0) func_0020CDF0 __attribute__((alias("FUN_0020cdf0")));
+extern __typeof__(dma_moby_textures) func_0020CDF0 __attribute__((alias("FUN_0020cdf0")));

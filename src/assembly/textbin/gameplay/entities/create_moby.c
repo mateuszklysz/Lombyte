@@ -18,7 +18,9 @@ extern char D_001E83C0[];
 extern void DebugPrint(char *, ...);
 extern void FillTransferWords(void *, s32, s32);
 extern void func_0020C5F0(struct Moby *, s32);
-struct Moby *FUN_0020c4f8(s32 oclass) {
+struct Moby *create_moby(s32 oclass) __asm__("FUN_0020c4f8");
+
+struct Moby *create_moby(s32 oclass) {
     struct Moby *m;
 
     for (m = D_0015FF1C; m < D_0015FF20; m++) {

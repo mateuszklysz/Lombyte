@@ -4,7 +4,9 @@ struct CamColl { u8 pad0[0xC4]; void *moby; };
 extern struct CamColl D_001870D0;
 extern void *func_001E9448(void *);
 extern void func_0020C828(void *);
-void FUN_001ebe68(struct Moby *hero) {
+void handle_camera_collision_with_hero(struct Moby *hero) __asm__("FUN_001ebe68");
+
+void handle_camera_collision_with_hero(struct Moby *hero) {
     struct CamColl *c = &D_001870D0;
 
     if (hero->coll == 0) {
@@ -17,4 +19,4 @@ void FUN_001ebe68(struct Moby *hero) {
     }
 }
 
-extern __typeof__(FUN_001ebe68) func_001EBE68 __attribute__((alias("FUN_001ebe68")));
+extern __typeof__(handle_camera_collision_with_hero) func_001EBE68 __attribute__((alias("FUN_001ebe68")));

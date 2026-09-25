@@ -7,7 +7,9 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/gameplay/state/parse_bin/FU
 #include "types.h"
 struct Chunk { u8 *dst; u32 size; s32 pad8; s32 id; };
 extern s32 *D_0015EE4C;
-s32 FUN_0012d8f8(void) {
+s32 parse_bin(void) __asm__("FUN_0012d8f8");
+
+s32 parse_bin(void) {
     u8 *p;
     struct Chunk *c;
     s32 id;

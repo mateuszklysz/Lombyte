@@ -7,7 +7,9 @@ extern u8 D_0013CFC0[];
 extern u8 D_0013CF10[];
 extern struct Disp D_0018CD00;
 extern void func_00233980(s32, u64);
-void FUN_001f3868(void) {
+void reset_gs_registers(void) __asm__("FUN_001f3868");
+
+void reset_gs_registers(void) {
     struct GifTag *p;
 
     D_00160F00.p->w0 = 0x30000013;
@@ -24,4 +26,4 @@ void FUN_001f3868(void) {
     func_00233980(0x3D, D_0018CD00.a | ((u64)D_0018CD00.b << 8) | ((u64)D_0018CD00.c << 16));
 }
 
-extern __typeof__(FUN_001f3868) func_001F3868 __attribute__((alias("FUN_001f3868")));
+extern __typeof__(reset_gs_registers) func_001F3868 __attribute__((alias("FUN_001f3868")));

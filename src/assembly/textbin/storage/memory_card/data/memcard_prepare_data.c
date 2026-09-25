@@ -9,7 +9,9 @@ struct SaveBlock { u8 *base; s32 size; s32 id; s32 pad; };
 struct SaveHeader { s32 size; s32 checksum; };
 extern void func_001F9838(void *, void *, s32);
 extern s32 func_0020ACC0(void *, s32);
-s32 FUN_0020ad78(struct SaveHeader *out, s32 slot, struct SaveBlock *block) {
+s32 memcard_prepare_data(struct SaveHeader *out, s32 slot, struct SaveBlock *block) __asm__("FUN_0020ad78");
+
+s32 memcard_prepare_data(struct SaveHeader *out, s32 slot, struct SaveBlock *block) {
     u8 *p;
     u8 *src;
     s32 total;

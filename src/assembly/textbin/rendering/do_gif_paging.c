@@ -14,7 +14,9 @@ struct TexState { u8 pad0[0x2C]; s32 paging; };
 extern struct TexState D_0018A2B0;
 extern void func_0020B4A8(void);
 extern void func_00233B68(void);
-void FUN_001f4398(void) {
+void do_gif_paging(void) __asm__("FUN_001f4398");
+
+void do_gif_paging(void) {
     struct DmaTag *tag;
 
     tag = D_00160F00.p;
