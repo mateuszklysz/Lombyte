@@ -28,7 +28,9 @@ The long-term goal is a **PC runtime**: a native program that runs the game on m
 
 ## Decompilation Progress
 
-<img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
+<p align="center">
+  <img src="assets/decomp_map.svg" alt="Decompilation progress map" width="800">
+</p>
 
 Each tile is one logical function group, sized by the combined executable bytes of its functions. Its label shows byte-weighted **C_EXACT** progress, and **C_FUZZY** when similarity scores are available. **Orange** groups have all recoverable C functions matching exactly, **chrome** groups contain intentional low-level asm only (SIMD/VU0 helpers excluded from the C goal), and **dark steel** groups contain pending C. On [decomp.dev](https://decomp.dev), selecting a group opens its member functions. Rebuild the map locally with:
 
