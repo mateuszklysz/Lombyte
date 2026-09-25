@@ -79,94 +79,94 @@ SN_COMPILER_UNITS = {
     # and diverges from retail. Fresh SN -O2 -g2 -mno-split-addresses reproduces
     # the retail reload schedule exactly (100/100/100/100 direct objdiff and
     # linked-byte comparison against the retail ELF).
-    "textbin/rendering/vu1_add_g_sregister",
+    "rendering/vu1_add_g_sregister",
     # fun_002172c0 has no callee saves (retail style "none"), so the sq/lq
     # fingerprint cannot classify it; retail branch-delay scheduling matches
     # SN exactly (fresh SN -O2 -g2 object = 100% four-way; EE-GCC 2.9 = 95.2%
     # order-only nop/addiu swap). See the private evidence archive for details.
-    "textbin/input/pad/clear_pad_input",
+    "input/pad/clear_pad_input",
     # Save-less counting loops (retail style "none"): fresh SN -O2 -g2 objects
     # are 100/100/100; the EE-GCC 2.9 fallback ties at 59.7-91.1% (pipeline-2026-09-13-11
     # wave 3, fun_00215300 / fun_00215348 / fun_00215290).
-    "textbin/ui/menus/count_nonzero_entries_up_to_10",
-    "textbin/ui/menus/count_nonzero_entries_up_to_30",
-    "textbin/ui/menus/count_nonzero_entries_up_to_40",
+    "ui/menus/count_nonzero_entries_up_to_10",
+    "ui/menus/count_nonzero_entries_up_to_30",
+    "ui/menus/count_nonzero_entries_up_to_40",
     # Save-less leaf (retail style "none", 19 instructions, no frame): fresh
     # SN -O2 -g2 is 100/100/100; the EE-GCC 2.9 fallback stages at 91.11%.
-    "textbin/video/decoder/buffers/read_buf_begin_get",
+    "video/decoder/buffers/read_buf_begin_get",
     # Save-less leaf (retail style "none", 27 instructions, no frame): fresh
     # SN -O2 -g2 is 100/100/100 with the numeric D_0015F6A0 pointer load and the
     # v1/a3 pointer roles; the EE-GCC 2.9 fingerprint would route it to EE-GCC 2.9.
-    "textbin/ui/help/find_help_message_index",
-    "textbin/ui/text/measure_text_width_regular",
-    "textbin/ui/text/measure_text_width_small",
-    "textbin/ui/text/measure_text_width_large",
-    "textbin/ui/menus/hit_test_fixed_screen_rectangle",
-    "textbin/audio/decoder/audio_dec_reset",
-    "textbin/audio/streaming/start_audio_stream_read",
-    "textbin/rendering/entities/draw_moby_entries_from_object",
-    "textbin/audio/streaming/snd_stop_all_streams",
-    "textbin/audio/movie/snd_reset_movie_sound",
-    "textbin/audio/movie/snd_get_movie_nax",
-    "textbin/gameplay/camera/backup_current_cam",
-    "textbin/rendering/get_occlusion_grid_from_pair",
-    "textbin/rendering/update_occlusion",
-    "textbin/ui/text/font_print_large",
-    "textbin/ui/text/font_print_small",
-    "textbin/ui/text/font_print_right",
-    "textbin/ui/text/font_print_right_small",
-    "textbin/ui/text/font_print_right_large",
+    "ui/help/find_help_message_index",
+    "ui/text/measure_text_width_regular",
+    "ui/text/measure_text_width_small",
+    "ui/text/measure_text_width_large",
+    "ui/menus/hit_test_fixed_screen_rectangle",
+    "audio/decoder/audio_dec_reset",
+    "audio/streaming/start_audio_stream_read",
+    "rendering/entities/draw_moby_entries_from_object",
+    "audio/streaming/snd_stop_all_streams",
+    "audio/movie/snd_reset_movie_sound",
+    "audio/movie/snd_get_movie_nax",
+    "gameplay/camera/backup_current_cam",
+    "rendering/get_occlusion_grid_from_pair",
+    "rendering/update_occlusion",
+    "ui/text/font_print_large",
+    "ui/text/font_print_small",
+    "ui/text/font_print_right",
+    "ui/text/font_print_right_small",
+    "ui/text/font_print_right_large",
     "textbin/fun_001f6fd0",
-    "textbin/ui/text/font_print_window_regular",
-    "textbin/ui/text/font_print_window_small",
+    "ui/text/font_print_window_regular",
+    "ui/text/font_print_window_small",
     "textbin/fun_001f7978",
-    "textbin/ui/frames/draw_stretchable_ui_frame",
-    "textbin/rendering/refresh_point_light",
-    "textbin/gameplay/entities/init_moby_class_dists",
-    "textbin/gameplay/entities/stash_moby_class_dists",
-    "textbin/gameplay/entities/restore_moby_class_dists",
-    "textbin/math/random/random_integer_below",
-    "textbin/ui/menus/compute_clamped_count_difference",
-    "textbin/audio/streaming/register_audio_stream_callback",
-    "textbin/input/pad/update_primary_pad_state",
+    "ui/frames/draw_stretchable_ui_frame",
+    "rendering/refresh_point_light",
+    "gameplay/entities/init_moby_class_dists",
+    "gameplay/entities/stash_moby_class_dists",
+    "gameplay/entities/restore_moby_class_dists",
+    "math/random/random_integer_below",
+    "ui/menus/compute_clamped_count_difference",
+    "audio/streaming/register_audio_stream_callback",
+    "input/pad/update_primary_pad_state",
     "textbin/fun_0021cae0",
     "textbin/fun_0021df58",
     "textbin/fun_0021eaf0",
-    "textbin/ui/map/draw_map_screen_overlay",
-    "textbin/ui/menus/missions/draw_mission_menu_labels",
+    "ui/map/draw_map_screen_overlay",
+    "ui/menus/missions/draw_mission_menu_labels",
     "textbin/fun_00221930",
     "textbin/fun_00221a88",
     "textbin/fun_00222f18",
     "textbin/fun_00222f58",
-    "textbin/gameplay/state/clear_scene_state_buffers",
-    "textbin/audio/banks/load_audio_bank_by_location",
-    "textbin/rendering/buffers/copy_render_buffer_pair",
-    "textbin/rendering/entities/register_entity_render_resources",
+    "gameplay/state/clear_scene_state_buffers",
+    "audio/banks/load_audio_bank_by_location",
+    "rendering/buffers/copy_render_buffer_pair",
+    "rendering/entities/register_entity_render_resources",
     "textbin/fun_00239750",
-    "textbin/runtime/threads/switch_thread",
-    "textbin/audio/decoder/audio_dec_delete",
-    "textbin/audio/decoder/audio_dec_send",
-    "textbin/video/decoder/vi_buf_end_put",
-    "textbin/video/decoder/vi_buf_count",
-    "textbin/video/decoder/video_dec_set_stream",
-    "textbin/video/decoder/video_dec_begin_put",
-    "textbin/video/decoder/video_dec_end_put",
-    "textbin/video/decoder/video_dec_delete",
-    "textbin/video/decoder/video_dec_input_count",
-    "textbin/video/decoder/vo_buf_get_data",
+    "runtime/threads/switch_thread",
+    "audio/decoder/audio_dec_delete",
+    "audio/decoder/audio_dec_send",
+    "video/decoder/vi_buf_end_put",
+    "video/decoder/vi_buf_count",
+    "video/decoder/video_dec_set_stream",
+    "video/decoder/video_dec_begin_put",
+    "video/decoder/video_dec_end_put",
+    "video/decoder/video_dec_delete",
+    "video/decoder/video_dec_input_count",
+    "video/decoder/vo_buf_get_data",
     # Pure-C promotions from src/assembly/textbin: fully compiled under SN and
     # gate-verified byte-identical; listed by full unit name because
     # _unit_uses_sn() deliberately excludes the assembly/textbin wrapper units
     # (their INCLUDE_ASM oracles only assemble under the native EE-GCC 2.9).
-    "textbin/audio/decoder/audio_dec_begin_put",
+    "audio/decoder/audio_dec_begin_put",
     "textbin/fun_002220f0",
-    "textbin/ui/text/update_scrolling_status_message",
+    "ui/text/update_scrolling_status_message",
     "assembly/runtime/dma/clear_dma_queue_entry",
     "runtime/dma/clear_dma_queue_entry",
     # AttachManipulator is a save-less leaf (no sq/lq fingerprint), so the
     # retail-save-style routing would send it to EE-GCC 2.9; SN -O2 reproduces
     # the retail schedule byte-exactly.
-    "textbin/gameplay/entities/attach_manipulator",
+    "gameplay/entities/attach_manipulator",
     # InitializeRenderState: the whole unit is 13 SN-style instructions; fresh
     # SN -O2 with s16 fields at 0x40/0x42/0x5C/0x5E/0x78/0x7A and the retail
     # store order is 100/100/100 direct and patha linked-byte equal
@@ -175,7 +175,261 @@ SN_COMPILER_UNITS = {
     "rendering/state/initialize_render_state",
     # fun_00209298: validate the two DMA packet sizes in a header, then
     # initialise one A and twenty B packets
-    "textbin/world/streaming/initialize_dma_packet_payloads",
+    "world/streaming/initialize_dma_packet_payloads",
+}
+
+# C units relocated from src/textbin/<module> to semantic source roots.
+# This preserves the old textbin save-style compiler rule without encoding
+# provenance in the public source path.
+TEXTBIN_ORIGIN_UNITS = {
+    "audio/banks/load_audio_bank_by_location",
+    "audio/banks/snd_resolve_bank_xrefs",
+    "audio/banks/snd_unload_bank",
+    "audio/decoder/audio_dec_begin_put",
+    "audio/decoder/audio_dec_create",
+    "audio/decoder/audio_dec_delete",
+    "audio/decoder/audio_dec_reset",
+    "audio/decoder/audio_dec_send",
+    "audio/decoder/audio_dec_start",
+    "audio/decoder/is_audio_ok",
+    "audio/decoder/log_audio_error",
+    "audio/decoder/process_audio_stream",
+    "audio/decoder/send_to_spu",
+    "audio/decoder/terminate_audio_system",
+    "audio/effects/snd_auto_reverb",
+    "audio/effects/snd_pre_alloc_reverb_work_area",
+    "audio/effects/snd_set_reverb_ex",
+    "audio/load",
+    "audio/mixer/snd_set_group_voice_range",
+    "audio/mixer/snd_set_master_volume",
+    "audio/mixer/snd_set_mixer_mode",
+    "audio/mixer/snd_set_playback_mode",
+    "audio/movie/snd_close_movie_sound",
+    "audio/movie/snd_get_movie_nax",
+    "audio/movie/snd_init_movie_sound",
+    "audio/movie/snd_reset_movie_sound",
+    "audio/movie/snd_start_movie_sound",
+    "audio/movie/snd_update_movie_adpcm",
+    "audio/music/music_stop",
+    "audio/rpc/snd_post_message",
+    "audio/rpc/snd_reset_state_and_flush_commands",
+    "audio/snd_got_returns",
+    "audio/streaming/advance_audio_stream_state",
+    "audio/streaming/clear_record_flag_by_key",
+    "audio/streaming/complete_stream_buffer_transfer",
+    "audio/streaming/continue_audio_stream_if_ready",
+    "audio/streaming/finish_audio_stream_read",
+    "audio/streaming/get_stream_buffer_size",
+    "audio/streaming/register_audio_stream_callback",
+    "audio/streaming/request_audio_stream_break",
+    "audio/streaming/select_next_stream_buffer",
+    "audio/streaming/snd_continue_vag_stream",
+    "audio/streaming/snd_get_vag_stream_time_remaining_cb",
+    "audio/streaming/snd_init_vag_streaming_ex",
+    "audio/streaming/snd_is_vag_stream_buffered_cb",
+    "audio/streaming/snd_pause_vag_stream",
+    "audio/streaming/snd_stop_all_streams",
+    "audio/streaming/snd_stream_safe_cd_break",
+    "audio/streaming/snd_stream_safe_cd_callback",
+    "audio/streaming/snd_stream_safe_cd_get_error",
+    "audio/streaming/snd_stream_safe_cd_read",
+    "audio/streaming/snd_stream_safe_cd_sync",
+    "audio/streaming/snd_stream_safe_check_cd_idle",
+    "audio/streaming/start_audio_stream_read",
+    "audio/streaming/update_audio_stream_until_idle",
+    "audio/voices/allocate_voice_for_bank_entry",
+    "audio/voices/allocate_voice_for_group_entry",
+    "audio/voices/release_voice_slot",
+    "audio/voices/set_sound_handle_id",
+    "audio/voices/snd_continue_all_sounds_in_group",
+    "audio/voices/snd_pause_all_sounds_in_group",
+    "audio/voices/snd_play_sound_vol_pan_pmpb",
+    "audio/voices/snd_set_sound_params_cb",
+    "audio/voices/snd_sound_is_still_playing_cb",
+    "audio/voices/snd_stop_all_sounds",
+    "audio/voices/snd_stop_sound",
+    "gameplay/animation/apply_pending_animation",
+    "gameplay/animation/find_animation_definition_index",
+    "gameplay/animation/find_valid_animation_frame_index",
+    "gameplay/animation/load_animation_definition",
+    "gameplay/animation/queue_animation_update",
+    "gameplay/animation/set_animation_parameter",
+    "gameplay/animation/update_moby_animation_state",
+    "gameplay/callbacks/dispatch_callback_list_1",
+    "gameplay/callbacks/dispatch_callback_list_2",
+    "gameplay/callbacks/dispatch_callback_list_3",
+    "gameplay/callbacks/dispatch_callback_list_4",
+    "gameplay/callbacks/enqueue_callback_list_1",
+    "gameplay/callbacks/enqueue_callback_list_4",
+    "gameplay/callbacks/reset_callback_registries",
+    "gameplay/camera/backup_current_cam",
+    "gameplay/camera/build_spherical_offset",
+    "gameplay/camera/execute_camera_post_update_callbacks",
+    "gameplay/entities/attach_manipulator",
+    "gameplay/entities/draw_moby_list",
+    "gameplay/entities/draw_mobys",
+    "gameplay/entities/draw_mobys_clean_up",
+    "gameplay/entities/draw_mobys_setup",
+    "gameplay/entities/find_or_allocate_id_slot",
+    "gameplay/entities/init_moby_class_dists",
+    "gameplay/entities/mark_moby_for_removal",
+    "gameplay/entities/process_moby_anim_data",
+    "gameplay/entities/restore_moby_class_dists",
+    "gameplay/entities/stash_moby_class_dists",
+    "gameplay/entities/update_moby",
+    "gameplay/state/clear_scene_state_buffers",
+    "gameplay/state/compute_interpolated_record_value",
+    "gameplay/state/dispatch_game_state_update",
+    "gameplay/state/is_active_state_entry",
+    "gameplay/state/is_value_within_interpolated_window",
+    "gameplay/state/process_global_state_flags",
+    "gameplay/state/run_game_main_loop",
+    "gameplay/state/transition_default_draw",
+    "gameplay/state/transition_draw_sky",
+    "input/pad/clear_pad_input",
+    "input/pad/update_primary_pad_state",
+    "math/conversion/round_float_to_decimal_places",
+    "math/conversion/truncate_float_to_s32",
+    "math/random/random_angle_radians",
+    "math/random/random_float_between",
+    "math/random/random_integer_below",
+    "math/rotations/build_quaternion_from_axis_angle",
+    "math/vectors/normalize_vector_triplet",
+    "rendering/buffers/copy_render_buffer_pair",
+    "rendering/buffers/swap_render_buffer_chain",
+    "rendering/culling/is_point_inside_clip_volume",
+    "rendering/debug/prepare_debug_profiler_render",
+    "rendering/detach_point_light",
+    "rendering/dma/start_vif1_dma_transfer",
+    "rendering/dmac_vif1_disable",
+    "rendering/dmac_vif1_enable",
+    "rendering/draw_shrubs",
+    "rendering/draw_ties_1",
+    "rendering/draw_two_texture_panels",
+    "rendering/effects/draw_fogged_fullscreen_sprite",
+    "rendering/entities/draw_moby",
+    "rendering/entities/draw_moby_entries_from_object",
+    "rendering/entities/register_entity_render_resources",
+    "rendering/geometry/transform_scaled_vertex_batch",
+    "rendering/get_occlusion_grid_from_pair",
+    "rendering/packets/append_draw_buffer_packet",
+    "rendering/packets/append_draw_environment_packet",
+    "rendering/packets/append_gif_transfer_packet",
+    "rendering/packets/emit_rgba_draw_packet",
+    "rendering/packets/put_disp_buffer",
+    "rendering/packets/write_vif_unpack_packet",
+    "rendering/refresh_point_light",
+    "rendering/sky/sky_draw_shell",
+    "rendering/texture/append_palette_transfer_packet",
+    "rendering/texture/append_texture_transfer_packet",
+    "rendering/texture/compose_bitmap_from_mask",
+    "rendering/texture/initialize_alpha_lookup_table",
+    "rendering/texture/patch_tie_texture_fields",
+    "rendering/transitions/draw_transition_overlay",
+    "rendering/update_occlusion",
+    "rendering/vu1_add_data_ref",
+    "rendering/vu1_add_g_sregister",
+    "rendering/vu1_gs_regs_normal",
+    "rendering/vu1_tex_flush",
+    "runtime/cache/synchronize_cache_range",
+    "runtime/debug/debug_print_stub",
+    "runtime/diagnostics/print_register_values_and_halt",
+    "runtime/dma/disable_dmac",
+    "runtime/dma/enable_dmac",
+    "runtime/interrupts/disable_intc",
+    "runtime/interrupts/enable_intc",
+    "runtime/memory/calculate_ring_buffer_bounds",
+    "runtime/memory/reserve_aligned_buffer_space",
+    "runtime/newlib/reentrant_read",
+    "runtime/newlib/reentrant_syscall_with_three_arguments",
+    "runtime/newlib/reentrant_syscall_with_two_arguments",
+    "runtime/newlib/reentrant_write",
+    "runtime/relocation/relocate_asset_entry_pointers",
+    "runtime/rpc/free_sif_system_memory",
+    "runtime/rpc/get_available_rpc_packet",
+    "runtime/rpc/initialize_sif_rpc",
+    "runtime/startup/run_global_constructors",
+    "runtime/threads/switch_thread",
+    "runtime/time/decode_bcd_time_fields",
+    "runtime/time/encode_bcd_time_fields",
+    "storage/cd/handle_cd_read_callback",
+    "storage/cd/load_disc_sectors_into_global_buffer",
+    "storage/cd/read_file_entry_with_retry",
+    "storage/memory_card/data/calculate_crc16",
+    "storage/memory_card/data/validate_data_crc",
+    "storage/memory_card/memcard_initialize",
+    "storage/memory_card/memcard_make_whole_save",
+    "storage/wad/wad_get_sectors",
+    "ui/fonts/load_debug_font",
+    "ui/frames/draw_stretchable_ui_frame",
+    "ui/help/find_help_message_index",
+    "ui/help/force_help_message",
+    "ui/help/get_help_message_text",
+    "ui/help/help_draw_prompt",
+    "ui/help/try_set_help_message",
+    "ui/hud/hud_heap_alloc",
+    "ui/hud/load_compressed_hud_bank",
+    "ui/map/draw_map_screen_overlay",
+    "ui/map/find_map_entry_slot",
+    "ui/map/move_map_entry_slot",
+    "ui/map/promote_first_available_map_entry",
+    "ui/menus/compute_clamped_count_difference",
+    "ui/menus/count_nonzero_entries_up_to_10",
+    "ui/menus/count_nonzero_entries_up_to_30",
+    "ui/menus/count_nonzero_entries_up_to_40",
+    "ui/menus/draw_menu_selection_marker",
+    "ui/menus/draw_quit_game_menu",
+    "ui/menus/format_scaled_display_value",
+    "ui/menus/hit_test_fixed_screen_rectangle",
+    "ui/menus/missions/draw_mission_menu_labels",
+    "ui/text/copy_text_to_shared_buffer",
+    "ui/text/font_print_center",
+    "ui/text/font_print_center_large",
+    "ui/text/font_print_center_small",
+    "ui/text/font_print_large",
+    "ui/text/font_print_right",
+    "ui/text/font_print_right_large",
+    "ui/text/font_print_right_small",
+    "ui/text/font_print_small",
+    "ui/text/font_print_window_regular",
+    "ui/text/font_print_window_small",
+    "ui/text/measure_text_width",
+    "ui/text/measure_text_width_large",
+    "ui/text/measure_text_width_regular",
+    "ui/text/measure_text_width_small",
+    "ui/text/set_scrolling_status_message",
+    "ui/text/update_scrolling_status_message",
+    "video/decoder/buffers/get_fifo_index",
+    "video/decoder/buffers/read_buf_begin_get",
+    "video/decoder/callbacks/get_mpeg_timestamp",
+    "video/decoder/callbacks/handle_end_image",
+    "video/decoder/callbacks/handle_mpeg_error",
+    "video/decoder/callbacks/handle_mpeg_no_data",
+    "video/decoder/dma/set_dma_channel_3_control_register",
+    "video/decoder/dma/set_dma_channel_4_control_register",
+    "video/decoder/run_video_decoder",
+    "video/decoder/vi_buf_begin_put",
+    "video/decoder/vi_buf_count",
+    "video/decoder/vi_buf_delete",
+    "video/decoder/vi_buf_end_put",
+    "video/decoder/vi_buf_flush",
+    "video/decoder/video_dec_begin_put",
+    "video/decoder/video_dec_create",
+    "video/decoder/video_dec_delete",
+    "video/decoder/video_dec_end_put",
+    "video/decoder/video_dec_flush",
+    "video/decoder/video_dec_input_count",
+    "video/decoder/video_dec_is_flushed",
+    "video/decoder/video_dec_put_ts",
+    "video/decoder/video_dec_set_stream",
+    "video/decoder/vo_buf_get_data",
+    "video/decoder/vo_buf_get_tag",
+    "video/display/wait_for_display_vsync",
+    "world/data/parse_typed_resource_record",
+    "world/parse_space_scene_chunk",
+    "world/streaming/initialize_dma_packet_payloads",
+    "world/streaming/load_and_initialize_level_chunk",
+    "world/streaming/load_level_chunk_from_disc",
 }
 
 # Units proven byte-exact under the patched 991111 build.  Keep the set
@@ -192,9 +446,9 @@ EE_GCC_PATCHED_UNITS = {
     # lq/sq-save class exacts recovered by the extended pool sweep; promoted
     # as a batch (patha byte-equal each; batch2 gate 2026-09-12).
     "runtime/state/read_state_field",
-    "textbin/runtime/memory/calculate_ring_buffer_bounds",
-    "textbin/math/random/random_angle_radians",
-    "textbin/video/decoder/callbacks/handle_mpeg_error",
+    "runtime/memory/calculate_ring_buffer_bounds",
+    "math/random/random_angle_radians",
+    "video/decoder/callbacks/handle_mpeg_error",
     # _pictureCodingExtension: absolute IPU_CTRL volatile stores must fill the
     # _nextBit call delay slots; the patched profile splits the AT macro and the
     # at-store policy brackets it with .set noat. 100/100/100, gate 2026-09-13.
@@ -208,8 +462,8 @@ EE_GCC_PATCHED_UNITS = {
     # these textbin tails are reproduced only by the patched profile (frozen
     # SN emits gp-relative access and byte stores); 100/100/100 direct and
     # patha linked-byte equal 2026-09-13.
-    "textbin/gameplay/callbacks/enqueue_callback_list_1",
-    "textbin/gameplay/callbacks/enqueue_callback_list_4",
+    "gameplay/callbacks/enqueue_callback_list_1",
+    "gameplay/callbacks/enqueue_callback_list_4",
     "textbin/fun_00226e08",
     # fun_002133d0 (run-14 worker b): retail materializes the float constants
     # pi/1.0/0.5 with lui/ori/mtc1 and carries the FP hazard NOPs; the frozen
@@ -222,7 +476,7 @@ EE_GCC_PATCHED_UNITS = {
     # truncate_float_to_s32: retail converts the float argument in place
     # (cvt.w.s $f12,$f12); the v4 patched profile emits that form under
     # -mastra-inplace-cvt.
-    "textbin/math/conversion/truncate_float_to_s32",
+    "math/conversion/truncate_float_to_s32",
     # Promoted by the decomp workbench: exact only under the patched
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
     "textbin/fun_0022c6f8",
@@ -230,7 +484,7 @@ EE_GCC_PATCHED_UNITS = {
     # 991111 profile (fresh SN/EE-GCC 2.9 measurements are lower).
     "textbin/fun_00226848",
     # get_mpeg_timestamp: 16-byte result read through a 0x18-byte stack buffer
-    "textbin/video/decoder/callbacks/get_mpeg_timestamp",
+    "video/decoder/callbacks/get_mpeg_timestamp",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -239,7 +493,7 @@ EE_GCC_PATCHED_FLAG_UNITS = {
     "picturecodingextension": "-mastra-volatile-delay -mastra-sd-saves",
     "textbin/fun_00226848": "-mastra-no-lo-sum-tie",
     "_lastFrame": "-mastra-sd-saves -mastra-cse-argdup -mastra-call-args-reverse -fno-expensive-optimizations -fno-schedule-insns",
-    "textbin/math/conversion/truncate_float_to_s32": "-mastra-inplace-cvt",
+    "math/conversion/truncate_float_to_s32": "-mastra-inplace-cvt",
 }
 
 # Per-unit assembler policies applied by the generated padless-asm.py helper.
@@ -300,25 +554,25 @@ PADLESS_POLICY_UNITS = {
 SDK_COMPILER_UNITS = {
     # e.g. "textbin/fun_XXXX" when a textbin unit is proven EE-GCC-2.9-compiled.
     # fun_00124a20: empty varargs DPRINT, as Sony libdbc.o
-    "textbin/runtime/debug/debug_print_stub",
+    "runtime/debug/debug_print_stub",
     # fun_0011c938: array externs keep lui/lw addressing, as Sony libkernl
     # iopheap.o
-    "textbin/runtime/rpc/free_sif_system_memory",
+    "runtime/rpc/free_sif_system_memory",
     # fun_001206d8: volatile cdvd statics keep loads out of delay slots, as Sony
     # libcdvd cdvd000.o
-    "textbin/storage/cd/handle_cd_read_callback",
+    "storage/cd/handle_cd_read_callback",
     # fun_0011ace8: rpc packet scan with the pid wrap written as if/else, as
     # Sony libkernl sifrpc.o
-    "textbin/runtime/rpc/get_available_rpc_packet",
+    "runtime/rpc/get_available_rpc_packet",
     # newlib reentrant wrappers (errno cleared, copied into the reent block on
     # -1); retail saves with sd/ld, so the SDK compiler, not SN.
-    "textbin/runtime/newlib/reentrant_syscall_with_two_arguments",
-    "textbin/runtime/newlib/reentrant_syscall_with_three_arguments",
-    "textbin/runtime/newlib/reentrant_read",  # _read_r
-    "textbin/runtime/newlib/reentrant_write",  # _write_r
+    "runtime/newlib/reentrant_syscall_with_two_arguments",
+    "runtime/newlib/reentrant_syscall_with_three_arguments",
+    "runtime/newlib/reentrant_read",  # _read_r
+    "runtime/newlib/reentrant_write",  # _write_r
     # fun_0011dc18: libgcc __do_global_ctors (gbl-ctors.h DO_GLOBAL_CTORS_BODY),
     # SDK compiler
-    "textbin/runtime/startup/run_global_constructors",
+    "runtime/startup/run_global_constructors",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -407,17 +661,17 @@ EE_GCC_FLAG_UNITS = {
 GAME_COMPILER_UNITS = {
     # fun_0021fc68: The final helper arguments are 64-bit; reading
     # D_001A00F0 + 0x258 preserves the retail 0x001A0348 ld/sd call setup.
-    "textbin/rendering/transitions/draw_transition_overlay",
+    "rendering/transitions/draw_transition_overlay",
     # fun_00214128: The 3x3 matrix pass uses a 16-byte scratch record, zeroes
     # its pad lane, and passes a true 1.0f to the vector helper.
-    "textbin/math/vectors/normalize_vector_triplet",
+    "math/vectors/normalize_vector_triplet",
     # draw_shrubs: Direct byte-pointer update preserves retail ordering;
     # volatile D_0015EE74 keeps its write before WriteDmaChannel.
-    "textbin/rendering/draw_shrubs",
+    "rendering/draw_shrubs",
     # fun_00225cd8: The promoted helper is void with one ignored argument; a
     # separate table-base pointer plus byte offset reproduces the retail loop
     # and address setup.
-    "textbin/audio/streaming/complete_stream_buffer_transfer",
+    "audio/streaming/complete_stream_buffer_transfer",
     # fun_00233c90: Builds the 0x3000000B / 0x5000000B DMA tag for D_0013CF10
     # and advances the 0x10-byte cursor.
     "textbin/fun_00233c90",
@@ -426,100 +680,100 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_00233c28",
     # fun_00233bc8: Builds the 0x30000003 / 0x50000003 DMA tag for D_001DE3C0
     # and advances the 0x10-byte cursor.
-    "textbin/rendering/vu1_gs_regs_normal",
+    "rendering/vu1_gs_regs_normal",
     # fun_00233b68: Builds the 0x30000003 / 0x50000003 DMA tag for D_001DEE00
     # and advances the 0x10-byte cursor.
-    "textbin/rendering/vu1_tex_flush",
+    "rendering/vu1_tex_flush",
     # fun_00233830: The register-bound tag writes and cursor increment match
     # retail; the $gp-relative cursor address resolves to D_00160F00.
-    "textbin/rendering/vu1_add_data_ref",
+    "rendering/vu1_add_data_ref",
     # fun_00233938: Register-bound stores reproduce the DMA tag and preserve the
     # four retail pointer reloads; the final cursor store uses D_00160F00 = $gp
     # - 0x5D00.
     "textbin/fun_00233938",
     # fun_001eb410: A register-constrained page-relative read reproduces
     # retail's D_0018A2E8 lui/lw pair.
-    "textbin/gameplay/state/transition_default_draw",
+    "gameplay/state/transition_default_draw",
     # fun_0021d1f8: A fixed local table pointer and explicit unsigned threshold
     # test reproduce the four-record scan and helper result branch.
     "textbin/fun_0021d1f8",
     # fun_00225d88: A five-record do/while with one 8-byte pointer step matches
     # the target exactly.
-    "textbin/audio/streaming/get_stream_buffer_size",
+    "audio/streaming/get_stream_buffer_size",
     # send_to_spu: Four-word stack DMA descriptor with retail SIF calls
     # reproduces the target object exactly.
-    "textbin/audio/decoder/send_to_spu",
+    "audio/decoder/send_to_spu",
     # fun_00214720: plain C Vec4 transform and six ordered bounds checks
     # reproduce retail
-    "textbin/rendering/culling/is_point_inside_clip_volume",
+    "rendering/culling/is_point_inside_clip_volume",
     # fun_0023a318: a packed Pair64 copy preserves the retail split 64-bit loads
     # and stores while float-return helper prototypes match the call shape
     "textbin/fun_0023a318",
     # fun_00205000: a typed global table with arrays at byte offsets 0x278,
     # 0x28c, and 0x2a4 preserves the retail indices and register order
-    "textbin/ui/map/move_map_entry_slot",
+    "ui/map/move_map_entry_slot",
     # fun_001f6200: initializing total and count before the empty-input branch
     # matches the retail delay-slot ordering
-    "textbin/ui/text/measure_text_width",
+    "ui/text/measure_text_width",
     # fun_0023ba60: the four-argument sceCdRead call uses a 16-byte command
     # buffer and the initialized return value survives the call
     "textbin/fun_0023ba60",
     # fun_00214c48: drop the stale integer callee argument and assign the float
     # helper result back through the incoming FPU parameter
-    "textbin/math/conversion/round_float_to_decimal_places",
+    "math/conversion/round_float_to_decimal_places",
     # memcard_make_whole_save: mutable byte pointer preserves the byte-stride
     # descriptor walk and helper argument order
-    "textbin/storage/memory_card/memcard_make_whole_save",
+    "storage/memory_card/memcard_make_whole_save",
     # fun_001fb368: volatile global pointer plus cached first access matches
     # repeated retail loads
-    "textbin/rendering/packets/append_gif_transfer_packet",
+    "rendering/packets/append_gif_transfer_packet",
     # fun_00230ee8: Dropping stale call arguments and using the retail state
     # switch matches exactly.
-    "textbin/gameplay/state/dispatch_game_state_update",
+    "gameplay/state/dispatch_game_state_update",
     # draw_ties_1: Plain register hints and corrected void prototypes match the
     # retail call and cache sequence.
-    "textbin/rendering/draw_ties_1",
+    "rendering/draw_ties_1",
     # draw_mobys_setup: Plain register hints preserve the retail callback
     # argument and pointer increment.
-    "textbin/gameplay/entities/draw_mobys_setup",
+    "gameplay/entities/draw_mobys_setup",
     # fun_00214db0: plain trigonometric expansion preserves the retail
     # call/multiply order; native game-compiler exact 100/100/100
-    "textbin/gameplay/camera/build_spherical_offset",
+    "gameplay/camera/build_spherical_offset",
     # fun_002334d8: rewrite MMIO busy waits around the real SpinWait callee;
     # native game-compiler exact 100/100/100
-    "textbin/rendering/dma/start_vif1_dma_transfer",
+    "rendering/dma/start_vif1_dma_transfer",
     # fun_00222290: plain control-flow rewrite with preserved caller
     # save/restore and non-small-data halfword store; native game-compiler exact
     # 100/100/100
-    "textbin/gameplay/state/process_global_state_flags",
+    "gameplay/state/process_global_state_flags",
     # fun_0020cd48: plain rewrite: correct pointer argument order and read the
     # float field with lwc1; native game-compiler exact 100/100/100
-    "textbin/rendering/geometry/transform_scaled_vertex_batch",
+    "rendering/geometry/transform_scaled_vertex_batch",
     # fun_0023ce28: plain retail-listing rewrite: reload the state base in the
     # wait loop; native game-compiler exact 100/100/100
-    "textbin/video/decoder/run_video_decoder",
+    "video/decoder/run_video_decoder",
     # fun_00220648: switch on unk44; D_001516D8 read as D_001516D0.unk8 (struct,
     # not gp-small), D_00137B80 as a struct with 8-byte pair arrays at
     # 0x2C8/0x2F8; exact with default flags.
-    "textbin/audio/streaming/advance_audio_stream_state",
+    "audio/streaming/advance_audio_stream_state",
     # fun_0012f2b8: plain rewrite (as promoted fun_0012f208): 0x3000-byte read
     # buffer then the 4-byte sceCdRMode, retry loop, 0x2960-byte copy to
     # D_00137B80; exact with default flags.
-    "textbin/storage/cd/load_disc_sectors_into_global_buffer",
+    "storage/cd/load_disc_sectors_into_global_buffer",
     # fun_0022dba0: plain rewrite (idx = arg0 + D_0015F5B4, arg1 passed through,
     # unk88 stored before unk7E), exact with default flags
-    "textbin/audio/voices/allocate_voice_for_group_entry",
+    "audio/voices/allocate_voice_for_group_entry",
     # fun_00235780: plain rewrite: -1-terminated index list over D_001E1700
     # object pointers, 0x50-byte parts, s16 pair table merged into the low 14
     # bits; exact with default flags.
-    "textbin/rendering/texture/patch_tie_texture_fields",
+    "rendering/texture/patch_tie_texture_fields",
     # fun_0022c5a8: plain rewrite: float callee arguments as literals
     # (0.5f/6.0f/0.75f with f32 prototypes), void callees, D_0013E5BC[0]; exact
     # with default flags.
     "textbin/fun_0022c5a8",
     # fun_00225c18: plain rewrite: 5-entry {unk0, flags} table scan (flags^1
     # when arg0), exact with default flags
-    "textbin/audio/streaming/select_next_stream_buffer",
+    "audio/streaming/select_next_stream_buffer",
     # fun_001ed940: plain rewrite: &D_001870D0 held in a pointer, D_0015EF9C a
     # scalar the assembler does not size (retail lui/at stores, gp only in delay
     # slots), if/else chain; exact with default flags.
@@ -530,46 +784,46 @@ GAME_COMPILER_UNITS = {
     # fun_00204f60: plain rewrite: early return of func_00204EF8's result in the
     # loop variable, unk278[]/unk28C[] arrays, func_00205000(0, i); exact with
     # default flags.
-    "textbin/ui/map/promote_first_available_map_entry",
+    "ui/map/promote_first_available_map_entry",
     # fun_001ff570: plain rewrite: 13-entry 0x90-byte struct array search on
     # unk64, direct array indexing for the stores; exact with default flags.
-    "textbin/gameplay/animation/set_animation_parameter",
+    "gameplay/animation/set_animation_parameter",
     # fun_002270e8: plain rewrite (byte-pointer advance 0x20/0x30, both callees
     # take arg0), exact with default flags.
-    "textbin/world/data/parse_typed_resource_record",
+    "world/data/parse_typed_resource_record",
     # fun_00219fa0 is exact with the game's reconstructed 991111 compiler and
     # -mastra-r5900-extern-buffer. Keep it off EE_GCC_PATCHED_ROOT: that
     # separate patched SDK profile does not implement this game-only option.
     "textbin/fun_00219fa0",
     "textbin/fun_002071c0",
-    "textbin/ui/hud/hud_heap_alloc",
-    "textbin/audio/streaming/snd_init_vag_streaming_ex",
+    "ui/hud/hud_heap_alloc",
+    "audio/streaming/snd_init_vag_streaming_ex",
     "textbin/fun_00221968",
     # 2026-09-22 pending-unit sweep follow-up: exact on the game compiler
     # with default flags (100/100/100, full-ELF PASS).
-    "textbin/rendering/buffers/swap_render_buffer_chain",
-    "textbin/ui/help/try_set_help_message",
-    "textbin/rendering/sky/sky_draw_shell",
+    "rendering/buffers/swap_render_buffer_chain",
+    "ui/help/try_set_help_message",
+    "rendering/sky/sky_draw_shell",
     # fun_001f37e8: exact with default flags once its four same-file small
     # globals are declared to GAS before the body (__asm__ .extern); retail
     # only reaches those through gp, every other global absolutely.
-    "textbin/gameplay/callbacks/reset_callback_registries",
+    "gameplay/callbacks/reset_callback_registries",
     # dmac_vif1_enable: exact with default flags; the source shape (D_0015F1C
     # read through the pointer later reused for the DMAC register store) came
     # from a decomp-permuter run on the game-compiler route.
-    "textbin/rendering/dmac_vif1_enable",
+    "rendering/dmac_vif1_enable",
     # music_stop: exact with default flags (shared D_001516D0 layout from
     # include/rnc/d_001516d0.h; the final unk22/unk23 store order came from a
     # decomp-permuter run).
-    "textbin/audio/music/music_stop",
+    "audio/music/music_stop",
     # draw_moby_list: exact with default flags once func_0020D218 is declared
     # void (an s32 declaration gives the call a dead v0 set, which pushes the
     # final D_0015FF14 value into v1) and the second argument is (long).
-    "textbin/gameplay/entities/draw_moby_list",
+    "gameplay/entities/draw_moby_list",
     # fun_001e9ab8: exact with default flags once func_00233980 has its
     # promoted prototype (s32, s64): the second argument is passed as a
     # 64-bit value (callee-proto-fix.py).
-    "textbin/gameplay/state/transition_draw_sky",
+    "gameplay/state/transition_draw_sky",
     # fun_001f79a8: exact with default flags: func_00233980(s32, s64) prototype,
     # the D_0015F348 constant written as -0.04f (m2c had its bit pattern as an
     # integer), and the gp .extern for D_0015F348.
@@ -584,115 +838,115 @@ GAME_COMPILER_UNITS = {
     # fun_001eb740: exact with default flags on the 0049 compiler (a plain
     # rewrite; SN 2.95.2 emits the same code, the pre-0049 cc1 if-converted
     # the return tail).
-    "textbin/gameplay/state/is_active_state_entry",
-    "textbin/audio/streaming/snd_stream_safe_cd_break",
-    "textbin/audio/streaming/snd_stream_safe_cd_callback",
-    "textbin/audio/streaming/snd_stream_safe_cd_get_error",
-    "textbin/audio/streaming/snd_stream_safe_cd_read",
-    "textbin/gameplay/entities/attach_manipulator",
-    "textbin/audio/decoder/audio_dec_begin_put",
-    "textbin/rendering/vu1_add_g_sregister",
-    "textbin/audio/streaming/snd_stream_safe_cd_sync",
-    "textbin/audio/decoder/is_audio_ok",
-    "textbin/audio/decoder/process_audio_stream",
+    "gameplay/state/is_active_state_entry",
+    "audio/streaming/snd_stream_safe_cd_break",
+    "audio/streaming/snd_stream_safe_cd_callback",
+    "audio/streaming/snd_stream_safe_cd_get_error",
+    "audio/streaming/snd_stream_safe_cd_read",
+    "gameplay/entities/attach_manipulator",
+    "audio/decoder/audio_dec_begin_put",
+    "rendering/vu1_add_g_sregister",
+    "audio/streaming/snd_stream_safe_cd_sync",
+    "audio/decoder/is_audio_ok",
+    "audio/decoder/process_audio_stream",
     "textbin/fun_0023a3b8",
-    "textbin/video/decoder/callbacks/handle_mpeg_no_data",
-    "textbin/video/decoder/callbacks/handle_end_image",
-    "textbin/video/decoder/vi_buf_begin_put",
-    "textbin/video/display/wait_for_display_vsync",
-    "textbin/rendering/debug/prepare_debug_profiler_render",
-    "textbin/rendering/packets/put_disp_buffer",
-    "textbin/audio/voices/allocate_voice_for_bank_entry",
-    "textbin/ui/help/force_help_message",
+    "video/decoder/callbacks/handle_mpeg_no_data",
+    "video/decoder/callbacks/handle_end_image",
+    "video/decoder/vi_buf_begin_put",
+    "video/display/wait_for_display_vsync",
+    "rendering/debug/prepare_debug_profiler_render",
+    "rendering/packets/put_disp_buffer",
+    "audio/voices/allocate_voice_for_bank_entry",
+    "ui/help/force_help_message",
     "textbin/fun_001f21c0",
-    "textbin/ui/menus/draw_menu_selection_marker",
-    "textbin/audio/rpc/snd_reset_state_and_flush_commands",
+    "ui/menus/draw_menu_selection_marker",
+    "audio/rpc/snd_reset_state_and_flush_commands",
     "textbin/fun_0021e1f8",
     "textbin/fun_0021f120",
     "textbin/fun_001ff780",
     "textbin/fun_00221930",
     "runtime/dma/clear_dma_queue_entry",
     "rendering/state/initialize_render_state",
-    "textbin/audio/decoder/audio_dec_start",
-    "textbin/audio/banks/snd_resolve_bank_xrefs",
-    "textbin/audio/mixer/snd_set_master_volume",
-    "textbin/audio/mixer/snd_set_playback_mode",
-    "textbin/audio/mixer/snd_set_mixer_mode",
-    "textbin/audio/mixer/snd_set_group_voice_range",
-    "textbin/audio/voices/snd_stop_all_sounds",
-    "textbin/audio/voices/snd_sound_is_still_playing_cb",
-    "textbin/audio/streaming/snd_stop_all_streams",
-    "textbin/audio/effects/snd_pre_alloc_reverb_work_area",
-    "textbin/audio/effects/snd_auto_reverb",
-    "textbin/audio/movie/snd_init_movie_sound",
-    "textbin/audio/movie/snd_reset_movie_sound",
-    "textbin/audio/movie/snd_close_movie_sound",
-    "textbin/audio/movie/snd_update_movie_adpcm",
-    "textbin/audio/movie/snd_get_movie_nax",
-    "textbin/ui/fonts/load_debug_font",
-    "textbin/gameplay/camera/backup_current_cam",
+    "audio/decoder/audio_dec_start",
+    "audio/banks/snd_resolve_bank_xrefs",
+    "audio/mixer/snd_set_master_volume",
+    "audio/mixer/snd_set_playback_mode",
+    "audio/mixer/snd_set_mixer_mode",
+    "audio/mixer/snd_set_group_voice_range",
+    "audio/voices/snd_stop_all_sounds",
+    "audio/voices/snd_sound_is_still_playing_cb",
+    "audio/streaming/snd_stop_all_streams",
+    "audio/effects/snd_pre_alloc_reverb_work_area",
+    "audio/effects/snd_auto_reverb",
+    "audio/movie/snd_init_movie_sound",
+    "audio/movie/snd_reset_movie_sound",
+    "audio/movie/snd_close_movie_sound",
+    "audio/movie/snd_update_movie_adpcm",
+    "audio/movie/snd_get_movie_nax",
+    "ui/fonts/load_debug_font",
+    "gameplay/camera/backup_current_cam",
     "textbin/fun_001eda60",
-    "textbin/ui/text/measure_text_width_regular",
-    "textbin/ui/text/measure_text_width_small",
-    "textbin/ui/text/measure_text_width_large",
-    "textbin/ui/text/font_print_large",
-    "textbin/ui/text/font_print_small",
-    "textbin/ui/text/font_print_right",
-    "textbin/ui/text/font_print_right_small",
-    "textbin/ui/text/font_print_right_large",
-    "textbin/ui/text/font_print_center",
-    "textbin/ui/text/font_print_center_small",
-    "textbin/ui/text/font_print_center_large",
+    "ui/text/measure_text_width_regular",
+    "ui/text/measure_text_width_small",
+    "ui/text/measure_text_width_large",
+    "ui/text/font_print_large",
+    "ui/text/font_print_small",
+    "ui/text/font_print_right",
+    "ui/text/font_print_right_small",
+    "ui/text/font_print_right_large",
+    "ui/text/font_print_center",
+    "ui/text/font_print_center_small",
+    "ui/text/font_print_center_large",
     "textbin/fun_001f6fd0",
-    "textbin/ui/text/font_print_window_regular",
-    "textbin/ui/text/font_print_window_small",
+    "ui/text/font_print_window_regular",
+    "ui/text/font_print_window_small",
     "textbin/fun_001f7978",
-    "textbin/ui/help/find_help_message_index",
-    "textbin/ui/help/help_draw_prompt",
+    "ui/help/find_help_message_index",
+    "ui/help/help_draw_prompt",
     "textbin/fun_001ff480",
-    "textbin/ui/frames/draw_stretchable_ui_frame",
-    "textbin/rendering/refresh_point_light",
-    "textbin/rendering/detach_point_light",
-    "textbin/ui/hud/load_compressed_hud_bank",
-    "textbin/world/parse_space_scene_chunk",
-    "textbin/ui/menus/hit_test_fixed_screen_rectangle",
+    "ui/frames/draw_stretchable_ui_frame",
+    "rendering/refresh_point_light",
+    "rendering/detach_point_light",
+    "ui/hud/load_compressed_hud_bank",
+    "world/parse_space_scene_chunk",
+    "ui/menus/hit_test_fixed_screen_rectangle",
     "textbin/fun_00207100",
     "textbin/fun_00207300",
     "textbin/fun_00207bb0",
-    "textbin/gameplay/entities/process_moby_anim_data",
-    "textbin/gameplay/entities/stash_moby_class_dists",
-    "textbin/gameplay/entities/restore_moby_class_dists",
-    "textbin/gameplay/entities/draw_mobys_clean_up",
-    "textbin/gameplay/entities/draw_mobys",
-    "textbin/math/random/random_integer_below",
-    "textbin/math/random/random_float_between",
+    "gameplay/entities/process_moby_anim_data",
+    "gameplay/entities/stash_moby_class_dists",
+    "gameplay/entities/restore_moby_class_dists",
+    "gameplay/entities/draw_mobys_clean_up",
+    "gameplay/entities/draw_mobys",
+    "math/random/random_integer_below",
+    "math/random/random_float_between",
     "textbin/fun_002144d8",
-    "textbin/math/rotations/build_quaternion_from_axis_angle",
-    "textbin/gameplay/state/is_value_within_interpolated_window",
-    "textbin/ui/menus/compute_clamped_count_difference",
-    "textbin/ui/menus/count_nonzero_entries_up_to_40",
-    "textbin/ui/menus/count_nonzero_entries_up_to_10",
-    "textbin/ui/menus/count_nonzero_entries_up_to_30",
-    "textbin/audio/streaming/register_audio_stream_callback",
-    "textbin/audio/streaming/continue_audio_stream_if_ready",
-    "textbin/audio/streaming/request_audio_stream_break",
-    "textbin/audio/streaming/start_audio_stream_read",
-    "textbin/audio/load",
-    "textbin/audio/streaming/update_audio_stream_until_idle",
-    "textbin/audio/streaming/finish_audio_stream_read",
-    "textbin/input/pad/clear_pad_input",
-    "textbin/input/pad/update_primary_pad_state",
+    "math/rotations/build_quaternion_from_axis_angle",
+    "gameplay/state/is_value_within_interpolated_window",
+    "ui/menus/compute_clamped_count_difference",
+    "ui/menus/count_nonzero_entries_up_to_40",
+    "ui/menus/count_nonzero_entries_up_to_10",
+    "ui/menus/count_nonzero_entries_up_to_30",
+    "audio/streaming/register_audio_stream_callback",
+    "audio/streaming/continue_audio_stream_if_ready",
+    "audio/streaming/request_audio_stream_break",
+    "audio/streaming/start_audio_stream_read",
+    "audio/load",
+    "audio/streaming/update_audio_stream_until_idle",
+    "audio/streaming/finish_audio_stream_read",
+    "input/pad/clear_pad_input",
+    "input/pad/update_primary_pad_state",
     "textbin/fun_0021cae0",
     "textbin/fun_0021d2c8",
     "textbin/fun_0021df58",
     "textbin/fun_0021e608",
-    "textbin/ui/menus/draw_quit_game_menu",
+    "ui/menus/draw_quit_game_menu",
     "textbin/fun_0021eaf0",
-    "textbin/ui/map/draw_map_screen_overlay",
-    "textbin/ui/menus/missions/draw_mission_menu_labels",
+    "ui/map/draw_map_screen_overlay",
+    "ui/menus/missions/draw_mission_menu_labels",
     "textbin/fun_0021fce0",
     "textbin/fun_0021fd78",
-    "textbin/rendering/draw_two_texture_panels",
+    "rendering/draw_two_texture_panels",
     "textbin/fun_002212b8",
     "textbin/fun_00221a48",
     "textbin/fun_00221a88",
@@ -703,108 +957,108 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_00222f58",
     "textbin/fun_002242b8",
     "textbin/fun_00225660",
-    "textbin/rendering/entities/draw_moby_entries_from_object",
+    "rendering/entities/draw_moby_entries_from_object",
     "textbin/fun_00226718",
-    "textbin/gameplay/state/clear_scene_state_buffers",
-    "textbin/audio/banks/load_audio_bank_by_location",
+    "gameplay/state/clear_scene_state_buffers",
+    "audio/banks/load_audio_bank_by_location",
     "textbin/fun_0022da68",
-    "textbin/runtime/rpc/initialize_sif_rpc",
-    "textbin/rendering/dmac_vif1_disable",
-    "textbin/runtime/diagnostics/print_register_values_and_halt",
-    "textbin/rendering/buffers/copy_render_buffer_pair",
-    "textbin/rendering/entities/register_entity_render_resources",
-    "textbin/ui/text/set_scrolling_status_message",
-    "textbin/ui/text/update_scrolling_status_message",
+    "runtime/rpc/initialize_sif_rpc",
+    "rendering/dmac_vif1_disable",
+    "runtime/diagnostics/print_register_values_and_halt",
+    "rendering/buffers/copy_render_buffer_pair",
+    "rendering/entities/register_entity_render_resources",
+    "ui/text/set_scrolling_status_message",
+    "ui/text/update_scrolling_status_message",
     "textbin/fun_00238630",
-    "textbin/ui/menus/format_scaled_display_value",
+    "ui/menus/format_scaled_display_value",
     "textbin/fun_002386e8",
     "textbin/fun_00239750",
-    "textbin/runtime/threads/switch_thread",
-    "textbin/audio/decoder/terminate_audio_system",
-    "textbin/audio/decoder/log_audio_error",
-    "textbin/audio/decoder/audio_dec_delete",
-    "textbin/audio/decoder/audio_dec_reset",
-    "textbin/audio/decoder/audio_dec_send",
-    "textbin/video/decoder/dma/set_dma_channel_3_control_register",
-    "textbin/video/decoder/dma/set_dma_channel_4_control_register",
-    "textbin/video/decoder/vi_buf_end_put",
-    "textbin/video/decoder/vi_buf_count",
-    "textbin/video/decoder/video_dec_create",
-    "textbin/video/decoder/video_dec_begin_put",
-    "textbin/video/decoder/video_dec_end_put",
-    "textbin/video/decoder/video_dec_delete",
-    "textbin/video/decoder/video_dec_input_count",
-    "textbin/video/decoder/vo_buf_get_tag",
-    "textbin/rendering/get_occlusion_grid_from_pair",
-    "textbin/gameplay/entities/init_moby_class_dists",
-    "textbin/storage/memory_card/memcard_initialize",
-    "textbin/video/decoder/buffers/read_buf_begin_get",
-    "textbin/audio/voices/snd_continue_all_sounds_in_group",
-    "textbin/audio/streaming/snd_continue_vag_stream",
-    "textbin/audio/streaming/snd_get_vag_stream_time_remaining_cb",
-    "textbin/audio/streaming/snd_is_vag_stream_buffered_cb",
-    "textbin/audio/voices/snd_pause_all_sounds_in_group",
-    "textbin/audio/streaming/snd_pause_vag_stream",
-    "textbin/audio/effects/snd_set_reverb_ex",
-    "textbin/audio/streaming/snd_stream_safe_check_cd_idle",
-    "textbin/audio/banks/snd_unload_bank",
-    "textbin/rendering/update_occlusion",
-    "textbin/video/decoder/vi_buf_delete",
-    "textbin/video/decoder/video_dec_is_flushed",
-    "textbin/video/decoder/video_dec_set_stream",
-    "textbin/video/decoder/vo_buf_get_data",
+    "runtime/threads/switch_thread",
+    "audio/decoder/terminate_audio_system",
+    "audio/decoder/log_audio_error",
+    "audio/decoder/audio_dec_delete",
+    "audio/decoder/audio_dec_reset",
+    "audio/decoder/audio_dec_send",
+    "video/decoder/dma/set_dma_channel_3_control_register",
+    "video/decoder/dma/set_dma_channel_4_control_register",
+    "video/decoder/vi_buf_end_put",
+    "video/decoder/vi_buf_count",
+    "video/decoder/video_dec_create",
+    "video/decoder/video_dec_begin_put",
+    "video/decoder/video_dec_end_put",
+    "video/decoder/video_dec_delete",
+    "video/decoder/video_dec_input_count",
+    "video/decoder/vo_buf_get_tag",
+    "rendering/get_occlusion_grid_from_pair",
+    "gameplay/entities/init_moby_class_dists",
+    "storage/memory_card/memcard_initialize",
+    "video/decoder/buffers/read_buf_begin_get",
+    "audio/voices/snd_continue_all_sounds_in_group",
+    "audio/streaming/snd_continue_vag_stream",
+    "audio/streaming/snd_get_vag_stream_time_remaining_cb",
+    "audio/streaming/snd_is_vag_stream_buffered_cb",
+    "audio/voices/snd_pause_all_sounds_in_group",
+    "audio/streaming/snd_pause_vag_stream",
+    "audio/effects/snd_set_reverb_ex",
+    "audio/streaming/snd_stream_safe_check_cd_idle",
+    "audio/banks/snd_unload_bank",
+    "rendering/update_occlusion",
+    "video/decoder/vi_buf_delete",
+    "video/decoder/video_dec_is_flushed",
+    "video/decoder/video_dec_set_stream",
+    "video/decoder/vo_buf_get_data",
     "textbin/fun_00225490",
     "textbin/fun_0022c7e8",
     # fun_0012e368: RPC wrapper: one-word request buffer passed to func_0012E6E0
     # (0x15)
-    "textbin/audio/voices/snd_stop_sound",
+    "audio/voices/snd_stop_sound",
     # fun_0012e4c0: RPC wrapper: six-word request buffer, two pass-through args
     # (0x21)
-    "textbin/audio/voices/snd_set_sound_params_cb",
+    "audio/voices/snd_set_sound_params_cb",
     # fun_0012e308: RPC wrapper: six-word request buffer, two pass-through args
     # (0x11)
-    "textbin/audio/voices/snd_play_sound_vol_pan_pmpb",
+    "audio/voices/snd_play_sound_vol_pan_pmpb",
     # fun_0020ad38: result preset to 0, compare only when the count is set
-    "textbin/storage/memory_card/data/validate_data_crc",
+    "storage/memory_card/data/validate_data_crc",
     # fun_0023c660: semaphore-guarded round up to a 2048-byte sector
-    "textbin/video/decoder/vi_buf_flush",
+    "video/decoder/vi_buf_flush",
     # fun_0020c828: state byte from a pointer compare, s64 timestamp
-    "textbin/gameplay/entities/mark_moby_for_removal",
+    "gameplay/entities/mark_moby_for_removal",
     # fun_0012f108: RPC wrapper: five-word request buffer (0x3E)
-    "textbin/audio/movie/snd_start_movie_sound",
+    "audio/movie/snd_start_movie_sound",
     # fun_001ebec8: class-table dispatch through the update slot (+0x8)
-    "textbin/gameplay/entities/update_moby",
+    "gameplay/entities/update_moby",
     # fun_001ec3d8: class-table dispatch through the draw slot (+0x10)
-    "textbin/rendering/entities/draw_moby",
+    "rendering/entities/draw_moby",
     # fun_0012d9d8: main loop: each step returns the next step function
-    "textbin/gameplay/state/run_game_main_loop",
+    "gameplay/state/run_game_main_loop",
     # fun_00216b68: handle claim: 64-bit handle argument narrowed to the
     # pointer, 0xFFFFFFFF marks a free slot
-    "textbin/audio/voices/set_sound_handle_id",
+    "audio/voices/set_sound_handle_id",
     # fun_001fb680: GIF tag through the byte packet pointer, re-read after each
     # store
-    "textbin/rendering/texture/append_texture_transfer_packet",
+    "rendering/texture/append_texture_transfer_packet",
     # fun_001fb6e0: GIF tag through the byte packet pointer, re-read after each
     # store
-    "textbin/rendering/texture/append_palette_transfer_packet",
+    "rendering/texture/append_palette_transfer_packet",
     # fun_001fb3d0: GIF tag with a physical address (masked to 0x0FFFFFFF)
     # through the byte packet pointer
-    "textbin/rendering/packets/append_draw_buffer_packet",
+    "rendering/packets/append_draw_buffer_packet",
     # video_dec_put_ts: timestamp entry built on the stack, position relative to
     # the decoder base
-    "textbin/video/decoder/video_dec_put_ts",
+    "video/decoder/video_dec_put_ts",
     # fun_001fb2d0: GIF tag into the packet when one is open, else
     # sceGsPutDrawEnv
-    "textbin/rendering/packets/append_draw_environment_packet",
+    "rendering/packets/append_draw_environment_packet",
     # fun_00233888: VIF packet: DMA cnt tag, STCYCL, UNPACK V4-32 header, then
     # the payload copy
-    "textbin/rendering/packets/write_vif_unpack_packet",
+    "rendering/packets/write_vif_unpack_packet",
     # fun_001ff308: queue an animation on a channel unless it is already the
     # queued one; returns its serial
-    "textbin/gameplay/animation/queue_animation_update",
+    "gameplay/animation/queue_animation_update",
     # fun_0012f368: read a file entry through sceCdRead with retries and copy it
     # into the resident buffer
-    "textbin/storage/cd/read_file_entry_with_retry",
+    "storage/cd/read_file_entry_with_retry",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -913,8 +1167,8 @@ SN_FLAG_UNITS = {
 # assembler's section tail padding.  The list is explicit per unit: the
 # assembler swap is proven per-object and must not drift to other units.
 PADLESS_ASM_UNITS = {
-    "textbin/gameplay/state/compute_interpolated_record_value",
-    "textbin/math/random/random_float_between",
+    "gameplay/state/compute_interpolated_record_value",
+    "math/random/random_float_between",
     "textbin/fun_001ff480",
     "textbin/fun_001eda60",
     # padless-release sweep 2026-09-12: both banks keep a dropped hazard
@@ -922,11 +1176,11 @@ PADLESS_ASM_UNITS = {
     # with the padless route (fun_00225660 also needed the build's canonical
     # FUN_00225530 callee symbol).
     "textbin/fun_00225660",
-    "textbin/rendering/dmac_vif1_disable",
+    "rendering/dmac_vif1_disable",
     # padless-release sweep follow-up (run 7 resume): empty-asm barrier on the
     # 64-bit call result pins the two outgoing spills (sd v0,8(sp)/sd v1,0(sp))
     # ahead of the addiu pair, 100/100/100.
-    "textbin/ui/help/help_draw_prompt",
+    "ui/help/help_draw_prompt",
     # run 13: the bundled GNU as refuses the short-loop padding NOP because the
     # loop body contains a forward branch; SN cc1 + Ps2EeAs emits it and the
     # resulting object is instruction-identical to the retail target (106/106).
@@ -953,25 +1207,25 @@ PADLESS_ASM_UNITS = {
     # are Ps2EeAs-emitted; the padless object is instruction-identical (76/76)
     # and patha byte-equal (sha 1487c262...).  Needs SN_FLAG_UNITS
     # -mno-split-addresses for the absolute $at store pair.
-    "textbin/video/display/wait_for_display_vsync",
+    "video/display/wait_for_display_vsync",
     # run 16 worker b: cc_sn_padless is also the route that reproduces retail's
     # absolute same-register load of the scalar pointer global D_0016120C
     # (the cc_sn route emits %gp_rel); with the v0 pin on the second load the
     # object is instruction-identical (67/67) and patha byte-equal
     # (sha 508793fb...).  No SN flag needed.
-    "textbin/audio/decoder/terminate_audio_system",
+    "audio/decoder/terminate_audio_system",
     # fun_0012f208: promoted exact under SN cc1 + Ps2EeAs (padless policy
     # "none", 172/172 bytes, verified 2026-09-22).  The plain cc_sn route
     # drops the retail lui/addiu pair and compiles to 164 B, so the unit
     # must stay on the padless route.
-    "textbin/storage/wad/wad_get_sectors",
+    "storage/wad/wad_get_sectors",
     # fun_001f7a30: table fill with bits 3 and 4 of the index swapped
-    "textbin/rendering/texture/initialize_alpha_lookup_table",
+    "rendering/texture/initialize_alpha_lookup_table",
     # fun_0020cc18: first free or matching slot in a 16-entry table
-    "textbin/gameplay/entities/find_or_allocate_id_slot",
+    "gameplay/entities/find_or_allocate_id_slot",
     # fun_001f5210: RGBA packed from four int arguments as u64 (GS register
     # style), then a GIF tag
-    "textbin/rendering/packets/emit_rgba_draw_packet",
+    "rendering/packets/emit_rgba_draw_packet",
     # fun_002169c0: handle callback: store the id, bump the state or report the
     # saved position
     "textbin/fun_002169c0",
@@ -980,44 +1234,44 @@ PADLESS_ASM_UNITS = {
     "textbin/fun_00216a20",
     # fun_001ff418: switch to the queued animation: copy the next fields and run
     # its callback
-    "textbin/gameplay/animation/apply_pending_animation",
+    "gameplay/animation/apply_pending_animation",
     # fun_001ff500: look up an animation definition and copy id, index, flags
     # and frame count
-    "textbin/gameplay/animation/load_animation_definition",
+    "gameplay/animation/load_animation_definition",
     # fun_00209370: read the level chunk, start the loader and run the chunk at
     # its stored offset
-    "textbin/world/streaming/load_and_initialize_level_chunk",
+    "world/streaming/load_and_initialize_level_chunk",
     # fun_001ebcf0: run and clear the deferred callback list
-    "textbin/gameplay/camera/execute_camera_post_update_callbacks",
+    "gameplay/camera/execute_camera_post_update_callbacks",
     # fun_001f4650: run each registered callback with its argument
-    "textbin/gameplay/callbacks/dispatch_callback_list_1",
+    "gameplay/callbacks/dispatch_callback_list_1",
     # fun_001f46c8: run each registered callback with its argument
-    "textbin/gameplay/callbacks/dispatch_callback_list_2",
+    "gameplay/callbacks/dispatch_callback_list_2",
     # fun_001f4740: run each registered callback with its argument
-    "textbin/gameplay/callbacks/dispatch_callback_list_3",
+    "gameplay/callbacks/dispatch_callback_list_3",
     # fun_001f4808: run each registered callback with its argument
-    "textbin/gameplay/callbacks/dispatch_callback_list_4",
+    "gameplay/callbacks/dispatch_callback_list_4",
     # fun_0020acc0: 16-bit CRC (poly 0x1F45 step) over at most 0x1800 bytes
-    "textbin/storage/memory_card/data/calculate_crc16",
+    "storage/memory_card/data/calculate_crc16",
     # fun_001ff658: name buffer: default text block-copied when the name fits,
     # then strcpy
-    "textbin/ui/text/copy_text_to_shared_buffer",
+    "ui/text/copy_text_to_shared_buffer",
     # fun_002043b0: place the level buffer below the top of RAM, page- and
     # quadword-aligned, then load into it
-    "textbin/world/streaming/load_level_chunk_from_disc",
+    "world/streaming/load_level_chunk_from_disc",
     # fun_001fee38: index of an id in the 0xFFFF-terminated animation table
-    "textbin/gameplay/animation/find_animation_definition_index",
+    "gameplay/animation/find_animation_definition_index",
     # fun_001ff960: frame index of an animation, 0 when the frame or its data is
     # missing
-    "textbin/gameplay/animation/find_valid_animation_frame_index",
+    "gameplay/animation/find_valid_animation_frame_index",
     # fun_0020c880: current and next animation frame pointers of a moby
-    "textbin/gameplay/animation/update_moby_animation_state",
+    "gameplay/animation/update_moby_animation_state",
     # video_dec_flush: append the 4-byte end code to the ring buffer, send it,
     # round the stream position
-    "textbin/video/decoder/video_dec_flush",
+    "video/decoder/video_dec_flush",
     # fun_001f5138: fog/alpha GS registers around a full-screen sprite when
     # enabled
-    "textbin/rendering/effects/draw_fogged_fullscreen_sprite",
+    "rendering/effects/draw_fogged_fullscreen_sprite",
 }
 
 
@@ -1052,17 +1306,13 @@ def _unit_sn_flag(unit: str) -> str:
 def _unit_uses_sn(unit: str) -> bool:
     if unit in SDK_COMPILER_UNITS:
         return False
-    # Real-C textbin units are compiled with SN only when the retail bytes use
-    # sq/lq saves. The textbin range is NOT one compiler: FUN_0021fce0 is
-    # sq/lq (SN) while fun_0011bbb8/fun_0011cae0 are sd/ld (EE-GCC 2.9-style), and
-    # the legacy exact leaves match under any ee-gcc. _retail_save_style() is
-    # the per-unit fingerprint; the path prefix alone is insufficient.
-    # NOTE: only src/textbin (unit "textbin/...") routes to SN here. Pure-C
-    # src/assembly/textbin promotions add their full unit name to
-    # SN_COMPILER_UNITS instead: the SN Windows driver cannot assemble the
-    # INCLUDE_ASM oracle paths of the remaining wrapper units, so the sq-style
-    # oracle units there must stay on the native EE-GCC 2.9 assembler.
-    return unit.startswith("textbin/")
+    # Textbin-origin C units use SN only when the retail bytes use sq/lq saves.
+    # _retail_save_style() is the per-unit fingerprint; origin alone is not
+    # enough because sd/ld and save-less leaves stay on EE-GCC 2.9-style routes.
+    # Most original owners remain under textbin/, while semantically relocated
+    # owners are listed in TEXTBIN_ORIGIN_UNITS. Assembly-backed textbin wrappers
+    # remain under assembly/ and keep their native EE-GCC assembler oracle.
+    return unit.startswith("textbin/") or unit in TEXTBIN_ORIGIN_UNITS
 
 
 def _retail_save_style(elf: bytes, vram: int, size: int) -> str:

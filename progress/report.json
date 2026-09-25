@@ -9,8 +9,8 @@
     "matched_functions_percent": 62.103354,
     "complete_code": "102636",
     "complete_code_percent": 29.972316,
-    "total_units": 111,
-    "complete_units": 50
+    "total_units": 109,
+    "complete_units": 48
   },
   "units": [
     {
@@ -1962,7 +1962,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "85888",
-            "source_path": "src/textbin/runtime/newlib/reentrant_syscall_with_two_arguments.c"
+            "source_path": "src/runtime/newlib/reentrant_syscall_with_two_arguments.c"
           }
         },
         {
@@ -1972,7 +1972,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "87192",
-            "source_path": "src/textbin/runtime/newlib/reentrant_syscall_with_three_arguments.c"
+            "source_path": "src/runtime/newlib/reentrant_syscall_with_three_arguments.c"
           }
         },
         {
@@ -1982,7 +1982,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "94344",
-            "source_path": "src/textbin/runtime/newlib/reentrant_read.c"
+            "source_path": "src/runtime/newlib/reentrant_read.c"
           }
         },
         {
@@ -1992,7 +1992,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "103760",
-            "source_path": "src/textbin/runtime/newlib/reentrant_write.c"
+            "source_path": "src/runtime/newlib/reentrant_write.c"
           }
         }
       ],
@@ -2132,13 +2132,13 @@
       "name": "game/runtime/callbacks",
       "measures": {
         "fuzzy_match_percent": 100.0,
-        "total_code": "40",
-        "matched_code": "40",
+        "total_code": "48",
+        "matched_code": "48",
         "matched_code_percent": 100.0,
-        "total_functions": 5,
-        "matched_functions": 5,
+        "total_functions": 6,
+        "matched_functions": 6,
         "matched_functions_percent": 100.0,
-        "complete_code": "40",
+        "complete_code": "48",
         "complete_code_percent": 100.0,
         "total_units": 1,
         "complete_units": 1
@@ -2192,6 +2192,16 @@
           "metadata": {
             "virtual_address": "995640",
             "source_path": "src/runtime/callbacks/noop_core_callback_secondary.c"
+          }
+        },
+        {
+          "name": "NoOpMemoryCallback",
+          "size": "8",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1087376",
+            "source_path": "src/runtime/callbacks/noop_memory_callback.c"
           }
         }
       ],
@@ -5415,7 +5425,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106248",
-            "source_path": "src/textbin/runtime/cache/synchronize_cache_range.c"
+            "source_path": "src/runtime/cache/synchronize_cache_range.c"
           }
         }
       ],
@@ -5448,7 +5458,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106408",
-            "source_path": "src/textbin/runtime/interrupts/disable_intc.c"
+            "source_path": "src/runtime/interrupts/disable_intc.c"
           }
         },
         {
@@ -5458,7 +5468,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106512",
-            "source_path": "src/textbin/runtime/interrupts/enable_intc.c"
+            "source_path": "src/runtime/interrupts/enable_intc.c"
           }
         }
       ],
@@ -5491,7 +5501,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106616",
-            "source_path": "src/textbin/runtime/dma/disable_dmac.c"
+            "source_path": "src/runtime/dma/disable_dmac.c"
           }
         },
         {
@@ -5501,7 +5511,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "106720",
-            "source_path": "src/textbin/runtime/dma/enable_dmac.c"
+            "source_path": "src/runtime/dma/enable_dmac.c"
           }
         },
         {
@@ -5634,7 +5644,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "154016",
-            "source_path": "src/textbin/runtime/debug/debug_print_stub.c"
+            "source_path": "src/runtime/debug/debug_print_stub.c"
           }
         }
       ],
@@ -5677,7 +5687,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "183200",
-            "source_path": "src/textbin/runtime/memory/reserve_aligned_buffer_space.c"
+            "source_path": "src/runtime/memory/reserve_aligned_buffer_space.c"
           }
         },
         {
@@ -5717,7 +5727,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1042016",
-            "source_path": "src/textbin/runtime/memory/calculate_ring_buffer_bounds.c"
+            "source_path": "src/runtime/memory/calculate_ring_buffer_bounds.c"
           }
         },
         {
@@ -6096,7 +6106,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "113768",
-            "source_path": "src/textbin/runtime/rpc/get_available_rpc_packet.c"
+            "source_path": "src/runtime/rpc/get_available_rpc_packet.c"
           }
         },
         {
@@ -6116,7 +6126,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "121016",
-            "source_path": "src/textbin/runtime/rpc/free_sif_system_memory.c"
+            "source_path": "src/runtime/rpc/free_sif_system_memory.c"
           }
         },
         {
@@ -6136,7 +6146,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1260640",
-            "source_path": "src/textbin/runtime/rpc/initialize_sif_rpc.c"
+            "source_path": "src/runtime/rpc/initialize_sif_rpc.c"
           }
         }
       ],
@@ -6544,7 +6554,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "125848",
-            "source_path": "src/textbin/runtime/startup/run_global_constructors.c"
+            "source_path": "src/runtime/startup/run_global_constructors.c"
           }
         },
         {
@@ -6587,7 +6597,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "136792",
-            "source_path": "src/textbin/storage/cd/handle_cd_read_callback.c"
+            "source_path": "src/storage/cd/handle_cd_read_callback.c"
           }
         },
         {
@@ -6597,7 +6607,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "197176",
-            "source_path": "src/textbin/storage/cd/load_disc_sectors_into_global_buffer.c"
+            "source_path": "src/storage/cd/load_disc_sectors_into_global_buffer.c"
           }
         },
         {
@@ -6607,7 +6617,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "197352",
-            "source_path": "src/textbin/storage/cd/read_file_entry_with_retry.c"
+            "source_path": "src/storage/cd/read_file_entry_with_retry.c"
           }
         }
       ],
@@ -7259,7 +7269,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096496",
-            "source_path": "src/textbin/storage/memory_card/memcard_make_whole_save.c"
+            "source_path": "src/storage/memory_card/memcard_make_whole_save.c"
           }
         },
         {
@@ -7269,7 +7279,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096664",
-            "source_path": "src/textbin/storage/memory_card/memcard_initialize.c"
+            "source_path": "src/storage/memory_card/memcard_initialize.c"
           }
         },
         {
@@ -7303,13 +7313,13 @@
       "name": "game/rendering/image",
       "measures": {
         "fuzzy_match_percent": 100.0,
-        "total_code": "28",
-        "matched_code": "28",
+        "total_code": "92",
+        "matched_code": "92",
         "matched_code_percent": 100.0,
-        "total_functions": 2,
-        "matched_functions": 2,
+        "total_functions": 3,
+        "matched_functions": 3,
         "matched_functions_percent": 100.0,
-        "complete_code": "28",
+        "complete_code": "92",
         "complete_code_percent": 100.0,
         "total_units": 1,
         "complete_units": 1
@@ -7333,6 +7343,16 @@
           "metadata": {
             "virtual_address": "184928",
             "source_path": "src/rendering/image/jump_to_image_setup.c"
+          }
+        },
+        {
+          "name": "PackImageDescriptor",
+          "size": "64",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1210104",
+            "source_path": "src/rendering/image/pack_image_descriptor.c"
           }
         }
       ],
@@ -7428,7 +7448,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "189248",
-            "source_path": "src/textbin/runtime/time/decode_bcd_time_fields.c"
+            "source_path": "src/runtime/time/decode_bcd_time_fields.c"
           }
         },
         {
@@ -7438,7 +7458,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "189352",
-            "source_path": "src/textbin/runtime/time/encode_bcd_time_fields.c"
+            "source_path": "src/runtime/time/encode_bcd_time_fields.c"
           }
         }
       ],
@@ -7481,7 +7501,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "190808",
-            "source_path": "src/textbin/gameplay/state/run_game_main_loop.c"
+            "source_path": "src/gameplay/state/run_game_main_loop.c"
           }
         },
         {
@@ -7491,7 +7511,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "961080",
-            "source_path": "src/textbin/gameplay/state/transition_draw_sky.c"
+            "source_path": "src/gameplay/state/transition_draw_sky.c"
           }
         },
         {
@@ -7531,7 +7551,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "967568",
-            "source_path": "src/textbin/gameplay/state/transition_default_draw.c"
+            "source_path": "src/gameplay/state/transition_default_draw.c"
           }
         },
         {
@@ -7541,7 +7561,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "968384",
-            "source_path": "src/textbin/gameplay/state/is_active_state_entry.c"
+            "source_path": "src/gameplay/state/is_active_state_entry.c"
           }
         },
         {
@@ -7561,7 +7581,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1104224",
-            "source_path": "src/textbin/gameplay/state/compute_interpolated_record_value.c"
+            "source_path": "src/gameplay/state/compute_interpolated_record_value.c"
           }
         },
         {
@@ -7571,7 +7591,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1137736",
-            "source_path": "src/textbin/gameplay/state/is_value_within_interpolated_window.c"
+            "source_path": "src/gameplay/state/is_value_within_interpolated_window.c"
           }
         },
         {
@@ -7591,7 +7611,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1192464",
-            "source_path": "src/textbin/gameplay/state/process_global_state_flags.c"
+            "source_path": "src/gameplay/state/process_global_state_flags.c"
           }
         },
         {
@@ -7601,7 +7621,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1212112",
-            "source_path": "src/textbin/gameplay/state/clear_scene_state_buffers.c"
+            "source_path": "src/gameplay/state/clear_scene_state_buffers.c"
           }
         },
         {
@@ -7611,7 +7631,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1252968",
-            "source_path": "src/textbin/gameplay/state/dispatch_game_state_update.c"
+            "source_path": "src/gameplay/state/dispatch_game_state_update.c"
           }
         },
         {
@@ -7734,7 +7754,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "191984",
-            "source_path": "src/textbin/audio/snd_got_returns.c"
+            "source_path": "src/audio/snd_got_returns.c"
           }
         },
         {
@@ -7744,7 +7764,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144744",
-            "source_path": "src/textbin/audio/load.c"
+            "source_path": "src/audio/load.c"
           }
         }
       ],
@@ -7797,7 +7817,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192808",
-            "source_path": "src/textbin/audio/banks/snd_resolve_bank_xrefs.c"
+            "source_path": "src/audio/banks/snd_resolve_bank_xrefs.c"
           }
         },
         {
@@ -7807,7 +7827,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192856",
-            "source_path": "src/textbin/audio/banks/snd_unload_bank.c"
+            "source_path": "src/audio/banks/snd_unload_bank.c"
           }
         },
         {
@@ -7817,7 +7837,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1238664",
-            "source_path": "src/textbin/audio/banks/load_audio_bank_by_location.c"
+            "source_path": "src/audio/banks/load_audio_bank_by_location.c"
           }
         }
       ],
@@ -7850,7 +7870,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192904",
-            "source_path": "src/textbin/audio/mixer/snd_set_master_volume.c"
+            "source_path": "src/audio/mixer/snd_set_master_volume.c"
           }
         },
         {
@@ -7860,7 +7880,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "192960",
-            "source_path": "src/textbin/audio/mixer/snd_set_playback_mode.c"
+            "source_path": "src/audio/mixer/snd_set_playback_mode.c"
           }
         },
         {
@@ -7870,7 +7890,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193024",
-            "source_path": "src/textbin/audio/mixer/snd_set_mixer_mode.c"
+            "source_path": "src/audio/mixer/snd_set_mixer_mode.c"
           }
         },
         {
@@ -7880,7 +7900,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193080",
-            "source_path": "src/textbin/audio/mixer/snd_set_group_voice_range.c"
+            "source_path": "src/audio/mixer/snd_set_group_voice_range.c"
           }
         }
       ],
@@ -7913,7 +7933,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193160",
-            "source_path": "src/textbin/audio/voices/snd_play_sound_vol_pan_pmpb.c"
+            "source_path": "src/audio/voices/snd_play_sound_vol_pan_pmpb.c"
           }
         },
         {
@@ -7923,7 +7943,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193256",
-            "source_path": "src/textbin/audio/voices/snd_stop_sound.c"
+            "source_path": "src/audio/voices/snd_stop_sound.c"
           }
         },
         {
@@ -7933,7 +7953,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193336",
-            "source_path": "src/textbin/audio/voices/snd_stop_all_sounds.c"
+            "source_path": "src/audio/voices/snd_stop_all_sounds.c"
           }
         },
         {
@@ -7943,7 +7963,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193384",
-            "source_path": "src/textbin/audio/voices/snd_pause_all_sounds_in_group.c"
+            "source_path": "src/audio/voices/snd_pause_all_sounds_in_group.c"
           }
         },
         {
@@ -7953,7 +7973,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193432",
-            "source_path": "src/textbin/audio/voices/snd_continue_all_sounds_in_group.c"
+            "source_path": "src/audio/voices/snd_continue_all_sounds_in_group.c"
           }
         },
         {
@@ -7963,7 +7983,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193480",
-            "source_path": "src/textbin/audio/voices/snd_sound_is_still_playing_cb.c"
+            "source_path": "src/audio/voices/snd_sound_is_still_playing_cb.c"
           }
         },
         {
@@ -7973,7 +7993,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "193600",
-            "source_path": "src/textbin/audio/voices/snd_set_sound_params_cb.c"
+            "source_path": "src/audio/voices/snd_set_sound_params_cb.c"
           }
         },
         {
@@ -7983,7 +8003,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1145576",
-            "source_path": "src/textbin/audio/voices/set_sound_handle_id.c"
+            "source_path": "src/audio/voices/set_sound_handle_id.c"
           }
         },
         {
@@ -8023,7 +8043,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1238808",
-            "source_path": "src/textbin/audio/voices/release_voice_slot.c"
+            "source_path": "src/audio/voices/release_voice_slot.c"
           }
         },
         {
@@ -8043,7 +8063,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1239696",
-            "source_path": "src/textbin/audio/voices/allocate_voice_for_bank_entry.c"
+            "source_path": "src/audio/voices/allocate_voice_for_bank_entry.c"
           }
         },
         {
@@ -8053,7 +8073,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1239840",
-            "source_path": "src/textbin/audio/voices/allocate_voice_for_group_entry.c"
+            "source_path": "src/audio/voices/allocate_voice_for_group_entry.c"
           }
         },
         {
@@ -8126,7 +8146,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "194848",
-            "source_path": "src/textbin/audio/rpc/snd_post_message.c"
+            "source_path": "src/audio/rpc/snd_post_message.c"
           }
         },
         {
@@ -8146,7 +8166,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195200",
-            "source_path": "src/textbin/audio/rpc/snd_reset_state_and_flush_commands.c"
+            "source_path": "src/audio/rpc/snd_reset_state_and_flush_commands.c"
           }
         }
       ],
@@ -8179,7 +8199,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195232",
-            "source_path": "src/textbin/audio/streaming/snd_init_vag_streaming_ex.c"
+            "source_path": "src/audio/streaming/snd_init_vag_streaming_ex.c"
           }
         },
         {
@@ -8189,7 +8209,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195408",
-            "source_path": "src/textbin/audio/streaming/snd_stop_all_streams.c"
+            "source_path": "src/audio/streaming/snd_stop_all_streams.c"
           }
         },
         {
@@ -8209,7 +8229,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195568",
-            "source_path": "src/textbin/audio/streaming/snd_pause_vag_stream.c"
+            "source_path": "src/audio/streaming/snd_pause_vag_stream.c"
           }
         },
         {
@@ -8219,7 +8239,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195616",
-            "source_path": "src/textbin/audio/streaming/snd_continue_vag_stream.c"
+            "source_path": "src/audio/streaming/snd_continue_vag_stream.c"
           }
         },
         {
@@ -8229,7 +8249,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195664",
-            "source_path": "src/textbin/audio/streaming/snd_get_vag_stream_time_remaining_cb.c"
+            "source_path": "src/audio/streaming/snd_get_vag_stream_time_remaining_cb.c"
           }
         },
         {
@@ -8239,7 +8259,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195712",
-            "source_path": "src/textbin/audio/streaming/snd_is_vag_stream_buffered_cb.c"
+            "source_path": "src/audio/streaming/snd_is_vag_stream_buffered_cb.c"
           }
         },
         {
@@ -8249,7 +8269,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195760",
-            "source_path": "src/textbin/audio/streaming/snd_stream_safe_check_cd_idle.c"
+            "source_path": "src/audio/streaming/snd_stream_safe_check_cd_idle.c"
           }
         },
         {
@@ -8259,7 +8279,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195800",
-            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_read.c"
+            "source_path": "src/audio/streaming/snd_stream_safe_cd_read.c"
           }
         },
         {
@@ -8269,7 +8289,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "195976",
-            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_sync.c"
+            "source_path": "src/audio/streaming/snd_stream_safe_cd_sync.c"
           }
         },
         {
@@ -8279,7 +8299,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196136",
-            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_break.c"
+            "source_path": "src/audio/streaming/snd_stream_safe_cd_break.c"
           }
         },
         {
@@ -8289,7 +8309,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196208",
-            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_get_error.c"
+            "source_path": "src/audio/streaming/snd_stream_safe_cd_get_error.c"
           }
         },
         {
@@ -8299,7 +8319,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196264",
-            "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_callback.c"
+            "source_path": "src/audio/streaming/snd_stream_safe_cd_callback.c"
           }
         },
         {
@@ -8309,7 +8329,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139616",
-            "source_path": "src/textbin/audio/streaming/register_audio_stream_callback.c"
+            "source_path": "src/audio/streaming/register_audio_stream_callback.c"
           }
         },
         {
@@ -8319,7 +8339,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1141392",
-            "source_path": "src/textbin/audio/streaming/continue_audio_stream_if_ready.c"
+            "source_path": "src/audio/streaming/continue_audio_stream_if_ready.c"
           }
         },
         {
@@ -8329,7 +8349,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144424",
-            "source_path": "src/textbin/audio/streaming/request_audio_stream_break.c"
+            "source_path": "src/audio/streaming/request_audio_stream_break.c"
           }
         },
         {
@@ -8349,7 +8369,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144584",
-            "source_path": "src/textbin/audio/streaming/start_audio_stream_read.c"
+            "source_path": "src/audio/streaming/start_audio_stream_read.c"
           }
         },
         {
@@ -8359,7 +8379,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1144872",
-            "source_path": "src/textbin/audio/streaming/update_audio_stream_until_idle.c"
+            "source_path": "src/audio/streaming/update_audio_stream_until_idle.c"
           }
         },
         {
@@ -8369,7 +8389,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1145040",
-            "source_path": "src/textbin/audio/streaming/finish_audio_stream_read.c"
+            "source_path": "src/audio/streaming/finish_audio_stream_read.c"
           }
         },
         {
@@ -8379,7 +8399,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1185224",
-            "source_path": "src/textbin/audio/streaming/advance_audio_stream_state.c"
+            "source_path": "src/audio/streaming/advance_audio_stream_state.c"
           }
         },
         {
@@ -8399,7 +8419,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207192",
-            "source_path": "src/textbin/audio/streaming/select_next_stream_buffer.c"
+            "source_path": "src/audio/streaming/select_next_stream_buffer.c"
           }
         },
         {
@@ -8409,7 +8429,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207384",
-            "source_path": "src/textbin/audio/streaming/complete_stream_buffer_transfer.c"
+            "source_path": "src/audio/streaming/complete_stream_buffer_transfer.c"
           }
         },
         {
@@ -8419,7 +8439,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207560",
-            "source_path": "src/textbin/audio/streaming/get_stream_buffer_size.c"
+            "source_path": "src/audio/streaming/get_stream_buffer_size.c"
           }
         },
         {
@@ -8439,7 +8459,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1207712",
-            "source_path": "src/textbin/audio/streaming/clear_record_flag_by_key.c"
+            "source_path": "src/audio/streaming/clear_record_flag_by_key.c"
           }
         },
         {
@@ -8482,7 +8502,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196328",
-            "source_path": "src/textbin/audio/effects/snd_set_reverb_ex.c"
+            "source_path": "src/audio/effects/snd_set_reverb_ex.c"
           }
         },
         {
@@ -8492,7 +8512,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196392",
-            "source_path": "src/textbin/audio/effects/snd_pre_alloc_reverb_work_area.c"
+            "source_path": "src/audio/effects/snd_pre_alloc_reverb_work_area.c"
           }
         },
         {
@@ -8502,7 +8522,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196448",
-            "source_path": "src/textbin/audio/effects/snd_auto_reverb.c"
+            "source_path": "src/audio/effects/snd_auto_reverb.c"
           }
         }
       ],
@@ -8535,7 +8555,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196584",
-            "source_path": "src/textbin/audio/movie/snd_init_movie_sound.c"
+            "source_path": "src/audio/movie/snd_init_movie_sound.c"
           }
         },
         {
@@ -8545,7 +8565,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196648",
-            "source_path": "src/textbin/audio/movie/snd_reset_movie_sound.c"
+            "source_path": "src/audio/movie/snd_reset_movie_sound.c"
           }
         },
         {
@@ -8555,7 +8575,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196704",
-            "source_path": "src/textbin/audio/movie/snd_close_movie_sound.c"
+            "source_path": "src/audio/movie/snd_close_movie_sound.c"
           }
         },
         {
@@ -8565,7 +8585,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196744",
-            "source_path": "src/textbin/audio/movie/snd_start_movie_sound.c"
+            "source_path": "src/audio/movie/snd_start_movie_sound.c"
           }
         },
         {
@@ -8575,7 +8595,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196808",
-            "source_path": "src/textbin/audio/movie/snd_update_movie_adpcm.c"
+            "source_path": "src/audio/movie/snd_update_movie_adpcm.c"
           }
         },
         {
@@ -8585,7 +8605,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "196856",
-            "source_path": "src/textbin/audio/movie/snd_get_movie_nax.c"
+            "source_path": "src/audio/movie/snd_get_movie_nax.c"
           }
         }
       ],
@@ -8618,7 +8638,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "197000",
-            "source_path": "src/textbin/storage/wad/wad_get_sectors.c"
+            "source_path": "src/storage/wad/wad_get_sectors.c"
           }
         }
       ],
@@ -8671,7 +8691,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1018288",
-            "source_path": "src/textbin/rendering/texture/initialize_alpha_lookup_table.c"
+            "source_path": "src/rendering/texture/initialize_alpha_lookup_table.c"
           }
         },
         {
@@ -8681,7 +8701,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1033728",
-            "source_path": "src/textbin/rendering/texture/append_texture_transfer_packet.c"
+            "source_path": "src/rendering/texture/append_texture_transfer_packet.c"
           }
         },
         {
@@ -8691,7 +8711,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1033824",
-            "source_path": "src/textbin/rendering/texture/append_palette_transfer_packet.c"
+            "source_path": "src/rendering/texture/append_palette_transfer_packet.c"
           }
         },
         {
@@ -8711,7 +8731,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1074008",
-            "source_path": "src/textbin/rendering/texture/compose_bitmap_from_mask.c"
+            "source_path": "src/rendering/texture/compose_bitmap_from_mask.c"
           }
         },
         {
@@ -8761,7 +8781,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271552",
-            "source_path": "src/textbin/rendering/texture/patch_tie_texture_fields.c"
+            "source_path": "src/rendering/texture/patch_tie_texture_fields.c"
           }
         }
       ],
@@ -8794,7 +8814,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "959160",
-            "source_path": "src/textbin/ui/fonts/load_debug_font.c"
+            "source_path": "src/ui/fonts/load_debug_font.c"
           }
         }
       ],
@@ -9070,7 +9090,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1071472",
-            "source_path": "src/textbin/world/parse_space_scene_chunk.c"
+            "source_path": "src/world/parse_space_scene_chunk.c"
           }
         }
       ],
@@ -9113,7 +9133,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "969744",
-            "source_path": "src/textbin/gameplay/camera/backup_current_cam.c"
+            "source_path": "src/gameplay/camera/backup_current_cam.c"
           }
         },
         {
@@ -9123,7 +9143,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "969840",
-            "source_path": "src/textbin/gameplay/camera/execute_camera_post_update_callbacks.c"
+            "source_path": "src/gameplay/camera/execute_camera_post_update_callbacks.c"
           }
         },
         {
@@ -9173,7 +9193,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1137968",
-            "source_path": "src/textbin/gameplay/camera/build_spherical_offset.c"
+            "source_path": "src/gameplay/camera/build_spherical_offset.c"
           }
         }
       ],
@@ -9206,7 +9226,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "970312",
-            "source_path": "src/textbin/gameplay/entities/update_moby.c"
+            "source_path": "src/gameplay/entities/update_moby.c"
           }
         },
         {
@@ -9236,7 +9256,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1103784",
-            "source_path": "src/textbin/gameplay/entities/mark_moby_for_removal.c"
+            "source_path": "src/gameplay/entities/mark_moby_for_removal.c"
           }
         },
         {
@@ -9246,7 +9266,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1104528",
-            "source_path": "src/textbin/gameplay/entities/attach_manipulator.c"
+            "source_path": "src/gameplay/entities/attach_manipulator.c"
           }
         },
         {
@@ -9266,7 +9286,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1104792",
-            "source_path": "src/textbin/gameplay/entities/find_or_allocate_id_slot.c"
+            "source_path": "src/gameplay/entities/find_or_allocate_id_slot.c"
           }
         },
         {
@@ -9306,7 +9326,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106216",
-            "source_path": "src/textbin/gameplay/entities/process_moby_anim_data.c"
+            "source_path": "src/gameplay/entities/process_moby_anim_data.c"
           }
         },
         {
@@ -9316,7 +9336,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106288",
-            "source_path": "src/textbin/gameplay/entities/init_moby_class_dists.c"
+            "source_path": "src/gameplay/entities/init_moby_class_dists.c"
           }
         },
         {
@@ -9326,7 +9346,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106328",
-            "source_path": "src/textbin/gameplay/entities/stash_moby_class_dists.c"
+            "source_path": "src/gameplay/entities/stash_moby_class_dists.c"
           }
         },
         {
@@ -9336,7 +9356,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106376",
-            "source_path": "src/textbin/gameplay/entities/restore_moby_class_dists.c"
+            "source_path": "src/gameplay/entities/restore_moby_class_dists.c"
           }
         },
         {
@@ -9346,7 +9366,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106424",
-            "source_path": "src/textbin/gameplay/entities/draw_mobys_setup.c"
+            "source_path": "src/gameplay/entities/draw_mobys_setup.c"
           }
         },
         {
@@ -9356,7 +9376,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106608",
-            "source_path": "src/textbin/gameplay/entities/draw_moby_list.c"
+            "source_path": "src/gameplay/entities/draw_moby_list.c"
           }
         },
         {
@@ -9366,7 +9386,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106736",
-            "source_path": "src/textbin/gameplay/entities/draw_mobys_clean_up.c"
+            "source_path": "src/gameplay/entities/draw_mobys_clean_up.c"
           }
         },
         {
@@ -9376,7 +9396,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1106912",
-            "source_path": "src/textbin/gameplay/entities/draw_mobys.c"
+            "source_path": "src/gameplay/entities/draw_mobys.c"
           }
         }
       ],
@@ -9452,7 +9472,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "971608",
-            "source_path": "src/textbin/rendering/entities/draw_moby.c"
+            "source_path": "src/rendering/entities/draw_moby.c"
           }
         },
         {
@@ -9462,7 +9482,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1206760",
-            "source_path": "src/textbin/rendering/entities/draw_moby_entries_from_object.c"
+            "source_path": "src/rendering/entities/draw_moby_entries_from_object.c"
           }
         },
         {
@@ -9472,7 +9492,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271832",
-            "source_path": "src/textbin/rendering/entities/register_entity_render_resources.c"
+            "source_path": "src/rendering/entities/register_entity_render_resources.c"
           }
         }
       ],
@@ -9558,7 +9578,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "997096",
-            "source_path": "src/textbin/rendering/get_occlusion_grid_from_pair.c"
+            "source_path": "src/rendering/get_occlusion_grid_from_pair.c"
           }
         },
         {
@@ -9578,7 +9598,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "998288",
-            "source_path": "src/textbin/rendering/update_occlusion.c"
+            "source_path": "src/rendering/update_occlusion.c"
           }
         },
         {
@@ -9668,7 +9688,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1060568",
-            "source_path": "src/textbin/rendering/refresh_point_light.c"
+            "source_path": "src/rendering/refresh_point_light.c"
           }
         },
         {
@@ -9678,7 +9698,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1060616",
-            "source_path": "src/textbin/rendering/detach_point_light.c"
+            "source_path": "src/rendering/detach_point_light.c"
           }
         },
         {
@@ -9728,7 +9748,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1185552",
-            "source_path": "src/textbin/rendering/draw_two_texture_panels.c"
+            "source_path": "src/rendering/draw_two_texture_panels.c"
           }
         },
         {
@@ -9748,7 +9768,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1219256",
-            "source_path": "src/textbin/rendering/draw_shrubs.c"
+            "source_path": "src/rendering/draw_shrubs.c"
           }
         },
         {
@@ -9818,7 +9838,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263536",
-            "source_path": "src/textbin/rendering/vu1_add_data_ref.c"
+            "source_path": "src/rendering/vu1_add_data_ref.c"
           }
         },
         {
@@ -9838,7 +9858,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263872",
-            "source_path": "src/textbin/rendering/vu1_add_g_sregister.c"
+            "source_path": "src/rendering/vu1_add_g_sregister.c"
           }
         },
         {
@@ -9858,7 +9878,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264360",
-            "source_path": "src/textbin/rendering/vu1_tex_flush.c"
+            "source_path": "src/rendering/vu1_tex_flush.c"
           }
         },
         {
@@ -9868,7 +9888,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264456",
-            "source_path": "src/textbin/rendering/vu1_gs_regs_normal.c"
+            "source_path": "src/rendering/vu1_gs_regs_normal.c"
           }
         },
         {
@@ -9898,7 +9918,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264768",
-            "source_path": "src/textbin/rendering/dmac_vif1_enable.c"
+            "source_path": "src/rendering/dmac_vif1_enable.c"
           }
         },
         {
@@ -9908,7 +9928,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1264912",
-            "source_path": "src/textbin/rendering/dmac_vif1_disable.c"
+            "source_path": "src/rendering/dmac_vif1_disable.c"
           }
         },
         {
@@ -9918,7 +9938,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271880",
-            "source_path": "src/textbin/rendering/draw_ties_1.c"
+            "source_path": "src/rendering/draw_ties_1.c"
           }
         },
         {
@@ -10024,7 +10044,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1295632",
-            "source_path": "src/textbin/video/display/wait_for_display_vsync.c"
+            "source_path": "src/video/display/wait_for_display_vsync.c"
           }
         }
       ],
@@ -10057,7 +10077,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1001320",
-            "source_path": "src/textbin/gameplay/callbacks/reset_callback_registries.c"
+            "source_path": "src/gameplay/callbacks/reset_callback_registries.c"
           }
         },
         {
@@ -10067,7 +10087,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1004928",
-            "source_path": "src/textbin/gameplay/callbacks/enqueue_callback_list_1.c"
+            "source_path": "src/gameplay/callbacks/enqueue_callback_list_1.c"
           }
         },
         {
@@ -10077,7 +10097,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005008",
-            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_1.c"
+            "source_path": "src/gameplay/callbacks/dispatch_callback_list_1.c"
           }
         },
         {
@@ -10087,7 +10107,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005128",
-            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_2.c"
+            "source_path": "src/gameplay/callbacks/dispatch_callback_list_2.c"
           }
         },
         {
@@ -10097,7 +10117,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005248",
-            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_3.c"
+            "source_path": "src/gameplay/callbacks/dispatch_callback_list_3.c"
           }
         },
         {
@@ -10107,7 +10127,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005368",
-            "source_path": "src/textbin/gameplay/callbacks/enqueue_callback_list_4.c"
+            "source_path": "src/gameplay/callbacks/enqueue_callback_list_4.c"
           }
         },
         {
@@ -10117,7 +10137,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1005448",
-            "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_4.c"
+            "source_path": "src/gameplay/callbacks/dispatch_callback_list_4.c"
           }
         }
       ],
@@ -10203,7 +10223,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1003976",
-            "source_path": "src/textbin/rendering/debug/prepare_debug_profiler_render.c"
+            "source_path": "src/rendering/debug/prepare_debug_profiler_render.c"
           }
         }
       ],
@@ -10246,7 +10266,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1007800",
-            "source_path": "src/textbin/rendering/effects/draw_fogged_fullscreen_sprite.c"
+            "source_path": "src/rendering/effects/draw_fogged_fullscreen_sprite.c"
           }
         }
       ],
@@ -10289,7 +10309,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1182696",
-            "source_path": "src/textbin/rendering/transitions/draw_transition_overlay.c"
+            "source_path": "src/rendering/transitions/draw_transition_overlay.c"
           }
         }
       ],
@@ -10322,7 +10342,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1008016",
-            "source_path": "src/textbin/rendering/packets/emit_rgba_draw_packet.c"
+            "source_path": "src/rendering/packets/emit_rgba_draw_packet.c"
           }
         },
         {
@@ -10332,7 +10352,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1032744",
-            "source_path": "src/textbin/rendering/packets/put_disp_buffer.c"
+            "source_path": "src/rendering/packets/put_disp_buffer.c"
           }
         },
         {
@@ -10342,7 +10362,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1032784",
-            "source_path": "src/textbin/rendering/packets/append_draw_environment_packet.c"
+            "source_path": "src/rendering/packets/append_draw_environment_packet.c"
           }
         },
         {
@@ -10352,7 +10372,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1032936",
-            "source_path": "src/textbin/rendering/packets/append_gif_transfer_packet.c"
+            "source_path": "src/rendering/packets/append_gif_transfer_packet.c"
           }
         },
         {
@@ -10362,7 +10382,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1033040",
-            "source_path": "src/textbin/rendering/packets/append_draw_buffer_packet.c"
+            "source_path": "src/rendering/packets/append_draw_buffer_packet.c"
           }
         },
         {
@@ -10372,7 +10392,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263624",
-            "source_path": "src/textbin/rendering/packets/write_vif_unpack_packet.c"
+            "source_path": "src/rendering/packets/write_vif_unpack_packet.c"
           }
         }
       ],
@@ -10415,7 +10435,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1056936",
-            "source_path": "src/textbin/ui/frames/draw_stretchable_ui_frame.c"
+            "source_path": "src/ui/frames/draw_stretchable_ui_frame.c"
           }
         },
         {
@@ -10458,7 +10478,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012096",
-            "source_path": "src/textbin/ui/text/measure_text_width.c"
+            "source_path": "src/ui/text/measure_text_width.c"
           }
         },
         {
@@ -10468,7 +10488,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012176",
-            "source_path": "src/textbin/ui/text/measure_text_width_regular.c"
+            "source_path": "src/ui/text/measure_text_width_regular.c"
           }
         },
         {
@@ -10478,7 +10498,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012208",
-            "source_path": "src/textbin/ui/text/measure_text_width_small.c"
+            "source_path": "src/ui/text/measure_text_width_small.c"
           }
         },
         {
@@ -10488,7 +10508,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012240",
-            "source_path": "src/textbin/ui/text/measure_text_width_large.c"
+            "source_path": "src/ui/text/measure_text_width_large.c"
           }
         },
         {
@@ -10508,7 +10528,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1012912",
-            "source_path": "src/textbin/ui/text/font_print_large.c"
+            "source_path": "src/ui/text/font_print_large.c"
           }
         },
         {
@@ -10518,7 +10538,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1013040",
-            "source_path": "src/textbin/ui/text/font_print_small.c"
+            "source_path": "src/ui/text/font_print_small.c"
           }
         },
         {
@@ -10528,7 +10548,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1013952",
-            "source_path": "src/textbin/ui/text/font_print_right.c"
+            "source_path": "src/ui/text/font_print_right.c"
           }
         },
         {
@@ -10538,7 +10558,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014096",
-            "source_path": "src/textbin/ui/text/font_print_right_small.c"
+            "source_path": "src/ui/text/font_print_right_small.c"
           }
         },
         {
@@ -10548,7 +10568,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014240",
-            "source_path": "src/textbin/ui/text/font_print_right_large.c"
+            "source_path": "src/ui/text/font_print_right_large.c"
           }
         },
         {
@@ -10558,7 +10578,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014384",
-            "source_path": "src/textbin/ui/text/font_print_center.c"
+            "source_path": "src/ui/text/font_print_center.c"
           }
         },
         {
@@ -10568,7 +10588,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014536",
-            "source_path": "src/textbin/ui/text/font_print_center_small.c"
+            "source_path": "src/ui/text/font_print_center_small.c"
           }
         },
         {
@@ -10578,7 +10598,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1014688",
-            "source_path": "src/textbin/ui/text/font_print_center_large.c"
+            "source_path": "src/ui/text/font_print_center_large.c"
           }
         },
         {
@@ -10618,7 +10638,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1017088",
-            "source_path": "src/textbin/ui/text/font_print_window_regular.c"
+            "source_path": "src/ui/text/font_print_window_regular.c"
           }
         },
         {
@@ -10628,7 +10648,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1017200",
-            "source_path": "src/textbin/ui/text/font_print_window_small.c"
+            "source_path": "src/ui/text/font_print_window_small.c"
           }
         },
         {
@@ -10648,7 +10668,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1050072",
-            "source_path": "src/textbin/ui/text/copy_text_to_shared_buffer.c"
+            "source_path": "src/ui/text/copy_text_to_shared_buffer.c"
           }
         },
         {
@@ -10668,7 +10688,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1281552",
-            "source_path": "src/textbin/ui/text/set_scrolling_status_message.c"
+            "source_path": "src/ui/text/set_scrolling_status_message.c"
           }
         },
         {
@@ -10678,7 +10698,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1283232",
-            "source_path": "src/textbin/ui/text/update_scrolling_status_message.c"
+            "source_path": "src/ui/text/update_scrolling_status_message.c"
           }
         }
       ],
@@ -10761,7 +10781,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1142376",
-            "source_path": "src/textbin/audio/music/music_stop.c"
+            "source_path": "src/audio/music/music_stop.c"
           }
         },
         {
@@ -10854,7 +10874,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1135792",
-            "source_path": "src/textbin/math/rotations/build_quaternion_from_axis_angle.c"
+            "source_path": "src/math/rotations/build_quaternion_from_axis_angle.c"
           }
         }
       ],
@@ -10887,7 +10907,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1029712",
-            "source_path": "src/textbin/math/conversion/truncate_float_to_s32.c"
+            "source_path": "src/math/conversion/truncate_float_to_s32.c"
           }
         },
         {
@@ -10897,7 +10917,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1137608",
-            "source_path": "src/textbin/math/conversion/round_float_to_decimal_places.c"
+            "source_path": "src/math/conversion/round_float_to_decimal_places.c"
           }
         }
       ],
@@ -10940,7 +10960,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1263024",
-            "source_path": "src/textbin/rendering/buffers/swap_render_buffer_chain.c"
+            "source_path": "src/rendering/buffers/swap_render_buffer_chain.c"
           }
         },
         {
@@ -10950,7 +10970,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1271744",
-            "source_path": "src/textbin/rendering/buffers/copy_render_buffer_pair.c"
+            "source_path": "src/rendering/buffers/copy_render_buffer_pair.c"
           }
         }
       ],
@@ -11016,7 +11036,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1043488",
-            "source_path": "src/textbin/ui/help/find_help_message_index.c"
+            "source_path": "src/ui/help/find_help_message_index.c"
           }
         },
         {
@@ -11026,7 +11046,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1043600",
-            "source_path": "src/textbin/ui/help/get_help_message_text.c"
+            "source_path": "src/ui/help/get_help_message_text.c"
           }
         },
         {
@@ -11046,7 +11066,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1046552",
-            "source_path": "src/textbin/ui/help/help_draw_prompt.c"
+            "source_path": "src/ui/help/help_draw_prompt.c"
           }
         },
         {
@@ -11056,7 +11076,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1138864",
-            "source_path": "src/textbin/ui/help/try_set_help_message.c"
+            "source_path": "src/ui/help/try_set_help_message.c"
           }
         },
         {
@@ -11066,7 +11086,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139032",
-            "source_path": "src/textbin/ui/help/force_help_message.c"
+            "source_path": "src/ui/help/force_help_message.c"
           }
         }
       ],
@@ -11099,7 +11119,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1047992",
-            "source_path": "src/textbin/gameplay/animation/find_animation_definition_index.c"
+            "source_path": "src/gameplay/animation/find_animation_definition_index.c"
           }
         },
         {
@@ -11109,7 +11129,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049224",
-            "source_path": "src/textbin/gameplay/animation/queue_animation_update.c"
+            "source_path": "src/gameplay/animation/queue_animation_update.c"
           }
         },
         {
@@ -11119,7 +11139,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049496",
-            "source_path": "src/textbin/gameplay/animation/apply_pending_animation.c"
+            "source_path": "src/gameplay/animation/apply_pending_animation.c"
           }
         },
         {
@@ -11139,7 +11159,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049728",
-            "source_path": "src/textbin/gameplay/animation/load_animation_definition.c"
+            "source_path": "src/gameplay/animation/load_animation_definition.c"
           }
         },
         {
@@ -11149,7 +11169,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049840",
-            "source_path": "src/textbin/gameplay/animation/set_animation_parameter.c"
+            "source_path": "src/gameplay/animation/set_animation_parameter.c"
           }
         },
         {
@@ -11159,7 +11179,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1050848",
-            "source_path": "src/textbin/gameplay/animation/find_valid_animation_frame_index.c"
+            "source_path": "src/gameplay/animation/find_valid_animation_frame_index.c"
           }
         },
         {
@@ -11179,7 +11199,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1103872",
-            "source_path": "src/textbin/gameplay/animation/update_moby_animation_state.c"
+            "source_path": "src/gameplay/animation/update_moby_animation_state.c"
           }
         }
       ],
@@ -11232,7 +11252,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1049096",
-            "source_path": "src/textbin/ui/hud/hud_heap_alloc.c"
+            "source_path": "src/ui/hud/hud_heap_alloc.c"
           }
         },
         {
@@ -11262,7 +11282,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1064080",
-            "source_path": "src/textbin/ui/hud/load_compressed_hud_bank.c"
+            "source_path": "src/ui/hud/load_compressed_hud_bank.c"
           }
         }
       ],
@@ -11361,7 +11381,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1065568",
-            "source_path": "src/textbin/runtime/relocation/relocate_asset_entry_pointers.c"
+            "source_path": "src/runtime/relocation/relocate_asset_entry_pointers.c"
           }
         }
       ],
@@ -11394,7 +11414,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1069872",
-            "source_path": "src/textbin/world/streaming/load_level_chunk_from_disc.c"
+            "source_path": "src/world/streaming/load_level_chunk_from_disc.c"
           }
         },
         {
@@ -11414,7 +11434,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1090072",
-            "source_path": "src/textbin/world/streaming/initialize_dma_packet_payloads.c"
+            "source_path": "src/world/streaming/initialize_dma_packet_payloads.c"
           }
         },
         {
@@ -11424,7 +11444,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1090288",
-            "source_path": "src/textbin/world/streaming/load_and_initialize_level_chunk.c"
+            "source_path": "src/world/streaming/load_and_initialize_level_chunk.c"
           }
         }
       ],
@@ -11510,7 +11530,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1212520",
-            "source_path": "src/textbin/world/data/parse_typed_resource_record.c"
+            "source_path": "src/world/data/parse_typed_resource_record.c"
           }
         },
         {
@@ -11553,7 +11573,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1072864",
-            "source_path": "src/textbin/ui/map/promote_first_available_map_entry.c"
+            "source_path": "src/ui/map/promote_first_available_map_entry.c"
           }
         },
         {
@@ -11563,7 +11583,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1073024",
-            "source_path": "src/textbin/ui/map/move_map_entry_slot.c"
+            "source_path": "src/ui/map/move_map_entry_slot.c"
           }
         },
         {
@@ -11573,7 +11593,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1073184",
-            "source_path": "src/textbin/ui/map/find_map_entry_slot.c"
+            "source_path": "src/ui/map/find_map_entry_slot.c"
           }
         },
         {
@@ -11613,7 +11633,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1180336",
-            "source_path": "src/textbin/ui/map/draw_map_screen_overlay.c"
+            "source_path": "src/ui/map/draw_map_screen_overlay.c"
           }
         }
       ],
@@ -11646,7 +11666,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1079544",
-            "source_path": "src/textbin/ui/menus/hit_test_fixed_screen_rectangle.c"
+            "source_path": "src/ui/menus/hit_test_fixed_screen_rectangle.c"
           }
         },
         {
@@ -11656,7 +11676,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139144",
-            "source_path": "src/textbin/ui/menus/compute_clamped_count_difference.c"
+            "source_path": "src/ui/menus/compute_clamped_count_difference.c"
           }
         },
         {
@@ -11666,7 +11686,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139216",
-            "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_40.c"
+            "source_path": "src/ui/menus/count_nonzero_entries_up_to_40.c"
           }
         },
         {
@@ -11676,7 +11696,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139328",
-            "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_10.c"
+            "source_path": "src/ui/menus/count_nonzero_entries_up_to_10.c"
           }
         },
         {
@@ -11686,7 +11706,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1139400",
-            "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_30.c"
+            "source_path": "src/ui/menus/count_nonzero_entries_up_to_30.c"
           }
         },
         {
@@ -11706,7 +11726,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1177616",
-            "source_path": "src/textbin/ui/menus/draw_quit_game_menu.c"
+            "source_path": "src/ui/menus/draw_quit_game_menu.c"
           }
         },
         {
@@ -11726,7 +11746,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1181800",
-            "source_path": "src/textbin/ui/menus/draw_menu_selection_marker.c"
+            "source_path": "src/ui/menus/draw_menu_selection_marker.c"
           }
         },
         {
@@ -11756,40 +11776,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1283592",
-            "source_path": "src/textbin/ui/menus/format_scaled_display_value.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/runtime/callbacks/memory",
-      "measures": {
-        "fuzzy_match_percent": 100.0,
-        "total_code": "8",
-        "matched_code": "8",
-        "matched_code_percent": 100.0,
-        "total_functions": 1,
-        "matched_functions": 1,
-        "matched_functions_percent": 100.0,
-        "complete_code": "8",
-        "complete_code_percent": 100.0,
-        "total_units": 1,
-        "complete_units": 1
-      },
-      "functions": [
-        {
-          "name": "NoOpMemoryCallback",
-          "size": "8",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1087376",
-            "source_path": "src/runtime/callbacks/memory/noop_memory_callback.c"
+            "source_path": "src/ui/menus/format_scaled_display_value.c"
           }
         }
       ],
@@ -11855,7 +11842,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096768",
-            "source_path": "src/textbin/storage/memory_card/data/calculate_crc16.c"
+            "source_path": "src/storage/memory_card/data/calculate_crc16.c"
           }
         },
         {
@@ -11865,7 +11852,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1096888",
-            "source_path": "src/textbin/storage/memory_card/data/validate_data_crc.c"
+            "source_path": "src/storage/memory_card/data/validate_data_crc.c"
           }
         },
         {
@@ -11928,7 +11915,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1105096",
-            "source_path": "src/textbin/rendering/geometry/transform_scaled_vertex_batch.c"
+            "source_path": "src/rendering/geometry/transform_scaled_vertex_batch.c"
           }
         }
       ],
@@ -12004,7 +11991,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1130976",
-            "source_path": "src/textbin/math/random/random_integer_below.c"
+            "source_path": "src/math/random/random_integer_below.c"
           }
         },
         {
@@ -12014,7 +12001,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1131048",
-            "source_path": "src/textbin/math/random/random_float_between.c"
+            "source_path": "src/math/random/random_float_between.c"
           }
         },
         {
@@ -12024,7 +12011,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1131144",
-            "source_path": "src/textbin/math/random/random_angle_radians.c"
+            "source_path": "src/math/random/random_angle_radians.c"
           }
         }
       ],
@@ -12067,7 +12054,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1134760",
-            "source_path": "src/textbin/math/vectors/normalize_vector_triplet.c"
+            "source_path": "src/math/vectors/normalize_vector_triplet.c"
           }
         }
       ],
@@ -12100,7 +12087,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1136288",
-            "source_path": "src/textbin/rendering/culling/is_point_inside_clip_volume.c"
+            "source_path": "src/rendering/culling/is_point_inside_clip_volume.c"
           }
         }
       ],
@@ -12186,7 +12173,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1147456",
-            "source_path": "src/textbin/input/pad/clear_pad_input.c"
+            "source_path": "src/input/pad/clear_pad_input.c"
           }
         },
         {
@@ -12206,7 +12193,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1149328",
-            "source_path": "src/textbin/input/pad/update_primary_pad_state.c"
+            "source_path": "src/input/pad/update_primary_pad_state.c"
           }
         }
       ],
@@ -12388,7 +12375,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1181048",
-            "source_path": "src/textbin/ui/menus/missions/draw_mission_menu_labels.c"
+            "source_path": "src/ui/menus/missions/draw_mission_menu_labels.c"
           }
         },
         {
@@ -12538,39 +12525,6 @@
       }
     },
     {
-      "name": "game/rendering/images",
-      "measures": {
-        "fuzzy_match_percent": 100.0,
-        "total_code": "64",
-        "matched_code": "64",
-        "matched_code_percent": 100.0,
-        "total_functions": 1,
-        "matched_functions": 1,
-        "matched_functions_percent": 100.0,
-        "complete_code": "64",
-        "complete_code_percent": 100.0,
-        "total_units": 1,
-        "complete_units": 1
-      },
-      "functions": [
-        {
-          "name": "PackImageDescriptor",
-          "size": "64",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1210104",
-            "source_path": "src/rendering/images/pack_image_descriptor.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/rendering/sky",
       "measures": {
         "fuzzy_match_percent": 22.26047,
@@ -12633,7 +12587,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1230352",
-            "source_path": "src/textbin/rendering/sky/sky_draw_shell.c"
+            "source_path": "src/rendering/sky/sky_draw_shell.c"
           }
         },
         {
@@ -12719,7 +12673,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1262680",
-            "source_path": "src/textbin/rendering/dma/start_vif1_dma_transfer.c"
+            "source_path": "src/rendering/dma/start_vif1_dma_transfer.c"
           }
         }
       ],
@@ -12752,7 +12706,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1265280",
-            "source_path": "src/textbin/runtime/diagnostics/print_register_values_and_halt.c"
+            "source_path": "src/runtime/diagnostics/print_register_values_and_halt.c"
           }
         }
       ],
@@ -12845,7 +12799,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297824",
-            "source_path": "src/textbin/video/decoder/vi_buf_begin_put.c"
+            "source_path": "src/video/decoder/vi_buf_begin_put.c"
           }
         },
         {
@@ -12855,7 +12809,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1298072",
-            "source_path": "src/textbin/video/decoder/vi_buf_end_put.c"
+            "source_path": "src/video/decoder/vi_buf_end_put.c"
           }
         },
         {
@@ -12895,7 +12849,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1299768",
-            "source_path": "src/textbin/video/decoder/vi_buf_delete.c"
+            "source_path": "src/video/decoder/vi_buf_delete.c"
           }
         },
         {
@@ -12905,7 +12859,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1299856",
-            "source_path": "src/textbin/video/decoder/vi_buf_count.c"
+            "source_path": "src/video/decoder/vi_buf_count.c"
           }
         },
         {
@@ -12915,7 +12869,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1299936",
-            "source_path": "src/textbin/video/decoder/vi_buf_flush.c"
+            "source_path": "src/video/decoder/vi_buf_flush.c"
           }
         },
         {
@@ -12955,7 +12909,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301064",
-            "source_path": "src/textbin/video/decoder/video_dec_create.c"
+            "source_path": "src/video/decoder/video_dec_create.c"
           }
         },
         {
@@ -12965,7 +12919,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301328",
-            "source_path": "src/textbin/video/decoder/video_dec_set_stream.c"
+            "source_path": "src/video/decoder/video_dec_set_stream.c"
           }
         },
         {
@@ -12975,7 +12929,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301360",
-            "source_path": "src/textbin/video/decoder/video_dec_begin_put.c"
+            "source_path": "src/video/decoder/video_dec_begin_put.c"
           }
         },
         {
@@ -12985,7 +12939,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301392",
-            "source_path": "src/textbin/video/decoder/video_dec_end_put.c"
+            "source_path": "src/video/decoder/video_dec_end_put.c"
           }
         },
         {
@@ -13005,7 +12959,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301432",
-            "source_path": "src/textbin/video/decoder/video_dec_delete.c"
+            "source_path": "src/video/decoder/video_dec_delete.c"
           }
         },
         {
@@ -13025,7 +12979,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301528",
-            "source_path": "src/textbin/video/decoder/video_dec_put_ts.c"
+            "source_path": "src/video/decoder/video_dec_put_ts.c"
           }
         },
         {
@@ -13035,7 +12989,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301600",
-            "source_path": "src/textbin/video/decoder/video_dec_input_count.c"
+            "source_path": "src/video/decoder/video_dec_input_count.c"
           }
         },
         {
@@ -13045,7 +12999,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301640",
-            "source_path": "src/textbin/video/decoder/video_dec_flush.c"
+            "source_path": "src/video/decoder/video_dec_flush.c"
           }
         },
         {
@@ -13055,7 +13009,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301856",
-            "source_path": "src/textbin/video/decoder/video_dec_is_flushed.c"
+            "source_path": "src/video/decoder/video_dec_is_flushed.c"
           }
         },
         {
@@ -13065,7 +13019,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1301928",
-            "source_path": "src/textbin/video/decoder/run_video_decoder.c"
+            "source_path": "src/video/decoder/run_video_decoder.c"
           }
         },
         {
@@ -13125,7 +13079,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1303048",
-            "source_path": "src/textbin/video/decoder/vo_buf_get_data.c"
+            "source_path": "src/video/decoder/vo_buf_get_data.c"
           }
         },
         {
@@ -13135,7 +13089,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1303128",
-            "source_path": "src/textbin/video/decoder/vo_buf_get_tag.c"
+            "source_path": "src/video/decoder/vo_buf_get_tag.c"
           }
         }
       ],
@@ -13168,7 +13122,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1292016",
-            "source_path": "src/textbin/runtime/threads/switch_thread.c"
+            "source_path": "src/runtime/threads/switch_thread.c"
           }
         }
       ],
@@ -13201,7 +13155,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1292048",
-            "source_path": "src/textbin/audio/decoder/is_audio_ok.c"
+            "source_path": "src/audio/decoder/is_audio_ok.c"
           }
         },
         {
@@ -13221,7 +13175,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1292776",
-            "source_path": "src/textbin/audio/decoder/terminate_audio_system.c"
+            "source_path": "src/audio/decoder/terminate_audio_system.c"
           }
         },
         {
@@ -13231,7 +13185,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293048",
-            "source_path": "src/textbin/audio/decoder/log_audio_error.c"
+            "source_path": "src/audio/decoder/log_audio_error.c"
           }
         },
         {
@@ -13241,7 +13195,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293088",
-            "source_path": "src/textbin/audio/decoder/process_audio_stream.c"
+            "source_path": "src/audio/decoder/process_audio_stream.c"
           }
         },
         {
@@ -13251,7 +13205,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293136",
-            "source_path": "src/textbin/audio/decoder/audio_dec_create.c"
+            "source_path": "src/audio/decoder/audio_dec_create.c"
           }
         },
         {
@@ -13261,7 +13215,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293328",
-            "source_path": "src/textbin/audio/decoder/audio_dec_delete.c"
+            "source_path": "src/audio/decoder/audio_dec_delete.c"
           }
         },
         {
@@ -13271,7 +13225,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293368",
-            "source_path": "src/textbin/audio/decoder/audio_dec_start.c"
+            "source_path": "src/audio/decoder/audio_dec_start.c"
           }
         },
         {
@@ -13281,7 +13235,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293456",
-            "source_path": "src/textbin/audio/decoder/audio_dec_reset.c"
+            "source_path": "src/audio/decoder/audio_dec_reset.c"
           }
         },
         {
@@ -13291,7 +13245,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293528",
-            "source_path": "src/textbin/audio/decoder/audio_dec_begin_put.c"
+            "source_path": "src/audio/decoder/audio_dec_begin_put.c"
           }
         },
         {
@@ -13311,7 +13265,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293936",
-            "source_path": "src/textbin/audio/decoder/audio_dec_send.c"
+            "source_path": "src/audio/decoder/audio_dec_send.c"
           }
         },
         {
@@ -13321,7 +13275,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1293976",
-            "source_path": "src/textbin/audio/decoder/send_to_spu.c"
+            "source_path": "src/audio/decoder/send_to_spu.c"
           }
         },
         {
@@ -13364,7 +13318,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1295552",
-            "source_path": "src/textbin/video/decoder/callbacks/handle_end_image.c"
+            "source_path": "src/video/decoder/callbacks/handle_end_image.c"
           }
         },
         {
@@ -13384,7 +13338,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302528",
-            "source_path": "src/textbin/video/decoder/callbacks/handle_mpeg_error.c"
+            "source_path": "src/video/decoder/callbacks/handle_mpeg_error.c"
           }
         },
         {
@@ -13394,7 +13348,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302568",
-            "source_path": "src/textbin/video/decoder/callbacks/handle_mpeg_no_data.c"
+            "source_path": "src/video/decoder/callbacks/handle_mpeg_no_data.c"
           }
         },
         {
@@ -13404,7 +13358,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1302720",
-            "source_path": "src/textbin/video/decoder/callbacks/get_mpeg_timestamp.c"
+            "source_path": "src/video/decoder/callbacks/get_mpeg_timestamp.c"
           }
         }
       ],
@@ -13480,7 +13434,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1296728",
-            "source_path": "src/textbin/video/decoder/buffers/read_buf_begin_get.c"
+            "source_path": "src/video/decoder/buffers/read_buf_begin_get.c"
           }
         },
         {
@@ -13490,7 +13444,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297016",
-            "source_path": "src/textbin/video/decoder/buffers/get_fifo_index.c"
+            "source_path": "src/video/decoder/buffers/get_fifo_index.c"
           }
         }
       ],
@@ -13576,7 +13530,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297088",
-            "source_path": "src/textbin/video/decoder/dma/set_dma_channel_3_control_register.c"
+            "source_path": "src/video/decoder/dma/set_dma_channel_3_control_register.c"
           }
         },
         {
@@ -13586,7 +13540,7 @@
           "address": "0",
           "metadata": {
             "virtual_address": "1297200",
-            "source_path": "src/textbin/video/decoder/dma/set_dma_channel_4_control_register.c"
+            "source_path": "src/video/decoder/dma/set_dma_channel_4_control_register.c"
           }
         }
       ],
@@ -13612,8 +13566,8 @@
         "matched_functions_percent": 52.801993,
         "complete_code": "42160",
         "complete_code_percent": 16.290572,
-        "total_units": 101,
-        "complete_units": 44
+        "total_units": 99,
+        "complete_units": 42
       }
     },
     {

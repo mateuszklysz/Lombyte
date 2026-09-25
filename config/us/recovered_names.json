@@ -3282,8 +3282,8 @@
     },
     "entries": [
       {
-        "unit": "textbin/runtime/newlib/reentrant_syscall_with_two_arguments",
-        "source_path": "src/textbin/runtime/newlib/reentrant_syscall_with_two_arguments.c",
+        "unit": "runtime/newlib/reentrant_syscall_with_two_arguments",
+        "source_path": "src/runtime/newlib/reentrant_syscall_with_two_arguments.c",
         "address": "0x00114000",
         "current_name": "FUN_00114000",
         "proposed_name": "reentrant_syscall_with_two_arguments",
@@ -3304,8 +3304,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/runtime/newlib/reentrant_syscall_with_three_arguments",
-        "source_path": "src/textbin/runtime/newlib/reentrant_syscall_with_three_arguments.c",
+        "unit": "runtime/newlib/reentrant_syscall_with_three_arguments",
+        "source_path": "src/runtime/newlib/reentrant_syscall_with_three_arguments.c",
         "address": "0x00114518",
         "current_name": "FUN_00114518",
         "proposed_name": "reentrant_syscall_with_three_arguments",
@@ -3326,8 +3326,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/runtime/newlib/reentrant_read",
-        "source_path": "src/textbin/runtime/newlib/reentrant_read.c",
+        "unit": "runtime/newlib/reentrant_read",
+        "source_path": "src/runtime/newlib/reentrant_read.c",
         "address": "0x00116108",
         "current_name": "FUN_00116108",
         "proposed_name": "reentrant_read",
@@ -3387,8 +3387,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/runtime/newlib/reentrant_write",
-        "source_path": "src/textbin/runtime/newlib/reentrant_write.c",
+        "unit": "runtime/newlib/reentrant_write",
+        "source_path": "src/runtime/newlib/reentrant_write.c",
         "address": "0x001185d0",
         "current_name": "FUN_001185d0",
         "proposed_name": "reentrant_write",
@@ -3409,8 +3409,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/runtime/cache/synchronize_cache_range",
-        "source_path": "src/textbin/runtime/cache/synchronize_cache_range.c",
+        "unit": "runtime/cache/synchronize_cache_range",
+        "source_path": "src/runtime/cache/synchronize_cache_range.c",
         "address": "0x00118f88",
         "current_name": "FUN_00118f88",
         "proposed_name": "synchronize_cache_range",
@@ -3446,8 +3446,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/runtime/interrupts/disable_intc",
-        "source_path": "src/textbin/runtime/interrupts/disable_intc.c",
+        "unit": "runtime/interrupts/disable_intc",
+        "source_path": "src/runtime/interrupts/disable_intc.c",
         "address": "0x00119028",
         "current_name": "FUN_00119028",
         "proposed_name": "disable_intc",
@@ -3469,8 +3469,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/runtime/interrupts/enable_intc",
-        "source_path": "src/textbin/runtime/interrupts/enable_intc.c",
+        "unit": "runtime/interrupts/enable_intc",
+        "source_path": "src/runtime/interrupts/enable_intc.c",
         "address": "0x00119090",
         "current_name": "FUN_00119090",
         "proposed_name": "enable_intc",
@@ -3487,8 +3487,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/runtime/dma/disable_dmac",
-        "source_path": "src/textbin/runtime/dma/disable_dmac.c",
+        "unit": "runtime/dma/disable_dmac",
+        "source_path": "src/runtime/dma/disable_dmac.c",
         "address": "0x001190f8",
         "current_name": "FUN_001190f8",
         "proposed_name": "disable_dmac",
@@ -3505,8 +3505,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/runtime/dma/enable_dmac",
-        "source_path": "src/textbin/runtime/dma/enable_dmac.c",
+        "unit": "runtime/dma/enable_dmac",
+        "source_path": "src/runtime/dma/enable_dmac.c",
         "address": "0x00119160",
         "current_name": "FUN_00119160",
         "proposed_name": "enable_dmac",
@@ -3523,8 +3523,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/runtime/rpc/get_available_rpc_packet",
-        "source_path": "src/textbin/runtime/rpc/get_available_rpc_packet.c",
+        "unit": "runtime/rpc/get_available_rpc_packet",
+        "source_path": "src/runtime/rpc/get_available_rpc_packet.c",
         "address": "0x0011ace8",
         "current_name": "FUN_0011ace8",
         "proposed_name": "get_available_rpc_packet",
@@ -3573,8 +3573,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/runtime/rpc/free_sif_system_memory",
-        "source_path": "src/textbin/runtime/rpc/free_sif_system_memory.c",
+        "unit": "runtime/rpc/free_sif_system_memory",
+        "source_path": "src/runtime/rpc/free_sif_system_memory.c",
         "address": "0x0011c938",
         "current_name": "FUN_0011c938",
         "proposed_name": "free_sif_system_memory",
@@ -3618,8 +3618,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/runtime/startup/run_global_constructors",
-        "source_path": "src/textbin/runtime/startup/run_global_constructors.c",
+        "unit": "runtime/startup/run_global_constructors",
+        "source_path": "src/runtime/startup/run_global_constructors.c",
         "address": "0x0011dc18",
         "current_name": "FUN_0011dc18",
         "proposed_name": "run_global_constructors",
@@ -3640,8 +3640,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/storage/cd/handle_cd_read_callback",
-        "source_path": "src/textbin/storage/cd/handle_cd_read_callback.c",
+        "unit": "storage/cd/handle_cd_read_callback",
+        "source_path": "src/storage/cd/handle_cd_read_callback.c",
         "address": "0x001206d8",
         "current_name": "FUN_001206d8",
         "proposed_name": "handle_cd_read_callback",
@@ -3704,8 +3704,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/runtime/debug/debug_print_stub",
-        "source_path": "src/textbin/runtime/debug/debug_print_stub.c",
+        "unit": "runtime/debug/debug_print_stub",
+        "source_path": "src/runtime/debug/debug_print_stub.c",
         "address": "0x00124a20",
         "current_name": "FUN_00124a20",
         "proposed_name": "debug_print_stub",
@@ -3744,8 +3744,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/runtime/memory/reserve_aligned_buffer_space",
-        "source_path": "src/textbin/runtime/memory/reserve_aligned_buffer_space.c",
+        "unit": "runtime/memory/reserve_aligned_buffer_space",
+        "source_path": "src/runtime/memory/reserve_aligned_buffer_space.c",
         "address": "0x0012bc20",
         "current_name": "FUN_0012bc20",
         "proposed_name": "reserve_aligned_buffer_space",
@@ -3761,8 +3761,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/runtime/time/decode_bcd_time_fields",
-        "source_path": "src/textbin/runtime/time/decode_bcd_time_fields.c",
+        "unit": "runtime/time/decode_bcd_time_fields",
+        "source_path": "src/runtime/time/decode_bcd_time_fields.c",
         "address": "0x0012d3c0",
         "current_name": "FUN_0012d3c0",
         "proposed_name": "decode_bcd_time_fields",
@@ -3778,8 +3778,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/runtime/time/encode_bcd_time_fields",
-        "source_path": "src/textbin/runtime/time/encode_bcd_time_fields.c",
+        "unit": "runtime/time/encode_bcd_time_fields",
+        "source_path": "src/runtime/time/encode_bcd_time_fields.c",
         "address": "0x0012d428",
         "current_name": "FUN_0012d428",
         "proposed_name": "encode_bcd_time_fields",
@@ -3823,8 +3823,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/gameplay/state/run_game_main_loop",
-        "source_path": "src/textbin/gameplay/state/run_game_main_loop.c",
+        "unit": "gameplay/state/run_game_main_loop",
+        "source_path": "src/gameplay/state/run_game_main_loop.c",
         "address": "0x0012d9d8",
         "current_name": "FUN_0012d9d8",
         "proposed_name": "run_game_main_loop",
@@ -3886,8 +3886,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/snd_got_returns",
-        "source_path": "src/textbin/audio/snd_got_returns.c",
+        "unit": "audio/snd_got_returns",
+        "source_path": "src/audio/snd_got_returns.c",
         "address": "0x0012de70",
         "current_name": "FUN_0012de70",
         "proposed_name": "snd_got_returns",
@@ -3945,8 +3945,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/banks/snd_resolve_bank_xrefs",
-        "source_path": "src/textbin/audio/banks/snd_resolve_bank_xrefs.c",
+        "unit": "audio/banks/snd_resolve_bank_xrefs",
+        "source_path": "src/audio/banks/snd_resolve_bank_xrefs.c",
         "address": "0x0012e1a8",
         "current_name": "FUN_0012e1a8",
         "proposed_name": "snd_resolve_bank_xrefs",
@@ -3968,8 +3968,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/banks/snd_unload_bank",
-        "source_path": "src/textbin/audio/banks/snd_unload_bank.c",
+        "unit": "audio/banks/snd_unload_bank",
+        "source_path": "src/audio/banks/snd_unload_bank.c",
         "address": "0x0012e1d8",
         "current_name": "FUN_0012e1d8",
         "proposed_name": "snd_unload_bank",
@@ -3991,8 +3991,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/mixer/snd_set_master_volume",
-        "source_path": "src/textbin/audio/mixer/snd_set_master_volume.c",
+        "unit": "audio/mixer/snd_set_master_volume",
+        "source_path": "src/audio/mixer/snd_set_master_volume.c",
         "address": "0x0012e208",
         "current_name": "FUN_0012e208",
         "proposed_name": "snd_set_master_volume",
@@ -4009,8 +4009,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/mixer/snd_set_playback_mode",
-        "source_path": "src/textbin/audio/mixer/snd_set_playback_mode.c",
+        "unit": "audio/mixer/snd_set_playback_mode",
+        "source_path": "src/audio/mixer/snd_set_playback_mode.c",
         "address": "0x0012e240",
         "current_name": "FUN_0012e240",
         "proposed_name": "snd_set_playback_mode",
@@ -4027,8 +4027,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/mixer/snd_set_mixer_mode",
-        "source_path": "src/textbin/audio/mixer/snd_set_mixer_mode.c",
+        "unit": "audio/mixer/snd_set_mixer_mode",
+        "source_path": "src/audio/mixer/snd_set_mixer_mode.c",
         "address": "0x0012e280",
         "current_name": "FUN_0012e280",
         "proposed_name": "snd_set_mixer_mode",
@@ -4045,8 +4045,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/mixer/snd_set_group_voice_range",
-        "source_path": "src/textbin/audio/mixer/snd_set_group_voice_range.c",
+        "unit": "audio/mixer/snd_set_group_voice_range",
+        "source_path": "src/audio/mixer/snd_set_group_voice_range.c",
         "address": "0x0012e2b8",
         "current_name": "FUN_0012e2b8",
         "proposed_name": "snd_set_group_voice_range",
@@ -4063,8 +4063,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/voices/snd_play_sound_vol_pan_pmpb",
-        "source_path": "src/textbin/audio/voices/snd_play_sound_vol_pan_pmpb.c",
+        "unit": "audio/voices/snd_play_sound_vol_pan_pmpb",
+        "source_path": "src/audio/voices/snd_play_sound_vol_pan_pmpb.c",
         "address": "0x0012e308",
         "current_name": "FUN_0012e308",
         "proposed_name": "snd_play_sound_vol_pan_pmpb",
@@ -4086,8 +4086,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/voices/snd_stop_sound",
-        "source_path": "src/textbin/audio/voices/snd_stop_sound.c",
+        "unit": "audio/voices/snd_stop_sound",
+        "source_path": "src/audio/voices/snd_stop_sound.c",
         "address": "0x0012e368",
         "current_name": "FUN_0012e368",
         "proposed_name": "snd_stop_sound",
@@ -4109,8 +4109,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/voices/snd_stop_all_sounds",
-        "source_path": "src/textbin/audio/voices/snd_stop_all_sounds.c",
+        "unit": "audio/voices/snd_stop_all_sounds",
+        "source_path": "src/audio/voices/snd_stop_all_sounds.c",
         "address": "0x0012e3b8",
         "current_name": "FUN_0012e3b8",
         "proposed_name": "snd_stop_all_sounds",
@@ -4132,8 +4132,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/voices/snd_pause_all_sounds_in_group",
-        "source_path": "src/textbin/audio/voices/snd_pause_all_sounds_in_group.c",
+        "unit": "audio/voices/snd_pause_all_sounds_in_group",
+        "source_path": "src/audio/voices/snd_pause_all_sounds_in_group.c",
         "address": "0x0012e3e8",
         "current_name": "FUN_0012e3e8",
         "proposed_name": "snd_pause_all_sounds_in_group",
@@ -4155,8 +4155,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/voices/snd_continue_all_sounds_in_group",
-        "source_path": "src/textbin/audio/voices/snd_continue_all_sounds_in_group.c",
+        "unit": "audio/voices/snd_continue_all_sounds_in_group",
+        "source_path": "src/audio/voices/snd_continue_all_sounds_in_group.c",
         "address": "0x0012e418",
         "current_name": "FUN_0012e418",
         "proposed_name": "snd_continue_all_sounds_in_group",
@@ -4178,8 +4178,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/voices/snd_sound_is_still_playing_cb",
-        "source_path": "src/textbin/audio/voices/snd_sound_is_still_playing_cb.c",
+        "unit": "audio/voices/snd_sound_is_still_playing_cb",
+        "source_path": "src/audio/voices/snd_sound_is_still_playing_cb.c",
         "address": "0x0012e448",
         "current_name": "FUN_0012e448",
         "proposed_name": "snd_sound_is_still_playing_cb",
@@ -4196,8 +4196,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/voices/snd_set_sound_params_cb",
-        "source_path": "src/textbin/audio/voices/snd_set_sound_params_cb.c",
+        "unit": "audio/voices/snd_set_sound_params_cb",
+        "source_path": "src/audio/voices/snd_set_sound_params_cb.c",
         "address": "0x0012e4c0",
         "current_name": "FUN_0012e4c0",
         "proposed_name": "snd_set_sound_params_cb",
@@ -4255,8 +4255,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/rpc/snd_post_message",
-        "source_path": "src/textbin/audio/rpc/snd_post_message.c",
+        "unit": "audio/rpc/snd_post_message",
+        "source_path": "src/audio/rpc/snd_post_message.c",
         "address": "0x0012e9a0",
         "current_name": "FUN_0012e9a0",
         "proposed_name": "snd_post_message",
@@ -4296,8 +4296,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/rpc/snd_reset_state_and_flush_commands",
-        "source_path": "src/textbin/audio/rpc/snd_reset_state_and_flush_commands.c",
+        "unit": "audio/rpc/snd_reset_state_and_flush_commands",
+        "source_path": "src/audio/rpc/snd_reset_state_and_flush_commands.c",
         "address": "0x0012eb00",
         "current_name": "FUN_0012eb00",
         "proposed_name": "snd_reset_state_and_flush_commands",
@@ -4323,8 +4323,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_init_vag_streaming_ex",
-        "source_path": "src/textbin/audio/streaming/snd_init_vag_streaming_ex.c",
+        "unit": "audio/streaming/snd_init_vag_streaming_ex",
+        "source_path": "src/audio/streaming/snd_init_vag_streaming_ex.c",
         "address": "0x0012eb20",
         "current_name": "FUN_0012eb20",
         "proposed_name": "snd_init_vag_streaming_ex",
@@ -4346,8 +4346,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_stop_all_streams",
-        "source_path": "src/textbin/audio/streaming/snd_stop_all_streams.c",
+        "unit": "audio/streaming/snd_stop_all_streams",
+        "source_path": "src/audio/streaming/snd_stop_all_streams.c",
         "address": "0x0012ebd0",
         "current_name": "FUN_0012ebd0",
         "proposed_name": "snd_stop_all_streams",
@@ -4382,8 +4382,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_pause_vag_stream",
-        "source_path": "src/textbin/audio/streaming/snd_pause_vag_stream.c",
+        "unit": "audio/streaming/snd_pause_vag_stream",
+        "source_path": "src/audio/streaming/snd_pause_vag_stream.c",
         "address": "0x0012ec70",
         "current_name": "FUN_0012ec70",
         "proposed_name": "snd_pause_vag_stream",
@@ -4405,8 +4405,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_continue_vag_stream",
-        "source_path": "src/textbin/audio/streaming/snd_continue_vag_stream.c",
+        "unit": "audio/streaming/snd_continue_vag_stream",
+        "source_path": "src/audio/streaming/snd_continue_vag_stream.c",
         "address": "0x0012eca0",
         "current_name": "FUN_0012eca0",
         "proposed_name": "snd_continue_vag_stream",
@@ -4428,8 +4428,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_get_vag_stream_time_remaining_cb",
-        "source_path": "src/textbin/audio/streaming/snd_get_vag_stream_time_remaining_cb.c",
+        "unit": "audio/streaming/snd_get_vag_stream_time_remaining_cb",
+        "source_path": "src/audio/streaming/snd_get_vag_stream_time_remaining_cb.c",
         "address": "0x0012ecd0",
         "current_name": "FUN_0012ecd0",
         "proposed_name": "snd_get_vag_stream_time_remaining_cb",
@@ -4451,8 +4451,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_is_vag_stream_buffered_cb",
-        "source_path": "src/textbin/audio/streaming/snd_is_vag_stream_buffered_cb.c",
+        "unit": "audio/streaming/snd_is_vag_stream_buffered_cb",
+        "source_path": "src/audio/streaming/snd_is_vag_stream_buffered_cb.c",
         "address": "0x0012ed00",
         "current_name": "FUN_0012ed00",
         "proposed_name": "snd_is_vag_stream_buffered_cb",
@@ -4474,8 +4474,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_stream_safe_check_cd_idle",
-        "source_path": "src/textbin/audio/streaming/snd_stream_safe_check_cd_idle.c",
+        "unit": "audio/streaming/snd_stream_safe_check_cd_idle",
+        "source_path": "src/audio/streaming/snd_stream_safe_check_cd_idle.c",
         "address": "0x0012ed30",
         "current_name": "FUN_0012ed30",
         "proposed_name": "snd_stream_safe_check_cd_idle",
@@ -4497,8 +4497,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_stream_safe_cd_read",
-        "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_read.c",
+        "unit": "audio/streaming/snd_stream_safe_cd_read",
+        "source_path": "src/audio/streaming/snd_stream_safe_cd_read.c",
         "address": "0x0012ed58",
         "current_name": "FUN_0012ed58",
         "proposed_name": "snd_stream_safe_cd_read",
@@ -4515,8 +4515,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_stream_safe_cd_sync",
-        "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_sync.c",
+        "unit": "audio/streaming/snd_stream_safe_cd_sync",
+        "source_path": "src/audio/streaming/snd_stream_safe_cd_sync.c",
         "address": "0x0012ee08",
         "current_name": "FUN_0012ee08",
         "proposed_name": "snd_stream_safe_cd_sync",
@@ -4538,8 +4538,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_stream_safe_cd_break",
-        "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_break.c",
+        "unit": "audio/streaming/snd_stream_safe_cd_break",
+        "source_path": "src/audio/streaming/snd_stream_safe_cd_break.c",
         "address": "0x0012eea8",
         "current_name": "FUN_0012eea8",
         "proposed_name": "snd_stream_safe_cd_break",
@@ -4561,8 +4561,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_stream_safe_cd_get_error",
-        "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_get_error.c",
+        "unit": "audio/streaming/snd_stream_safe_cd_get_error",
+        "source_path": "src/audio/streaming/snd_stream_safe_cd_get_error.c",
         "address": "0x0012eef0",
         "current_name": "FUN_0012eef0",
         "proposed_name": "snd_stream_safe_cd_get_error",
@@ -4584,8 +4584,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/snd_stream_safe_cd_callback",
-        "source_path": "src/textbin/audio/streaming/snd_stream_safe_cd_callback.c",
+        "unit": "audio/streaming/snd_stream_safe_cd_callback",
+        "source_path": "src/audio/streaming/snd_stream_safe_cd_callback.c",
         "address": "0x0012ef28",
         "current_name": "FUN_0012ef28",
         "proposed_name": "snd_stream_safe_cd_callback",
@@ -4607,8 +4607,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/effects/snd_set_reverb_ex",
-        "source_path": "src/textbin/audio/effects/snd_set_reverb_ex.c",
+        "unit": "audio/effects/snd_set_reverb_ex",
+        "source_path": "src/audio/effects/snd_set_reverb_ex.c",
         "address": "0x0012ef68",
         "current_name": "FUN_0012ef68",
         "proposed_name": "snd_set_reverb_ex",
@@ -4630,8 +4630,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/effects/snd_pre_alloc_reverb_work_area",
-        "source_path": "src/textbin/audio/effects/snd_pre_alloc_reverb_work_area.c",
+        "unit": "audio/effects/snd_pre_alloc_reverb_work_area",
+        "source_path": "src/audio/effects/snd_pre_alloc_reverb_work_area.c",
         "address": "0x0012efa8",
         "current_name": "FUN_0012efa8",
         "proposed_name": "snd_pre_alloc_reverb_work_area",
@@ -4648,8 +4648,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/effects/snd_auto_reverb",
-        "source_path": "src/textbin/audio/effects/snd_auto_reverb.c",
+        "unit": "audio/effects/snd_auto_reverb",
+        "source_path": "src/audio/effects/snd_auto_reverb.c",
         "address": "0x0012efe0",
         "current_name": "FUN_0012efe0",
         "proposed_name": "snd_auto_reverb",
@@ -4666,8 +4666,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/movie/snd_init_movie_sound",
-        "source_path": "src/textbin/audio/movie/snd_init_movie_sound.c",
+        "unit": "audio/movie/snd_init_movie_sound",
+        "source_path": "src/audio/movie/snd_init_movie_sound.c",
         "address": "0x0012f068",
         "current_name": "FUN_0012f068",
         "proposed_name": "snd_init_movie_sound",
@@ -4689,8 +4689,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/movie/snd_reset_movie_sound",
-        "source_path": "src/textbin/audio/movie/snd_reset_movie_sound.c",
+        "unit": "audio/movie/snd_reset_movie_sound",
+        "source_path": "src/audio/movie/snd_reset_movie_sound.c",
         "address": "0x0012f0a8",
         "current_name": "FUN_0012f0a8",
         "proposed_name": "snd_reset_movie_sound",
@@ -4707,8 +4707,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/movie/snd_close_movie_sound",
-        "source_path": "src/textbin/audio/movie/snd_close_movie_sound.c",
+        "unit": "audio/movie/snd_close_movie_sound",
+        "source_path": "src/audio/movie/snd_close_movie_sound.c",
         "address": "0x0012f0e0",
         "current_name": "FUN_0012f0e0",
         "proposed_name": "snd_close_movie_sound",
@@ -4730,8 +4730,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/movie/snd_start_movie_sound",
-        "source_path": "src/textbin/audio/movie/snd_start_movie_sound.c",
+        "unit": "audio/movie/snd_start_movie_sound",
+        "source_path": "src/audio/movie/snd_start_movie_sound.c",
         "address": "0x0012f108",
         "current_name": "FUN_0012f108",
         "proposed_name": "snd_start_movie_sound",
@@ -4753,8 +4753,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/movie/snd_update_movie_adpcm",
-        "source_path": "src/textbin/audio/movie/snd_update_movie_adpcm.c",
+        "unit": "audio/movie/snd_update_movie_adpcm",
+        "source_path": "src/audio/movie/snd_update_movie_adpcm.c",
         "address": "0x0012f148",
         "current_name": "FUN_0012f148",
         "proposed_name": "snd_update_movie_adpcm",
@@ -4771,8 +4771,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/movie/snd_get_movie_nax",
-        "source_path": "src/textbin/audio/movie/snd_get_movie_nax.c",
+        "unit": "audio/movie/snd_get_movie_nax",
+        "source_path": "src/audio/movie/snd_get_movie_nax.c",
         "address": "0x0012f178",
         "current_name": "FUN_0012f178",
         "proposed_name": "snd_get_movie_nax",
@@ -4789,8 +4789,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/storage/wad/wad_get_sectors",
-        "source_path": "src/textbin/storage/wad/wad_get_sectors.c",
+        "unit": "storage/wad/wad_get_sectors",
+        "source_path": "src/storage/wad/wad_get_sectors.c",
         "address": "0x0012f208",
         "current_name": "FUN_0012f208",
         "proposed_name": "wad_get_sectors",
@@ -4816,8 +4816,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/storage/cd/load_disc_sectors_into_global_buffer",
-        "source_path": "src/textbin/storage/cd/load_disc_sectors_into_global_buffer.c",
+        "unit": "storage/cd/load_disc_sectors_into_global_buffer",
+        "source_path": "src/storage/cd/load_disc_sectors_into_global_buffer.c",
         "address": "0x0012f2b8",
         "current_name": "FUN_0012f2b8",
         "proposed_name": "load_disc_sectors_into_global_buffer",
@@ -4838,8 +4838,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/storage/cd/read_file_entry_with_retry",
-        "source_path": "src/textbin/storage/cd/read_file_entry_with_retry.c",
+        "unit": "storage/cd/read_file_entry_with_retry",
+        "source_path": "src/storage/cd/read_file_entry_with_retry.c",
         "address": "0x0012f368",
         "current_name": "FUN_0012f368",
         "proposed_name": "read_file_entry_with_retry",
@@ -4878,8 +4878,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/fonts/load_debug_font",
-        "source_path": "src/textbin/ui/fonts/load_debug_font.c",
+        "unit": "ui/fonts/load_debug_font",
+        "source_path": "src/ui/fonts/load_debug_font.c",
         "address": "0x001e9338",
         "current_name": "FUN_001e9338",
         "proposed_name": "load_debug_font",
@@ -4931,8 +4931,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/state/transition_draw_sky",
-        "source_path": "src/textbin/gameplay/state/transition_draw_sky.c",
+        "unit": "gameplay/state/transition_draw_sky",
+        "source_path": "src/gameplay/state/transition_draw_sky.c",
         "address": "0x001e9ab8",
         "current_name": "FUN_001e9ab8",
         "proposed_name": "transition_draw_sky",
@@ -5036,8 +5036,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/state/transition_default_draw",
-        "source_path": "src/textbin/gameplay/state/transition_default_draw.c",
+        "unit": "gameplay/state/transition_default_draw",
+        "source_path": "src/gameplay/state/transition_default_draw.c",
         "address": "0x001eb410",
         "current_name": "FUN_001eb410",
         "proposed_name": "transition_default_draw",
@@ -5059,8 +5059,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/state/is_active_state_entry",
-        "source_path": "src/textbin/gameplay/state/is_active_state_entry.c",
+        "unit": "gameplay/state/is_active_state_entry",
+        "source_path": "src/gameplay/state/is_active_state_entry.c",
         "address": "0x001eb740",
         "current_name": "FUN_001eb740",
         "proposed_name": "is_active_state_entry",
@@ -5114,8 +5114,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/camera/backup_current_cam",
-        "source_path": "src/textbin/gameplay/camera/backup_current_cam.c",
+        "unit": "gameplay/camera/backup_current_cam",
+        "source_path": "src/gameplay/camera/backup_current_cam.c",
         "address": "0x001ebc90",
         "current_name": "FUN_001ebc90",
         "proposed_name": "backup_current_cam",
@@ -5132,8 +5132,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/camera/execute_camera_post_update_callbacks",
-        "source_path": "src/textbin/gameplay/camera/execute_camera_post_update_callbacks.c",
+        "unit": "gameplay/camera/execute_camera_post_update_callbacks",
+        "source_path": "src/gameplay/camera/execute_camera_post_update_callbacks.c",
         "address": "0x001ebcf0",
         "current_name": "FUN_001ebcf0",
         "proposed_name": "execute_camera_post_update_callbacks",
@@ -5195,8 +5195,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/entities/update_moby",
-        "source_path": "src/textbin/gameplay/entities/update_moby.c",
+        "unit": "gameplay/entities/update_moby",
+        "source_path": "src/gameplay/entities/update_moby.c",
         "address": "0x001ebec8",
         "current_name": "FUN_001ebec8",
         "proposed_name": "update_moby",
@@ -5268,8 +5268,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/entities/draw_moby",
-        "source_path": "src/textbin/rendering/entities/draw_moby.c",
+        "unit": "rendering/entities/draw_moby",
+        "source_path": "src/rendering/entities/draw_moby.c",
         "address": "0x001ec3d8",
         "current_name": "FUN_001ec3d8",
         "proposed_name": "draw_moby",
@@ -5659,8 +5659,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/get_occlusion_grid_from_pair",
-        "source_path": "src/textbin/rendering/get_occlusion_grid_from_pair.c",
+        "unit": "rendering/get_occlusion_grid_from_pair",
+        "source_path": "src/rendering/get_occlusion_grid_from_pair.c",
         "address": "0x001f2768",
         "current_name": "FUN_001f2768",
         "proposed_name": "get_occlusion_grid_from_pair",
@@ -5700,8 +5700,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/update_occlusion",
-        "source_path": "src/textbin/rendering/update_occlusion.c",
+        "unit": "rendering/update_occlusion",
+        "source_path": "src/rendering/update_occlusion.c",
         "address": "0x001f2c10",
         "current_name": "FUN_001f2c10",
         "proposed_name": "update_occlusion",
@@ -5794,8 +5794,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/callbacks/reset_callback_registries",
-        "source_path": "src/textbin/gameplay/callbacks/reset_callback_registries.c",
+        "unit": "gameplay/callbacks/reset_callback_registries",
+        "source_path": "src/gameplay/callbacks/reset_callback_registries.c",
         "address": "0x001f37e8",
         "current_name": "FUN_001f37e8",
         "proposed_name": "reset_callback_registries",
@@ -5880,8 +5880,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/debug/prepare_debug_profiler_render",
-        "source_path": "src/textbin/rendering/debug/prepare_debug_profiler_render.c",
+        "unit": "rendering/debug/prepare_debug_profiler_render",
+        "source_path": "src/rendering/debug/prepare_debug_profiler_render.c",
         "address": "0x001f4248",
         "current_name": "FUN_001f4248",
         "proposed_name": "prepare_debug_profiler_render",
@@ -5971,8 +5971,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/callbacks/enqueue_callback_list_1",
-        "source_path": "src/textbin/gameplay/callbacks/enqueue_callback_list_1.c",
+        "unit": "gameplay/callbacks/enqueue_callback_list_1",
+        "source_path": "src/gameplay/callbacks/enqueue_callback_list_1.c",
         "address": "0x001f4600",
         "current_name": "FUN_001f4600",
         "proposed_name": "enqueue_callback_list_1",
@@ -5988,8 +5988,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/callbacks/dispatch_callback_list_1",
-        "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_1.c",
+        "unit": "gameplay/callbacks/dispatch_callback_list_1",
+        "source_path": "src/gameplay/callbacks/dispatch_callback_list_1.c",
         "address": "0x001f4650",
         "current_name": "FUN_001f4650",
         "proposed_name": "dispatch_callback_list_1",
@@ -6010,8 +6010,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/callbacks/dispatch_callback_list_2",
-        "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_2.c",
+        "unit": "gameplay/callbacks/dispatch_callback_list_2",
+        "source_path": "src/gameplay/callbacks/dispatch_callback_list_2.c",
         "address": "0x001f46c8",
         "current_name": "FUN_001f46c8",
         "proposed_name": "dispatch_callback_list_2",
@@ -6032,8 +6032,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/callbacks/dispatch_callback_list_3",
-        "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_3.c",
+        "unit": "gameplay/callbacks/dispatch_callback_list_3",
+        "source_path": "src/gameplay/callbacks/dispatch_callback_list_3.c",
         "address": "0x001f4740",
         "current_name": "FUN_001f4740",
         "proposed_name": "dispatch_callback_list_3",
@@ -6054,8 +6054,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/callbacks/enqueue_callback_list_4",
-        "source_path": "src/textbin/gameplay/callbacks/enqueue_callback_list_4.c",
+        "unit": "gameplay/callbacks/enqueue_callback_list_4",
+        "source_path": "src/gameplay/callbacks/enqueue_callback_list_4.c",
         "address": "0x001f47b8",
         "current_name": "FUN_001f47b8",
         "proposed_name": "enqueue_callback_list_4",
@@ -6086,8 +6086,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/callbacks/dispatch_callback_list_4",
-        "source_path": "src/textbin/gameplay/callbacks/dispatch_callback_list_4.c",
+        "unit": "gameplay/callbacks/dispatch_callback_list_4",
+        "source_path": "src/gameplay/callbacks/dispatch_callback_list_4.c",
         "address": "0x001f4808",
         "current_name": "FUN_001f4808",
         "proposed_name": "dispatch_callback_list_4",
@@ -6174,8 +6174,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/rendering/effects/draw_fogged_fullscreen_sprite",
-        "source_path": "src/textbin/rendering/effects/draw_fogged_fullscreen_sprite.c",
+        "unit": "rendering/effects/draw_fogged_fullscreen_sprite",
+        "source_path": "src/rendering/effects/draw_fogged_fullscreen_sprite.c",
         "address": "0x001f5138",
         "current_name": "FUN_001f5138",
         "proposed_name": "draw_fogged_fullscreen_sprite",
@@ -6196,8 +6196,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/rendering/packets/emit_rgba_draw_packet",
-        "source_path": "src/textbin/rendering/packets/emit_rgba_draw_packet.c",
+        "unit": "rendering/packets/emit_rgba_draw_packet",
+        "source_path": "src/rendering/packets/emit_rgba_draw_packet.c",
         "address": "0x001f5210",
         "current_name": "FUN_001f5210",
         "proposed_name": "emit_rgba_draw_packet",
@@ -6320,8 +6320,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/text/measure_text_width",
-        "source_path": "src/textbin/ui/text/measure_text_width.c",
+        "unit": "ui/text/measure_text_width",
+        "source_path": "src/ui/text/measure_text_width.c",
         "address": "0x001f6200",
         "current_name": "FUN_001f6200",
         "proposed_name": "measure_text_width",
@@ -6337,8 +6337,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/measure_text_width_regular",
-        "source_path": "src/textbin/ui/text/measure_text_width_regular.c",
+        "unit": "ui/text/measure_text_width_regular",
+        "source_path": "src/ui/text/measure_text_width_regular.c",
         "address": "0x001f6250",
         "current_name": "FUN_001f6250",
         "proposed_name": "measure_text_width_regular",
@@ -6354,8 +6354,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/measure_text_width_small",
-        "source_path": "src/textbin/ui/text/measure_text_width_small.c",
+        "unit": "ui/text/measure_text_width_small",
+        "source_path": "src/ui/text/measure_text_width_small.c",
         "address": "0x001f6270",
         "current_name": "FUN_001f6270",
         "proposed_name": "measure_text_width_small",
@@ -6371,8 +6371,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/measure_text_width_large",
-        "source_path": "src/textbin/ui/text/measure_text_width_large.c",
+        "unit": "ui/text/measure_text_width_large",
+        "source_path": "src/ui/text/measure_text_width_large.c",
         "address": "0x001f6290",
         "current_name": "FUN_001f6290",
         "proposed_name": "measure_text_width_large",
@@ -6406,8 +6406,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/font_print_large",
-        "source_path": "src/textbin/ui/text/font_print_large.c",
+        "unit": "ui/text/font_print_large",
+        "source_path": "src/ui/text/font_print_large.c",
         "address": "0x001f6530",
         "current_name": "FUN_001f6530",
         "proposed_name": "font_print_large",
@@ -6424,8 +6424,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/text/font_print_small",
-        "source_path": "src/textbin/ui/text/font_print_small.c",
+        "unit": "ui/text/font_print_small",
+        "source_path": "src/ui/text/font_print_small.c",
         "address": "0x001f65b0",
         "current_name": "FUN_001f65b0",
         "proposed_name": "font_print_small",
@@ -6474,8 +6474,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/text/font_print_right",
-        "source_path": "src/textbin/ui/text/font_print_right.c",
+        "unit": "ui/text/font_print_right",
+        "source_path": "src/ui/text/font_print_right.c",
         "address": "0x001f6940",
         "current_name": "FUN_001f6940",
         "proposed_name": "font_print_right",
@@ -6506,8 +6506,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/font_print_right_small",
-        "source_path": "src/textbin/ui/text/font_print_right_small.c",
+        "unit": "ui/text/font_print_right_small",
+        "source_path": "src/ui/text/font_print_right_small.c",
         "address": "0x001f69d0",
         "current_name": "FUN_001f69d0",
         "proposed_name": "font_print_right_small",
@@ -6538,8 +6538,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/font_print_right_large",
-        "source_path": "src/textbin/ui/text/font_print_right_large.c",
+        "unit": "ui/text/font_print_right_large",
+        "source_path": "src/ui/text/font_print_right_large.c",
         "address": "0x001f6a60",
         "current_name": "FUN_001f6a60",
         "proposed_name": "font_print_right_large",
@@ -6570,8 +6570,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/font_print_center",
-        "source_path": "src/textbin/ui/text/font_print_center.c",
+        "unit": "ui/text/font_print_center",
+        "source_path": "src/ui/text/font_print_center.c",
         "address": "0x001f6af0",
         "current_name": "FUN_001f6af0",
         "proposed_name": "font_print_center",
@@ -6593,8 +6593,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/text/font_print_center_small",
-        "source_path": "src/textbin/ui/text/font_print_center_small.c",
+        "unit": "ui/text/font_print_center_small",
+        "source_path": "src/ui/text/font_print_center_small.c",
         "address": "0x001f6b88",
         "current_name": "FUN_001f6b88",
         "proposed_name": "font_print_center_small",
@@ -6616,8 +6616,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/text/font_print_center_large",
-        "source_path": "src/textbin/ui/text/font_print_center_large.c",
+        "unit": "ui/text/font_print_center_large",
+        "source_path": "src/ui/text/font_print_center_large.c",
         "address": "0x001f6c20",
         "current_name": "FUN_001f6c20",
         "proposed_name": "font_print_center_large",
@@ -6713,8 +6713,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/text/font_print_window_regular",
-        "source_path": "src/textbin/ui/text/font_print_window_regular.c",
+        "unit": "ui/text/font_print_window_regular",
+        "source_path": "src/ui/text/font_print_window_regular.c",
         "address": "0x001f7580",
         "current_name": "FUN_001f7580",
         "proposed_name": "font_print_window_regular",
@@ -6730,8 +6730,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/text/font_print_window_small",
-        "source_path": "src/textbin/ui/text/font_print_window_small.c",
+        "unit": "ui/text/font_print_window_small",
+        "source_path": "src/ui/text/font_print_window_small.c",
         "address": "0x001f75f0",
         "current_name": "FUN_001f75f0",
         "proposed_name": "font_print_window_small",
@@ -6801,8 +6801,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/rendering/texture/initialize_alpha_lookup_table",
-        "source_path": "src/textbin/rendering/texture/initialize_alpha_lookup_table.c",
+        "unit": "rendering/texture/initialize_alpha_lookup_table",
+        "source_path": "src/rendering/texture/initialize_alpha_lookup_table.c",
         "address": "0x001f7a30",
         "current_name": "FUN_001f7a30",
         "proposed_name": "initialize_alpha_lookup_table",
@@ -6984,8 +6984,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/math/conversion/truncate_float_to_s32",
-        "source_path": "src/textbin/math/conversion/truncate_float_to_s32.c",
+        "unit": "math/conversion/truncate_float_to_s32",
+        "source_path": "src/math/conversion/truncate_float_to_s32.c",
         "address": "0x001fa6d0",
         "current_name": "FUN_001fa6d0",
         "proposed_name": "truncate_float_to_s32",
@@ -7029,8 +7029,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/packets/put_disp_buffer",
-        "source_path": "src/textbin/rendering/packets/put_disp_buffer.c",
+        "unit": "rendering/packets/put_disp_buffer",
+        "source_path": "src/rendering/packets/put_disp_buffer.c",
         "address": "0x001fb2a8",
         "current_name": "FUN_001fb2a8",
         "proposed_name": "put_disp_buffer",
@@ -7057,8 +7057,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/rendering/packets/append_draw_environment_packet",
-        "source_path": "src/textbin/rendering/packets/append_draw_environment_packet.c",
+        "unit": "rendering/packets/append_draw_environment_packet",
+        "source_path": "src/rendering/packets/append_draw_environment_packet.c",
         "address": "0x001fb2d0",
         "current_name": "FUN_001fb2d0",
         "proposed_name": "append_draw_environment_packet",
@@ -7084,8 +7084,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/packets/append_gif_transfer_packet",
-        "source_path": "src/textbin/rendering/packets/append_gif_transfer_packet.c",
+        "unit": "rendering/packets/append_gif_transfer_packet",
+        "source_path": "src/rendering/packets/append_gif_transfer_packet.c",
         "address": "0x001fb368",
         "current_name": "FUN_001fb368",
         "proposed_name": "append_gif_transfer_packet",
@@ -7116,8 +7116,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/rendering/packets/append_draw_buffer_packet",
-        "source_path": "src/textbin/rendering/packets/append_draw_buffer_packet.c",
+        "unit": "rendering/packets/append_draw_buffer_packet",
+        "source_path": "src/rendering/packets/append_draw_buffer_packet.c",
         "address": "0x001fb3d0",
         "current_name": "FUN_001fb3d0",
         "proposed_name": "append_draw_buffer_packet",
@@ -7171,8 +7171,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/rendering/texture/append_texture_transfer_packet",
-        "source_path": "src/textbin/rendering/texture/append_texture_transfer_packet.c",
+        "unit": "rendering/texture/append_texture_transfer_packet",
+        "source_path": "src/rendering/texture/append_texture_transfer_packet.c",
         "address": "0x001fb680",
         "current_name": "FUN_001fb680",
         "proposed_name": "append_texture_transfer_packet",
@@ -7198,8 +7198,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/rendering/texture/append_palette_transfer_packet",
-        "source_path": "src/textbin/rendering/texture/append_palette_transfer_packet.c",
+        "unit": "rendering/texture/append_palette_transfer_packet",
+        "source_path": "src/rendering/texture/append_palette_transfer_packet.c",
         "address": "0x001fb6e0",
         "current_name": "FUN_001fb6e0",
         "proposed_name": "append_palette_transfer_packet",
@@ -7308,8 +7308,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/runtime/memory/calculate_ring_buffer_bounds",
-        "source_path": "src/textbin/runtime/memory/calculate_ring_buffer_bounds.c",
+        "unit": "runtime/memory/calculate_ring_buffer_bounds",
+        "source_path": "src/runtime/memory/calculate_ring_buffer_bounds.c",
         "address": "0x001fd6e0",
         "current_name": "FUN_001fd6e0",
         "proposed_name": "calculate_ring_buffer_bounds",
@@ -7342,8 +7342,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/help/find_help_message_index",
-        "source_path": "src/textbin/ui/help/find_help_message_index.c",
+        "unit": "ui/help/find_help_message_index",
+        "source_path": "src/ui/help/find_help_message_index.c",
         "address": "0x001fdca0",
         "current_name": "FUN_001fdca0",
         "proposed_name": "find_help_message_index",
@@ -7364,8 +7364,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/help/get_help_message_text",
-        "source_path": "src/textbin/ui/help/get_help_message_text.c",
+        "unit": "ui/help/get_help_message_text",
+        "source_path": "src/ui/help/get_help_message_text.c",
         "address": "0x001fdd10",
         "current_name": "FUN_001fdd10",
         "proposed_name": "get_help_message_text",
@@ -7450,8 +7450,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/help/help_draw_prompt",
-        "source_path": "src/textbin/ui/help/help_draw_prompt.c",
+        "unit": "ui/help/help_draw_prompt",
+        "source_path": "src/ui/help/help_draw_prompt.c",
         "address": "0x001fe898",
         "current_name": "FUN_001fe898",
         "proposed_name": "help_draw_prompt",
@@ -7509,8 +7509,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/gameplay/animation/find_animation_definition_index",
-        "source_path": "src/textbin/gameplay/animation/find_animation_definition_index.c",
+        "unit": "gameplay/animation/find_animation_definition_index",
+        "source_path": "src/gameplay/animation/find_animation_definition_index.c",
         "address": "0x001fee38",
         "current_name": "FUN_001fee38",
         "proposed_name": "find_animation_definition_index",
@@ -7584,8 +7584,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/hud/hud_heap_alloc",
-        "source_path": "src/textbin/ui/hud/hud_heap_alloc.c",
+        "unit": "ui/hud/hud_heap_alloc",
+        "source_path": "src/ui/hud/hud_heap_alloc.c",
         "address": "0x001ff288",
         "current_name": "FUN_001ff288",
         "proposed_name": "hud_heap_alloc",
@@ -7607,8 +7607,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/animation/queue_animation_update",
-        "source_path": "src/textbin/gameplay/animation/queue_animation_update.c",
+        "unit": "gameplay/animation/queue_animation_update",
+        "source_path": "src/gameplay/animation/queue_animation_update.c",
         "address": "0x001ff308",
         "current_name": "FUN_001ff308",
         "proposed_name": "queue_animation_update",
@@ -7629,8 +7629,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/animation/apply_pending_animation",
-        "source_path": "src/textbin/gameplay/animation/apply_pending_animation.c",
+        "unit": "gameplay/animation/apply_pending_animation",
+        "source_path": "src/gameplay/animation/apply_pending_animation.c",
         "address": "0x001ff418",
         "current_name": "FUN_001ff418",
         "proposed_name": "apply_pending_animation",
@@ -7684,8 +7684,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/gameplay/animation/load_animation_definition",
-        "source_path": "src/textbin/gameplay/animation/load_animation_definition.c",
+        "unit": "gameplay/animation/load_animation_definition",
+        "source_path": "src/gameplay/animation/load_animation_definition.c",
         "address": "0x001ff500",
         "current_name": "FUN_001ff500",
         "proposed_name": "load_animation_definition",
@@ -7706,8 +7706,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/animation/set_animation_parameter",
-        "source_path": "src/textbin/gameplay/animation/set_animation_parameter.c",
+        "unit": "gameplay/animation/set_animation_parameter",
+        "source_path": "src/gameplay/animation/set_animation_parameter.c",
         "address": "0x001ff570",
         "current_name": "FUN_001ff570",
         "proposed_name": "set_animation_parameter",
@@ -7728,8 +7728,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/text/copy_text_to_shared_buffer",
-        "source_path": "src/textbin/ui/text/copy_text_to_shared_buffer.c",
+        "unit": "ui/text/copy_text_to_shared_buffer",
+        "source_path": "src/ui/text/copy_text_to_shared_buffer.c",
         "address": "0x001ff658",
         "current_name": "FUN_001ff658",
         "proposed_name": "copy_text_to_shared_buffer",
@@ -7783,8 +7783,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/gameplay/animation/find_valid_animation_frame_index",
-        "source_path": "src/textbin/gameplay/animation/find_valid_animation_frame_index.c",
+        "unit": "gameplay/animation/find_valid_animation_frame_index",
+        "source_path": "src/gameplay/animation/find_valid_animation_frame_index.c",
         "address": "0x001ff960",
         "current_name": "FUN_001ff960",
         "proposed_name": "find_valid_animation_frame_index",
@@ -8014,8 +8014,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/ui/frames/draw_stretchable_ui_frame",
-        "source_path": "src/textbin/ui/frames/draw_stretchable_ui_frame.c",
+        "unit": "ui/frames/draw_stretchable_ui_frame",
+        "source_path": "src/ui/frames/draw_stretchable_ui_frame.c",
         "address": "0x00201128",
         "current_name": "FUN_00201128",
         "proposed_name": "draw_stretchable_ui_frame",
@@ -8241,8 +8241,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/refresh_point_light",
-        "source_path": "src/textbin/rendering/refresh_point_light.c",
+        "unit": "rendering/refresh_point_light",
+        "source_path": "src/rendering/refresh_point_light.c",
         "address": "0x00201f58",
         "current_name": "FUN_00201f58",
         "proposed_name": "refresh_point_light",
@@ -8259,8 +8259,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/detach_point_light",
-        "source_path": "src/textbin/rendering/detach_point_light.c",
+        "unit": "rendering/detach_point_light",
+        "source_path": "src/rendering/detach_point_light.c",
         "address": "0x00201f88",
         "current_name": "FUN_00201f88",
         "proposed_name": "detach_point_light",
@@ -8354,8 +8354,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/hud/load_compressed_hud_bank",
-        "source_path": "src/textbin/ui/hud/load_compressed_hud_bank.c",
+        "unit": "ui/hud/load_compressed_hud_bank",
+        "source_path": "src/ui/hud/load_compressed_hud_bank.c",
         "address": "0x00202d10",
         "current_name": "FUN_00202d10",
         "proposed_name": "load_compressed_hud_bank",
@@ -8425,8 +8425,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/runtime/relocation/relocate_asset_entry_pointers",
-        "source_path": "src/textbin/runtime/relocation/relocate_asset_entry_pointers.c",
+        "unit": "runtime/relocation/relocate_asset_entry_pointers",
+        "source_path": "src/runtime/relocation/relocate_asset_entry_pointers.c",
         "address": "0x002032e0",
         "current_name": "FUN_002032e0",
         "proposed_name": "relocate_asset_entry_pointers",
@@ -8507,8 +8507,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/world/streaming/load_level_chunk_from_disc",
-        "source_path": "src/textbin/world/streaming/load_level_chunk_from_disc.c",
+        "unit": "world/streaming/load_level_chunk_from_disc",
+        "source_path": "src/world/streaming/load_level_chunk_from_disc.c",
         "address": "0x002043b0",
         "current_name": "FUN_002043b0",
         "proposed_name": "load_level_chunk_from_disc",
@@ -8589,8 +8589,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/world/parse_space_scene_chunk",
-        "source_path": "src/textbin/world/parse_space_scene_chunk.c",
+        "unit": "world/parse_space_scene_chunk",
+        "source_path": "src/world/parse_space_scene_chunk.c",
         "address": "0x002049f0",
         "current_name": "FUN_002049f0",
         "proposed_name": "parse_space_scene_chunk",
@@ -8675,8 +8675,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/map/promote_first_available_map_entry",
-        "source_path": "src/textbin/ui/map/promote_first_available_map_entry.c",
+        "unit": "ui/map/promote_first_available_map_entry",
+        "source_path": "src/ui/map/promote_first_available_map_entry.c",
         "address": "0x00204f60",
         "current_name": "FUN_00204f60",
         "proposed_name": "promote_first_available_map_entry",
@@ -8697,8 +8697,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/map/move_map_entry_slot",
-        "source_path": "src/textbin/ui/map/move_map_entry_slot.c",
+        "unit": "ui/map/move_map_entry_slot",
+        "source_path": "src/ui/map/move_map_entry_slot.c",
         "address": "0x00205000",
         "current_name": "FUN_00205000",
         "proposed_name": "move_map_entry_slot",
@@ -8714,8 +8714,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/map/find_map_entry_slot",
-        "source_path": "src/textbin/ui/map/find_map_entry_slot.c",
+        "unit": "ui/map/find_map_entry_slot",
+        "source_path": "src/ui/map/find_map_entry_slot.c",
         "address": "0x002050a0",
         "current_name": "FUN_002050a0",
         "proposed_name": "find_map_entry_slot",
@@ -8777,8 +8777,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/rendering/texture/compose_bitmap_from_mask",
-        "source_path": "src/textbin/rendering/texture/compose_bitmap_from_mask.c",
+        "unit": "rendering/texture/compose_bitmap_from_mask",
+        "source_path": "src/rendering/texture/compose_bitmap_from_mask.c",
         "address": "0x002053d8",
         "current_name": "FUN_002053d8",
         "proposed_name": "compose_bitmap_from_mask",
@@ -8852,8 +8852,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/menus/hit_test_fixed_screen_rectangle",
-        "source_path": "src/textbin/ui/menus/hit_test_fixed_screen_rectangle.c",
+        "unit": "ui/menus/hit_test_fixed_screen_rectangle",
+        "source_path": "src/ui/menus/hit_test_fixed_screen_rectangle.c",
         "address": "0x00206978",
         "current_name": "FUN_00206978",
         "proposed_name": "hit_test_fixed_screen_rectangle",
@@ -9162,8 +9162,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/world/streaming/initialize_dma_packet_payloads",
-        "source_path": "src/textbin/world/streaming/initialize_dma_packet_payloads.c",
+        "unit": "world/streaming/initialize_dma_packet_payloads",
+        "source_path": "src/world/streaming/initialize_dma_packet_payloads.c",
         "address": "0x00209298",
         "current_name": "FUN_00209298",
         "proposed_name": "initialize_dma_packet_payloads",
@@ -9189,8 +9189,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/world/streaming/load_and_initialize_level_chunk",
-        "source_path": "src/textbin/world/streaming/load_and_initialize_level_chunk.c",
+        "unit": "world/streaming/load_and_initialize_level_chunk",
+        "source_path": "src/world/streaming/load_and_initialize_level_chunk.c",
         "address": "0x00209370",
         "current_name": "FUN_00209370",
         "proposed_name": "load_and_initialize_level_chunk",
@@ -9238,8 +9238,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/storage/memory_card/memcard_make_whole_save",
-        "source_path": "src/textbin/storage/memory_card/memcard_make_whole_save.c",
+        "unit": "storage/memory_card/memcard_make_whole_save",
+        "source_path": "src/storage/memory_card/memcard_make_whole_save.c",
         "address": "0x0020abb0",
         "current_name": "FUN_0020abb0",
         "proposed_name": "memcard_make_whole_save",
@@ -9256,8 +9256,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/storage/memory_card/memcard_initialize",
-        "source_path": "src/textbin/storage/memory_card/memcard_initialize.c",
+        "unit": "storage/memory_card/memcard_initialize",
+        "source_path": "src/storage/memory_card/memcard_initialize.c",
         "address": "0x0020ac58",
         "current_name": "FUN_0020ac58",
         "proposed_name": "memcard_initialize",
@@ -9274,8 +9274,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/storage/memory_card/data/calculate_crc16",
-        "source_path": "src/textbin/storage/memory_card/data/calculate_crc16.c",
+        "unit": "storage/memory_card/data/calculate_crc16",
+        "source_path": "src/storage/memory_card/data/calculate_crc16.c",
         "address": "0x0020acc0",
         "current_name": "FUN_0020acc0",
         "proposed_name": "calculate_crc16",
@@ -9301,8 +9301,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/storage/memory_card/data/validate_data_crc",
-        "source_path": "src/textbin/storage/memory_card/data/validate_data_crc.c",
+        "unit": "storage/memory_card/data/validate_data_crc",
+        "source_path": "src/storage/memory_card/data/validate_data_crc.c",
         "address": "0x0020ad38",
         "current_name": "FUN_0020ad38",
         "proposed_name": "validate_data_crc",
@@ -9520,8 +9520,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/mark_moby_for_removal",
-        "source_path": "src/textbin/gameplay/entities/mark_moby_for_removal.c",
+        "unit": "gameplay/entities/mark_moby_for_removal",
+        "source_path": "src/gameplay/entities/mark_moby_for_removal.c",
         "address": "0x0020c828",
         "current_name": "FUN_0020c828",
         "proposed_name": "mark_moby_for_removal",
@@ -9547,8 +9547,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/animation/update_moby_animation_state",
-        "source_path": "src/textbin/gameplay/animation/update_moby_animation_state.c",
+        "unit": "gameplay/animation/update_moby_animation_state",
+        "source_path": "src/gameplay/animation/update_moby_animation_state.c",
         "address": "0x0020c880",
         "current_name": "FUN_0020c880",
         "proposed_name": "update_moby_animation_state",
@@ -9602,8 +9602,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/gameplay/state/compute_interpolated_record_value",
-        "source_path": "src/textbin/gameplay/state/compute_interpolated_record_value.c",
+        "unit": "gameplay/state/compute_interpolated_record_value",
+        "source_path": "src/gameplay/state/compute_interpolated_record_value.c",
         "address": "0x0020c9e0",
         "current_name": "FUN_0020c9e0",
         "proposed_name": "compute_interpolated_record_value",
@@ -9639,8 +9639,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/attach_manipulator",
-        "source_path": "src/textbin/gameplay/entities/attach_manipulator.c",
+        "unit": "gameplay/entities/attach_manipulator",
+        "source_path": "src/gameplay/entities/attach_manipulator.c",
         "address": "0x0020cb10",
         "current_name": "FUN_0020cb10",
         "proposed_name": "attach_manipulator",
@@ -9685,8 +9685,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/find_or_allocate_id_slot",
-        "source_path": "src/textbin/gameplay/entities/find_or_allocate_id_slot.c",
+        "unit": "gameplay/entities/find_or_allocate_id_slot",
+        "source_path": "src/gameplay/entities/find_or_allocate_id_slot.c",
         "address": "0x0020cc18",
         "current_name": "FUN_0020cc18",
         "proposed_name": "find_or_allocate_id_slot",
@@ -9731,8 +9731,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/rendering/geometry/transform_scaled_vertex_batch",
-        "source_path": "src/textbin/rendering/geometry/transform_scaled_vertex_batch.c",
+        "unit": "rendering/geometry/transform_scaled_vertex_batch",
+        "source_path": "src/rendering/geometry/transform_scaled_vertex_batch.c",
         "address": "0x0020cd48",
         "current_name": "FUN_0020cd48",
         "proposed_name": "transform_scaled_vertex_batch",
@@ -9845,8 +9845,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/gameplay/entities/process_moby_anim_data",
-        "source_path": "src/textbin/gameplay/entities/process_moby_anim_data.c",
+        "unit": "gameplay/entities/process_moby_anim_data",
+        "source_path": "src/gameplay/entities/process_moby_anim_data.c",
         "address": "0x0020d1a8",
         "current_name": "FUN_0020d1a8",
         "proposed_name": "process_moby_anim_data",
@@ -9863,8 +9863,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/init_moby_class_dists",
-        "source_path": "src/textbin/gameplay/entities/init_moby_class_dists.c",
+        "unit": "gameplay/entities/init_moby_class_dists",
+        "source_path": "src/gameplay/entities/init_moby_class_dists.c",
         "address": "0x0020d1f0",
         "current_name": "FUN_0020d1f0",
         "proposed_name": "init_moby_class_dists",
@@ -9886,8 +9886,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/entities/stash_moby_class_dists",
-        "source_path": "src/textbin/gameplay/entities/stash_moby_class_dists.c",
+        "unit": "gameplay/entities/stash_moby_class_dists",
+        "source_path": "src/gameplay/entities/stash_moby_class_dists.c",
         "address": "0x0020d218",
         "current_name": "FUN_0020d218",
         "proposed_name": "stash_moby_class_dists",
@@ -9904,8 +9904,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/restore_moby_class_dists",
-        "source_path": "src/textbin/gameplay/entities/restore_moby_class_dists.c",
+        "unit": "gameplay/entities/restore_moby_class_dists",
+        "source_path": "src/gameplay/entities/restore_moby_class_dists.c",
         "address": "0x0020d248",
         "current_name": "FUN_0020d248",
         "proposed_name": "restore_moby_class_dists",
@@ -9922,8 +9922,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/draw_mobys_setup",
-        "source_path": "src/textbin/gameplay/entities/draw_mobys_setup.c",
+        "unit": "gameplay/entities/draw_mobys_setup",
+        "source_path": "src/gameplay/entities/draw_mobys_setup.c",
         "address": "0x0020d278",
         "current_name": "FUN_0020d278",
         "proposed_name": "draw_mobys_setup",
@@ -9940,8 +9940,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/draw_moby_list",
-        "source_path": "src/textbin/gameplay/entities/draw_moby_list.c",
+        "unit": "gameplay/entities/draw_moby_list",
+        "source_path": "src/gameplay/entities/draw_moby_list.c",
         "address": "0x0020d330",
         "current_name": "FUN_0020d330",
         "proposed_name": "draw_moby_list",
@@ -9958,8 +9958,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/draw_mobys_clean_up",
-        "source_path": "src/textbin/gameplay/entities/draw_mobys_clean_up.c",
+        "unit": "gameplay/entities/draw_mobys_clean_up",
+        "source_path": "src/gameplay/entities/draw_mobys_clean_up.c",
         "address": "0x0020d3b0",
         "current_name": "FUN_0020d3b0",
         "proposed_name": "draw_mobys_clean_up",
@@ -9976,8 +9976,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/entities/draw_mobys",
-        "source_path": "src/textbin/gameplay/entities/draw_mobys.c",
+        "unit": "gameplay/entities/draw_mobys",
+        "source_path": "src/gameplay/entities/draw_mobys.c",
         "address": "0x0020d460",
         "current_name": "FUN_0020d460",
         "proposed_name": "draw_mobys",
@@ -10054,8 +10054,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/math/random/random_integer_below",
-        "source_path": "src/textbin/math/random/random_integer_below.c",
+        "unit": "math/random/random_integer_below",
+        "source_path": "src/math/random/random_integer_below.c",
         "address": "0x00213260",
         "current_name": "FUN_00213260",
         "proposed_name": "random_integer_below",
@@ -10071,8 +10071,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/math/random/random_float_between",
-        "source_path": "src/textbin/math/random/random_float_between.c",
+        "unit": "math/random/random_float_between",
+        "source_path": "src/math/random/random_float_between.c",
         "address": "0x002132a8",
         "current_name": "FUN_002132a8",
         "proposed_name": "random_float_between",
@@ -10093,8 +10093,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/math/random/random_angle_radians",
-        "source_path": "src/textbin/math/random/random_angle_radians.c",
+        "unit": "math/random/random_angle_radians",
+        "source_path": "src/math/random/random_angle_radians.c",
         "address": "0x00213308",
         "current_name": "FUN_00213308",
         "proposed_name": "random_angle_radians",
@@ -10210,8 +10210,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/math/vectors/normalize_vector_triplet",
-        "source_path": "src/textbin/math/vectors/normalize_vector_triplet.c",
+        "unit": "math/vectors/normalize_vector_triplet",
+        "source_path": "src/math/vectors/normalize_vector_triplet.c",
         "address": "0x00214128",
         "current_name": "FUN_00214128",
         "proposed_name": "normalize_vector_triplet",
@@ -10256,8 +10256,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/math/rotations/build_quaternion_from_axis_angle",
-        "source_path": "src/textbin/math/rotations/build_quaternion_from_axis_angle.c",
+        "unit": "math/rotations/build_quaternion_from_axis_angle",
+        "source_path": "src/math/rotations/build_quaternion_from_axis_angle.c",
         "address": "0x00214530",
         "current_name": "FUN_00214530",
         "proposed_name": "build_quaternion_from_axis_angle",
@@ -10285,8 +10285,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/rendering/culling/is_point_inside_clip_volume",
-        "source_path": "src/textbin/rendering/culling/is_point_inside_clip_volume.c",
+        "unit": "rendering/culling/is_point_inside_clip_volume",
+        "source_path": "src/rendering/culling/is_point_inside_clip_volume.c",
         "address": "0x00214720",
         "current_name": "FUN_00214720",
         "proposed_name": "is_point_inside_clip_volume",
@@ -10378,8 +10378,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/math/conversion/round_float_to_decimal_places",
-        "source_path": "src/textbin/math/conversion/round_float_to_decimal_places.c",
+        "unit": "math/conversion/round_float_to_decimal_places",
+        "source_path": "src/math/conversion/round_float_to_decimal_places.c",
         "address": "0x00214c48",
         "current_name": "FUN_00214c48",
         "proposed_name": "round_float_to_decimal_places",
@@ -10395,8 +10395,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/gameplay/state/is_value_within_interpolated_window",
-        "source_path": "src/textbin/gameplay/state/is_value_within_interpolated_window.c",
+        "unit": "gameplay/state/is_value_within_interpolated_window",
+        "source_path": "src/gameplay/state/is_value_within_interpolated_window.c",
         "address": "0x00214cc8",
         "current_name": "FUN_00214cc8",
         "proposed_name": "is_value_within_interpolated_window",
@@ -10412,8 +10412,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/gameplay/camera/build_spherical_offset",
-        "source_path": "src/textbin/gameplay/camera/build_spherical_offset.c",
+        "unit": "gameplay/camera/build_spherical_offset",
+        "source_path": "src/gameplay/camera/build_spherical_offset.c",
         "address": "0x00214db0",
         "current_name": "FUN_00214db0",
         "proposed_name": "build_spherical_offset",
@@ -10446,8 +10446,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/help/try_set_help_message",
-        "source_path": "src/textbin/ui/help/try_set_help_message.c",
+        "unit": "ui/help/try_set_help_message",
+        "source_path": "src/ui/help/try_set_help_message.c",
         "address": "0x00215130",
         "current_name": "FUN_00215130",
         "proposed_name": "try_set_help_message",
@@ -10463,8 +10463,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/help/force_help_message",
-        "source_path": "src/textbin/ui/help/force_help_message.c",
+        "unit": "ui/help/force_help_message",
+        "source_path": "src/ui/help/force_help_message.c",
         "address": "0x002151d8",
         "current_name": "FUN_002151d8",
         "proposed_name": "force_help_message",
@@ -10489,8 +10489,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/ui/menus/compute_clamped_count_difference",
-        "source_path": "src/textbin/ui/menus/compute_clamped_count_difference.c",
+        "unit": "ui/menus/compute_clamped_count_difference",
+        "source_path": "src/ui/menus/compute_clamped_count_difference.c",
         "address": "0x00215248",
         "current_name": "FUN_00215248",
         "proposed_name": "compute_clamped_count_difference",
@@ -10506,8 +10506,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/menus/count_nonzero_entries_up_to_40",
-        "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_40.c",
+        "unit": "ui/menus/count_nonzero_entries_up_to_40",
+        "source_path": "src/ui/menus/count_nonzero_entries_up_to_40.c",
         "address": "0x00215290",
         "current_name": "FUN_00215290",
         "proposed_name": "count_nonzero_entries_up_to_40",
@@ -10523,8 +10523,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/menus/count_nonzero_entries_up_to_10",
-        "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_10.c",
+        "unit": "ui/menus/count_nonzero_entries_up_to_10",
+        "source_path": "src/ui/menus/count_nonzero_entries_up_to_10.c",
         "address": "0x00215300",
         "current_name": "FUN_00215300",
         "proposed_name": "count_nonzero_entries_up_to_10",
@@ -10540,8 +10540,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/menus/count_nonzero_entries_up_to_30",
-        "source_path": "src/textbin/ui/menus/count_nonzero_entries_up_to_30.c",
+        "unit": "ui/menus/count_nonzero_entries_up_to_30",
+        "source_path": "src/ui/menus/count_nonzero_entries_up_to_30.c",
         "address": "0x00215348",
         "current_name": "FUN_00215348",
         "proposed_name": "count_nonzero_entries_up_to_30",
@@ -10575,8 +10575,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/audio/streaming/register_audio_stream_callback",
-        "source_path": "src/textbin/audio/streaming/register_audio_stream_callback.c",
+        "unit": "audio/streaming/register_audio_stream_callback",
+        "source_path": "src/audio/streaming/register_audio_stream_callback.c",
         "address": "0x00215420",
         "current_name": "FUN_00215420",
         "proposed_name": "register_audio_stream_callback",
@@ -10682,8 +10682,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/audio/streaming/continue_audio_stream_if_ready",
-        "source_path": "src/textbin/audio/streaming/continue_audio_stream_if_ready.c",
+        "unit": "audio/streaming/continue_audio_stream_if_ready",
+        "source_path": "src/audio/streaming/continue_audio_stream_if_ready.c",
         "address": "0x00215b10",
         "current_name": "FUN_00215b10",
         "proposed_name": "continue_audio_stream_if_ready",
@@ -10776,8 +10776,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/music/music_stop",
-        "source_path": "src/textbin/audio/music/music_stop.c",
+        "unit": "audio/music/music_stop",
+        "source_path": "src/audio/music/music_stop.c",
         "address": "0x00215ee8",
         "current_name": "FUN_00215ee8",
         "proposed_name": "music_stop",
@@ -10835,8 +10835,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/request_audio_stream_break",
-        "source_path": "src/textbin/audio/streaming/request_audio_stream_break.c",
+        "unit": "audio/streaming/request_audio_stream_break",
+        "source_path": "src/audio/streaming/request_audio_stream_break.c",
         "address": "0x002166e8",
         "current_name": "FUN_002166e8",
         "proposed_name": "request_audio_stream_break",
@@ -10904,8 +10904,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/streaming/start_audio_stream_read",
-        "source_path": "src/textbin/audio/streaming/start_audio_stream_read.c",
+        "unit": "audio/streaming/start_audio_stream_read",
+        "source_path": "src/audio/streaming/start_audio_stream_read.c",
         "address": "0x00216788",
         "current_name": "FUN_00216788",
         "proposed_name": "start_audio_stream_read",
@@ -10936,8 +10936,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/load",
-        "source_path": "src/textbin/audio/load.c",
+        "unit": "audio/load",
+        "source_path": "src/audio/load.c",
         "address": "0x00216828",
         "current_name": "FUN_00216828",
         "proposed_name": "load",
@@ -10969,8 +10969,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/audio/streaming/update_audio_stream_until_idle",
-        "source_path": "src/textbin/audio/streaming/update_audio_stream_until_idle.c",
+        "unit": "audio/streaming/update_audio_stream_until_idle",
+        "source_path": "src/audio/streaming/update_audio_stream_until_idle.c",
         "address": "0x002168a8",
         "current_name": "FUN_002168a8",
         "proposed_name": "update_audio_stream_until_idle",
@@ -11001,8 +11001,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/finish_audio_stream_read",
-        "source_path": "src/textbin/audio/streaming/finish_audio_stream_read.c",
+        "unit": "audio/streaming/finish_audio_stream_read",
+        "source_path": "src/audio/streaming/finish_audio_stream_read.c",
         "address": "0x00216950",
         "current_name": "FUN_00216950",
         "proposed_name": "finish_audio_stream_read",
@@ -11077,8 +11077,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/audio/voices/set_sound_handle_id",
-        "source_path": "src/textbin/audio/voices/set_sound_handle_id.c",
+        "unit": "audio/voices/set_sound_handle_id",
+        "source_path": "src/audio/voices/set_sound_handle_id.c",
         "address": "0x00216b68",
         "current_name": "FUN_00216b68",
         "proposed_name": "set_sound_handle_id",
@@ -11145,8 +11145,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/input/pad/clear_pad_input",
-        "source_path": "src/textbin/input/pad/clear_pad_input.c",
+        "unit": "input/pad/clear_pad_input",
+        "source_path": "src/input/pad/clear_pad_input.c",
         "address": "0x002172c0",
         "current_name": "FUN_002172c0",
         "proposed_name": "clear_pad_input",
@@ -11181,8 +11181,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/input/pad/update_primary_pad_state",
-        "source_path": "src/textbin/input/pad/update_primary_pad_state.c",
+        "unit": "input/pad/update_primary_pad_state",
+        "source_path": "src/input/pad/update_primary_pad_state.c",
         "address": "0x00217a10",
         "current_name": "FUN_00217a10",
         "proposed_name": "update_primary_pad_state",
@@ -11726,8 +11726,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/ui/menus/draw_quit_game_menu",
-        "source_path": "src/textbin/ui/menus/draw_quit_game_menu.c",
+        "unit": "ui/menus/draw_quit_game_menu",
+        "source_path": "src/ui/menus/draw_quit_game_menu.c",
         "address": "0x0021e890",
         "current_name": "FUN_0021e890",
         "proposed_name": "draw_quit_game_menu",
@@ -11910,8 +11910,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/ui/map/draw_map_screen_overlay",
-        "source_path": "src/textbin/ui/map/draw_map_screen_overlay.c",
+        "unit": "ui/map/draw_map_screen_overlay",
+        "source_path": "src/ui/map/draw_map_screen_overlay.c",
         "address": "0x0021f330",
         "current_name": "FUN_0021f330",
         "proposed_name": "draw_map_screen_overlay",
@@ -11945,8 +11945,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/menus/missions/draw_mission_menu_labels",
-        "source_path": "src/textbin/ui/menus/missions/draw_mission_menu_labels.c",
+        "unit": "ui/menus/missions/draw_mission_menu_labels",
+        "source_path": "src/ui/menus/missions/draw_mission_menu_labels.c",
         "address": "0x0021f5f8",
         "current_name": "FUN_0021f5f8",
         "proposed_name": "draw_mission_menu_labels",
@@ -11995,8 +11995,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/ui/menus/draw_menu_selection_marker",
-        "source_path": "src/textbin/ui/menus/draw_menu_selection_marker.c",
+        "unit": "ui/menus/draw_menu_selection_marker",
+        "source_path": "src/ui/menus/draw_menu_selection_marker.c",
         "address": "0x0021f8e8",
         "current_name": "FUN_0021f8e8",
         "proposed_name": "draw_menu_selection_marker",
@@ -12055,8 +12055,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/rendering/transitions/draw_transition_overlay",
-        "source_path": "src/textbin/rendering/transitions/draw_transition_overlay.c",
+        "unit": "rendering/transitions/draw_transition_overlay",
+        "source_path": "src/rendering/transitions/draw_transition_overlay.c",
         "address": "0x0021fc68",
         "current_name": "FUN_0021fc68",
         "proposed_name": "draw_transition_overlay",
@@ -12184,8 +12184,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/streaming/advance_audio_stream_state",
-        "source_path": "src/textbin/audio/streaming/advance_audio_stream_state.c",
+        "unit": "audio/streaming/advance_audio_stream_state",
+        "source_path": "src/audio/streaming/advance_audio_stream_state.c",
         "address": "0x00220648",
         "current_name": "FUN_00220648",
         "proposed_name": "advance_audio_stream_state",
@@ -12206,8 +12206,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/rendering/draw_two_texture_panels",
-        "source_path": "src/textbin/rendering/draw_two_texture_panels.c",
+        "unit": "rendering/draw_two_texture_panels",
+        "source_path": "src/rendering/draw_two_texture_panels.c",
         "address": "0x00220790",
         "current_name": "FUN_00220790",
         "proposed_name": "draw_two_texture_panels",
@@ -12514,8 +12514,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/gameplay/state/process_global_state_flags",
-        "source_path": "src/textbin/gameplay/state/process_global_state_flags.c",
+        "unit": "gameplay/state/process_global_state_flags",
+        "source_path": "src/gameplay/state/process_global_state_flags.c",
         "address": "0x00222290",
         "current_name": "FUN_00222290",
         "proposed_name": "process_global_state_flags",
@@ -12910,8 +12910,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/rendering/entities/draw_moby_entries_from_object",
-        "source_path": "src/textbin/rendering/entities/draw_moby_entries_from_object.c",
+        "unit": "rendering/entities/draw_moby_entries_from_object",
+        "source_path": "src/rendering/entities/draw_moby_entries_from_object.c",
         "address": "0x00225a68",
         "current_name": "FUN_00225a68",
         "proposed_name": "draw_moby_entries_from_object",
@@ -12960,8 +12960,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/audio/streaming/select_next_stream_buffer",
-        "source_path": "src/textbin/audio/streaming/select_next_stream_buffer.c",
+        "unit": "audio/streaming/select_next_stream_buffer",
+        "source_path": "src/audio/streaming/select_next_stream_buffer.c",
         "address": "0x00225c18",
         "current_name": "FUN_00225c18",
         "proposed_name": "select_next_stream_buffer",
@@ -12982,8 +12982,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/complete_stream_buffer_transfer",
-        "source_path": "src/textbin/audio/streaming/complete_stream_buffer_transfer.c",
+        "unit": "audio/streaming/complete_stream_buffer_transfer",
+        "source_path": "src/audio/streaming/complete_stream_buffer_transfer.c",
         "address": "0x00225cd8",
         "current_name": "FUN_00225cd8",
         "proposed_name": "complete_stream_buffer_transfer",
@@ -13004,8 +13004,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/streaming/get_stream_buffer_size",
-        "source_path": "src/textbin/audio/streaming/get_stream_buffer_size.c",
+        "unit": "audio/streaming/get_stream_buffer_size",
+        "source_path": "src/audio/streaming/get_stream_buffer_size.c",
         "address": "0x00225d88",
         "current_name": "FUN_00225d88",
         "proposed_name": "get_stream_buffer_size",
@@ -13054,8 +13054,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/audio/streaming/clear_record_flag_by_key",
-        "source_path": "src/textbin/audio/streaming/clear_record_flag_by_key.c",
+        "unit": "audio/streaming/clear_record_flag_by_key",
+        "source_path": "src/audio/streaming/clear_record_flag_by_key.c",
         "address": "0x00225e20",
         "current_name": "FUN_00225e20",
         "proposed_name": "clear_record_flag_by_key",
@@ -13242,8 +13242,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/gameplay/state/clear_scene_state_buffers",
-        "source_path": "src/textbin/gameplay/state/clear_scene_state_buffers.c",
+        "unit": "gameplay/state/clear_scene_state_buffers",
+        "source_path": "src/gameplay/state/clear_scene_state_buffers.c",
         "address": "0x00226f50",
         "current_name": "FUN_00226f50",
         "proposed_name": "clear_scene_state_buffers",
@@ -13271,8 +13271,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/world/data/parse_typed_resource_record",
-        "source_path": "src/textbin/world/data/parse_typed_resource_record.c",
+        "unit": "world/data/parse_typed_resource_record",
+        "source_path": "src/world/data/parse_typed_resource_record.c",
         "address": "0x002270e8",
         "current_name": "FUN_002270e8",
         "proposed_name": "parse_typed_resource_record",
@@ -13387,8 +13387,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/rendering/draw_shrubs",
-        "source_path": "src/textbin/rendering/draw_shrubs.c",
+        "unit": "rendering/draw_shrubs",
+        "source_path": "src/rendering/draw_shrubs.c",
         "address": "0x00228b38",
         "current_name": "FUN_00228b38",
         "proposed_name": "draw_shrubs",
@@ -13491,8 +13491,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/sky/sky_draw_shell",
-        "source_path": "src/textbin/rendering/sky/sky_draw_shell.c",
+        "unit": "rendering/sky/sky_draw_shell",
+        "source_path": "src/rendering/sky/sky_draw_shell.c",
         "address": "0x0022b690",
         "current_name": "FUN_0022b690",
         "proposed_name": "sky_draw_shell",
@@ -13658,8 +13658,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/banks/load_audio_bank_by_location",
-        "source_path": "src/textbin/audio/banks/load_audio_bank_by_location.c",
+        "unit": "audio/banks/load_audio_bank_by_location",
+        "source_path": "src/audio/banks/load_audio_bank_by_location.c",
         "address": "0x0022d708",
         "current_name": "FUN_0022d708",
         "proposed_name": "load_audio_bank_by_location",
@@ -13690,8 +13690,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/voices/release_voice_slot",
-        "source_path": "src/textbin/audio/voices/release_voice_slot.c",
+        "unit": "audio/voices/release_voice_slot",
+        "source_path": "src/audio/voices/release_voice_slot.c",
         "address": "0x0022d798",
         "current_name": "FUN_0022d798",
         "proposed_name": "release_voice_slot",
@@ -13762,8 +13762,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/audio/voices/allocate_voice_for_bank_entry",
-        "source_path": "src/textbin/audio/voices/allocate_voice_for_bank_entry.c",
+        "unit": "audio/voices/allocate_voice_for_bank_entry",
+        "source_path": "src/audio/voices/allocate_voice_for_bank_entry.c",
         "address": "0x0022db10",
         "current_name": "FUN_0022db10",
         "proposed_name": "allocate_voice_for_bank_entry",
@@ -13789,8 +13789,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/voices/allocate_voice_for_group_entry",
-        "source_path": "src/textbin/audio/voices/allocate_voice_for_group_entry.c",
+        "unit": "audio/voices/allocate_voice_for_group_entry",
+        "source_path": "src/audio/voices/allocate_voice_for_group_entry.c",
         "address": "0x0022dba0",
         "current_name": "FUN_0022dba0",
         "proposed_name": "allocate_voice_for_group_entry",
@@ -14007,8 +14007,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/gameplay/state/dispatch_game_state_update",
-        "source_path": "src/textbin/gameplay/state/dispatch_game_state_update.c",
+        "unit": "gameplay/state/dispatch_game_state_update",
+        "source_path": "src/gameplay/state/dispatch_game_state_update.c",
         "address": "0x00230ee8",
         "current_name": "FUN_00230ee8",
         "proposed_name": "dispatch_game_state_update",
@@ -14204,8 +14204,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/runtime/rpc/initialize_sif_rpc",
-        "source_path": "src/textbin/runtime/rpc/initialize_sif_rpc.c",
+        "unit": "runtime/rpc/initialize_sif_rpc",
+        "source_path": "src/runtime/rpc/initialize_sif_rpc.c",
         "address": "0x00232ce0",
         "current_name": "FUN_00232ce0",
         "proposed_name": "initialize_sif_rpc",
@@ -14335,8 +14335,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/dma/start_vif1_dma_transfer",
-        "source_path": "src/textbin/rendering/dma/start_vif1_dma_transfer.c",
+        "unit": "rendering/dma/start_vif1_dma_transfer",
+        "source_path": "src/rendering/dma/start_vif1_dma_transfer.c",
         "address": "0x002334d8",
         "current_name": "FUN_002334d8",
         "proposed_name": "start_vif1_dma_transfer",
@@ -14380,8 +14380,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/buffers/swap_render_buffer_chain",
-        "source_path": "src/textbin/rendering/buffers/swap_render_buffer_chain.c",
+        "unit": "rendering/buffers/swap_render_buffer_chain",
+        "source_path": "src/rendering/buffers/swap_render_buffer_chain.c",
         "address": "0x00233630",
         "current_name": "FUN_00233630",
         "proposed_name": "swap_render_buffer_chain",
@@ -14447,8 +14447,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/vu1_add_data_ref",
-        "source_path": "src/textbin/rendering/vu1_add_data_ref.c",
+        "unit": "rendering/vu1_add_data_ref",
+        "source_path": "src/rendering/vu1_add_data_ref.c",
         "address": "0x00233830",
         "current_name": "FUN_00233830",
         "proposed_name": "vu1_add_data_ref",
@@ -14470,8 +14470,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/packets/write_vif_unpack_packet",
-        "source_path": "src/textbin/rendering/packets/write_vif_unpack_packet.c",
+        "unit": "rendering/packets/write_vif_unpack_packet",
+        "source_path": "src/rendering/packets/write_vif_unpack_packet.c",
         "address": "0x00233888",
         "current_name": "FUN_00233888",
         "proposed_name": "write_vif_unpack_packet",
@@ -14525,8 +14525,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/rendering/vu1_add_g_sregister",
-        "source_path": "src/textbin/rendering/vu1_add_g_sregister.c",
+        "unit": "rendering/vu1_add_g_sregister",
+        "source_path": "src/rendering/vu1_add_g_sregister.c",
         "address": "0x00233980",
         "current_name": "FUN_00233980",
         "proposed_name": "vu1_add_g_sregister",
@@ -14566,8 +14566,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/vu1_tex_flush",
-        "source_path": "src/textbin/rendering/vu1_tex_flush.c",
+        "unit": "rendering/vu1_tex_flush",
+        "source_path": "src/rendering/vu1_tex_flush.c",
         "address": "0x00233b68",
         "current_name": "FUN_00233b68",
         "proposed_name": "vu1_tex_flush",
@@ -14589,8 +14589,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/vu1_gs_regs_normal",
-        "source_path": "src/textbin/rendering/vu1_gs_regs_normal.c",
+        "unit": "rendering/vu1_gs_regs_normal",
+        "source_path": "src/rendering/vu1_gs_regs_normal.c",
         "address": "0x00233bc8",
         "current_name": "FUN_00233bc8",
         "proposed_name": "vu1_gs_regs_normal",
@@ -14678,8 +14678,8 @@
         "logical_group_confidence": "low"
       },
       {
-        "unit": "textbin/rendering/dmac_vif1_enable",
-        "source_path": "src/textbin/rendering/dmac_vif1_enable.c",
+        "unit": "rendering/dmac_vif1_enable",
+        "source_path": "src/rendering/dmac_vif1_enable.c",
         "address": "0x00233d00",
         "current_name": "FUN_00233d00",
         "proposed_name": "dmac_vif1_enable",
@@ -14701,8 +14701,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/dmac_vif1_disable",
-        "source_path": "src/textbin/rendering/dmac_vif1_disable.c",
+        "unit": "rendering/dmac_vif1_disable",
+        "source_path": "src/rendering/dmac_vif1_disable.c",
         "address": "0x00233d90",
         "current_name": "FUN_00233d90",
         "proposed_name": "dmac_vif1_disable",
@@ -14724,8 +14724,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/runtime/diagnostics/print_register_values_and_halt",
-        "source_path": "src/textbin/runtime/diagnostics/print_register_values_and_halt.c",
+        "unit": "runtime/diagnostics/print_register_values_and_halt",
+        "source_path": "src/runtime/diagnostics/print_register_values_and_halt.c",
         "address": "0x00233f00",
         "current_name": "FUN_00233f00",
         "proposed_name": "print_register_values_and_halt",
@@ -14769,8 +14769,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/texture/patch_tie_texture_fields",
-        "source_path": "src/textbin/rendering/texture/patch_tie_texture_fields.c",
+        "unit": "rendering/texture/patch_tie_texture_fields",
+        "source_path": "src/rendering/texture/patch_tie_texture_fields.c",
         "address": "0x00235780",
         "current_name": "FUN_00235780",
         "proposed_name": "patch_tie_texture_fields",
@@ -14796,8 +14796,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/buffers/copy_render_buffer_pair",
-        "source_path": "src/textbin/rendering/buffers/copy_render_buffer_pair.c",
+        "unit": "rendering/buffers/copy_render_buffer_pair",
+        "source_path": "src/rendering/buffers/copy_render_buffer_pair.c",
         "address": "0x00235840",
         "current_name": "FUN_00235840",
         "proposed_name": "copy_render_buffer_pair",
@@ -14828,8 +14828,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/entities/register_entity_render_resources",
-        "source_path": "src/textbin/rendering/entities/register_entity_render_resources.c",
+        "unit": "rendering/entities/register_entity_render_resources",
+        "source_path": "src/rendering/entities/register_entity_render_resources.c",
         "address": "0x00235898",
         "current_name": "FUN_00235898",
         "proposed_name": "register_entity_render_resources",
@@ -14860,8 +14860,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/rendering/draw_ties_1",
-        "source_path": "src/textbin/rendering/draw_ties_1.c",
+        "unit": "rendering/draw_ties_1",
+        "source_path": "src/rendering/draw_ties_1.c",
         "address": "0x002358c8",
         "current_name": "FUN_002358c8",
         "proposed_name": "draw_ties_1",
@@ -14920,8 +14920,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/text/set_scrolling_status_message",
-        "source_path": "src/textbin/ui/text/set_scrolling_status_message.c",
+        "unit": "ui/text/set_scrolling_status_message",
+        "source_path": "src/ui/text/set_scrolling_status_message.c",
         "address": "0x00237e90",
         "current_name": "FUN_00237e90",
         "proposed_name": "set_scrolling_status_message",
@@ -14966,8 +14966,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/text/update_scrolling_status_message",
-        "source_path": "src/textbin/ui/text/update_scrolling_status_message.c",
+        "unit": "ui/text/update_scrolling_status_message",
+        "source_path": "src/ui/text/update_scrolling_status_message.c",
         "address": "0x00238520",
         "current_name": "FUN_00238520",
         "proposed_name": "update_scrolling_status_message",
@@ -15006,8 +15006,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/ui/menus/format_scaled_display_value",
-        "source_path": "src/textbin/ui/menus/format_scaled_display_value.c",
+        "unit": "ui/menus/format_scaled_display_value",
+        "source_path": "src/ui/menus/format_scaled_display_value.c",
         "address": "0x00238688",
         "current_name": "FUN_00238688",
         "proposed_name": "format_scaled_display_value",
@@ -15218,8 +15218,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/runtime/threads/switch_thread",
-        "source_path": "src/textbin/runtime/threads/switch_thread.c",
+        "unit": "runtime/threads/switch_thread",
+        "source_path": "src/runtime/threads/switch_thread.c",
         "address": "0x0023a770",
         "current_name": "FUN_0023a770",
         "proposed_name": "switch_thread",
@@ -15236,8 +15236,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/decoder/is_audio_ok",
-        "source_path": "src/textbin/audio/decoder/is_audio_ok.c",
+        "unit": "audio/decoder/is_audio_ok",
+        "source_path": "src/audio/decoder/is_audio_ok.c",
         "address": "0x0023a790",
         "current_name": "FUN_0023a790",
         "proposed_name": "is_audio_ok",
@@ -15277,8 +15277,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/terminate_audio_system",
-        "source_path": "src/textbin/audio/decoder/terminate_audio_system.c",
+        "unit": "audio/decoder/terminate_audio_system",
+        "source_path": "src/audio/decoder/terminate_audio_system.c",
         "address": "0x0023aa68",
         "current_name": "FUN_0023aa68",
         "proposed_name": "terminate_audio_system",
@@ -15300,8 +15300,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/log_audio_error",
-        "source_path": "src/textbin/audio/decoder/log_audio_error.c",
+        "unit": "audio/decoder/log_audio_error",
+        "source_path": "src/audio/decoder/log_audio_error.c",
         "address": "0x0023ab78",
         "current_name": "FUN_0023ab78",
         "proposed_name": "log_audio_error",
@@ -15323,8 +15323,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/process_audio_stream",
-        "source_path": "src/textbin/audio/decoder/process_audio_stream.c",
+        "unit": "audio/decoder/process_audio_stream",
+        "source_path": "src/audio/decoder/process_audio_stream.c",
         "address": "0x0023aba0",
         "current_name": "FUN_0023aba0",
         "proposed_name": "process_audio_stream",
@@ -15346,8 +15346,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/audio_dec_create",
-        "source_path": "src/textbin/audio/decoder/audio_dec_create.c",
+        "unit": "audio/decoder/audio_dec_create",
+        "source_path": "src/audio/decoder/audio_dec_create.c",
         "address": "0x0023abd0",
         "current_name": "FUN_0023abd0",
         "proposed_name": "audio_dec_create",
@@ -15369,8 +15369,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/audio_dec_delete",
-        "source_path": "src/textbin/audio/decoder/audio_dec_delete.c",
+        "unit": "audio/decoder/audio_dec_delete",
+        "source_path": "src/audio/decoder/audio_dec_delete.c",
         "address": "0x0023ac90",
         "current_name": "FUN_0023ac90",
         "proposed_name": "audio_dec_delete",
@@ -15387,8 +15387,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/audio_dec_start",
-        "source_path": "src/textbin/audio/decoder/audio_dec_start.c",
+        "unit": "audio/decoder/audio_dec_start",
+        "source_path": "src/audio/decoder/audio_dec_start.c",
         "address": "0x0023acb8",
         "current_name": "FUN_0023acb8",
         "proposed_name": "audio_dec_start",
@@ -15410,8 +15410,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/audio/decoder/audio_dec_reset",
-        "source_path": "src/textbin/audio/decoder/audio_dec_reset.c",
+        "unit": "audio/decoder/audio_dec_reset",
+        "source_path": "src/audio/decoder/audio_dec_reset.c",
         "address": "0x0023ad10",
         "current_name": "FUN_0023ad10",
         "proposed_name": "audio_dec_reset",
@@ -15428,8 +15428,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/audio_dec_begin_put",
-        "source_path": "src/textbin/audio/decoder/audio_dec_begin_put.c",
+        "unit": "audio/decoder/audio_dec_begin_put",
+        "source_path": "src/audio/decoder/audio_dec_begin_put.c",
         "address": "0x0023ad58",
         "current_name": "FUN_0023ad58",
         "proposed_name": "audio_dec_begin_put",
@@ -15464,8 +15464,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/audio_dec_send",
-        "source_path": "src/textbin/audio/decoder/audio_dec_send.c",
+        "unit": "audio/decoder/audio_dec_send",
+        "source_path": "src/audio/decoder/audio_dec_send.c",
         "address": "0x0023aef0",
         "current_name": "FUN_0023aef0",
         "proposed_name": "audio_dec_send",
@@ -15482,8 +15482,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/audio/decoder/send_to_spu",
-        "source_path": "src/textbin/audio/decoder/send_to_spu.c",
+        "unit": "audio/decoder/send_to_spu",
+        "source_path": "src/audio/decoder/send_to_spu.c",
         "address": "0x0023af18",
         "current_name": "FUN_0023af18",
         "proposed_name": "send_to_spu",
@@ -15540,8 +15540,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/callbacks/handle_end_image",
-        "source_path": "src/textbin/video/decoder/callbacks/handle_end_image.c",
+        "unit": "video/decoder/callbacks/handle_end_image",
+        "source_path": "src/video/decoder/callbacks/handle_end_image.c",
         "address": "0x0023b540",
         "current_name": "FUN_0023b540",
         "proposed_name": "handle_end_image",
@@ -15567,8 +15567,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/display/wait_for_display_vsync",
-        "source_path": "src/textbin/video/display/wait_for_display_vsync.c",
+        "unit": "video/display/wait_for_display_vsync",
+        "source_path": "src/video/display/wait_for_display_vsync.c",
         "address": "0x0023b590",
         "current_name": "FUN_0023b590",
         "proposed_name": "wait_for_display_vsync",
@@ -15647,8 +15647,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/buffers/read_buf_begin_get",
-        "source_path": "src/textbin/video/decoder/buffers/read_buf_begin_get.c",
+        "unit": "video/decoder/buffers/read_buf_begin_get",
+        "source_path": "src/video/decoder/buffers/read_buf_begin_get.c",
         "address": "0x0023b9d8",
         "current_name": "FUN_0023b9d8",
         "proposed_name": "read_buf_begin_get",
@@ -15677,8 +15677,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/video/decoder/buffers/get_fifo_index",
-        "source_path": "src/textbin/video/decoder/buffers/get_fifo_index.c",
+        "unit": "video/decoder/buffers/get_fifo_index",
+        "source_path": "src/video/decoder/buffers/get_fifo_index.c",
         "address": "0x0023baf8",
         "current_name": "FUN_0023baf8",
         "proposed_name": "get_fifo_index",
@@ -15699,8 +15699,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/dma/set_dma_channel_3_control_register",
-        "source_path": "src/textbin/video/decoder/dma/set_dma_channel_3_control_register.c",
+        "unit": "video/decoder/dma/set_dma_channel_3_control_register",
+        "source_path": "src/video/decoder/dma/set_dma_channel_3_control_register.c",
         "address": "0x0023bb40",
         "current_name": "FUN_0023bb40",
         "proposed_name": "set_dma_channel_3_control_register",
@@ -15721,8 +15721,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/dma/set_dma_channel_4_control_register",
-        "source_path": "src/textbin/video/decoder/dma/set_dma_channel_4_control_register.c",
+        "unit": "video/decoder/dma/set_dma_channel_4_control_register",
+        "source_path": "src/video/decoder/dma/set_dma_channel_4_control_register.c",
         "address": "0x0023bbb0",
         "current_name": "FUN_0023bbb0",
         "proposed_name": "set_dma_channel_4_control_register",
@@ -15779,8 +15779,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/vi_buf_begin_put",
-        "source_path": "src/textbin/video/decoder/vi_buf_begin_put.c",
+        "unit": "video/decoder/vi_buf_begin_put",
+        "source_path": "src/video/decoder/vi_buf_begin_put.c",
         "address": "0x0023be20",
         "current_name": "FUN_0023be20",
         "proposed_name": "vi_buf_begin_put",
@@ -15802,8 +15802,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/vi_buf_end_put",
-        "source_path": "src/textbin/video/decoder/vi_buf_end_put.c",
+        "unit": "video/decoder/vi_buf_end_put",
+        "source_path": "src/video/decoder/vi_buf_end_put.c",
         "address": "0x0023bf18",
         "current_name": "FUN_0023bf18",
         "proposed_name": "vi_buf_end_put",
@@ -15874,8 +15874,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/vi_buf_delete",
-        "source_path": "src/textbin/video/decoder/vi_buf_delete.c",
+        "unit": "video/decoder/vi_buf_delete",
+        "source_path": "src/video/decoder/vi_buf_delete.c",
         "address": "0x0023c5b8",
         "current_name": "FUN_0023c5b8",
         "proposed_name": "vi_buf_delete",
@@ -15897,8 +15897,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/vi_buf_count",
-        "source_path": "src/textbin/video/decoder/vi_buf_count.c",
+        "unit": "video/decoder/vi_buf_count",
+        "source_path": "src/video/decoder/vi_buf_count.c",
         "address": "0x0023c610",
         "current_name": "FUN_0023c610",
         "proposed_name": "vi_buf_count",
@@ -15915,8 +15915,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/vi_buf_flush",
-        "source_path": "src/textbin/video/decoder/vi_buf_flush.c",
+        "unit": "video/decoder/vi_buf_flush",
+        "source_path": "src/video/decoder/vi_buf_flush.c",
         "address": "0x0023c660",
         "current_name": "FUN_0023c660",
         "proposed_name": "vi_buf_flush",
@@ -15992,8 +15992,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_create",
-        "source_path": "src/textbin/video/decoder/video_dec_create.c",
+        "unit": "video/decoder/video_dec_create",
+        "source_path": "src/video/decoder/video_dec_create.c",
         "address": "0x0023cac8",
         "current_name": "FUN_0023cac8",
         "proposed_name": "video_dec_create",
@@ -16015,8 +16015,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_set_stream",
-        "source_path": "src/textbin/video/decoder/video_dec_set_stream.c",
+        "unit": "video/decoder/video_dec_set_stream",
+        "source_path": "src/video/decoder/video_dec_set_stream.c",
         "address": "0x0023cbd0",
         "current_name": "FUN_0023cbd0",
         "proposed_name": "video_dec_set_stream",
@@ -16038,8 +16038,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_begin_put",
-        "source_path": "src/textbin/video/decoder/video_dec_begin_put.c",
+        "unit": "video/decoder/video_dec_begin_put",
+        "source_path": "src/video/decoder/video_dec_begin_put.c",
         "address": "0x0023cbf0",
         "current_name": "FUN_0023cbf0",
         "proposed_name": "video_dec_begin_put",
@@ -16056,8 +16056,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_end_put",
-        "source_path": "src/textbin/video/decoder/video_dec_end_put.c",
+        "unit": "video/decoder/video_dec_end_put",
+        "source_path": "src/video/decoder/video_dec_end_put.c",
         "address": "0x0023cc10",
         "current_name": "FUN_0023cc10",
         "proposed_name": "video_dec_end_put",
@@ -16074,8 +16074,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_delete",
-        "source_path": "src/textbin/video/decoder/video_dec_delete.c",
+        "unit": "video/decoder/video_dec_delete",
+        "source_path": "src/video/decoder/video_dec_delete.c",
         "address": "0x0023cc38",
         "current_name": "FUN_0023cc38",
         "proposed_name": "video_dec_delete",
@@ -16092,8 +16092,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_put_ts",
-        "source_path": "src/textbin/video/decoder/video_dec_put_ts.c",
+        "unit": "video/decoder/video_dec_put_ts",
+        "source_path": "src/video/decoder/video_dec_put_ts.c",
         "address": "0x0023cc98",
         "current_name": "FUN_0023cc98",
         "proposed_name": "video_dec_put_ts",
@@ -16110,8 +16110,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_input_count",
-        "source_path": "src/textbin/video/decoder/video_dec_input_count.c",
+        "unit": "video/decoder/video_dec_input_count",
+        "source_path": "src/video/decoder/video_dec_input_count.c",
         "address": "0x0023cce0",
         "current_name": "FUN_0023cce0",
         "proposed_name": "video_dec_input_count",
@@ -16128,8 +16128,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_flush",
-        "source_path": "src/textbin/video/decoder/video_dec_flush.c",
+        "unit": "video/decoder/video_dec_flush",
+        "source_path": "src/video/decoder/video_dec_flush.c",
         "address": "0x0023cd08",
         "current_name": "FUN_0023cd08",
         "proposed_name": "video_dec_flush",
@@ -16146,8 +16146,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/video_dec_is_flushed",
-        "source_path": "src/textbin/video/decoder/video_dec_is_flushed.c",
+        "unit": "video/decoder/video_dec_is_flushed",
+        "source_path": "src/video/decoder/video_dec_is_flushed.c",
         "address": "0x0023cde0",
         "current_name": "FUN_0023cde0",
         "proposed_name": "video_dec_is_flushed",
@@ -16169,8 +16169,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/run_video_decoder",
-        "source_path": "src/textbin/video/decoder/run_video_decoder.c",
+        "unit": "video/decoder/run_video_decoder",
+        "source_path": "src/video/decoder/run_video_decoder.c",
         "address": "0x0023ce28",
         "current_name": "FUN_0023ce28",
         "proposed_name": "run_video_decoder",
@@ -16214,8 +16214,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/callbacks/handle_mpeg_error",
-        "source_path": "src/textbin/video/decoder/callbacks/handle_mpeg_error.c",
+        "unit": "video/decoder/callbacks/handle_mpeg_error",
+        "source_path": "src/video/decoder/callbacks/handle_mpeg_error.c",
         "address": "0x0023d080",
         "current_name": "FUN_0023d080",
         "proposed_name": "handle_mpeg_error",
@@ -16241,8 +16241,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/callbacks/handle_mpeg_no_data",
-        "source_path": "src/textbin/video/decoder/callbacks/handle_mpeg_no_data.c",
+        "unit": "video/decoder/callbacks/handle_mpeg_no_data",
+        "source_path": "src/video/decoder/callbacks/handle_mpeg_no_data.c",
         "address": "0x0023d0a8",
         "current_name": "FUN_0023d0a8",
         "proposed_name": "handle_mpeg_no_data",
@@ -16268,8 +16268,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/callbacks/get_mpeg_timestamp",
-        "source_path": "src/textbin/video/decoder/callbacks/get_mpeg_timestamp.c",
+        "unit": "video/decoder/callbacks/get_mpeg_timestamp",
+        "source_path": "src/video/decoder/callbacks/get_mpeg_timestamp.c",
         "address": "0x0023d140",
         "current_name": "FUN_0023d140",
         "proposed_name": "get_mpeg_timestamp",
@@ -16331,8 +16331,8 @@
         "logical_group_confidence": "medium"
       },
       {
-        "unit": "textbin/video/decoder/vo_buf_get_data",
-        "source_path": "src/textbin/video/decoder/vo_buf_get_data.c",
+        "unit": "video/decoder/vo_buf_get_data",
+        "source_path": "src/video/decoder/vo_buf_get_data.c",
         "address": "0x0023d288",
         "current_name": "FUN_0023d288",
         "proposed_name": "vo_buf_get_data",
@@ -16354,8 +16354,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/video/decoder/vo_buf_get_tag",
-        "source_path": "src/textbin/video/decoder/vo_buf_get_tag.c",
+        "unit": "video/decoder/vo_buf_get_tag",
+        "source_path": "src/video/decoder/vo_buf_get_tag.c",
         "address": "0x0023d2d8",
         "current_name": "FUN_0023d2d8",
         "proposed_name": "vo_buf_get_tag",

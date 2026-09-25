@@ -75,12 +75,13 @@ def safe_repo_path(root: Path, relative: str) -> Path:
     return result
 
 
-def source_container(owner: str) -> str:
+def source_state_prefix(owner: str) -> str:
+    """Keep assembly-backed units under their source-state directory."""
     if owner.startswith("assembly/textbin/"):
         return "assembly/textbin"
-    if owner.startswith("textbin/"):
-        return "textbin"
-    raise ValueError(f"unsupported source owner root: {owner}")
+    if owner.startswith("assembly/"):
+        return "assembly"
+    return ""
 
 
 def find_function_definition(text: str, name: str) -> re.Match[str] | None:
@@ -415,7 +416,7 @@ def build_candidates(
                 raise ValueError(
                     f"unit/source_path disagreement: {reported_unit} vs {old_owner}"
                 )
-            container = source_container(old_owner)
+            state_prefix = source_state_prefix(old_owner)
             group = str(entry.get("logical_group", ""))
             group_parts = Path(group).parts
             if (
@@ -426,7 +427,12 @@ def build_candidates(
                 or group_parts[0] in {"ee", "vu"}
             ):
                 raise ValueError(f"invalid logical_group: {group}")
-            new_owner = f"{container}/{group}/{proposed}"
+            if old_owner.startswith("textbin/") and group == "unclassified":
+                new_owner = f"textbin/{proposed}"
+            else:
+                new_owner = "/".join(
+                    part for part in (state_prefix, group, proposed) if part
+                )
             identifier_renames = entry.get("identifier_renames", [])
             if not isinstance(identifier_renames, list):
                 raise ValueError("identifier_renames must be an array")
@@ -751,7 +757,7 @@ def update_catalog_owners(payload: dict[str, Any], candidates: list[Candidate]) 
             continue
         old_unit = entry.get("unit")
         new_unit = owner_updates.get(old_unit) if isinstance(old_unit, str) else None
-        if new_unit is not None:
+        if new_unit is not None and new_unit != old_unit:
             entry["unit"] = new_unit
             changed += 1
     if changed:
