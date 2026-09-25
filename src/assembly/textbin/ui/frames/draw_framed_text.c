@@ -5,17 +5,21 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/ui/frames/draw_framed_text/FUN_00201200.s", FUN_00201200);
 #else
 #include "types.h"
-extern s32 func_001F6C20();
-extern s32 func_00201128();
-void draw_framed_text(s32 arg0, s32 arg1, s32 arg2, s32 arg3) __asm__("FUN_00201200");
+extern s32 func_001F6C20(s32, s32, u32, s32, s32);
+extern void func_00201128(s32, s32, s32, s32, s32);
+void draw_framed_text(s32 x, s32 y, u32 color, s32 text) __asm__("FUN_00201200");
 
-void draw_framed_text(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    s32 temp_16_12;
-    s32 temp_4_26;
+void draw_framed_text(s32 x, s32 y, u32 color, s32 text) {
+    s32 alpha = (s32)color >> 24;
+    s32 w;
+    s32 left;
 
-    temp_16_12 = arg2 >> 0x18;
-    temp_4_26 = func_001F6C20(arg0 + 1, arg1 + 1, arg2 & 0xFF000000, -1) - 0x20;
-    func_00201128(temp_4_26, arg1 - 8, (arg0 - temp_4_26) * 2, 0x20, (temp_16_12 >= 0x51) ? 0x50 : temp_16_12);
-    func_001F6C20(arg0, arg1, arg2, arg3, -1);
+    if (alpha > 0x50) {
+        alpha = 0x50;
+    }
+    w = func_001F6C20(x + 1, y + 1, color & 0xFF000000, text, -1);
+    left = w - 0x20;
+    func_00201128(left, y - 8, (x - left) * 2, 0x20, alpha);
+    func_001F6C20(x, y, color, text, -1);
 }
 #endif /* NON_MATCHING */

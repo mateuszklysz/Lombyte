@@ -5,44 +5,16 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00226670/FUN_00226670.s", FUN_00226670);
 #else
 #include "types.h"
-extern u32 D_00160350[];
-extern u8 D_001D5E88[];
+struct Request { s32 state; s32 args[13]; };
+extern struct Request D_001D5E88[];
+extern s32 D_00160350;
 s32 FUN_00226670(void) {
-    s32 *var_3_8;
+    struct Request *r;
 
-    var_3_8 = D_001D5E88 + 0x38;
-    do {
-        /* m2c-unknown:  unknown instruction: ldl $v0, 0x3f($v1)  */
-        /* m2c-unknown:  unknown instruction: ldr $v0, 0x38($v1)  */
-        /* m2c-unknown:  unknown instruction: ldl $a1, 0x47($v1)  */
-        /* m2c-unknown:  unknown instruction: ldr $a1, 0x40($v1)  */
-        /* m2c-unknown:  unknown instruction: ldl $a2, 0x4f($v1)  */
-        /* m2c-unknown:  unknown instruction: ldr $a2, 0x48($v1)  */
-        /* m2c-unknown:  unknown instruction: ldl $a3, 0x57($v1)  */
-        /* m2c-unknown:  unknown instruction: ldr $a3, 0x50($v1)  */
-        /* m2c-unknown:  unknown instruction: sdl $v0, 0x7($v1)  */
-        /* m2c-unknown:  unknown instruction: sdr $v0, ($v1)  */
-        /* m2c-unknown:  unknown instruction: sdl $a1, 0xf($v1)  */
-        /* m2c-unknown:  unknown instruction: sdr $a1, 0x8($v1)  */
-        /* m2c-unknown:  unknown instruction: sdl $a2, 0x17($v1)  */
-        /* m2c-unknown:  unknown instruction: sdr $a2, 0x10($v1)  */
-        /* m2c-unknown:  unknown instruction: sdl $a3, 0x1f($v1)  */
-        /* m2c-unknown:  unknown instruction: sdr $a3, 0x18($v1)  */
-        /* m2c-unknown:  unknown instruction: ldl $v0, 0x5f($v1)  */
-        /* m2c-unknown:  unknown instruction: ldr $v0, 0x58($v1)  */
-        /* m2c-unknown:  unknown instruction: ldl $a1, 0x67($v1)  */
-        /* m2c-unknown:  unknown instruction: ldr $a1, 0x60($v1)  */
-        /* m2c-unknown:  unknown instruction: ldl $a2, 0x6f($v1)  */
-        /* m2c-unknown:  unknown instruction: ldr $a2, 0x68($v1)  */
-        /* m2c-unknown:  unknown instruction: sdl $v0, 0x27($v1)  */
-        /* m2c-unknown:  unknown instruction: sdr $v0, 0x20($v1)  */
-        /* m2c-unknown:  unknown instruction: sdl $a1, 0x2f($v1)  */
-        /* m2c-unknown:  unknown instruction: sdr $a1, 0x28($v1)  */
-        /* m2c-unknown:  unknown instruction: sdl $a2, 0x37($v1)  */
-        /* m2c-unknown:  unknown instruction: sdr $a2, 0x30($v1)  */
-        var_3_8 += 0x38;
-    } while ((s32) var_3_8 < (s32) (D_001D5E88 + 0x1C0));
-    D_00160350[0] -= 1;
+    for (r = &D_001D5E88[1]; r < &D_001D5E88[8]; r++) {
+        r[0] = r[1];
+    }
+    D_00160350--;
     return 0;
 }
 #endif /* NON_MATCHING */

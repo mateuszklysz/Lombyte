@@ -4,21 +4,21 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022c658/FUN_0022c658.s", FUN_0022c658);
 #else
-#include "rnc/assembly_textbin_fun_0022c658_types.h"
 #include "types.h"
+struct Obj { u8 pad0[0x18]; s32 id; u8 pad1c[4]; f32 pos[4]; };
+extern f32 D_00187080[4];
+extern void func_001F9A28(f32 *, f32 *, f32 *);
+extern void func_001F9A68(f32 *, f32 *, f32);
+extern void func_001F9C90(f32 *, f32 *, f32);
+extern void func_001F9A10(f32 *, f32 *, f32 *);
+extern void func_001EFA68(void *, f32 *, s32, s32, s32);
+void FUN_0022c658(struct Obj *obj, void *out) {
+    f32 v[4] __attribute__((aligned(16)));
 
-
-extern u8 D_00187080[];
-extern s32 func_001EFA68();
-extern s32 func_001F9A10();
-extern s32 func_001F9A28();
-extern s32 func_001F9A68();
-extern s32 func_001F9C90();
-void FUN_0022c658(struct M2c_arg0 *arg0, s32 arg1) {
-u8 sp_slot[0x50];    func_001F9A28(sp_slot, ((u8 *)arg0 + (0x20)), D_00187080);
-    func_001F9A68(sp_slot, sp_slot, 0x3F400000);
-    func_001F9C90(sp_slot, sp_slot, 0x42800000);
-    func_001F9A10(sp_slot, sp_slot, D_00187080);
-    func_001EFA68(arg1, sp_slot, 0x82, arg0->unk18, 0);
+    func_001F9A28(v, obj->pos, D_00187080);
+    func_001F9A68(v, v, 0.75f);
+    func_001F9C90(v, v, 64.0f);
+    func_001F9A10(v, v, D_00187080);
+    func_001EFA68(out, v, 0x82, obj->id, 0);
 }
 #endif /* NON_MATCHING */

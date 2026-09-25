@@ -4,31 +4,28 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00215518/FUN_00215518.s", FUN_00215518);
 #else
-#include "rnc/assembly_textbin_fun_00215518_types.h"
 #include "types.h"
-
-
-extern u8 D_00137B80[];
+#include "rnc/d_001516d0.h"
+struct TrackTable { u8 pad0[0xF00]; s32 tracks[1][6]; };
+extern s32 D_0015ED88;
+extern struct TrackTable D_00137B80;
 extern struct M2c_D_001516D0 D_001516D0;
-extern s32 D_0015ED88[];
-extern u8 D_002169C0[];
-extern s32 func_0012EC08();
-void FUN_00215518(s16 arg0, s16 arg1, s16 arg2) {
-    s32 temp_4_19;
+extern void func_002169C0();
+extern void func_0012EC08(s32, s32, s32, s32, s16, s32, s32, s32, s32, void (*)(), u64);
+void FUN_00215518(s32 track, s32 arg1, s32 arg2) {
+    s32 handle;
 
-    temp_4_19 = *(s32 *)((u8 *)(D_00137B80 + ((D_0015ED88[0] * 4) + ((arg0 + 0xFFFF3CB0) * 0x18))) + 0xF00);
-    if (temp_4_19 != 0) {
-        if (D_001516D0.unk50 == 0) {
-            D_001516D0.unk5A = 1;
-            D_001516D0.unk64 = 0xA;
-            D_001516D0.unk68 = 0xBB80;
-            D_001516D0.unk50 = 0xFFFFFFFF;
-            D_001516D0.unk54 = arg0;
-            D_001516D0.unk58 = arg1;
-            D_001516D0.unk56 = arg2;
-            D_001516D0.unk60 = 0;
-            func_0012EC08(temp_4_19, 0, 0, 0, arg2, 0, 2, 0, 0x21, D_002169C0, (u64) ((s64) (((u8 *)&D_001516D0 + 0x50)) << 0x20) >> 0x20);
-        }
+    handle = D_00137B80.tracks[track - 50000][D_0015ED88];
+    if (handle != 0 && D_001516D0.unk50 == 0) {
+        D_001516D0.unk5A = 1;
+        D_001516D0.unk64 = 10;
+        D_001516D0.unk68 = 48000;
+        *(u32 *)&D_001516D0.unk50 = 0xFFFFFFFF;
+        D_001516D0.unk54 = track;
+        D_001516D0.unk58 = arg1;
+        D_001516D0.unk56 = arg2;
+        D_001516D0.unk60 = 0;
+        func_0012EC08(handle, 0, 0, 0, arg2, 0, 2, 0, 0x21, func_002169C0, (u32)&D_001516D0.unk50);
     }
 }
 #endif /* NON_MATCHING */

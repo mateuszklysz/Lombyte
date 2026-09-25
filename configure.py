@@ -179,6 +179,22 @@ SN_COMPILER_UNITS = {
     # fun_0020cca8: Typed helper prototypes, one scratch record, and the retail
     # float field preserve the SN match.
     "textbin/fun_0020cca8",
+    # vu1_sync_chain: wait for DMA channels in a mask to go idle, report a
+    # timeout after 100000 spins
+    "textbin/rendering/vu1_sync_chain",
+    # fun_001f0bd0: queue a debug text entry and sprintf it into the text pool
+    "textbin/fun_001f0bd0",
+    # fun_00217048: pad setup: DBC and pad2 init, then open socket slot 0
+    "textbin/fun_00217048",
+    # fun_00213358: build a direction from two random angles and a computed
+    # pitch
+    "textbin/fun_00213358",
+    # cam_interp_values: damped spring step toward a target, velocity clamped to
+    # max and to the remaining distance
+    "textbin/gameplay/camera/cam_interp_values",
+    # fun_0020baf0: is an unlock condition met (kind 0-9 switch over the
+    # progress tables)
+    "textbin/fun_0020baf0",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -491,6 +507,9 @@ EE_GCC_PATCHED_UNITS = {
     # load_irx_module: Four-word SIF DMA transfer record and wait/execute
     # sequence match the patched route.
     "textbin/unclassified/load_irx_module",
+    # fun_001fecc8: find an id in the 150-entry pair table and return its
+    # partner
+    "textbin/fun_001fecc8",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -557,6 +576,26 @@ PADLESS_POLICY_UNITS = {
     "draw_fogged_fullscreen_sprite": "la-gprel",
     # vo_buf_create: exact on padless with la-gprel
     "vo_buf_create": "la-gprel",
+    # detach_manipulator: exact on padless with la-gprel
+    "detach_manipulator": "la-gprel",
+    # fun_00207a18: exact on padless with la-gprel
+    "fun_00207a18": "la-gprel",
+    # fun_0021ea48: exact on padless with la-gprel
+    "fun_0021ea48": "la-gprel",
+    # audio_dec_end_put: exact on padless with la-gprel
+    "audio_dec_end_put": "la-gprel",
+    # patch_moby_gifs: exact on padless with la-gprel
+    "patch_moby_gifs": "la-gprel",
+    # fun_002191b8: exact on padless with la-gprel
+    "fun_002191b8": "la-gprel",
+    # fun_00208408: exact on padless with la-gprel
+    "fun_00208408": "la-gprel",
+    # fun_001fed30: exact on padless with la-gprel
+    "fun_001fed30": "la-gprel",
+    # update_all_cameras: exact on padless with la-gprel
+    "update_all_cameras": "la-gprel",
+    # vi_buf_put_ts: exact on padless with la-gprel
+    "vi_buf_put_ts": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -585,6 +624,11 @@ SDK_COMPILER_UNITS = {
     # (cc), so the full build must not fall back
     # to the default route.
     "sdk/library/cpr8",
+    # fun_00116da8: newlib vfprintf: CHECK_INIT then _vfprintf_r
+    "textbin/fun_00116da8",
+    # reset_gs_registers_pr: reset the privileged GS display registers to the
+    # stored mode
+    "textbin/rendering/state/reset_gs_registers_pr",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -601,6 +645,7 @@ RODATA_OVERLAYS = {
     # the same VMA/file offset for the relocations to resolve content-equal.
     "_getpic": (0x153AA0, 0x54A20),
     "dispatch_game_state_update": (0x1E8960, 0xE98E0),  # retail switch table
+    "fun_0020baf0": (0x1E8390, 0xE9310),  # unlock-condition switch table
 }
 
 # Per-unit extra compiler flags for the native EE-GCC 2.9 units whose
@@ -1081,6 +1126,38 @@ GAME_COMPILER_UNITS = {
     # fun_0012f368: read a file entry through sceCdRead with retries and copy it
     # into the resident buffer
     "storage/cd/read_file_entry_with_retry",
+    # handle_camera_collision_with_hero: spawn or free the camera collision moby
+    # when the hero's collision flag changes
+    "textbin/gameplay/camera/handle_camera_collision_with_hero",
+    # submit_audio_stream_io_request: start a CD read with the default mode and
+    # clear the read state
+    "textbin/audio/streaming/submit_audio_stream_io_request",
+    # fun_00208840: run the current state handler and reset the frame counter
+    # when the state changed
+    "textbin/fun_00208840",
+    # fun_0020cfd0: wind direction from a sampled vector: fast sin/cos of its
+    # angle
+    "textbin/fun_0020cfd0",
+    # fun_00231608: switch the display resolution for a mode (PAL/NTSC table),
+    # resync GS and restore the vsync callback
+    "textbin/fun_00231608",
+    # pcm_callback: MPEG PCM callback: copy the demuxed audio chunk (wrapping
+    # the ring) into the IOP audio buffer
+    "textbin/audio/decoder/callbacks/pcm_callback",
+    # fun_00226e58: unlock menu entries by progress counters (15/30 and 10) and
+    # pick their label ids
+    "textbin/fun_00226e58",
+    # fun_002156d8: start a music track on channel 1 from the region track table
+    # (stream arg only when D_0015EE1C set)
+    "textbin/fun_002156d8",
+    # fun_00228a30: patch tie class GIF tex words through the texture remap
+    # table
+    "textbin/fun_00228a30",
+    # dma_moby_textures: chain the moby texture DMA refs into the packet
+    "textbin/rendering/texture/dma_moby_textures",
+    # fun_00232f20: read stash slot data back from the IOP in 0xFFFF-qword RPC
+    # chunks
+    "textbin/fun_00232f20",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1308,6 +1385,58 @@ PADLESS_ASM_UNITS = {
     # vo_buf_create: Volatile field writes and buffer-stride loop preserve
     # retail store order.
     "textbin/video/decoder/vo_buf_create",
+    # find_id_in_terminated_table: index of an id in a zero-terminated table of
+    # at most 20 entries
+    "textbin/world/data/find_id_in_terminated_table",
+    # fun_00213ed8: step a value toward a target by at most step, return the
+    # remaining error
+    "textbin/fun_00213ed8",
+    # detach_manipulator: unlink a manipulator from a moby list and clear it
+    "textbin/gameplay/entities/detach_manipulator",
+    # fun_0022c830: camera roll from the look vector angle, scaled by the
+    # clamped distance
+    "textbin/fun_0022c830",
+    # fun_00207a18: is a screen point within 35 units of the reference point
+    # (always true while the override flag is set)
+    "textbin/fun_00207a18",
+    # fun_0021ea48: spawn the 0x46E helper moby at the camera anchor and link it
+    # to its owner
+    "textbin/fun_0021ea48",
+    # audio_dec_end_put: account for bytes consumed by the audio decoder,
+    # finishing the preload after 40 blocks
+    "textbin/audio/decoder/audio_dec_end_put",
+    # patch_moby_gifs: patch moby class GIF tex words through the texture remap
+    # table
+    "textbin/gameplay/entities/patch_moby_gifs",
+    # fun_00202800: load packed screen points: shift x/y, convert u/v, clear
+    # flags
+    "textbin/fun_00202800",
+    # fun_0021e110: item HUD: bail if the level id is locked, release attached
+    # handles, else draw the 0x4F4D label
+    "textbin/fun_0021e110",
+    # fun_00203640: register a moby class slot: map class->slot,
+    # slot->class/moby/data, then init the moby
+    "textbin/fun_00203640",
+    # fun_002191b8: leave the level: release owner objects, refresh the 14 level
+    # handles, set state 20
+    "textbin/fun_002191b8",
+    # fun_00208408: map a point into a view's screen space (view 106 uses the
+    # rotated layout), scaled by 1/512
+    "textbin/fun_00208408",
+    # fun_001fed30: move a slot to the end of the most-recently-used byte list
+    "textbin/fun_001fed30",
+    # reset_gs_registers: queue the two GIF reset tags and reapply the display
+    # mode
+    "textbin/rendering/state/reset_gs_registers",
+    # update_all_cameras: pick the best active camera of 48, run its mode
+    # update, keep the previous position
+    "textbin/gameplay/camera/update_all_cameras",
+    # vi_buf_put_ts: ViBuf: queue a timestamp (pts/dts) in the ring under the
+    # semaphore
+    "textbin/video/decoder/vi_buf_put_ts",
+    # vi_buf_stop_dma: ViBuf: stop the IPU DMA, save D4/D3 channel and IPU
+    # registers after the FIFO drains
+    "textbin/video/decoder/vi_buf_stop_dma",
 }
 
 
