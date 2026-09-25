@@ -3,30 +3,30 @@
   "source": "scripts/generate_treemap.py",
   "units_total": 1335,
   "groups_total": 118,
-  "matching_c": 688,
+  "matching_c": 697,
   "intentional_asm": 232,
-  "pending_c": 415,
+  "pending_c": 406,
   "bytes_total": 430720,
-  "bytes_matching_c": 103052,
+  "bytes_matching_c": 105664,
   "bytes_intentional_asm": 88284,
-  "bytes_pending_c": 239384,
-  "c_exact_percent_of_recoverable": 30.0938,
-  "c_fuzzy_percent_of_recoverable": 58.7603,
+  "bytes_pending_c": 236772,
+  "c_exact_percent_of_recoverable": 30.8566,
+  "c_fuzzy_percent_of_recoverable": 59.1327,
   "groups": [
     {
       "name": "game/unclassified",
       "logical_group": "unclassified",
       "category": "game",
       "functions": 352,
-      "matching_c": 56,
-      "pending_c": 199,
+      "matching_c": 61,
+      "pending_c": 194,
       "intentional_asm": 97,
       "bytes_total": 180984,
-      "bytes_matching_c": 9812,
-      "bytes_pending_c": 104952,
+      "bytes_matching_c": 10768,
+      "bytes_pending_c": 103996,
       "bytes_intentional_asm": 66220,
-      "c_exact_percent_of_recoverable": 8.5497,
-      "c_fuzzy_percent_of_recoverable": 41.4796
+      "c_exact_percent_of_recoverable": 9.3827,
+      "c_fuzzy_percent_of_recoverable": 41.836
     },
     {
       "name": "sdk/library",
@@ -78,15 +78,15 @@
       "logical_group": "sdk/dma",
       "category": "sdk",
       "functions": 45,
-      "matching_c": 27,
-      "pending_c": 10,
+      "matching_c": 29,
+      "pending_c": 8,
       "intentional_asm": 8,
       "bytes_total": 11136,
-      "bytes_matching_c": 4628,
-      "bytes_pending_c": 5080,
+      "bytes_matching_c": 5512,
+      "bytes_pending_c": 4196,
       "bytes_intentional_asm": 1428,
-      "c_exact_percent_of_recoverable": 47.672,
-      "c_fuzzy_percent_of_recoverable": 64.8883
+      "c_exact_percent_of_recoverable": 56.7779,
+      "c_fuzzy_percent_of_recoverable": 71.1343
     },
     {
       "name": "game/storage/memory_card",
@@ -131,7 +131,7 @@
       "bytes_pending_c": 5768,
       "bytes_intentional_asm": 0,
       "c_exact_percent_of_recoverable": 9.8186,
-      "c_fuzzy_percent_of_recoverable": 40.9468
+      "c_fuzzy_percent_of_recoverable": 40.9469
     },
     {
       "name": "game/gameplay/entities",
@@ -311,7 +311,7 @@
       "bytes_pending_c": 2564,
       "bytes_intentional_asm": 0,
       "c_exact_percent_of_recoverable": 20.8642,
-      "c_fuzzy_percent_of_recoverable": 65.8877
+      "c_fuzzy_percent_of_recoverable": 65.8876
     },
     {
       "name": "game/ui/menus",
@@ -341,7 +341,7 @@
       "bytes_pending_c": 2768,
       "bytes_intentional_asm": 40,
       "c_exact_percent_of_recoverable": 8.1009,
-      "c_fuzzy_percent_of_recoverable": 85.8619
+      "c_fuzzy_percent_of_recoverable": 85.8618
     },
     {
       "name": "game/rendering/texture",
@@ -386,7 +386,7 @@
       "bytes_pending_c": 2308,
       "bytes_intentional_asm": 0,
       "c_exact_percent_of_recoverable": 7.8275,
-      "c_fuzzy_percent_of_recoverable": 34.976
+      "c_fuzzy_percent_of_recoverable": 34.9761
     },
     {
       "name": "game/input/pad",
@@ -701,7 +701,7 @@
       "bytes_pending_c": 612,
       "bytes_intentional_asm": 0,
       "c_exact_percent_of_recoverable": 26.7943,
-      "c_fuzzy_percent_of_recoverable": 57.2967
+      "c_fuzzy_percent_of_recoverable": 57.2966
     },
     {
       "name": "game/gameplay/callbacks",
@@ -723,15 +723,15 @@
       "logical_group": "ui",
       "category": "game",
       "functions": 4,
-      "matching_c": 2,
-      "pending_c": 2,
+      "matching_c": 3,
+      "pending_c": 1,
       "intentional_asm": 0,
       "bytes_total": 740,
-      "bytes_matching_c": 104,
-      "bytes_pending_c": 636,
+      "bytes_matching_c": 572,
+      "bytes_pending_c": 168,
       "bytes_intentional_asm": 0,
-      "c_exact_percent_of_recoverable": 14.0541,
-      "c_fuzzy_percent_of_recoverable": 62.8649
+      "c_exact_percent_of_recoverable": 77.2973,
+      "c_fuzzy_percent_of_recoverable": 77.2973
     },
     {
       "name": "game/world/streaming",
@@ -926,22 +926,22 @@
       "bytes_pending_c": 392,
       "bytes_intentional_asm": 0,
       "c_exact_percent_of_recoverable": 22.8346,
-      "c_fuzzy_percent_of_recoverable": 70.4409
+      "c_fuzzy_percent_of_recoverable": 70.441
     },
     {
       "name": "game/video/decoder/buffers",
       "logical_group": "video/decoder/buffers",
       "category": "game",
       "functions": 3,
-      "matching_c": 2,
-      "pending_c": 1,
+      "matching_c": 3,
+      "pending_c": 0,
       "intentional_asm": 0,
       "bytes_total": 444,
-      "bytes_matching_c": 140,
-      "bytes_pending_c": 304,
+      "bytes_matching_c": 444,
+      "bytes_pending_c": 0,
       "bytes_intentional_asm": 0,
-      "c_exact_percent_of_recoverable": 31.5315,
-      "c_fuzzy_percent_of_recoverable": 65.5676
+      "c_exact_percent_of_recoverable": 100.0,
+      "c_fuzzy_percent_of_recoverable": 100.0
     },
     {
       "name": "game/runtime/state",
@@ -1121,7 +1121,7 @@
       "bytes_pending_c": 56,
       "bytes_intentional_asm": 108,
       "c_exact_percent_of_recoverable": 64.1026,
-      "c_fuzzy_percent_of_recoverable": 68.4615
+      "c_fuzzy_percent_of_recoverable": 68.4616
     },
     {
       "name": "game/runtime/time",

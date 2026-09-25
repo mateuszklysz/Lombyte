@@ -667,6 +667,16 @@ EE_GCC_FLAG_UNITS = {
 # link-verified).  Both this compiler and SN reproduce these retail objects
 # only with the per-unit flags, i.e. the original build used them.
 GAME_COMPILER_UNITS = {
+    # 2026-09-25: these five were promoted exact on a non-default route, so
+    # the baseline build compiled them with the default cc_sn and the linked
+    # ELF differed from retail in exactly 336 bytes, all inside them:
+    #   fun_001fee88 164 B  fun_00208770 95 B  fun_00215390 40 B
+    #   fun_0022ea08 98 B  fun_00239690  6 B
+    # The route lives in the workbench registry; without the entry here the
+    # per-unit gate and the full build measure different compilers.
+    "textbin/fun_001fee88",
+    "textbin/fun_00215390",
+
     # fun_0021fc68: The final helper arguments are 64-bit; reading
     # D_001A00F0 + 0x258 preserves the retail 0x001A0348 ld/sd call setup.
     "rendering/transitions/draw_transition_overlay",
@@ -1175,6 +1185,17 @@ SN_FLAG_UNITS = {
 # assembler's section tail padding.  The list is explicit per unit: the
 # assembler swap is proven per-object and must not drift to other units.
 PADLESS_ASM_UNITS = {
+    # 2026-09-25: these five were promoted exact on a non-default route, so
+    # the baseline build compiled them with the default cc_sn and the linked
+    # ELF differed from retail in exactly 336 bytes, all inside them:
+    #   fun_001fee88 164 B  fun_00208770 95 B  fun_00215390 40 B
+    #   fun_0022ea08 98 B  fun_00239690  6 B
+    # The route lives in the workbench registry; without the entry here the
+    # per-unit gate and the full build measure different compilers.
+    "textbin/fun_00208770",
+    "textbin/fun_00239690",
+    "textbin/fun_0022ea08",
+
     "gameplay/state/compute_interpolated_record_value",
     "math/random/random_float_between",
     "textbin/fun_001ff480",
