@@ -7,11 +7,11 @@ struct SifDmaTransfer {
     u32 attr;
 };
 
-extern s32 func_0011C8C8(s32 module_id);
-extern s32 func_00118B20(struct SifDmaTransfer *transfer, s32 priority);
-extern s32 func_00118B10(s32 dma_id);
-extern s32 func_0011CD78(s32 module_id, s32 a1, s32 a2);
-extern void func_0011C9B0(s32 module_id);
+extern s32 sceSifAllocIopHeap(s32 module_id);
+extern s32 sceSifSetDma(struct SifDmaTransfer *transfer, s32 priority);
+extern s32 sceSifDmaStat(s32 dma_id);
+extern s32 InvokeIopStatus(s32 module_id, s32 a1, s32 a2);
+extern void InvokeStateInitializer(s32 module_id);
 
 s32 load_irx_module(s32 arg0, s32 arg1) __asm__("FUN_00201520");
 s32 load_irx_module(s32 arg0, s32 arg1) {
@@ -20,20 +20,20 @@ s32 load_irx_module(s32 arg0, s32 arg1) {
     s32 dma_id;
     s32 result;
 
-    module_id = func_0011C8C8(arg1);
+    module_id = sceSifAllocIopHeap(arg1);
     transfer.size = arg1;
     transfer.source = arg0;
     transfer.destination = module_id;
     transfer.attr = 0;
-    dma_id = func_00118B20(&transfer, 1);
+    dma_id = sceSifSetDma(&transfer, 1);
     result = 1;
     if (dma_id != 0) {
-        while (func_00118B10(dma_id) >= 0) {
+        while (sceSifDmaStat(dma_id) >= 0) {
         }
-        if (func_0011CD78(module_id, 0, 0) <= -1) {
+        if (InvokeIopStatus(module_id, 0, 0) <= -1) {
             result = 0;
         }
-        func_0011C9B0(module_id);
+        InvokeStateInitializer(module_id);
     }
     return result;
 }
