@@ -1,0 +1,72 @@
+#include "types.h"
+#include "asm.h"
+
+#ifndef NON_MATCHING
+INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/transitions/fade_to_black/FUN_001f4a58.s", FUN_001f4a58);
+#else
+#include "rnc/assembly_textbin_fun_001f4a58_types.h"
+#include "types.h"
+
+
+
+
+extern u8 D_0013CDD0[];
+extern s32 D_0015F438[];
+extern struct M2c_D_00160F00 *D_00160F00[];
+extern s32 func_001F5210();
+extern s32 func_001FB2D0();
+extern s32 func_001FB368();
+extern s32 func_001FB3D0();
+extern s32 func_002335D0();
+extern s32 func_00233630();
+extern s32 func_002336A0();
+extern s32 func_002337B0();
+extern s32 func_00233980();
+extern s32 sceGsSyncV();
+void fade_to_black(s32 arg0) __asm__("FUN_001f4a58");
+
+void fade_to_black(s32 arg0) {
+    s32 temp_lo_43;
+    s32 var_16_7;
+    struct M2c_temp_5_64 *temp_5_64;
+
+    var_16_7 = arg0 - 1;
+    func_002337B0(1);
+    sceGsSyncV(0);
+    D_0015F438[0] += 1;
+    func_002335D0();
+    if (var_16_7 < 0) {
+        goto block_3;
+    }
+loop_2:
+    func_001FB2D0();
+    func_001FB368();
+    func_001F5210(0, 0, 0, 0x80);
+    func_001FB3D0();
+    temp_lo_43 = (s32) (var_16_7 << 7) / (s32) (var_16_7 + 1);
+    var_16_7 -= 1;
+    func_00233980(1, (0x80 - temp_lo_43) << 0x18);
+    D_00160F00[0]->unk0 = 0x30000014;
+    D_00160F00[0]->unk4 = D_0013CDD0;
+    D_00160F00[0]->unk8 = 0;
+    temp_5_64 = D_00160F00[0];
+    temp_5_64->unkC = 0x50000014;
+    D_00160F00[0] += 0x10;
+    func_002337B0(1, temp_5_64);
+    sceGsSyncV(0);
+    D_0015F438[0] += 1;
+    func_002336A0();
+    func_00233630();
+    if (var_16_7 >= 0) {
+        goto loop_2;
+    }
+block_3:
+    func_002337B0(1);
+    sceGsSyncV(0);
+    D_0015F438[0] += 1;
+    func_002335D0();
+    func_001FB2D0();
+    func_001FB368();
+    return;
+}
+#endif /* NON_MATCHING */

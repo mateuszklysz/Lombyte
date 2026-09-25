@@ -1,6 +1,0 @@
-#include "asm.h"
-
-/* Exact Sony EE kernel veneer: EnableCache. */
-
-INCLUDE_ASM("config/us/expected/asm/assembly/kernel/enable_cache/EnableCache.s", EnableCache);
-

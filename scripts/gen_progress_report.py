@@ -9,17 +9,23 @@ that it is current, validates it with objdiff and uploads it.
 
 What the report counts (the same contract as ``assets/decomp_map.json``):
 
-* every configured C unit (``config/us/rnc1.us.yaml`` rows ``[0xADDR, c,
-  owner]``) with its byte size;
-* a unit is matched only when it is C_EXACT: a promoted source outside
+* every recoverable configured C unit (``config/us/rnc1.us.yaml`` rows
+  ``[0xADDR, c, owner]``) with its byte size, nested under a logical group;
+* a function is matched only when it is C_EXACT: a promoted source outside
   ``src/assembly/`` or a legacy exact unit in ``config/us/unit_categories.json``.
   Assembly-backed units build from their retail oracle, so the ordinary
   objdiff report of the baseline shows them as 100 %; this report does not;
 * intentional low-level asm units are left out, as in the C_EXACT metric;
-* pending units carry their measured ``.text`` similarity as the fuzzy score.
+* pending functions carry their measured ``.text`` similarity as the fuzzy score.
+* report units are grouped by the logical subsystem in
+  ``recovered_names.json``; a clicked group shows its member functions;
+* only entries with status ``proposed`` replace the function's current symbol
+  with a semantic name. Grouping hints are independent of name status, and
+  conservative fallback groups cover units absent from the proposal catalog.
 
-The file holds unit names, symbols, addresses, sizes and percentages only; no
-retail bytes.
+The file holds group and function names, addresses, sizes and percentages only.
+Source paths are omitted because a logical group can span multiple source
+files. No retail bytes are included.
 
 Usage::
 
@@ -43,10 +49,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from rnc_units import INCLUDE_ASM_RE, classify_units, source_symbol  # noqa: E402
+from progress_groups import (  # noqa: E402
+    canonical_owner,
+    committed_function_scores,
+    group_for_owner,
+    load_group_assignments,
+    report_category_for_owner,
+    report_group_name,
+)
 
 REPO = Path(__file__).resolve().parents[1]
 REPORT = REPO / "progress" / "report.json"
-SDK_DIRS = {"sdk", "kernel"}
 CATEGORIES = (("game", "Game"), ("sdk", "Sony SDK"))
 
 
@@ -56,7 +69,7 @@ def unit_name(owner: str) -> str:
 
 
 def unit_category(name: str) -> str:
-    return "sdk" if name.split("/", 1)[0] in SDK_DIRS else "game"
+    return report_category_for_owner(name)
 
 
 def unit_symbol(unit: dict) -> str:
@@ -86,78 +99,112 @@ def measure_pending(workspace: Path) -> dict[str, float]:
             if item.get("unit") and item.get("score") is not None}
 
 
-def committed_scores(path: Path) -> dict[str, float]:
-    if not path.is_file():
-        return {}
-    report = json.loads(path.read_text())
-    return {unit["name"]: float(unit["functions"][0].get("fuzzy_match_percent", 0.0))
-            for unit in report.get("units", []) if unit.get("functions")}
+def committed_scores(path: Path) -> dict[object, float]:
+    return committed_function_scores(path)
 
 
-def measures(units: list[dict]) -> dict:
-    total = sum(u["size"] for u in units)
-    matched = sum(u["size"] for u in units if u["exact"])
-    fuzzy = sum(u["size"] * u["fuzzy"] for u in units)
+def measures(functions: list[dict], groups: list[dict]) -> dict:
+    total = sum(function["size"] for function in functions)
+    matched = sum(function["size"] for function in functions if function["exact"])
+    fuzzy = sum(function["size"] * function["fuzzy"] for function in functions)
     pct = (lambda part: round(100.0 * part / total, 6)) if total else (lambda part: 0.0)
+    matched_functions = sum(1 for function in functions if function["exact"])
+    complete_groups = sum(
+        1 for group in groups if all(function["exact"] for function in group["functions"])
+    )
     return {
         "fuzzy_match_percent": round(fuzzy / total, 6) if total else 0.0,
         "total_code": str(total),
         "matched_code": str(matched),
         "matched_code_percent": pct(matched),
-        "total_functions": len(units),
-        "matched_functions": sum(1 for u in units if u["exact"]),
+        "total_functions": len(functions),
+        "matched_functions": matched_functions,
         "matched_functions_percent":
-            round(100.0 * sum(1 for u in units if u["exact"]) / len(units), 6) if units else 0.0,
+            round(100.0 * matched_functions / len(functions), 6) if functions else 0.0,
         "complete_code": str(matched),
         "complete_code_percent": pct(matched),
-        "total_units": len(units),
-        "complete_units": sum(1 for u in units if u["exact"]),
+        "total_units": len(groups),
+        "complete_units": complete_groups,
     }
 
 
-def build_report(scores: dict[str, float]) -> dict:
-    units = []
+def build_report(scores: dict[object, float]) -> dict:
+    assignments = load_group_assignments(REPO)
+    functions = []
     for unit in classify_units(REPO):
         if unit["category"] == "asm":
             continue
-        name = unit_name(unit["owner"])
+        canonical_name = unit_name(unit["owner"])
+        address = int(unit["address"])
+        owner = str(unit["owner"])
+        assignment = assignments.get(canonical_owner(owner), {})
+        proposed_name = assignment.get("proposed_name")
         exact = unit["category"] == "exact"
-        fuzzy = 100.0 if exact else round(min(100.0, max(0.0, scores.get(name, 0.0))), 4)
+        score = scores.get(address, scores.get(canonical_name, scores.get(owner, 0.0)))
+        fuzzy = 100.0 if exact else round(min(100.0, max(0.0, score)), 4)
         if not exact and fuzzy >= 100.0:
             fuzzy = 99.99  # only promoted C counts as matched
-        units.append({"name": name, "size": unit["size"], "address": unit["address"],
-                      "exact": exact, "fuzzy": fuzzy, "category": unit_category(name),
-                      "symbol": unit_symbol(unit),
-                      "source_path": f"src/{unit['owner']}.c"})
-    units.sort(key=lambda u: u["address"])
+        functions.append({
+            "owner": canonical_name,
+            "size": unit["size"],
+            "address": address,
+            "exact": exact,
+            "fuzzy": fuzzy,
+            "category": unit_category(owner),
+            "logical_group": group_for_owner(owner, assignments),
+            "symbol": proposed_name or unit_symbol(unit),
+        })
+    functions.sort(key=lambda function: function["address"])
+
+    grouped: dict[tuple[str, str], list[dict]] = {}
+    for function in functions:
+        key = (function["category"], function["logical_group"])
+        grouped.setdefault(key, []).append(function)
+
+    report_groups = []
+    for (category, logical_group), members in grouped.items():
+        name = report_group_name(category, logical_group)
+        report_groups.append({
+            "name": name,
+            "category": category,
+            "logical_group": logical_group,
+            "functions": members,
+        })
+    report_groups.sort(key=lambda group: (group["functions"][0]["address"], group["name"]))
 
     report_units = []
-    for u in units:
+    for group in report_groups:
+        members = group["functions"]
         report_units.append({
-            "name": u["name"],
-            "measures": measures([u]),
+            "name": group["name"],
+            "measures": measures(members, [group]),
             "functions": [{
-                "name": u["symbol"],
-                "size": str(u["size"]),
-                "fuzzy_match_percent": u["fuzzy"],
-                "address": "0",
-                "metadata": {"virtual_address": str(u["address"])},
-            }],
-            "metadata": {"progress_categories": [u["category"]],
-                         "source_path": u["source_path"]},
+                "name": function["symbol"],
+                "size": str(function["size"]),
+                "fuzzy_match_percent": function["fuzzy"],
+                "address": str(function["address"] - members[0]["address"]),
+                "metadata": {"virtual_address": str(function["address"])},
+            } for function in members],
+            "metadata": {
+                "complete": all(function["exact"] for function in members),
+                "progress_categories": [group["category"]],
+            },
         })
     return {
-        "measures": measures(units),
+        "measures": measures(functions, report_groups),
         "units": report_units,
         "version": 2,
         "categories": [{"id": cid, "name": cname,
-                        "measures": measures([u for u in units if u["category"] == cid])}
+                        "measures": measures(
+                            [function for function in functions if function["category"] == cid],
+                            [group for group in report_groups if group["category"] == cid],
+                        )}
                        for cid, cname in CATEGORIES],
     }
 
 
 def render(report: dict) -> str:
-    return json.dumps(report, indent=1) + "\n"
+    return json.dumps(report, indent=2) + "\n"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -187,7 +234,7 @@ def main(argv: list[str] | None = None) -> int:
     m = json.loads(text)["measures"]
     print(f"wrote {args.report.relative_to(REPO)}: {m['matched_code']} / {m['total_code']} B "
           f"({m['matched_code_percent']:.2f} %), fuzzy {m['fuzzy_match_percent']:.2f} %, "
-          f"{m['complete_units']} / {m['total_units']} units")
+          f"{m['complete_units']} / {m['total_units']} groups")
     return 0
 
 

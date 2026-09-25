@@ -54,6 +54,10 @@ GLABEL_RE = re.compile(r'(?m)^\s*(?:glabel|\.globl)\s+([A-Za-z_]\w*)\s*$')
 DEF_RE = re.compile(
     r'(?m)^[A-Za-z_][\w \t\*]*?\b([A-Za-z_]\w*)\s*\([^;{]*\)\s*\{'
 )
+ASM_LABEL_RE = re.compile(
+    r'(?m)^[A-Za-z_][\w \t\*]*?\b(?P<name>[A-Za-z_]\w*)\s*'
+    r'\([^;{}]*\)\s*__asm__\s*\(\s*"(?P<symbol>[A-Za-z_]\w*)"\s*\)\s*;'
+)
 SCHEMA = "rnc-normalize-report-v1"
 
 
@@ -118,6 +122,20 @@ def strip_section_attributes(body: str) -> tuple[str, int]:
 def defined_functions(body: str) -> list[str]:
     """Function names defined in a C body (definitions, not declarations)."""
     return sorted(dict.fromkeys(DEF_RE.findall(body)))
+
+
+def assembler_symbol(body: str, function_name: str) -> str:
+    """Return the emitted symbol for a C function, honoring a GNU asm label."""
+    labels = {
+        match.group("symbol")
+        for match in ASM_LABEL_RE.finditer(body)
+        if match.group("name") == function_name
+    }
+    if len(labels) > 1:
+        raise ValueError(
+            f"conflicting assembler labels for {function_name}: {sorted(labels)}"
+        )
+    return next(iter(labels)) if labels else function_name
 
 
 def expected_symbols(workspace: Path | None, unit: str, text: str) -> list[str]:
@@ -214,11 +232,14 @@ def unit_plan(unit: str, source: Path, text: str, workspace: Path | None,
     plan["defined"] = defined_functions(stripped)
     plan["expected"] = expected_symbols(workspace, unit, text)
     expected_set = set(plan["expected"])
-    plan["unpaired"] = [name for name in plan["defined"] if name not in expected_set]
+    plan["unpaired"] = [
+        name for name in plan["defined"]
+        if assembler_symbol(stripped, name) not in expected_set
+    ]
 
     if reconcile and len(plan["defined"]) == 1 and len(plan["expected"]) == 1:
         old, new = plan["defined"][0], plan["expected"][0]
-        if old != new:
+        if old != new and assembler_symbol(stripped, old) != new:
             stripped = rename_definition(stripped, old, new)
             plan["renamed"] = {"from": old, "to": new}
             plan["defined"] = [new]

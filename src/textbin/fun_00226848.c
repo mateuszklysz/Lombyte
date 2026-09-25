@@ -18,7 +18,7 @@ extern struct M2c_D_001D5BF0 D_001D5BF0;
 extern u8 D_001D5CA0[];
 extern u8 D_001D5D38[];
 extern s32 LookupResourceEntry();
-extern void FUN_002032e0();
+extern void relocate_asset_entry_pointers() __asm__("FUN_002032e0");
 extern s32 func_0020B618();
 extern s32 func_00225D88();
 extern s32 func_00232F20();
@@ -76,7 +76,7 @@ void FUN_00226848(s32 arg0, s32 arg1)
         temp_3_76 = (temp_30_34 * 4) + D_001B3200;
         *((s32 *) (((u8 *) ((*temp_3_76) + off)) + 0x48)) = temp_17_58;
       }
-      FUN_002032e0(*temp_3_76, temp_22_38);
+      relocate_asset_entry_pointers(*temp_3_76, temp_22_38);
     }
     while (var_20_10 < sp0);
   }

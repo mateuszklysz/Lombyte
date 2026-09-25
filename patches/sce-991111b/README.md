@@ -121,7 +121,7 @@ reproducible from this directory. Every other entry names its exact fixture.
     `SEQUENCE`, so these loops were never padded
   - fixture: `textbin/fun_0012eb20` -> 100.0 (with `-mastra-r5900-extern-buffer`
     and a local `s32 args[4]` argument buffer)
-  - wide sweep 282 -> 284 exact (+`core/read_state_field`,
+  - wide sweep 282 -> 284 exact (+`runtime/state/read_state_field`,
     +`textbin/fun_0012f208`; 0 regressions across all 557); joint gate 55/58
     unchanged; full-ELF gate PASS with `fun_0012eb20` promoted
   - published via ASTRA 2026-09-22
@@ -308,7 +308,7 @@ reproducible from this directory. Every other entry names its exact fixture.
     `textbin/fun_0020d3b0`, `textbin/fun_00235840`, `textbin/memcard_init`
     -> 100.0
   - counter-examples kept on the default route (retail has a tail `j`):
-    `core/set_image_buffer_flag`, `sdk/dma_ipu_gs/sce_mpeg_init`
+    `rendering/image/set_image_buffer_flag`, `sdk/dma/sce_mpeg_init`
 - `0016-no-edge-lcm-default.patch` SHA-256: `7a383321db39ad13f82703530909b99e34eb5b04aac8988746eaeda1035f0a15`
   - cc1: `f5c4dd418dc3281eecf00faedd59319e8f504d1c3ae79fcbaa3664f3dff28a1a`
   - fixture: `textbin/fun_001fe898` -> 100.0 with the default route
@@ -330,7 +330,7 @@ reproducible from this directory. Every other entry names its exact fixture.
     `op %lo` at the use, known-small symbols stay `%gp_rel`, and noreorder
     delay slots always use the single `%gp_rel` form
   - fixtures: `textbin/fun_0023b590`, `textbin/fun_0023aba0`,
-    `ee/initialize_streaming_state` (with `-mno-split-addresses`), plus
+    `runtime/dma/initialize_streaming_state` (with `-mno-split-addresses`), plus
     `textbin/fun_001eda60` and `textbin/fun_00233d90` (default route) -> 100.0
   - control parity: 58 controls, 34 -> 36 exact, zero exact regressions
 
@@ -353,7 +353,7 @@ reproducible from this directory. Every other entry names its exact fixture.
     (all genuine retail tail calls); wide 557-source sample exactness 196 -> 231
   - fixtures: `textbin/fun_001f6250`, `textbin/fun_00201f58`,
     `textbin/fun_0020d3b0`, `textbin/fun_00235840`, `textbin/memcard_init` on the
-    default route; `core/set_image_buffer_flag` stays exact with `-mastra-sibcall`
+    default route; `rendering/image/set_image_buffer_flag` stays exact with `-mastra-sibcall`
 
 - `0025-annul-dead-delay-slots.patch` SHA-256: `7ea7e0ecdb20ed4be7777eaada61299adb5e1a3a5563b2146b6b505fb1d59659`
   - cc1 (stack through P25): `4622bb1bd38a03dece9ee49cd2ccc3069c57aff690b32a8fcfdb66668cf00121`

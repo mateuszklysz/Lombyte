@@ -56,10 +56,10 @@ jobs:
           print("| C_EXACT code | %.2f%% (%s / %s bytes) |"
                 % (m["matched_code_percent"], m["matched_code"], m["total_code"]))
           print("| C_FUZZY | %.2f%% |" % m["fuzzy_match_percent"])
-          print("| Units complete | %s / %s |" % (m["complete_units"], m["total_units"]))
+          print("| Groups complete | %s / %s |" % (m["complete_units"], m["total_units"]))
           for c in r["categories"]:
               cm = c["measures"]
-              print("| %s | %.2f%% code, %s / %s units |"
+              print("| %s | %.2f%% code, %s / %s groups |"
                     % (c["name"], cm["matched_code_percent"], cm["complete_units"], cm["total_units"]))
           PY
 

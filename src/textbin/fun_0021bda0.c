@@ -19,7 +19,7 @@ extern struct M2c_D_001516D0 D_001516D0;
 extern struct M2c_D_001A00F0 D_001A00F0;
 extern struct M2c_D_001D5BF0 D_001D5BF0;
 extern u8 D_001D5CBB[];
-extern void FUN_002166e8();
+extern void request_audio_stream_break() __asm__("FUN_002166e8");
 
 s32 FUN_0021bda0(void) {
     if (D_001516D0.unk8 == 0) {
@@ -31,7 +31,7 @@ s32 FUN_0021bda0(void) {
     }
     if (D_001516D0.unk8 != 0) {
         if (D_001D5BF0.unkCB != 0) {
-            FUN_002166e8();
+            request_audio_stream_break();
             D_001D5BF0.unkCB = 0;
             D_001A00F0.unk28C[D_001A00F0.unk2A0] = -1;
             D_001A00F0.unk2A0 = -1;
