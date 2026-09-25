@@ -22,28 +22,19 @@ def report_category_for_owner(owner: str) -> str:
 
 
 def fallback_group(owner: str) -> str:
-    """Return a semantic source bucket, or an address-range bucket if unknown.
+    """Return a semantic source bucket, or ``unclassified`` when unknown.
 
-    Most sources already live under logical names. Unrenamed flat textbin
-    oracles have no reliable module label, so keep them visibly unresolved but
-    divide them into stable 0x2000-byte address ranges instead of one enormous
-    ``unclassified`` bucket.
+    Address ranges made the progress map look more specific without adding
+    useful meaning. Keep owners with no supported subsystem assignment in one
+    honest bucket until symbols or call relationships justify a better group.
     """
     parts = canonical_owner(owner).split("/")
     root = parts[0]
     leaf = parts[-1]
 
-    def address_bucket() -> str:
-        match = re.search(r"(?:fun|sub)_([0-9a-f]{8})$", leaf, re.IGNORECASE)
-        if match:
-            address = int(match.group(1), 16)
-            start = address & ~0x1FFF
-            return f"unclassified/region_{start:08x}"
-        return "unclassified/other"
-
     if root in {"ee", "vu", "asm", "core", "gs", "sys"}:
         # Legacy owners should not reintroduce architecture-based categories.
-        return address_bucket()
+        return "unclassified"
     if root == "textbin":
         if len(parts) == 2:
             known_flat = {
@@ -65,7 +56,7 @@ def fallback_group(owner: str) -> str:
                 "build_tfrag_texture_dma": "rendering/terrain",
                 "vblank_handler": "runtime/interrupts",
             }
-            return known_flat.get(leaf, address_bucket())
+            return known_flat.get(leaf, "unclassified")
         module_parts = parts[1:-1]
         if module_parts and module_parts[0] == "unclassified":
             known = {
@@ -73,8 +64,8 @@ def fallback_group(owner: str) -> str:
                 "init_mem_slots": "runtime/memory",
                 "init_once": "runtime/startup",
             }
-            return known.get(leaf, address_bucket())
-        return "/".join(module_parts) if module_parts else address_bucket()
+            return known.get(leaf, "unclassified")
+        return "/".join(module_parts) if module_parts else "unclassified"
     if root == "sdk":
         if len(parts) == 2:
             return "sdk/library"

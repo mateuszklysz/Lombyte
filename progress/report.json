@@ -9,8 +9,8 @@
     "matched_functions_percent": 62.103354,
     "complete_code": "102636",
     "complete_code_percent": 29.972316,
-    "total_units": 149,
-    "complete_units": 52
+    "total_units": 111,
+    "complete_units": 50
   },
   "units": [
     {
@@ -2674,17 +2674,17 @@
       }
     },
     {
-      "name": "game/unclassified/region_00116000",
+      "name": "game/unclassified",
       "measures": {
-        "fuzzy_match_percent": 87.8333,
-        "total_code": "120",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 1,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
+        "fuzzy_match_percent": 41.413299,
+        "total_code": "114764",
+        "matched_code": "9652",
+        "matched_code_percent": 8.410303,
+        "total_functions": 255,
+        "matched_functions": 55,
+        "matched_functions_percent": 21.568627,
+        "complete_code": "9652",
+        "complete_code_percent": 8.410303,
         "total_units": 1,
         "complete_units": 0
       },
@@ -2697,6 +2697,2546 @@
           "metadata": {
             "virtual_address": "97576",
             "source_path": "src/assembly/textbin/fun_00116da8.c"
+          }
+        },
+        {
+          "name": "FUN_00120a28",
+          "size": "368",
+          "fuzzy_match_percent": 83.0109,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "137640",
+            "source_path": "src/assembly/textbin/fun_00120a28.c"
+          }
+        },
+        {
+          "name": "FUN_00120d40",
+          "size": "368",
+          "fuzzy_match_percent": 82.0435,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "138432",
+            "source_path": "src/assembly/textbin/fun_00120d40.c"
+          }
+        },
+        {
+          "name": "FUN_00121190",
+          "size": "504",
+          "fuzzy_match_percent": 1.1111,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "139536",
+            "source_path": "src/assembly/textbin/fun_00121190.c"
+          }
+        },
+        {
+          "name": "FUN_001280a8",
+          "size": "136",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "167976",
+            "source_path": "src/textbin/fun_001280a8.c"
+          }
+        },
+        {
+          "name": "FUN_001e9488",
+          "size": "464",
+          "fuzzy_match_percent": 74.9741,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "959496",
+            "source_path": "src/assembly/textbin/fun_001e9488.c"
+          }
+        },
+        {
+          "name": "sub_001eb9d0",
+          "size": "304",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "969040",
+            "source_path": "src/assembly/textbin/sub_001eb9d0.c"
+          }
+        },
+        {
+          "name": "sub_001ebb00",
+          "size": "248",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "969344",
+            "source_path": "src/assembly/textbin/sub_001ebb00.c"
+          }
+        },
+        {
+          "name": "sub_001ebbf8",
+          "size": "16",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "969592",
+            "source_path": "src/assembly/textbin/sub_001ebbf8.c"
+          }
+        },
+        {
+          "name": "sub_001ebc08",
+          "size": "128",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "969608",
+            "source_path": "src/assembly/textbin/sub_001ebc08.c"
+          }
+        },
+        {
+          "name": "FUN_001ec530",
+          "size": "476",
+          "fuzzy_match_percent": 44.5378,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "971952",
+            "source_path": "src/assembly/textbin/fun_001ec530.c"
+          }
+        },
+        {
+          "name": "FUN_001ec710",
+          "size": "220",
+          "fuzzy_match_percent": 16.3636,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "972432",
+            "source_path": "src/assembly/textbin/fun_001ec710.c"
+          }
+        },
+        {
+          "name": "FUN_001ec7f0",
+          "size": "116",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "972656",
+            "source_path": "src/assembly/textbin/fun_001ec7f0.c"
+          }
+        },
+        {
+          "name": "FUN_001ec868",
+          "size": "56",
+          "fuzzy_match_percent": 56.4286,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "972776",
+            "source_path": "src/assembly/textbin/fun_001ec868.c"
+          }
+        },
+        {
+          "name": "FUN_001ec8a0",
+          "size": "596",
+          "fuzzy_match_percent": 55.1007,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "972832",
+            "source_path": "src/assembly/textbin/fun_001ec8a0.c"
+          }
+        },
+        {
+          "name": "FUN_001ecaf8",
+          "size": "480",
+          "fuzzy_match_percent": 46.6333,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "973432",
+            "source_path": "src/assembly/textbin/fun_001ecaf8.c"
+          }
+        },
+        {
+          "name": "FUN_001ed2b0",
+          "size": "176",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "975408",
+            "source_path": "src/assembly/textbin/fun_001ed2b0.c"
+          }
+        },
+        {
+          "name": "FUN_001ed360",
+          "size": "268",
+          "fuzzy_match_percent": 62.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "975584",
+            "source_path": "src/assembly/textbin/fun_001ed360.c"
+          }
+        },
+        {
+          "name": "FUN_001ed470",
+          "size": "892",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "975856",
+            "source_path": "src/assembly/textbin/fun_001ed470.c"
+          }
+        },
+        {
+          "name": "FUN_001ed7f0",
+          "size": "332",
+          "fuzzy_match_percent": 39.8795,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "976752",
+            "source_path": "src/assembly/textbin/fun_001ed7f0.c"
+          }
+        },
+        {
+          "name": "FUN_001ed940",
+          "size": "288",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "977088",
+            "source_path": "src/textbin/fun_001ed940.c"
+          }
+        },
+        {
+          "name": "FUN_001eda60",
+          "size": "72",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "977376",
+            "source_path": "src/textbin/fun_001eda60.c"
+          }
+        },
+        {
+          "name": "FUN_001edaa8",
+          "size": "392",
+          "fuzzy_match_percent": 46.5612,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "977448",
+            "source_path": "src/assembly/textbin/fun_001edaa8.c"
+          }
+        },
+        {
+          "name": "FUN_001edc50",
+          "size": "948",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "977872",
+            "source_path": "src/assembly/textbin/fun_001edc50.c"
+          }
+        },
+        {
+          "name": "FUN_001ee008",
+          "size": "796",
+          "fuzzy_match_percent": 28.9648,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "978824",
+            "source_path": "src/assembly/textbin/fun_001ee008.c"
+          }
+        },
+        {
+          "name": "FUN_001ee338",
+          "size": "364",
+          "fuzzy_match_percent": 50.3187,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "979640",
+            "source_path": "src/assembly/textbin/fun_001ee338.c"
+          }
+        },
+        {
+          "name": "FUN_001ee4b0",
+          "size": "396",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "980016",
+            "source_path": "src/assembly/textbin/fun_001ee4b0.c"
+          }
+        },
+        {
+          "name": "FUN_001f0bd0",
+          "size": "116",
+          "fuzzy_match_percent": 15.3448,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "990032",
+            "source_path": "src/assembly/textbin/fun_001f0bd0.c"
+          }
+        },
+        {
+          "name": "FUN_001f0c50",
+          "size": "140",
+          "fuzzy_match_percent": 40.2571,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "990160",
+            "source_path": "src/assembly/textbin/fun_001f0c50.c"
+          }
+        },
+        {
+          "name": "FUN_001f2070",
+          "size": "308",
+          "fuzzy_match_percent": 26.7143,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "995312",
+            "source_path": "src/assembly/textbin/fun_001f2070.c"
+          }
+        },
+        {
+          "name": "FUN_001f21c0",
+          "size": "156",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "995648",
+            "source_path": "src/textbin/fun_001f21c0.c"
+          }
+        },
+        {
+          "name": "FUN_001f2260",
+          "size": "808",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "995808",
+            "source_path": "src/assembly/textbin/fun_001f2260.c"
+          }
+        },
+        {
+          "name": "FUN_001f33b8",
+          "size": "304",
+          "fuzzy_match_percent": 27.8816,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1000248",
+            "source_path": "src/assembly/textbin/fun_001f33b8.c"
+          }
+        },
+        {
+          "name": "FUN_001f4880",
+          "size": "472",
+          "fuzzy_match_percent": 5.2627,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1005568",
+            "source_path": "src/assembly/textbin/fun_001f4880.c"
+          }
+        },
+        {
+          "name": "FUN_001f4be0",
+          "size": "440",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1006432",
+            "source_path": "src/assembly/textbin/fun_001f4be0.c"
+          }
+        },
+        {
+          "name": "FUN_001f4d98",
+          "size": "544",
+          "fuzzy_match_percent": 22.3529,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1006872",
+            "source_path": "src/assembly/textbin/fun_001f4d98.c"
+          }
+        },
+        {
+          "name": "FUN_001f4fb8",
+          "size": "384",
+          "fuzzy_match_percent": 33.5104,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1007416",
+            "source_path": "src/assembly/textbin/fun_001f4fb8.c"
+          }
+        },
+        {
+          "name": "FUN_001f55d8",
+          "size": "560",
+          "fuzzy_match_percent": 35.9786,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1008984",
+            "source_path": "src/assembly/textbin/fun_001f55d8.c"
+          }
+        },
+        {
+          "name": "FUN_001f5808",
+          "size": "680",
+          "fuzzy_match_percent": 45.8,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1009544",
+            "source_path": "src/assembly/textbin/fun_001f5808.c"
+          }
+        },
+        {
+          "name": "FUN_001f5ab0",
+          "size": "1116",
+          "fuzzy_match_percent": 29.3011,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1010224",
+            "source_path": "src/assembly/textbin/fun_001f5ab0.c"
+          }
+        },
+        {
+          "name": "FUN_001f6060",
+          "size": "388",
+          "fuzzy_match_percent": 46.6701,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1011680",
+            "source_path": "src/assembly/textbin/fun_001f6060.c"
+          }
+        },
+        {
+          "name": "FUN_001f76a0",
+          "size": "488",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1017376",
+            "source_path": "src/assembly/textbin/fun_001f76a0.c"
+          }
+        },
+        {
+          "name": "FUN_001f7888",
+          "size": "236",
+          "fuzzy_match_percent": 49.5763,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1017864",
+            "source_path": "src/assembly/textbin/fun_001f7888.c"
+          }
+        },
+        {
+          "name": "FUN_001f7978",
+          "size": "44",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1018104",
+            "source_path": "src/textbin/fun_001f7978.c"
+          }
+        },
+        {
+          "name": "FUN_001f79a8",
+          "size": "136",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1018152",
+            "source_path": "src/textbin/fun_001f79a8.c"
+          }
+        },
+        {
+          "name": "FUN_001f92b0",
+          "size": "920",
+          "fuzzy_match_percent": 37.387,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1024560",
+            "source_path": "src/assembly/textbin/fun_001f92b0.c"
+          }
+        },
+        {
+          "name": "FUN_001f96f8",
+          "size": "40",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1025656",
+            "source_path": "src/assembly/textbin/fun_001f96f8.c"
+          }
+        },
+        {
+          "name": "FUN_001f99c8",
+          "size": "8",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1026376",
+            "source_path": "src/assembly/textbin/fun_001f99c8.c"
+          }
+        },
+        {
+          "name": "FUN_001f99d0",
+          "size": "8",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1026384",
+            "source_path": "src/assembly/textbin/fun_001f99d0.c"
+          }
+        },
+        {
+          "name": "FUN_001f99e8",
+          "size": "16",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1026408",
+            "source_path": "src/assembly/textbin/fun_001f99e8.c"
+          }
+        },
+        {
+          "name": "FUN_001fa2b8",
+          "size": "32",
+          "fuzzy_match_percent": 42.5,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1028664",
+            "source_path": "src/assembly/textbin/fun_001fa2b8.c"
+          }
+        },
+        {
+          "name": "FUN_001fb740",
+          "size": "432",
+          "fuzzy_match_percent": 35.1389,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1033920",
+            "source_path": "src/assembly/textbin/fun_001fb740.c"
+          }
+        },
+        {
+          "name": "FUN_001fb8f0",
+          "size": "448",
+          "fuzzy_match_percent": 28.0536,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1034352",
+            "source_path": "src/assembly/textbin/fun_001fb8f0.c"
+          }
+        },
+        {
+          "name": "FUN_001fd748",
+          "size": "1212",
+          "fuzzy_match_percent": 55.7822,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1042120",
+            "source_path": "src/assembly/textbin/fun_001fd748.c"
+          }
+        },
+        {
+          "name": "FUN_001fe980",
+          "size": "836",
+          "fuzzy_match_percent": 56.4928,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1046784",
+            "source_path": "src/assembly/textbin/fun_001fe980.c"
+          }
+        },
+        {
+          "name": "FUN_001fecc8",
+          "size": "100",
+          "fuzzy_match_percent": 38.56,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1047624",
+            "source_path": "src/assembly/textbin/fun_001fecc8.c"
+          }
+        },
+        {
+          "name": "FUN_001fed30",
+          "size": "256",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1047728",
+            "source_path": "src/assembly/textbin/fun_001fed30.c"
+          }
+        },
+        {
+          "name": "FUN_001fee88",
+          "size": "308",
+          "fuzzy_match_percent": 63.1299,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1048072",
+            "source_path": "src/assembly/textbin/fun_001fee88.c"
+          }
+        },
+        {
+          "name": "FUN_001ff780",
+          "size": "468",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1050368",
+            "source_path": "src/textbin/fun_001ff780.c"
+          }
+        },
+        {
+          "name": "FUN_001ffc30",
+          "size": "488",
+          "fuzzy_match_percent": 31.2459,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1051568",
+            "source_path": "src/assembly/textbin/fun_001ffc30.c"
+          }
+        },
+        {
+          "name": "FUN_001ffe18",
+          "size": "604",
+          "fuzzy_match_percent": 15.0861,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1052056",
+            "source_path": "src/assembly/textbin/fun_001ffe18.c"
+          }
+        },
+        {
+          "name": "FUN_00200080",
+          "size": "472",
+          "fuzzy_match_percent": 24.2712,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1052672",
+            "source_path": "src/assembly/textbin/fun_00200080.c"
+          }
+        },
+        {
+          "name": "FUN_00200258",
+          "size": "528",
+          "fuzzy_match_percent": 22.2955,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1053144",
+            "source_path": "src/assembly/textbin/fun_00200258.c"
+          }
+        },
+        {
+          "name": "FUN_00200468",
+          "size": "404",
+          "fuzzy_match_percent": 14.2772,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1053672",
+            "source_path": "src/assembly/textbin/fun_00200468.c"
+          }
+        },
+        {
+          "name": "FUN_00200600",
+          "size": "852",
+          "fuzzy_match_percent": 24.6526,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1054080",
+            "source_path": "src/assembly/textbin/fun_00200600.c"
+          }
+        },
+        {
+          "name": "FUN_00200958",
+          "size": "440",
+          "fuzzy_match_percent": 20.5,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1054936",
+            "source_path": "src/assembly/textbin/fun_00200958.c"
+          }
+        },
+        {
+          "name": "FUN_00200c80",
+          "size": "388",
+          "fuzzy_match_percent": 28.2371,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1055744",
+            "source_path": "src/assembly/textbin/fun_00200c80.c"
+          }
+        },
+        {
+          "name": "FUN_00200e08",
+          "size": "388",
+          "fuzzy_match_percent": 28.2371,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1056136",
+            "source_path": "src/assembly/textbin/fun_00200e08.c"
+          }
+        },
+        {
+          "name": "FUN_00200f90",
+          "size": "384",
+          "fuzzy_match_percent": 30.125,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1056528",
+            "source_path": "src/assembly/textbin/fun_00200f90.c"
+          }
+        },
+        {
+          "name": "FUN_002012b8",
+          "size": "612",
+          "fuzzy_match_percent": 28.7124,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1057336",
+            "source_path": "src/assembly/textbin/fun_002012b8.c"
+          }
+        },
+        {
+          "name": "FUN_00202270",
+          "size": "1104",
+          "fuzzy_match_percent": 0.5072,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1061360",
+            "source_path": "src/assembly/textbin/fun_00202270.c"
+          }
+        },
+        {
+          "name": "FUN_00202800",
+          "size": "220",
+          "fuzzy_match_percent": 41.7636,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1062784",
+            "source_path": "src/assembly/textbin/fun_00202800.c"
+          }
+        },
+        {
+          "name": "FUN_002028e0",
+          "size": "440",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1063008",
+            "source_path": "src/assembly/textbin/fun_002028e0.c"
+          }
+        },
+        {
+          "name": "FUN_00202d78",
+          "size": "600",
+          "fuzzy_match_percent": 31.0267,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1064184",
+            "source_path": "src/assembly/textbin/fun_00202d78.c"
+          }
+        },
+        {
+          "name": "FUN_00203338",
+          "size": "772",
+          "fuzzy_match_percent": 0.7254,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1065656",
+            "source_path": "src/assembly/textbin/fun_00203338.c"
+          }
+        },
+        {
+          "name": "FUN_00203640",
+          "size": "236",
+          "fuzzy_match_percent": 2.4407,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1066432",
+            "source_path": "src/assembly/textbin/fun_00203640.c"
+          }
+        },
+        {
+          "name": "FUN_00203730",
+          "size": "980",
+          "fuzzy_match_percent": 0.5714,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1066672",
+            "source_path": "src/assembly/textbin/fun_00203730.c"
+          }
+        },
+        {
+          "name": "FUN_00203b08",
+          "size": "1492",
+          "fuzzy_match_percent": 25.9437,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1067656",
+            "source_path": "src/assembly/textbin/fun_00203b08.c"
+          }
+        },
+        {
+          "name": "FUN_002040e0",
+          "size": "720",
+          "fuzzy_match_percent": 26.1056,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1069152",
+            "source_path": "src/assembly/textbin/fun_002040e0.c"
+          }
+        },
+        {
+          "name": "FUN_00204cf0",
+          "size": "320",
+          "fuzzy_match_percent": 43.975,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1072240",
+            "source_path": "src/assembly/textbin/fun_00204cf0.c"
+          }
+        },
+        {
+          "name": "FUN_00204e30",
+          "size": "196",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1072560",
+            "source_path": "src/assembly/textbin/fun_00204e30.c"
+          }
+        },
+        {
+          "name": "FUN_00204ef8",
+          "size": "100",
+          "fuzzy_match_percent": 35.16,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1072760",
+            "source_path": "src/assembly/textbin/fun_00204ef8.c"
+          }
+        },
+        {
+          "name": "FUN_002050e8",
+          "size": "312",
+          "fuzzy_match_percent": 46.8077,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1073256",
+            "source_path": "src/assembly/textbin/fun_002050e8.c"
+          }
+        },
+        {
+          "name": "FUN_00205278",
+          "size": "352",
+          "fuzzy_match_percent": 66.7045,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1073656",
+            "source_path": "src/assembly/textbin/fun_00205278.c"
+          }
+        },
+        {
+          "name": "FUN_00205440",
+          "size": "512",
+          "fuzzy_match_percent": 55.7344,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1074112",
+            "source_path": "src/assembly/textbin/fun_00205440.c"
+          }
+        },
+        {
+          "name": "FUN_00206710",
+          "size": "336",
+          "fuzzy_match_percent": 1.6667,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1078928",
+            "source_path": "src/assembly/textbin/fun_00206710.c"
+          }
+        },
+        {
+          "name": "FUN_00206860",
+          "size": "280",
+          "fuzzy_match_percent": 59.7143,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1079264",
+            "source_path": "src/assembly/textbin/fun_00206860.c"
+          }
+        },
+        {
+          "name": "FUN_00206bd8",
+          "size": "572",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1080152",
+            "source_path": "src/assembly/textbin/fun_00206bd8.c"
+          }
+        },
+        {
+          "name": "FUN_00206e18",
+          "size": "312",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1080728",
+            "source_path": "src/textbin/fun_00206e18.c"
+          }
+        },
+        {
+          "name": "FUN_00206f50",
+          "size": "428",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1081040",
+            "source_path": "src/textbin/fun_00206f50.c"
+          }
+        },
+        {
+          "name": "FUN_00207100",
+          "size": "192",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1081472",
+            "source_path": "src/textbin/fun_00207100.c"
+          }
+        },
+        {
+          "name": "FUN_002071c0",
+          "size": "144",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1081664",
+            "source_path": "src/textbin/fun_002071c0.c"
+          }
+        },
+        {
+          "name": "FUN_00207300",
+          "size": "180",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1081984",
+            "source_path": "src/textbin/fun_00207300.c"
+          }
+        },
+        {
+          "name": "FUN_002073b8",
+          "size": "196",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1082168",
+            "source_path": "src/textbin/fun_002073b8.c"
+          }
+        },
+        {
+          "name": "FUN_00207a18",
+          "size": "156",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1083800",
+            "source_path": "src/assembly/textbin/fun_00207a18.c"
+          }
+        },
+        {
+          "name": "FUN_00207b08",
+          "size": "168",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1084040",
+            "source_path": "src/textbin/fun_00207b08.c"
+          }
+        },
+        {
+          "name": "FUN_00207bb0",
+          "size": "120",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1084208",
+            "source_path": "src/textbin/fun_00207bb0.c"
+          }
+        },
+        {
+          "name": "FUN_00207c28",
+          "size": "560",
+          "fuzzy_match_percent": 45.4071,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1084328",
+            "source_path": "src/assembly/textbin/fun_00207c28.c"
+          }
+        },
+        {
+          "name": "FUN_00207e58",
+          "size": "464",
+          "fuzzy_match_percent": 57.2759,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1084888",
+            "source_path": "src/assembly/textbin/fun_00207e58.c"
+          }
+        },
+        {
+          "name": "FUN_00208030",
+          "size": "592",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1085360",
+            "source_path": "src/assembly/textbin/fun_00208030.c"
+          }
+        },
+        {
+          "name": "FUN_00208280",
+          "size": "380",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1085952",
+            "source_path": "src/assembly/textbin/fun_00208280.c"
+          }
+        },
+        {
+          "name": "FUN_00208408",
+          "size": "248",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1086344",
+            "source_path": "src/assembly/textbin/fun_00208408.c"
+          }
+        },
+        {
+          "name": "FUN_00208508",
+          "size": "616",
+          "fuzzy_match_percent": 22.6039,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1086600",
+            "source_path": "src/assembly/textbin/fun_00208508.c"
+          }
+        },
+        {
+          "name": "FUN_00208770",
+          "size": "156",
+          "fuzzy_match_percent": 58.1282,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1087216",
+            "source_path": "src/assembly/textbin/fun_00208770.c"
+          }
+        },
+        {
+          "name": "FUN_00208840",
+          "size": "100",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1087424",
+            "source_path": "src/assembly/textbin/fun_00208840.c"
+          }
+        },
+        {
+          "name": "FUN_00208f28",
+          "size": "120",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1089192",
+            "source_path": "src/textbin/fun_00208f28.c"
+          }
+        },
+        {
+          "name": "FUN_0020b950",
+          "size": "416",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1099984",
+            "source_path": "src/assembly/textbin/fun_0020b950.c"
+          }
+        },
+        {
+          "name": "FUN_0020baf0",
+          "size": "272",
+          "fuzzy_match_percent": 29.2647,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1100400",
+            "source_path": "src/assembly/textbin/fun_0020baf0.c"
+          }
+        },
+        {
+          "name": "FUN_0020bc00",
+          "size": "300",
+          "fuzzy_match_percent": 66.8667,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1100672",
+            "source_path": "src/assembly/textbin/fun_0020bc00.c"
+          }
+        },
+        {
+          "name": "FUN_0020bf90",
+          "size": "1376",
+          "fuzzy_match_percent": 59.5407,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1101584",
+            "source_path": "src/assembly/textbin/fun_0020bf90.c"
+          }
+        },
+        {
+          "name": "FUN_0020cc60",
+          "size": "72",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1104864",
+            "source_path": "src/textbin/fun_0020cc60.c"
+          }
+        },
+        {
+          "name": "FUN_0020cca8",
+          "size": "160",
+          "fuzzy_match_percent": 52.475,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1104936",
+            "source_path": "src/assembly/textbin/fun_0020cca8.c"
+          }
+        },
+        {
+          "name": "FUN_00212d68",
+          "size": "180",
+          "fuzzy_match_percent": 29.7778,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1129704",
+            "source_path": "src/assembly/textbin/fun_00212d68.c"
+          }
+        },
+        {
+          "name": "FUN_00212e28",
+          "size": "148",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1129896",
+            "source_path": "src/assembly/textbin/fun_00212e28.c"
+          }
+        },
+        {
+          "name": "FUN_00212ed8",
+          "size": "184",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1130072",
+            "source_path": "src/assembly/textbin/fun_00212ed8.c"
+          }
+        },
+        {
+          "name": "FUN_00212f90",
+          "size": "328",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1130256",
+            "source_path": "src/assembly/textbin/fun_00212f90.c"
+          }
+        },
+        {
+          "name": "FUN_002130d8",
+          "size": "340",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1130584",
+            "source_path": "src/assembly/textbin/fun_002130d8.c"
+          }
+        },
+        {
+          "name": "FUN_00213358",
+          "size": "120",
+          "fuzzy_match_percent": 18.5,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1131224",
+            "source_path": "src/assembly/textbin/fun_00213358.c"
+          }
+        },
+        {
+          "name": "FUN_002133d0",
+          "size": "148",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1131344",
+            "source_path": "src/textbin/fun_002133d0.c"
+          }
+        },
+        {
+          "name": "FUN_00213508",
+          "size": "116",
+          "fuzzy_match_percent": 43.5517,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1131656",
+            "source_path": "src/assembly/textbin/fun_00213508.c"
+          }
+        },
+        {
+          "name": "FUN_002135f0",
+          "size": "248",
+          "fuzzy_match_percent": 46.0968,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1131888",
+            "source_path": "src/assembly/textbin/fun_002135f0.c"
+          }
+        },
+        {
+          "name": "FUN_00213700",
+          "size": "544",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1132160",
+            "source_path": "src/assembly/textbin/fun_00213700.c"
+          }
+        },
+        {
+          "name": "FUN_00213ed8",
+          "size": "84",
+          "fuzzy_match_percent": 15.9048,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1134168",
+            "source_path": "src/assembly/textbin/fun_00213ed8.c"
+          }
+        },
+        {
+          "name": "FUN_00214260",
+          "size": "628",
+          "fuzzy_match_percent": 27.6879,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1135072",
+            "source_path": "src/assembly/textbin/fun_00214260.c"
+          }
+        },
+        {
+          "name": "FUN_002144d8",
+          "size": "76",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1135704",
+            "source_path": "src/textbin/fun_002144d8.c"
+          }
+        },
+        {
+          "name": "FUN_00214598",
+          "size": "292",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1135896",
+            "source_path": "src/assembly/textbin/fun_00214598.c"
+          }
+        },
+        {
+          "name": "FUN_00214800",
+          "size": "140",
+          "fuzzy_match_percent": 18.4857,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1136512",
+            "source_path": "src/assembly/textbin/fun_00214800.c"
+          }
+        },
+        {
+          "name": "FUN_00214970",
+          "size": "288",
+          "fuzzy_match_percent": 34.4583,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1136880",
+            "source_path": "src/assembly/textbin/fun_00214970.c"
+          }
+        },
+        {
+          "name": "FUN_00214a98",
+          "size": "296",
+          "fuzzy_match_percent": 52.527,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1137176",
+            "source_path": "src/assembly/textbin/fun_00214a98.c"
+          }
+        },
+        {
+          "name": "FUN_00214e58",
+          "size": "632",
+          "fuzzy_match_percent": 22.6899,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1138136",
+            "source_path": "src/assembly/textbin/fun_00214e58.c"
+          }
+        },
+        {
+          "name": "FUN_00215390",
+          "size": "144",
+          "fuzzy_match_percent": 63.6111,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1139472",
+            "source_path": "src/assembly/textbin/fun_00215390.c"
+          }
+        },
+        {
+          "name": "FUN_00215440",
+          "size": "212",
+          "fuzzy_match_percent": 65.3585,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1139648",
+            "source_path": "src/assembly/textbin/fun_00215440.c"
+          }
+        },
+        {
+          "name": "FUN_00215518",
+          "size": "232",
+          "fuzzy_match_percent": 60.8448,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1139864",
+            "source_path": "src/assembly/textbin/fun_00215518.c"
+          }
+        },
+        {
+          "name": "FUN_00215600",
+          "size": "212",
+          "fuzzy_match_percent": 65.3585,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1140096",
+            "source_path": "src/assembly/textbin/fun_00215600.c"
+          }
+        },
+        {
+          "name": "FUN_002156d8",
+          "size": "248",
+          "fuzzy_match_percent": 77.1774,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1140312",
+            "source_path": "src/assembly/textbin/fun_002156d8.c"
+          }
+        },
+        {
+          "name": "FUN_002157d0",
+          "size": "204",
+          "fuzzy_match_percent": 64.9804,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1140560",
+            "source_path": "src/assembly/textbin/fun_002157d0.c"
+          }
+        },
+        {
+          "name": "FUN_002158a0",
+          "size": "204",
+          "fuzzy_match_percent": 64.9804,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1140768",
+            "source_path": "src/assembly/textbin/fun_002158a0.c"
+          }
+        },
+        {
+          "name": "FUN_00215970",
+          "size": "412",
+          "fuzzy_match_percent": 50.9126,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1140976",
+            "source_path": "src/assembly/textbin/fun_00215970.c"
+          }
+        },
+        {
+          "name": "FUN_00216c48",
+          "size": "984",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1145800",
+            "source_path": "src/assembly/textbin/fun_00216c48.c"
+          }
+        },
+        {
+          "name": "FUN_00217048",
+          "size": "128",
+          "fuzzy_match_percent": 46.9062,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1146824",
+            "source_path": "src/assembly/textbin/fun_00217048.c"
+          }
+        },
+        {
+          "name": "FUN_00218888",
+          "size": "468",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1153032",
+            "source_path": "src/assembly/textbin/fun_00218888.c"
+          }
+        },
+        {
+          "name": "FUN_00218f98",
+          "size": "544",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1154840",
+            "source_path": "src/assembly/textbin/fun_00218f98.c"
+          }
+        },
+        {
+          "name": "FUN_002191b8",
+          "size": "240",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1155384",
+            "source_path": "src/assembly/textbin/fun_002191b8.c"
+          }
+        },
+        {
+          "name": "FUN_002192a8",
+          "size": "1036",
+          "fuzzy_match_percent": 0.5405,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1155624",
+            "source_path": "src/assembly/textbin/fun_002192a8.c"
+          }
+        },
+        {
+          "name": "FUN_002196b8",
+          "size": "1732",
+          "fuzzy_match_percent": 60.3418,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1156664",
+            "source_path": "src/assembly/textbin/fun_002196b8.c"
+          }
+        },
+        {
+          "name": "FUN_00219e10",
+          "size": "396",
+          "fuzzy_match_percent": 58.697,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1158544",
+            "source_path": "src/assembly/textbin/fun_00219e10.c"
+          }
+        },
+        {
+          "name": "FUN_00219fa0",
+          "size": "524",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1158944",
+            "source_path": "src/textbin/fun_00219fa0.c"
+          }
+        },
+        {
+          "name": "FUN_0021a1e0",
+          "size": "292",
+          "fuzzy_match_percent": 18.8082,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1159520",
+            "source_path": "src/assembly/textbin/fun_0021a1e0.c"
+          }
+        },
+        {
+          "name": "FUN_0021a328",
+          "size": "2252",
+          "fuzzy_match_percent": 55.1048,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1159848",
+            "source_path": "src/assembly/textbin/fun_0021a328.c"
+          }
+        },
+        {
+          "name": "FUN_0021abf8",
+          "size": "1488",
+          "fuzzy_match_percent": 59.3978,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1162104",
+            "source_path": "src/assembly/textbin/fun_0021abf8.c"
+          }
+        },
+        {
+          "name": "FUN_0021b1c8",
+          "size": "1292",
+          "fuzzy_match_percent": 66.2198,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1163592",
+            "source_path": "src/assembly/textbin/fun_0021b1c8.c"
+          }
+        },
+        {
+          "name": "FUN_0021b6d8",
+          "size": "208",
+          "fuzzy_match_percent": 39.1346,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1164888",
+            "source_path": "src/assembly/textbin/fun_0021b6d8.c"
+          }
+        },
+        {
+          "name": "FUN_0021b858",
+          "size": "1340",
+          "fuzzy_match_percent": 81.6448,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1165272",
+            "source_path": "src/assembly/textbin/fun_0021b858.c"
+          }
+        },
+        {
+          "name": "FUN_0021c420",
+          "size": "156",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1168288",
+            "source_path": "src/assembly/textbin/fun_0021c420.c"
+          }
+        },
+        {
+          "name": "FUN_0021c4c0",
+          "size": "736",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1168448",
+            "source_path": "src/assembly/textbin/fun_0021c4c0.c"
+          }
+        },
+        {
+          "name": "FUN_0021c7a0",
+          "size": "552",
+          "fuzzy_match_percent": 67.413,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1169184",
+            "source_path": "src/assembly/textbin/fun_0021c7a0.c"
+          }
+        },
+        {
+          "name": "FUN_0021cae0",
+          "size": "32",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1170016",
+            "source_path": "src/textbin/fun_0021cae0.c"
+          }
+        },
+        {
+          "name": "FUN_0021d1f8",
+          "size": "204",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1171832",
+            "source_path": "src/textbin/fun_0021d1f8.c"
+          }
+        },
+        {
+          "name": "FUN_0021d2c8",
+          "size": "108",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1172040",
+            "source_path": "src/textbin/fun_0021d2c8.c"
+          }
+        },
+        {
+          "name": "FUN_0021d338",
+          "size": "364",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1172152",
+            "source_path": "src/assembly/textbin/fun_0021d338.c"
+          }
+        },
+        {
+          "name": "FUN_0021d4a8",
+          "size": "1184",
+          "fuzzy_match_percent": 51.1419,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1172520",
+            "source_path": "src/assembly/textbin/fun_0021d4a8.c"
+          }
+        },
+        {
+          "name": "FUN_0021d948",
+          "size": "1156",
+          "fuzzy_match_percent": 0.4844,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1173704",
+            "source_path": "src/assembly/textbin/fun_0021d948.c"
+          }
+        },
+        {
+          "name": "FUN_0021ddf8",
+          "size": "304",
+          "fuzzy_match_percent": 60.0132,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1174904",
+            "source_path": "src/assembly/textbin/fun_0021ddf8.c"
+          }
+        },
+        {
+          "name": "FUN_0021df58",
+          "size": "60",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1175256",
+            "source_path": "src/textbin/fun_0021df58.c"
+          }
+        },
+        {
+          "name": "FUN_0021df98",
+          "size": "372",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1175320",
+            "source_path": "src/assembly/textbin/fun_0021df98.c"
+          }
+        },
+        {
+          "name": "FUN_0021e110",
+          "size": "228",
+          "fuzzy_match_percent": 70.6842,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1175696",
+            "source_path": "src/assembly/textbin/fun_0021e110.c"
+          }
+        },
+        {
+          "name": "FUN_0021e1f8",
+          "size": "56",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1175928",
+            "source_path": "src/textbin/fun_0021e1f8.c"
+          }
+        },
+        {
+          "name": "FUN_0021e230",
+          "size": "984",
+          "fuzzy_match_percent": 32.7683,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1175984",
+            "source_path": "src/assembly/textbin/fun_0021e230.c"
+          }
+        },
+        {
+          "name": "FUN_0021e608",
+          "size": "140",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1176968",
+            "source_path": "src/textbin/fun_0021e608.c"
+          }
+        },
+        {
+          "name": "FUN_0021f990",
+          "size": "728",
+          "fuzzy_match_percent": 78.2198,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1181968",
+            "source_path": "src/assembly/textbin/fun_0021f990.c"
+          }
+        },
+        {
+          "name": "FUN_0021fce0",
+          "size": "148",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1182816",
+            "source_path": "src/textbin/fun_0021fce0.c"
+          }
+        },
+        {
+          "name": "FUN_0021fd78",
+          "size": "76",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1182968",
+            "source_path": "src/textbin/fun_0021fd78.c"
+          }
+        },
+        {
+          "name": "FUN_0021fdc8",
+          "size": "1404",
+          "fuzzy_match_percent": 54.6011,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1183048",
+            "source_path": "src/assembly/textbin/fun_0021fdc8.c"
+          }
+        },
+        {
+          "name": "FUN_00220850",
+          "size": "720",
+          "fuzzy_match_percent": 65.1778,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1185744",
+            "source_path": "src/assembly/textbin/fun_00220850.c"
+          }
+        },
+        {
+          "name": "FUN_00220b20",
+          "size": "772",
+          "fuzzy_match_percent": 39.6995,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1186464",
+            "source_path": "src/assembly/textbin/fun_00220b20.c"
+          }
+        },
+        {
+          "name": "FUN_00220e28",
+          "size": "516",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1187240",
+            "source_path": "src/assembly/textbin/fun_00220e28.c"
+          }
+        },
+        {
+          "name": "FUN_002212b8",
+          "size": "424",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1188408",
+            "source_path": "src/textbin/fun_002212b8.c"
+          }
+        },
+        {
+          "name": "FUN_00221460",
+          "size": "404",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1188832",
+            "source_path": "src/assembly/textbin/fun_00221460.c"
+          }
+        },
+        {
+          "name": "FUN_002216c0",
+          "size": "308",
+          "fuzzy_match_percent": 44.9221,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1189440",
+            "source_path": "src/assembly/textbin/fun_002216c0.c"
+          }
+        },
+        {
+          "name": "FUN_00221930",
+          "size": "56",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1190064",
+            "source_path": "src/textbin/fun_00221930.c"
+          }
+        },
+        {
+          "name": "FUN_00221968",
+          "size": "220",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1190120",
+            "source_path": "src/textbin/fun_00221968.c"
+          }
+        },
+        {
+          "name": "FUN_00221a48",
+          "size": "60",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1190344",
+            "source_path": "src/textbin/fun_00221a48.c"
+          }
+        },
+        {
+          "name": "FUN_00221a88",
+          "size": "48",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1190408",
+            "source_path": "src/textbin/fun_00221a88.c"
+          }
+        },
+        {
+          "name": "FUN_00221b50",
+          "size": "468",
+          "fuzzy_match_percent": 34.3162,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1190608",
+            "source_path": "src/assembly/textbin/fun_00221b50.c"
+          }
+        },
+        {
+          "name": "FUN_00221d68",
+          "size": "228",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1191144",
+            "source_path": "src/textbin/fun_00221d68.c"
+          }
+        },
+        {
+          "name": "FUN_00221e50",
+          "size": "264",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1191376",
+            "source_path": "src/textbin/fun_00221e50.c"
+          }
+        },
+        {
+          "name": "FUN_00221f58",
+          "size": "408",
+          "fuzzy_match_percent": 50.8725,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1191640",
+            "source_path": "src/assembly/textbin/fun_00221f58.c"
+          }
+        },
+        {
+          "name": "FUN_002223f0",
+          "size": "888",
+          "fuzzy_match_percent": 48.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1192816",
+            "source_path": "src/assembly/textbin/fun_002223f0.c"
+          }
+        },
+        {
+          "name": "FUN_00222768",
+          "size": "480",
+          "fuzzy_match_percent": 48.4083,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1193704",
+            "source_path": "src/assembly/textbin/fun_00222768.c"
+          }
+        },
+        {
+          "name": "FUN_00222d98",
+          "size": "380",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1195288",
+            "source_path": "src/textbin/fun_00222d98.c"
+          }
+        },
+        {
+          "name": "FUN_00222f18",
+          "size": "60",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1195672",
+            "source_path": "src/textbin/fun_00222f18.c"
+          }
+        },
+        {
+          "name": "FUN_00222f58",
+          "size": "48",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1195736",
+            "source_path": "src/textbin/fun_00222f58.c"
+          }
+        },
+        {
+          "name": "FUN_002239e0",
+          "size": "1096",
+          "fuzzy_match_percent": 66.0839,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1198432",
+            "source_path": "src/assembly/textbin/fun_002239e0.c"
+          }
+        },
+        {
+          "name": "FUN_00223e28",
+          "size": "668",
+          "fuzzy_match_percent": 60.4251,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1199528",
+            "source_path": "src/assembly/textbin/fun_00223e28.c"
+          }
+        },
+        {
+          "name": "FUN_002240c8",
+          "size": "492",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1200200",
+            "source_path": "src/assembly/textbin/fun_002240c8.c"
+          }
+        },
+        {
+          "name": "FUN_002242b8",
+          "size": "176",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1200696",
+            "source_path": "src/textbin/fun_002242b8.c"
+          }
+        },
+        {
+          "name": "FUN_00224b70",
+          "size": "436",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1202928",
+            "source_path": "src/assembly/textbin/fun_00224b70.c"
+          }
+        },
+        {
+          "name": "FUN_00224d28",
+          "size": "236",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1203368",
+            "source_path": "src/assembly/textbin/fun_00224d28.c"
+          }
+        },
+        {
+          "name": "FUN_00224e18",
+          "size": "424",
+          "fuzzy_match_percent": 62.7453,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1203608",
+            "source_path": "src/assembly/textbin/fun_00224e18.c"
+          }
+        },
+        {
+          "name": "FUN_00224fc0",
+          "size": "304",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1204032",
+            "source_path": "src/assembly/textbin/fun_00224fc0.c"
+          }
+        },
+        {
+          "name": "FUN_002250f0",
+          "size": "144",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1204336",
+            "source_path": "src/assembly/textbin/fun_002250f0.c"
+          }
+        },
+        {
+          "name": "FUN_00225180",
+          "size": "784",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1204480",
+            "source_path": "src/assembly/textbin/fun_00225180.c"
+          }
+        },
+        {
+          "name": "FUN_00225490",
+          "size": "160",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1205264",
+            "source_path": "src/textbin/fun_00225490.c"
+          }
+        },
+        {
+          "name": "FUN_00225530",
+          "size": "68",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1205424",
+            "source_path": "src/textbin/fun_00225530.c"
+          }
+        },
+        {
+          "name": "FUN_00225660",
+          "size": "132",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1205728",
+            "source_path": "src/textbin/fun_00225660.c"
+          }
+        },
+        {
+          "name": "FUN_002256e8",
+          "size": "892",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1205864",
+            "source_path": "src/assembly/textbin/fun_002256e8.c"
+          }
+        },
+        {
+          "name": "FUN_002265d8",
+          "size": "148",
+          "fuzzy_match_percent": 51.3514,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1209688",
+            "source_path": "src/assembly/textbin/fun_002265d8.c"
+          }
+        },
+        {
+          "name": "FUN_00226670",
+          "size": "164",
+          "fuzzy_match_percent": 9.2195,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1209840",
+            "source_path": "src/assembly/textbin/fun_00226670.c"
+          }
+        },
+        {
+          "name": "FUN_00226718",
+          "size": "92",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1210008",
+            "source_path": "src/textbin/fun_00226718.c"
+          }
+        },
+        {
+          "name": "FUN_002267b8",
+          "size": "144",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1210168",
+            "source_path": "src/textbin/fun_002267b8.c"
+          }
+        },
+        {
+          "name": "FUN_00226848",
+          "size": "376",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1210312",
+            "source_path": "src/textbin/fun_00226848.c"
+          }
+        },
+        {
+          "name": "FUN_002269c0",
+          "size": "176",
+          "fuzzy_match_percent": 51.5455,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1210688",
+            "source_path": "src/assembly/textbin/fun_002269c0.c"
+          }
+        },
+        {
+          "name": "FUN_00226a70",
+          "size": "152",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1210864",
+            "source_path": "src/textbin/fun_00226a70.c"
+          }
+        },
+        {
+          "name": "FUN_00226b08",
+          "size": "764",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1211016",
+            "source_path": "src/assembly/textbin/fun_00226b08.c"
+          }
+        },
+        {
+          "name": "FUN_00226e08",
+          "size": "80",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1211784",
+            "source_path": "src/textbin/fun_00226e08.c"
+          }
+        },
+        {
+          "name": "FUN_00226e58",
+          "size": "236",
+          "fuzzy_match_percent": 43.4237,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1211864",
+            "source_path": "src/assembly/textbin/fun_00226e58.c"
+          }
+        },
+        {
+          "name": "FUN_00226fb8",
+          "size": "304",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1212216",
+            "source_path": "src/assembly/textbin/fun_00226fb8.c"
+          }
+        },
+        {
+          "name": "FUN_00227140",
+          "size": "144",
+          "fuzzy_match_percent": 27.3056,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1212608",
+            "source_path": "src/assembly/textbin/fun_00227140.c"
+          }
+        },
+        {
+          "name": "FUN_002271d0",
+          "size": "424",
+          "fuzzy_match_percent": 35.5094,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1212752",
+            "source_path": "src/assembly/textbin/fun_002271d0.c"
+          }
+        },
+        {
+          "name": "FUN_00227378",
+          "size": "460",
+          "fuzzy_match_percent": 19.0348,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1213176",
+            "source_path": "src/assembly/textbin/fun_00227378.c"
+          }
+        },
+        {
+          "name": "FUN_00227548",
+          "size": "500",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1213640",
+            "source_path": "src/assembly/textbin/fun_00227548.c"
+          }
+        },
+        {
+          "name": "FUN_0022c5a8",
+          "size": "172",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1234216",
+            "source_path": "src/textbin/fun_0022c5a8.c"
+          }
+        },
+        {
+          "name": "FUN_0022c658",
+          "size": "156",
+          "fuzzy_match_percent": 55.718,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1234392",
+            "source_path": "src/assembly/textbin/fun_0022c658.c"
+          }
+        },
+        {
+          "name": "FUN_0022c6f8",
+          "size": "236",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1234552",
+            "source_path": "src/textbin/fun_0022c6f8.c"
+          }
+        },
+        {
+          "name": "FUN_0022c7e8",
+          "size": "68",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1234792",
+            "source_path": "src/textbin/fun_0022c7e8.c"
+          }
+        },
+        {
+          "name": "FUN_0022c830",
+          "size": "160",
+          "fuzzy_match_percent": 18.85,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1234864",
+            "source_path": "src/assembly/textbin/fun_0022c830.c"
+          }
+        },
+        {
+          "name": "FUN_0022c8d0",
+          "size": "380",
+          "fuzzy_match_percent": 66.4842,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1235024",
+            "source_path": "src/assembly/textbin/fun_0022c8d0.c"
+          }
+        },
+        {
+          "name": "FUN_0022da68",
+          "size": "164",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1239528",
+            "source_path": "src/textbin/fun_0022da68.c"
+          }
+        },
+        {
+          "name": "FUN_0022df40",
+          "size": "556",
+          "fuzzy_match_percent": 55.7914,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1240768",
+            "source_path": "src/assembly/textbin/fun_0022df40.c"
+          }
+        },
+        {
+          "name": "FUN_0022e420",
+          "size": "1188",
+          "fuzzy_match_percent": 49.8923,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1242016",
+            "source_path": "src/assembly/textbin/fun_0022e420.c"
+          }
+        },
+        {
+          "name": "FUN_0022e8c8",
+          "size": "316",
+          "fuzzy_match_percent": 34.9494,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1243208",
+            "source_path": "src/assembly/textbin/fun_0022e8c8.c"
+          }
+        },
+        {
+          "name": "FUN_0022ea08",
+          "size": "160",
+          "fuzzy_match_percent": 52.225,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1243528",
+            "source_path": "src/assembly/textbin/fun_0022ea08.c"
+          }
+        },
+        {
+          "name": "FUN_0022eaa8",
+          "size": "2012",
+          "fuzzy_match_percent": 51.9125,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1243688",
+            "source_path": "src/assembly/textbin/fun_0022eaa8.c"
+          }
+        },
+        {
+          "name": "FUN_0022f288",
+          "size": "808",
+          "fuzzy_match_percent": 62.1832,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1245704",
+            "source_path": "src/assembly/textbin/fun_0022f288.c"
+          }
+        },
+        {
+          "name": "FUN_0022f5b0",
+          "size": "456",
+          "fuzzy_match_percent": 32.6842,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1246512",
+            "source_path": "src/assembly/textbin/fun_0022f5b0.c"
+          }
+        },
+        {
+          "name": "FUN_0022f778",
+          "size": "5996",
+          "fuzzy_match_percent": 75.2535,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1246968",
+            "source_path": "src/assembly/textbin/fun_0022f778.c"
+          }
+        },
+        {
+          "name": "FUN_002327a0",
+          "size": "1344",
+          "fuzzy_match_percent": 33.0566,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1259296",
+            "source_path": "src/assembly/textbin/fun_002327a0.c"
+          }
+        },
+        {
+          "name": "FUN_00232d00",
+          "size": "316",
+          "fuzzy_match_percent": 2.3038,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1260672",
+            "source_path": "src/assembly/textbin/fun_00232d00.c"
+          }
+        },
+        {
+          "name": "FUN_00232f20",
+          "size": "280",
+          "fuzzy_match_percent": 51.9714,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1261216",
+            "source_path": "src/assembly/textbin/fun_00232f20.c"
+          }
+        },
+        {
+          "name": "FUN_00237a78",
+          "size": "516",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1280504",
+            "source_path": "src/assembly/textbin/fun_00237a78.c"
+          }
+        },
+        {
+          "name": "FUN_00237c80",
+          "size": "484",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1281024",
+            "source_path": "src/assembly/textbin/fun_00237c80.c"
+          }
+        },
+        {
+          "name": "FUN_00237ed0",
+          "size": "1060",
+          "fuzzy_match_percent": 66.3283,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1281616",
+            "source_path": "src/assembly/textbin/fun_00237ed0.c"
+          }
+        },
+        {
+          "name": "FUN_00238310",
+          "size": "528",
+          "fuzzy_match_percent": 60.6818,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1282704",
+            "source_path": "src/assembly/textbin/fun_00238310.c"
+          }
+        },
+        {
+          "name": "FUN_00238630",
+          "size": "88",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1283504",
+            "source_path": "src/textbin/fun_00238630.c"
+          }
+        },
+        {
+          "name": "FUN_002386e8",
+          "size": "756",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1283688",
+            "source_path": "src/textbin/fun_002386e8.c"
+          }
+        },
+        {
+          "name": "FUN_002389e0",
+          "size": "1316",
+          "fuzzy_match_percent": 65.9605,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1284448",
+            "source_path": "src/assembly/textbin/fun_002389e0.c"
+          }
+        },
+        {
+          "name": "FUN_00238f08",
+          "size": "596",
+          "fuzzy_match_percent": 0.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1285768",
+            "source_path": "src/assembly/textbin/fun_00238f08.c"
+          }
+        },
+        {
+          "name": "FUN_00239160",
+          "size": "444",
+          "fuzzy_match_percent": 49.2793,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1286368",
+            "source_path": "src/assembly/textbin/fun_00239160.c"
+          }
+        },
+        {
+          "name": "FUN_00239328",
+          "size": "868",
+          "fuzzy_match_percent": 47.4931,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1286824",
+            "source_path": "src/assembly/textbin/fun_00239328.c"
+          }
+        },
+        {
+          "name": "FUN_00239690",
+          "size": "188",
+          "fuzzy_match_percent": 46.0638,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1287696",
+            "source_path": "src/assembly/textbin/fun_00239690.c"
+          }
+        },
+        {
+          "name": "FUN_00239750",
+          "size": "44",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1287888",
+            "source_path": "src/textbin/fun_00239750.c"
+          }
+        },
+        {
+          "name": "FUN_00239780",
+          "size": "1484",
+          "fuzzy_match_percent": 31.2803,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1287936",
+            "source_path": "src/assembly/textbin/fun_00239780.c"
+          }
+        },
+        {
+          "name": "FUN_00239d60",
+          "size": "452",
+          "fuzzy_match_percent": 35.6814,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1289440",
+            "source_path": "src/assembly/textbin/fun_00239d60.c"
+          }
+        },
+        {
+          "name": "FUN_00239f58",
+          "size": "756",
+          "fuzzy_match_percent": 36.1481,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1289944",
+            "source_path": "src/assembly/textbin/fun_00239f58.c"
+          }
+        },
+        {
+          "name": "FUN_0023ba60",
+          "size": "152",
+          "fuzzy_match_percent": 100.0,
+          "address": "0",
+          "metadata": {
+            "virtual_address": "1296864",
+            "source_path": "src/textbin/fun_0023ba60.c"
           }
         }
       ],
@@ -4078,59 +6618,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00120000",
-      "measures": {
-        "fuzzy_match_percent": 49.435495,
-        "total_code": "1240",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 3,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00120a28",
-          "size": "368",
-          "fuzzy_match_percent": 83.0109,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "137640",
-            "source_path": "src/assembly/textbin/fun_00120a28.c"
-          }
-        },
-        {
-          "name": "FUN_00120d40",
-          "size": "368",
-          "fuzzy_match_percent": 82.0435,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "138432",
-            "source_path": "src/assembly/textbin/fun_00120d40.c"
-          }
-        },
-        {
-          "name": "FUN_00121190",
-          "size": "504",
-          "fuzzy_match_percent": 1.1111,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "139536",
-            "source_path": "src/assembly/textbin/fun_00121190.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "sdk/dma",
       "measures": {
         "fuzzy_match_percent": 64.888339,
@@ -4803,39 +7290,6 @@
           "metadata": {
             "virtual_address": "1097976",
             "source_path": "src/assembly/textbin/storage/memory_card/memcard_save_data.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00128000",
-      "measures": {
-        "fuzzy_match_percent": 100.0,
-        "total_code": "136",
-        "matched_code": "136",
-        "matched_code_percent": 100.0,
-        "total_functions": 1,
-        "matched_functions": 1,
-        "matched_functions_percent": 100.0,
-        "complete_code": "136",
-        "complete_code_percent": 100.0,
-        "total_units": 1,
-        "complete_units": 1
-      },
-      "functions": [
-        {
-          "name": "FUN_001280a8",
-          "size": "136",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "167976",
-            "source_path": "src/textbin/fun_001280a8.c"
           }
         }
       ],
@@ -6574,39 +9028,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_001e8000",
-      "measures": {
-        "fuzzy_match_percent": 74.9741,
-        "total_code": "464",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 1,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001e9488",
-          "size": "464",
-          "fuzzy_match_percent": 74.9741,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "959496",
-            "source_path": "src/assembly/textbin/fun_001e9488.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/world",
       "measures": {
         "fuzzy_match_percent": 27.846602,
@@ -6753,69 +9174,6 @@
           "metadata": {
             "virtual_address": "1137968",
             "source_path": "src/textbin/gameplay/camera/build_spherical_offset.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_001ea000",
-      "measures": {
-        "fuzzy_match_percent": 0.0,
-        "total_code": "696",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 4,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "sub_001eb9d0",
-          "size": "304",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "969040",
-            "source_path": "src/assembly/textbin/sub_001eb9d0.c"
-          }
-        },
-        {
-          "name": "sub_001ebb00",
-          "size": "248",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "969344",
-            "source_path": "src/assembly/textbin/sub_001ebb00.c"
-          }
-        },
-        {
-          "name": "sub_001ebbf8",
-          "size": "16",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "969592",
-            "source_path": "src/assembly/textbin/sub_001ebbf8.c"
-          }
-        },
-        {
-          "name": "sub_001ebc08",
-          "size": "128",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "969608",
-            "source_path": "src/assembly/textbin/sub_001ebc08.c"
           }
         }
       ],
@@ -7125,169 +9483,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_001ec000",
-      "measures": {
-        "fuzzy_match_percent": 31.493218,
-        "total_code": "5312",
-        "matched_code": "360",
-        "matched_code_percent": 6.777108,
-        "total_functions": 14,
-        "matched_functions": 2,
-        "matched_functions_percent": 14.285714,
-        "complete_code": "360",
-        "complete_code_percent": 6.777108,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001ec530",
-          "size": "476",
-          "fuzzy_match_percent": 44.5378,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "971952",
-            "source_path": "src/assembly/textbin/fun_001ec530.c"
-          }
-        },
-        {
-          "name": "FUN_001ec710",
-          "size": "220",
-          "fuzzy_match_percent": 16.3636,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "972432",
-            "source_path": "src/assembly/textbin/fun_001ec710.c"
-          }
-        },
-        {
-          "name": "FUN_001ec7f0",
-          "size": "116",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "972656",
-            "source_path": "src/assembly/textbin/fun_001ec7f0.c"
-          }
-        },
-        {
-          "name": "FUN_001ec868",
-          "size": "56",
-          "fuzzy_match_percent": 56.4286,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "972776",
-            "source_path": "src/assembly/textbin/fun_001ec868.c"
-          }
-        },
-        {
-          "name": "FUN_001ec8a0",
-          "size": "596",
-          "fuzzy_match_percent": 55.1007,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "972832",
-            "source_path": "src/assembly/textbin/fun_001ec8a0.c"
-          }
-        },
-        {
-          "name": "FUN_001ecaf8",
-          "size": "480",
-          "fuzzy_match_percent": 46.6333,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "973432",
-            "source_path": "src/assembly/textbin/fun_001ecaf8.c"
-          }
-        },
-        {
-          "name": "FUN_001ed2b0",
-          "size": "176",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "975408",
-            "source_path": "src/assembly/textbin/fun_001ed2b0.c"
-          }
-        },
-        {
-          "name": "FUN_001ed360",
-          "size": "268",
-          "fuzzy_match_percent": 62.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "975584",
-            "source_path": "src/assembly/textbin/fun_001ed360.c"
-          }
-        },
-        {
-          "name": "FUN_001ed470",
-          "size": "892",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "975856",
-            "source_path": "src/assembly/textbin/fun_001ed470.c"
-          }
-        },
-        {
-          "name": "FUN_001ed7f0",
-          "size": "332",
-          "fuzzy_match_percent": 39.8795,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "976752",
-            "source_path": "src/assembly/textbin/fun_001ed7f0.c"
-          }
-        },
-        {
-          "name": "FUN_001ed940",
-          "size": "288",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "977088",
-            "source_path": "src/textbin/fun_001ed940.c"
-          }
-        },
-        {
-          "name": "FUN_001eda60",
-          "size": "72",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "977376",
-            "source_path": "src/textbin/fun_001eda60.c"
-          }
-        },
-        {
-          "name": "FUN_001edaa8",
-          "size": "392",
-          "fuzzy_match_percent": 46.5612,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "977448",
-            "source_path": "src/assembly/textbin/fun_001edaa8.c"
-          }
-        },
-        {
-          "name": "FUN_001edc50",
-          "size": "948",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "977872",
-            "source_path": "src/assembly/textbin/fun_001edc50.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/storage",
       "measures": {
         "fuzzy_match_percent": 0.0,
@@ -7311,165 +9506,6 @@
           "metadata": {
             "virtual_address": "973912",
             "source_path": "src/assembly/textbin/fun_001eccd8.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_001ee000",
-      "measures": {
-        "fuzzy_match_percent": 26.588681,
-        "total_code": "1556",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 3,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001ee008",
-          "size": "796",
-          "fuzzy_match_percent": 28.9648,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "978824",
-            "source_path": "src/assembly/textbin/fun_001ee008.c"
-          }
-        },
-        {
-          "name": "FUN_001ee338",
-          "size": "364",
-          "fuzzy_match_percent": 50.3187,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "979640",
-            "source_path": "src/assembly/textbin/fun_001ee338.c"
-          }
-        },
-        {
-          "name": "FUN_001ee4b0",
-          "size": "396",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "980016",
-            "source_path": "src/assembly/textbin/fun_001ee4b0.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_001f0000",
-      "measures": {
-        "fuzzy_match_percent": 28.968714,
-        "total_code": "256",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 2,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001f0bd0",
-          "size": "116",
-          "fuzzy_match_percent": 15.3448,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "990032",
-            "source_path": "src/assembly/textbin/fun_001f0bd0.c"
-          }
-        },
-        {
-          "name": "FUN_001f0c50",
-          "size": "140",
-          "fuzzy_match_percent": 40.2571,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "990160",
-            "source_path": "src/assembly/textbin/fun_001f0c50.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_001f2000",
-      "measures": {
-        "fuzzy_match_percent": 20.497469,
-        "total_code": "1576",
-        "matched_code": "156",
-        "matched_code_percent": 9.898477,
-        "total_functions": 4,
-        "matched_functions": 1,
-        "matched_functions_percent": 25.0,
-        "complete_code": "156",
-        "complete_code_percent": 9.898477,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001f2070",
-          "size": "308",
-          "fuzzy_match_percent": 26.7143,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "995312",
-            "source_path": "src/assembly/textbin/fun_001f2070.c"
-          }
-        },
-        {
-          "name": "FUN_001f21c0",
-          "size": "156",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "995648",
-            "source_path": "src/textbin/fun_001f21c0.c"
-          }
-        },
-        {
-          "name": "FUN_001f2260",
-          "size": "808",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "995808",
-            "source_path": "src/assembly/textbin/fun_001f2260.c"
-          }
-        },
-        {
-          "name": "FUN_001f33b8",
-          "size": "304",
-          "fuzzy_match_percent": 27.8816,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1000248",
-            "source_path": "src/assembly/textbin/fun_001f33b8.c"
           }
         }
       ],
@@ -8221,99 +10257,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_001f4000",
-      "measures": {
-        "fuzzy_match_percent": 26.573882,
-        "total_code": "4196",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 7,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001f4880",
-          "size": "472",
-          "fuzzy_match_percent": 5.2627,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1005568",
-            "source_path": "src/assembly/textbin/fun_001f4880.c"
-          }
-        },
-        {
-          "name": "FUN_001f4be0",
-          "size": "440",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1006432",
-            "source_path": "src/assembly/textbin/fun_001f4be0.c"
-          }
-        },
-        {
-          "name": "FUN_001f4d98",
-          "size": "544",
-          "fuzzy_match_percent": 22.3529,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1006872",
-            "source_path": "src/assembly/textbin/fun_001f4d98.c"
-          }
-        },
-        {
-          "name": "FUN_001f4fb8",
-          "size": "384",
-          "fuzzy_match_percent": 33.5104,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1007416",
-            "source_path": "src/assembly/textbin/fun_001f4fb8.c"
-          }
-        },
-        {
-          "name": "FUN_001f55d8",
-          "size": "560",
-          "fuzzy_match_percent": 35.9786,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1008984",
-            "source_path": "src/assembly/textbin/fun_001f55d8.c"
-          }
-        },
-        {
-          "name": "FUN_001f5808",
-          "size": "680",
-          "fuzzy_match_percent": 45.8,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1009544",
-            "source_path": "src/assembly/textbin/fun_001f5808.c"
-          }
-        },
-        {
-          "name": "FUN_001f5ab0",
-          "size": "1116",
-          "fuzzy_match_percent": 29.3011,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1010224",
-            "source_path": "src/assembly/textbin/fun_001f5ab0.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/rendering/transitions",
       "measures": {
         "fuzzy_match_percent": 70.440962,
@@ -8483,79 +10426,6 @@
           "metadata": {
             "virtual_address": "1057152",
             "source_path": "src/assembly/textbin/ui/frames/draw_framed_text.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_001f6000",
-      "measures": {
-        "fuzzy_match_percent": 37.0031,
-        "total_code": "1292",
-        "matched_code": "180",
-        "matched_code_percent": 13.931889,
-        "total_functions": 5,
-        "matched_functions": 2,
-        "matched_functions_percent": 40.0,
-        "complete_code": "180",
-        "complete_code_percent": 13.931889,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001f6060",
-          "size": "388",
-          "fuzzy_match_percent": 46.6701,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1011680",
-            "source_path": "src/assembly/textbin/fun_001f6060.c"
-          }
-        },
-        {
-          "name": "FUN_001f76a0",
-          "size": "488",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1017376",
-            "source_path": "src/assembly/textbin/fun_001f76a0.c"
-          }
-        },
-        {
-          "name": "FUN_001f7888",
-          "size": "236",
-          "fuzzy_match_percent": 49.5763,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1017864",
-            "source_path": "src/assembly/textbin/fun_001f7888.c"
-          }
-        },
-        {
-          "name": "FUN_001f7978",
-          "size": "44",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1018104",
-            "source_path": "src/textbin/fun_001f7978.c"
-          }
-        },
-        {
-          "name": "FUN_001f79a8",
-          "size": "136",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1018152",
-            "source_path": "src/textbin/fun_001f79a8.c"
           }
         }
       ],
@@ -8922,132 +10792,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_001f8000",
-      "measures": {
-        "fuzzy_match_percent": 34.673427,
-        "total_code": "992",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 5,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001f92b0",
-          "size": "920",
-          "fuzzy_match_percent": 37.387,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1024560",
-            "source_path": "src/assembly/textbin/fun_001f92b0.c"
-          }
-        },
-        {
-          "name": "FUN_001f96f8",
-          "size": "40",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1025656",
-            "source_path": "src/assembly/textbin/fun_001f96f8.c"
-          }
-        },
-        {
-          "name": "FUN_001f99c8",
-          "size": "8",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1026376",
-            "source_path": "src/assembly/textbin/fun_001f99c8.c"
-          }
-        },
-        {
-          "name": "FUN_001f99d0",
-          "size": "8",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1026384",
-            "source_path": "src/assembly/textbin/fun_001f99d0.c"
-          }
-        },
-        {
-          "name": "FUN_001f99e8",
-          "size": "16",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1026408",
-            "source_path": "src/assembly/textbin/fun_001f99e8.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_001fa000",
-      "measures": {
-        "fuzzy_match_percent": 31.916686,
-        "total_code": "912",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 3,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001fa2b8",
-          "size": "32",
-          "fuzzy_match_percent": 42.5,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1028664",
-            "source_path": "src/assembly/textbin/fun_001fa2b8.c"
-          }
-        },
-        {
-          "name": "FUN_001fb740",
-          "size": "432",
-          "fuzzy_match_percent": 35.1389,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1033920",
-            "source_path": "src/assembly/textbin/fun_001fb740.c"
-          }
-        },
-        {
-          "name": "FUN_001fb8f0",
-          "size": "448",
-          "fuzzy_match_percent": 28.0536,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1034352",
-            "source_path": "src/assembly/textbin/fun_001fb8f0.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/math/rotations",
       "measures": {
         "fuzzy_match_percent": 59.190486,
@@ -9250,39 +10994,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_001fc000",
-      "measures": {
-        "fuzzy_match_percent": 55.7822,
-        "total_code": "1212",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 1,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001fd748",
-          "size": "1212",
-          "fuzzy_match_percent": 55.7822,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1042120",
-            "source_path": "src/assembly/textbin/fun_001fd748.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/ui/help",
       "measures": {
         "fuzzy_match_percent": 65.887642,
@@ -9356,99 +11067,6 @@
           "metadata": {
             "virtual_address": "1139032",
             "source_path": "src/textbin/ui/help/force_help_message.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_001fe000",
-      "measures": {
-        "fuzzy_match_percent": 46.303266,
-        "total_code": "3060",
-        "matched_code": "468",
-        "matched_code_percent": 15.294118,
-        "total_functions": 7,
-        "matched_functions": 1,
-        "matched_functions_percent": 14.285714,
-        "complete_code": "468",
-        "complete_code_percent": 15.294118,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_001fe980",
-          "size": "836",
-          "fuzzy_match_percent": 56.4928,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1046784",
-            "source_path": "src/assembly/textbin/fun_001fe980.c"
-          }
-        },
-        {
-          "name": "FUN_001fecc8",
-          "size": "100",
-          "fuzzy_match_percent": 38.56,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1047624",
-            "source_path": "src/assembly/textbin/fun_001fecc8.c"
-          }
-        },
-        {
-          "name": "FUN_001fed30",
-          "size": "256",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1047728",
-            "source_path": "src/assembly/textbin/fun_001fed30.c"
-          }
-        },
-        {
-          "name": "FUN_001fee88",
-          "size": "308",
-          "fuzzy_match_percent": 63.1299,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1048072",
-            "source_path": "src/assembly/textbin/fun_001fee88.c"
-          }
-        },
-        {
-          "name": "FUN_001ff780",
-          "size": "468",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1050368",
-            "source_path": "src/textbin/fun_001ff780.c"
-          }
-        },
-        {
-          "name": "FUN_001ffc30",
-          "size": "488",
-          "fuzzy_match_percent": 31.2459,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1051568",
-            "source_path": "src/assembly/textbin/fun_001ffc30.c"
-          }
-        },
-        {
-          "name": "FUN_001ffe18",
-          "size": "604",
-          "fuzzy_match_percent": 15.0861,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1052056",
-            "source_path": "src/assembly/textbin/fun_001ffe18.c"
           }
         }
       ],
@@ -9688,119 +11306,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00200000",
-      "measures": {
-        "fuzzy_match_percent": 24.635634,
-        "total_code": "4468",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 9,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00200080",
-          "size": "472",
-          "fuzzy_match_percent": 24.2712,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1052672",
-            "source_path": "src/assembly/textbin/fun_00200080.c"
-          }
-        },
-        {
-          "name": "FUN_00200258",
-          "size": "528",
-          "fuzzy_match_percent": 22.2955,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1053144",
-            "source_path": "src/assembly/textbin/fun_00200258.c"
-          }
-        },
-        {
-          "name": "FUN_00200468",
-          "size": "404",
-          "fuzzy_match_percent": 14.2772,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1053672",
-            "source_path": "src/assembly/textbin/fun_00200468.c"
-          }
-        },
-        {
-          "name": "FUN_00200600",
-          "size": "852",
-          "fuzzy_match_percent": 24.6526,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1054080",
-            "source_path": "src/assembly/textbin/fun_00200600.c"
-          }
-        },
-        {
-          "name": "FUN_00200958",
-          "size": "440",
-          "fuzzy_match_percent": 20.5,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1054936",
-            "source_path": "src/assembly/textbin/fun_00200958.c"
-          }
-        },
-        {
-          "name": "FUN_00200c80",
-          "size": "388",
-          "fuzzy_match_percent": 28.2371,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1055744",
-            "source_path": "src/assembly/textbin/fun_00200c80.c"
-          }
-        },
-        {
-          "name": "FUN_00200e08",
-          "size": "388",
-          "fuzzy_match_percent": 28.2371,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1056136",
-            "source_path": "src/assembly/textbin/fun_00200e08.c"
-          }
-        },
-        {
-          "name": "FUN_00200f90",
-          "size": "384",
-          "fuzzy_match_percent": 30.125,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1056528",
-            "source_path": "src/assembly/textbin/fun_00200f90.c"
-          }
-        },
-        {
-          "name": "FUN_002012b8",
-          "size": "612",
-          "fuzzy_match_percent": 28.7124,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1057336",
-            "source_path": "src/assembly/textbin/fun_002012b8.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/runtime/modules",
       "measures": {
         "fuzzy_match_percent": 39.8444,
@@ -9834,109 +11339,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00202000",
-      "measures": {
-        "fuzzy_match_percent": 11.767274,
-        "total_code": "5844",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 8,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00202270",
-          "size": "1104",
-          "fuzzy_match_percent": 0.5072,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1061360",
-            "source_path": "src/assembly/textbin/fun_00202270.c"
-          }
-        },
-        {
-          "name": "FUN_00202800",
-          "size": "220",
-          "fuzzy_match_percent": 41.7636,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1062784",
-            "source_path": "src/assembly/textbin/fun_00202800.c"
-          }
-        },
-        {
-          "name": "FUN_002028e0",
-          "size": "440",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1063008",
-            "source_path": "src/assembly/textbin/fun_002028e0.c"
-          }
-        },
-        {
-          "name": "FUN_00202d78",
-          "size": "600",
-          "fuzzy_match_percent": 31.0267,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1064184",
-            "source_path": "src/assembly/textbin/fun_00202d78.c"
-          }
-        },
-        {
-          "name": "FUN_00203338",
-          "size": "772",
-          "fuzzy_match_percent": 0.7254,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1065656",
-            "source_path": "src/assembly/textbin/fun_00203338.c"
-          }
-        },
-        {
-          "name": "FUN_00203640",
-          "size": "236",
-          "fuzzy_match_percent": 2.4407,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1066432",
-            "source_path": "src/assembly/textbin/fun_00203640.c"
-          }
-        },
-        {
-          "name": "FUN_00203730",
-          "size": "980",
-          "fuzzy_match_percent": 0.5714,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1066672",
-            "source_path": "src/assembly/textbin/fun_00203730.c"
-          }
-        },
-        {
-          "name": "FUN_00203b08",
-          "size": "1492",
-          "fuzzy_match_percent": 25.9437,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1067656",
-            "source_path": "src/assembly/textbin/fun_00203b08.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/runtime/relocation",
       "measures": {
         "fuzzy_match_percent": 100.0,
@@ -9960,99 +11362,6 @@
           "metadata": {
             "virtual_address": "1065568",
             "source_path": "src/textbin/runtime/relocation/relocate_asset_entry_pointers.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00204000",
-      "measures": {
-        "fuzzy_match_percent": 41.004789,
-        "total_code": "2512",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 7,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_002040e0",
-          "size": "720",
-          "fuzzy_match_percent": 26.1056,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1069152",
-            "source_path": "src/assembly/textbin/fun_002040e0.c"
-          }
-        },
-        {
-          "name": "FUN_00204cf0",
-          "size": "320",
-          "fuzzy_match_percent": 43.975,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1072240",
-            "source_path": "src/assembly/textbin/fun_00204cf0.c"
-          }
-        },
-        {
-          "name": "FUN_00204e30",
-          "size": "196",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1072560",
-            "source_path": "src/assembly/textbin/fun_00204e30.c"
-          }
-        },
-        {
-          "name": "FUN_00204ef8",
-          "size": "100",
-          "fuzzy_match_percent": 35.16,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1072760",
-            "source_path": "src/assembly/textbin/fun_00204ef8.c"
-          }
-        },
-        {
-          "name": "FUN_002050e8",
-          "size": "312",
-          "fuzzy_match_percent": 46.8077,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1073256",
-            "source_path": "src/assembly/textbin/fun_002050e8.c"
-          }
-        },
-        {
-          "name": "FUN_00205278",
-          "size": "352",
-          "fuzzy_match_percent": 66.7045,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1073656",
-            "source_path": "src/assembly/textbin/fun_00205278.c"
-          }
-        },
-        {
-          "name": "FUN_00205440",
-          "size": "512",
-          "fuzzy_match_percent": 55.7344,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1074112",
-            "source_path": "src/assembly/textbin/fun_00205440.c"
           }
         }
       ],
@@ -10315,169 +11624,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00206000",
-      "measures": {
-        "fuzzy_match_percent": 59.222008,
-        "total_code": "4108",
-        "matched_code": "1740",
-        "matched_code_percent": 42.356378,
-        "total_functions": 14,
-        "matched_functions": 8,
-        "matched_functions_percent": 57.142857,
-        "complete_code": "1740",
-        "complete_code_percent": 42.356378,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00206710",
-          "size": "336",
-          "fuzzy_match_percent": 1.6667,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1078928",
-            "source_path": "src/assembly/textbin/fun_00206710.c"
-          }
-        },
-        {
-          "name": "FUN_00206860",
-          "size": "280",
-          "fuzzy_match_percent": 59.7143,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1079264",
-            "source_path": "src/assembly/textbin/fun_00206860.c"
-          }
-        },
-        {
-          "name": "FUN_00206bd8",
-          "size": "572",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1080152",
-            "source_path": "src/assembly/textbin/fun_00206bd8.c"
-          }
-        },
-        {
-          "name": "FUN_00206e18",
-          "size": "312",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1080728",
-            "source_path": "src/textbin/fun_00206e18.c"
-          }
-        },
-        {
-          "name": "FUN_00206f50",
-          "size": "428",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1081040",
-            "source_path": "src/textbin/fun_00206f50.c"
-          }
-        },
-        {
-          "name": "FUN_00207100",
-          "size": "192",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1081472",
-            "source_path": "src/textbin/fun_00207100.c"
-          }
-        },
-        {
-          "name": "FUN_002071c0",
-          "size": "144",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1081664",
-            "source_path": "src/textbin/fun_002071c0.c"
-          }
-        },
-        {
-          "name": "FUN_00207300",
-          "size": "180",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1081984",
-            "source_path": "src/textbin/fun_00207300.c"
-          }
-        },
-        {
-          "name": "FUN_002073b8",
-          "size": "196",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1082168",
-            "source_path": "src/textbin/fun_002073b8.c"
-          }
-        },
-        {
-          "name": "FUN_00207a18",
-          "size": "156",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1083800",
-            "source_path": "src/assembly/textbin/fun_00207a18.c"
-          }
-        },
-        {
-          "name": "FUN_00207b08",
-          "size": "168",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1084040",
-            "source_path": "src/textbin/fun_00207b08.c"
-          }
-        },
-        {
-          "name": "FUN_00207bb0",
-          "size": "120",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1084208",
-            "source_path": "src/textbin/fun_00207bb0.c"
-          }
-        },
-        {
-          "name": "FUN_00207c28",
-          "size": "560",
-          "fuzzy_match_percent": 45.4071,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1084328",
-            "source_path": "src/assembly/textbin/fun_00207c28.c"
-          }
-        },
-        {
-          "name": "FUN_00207e58",
-          "size": "464",
-          "fuzzy_match_percent": 57.2759,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1084888",
-            "source_path": "src/assembly/textbin/fun_00207e58.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/ui/menus",
       "measures": {
         "fuzzy_match_percent": 54.347068,
@@ -10611,99 +11757,6 @@
           "metadata": {
             "virtual_address": "1283592",
             "source_path": "src/textbin/ui/menus/format_scaled_display_value.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00208000",
-      "measures": {
-        "fuzzy_match_percent": 15.819169,
-        "total_code": "2212",
-        "matched_code": "120",
-        "matched_code_percent": 5.424955,
-        "total_functions": 7,
-        "matched_functions": 1,
-        "matched_functions_percent": 14.285714,
-        "complete_code": "120",
-        "complete_code_percent": 5.424955,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00208030",
-          "size": "592",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1085360",
-            "source_path": "src/assembly/textbin/fun_00208030.c"
-          }
-        },
-        {
-          "name": "FUN_00208280",
-          "size": "380",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1085952",
-            "source_path": "src/assembly/textbin/fun_00208280.c"
-          }
-        },
-        {
-          "name": "FUN_00208408",
-          "size": "248",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1086344",
-            "source_path": "src/assembly/textbin/fun_00208408.c"
-          }
-        },
-        {
-          "name": "FUN_00208508",
-          "size": "616",
-          "fuzzy_match_percent": 22.6039,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1086600",
-            "source_path": "src/assembly/textbin/fun_00208508.c"
-          }
-        },
-        {
-          "name": "FUN_00208770",
-          "size": "156",
-          "fuzzy_match_percent": 58.1282,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1087216",
-            "source_path": "src/assembly/textbin/fun_00208770.c"
-          }
-        },
-        {
-          "name": "FUN_00208840",
-          "size": "100",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1087424",
-            "source_path": "src/assembly/textbin/fun_00208840.c"
-          }
-        },
-        {
-          "name": "FUN_00208f28",
-          "size": "120",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1089192",
-            "source_path": "src/textbin/fun_00208f28.c"
           }
         }
       ],
@@ -10853,112 +11906,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_0020a000",
-      "measures": {
-        "fuzzy_match_percent": 46.509311,
-        "total_code": "2364",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 4,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_0020b950",
-          "size": "416",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1099984",
-            "source_path": "src/assembly/textbin/fun_0020b950.c"
-          }
-        },
-        {
-          "name": "FUN_0020baf0",
-          "size": "272",
-          "fuzzy_match_percent": 29.2647,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1100400",
-            "source_path": "src/assembly/textbin/fun_0020baf0.c"
-          }
-        },
-        {
-          "name": "FUN_0020bc00",
-          "size": "300",
-          "fuzzy_match_percent": 66.8667,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1100672",
-            "source_path": "src/assembly/textbin/fun_0020bc00.c"
-          }
-        },
-        {
-          "name": "FUN_0020bf90",
-          "size": "1376",
-          "fuzzy_match_percent": 59.5407,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1101584",
-            "source_path": "src/assembly/textbin/fun_0020bf90.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_0020c000",
-      "measures": {
-        "fuzzy_match_percent": 67.224138,
-        "total_code": "232",
-        "matched_code": "72",
-        "matched_code_percent": 31.034483,
-        "total_functions": 2,
-        "matched_functions": 1,
-        "matched_functions_percent": 50.0,
-        "complete_code": "72",
-        "complete_code_percent": 31.034483,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_0020cc60",
-          "size": "72",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1104864",
-            "source_path": "src/textbin/fun_0020cc60.c"
-          }
-        },
-        {
-          "name": "FUN_0020cca8",
-          "size": "160",
-          "fuzzy_match_percent": 52.475,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1104936",
-            "source_path": "src/assembly/textbin/fun_0020cca8.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/rendering/geometry",
       "measures": {
         "fuzzy_match_percent": 100.0,
@@ -11025,139 +11972,6 @@
           "metadata": {
             "virtual_address": "1142792",
             "source_path": "src/rendering/commands/update_render_state_command.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00212000",
-      "measures": {
-        "fuzzy_match_percent": 16.475414,
-        "total_code": "2440",
-        "matched_code": "148",
-        "matched_code_percent": 6.065574,
-        "total_functions": 11,
-        "matched_functions": 1,
-        "matched_functions_percent": 9.090909,
-        "complete_code": "148",
-        "complete_code_percent": 6.065574,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00212d68",
-          "size": "180",
-          "fuzzy_match_percent": 29.7778,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1129704",
-            "source_path": "src/assembly/textbin/fun_00212d68.c"
-          }
-        },
-        {
-          "name": "FUN_00212e28",
-          "size": "148",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1129896",
-            "source_path": "src/assembly/textbin/fun_00212e28.c"
-          }
-        },
-        {
-          "name": "FUN_00212ed8",
-          "size": "184",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1130072",
-            "source_path": "src/assembly/textbin/fun_00212ed8.c"
-          }
-        },
-        {
-          "name": "FUN_00212f90",
-          "size": "328",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1130256",
-            "source_path": "src/assembly/textbin/fun_00212f90.c"
-          }
-        },
-        {
-          "name": "FUN_002130d8",
-          "size": "340",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1130584",
-            "source_path": "src/assembly/textbin/fun_002130d8.c"
-          }
-        },
-        {
-          "name": "FUN_00213358",
-          "size": "120",
-          "fuzzy_match_percent": 18.5,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1131224",
-            "source_path": "src/assembly/textbin/fun_00213358.c"
-          }
-        },
-        {
-          "name": "FUN_002133d0",
-          "size": "148",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1131344",
-            "source_path": "src/textbin/fun_002133d0.c"
-          }
-        },
-        {
-          "name": "FUN_00213508",
-          "size": "116",
-          "fuzzy_match_percent": 43.5517,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1131656",
-            "source_path": "src/assembly/textbin/fun_00213508.c"
-          }
-        },
-        {
-          "name": "FUN_002135f0",
-          "size": "248",
-          "fuzzy_match_percent": 46.0968,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1131888",
-            "source_path": "src/assembly/textbin/fun_002135f0.c"
-          }
-        },
-        {
-          "name": "FUN_00213700",
-          "size": "544",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1132160",
-            "source_path": "src/assembly/textbin/fun_00213700.c"
-          }
-        },
-        {
-          "name": "FUN_00213ed8",
-          "size": "84",
-          "fuzzy_match_percent": 15.9048,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1134168",
-            "source_path": "src/assembly/textbin/fun_00213ed8.c"
           }
         }
       ],
@@ -11264,179 +12078,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00214000",
-      "measures": {
-        "fuzzy_match_percent": 43.839807,
-        "total_code": "4220",
-        "matched_code": "76",
-        "matched_code_percent": 1.800948,
-        "total_functions": 15,
-        "matched_functions": 1,
-        "matched_functions_percent": 6.666667,
-        "complete_code": "76",
-        "complete_code_percent": 1.800948,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00214260",
-          "size": "628",
-          "fuzzy_match_percent": 27.6879,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1135072",
-            "source_path": "src/assembly/textbin/fun_00214260.c"
-          }
-        },
-        {
-          "name": "FUN_002144d8",
-          "size": "76",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1135704",
-            "source_path": "src/textbin/fun_002144d8.c"
-          }
-        },
-        {
-          "name": "FUN_00214598",
-          "size": "292",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1135896",
-            "source_path": "src/assembly/textbin/fun_00214598.c"
-          }
-        },
-        {
-          "name": "FUN_00214800",
-          "size": "140",
-          "fuzzy_match_percent": 18.4857,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1136512",
-            "source_path": "src/assembly/textbin/fun_00214800.c"
-          }
-        },
-        {
-          "name": "FUN_00214970",
-          "size": "288",
-          "fuzzy_match_percent": 34.4583,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1136880",
-            "source_path": "src/assembly/textbin/fun_00214970.c"
-          }
-        },
-        {
-          "name": "FUN_00214a98",
-          "size": "296",
-          "fuzzy_match_percent": 52.527,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1137176",
-            "source_path": "src/assembly/textbin/fun_00214a98.c"
-          }
-        },
-        {
-          "name": "FUN_00214e58",
-          "size": "632",
-          "fuzzy_match_percent": 22.6899,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1138136",
-            "source_path": "src/assembly/textbin/fun_00214e58.c"
-          }
-        },
-        {
-          "name": "FUN_00215390",
-          "size": "144",
-          "fuzzy_match_percent": 63.6111,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1139472",
-            "source_path": "src/assembly/textbin/fun_00215390.c"
-          }
-        },
-        {
-          "name": "FUN_00215440",
-          "size": "212",
-          "fuzzy_match_percent": 65.3585,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1139648",
-            "source_path": "src/assembly/textbin/fun_00215440.c"
-          }
-        },
-        {
-          "name": "FUN_00215518",
-          "size": "232",
-          "fuzzy_match_percent": 60.8448,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1139864",
-            "source_path": "src/assembly/textbin/fun_00215518.c"
-          }
-        },
-        {
-          "name": "FUN_00215600",
-          "size": "212",
-          "fuzzy_match_percent": 65.3585,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1140096",
-            "source_path": "src/assembly/textbin/fun_00215600.c"
-          }
-        },
-        {
-          "name": "FUN_002156d8",
-          "size": "248",
-          "fuzzy_match_percent": 77.1774,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1140312",
-            "source_path": "src/assembly/textbin/fun_002156d8.c"
-          }
-        },
-        {
-          "name": "FUN_002157d0",
-          "size": "204",
-          "fuzzy_match_percent": 64.9804,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1140560",
-            "source_path": "src/assembly/textbin/fun_002157d0.c"
-          }
-        },
-        {
-          "name": "FUN_002158a0",
-          "size": "204",
-          "fuzzy_match_percent": 64.9804,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1140768",
-            "source_path": "src/assembly/textbin/fun_002158a0.c"
-          }
-        },
-        {
-          "name": "FUN_00215970",
-          "size": "412",
-          "fuzzy_match_percent": 50.9126,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1140976",
-            "source_path": "src/assembly/textbin/fun_00215970.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/rendering/culling",
       "measures": {
         "fuzzy_match_percent": 100.0,
@@ -11513,49 +12154,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00216000",
-      "measures": {
-        "fuzzy_match_percent": 5.399275,
-        "total_code": "1112",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 2,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00216c48",
-          "size": "984",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1145800",
-            "source_path": "src/assembly/textbin/fun_00216c48.c"
-          }
-        },
-        {
-          "name": "FUN_00217048",
-          "size": "128",
-          "fuzzy_match_percent": 46.9062,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1146824",
-            "source_path": "src/assembly/textbin/fun_00217048.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/input/pad",
       "measures": {
         "fuzzy_match_percent": 55.191658,
@@ -11619,325 +12217,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00218000",
-      "measures": {
-        "fuzzy_match_percent": 36.58218,
-        "total_code": "4940",
-        "matched_code": "524",
-        "matched_code_percent": 10.607287,
-        "total_functions": 7,
-        "matched_functions": 1,
-        "matched_functions_percent": 14.285714,
-        "complete_code": "524",
-        "complete_code_percent": 10.607287,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00218888",
-          "size": "468",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1153032",
-            "source_path": "src/assembly/textbin/fun_00218888.c"
-          }
-        },
-        {
-          "name": "FUN_00218f98",
-          "size": "544",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1154840",
-            "source_path": "src/assembly/textbin/fun_00218f98.c"
-          }
-        },
-        {
-          "name": "FUN_002191b8",
-          "size": "240",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1155384",
-            "source_path": "src/assembly/textbin/fun_002191b8.c"
-          }
-        },
-        {
-          "name": "FUN_002192a8",
-          "size": "1036",
-          "fuzzy_match_percent": 0.5405,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1155624",
-            "source_path": "src/assembly/textbin/fun_002192a8.c"
-          }
-        },
-        {
-          "name": "FUN_002196b8",
-          "size": "1732",
-          "fuzzy_match_percent": 60.3418,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1156664",
-            "source_path": "src/assembly/textbin/fun_002196b8.c"
-          }
-        },
-        {
-          "name": "FUN_00219e10",
-          "size": "396",
-          "fuzzy_match_percent": 58.697,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1158544",
-            "source_path": "src/assembly/textbin/fun_00219e10.c"
-          }
-        },
-        {
-          "name": "FUN_00219fa0",
-          "size": "524",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1158944",
-            "source_path": "src/textbin/fun_00219fa0.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_0021a000",
-      "measures": {
-        "fuzzy_match_percent": 61.273565,
-        "total_code": "6872",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 6,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_0021a1e0",
-          "size": "292",
-          "fuzzy_match_percent": 18.8082,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1159520",
-            "source_path": "src/assembly/textbin/fun_0021a1e0.c"
-          }
-        },
-        {
-          "name": "FUN_0021a328",
-          "size": "2252",
-          "fuzzy_match_percent": 55.1048,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1159848",
-            "source_path": "src/assembly/textbin/fun_0021a328.c"
-          }
-        },
-        {
-          "name": "FUN_0021abf8",
-          "size": "1488",
-          "fuzzy_match_percent": 59.3978,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1162104",
-            "source_path": "src/assembly/textbin/fun_0021abf8.c"
-          }
-        },
-        {
-          "name": "FUN_0021b1c8",
-          "size": "1292",
-          "fuzzy_match_percent": 66.2198,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1163592",
-            "source_path": "src/assembly/textbin/fun_0021b1c8.c"
-          }
-        },
-        {
-          "name": "FUN_0021b6d8",
-          "size": "208",
-          "fuzzy_match_percent": 39.1346,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1164888",
-            "source_path": "src/assembly/textbin/fun_0021b6d8.c"
-          }
-        },
-        {
-          "name": "FUN_0021b858",
-          "size": "1340",
-          "fuzzy_match_percent": 81.6448,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1165272",
-            "source_path": "src/assembly/textbin/fun_0021b858.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_0021c000",
-      "measures": {
-        "fuzzy_match_percent": 30.024477,
-        "total_code": "5228",
-        "matched_code": "404",
-        "matched_code_percent": 7.727621,
-        "total_functions": 12,
-        "matched_functions": 4,
-        "matched_functions_percent": 33.333333,
-        "complete_code": "404",
-        "complete_code_percent": 7.727621,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_0021c420",
-          "size": "156",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1168288",
-            "source_path": "src/assembly/textbin/fun_0021c420.c"
-          }
-        },
-        {
-          "name": "FUN_0021c4c0",
-          "size": "736",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1168448",
-            "source_path": "src/assembly/textbin/fun_0021c4c0.c"
-          }
-        },
-        {
-          "name": "FUN_0021c7a0",
-          "size": "552",
-          "fuzzy_match_percent": 67.413,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1169184",
-            "source_path": "src/assembly/textbin/fun_0021c7a0.c"
-          }
-        },
-        {
-          "name": "FUN_0021cae0",
-          "size": "32",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1170016",
-            "source_path": "src/textbin/fun_0021cae0.c"
-          }
-        },
-        {
-          "name": "FUN_0021d1f8",
-          "size": "204",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1171832",
-            "source_path": "src/textbin/fun_0021d1f8.c"
-          }
-        },
-        {
-          "name": "FUN_0021d2c8",
-          "size": "108",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1172040",
-            "source_path": "src/textbin/fun_0021d2c8.c"
-          }
-        },
-        {
-          "name": "FUN_0021d338",
-          "size": "364",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1172152",
-            "source_path": "src/assembly/textbin/fun_0021d338.c"
-          }
-        },
-        {
-          "name": "FUN_0021d4a8",
-          "size": "1184",
-          "fuzzy_match_percent": 51.1419,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1172520",
-            "source_path": "src/assembly/textbin/fun_0021d4a8.c"
-          }
-        },
-        {
-          "name": "FUN_0021d948",
-          "size": "1156",
-          "fuzzy_match_percent": 0.4844,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1173704",
-            "source_path": "src/assembly/textbin/fun_0021d948.c"
-          }
-        },
-        {
-          "name": "FUN_0021ddf8",
-          "size": "304",
-          "fuzzy_match_percent": 60.0132,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1174904",
-            "source_path": "src/assembly/textbin/fun_0021ddf8.c"
-          }
-        },
-        {
-          "name": "FUN_0021df58",
-          "size": "60",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1175256",
-            "source_path": "src/textbin/fun_0021df58.c"
-          }
-        },
-        {
-          "name": "FUN_0021df98",
-          "size": "372",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1175320",
-            "source_path": "src/assembly/textbin/fun_0021df98.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/ui/menus/audio",
       "measures": {
         "fuzzy_match_percent": 19.082887,
@@ -11971,109 +12250,6 @@
           "metadata": {
             "virtual_address": "1170816",
             "source_path": "src/assembly/textbin/ui/menus/audio/draw_sound_menu.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_0021e000",
-      "measures": {
-        "fuzzy_match_percent": 59.501584,
-        "total_code": "3764",
-        "matched_code": "420",
-        "matched_code_percent": 11.158342,
-        "total_functions": 8,
-        "matched_functions": 4,
-        "matched_functions_percent": 50.0,
-        "complete_code": "420",
-        "complete_code_percent": 11.158342,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_0021e110",
-          "size": "228",
-          "fuzzy_match_percent": 70.6842,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1175696",
-            "source_path": "src/assembly/textbin/fun_0021e110.c"
-          }
-        },
-        {
-          "name": "FUN_0021e1f8",
-          "size": "56",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1175928",
-            "source_path": "src/textbin/fun_0021e1f8.c"
-          }
-        },
-        {
-          "name": "FUN_0021e230",
-          "size": "984",
-          "fuzzy_match_percent": 32.7683,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1175984",
-            "source_path": "src/assembly/textbin/fun_0021e230.c"
-          }
-        },
-        {
-          "name": "FUN_0021e608",
-          "size": "140",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1176968",
-            "source_path": "src/textbin/fun_0021e608.c"
-          }
-        },
-        {
-          "name": "FUN_0021f990",
-          "size": "728",
-          "fuzzy_match_percent": 78.2198,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1181968",
-            "source_path": "src/assembly/textbin/fun_0021f990.c"
-          }
-        },
-        {
-          "name": "FUN_0021fce0",
-          "size": "148",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1182816",
-            "source_path": "src/textbin/fun_0021fce0.c"
-          }
-        },
-        {
-          "name": "FUN_0021fd78",
-          "size": "76",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1182968",
-            "source_path": "src/textbin/fun_0021fd78.c"
-          }
-        },
-        {
-          "name": "FUN_0021fdc8",
-          "size": "1404",
-          "fuzzy_match_percent": 54.6011,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1183048",
-            "source_path": "src/assembly/textbin/fun_0021fdc8.c"
           }
         }
       ],
@@ -12296,262 +12472,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00220000",
-      "measures": {
-        "fuzzy_match_percent": 52.742647,
-        "total_code": "4896",
-        "matched_code": "1300",
-        "matched_code_percent": 26.552288,
-        "total_functions": 14,
-        "matched_functions": 7,
-        "matched_functions_percent": 50.0,
-        "complete_code": "1300",
-        "complete_code_percent": 26.552288,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00220850",
-          "size": "720",
-          "fuzzy_match_percent": 65.1778,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1185744",
-            "source_path": "src/assembly/textbin/fun_00220850.c"
-          }
-        },
-        {
-          "name": "FUN_00220b20",
-          "size": "772",
-          "fuzzy_match_percent": 39.6995,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1186464",
-            "source_path": "src/assembly/textbin/fun_00220b20.c"
-          }
-        },
-        {
-          "name": "FUN_00220e28",
-          "size": "516",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1187240",
-            "source_path": "src/assembly/textbin/fun_00220e28.c"
-          }
-        },
-        {
-          "name": "FUN_002212b8",
-          "size": "424",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1188408",
-            "source_path": "src/textbin/fun_002212b8.c"
-          }
-        },
-        {
-          "name": "FUN_00221460",
-          "size": "404",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1188832",
-            "source_path": "src/assembly/textbin/fun_00221460.c"
-          }
-        },
-        {
-          "name": "FUN_002216c0",
-          "size": "308",
-          "fuzzy_match_percent": 44.9221,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1189440",
-            "source_path": "src/assembly/textbin/fun_002216c0.c"
-          }
-        },
-        {
-          "name": "FUN_00221930",
-          "size": "56",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1190064",
-            "source_path": "src/textbin/fun_00221930.c"
-          }
-        },
-        {
-          "name": "FUN_00221968",
-          "size": "220",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1190120",
-            "source_path": "src/textbin/fun_00221968.c"
-          }
-        },
-        {
-          "name": "FUN_00221a48",
-          "size": "60",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1190344",
-            "source_path": "src/textbin/fun_00221a48.c"
-          }
-        },
-        {
-          "name": "FUN_00221a88",
-          "size": "48",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1190408",
-            "source_path": "src/textbin/fun_00221a88.c"
-          }
-        },
-        {
-          "name": "FUN_00221b50",
-          "size": "468",
-          "fuzzy_match_percent": 34.3162,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1190608",
-            "source_path": "src/assembly/textbin/fun_00221b50.c"
-          }
-        },
-        {
-          "name": "FUN_00221d68",
-          "size": "228",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1191144",
-            "source_path": "src/textbin/fun_00221d68.c"
-          }
-        },
-        {
-          "name": "FUN_00221e50",
-          "size": "264",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1191376",
-            "source_path": "src/textbin/fun_00221e50.c"
-          }
-        },
-        {
-          "name": "FUN_00221f58",
-          "size": "408",
-          "fuzzy_match_percent": 50.8725,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1191640",
-            "source_path": "src/assembly/textbin/fun_00221f58.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00222000",
-      "measures": {
-        "fuzzy_match_percent": 62.832018,
-        "total_code": "3620",
-        "matched_code": "488",
-        "matched_code_percent": 13.480663,
-        "total_functions": 7,
-        "matched_functions": 3,
-        "matched_functions_percent": 42.857143,
-        "complete_code": "488",
-        "complete_code_percent": 13.480663,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_002223f0",
-          "size": "888",
-          "fuzzy_match_percent": 48.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1192816",
-            "source_path": "src/assembly/textbin/fun_002223f0.c"
-          }
-        },
-        {
-          "name": "FUN_00222768",
-          "size": "480",
-          "fuzzy_match_percent": 48.4083,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1193704",
-            "source_path": "src/assembly/textbin/fun_00222768.c"
-          }
-        },
-        {
-          "name": "FUN_00222d98",
-          "size": "380",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1195288",
-            "source_path": "src/textbin/fun_00222d98.c"
-          }
-        },
-        {
-          "name": "FUN_00222f18",
-          "size": "60",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1195672",
-            "source_path": "src/textbin/fun_00222f18.c"
-          }
-        },
-        {
-          "name": "FUN_00222f58",
-          "size": "48",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1195736",
-            "source_path": "src/textbin/fun_00222f58.c"
-          }
-        },
-        {
-          "name": "FUN_002239e0",
-          "size": "1096",
-          "fuzzy_match_percent": 66.0839,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1198432",
-            "source_path": "src/assembly/textbin/fun_002239e0.c"
-          }
-        },
-        {
-          "name": "FUN_00223e28",
-          "size": "668",
-          "fuzzy_match_percent": 60.4251,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1199528",
-            "source_path": "src/assembly/textbin/fun_00223e28.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/ui/menus/weapons",
       "measures": {
         "fuzzy_match_percent": 43.9762,
@@ -12585,149 +12505,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_00224000",
-      "measures": {
-        "fuzzy_match_percent": 18.880416,
-        "total_code": "4248",
-        "matched_code": "536",
-        "matched_code_percent": 12.617702,
-        "total_functions": 12,
-        "matched_functions": 4,
-        "matched_functions_percent": 33.333333,
-        "complete_code": "536",
-        "complete_code_percent": 12.617702,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_002240c8",
-          "size": "492",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1200200",
-            "source_path": "src/assembly/textbin/fun_002240c8.c"
-          }
-        },
-        {
-          "name": "FUN_002242b8",
-          "size": "176",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1200696",
-            "source_path": "src/textbin/fun_002242b8.c"
-          }
-        },
-        {
-          "name": "FUN_00224b70",
-          "size": "436",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1202928",
-            "source_path": "src/assembly/textbin/fun_00224b70.c"
-          }
-        },
-        {
-          "name": "FUN_00224d28",
-          "size": "236",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1203368",
-            "source_path": "src/assembly/textbin/fun_00224d28.c"
-          }
-        },
-        {
-          "name": "FUN_00224e18",
-          "size": "424",
-          "fuzzy_match_percent": 62.7453,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1203608",
-            "source_path": "src/assembly/textbin/fun_00224e18.c"
-          }
-        },
-        {
-          "name": "FUN_00224fc0",
-          "size": "304",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1204032",
-            "source_path": "src/assembly/textbin/fun_00224fc0.c"
-          }
-        },
-        {
-          "name": "FUN_002250f0",
-          "size": "144",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1204336",
-            "source_path": "src/assembly/textbin/fun_002250f0.c"
-          }
-        },
-        {
-          "name": "FUN_00225180",
-          "size": "784",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1204480",
-            "source_path": "src/assembly/textbin/fun_00225180.c"
-          }
-        },
-        {
-          "name": "FUN_00225490",
-          "size": "160",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1205264",
-            "source_path": "src/textbin/fun_00225490.c"
-          }
-        },
-        {
-          "name": "FUN_00225530",
-          "size": "68",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1205424",
-            "source_path": "src/textbin/fun_00225530.c"
-          }
-        },
-        {
-          "name": "FUN_00225660",
-          "size": "132",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1205728",
-            "source_path": "src/textbin/fun_00225660.c"
-          }
-        },
-        {
-          "name": "FUN_002256e8",
-          "size": "892",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1205864",
-            "source_path": "src/assembly/textbin/fun_002256e8.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/gameplay/gadgets",
       "measures": {
         "fuzzy_match_percent": 85.4882,
@@ -12751,179 +12528,6 @@
           "metadata": {
             "virtual_address": "1200872",
             "source_path": "src/assembly/textbin/gameplay/gadgets/load_hand_gadget.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00226000",
-      "measures": {
-        "fuzzy_match_percent": 33.759848,
-        "total_code": "4164",
-        "matched_code": "844",
-        "matched_code_percent": 20.268972,
-        "total_functions": 15,
-        "matched_functions": 5,
-        "matched_functions_percent": 33.333333,
-        "complete_code": "844",
-        "complete_code_percent": 20.268972,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_002265d8",
-          "size": "148",
-          "fuzzy_match_percent": 51.3514,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1209688",
-            "source_path": "src/assembly/textbin/fun_002265d8.c"
-          }
-        },
-        {
-          "name": "FUN_00226670",
-          "size": "164",
-          "fuzzy_match_percent": 9.2195,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1209840",
-            "source_path": "src/assembly/textbin/fun_00226670.c"
-          }
-        },
-        {
-          "name": "FUN_00226718",
-          "size": "92",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1210008",
-            "source_path": "src/textbin/fun_00226718.c"
-          }
-        },
-        {
-          "name": "FUN_002267b8",
-          "size": "144",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1210168",
-            "source_path": "src/textbin/fun_002267b8.c"
-          }
-        },
-        {
-          "name": "FUN_00226848",
-          "size": "376",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1210312",
-            "source_path": "src/textbin/fun_00226848.c"
-          }
-        },
-        {
-          "name": "FUN_002269c0",
-          "size": "176",
-          "fuzzy_match_percent": 51.5455,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1210688",
-            "source_path": "src/assembly/textbin/fun_002269c0.c"
-          }
-        },
-        {
-          "name": "FUN_00226a70",
-          "size": "152",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1210864",
-            "source_path": "src/textbin/fun_00226a70.c"
-          }
-        },
-        {
-          "name": "FUN_00226b08",
-          "size": "764",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1211016",
-            "source_path": "src/assembly/textbin/fun_00226b08.c"
-          }
-        },
-        {
-          "name": "FUN_00226e08",
-          "size": "80",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1211784",
-            "source_path": "src/textbin/fun_00226e08.c"
-          }
-        },
-        {
-          "name": "FUN_00226e58",
-          "size": "236",
-          "fuzzy_match_percent": 43.4237,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1211864",
-            "source_path": "src/assembly/textbin/fun_00226e58.c"
-          }
-        },
-        {
-          "name": "FUN_00226fb8",
-          "size": "304",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1212216",
-            "source_path": "src/assembly/textbin/fun_00226fb8.c"
-          }
-        },
-        {
-          "name": "FUN_00227140",
-          "size": "144",
-          "fuzzy_match_percent": 27.3056,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1212608",
-            "source_path": "src/assembly/textbin/fun_00227140.c"
-          }
-        },
-        {
-          "name": "FUN_002271d0",
-          "size": "424",
-          "fuzzy_match_percent": 35.5094,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1212752",
-            "source_path": "src/assembly/textbin/fun_002271d0.c"
-          }
-        },
-        {
-          "name": "FUN_00227378",
-          "size": "460",
-          "fuzzy_match_percent": 19.0348,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1213176",
-            "source_path": "src/assembly/textbin/fun_00227378.c"
-          }
-        },
-        {
-          "name": "FUN_00227548",
-          "size": "500",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1213640",
-            "source_path": "src/assembly/textbin/fun_00227548.c"
           }
         }
       ],
@@ -13060,109 +12664,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_0022c000",
-      "measures": {
-        "fuzzy_match_percent": 69.763225,
-        "total_code": "1892",
-        "matched_code": "640",
-        "matched_code_percent": 33.826638,
-        "total_functions": 8,
-        "matched_functions": 4,
-        "matched_functions_percent": 50.0,
-        "complete_code": "640",
-        "complete_code_percent": 33.826638,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_0022c5a8",
-          "size": "172",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1234216",
-            "source_path": "src/textbin/fun_0022c5a8.c"
-          }
-        },
-        {
-          "name": "FUN_0022c658",
-          "size": "156",
-          "fuzzy_match_percent": 55.718,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1234392",
-            "source_path": "src/assembly/textbin/fun_0022c658.c"
-          }
-        },
-        {
-          "name": "FUN_0022c6f8",
-          "size": "236",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1234552",
-            "source_path": "src/textbin/fun_0022c6f8.c"
-          }
-        },
-        {
-          "name": "FUN_0022c7e8",
-          "size": "68",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1234792",
-            "source_path": "src/textbin/fun_0022c7e8.c"
-          }
-        },
-        {
-          "name": "FUN_0022c830",
-          "size": "160",
-          "fuzzy_match_percent": 18.85,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1234864",
-            "source_path": "src/assembly/textbin/fun_0022c830.c"
-          }
-        },
-        {
-          "name": "FUN_0022c8d0",
-          "size": "380",
-          "fuzzy_match_percent": 66.4842,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1235024",
-            "source_path": "src/assembly/textbin/fun_0022c8d0.c"
-          }
-        },
-        {
-          "name": "FUN_0022da68",
-          "size": "164",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1239528",
-            "source_path": "src/textbin/fun_0022da68.c"
-          }
-        },
-        {
-          "name": "FUN_0022df40",
-          "size": "556",
-          "fuzzy_match_percent": 55.7914,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1240768",
-            "source_path": "src/assembly/textbin/fun_0022df40.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/world/transforms",
       "measures": {
         "fuzzy_match_percent": 20.5658,
@@ -13186,152 +12687,6 @@
           "metadata": {
             "virtual_address": "1240464",
             "source_path": "src/assembly/textbin/world/transforms/build_object_rotation_matrix.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_0022e000",
-      "measures": {
-        "fuzzy_match_percent": 63.961962,
-        "total_code": "10936",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 7,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_0022e420",
-          "size": "1188",
-          "fuzzy_match_percent": 49.8923,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1242016",
-            "source_path": "src/assembly/textbin/fun_0022e420.c"
-          }
-        },
-        {
-          "name": "FUN_0022e8c8",
-          "size": "316",
-          "fuzzy_match_percent": 34.9494,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1243208",
-            "source_path": "src/assembly/textbin/fun_0022e8c8.c"
-          }
-        },
-        {
-          "name": "FUN_0022ea08",
-          "size": "160",
-          "fuzzy_match_percent": 52.225,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1243528",
-            "source_path": "src/assembly/textbin/fun_0022ea08.c"
-          }
-        },
-        {
-          "name": "FUN_0022eaa8",
-          "size": "2012",
-          "fuzzy_match_percent": 51.9125,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1243688",
-            "source_path": "src/assembly/textbin/fun_0022eaa8.c"
-          }
-        },
-        {
-          "name": "FUN_0022f288",
-          "size": "808",
-          "fuzzy_match_percent": 62.1832,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1245704",
-            "source_path": "src/assembly/textbin/fun_0022f288.c"
-          }
-        },
-        {
-          "name": "FUN_0022f5b0",
-          "size": "456",
-          "fuzzy_match_percent": 32.6842,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1246512",
-            "source_path": "src/assembly/textbin/fun_0022f5b0.c"
-          }
-        },
-        {
-          "name": "FUN_0022f778",
-          "size": "5996",
-          "fuzzy_match_percent": 75.2535,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1246968",
-            "source_path": "src/assembly/textbin/fun_0022f778.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00232000",
-      "measures": {
-        "fuzzy_match_percent": 30.777352,
-        "total_code": "1940",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 3,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_002327a0",
-          "size": "1344",
-          "fuzzy_match_percent": 33.0566,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1259296",
-            "source_path": "src/assembly/textbin/fun_002327a0.c"
-          }
-        },
-        {
-          "name": "FUN_00232d00",
-          "size": "316",
-          "fuzzy_match_percent": 2.3038,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1260672",
-            "source_path": "src/assembly/textbin/fun_00232d00.c"
-          }
-        },
-        {
-          "name": "FUN_00232f20",
-          "size": "280",
-          "fuzzy_match_percent": 51.9714,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1261216",
-            "source_path": "src/assembly/textbin/fun_00232f20.c"
           }
         }
       ],
@@ -13398,202 +12753,6 @@
           "metadata": {
             "virtual_address": "1265280",
             "source_path": "src/textbin/runtime/diagnostics/print_register_values_and_halt.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00236000",
-      "measures": {
-        "fuzzy_match_percent": 34.130096,
-        "total_code": "2060",
-        "matched_code": "0",
-        "matched_code_percent": 0.0,
-        "total_functions": 3,
-        "matched_functions": 0,
-        "matched_functions_percent": 0.0,
-        "complete_code": "0",
-        "complete_code_percent": 0.0,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00237a78",
-          "size": "516",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1280504",
-            "source_path": "src/assembly/textbin/fun_00237a78.c"
-          }
-        },
-        {
-          "name": "FUN_00237c80",
-          "size": "484",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1281024",
-            "source_path": "src/assembly/textbin/fun_00237c80.c"
-          }
-        },
-        {
-          "name": "FUN_00237ed0",
-          "size": "1060",
-          "fuzzy_match_percent": 66.3283,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1281616",
-            "source_path": "src/assembly/textbin/fun_00237ed0.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
-      "name": "game/unclassified/region_00238000",
-      "measures": {
-        "fuzzy_match_percent": 49.106907,
-        "total_code": "7520",
-        "matched_code": "888",
-        "matched_code_percent": 11.808511,
-        "total_functions": 12,
-        "matched_functions": 3,
-        "matched_functions_percent": 25.0,
-        "complete_code": "888",
-        "complete_code_percent": 11.808511,
-        "total_units": 1,
-        "complete_units": 0
-      },
-      "functions": [
-        {
-          "name": "FUN_00238310",
-          "size": "528",
-          "fuzzy_match_percent": 60.6818,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1282704",
-            "source_path": "src/assembly/textbin/fun_00238310.c"
-          }
-        },
-        {
-          "name": "FUN_00238630",
-          "size": "88",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1283504",
-            "source_path": "src/textbin/fun_00238630.c"
-          }
-        },
-        {
-          "name": "FUN_002386e8",
-          "size": "756",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1283688",
-            "source_path": "src/textbin/fun_002386e8.c"
-          }
-        },
-        {
-          "name": "FUN_002389e0",
-          "size": "1316",
-          "fuzzy_match_percent": 65.9605,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1284448",
-            "source_path": "src/assembly/textbin/fun_002389e0.c"
-          }
-        },
-        {
-          "name": "FUN_00238f08",
-          "size": "596",
-          "fuzzy_match_percent": 0.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1285768",
-            "source_path": "src/assembly/textbin/fun_00238f08.c"
-          }
-        },
-        {
-          "name": "FUN_00239160",
-          "size": "444",
-          "fuzzy_match_percent": 49.2793,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1286368",
-            "source_path": "src/assembly/textbin/fun_00239160.c"
-          }
-        },
-        {
-          "name": "FUN_00239328",
-          "size": "868",
-          "fuzzy_match_percent": 47.4931,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1286824",
-            "source_path": "src/assembly/textbin/fun_00239328.c"
-          }
-        },
-        {
-          "name": "FUN_00239690",
-          "size": "188",
-          "fuzzy_match_percent": 46.0638,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1287696",
-            "source_path": "src/assembly/textbin/fun_00239690.c"
-          }
-        },
-        {
-          "name": "FUN_00239750",
-          "size": "44",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1287888",
-            "source_path": "src/textbin/fun_00239750.c"
-          }
-        },
-        {
-          "name": "FUN_00239780",
-          "size": "1484",
-          "fuzzy_match_percent": 31.2803,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1287936",
-            "source_path": "src/assembly/textbin/fun_00239780.c"
-          }
-        },
-        {
-          "name": "FUN_00239d60",
-          "size": "452",
-          "fuzzy_match_percent": 35.6814,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1289440",
-            "source_path": "src/assembly/textbin/fun_00239d60.c"
-          }
-        },
-        {
-          "name": "FUN_00239f58",
-          "size": "756",
-          "fuzzy_match_percent": 36.1481,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1289944",
-            "source_path": "src/assembly/textbin/fun_00239f58.c"
           }
         }
       ],
@@ -14395,39 +13554,6 @@
       }
     },
     {
-      "name": "game/unclassified/region_0023a000",
-      "measures": {
-        "fuzzy_match_percent": 100.0,
-        "total_code": "152",
-        "matched_code": "152",
-        "matched_code_percent": 100.0,
-        "total_functions": 1,
-        "matched_functions": 1,
-        "matched_functions_percent": 100.0,
-        "complete_code": "152",
-        "complete_code_percent": 100.0,
-        "total_units": 1,
-        "complete_units": 1
-      },
-      "functions": [
-        {
-          "name": "FUN_0023ba60",
-          "size": "152",
-          "fuzzy_match_percent": 100.0,
-          "address": "0",
-          "metadata": {
-            "virtual_address": "1296864",
-            "source_path": "src/textbin/fun_0023ba60.c"
-          }
-        }
-      ],
-      "metadata": {
-        "progress_categories": [
-          "game"
-        ]
-      }
-    },
-    {
       "name": "game/video/decoder/dma",
       "measures": {
         "fuzzy_match_percent": 100.0,
@@ -14486,8 +13612,8 @@
         "matched_functions_percent": 52.801993,
         "complete_code": "42160",
         "complete_code_percent": 16.290572,
-        "total_units": 139,
-        "complete_units": 46
+        "total_units": 101,
+        "complete_units": 44
       }
     },
     {

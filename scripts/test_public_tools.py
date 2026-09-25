@@ -215,10 +215,10 @@ class ProgressReportTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             report = self._build(self._repo(Path(tmp)), {"textbin/pending": 100.0})
         units = {unit["name"]: unit for unit in report["units"]}
-        self.assertEqual(set(units), {"game/unclassified/other", "sdk/library"})
+        self.assertEqual(set(units), {"game/unclassified", "sdk/library"})
         self.assertEqual(report["measures"]["total_code"], str(0x100 + 0x100 + 0x80))
         self.assertEqual(report["measures"]["matched_code"], str(0x100 + 0x80))
-        game_group = units["game/unclassified/other"]
+        game_group = units["game/unclassified"]
         pending = next(function for function in game_group["functions"]
                        if function["name"] == "FUN_00112480")
         self.assertEqual(len(game_group["functions"]), 2)
