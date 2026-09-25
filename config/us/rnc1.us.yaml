@@ -630,7 +630,7 @@ segments:
           - [0x2a4d0, c, assembly/sdk/library/_updateRefImage]
           - [0x2a784, textbin, text_gap_00129550_post_sdk_worker]
           - [0x2a788, c, sdk/library/is_out_size_ok]
-          - [0x2a828, c, assembly/sdk/library/cpr8]
+          - [0x2a828, c, sdk/library/cpr8]
           - [0x2aab8, textbin, text_gap_001298a8_post_sdk_worker]
           - [0x2aae0, c, assembly/sdk/library/_getPtsDtsFlags]
           - [0x2ac6c, textbin, text_gap_00129b60_post_sdk_worker]

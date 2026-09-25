@@ -581,6 +581,10 @@ SDK_COMPILER_UNITS = {
     # fun_0011dc18: libgcc __do_global_ctors (gbl-ctors.h DO_GLOBAL_CTORS_BODY),
     # SDK compiler
     "runtime/startup/run_global_constructors",
+    # Promoted by the decomp workbench: measured exact on the sony-2.9 line
+    # (cc), so the full build must not fall back
+    # to the default route.
+    "sdk/library/cpr8",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
