@@ -5,57 +5,65 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021d338/FUN_0021d338.s", FUN_0021d338);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+#include "rnc/d_001516d0.h"
+struct Loader { u8 pad0[0x10]; s32 flags; u8 pad14[0x24]; s32 saved_count; u8 pad3c[0x14]; s32 state; s32 saved_buf; };
+struct LevelFiles { u8 pad0[0x1528]; s32 sector; s32 size; };
+struct LevelData { u8 pad0[0x108]; u8 *buf; };
+struct Anims { u8 pad0[0x2C]; s32 count; };
+struct Entry { s32 offset; u8 pad4[0xC]; };
+extern struct M2c_D_001516D0 D_001516D0;
+extern struct LevelFiles D_00137B80;
+extern s32 D_001D5CF8;
+extern struct LevelData D_001D5BF0;
+extern s32 D_0015ED88;
+extern u8 *D_0015F6A0;
+extern struct Anims D_001996D0;
+extern s32 func_00216788(s32, s32, s32);
+extern void func_001F9838(void *, void *, s32);
 
-extern char D_00754210[];
-extern char D_00754220[];
-extern char D_00602F80[];
-extern char D_00603310[];
-extern char D_006036A0[];
-extern unsigned short D_00747A50;
+s32 FUN_0021d338(struct Loader *o) {
+    u8 *buf;
+    s32 *p;
+    s32 count;
+    s32 size;
+    s32 i;
+    struct Entry *e;
 
-__attribute__((section(".text.func_002CFD50")))
-void FUN_0021d338(char *a0) {
-    char *a1 = a0;
-    switch (*(int *)(a1 + 0x2C)) {
+    switch (o->state) {
     case 0:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
-        break;
-    case 3:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00602F80;
+        if (D_001516D0.unk8 != 0) {
+            break;
+        }
+        if (func_00216788(D_001D5CF8, D_00137B80.sector, D_00137B80.size) != 0) {
+            o->state = 1;
+        } else {
+            o->state = 3;
+        }
         break;
     case 1:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 16:
-    case 17:
-    case 18:
-    case 19:
-        if (D_00747A50 == 0x504 || D_00747A50 == 0x506 || D_00747A50 == 0x801 ||
-            D_00747A50 == 0x4F || D_00747A50 == 0x4E) {
-            *(void **)(a1 + 0x8) = D_00754220;
-        } else {
-            *(void **)(a1 + 0x8) = D_00754210;
+        if (D_001516D0.unk8 != 0) {
+            break;
         }
-        *(void **)(a1 + 0xC) = D_006036A0;
+        buf = D_001D5BF0.buf;
+        p = (s32 *)(buf + ((s32 *)buf)[D_0015ED88]);
+        count = *p++;
+        size = *p++;
+        func_001F9838(buf, p, ((size + 3) & ~3) - 8);
+        o->saved_buf = (s32)D_0015F6A0;
+        o->saved_count = D_001996D0.count;
+        D_001996D0.count = count;
+        D_0015F6A0 = D_001D5BF0.buf;
+        e = (struct Entry *)D_0015F6A0;
+        for (i = 0; i < D_001996D0.count; i++) {
+            e->offset += (s32)(D_0015F6A0 - 8);
+            e++;
+        }
+        o->flags &= ~4;
+        o->state = 2;
         break;
     case 2:
-    case 4:
-    case 5:
-    case 6:
-    case 14:
-    case 15:
-    default:
-        *(void **)(a1 + 0x8) = D_00754210;
-        *(void **)(a1 + 0xC) = D_00603310;
         break;
     }
+    return 0;
 }
 #endif /* NON_MATCHING */

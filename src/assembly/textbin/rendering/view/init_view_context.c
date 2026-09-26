@@ -4,56 +4,46 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/view/init_view_context/FUN_001f2c60.s", FUN_001f2c60);
 #else
-#include "rnc/assembly_textbin_fun_001f2c60_types.h"
 #include "types.h"
+struct Display { u8 pad[0x150]; s16 w; s16 h; };
+struct Screen { s32 w; s32 h; s32 hw; s32 hh; s32 x0; s32 y0; s32 x1; s32 y1; };
+struct View {
+    u8 pad0[0xA0]; f32 unkA0; f32 unkA4; u8 padA8[8]; f32 unkB0; u8 padB4[0x14C];
+    f32 hw; f32 hh; f32 sx; f32 sy; u8 pad210[8]; s32 unk218; f32 unk21C; u8 pad220[8]; f32 unk228; s32 unk22C;
+};
+extern struct Display D_00151780;
+extern struct Screen D_0013E500;
+extern struct View D_0018CD00;
+extern f32 func_001FA6C0(s32);
 
-
-
-
-
-
-extern struct M2c_D_0013E500 D_0013E500;
-extern struct M2c_D_00151780 D_00151780;
-extern struct M2c_D_0018CD00 D_0018CD00;
-extern s32 func_001FA6C0();
 void init_view_context(void) __asm__("FUN_001f2c60");
 
 void init_view_context(void) {
-    f32 temp_f0_57;
-    f32 temp_f5_63;
-    s32 temp_10_23;
-    s32 temp_6_34;
-    s32 temp_7_35;
-    s32 temp_8_36;
-    s32 temp_9_26;
+    struct Display *d = &D_00151780;
+    struct View *v = &D_0018CD00;
+    s32 hw;
+    s32 hh;
 
-    temp_10_23 = (s32) (D_00151780.unk152 << 0x10) >> 0x11;
-    temp_9_26 = (s32) (D_00151780.unk150 << 0x10) >> 0x11;
-    D_0013E500.unk1C = (s32) ((temp_10_23 + 0x800) * 0x10);
-    D_0013E500.unk0 = (s32) (s16) D_00151780.unk150;
-    temp_6_34 = (0x800 - temp_9_26) * 0x10;
-    temp_7_35 = (0x800 - temp_10_23) * 0x10;
-    temp_8_36 = (temp_9_26 + 0x800) * 0x10;
-    D_0013E500.unk4 = (s32) (s16) D_00151780.unk152;
-    D_0013E500.unk10 = temp_6_34;
-    D_0013E500.unk14 = temp_7_35;
-    D_0013E500.unk18 = temp_8_36;
-    D_0018CD00.unkA0 = 32.0f;
-    D_0018CD00.unkB0 = 0.63f;
-    D_0018CD00.unkA4 = 745472.0f;
-    D_0013E500.unk8 = temp_9_26;
-    D_0013E500.unkC = temp_10_23;__asm__ volatile ("" : : "r" (&D_0013E500));
-    
-    D_0018CD00.unk200 = (f32) (func_001FA6C0((s16) D_00151780.unk150, (s16) D_00151780.unk152, temp_6_34, temp_7_35, temp_8_36, temp_9_26, temp_10_23, &D_0013E500) * 0.5f);
-    temp_f0_57 = func_001FA6C0((s16) D_00151780.unk152) * 0.5f;
-    __asm__ volatile ("" : "+f" (temp_f0_57));
-    temp_f5_63 = temp_f0_57 * 4.0f;
-    D_0018CD00.unk21C = 524288.0f;
-    D_0018CD00.unk228 = 255.0f;
-    D_0018CD00.unk20C = temp_f5_63;
-    D_0018CD00.unk208 = (f32) (D_0018CD00.unk200 * 4.0f);
-    D_0018CD00.unk22C = 0;
-    D_0018CD00.unk204 = temp_f0_57;
-    D_0018CD00.unk218 = 0;
+    hw = d->w >> 1;
+    hh = d->h >> 1;
+    D_0013E500.w = d->w;
+    D_0013E500.h = d->h;
+    D_0013E500.hw = hw;
+    D_0013E500.hh = hh;
+    D_0013E500.x0 = (0x800 - hw) << 4;
+    D_0013E500.y0 = (0x800 - hh) << 4;
+    D_0013E500.x1 = (hw + 0x800) << 4;
+    D_0013E500.y1 = (hh + 0x800) << 4;
+    v->unkA0 = 32.0f;
+    v->unkA4 = 745472.0f;
+    v->unkB0 = 0.63f;
+    v->hw = func_001FA6C0(d->w) * 0.5f;
+    v->hh = func_001FA6C0(d->h) * 0.5f;
+    v->sx = v->hw * 4.0f;
+    v->sy = v->hh * 4.0f;
+    v->unk21C = 524288.0f;
+    v->unk228 = 255.0f;
+    v->unk218 = 0;
+    v->unk22C = 0;
 }
 #endif /* NON_MATCHING */

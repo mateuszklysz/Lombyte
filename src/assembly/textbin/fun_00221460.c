@@ -5,74 +5,43 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00221460/FUN_00221460.s", FUN_00221460);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+struct OptItem { s32 text; u8 *value; s32 names[4]; };
+struct OptMenu { u8 pad0[0x20]; s32 x; s32 height; u8 pad28[0xC]; struct OptItem *items; s32 selected; };
+extern void func_00233980(s32, s32);
+extern void func_001F4280(s32);
+extern void func_001F4398(void);
+extern s32 func_001FDD10(s32);
+extern void func_001F6530(s32, s32, s32, s32, s32);
+extern void func_001F6940(s32, s32, u64, s32, s32);
 
-extern void *SearchData(void *a, void *b, int c);
-extern int cModel_setupModel(void *a, void *b, void *c, int d, int e);
-extern void cObjBase_KageInit(void *a, void *b, void *c);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
-extern char D_0044B4B8[];
-extern char D_003C3F58[];
-extern char D_003C3F68[];
-extern char D_003C3FB0[];
+s32 FUN_00221460(struct OptMenu *m) {
+    struct OptItem *it;
+    struct OptItem *p;
+    s32 n;
+    s32 i;
+    s32 step;
+    s32 y;
+    s32 color;
 
-/* sn-2.95.3-136 matched TU. */
-
-
-
-
-
-
-
-
-
-
-
-
-__attribute__((section(".text.func_002B6768")))
-int FUN_00221460(char *a0) {
-    void *m1;
-    void *m2;
-    int n;
-
-    if (*(unsigned char *)(a0 + 0x4D0) == 0) {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, 0);
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, 0);
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, 0);
+    func_00233980(0x47, 0x2004B);
+    func_001F4280(0);
+    n = 0;
+    for (p = m->items; p->text != 0; p++) {
+        n++;
+    }
+    step = m->height / (n + 1);
+    y = step - 8;
+    for (i = 0; m->items[i].text != 0; i++) {
+        it = &m->items[i];
+        color = 0x8020FFFF;
+        if (i != m->selected) {
+            color = 0x80FFA888;
         }
-    } else {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, *(int *)(a0 + 0x4D4));
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, *(int *)(a0 + 0x4D4));
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, *(int *)(a0 + 0x4D4));
-        }
+        func_001F6530(0xC, y, color, func_001FDD10(it->text), -1);
+        func_001F6940(m->x - 0xC, y, 0x80FFA888, func_001FDD10(it->names[*it->value]), -1);
+        y += step;
     }
-    n = func_002B6688(*(unsigned short *)(a0 + 0x2FE));
-    *(int *)(a0 + 0x4DC) = n;
-    switch (n) {
-    case 1:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        break;
-    case 2:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F58);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x40000000;
-        break;
-    case 3:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x20000000;
-        break;
-    case 4:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3FB0);
-        break;
-    case 0:
-        break;
-    }
-    *(int *)(a0 + 0x254) = *(int *)(a0 + 0x254) | 0x8000000;
-    if (m1 == 0) {
-        return 0;
-    }
-    return cModel_setupModel(a0, m1, m2, 0, 0);
+    func_001F4398();
+    return 2;
 }
 #endif /* NON_MATCHING */

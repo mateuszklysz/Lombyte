@@ -518,6 +518,9 @@ EE_GCC_PATCHED_UNITS = {
     # fun_001fecc8: find an id in the 150-entry pair table and return its
     # partner
     "textbin/fun_001fecc8",
+    # sce_dma_put_env: libdma sceDmaPutEnv: validate the env, program
+    # D_CTRL/PCR/SQWC/RBOR/RBSR and keep a copy
+    "sdk/dma/sce_dma_put_env",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -616,6 +619,10 @@ PADLESS_POLICY_UNITS = {
     "fun_00208280": "la-gprel",
     # fun_0020b950: exact on padless with la-gprel
     "fun_0020b950": "la-gprel",
+    # snd_send_iop_command_and_wait: exact on padless with la-gprel
+    "snd_send_iop_command_and_wait": "la-gprel",
+    # snd_send_iop_command_no_wait: exact on padless with la-gprel
+    "snd_send_iop_command_no_wait": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -1240,6 +1247,18 @@ GAME_COMPILER_UNITS = {
     # cam_interp_values: native route preserves the retail floating-point
     # compare interlock nop; linked bytes verified
     "textbin/gameplay/camera/cam_interp_values",
+    # fun_002265d8: append a light record (13 words, cleared active flag first)
+    # to the 8-entry table
+    "textbin/fun_002265d8",
+    # fun_001f0c50: draw text centred on x: sum glyph widths (unknown glyphs use
+    # 0x20), then call the left-aligned draw
+    "textbin/fun_001f0c50",
+    # fun_002157d0: start music channel 1 from the 20000-range track table (same
+    # shape as fun_00215440)
+    "textbin/fun_002157d0",
+    # fun_002158a0: start music channel 1 from the 10000-range track table (same
+    # shape as fun_00215440)
+    "textbin/fun_002158a0",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1569,6 +1588,41 @@ PADLESS_ASM_UNITS = {
     # fun_002135f0: padless route: the block header fields are read through one
     # struct so the scale stays in the load
     "textbin/fun_002135f0",
+    # fun_00227140: queue a DMA ref tag to the slot matrix, then upload the slot
+    # entry (TagPtr reloads; D_00160360[2] gp-small)
+    "textbin/fun_00227140",
+    # fun_00212d68: look up an id in the -1-terminated map and store its
+    # value/extra for the current slot (global re-read, no local)
+    "textbin/fun_00212d68",
+    # fun_00200c80: queue a GIF packet with one register pair and two XYZ2
+    # corners (pixel or subpixel coordinates)
+    "textbin/fun_00200c80",
+    # fun_00200e08: same packet as fun_00200c80 with register 0x46
+    "textbin/fun_00200e08",
+    # fun_00200f90: GIF packet like fun_00200e08 with an explicit Z for both
+    # XYZ2 corners
+    "textbin/fun_00200f90",
+    # fun_00200958: queue a textured HUD sprite GIF packet (TEX0 from the
+    # texture, UV/XYZ2 corners, alpha)
+    "textbin/fun_00200958",
+    # fun_00200080: queue a HUD sprite GIF packet sized from the texture table
+    # (1<<log2 sizes as UV)
+    "textbin/fun_00200080",
+    # fun_00200258: HUD sprite packet like fun_00200080 with a UV origin
+    # (texture size in subpixels)
+    "textbin/fun_00200258",
+    # fun_002216c0: collect the owned items of the four slot tables into the
+    # menu list (icon, id, two values, slot index)
+    "textbin/fun_002216c0",
+    # snd_bank_load_from_ee_cb: load a sound bank over SIF RPC 0x57 once the
+    # server is idle (scalar lui/at externs, gp .extern flags)
+    "textbin/audio/banks/snd_bank_load_from_ee_cb",
+    # snd_send_iop_command_and_wait: copy the command payload, wait for the IOP,
+    # call the sound RPC and poll for completion (wait loop entered at its test)
+    "textbin/audio/rpc/snd_send_iop_command_and_wait",
+    # snd_send_iop_command_no_wait: append a sound command to the current batch
+    # (send immediately when idle), waiting for batch space
+    "textbin/audio/rpc/snd_send_iop_command_no_wait",
 }
 
 
