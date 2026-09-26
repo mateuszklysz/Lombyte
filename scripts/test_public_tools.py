@@ -27,6 +27,10 @@ ROOT = Path(__file__).resolve().parents[1]
 def load_module(name: str, path: Path):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
+    # Register before exec: a module that declares a dataclass looks itself up
+    # in sys.modules while the class body is evaluated, and raises
+    # "NoneType object has no attribute '__dict__'" if it is not there yet.
+    sys.modules[name] = module
     spec.loader.exec_module(module)
     return module
 
@@ -1501,6 +1505,59 @@ class PatchedToolchainArtifactTests(unittest.TestCase):
     def test_reference_hashes_are_full_sha256(self):
         for name, digest in self.builder.REFERENCE_HASHES.items():
             self.assertEqual(len(digest), 64, name)
+
+
+class RenameCatalogUnitTests(unittest.TestCase):
+    """One rename proposal per unit, or the progress workflow cannot load.
+
+    The rename tool rewrites the unit of every catalog entry that shares an
+    address with a moved unit. A catalog that already carried two rows for one
+    function - a proposal plus the unresolved row it replaced - therefore ends up
+    with both rows naming the same unit, and progress_groups.py refuses to read
+    it. That is how the 2026-09-26 music-track renames turned the progress
+    workflow red.
+    """
+
+    def setUp(self):
+        self.tool = load_module(
+            "rename_tool", ROOT / "scripts/rename-function-proposals.py"
+        )
+
+    @staticmethod
+    def _payload(paths):
+        return {"rename_proposals": {"entries": [{"source_path": p} for p in paths]}}
+
+    def test_one_row_per_unit_is_accepted(self):
+        payload = self._payload(["src/textbin/a.c", "src/textbin/b.c"])
+        self.assertEqual(self.tool.find_duplicate_catalog_units(payload), [])
+
+    def test_two_rows_for_one_unit_are_reported(self):
+        payload = self._payload(
+            ["src/audio/music/music_start_track_10000.c"] * 2
+        )
+        self.assertEqual(
+            self.tool.find_duplicate_catalog_units(payload),
+            ["audio/music/music_start_track_10000"],
+        )
+
+    def test_a_pending_and_a_promoted_path_are_the_same_unit(self):
+        # assembly/<x>.c and <x>.c are one unit before and after promotion.
+        payload = self._payload(
+            ["src/assembly/textbin/fun_002158a0.c", "src/textbin/fun_002158a0.c"]
+        )
+        self.assertEqual(
+            self.tool.find_duplicate_catalog_units(payload), ["textbin/fun_002158a0"]
+        )
+
+    def test_rows_without_a_source_path_are_ignored(self):
+        payload = self._payload(["src/textbin/a.c"])
+        payload["rename_proposals"]["entries"].append({"address": "0x1"})
+        self.assertEqual(self.tool.find_duplicate_catalog_units(payload), [])
+
+    def test_the_committed_catalog_has_no_duplicate(self):
+        catalog = ROOT / "config/us/recovered_names.json"
+        payload = json.loads(catalog.read_text(encoding="utf-8"))
+        self.assertEqual(self.tool.find_duplicate_catalog_units(payload), [])
 
 
 if __name__ == "__main__":

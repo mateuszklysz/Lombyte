@@ -10592,18 +10592,6 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "audio/music/music_start_track_60000",
-        "source_path": "src/audio/music/music_start_track_60000.c",
-        "address": "0x00215440",
-        "current_name": "FUN_00215440",
-        "proposed_name": null,
-        "logical_group": "unclassified",
-        "status": "unresolved",
-        "confidence": "unresolved",
-        "evidence": [],
-        "logical_group_confidence": "unresolved"
-      },
-      {
         "unit": "textbin/audio/music/music_start_track_50000",
         "source_path": "src/assembly/textbin/audio/music/music_start_track_50000.c",
         "address": "0x00215518",
@@ -10618,72 +10606,6 @@
             "note": "Same operation as the already-named music_start_track: read a handle for a track id out of the global table D_00137B80, and if it is non-zero and the shared request record D_001516D0 is idle, fill that record (volume 48000, priority 10, parameter 0x21) and call func_0012EC08, the retail track-start entry. The units differ only in the constant the id is biased by, which is what names them. Table index is `track - 50000` into a six-wide per-region table: ids 50000-59999."
           }
         ],
-        "logical_group_confidence": "unresolved"
-      },
-      {
-        "unit": "audio/music/music_start_track_40000",
-        "source_path": "src/audio/music/music_start_track_40000.c",
-        "address": "0x00215600",
-        "current_name": "FUN_00215600",
-        "proposed_name": null,
-        "logical_group": "unclassified",
-        "status": "unresolved",
-        "confidence": "unresolved",
-        "evidence": [],
-        "logical_group_confidence": "unresolved"
-      },
-      {
-        "unit": "audio/music/music_start_track_30000",
-        "source_path": "src/audio/music/music_start_track_30000.c",
-        "address": "0x002156d8",
-        "current_name": "FUN_002156d8",
-        "proposed_name": null,
-        "logical_group": "unclassified",
-        "status": "unresolved",
-        "confidence": "unresolved",
-        "evidence": [
-          {
-            "kind": "git_log",
-            "commit": "44a2a33",
-            "excerpt": "(+0.5..+1.9; fun_002156d8 81.44 -> 83.31), none down. Two bodies adjusted"
-          }
-        ],
-        "logical_group_confidence": "unresolved"
-      },
-      {
-        "unit": "audio/music/music_start_track_20000",
-        "source_path": "src/audio/music/music_start_track_20000.c",
-        "address": "0x002157d0",
-        "current_name": "FUN_002157d0",
-        "proposed_name": null,
-        "logical_group": "unclassified",
-        "status": "unresolved",
-        "confidence": "unresolved",
-        "evidence": [],
-        "logical_group_confidence": "unresolved"
-      },
-      {
-        "unit": "audio/music/music_start_track_10000",
-        "source_path": "src/audio/music/music_start_track_10000.c",
-        "address": "0x002158a0",
-        "current_name": "FUN_002158a0",
-        "proposed_name": null,
-        "logical_group": "unclassified",
-        "status": "unresolved",
-        "confidence": "unresolved",
-        "evidence": [],
-        "logical_group_confidence": "unresolved"
-      },
-      {
-        "unit": "audio/music/music_start_track_by_id",
-        "source_path": "src/audio/music/music_start_track_by_id.c",
-        "address": "0x00215970",
-        "current_name": "FUN_00215970",
-        "proposed_name": null,
-        "logical_group": "unclassified",
-        "status": "unresolved",
-        "confidence": "unresolved",
-        "evidence": [],
         "logical_group_confidence": "unresolved"
       },
       {

@@ -975,6 +975,34 @@ def replace_category_owners(payload: Any, renames: dict[str, str]) -> int:
     return changed
 
 
+def find_duplicate_catalog_units(payload: dict[str, Any]) -> list[str]:
+    """Unit paths that more than one rename proposal claims.
+
+    ``update_catalog_owners`` rewrites the unit of *every* entry that shares an
+    address with a moved unit, so a catalog that already held two rows for one
+    function - one proposed, one left unresolved - ends up with both rows naming
+    the same unit. ``progress_groups.py`` then refuses to load the catalog, and
+    the progress workflow fails three files away from the cause. The invariant is
+    one row per unit, and it is checked here so the failure names the rows
+    instead of the symptom.
+    """
+    seen: dict[str, list[dict[str, Any]]] = {}
+    entries = (payload.get("rename_proposals") or {}).get("entries") or []
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        source = str(entry.get("source_path") or "")
+        if not source:
+            continue
+        unit = (source[4:-2] if source.startswith("src/") else source[:-2]).removeprefix(
+            "assembly/"
+        )
+        seen.setdefault(unit, []).append(entry)
+    return sorted(
+        unit for unit, rows in seen.items() if len(rows) > 1
+    )
+
+
 def update_catalog_owners(payload: dict[str, Any], candidates: list[Candidate]) -> int:
     """Keep proposal and recovered-symbol owner references aligned after moves."""
     selected = {candidate.address: candidate for candidate in candidates}
@@ -1177,6 +1205,12 @@ def main() -> int:
             category_text = json.dumps(category_payload, indent=2, ensure_ascii=False) + "\n"
 
     catalog_owner_count = update_catalog_owners(payload, active)
+    duplicate_units = find_duplicate_catalog_units(payload)
+    if duplicate_units:
+        issues.append(
+            "the catalog would name one unit from "
+            f"{len(duplicate_units)} row(s): " + ", ".join(duplicate_units[:6])
+        )
     if args.apply and not issues and active:
         proposals = payload["rename_proposals"]
         proposals["status"] = "applied"
