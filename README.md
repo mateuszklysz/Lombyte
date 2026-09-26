@@ -7,17 +7,14 @@
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributing-guide-c3cbd8?style=flat-square&labelColor=0d1117" alt="Contributing guide"></a>
 </p>
 
----
-
 <p align="center">
   A work-in-progress, byte-matching decompilation of Ratchet &amp; Clank (2002) for PlayStation 2.<br>
   Reconstructing the original executable in readable C, with a native PC port as the long-term goal.
 </p>
 
 > [!WARNING]
-> Lombyte does not include game data, executables, disc images, or proprietary toolchains. A legitimately obtained copy of the **USA / NTSC-U** release (`SCUS_971.99`) is required.
-
----
+> Lombyte does not include game data, executables, disc images, or proprietary toolchains.<br>
+> A legitimately obtained copy of the **USA / NTSC-U** release (`SCUS_971.99`) is required.
 
 <p align="center">
   <a href="https://decomp.dev/mateuszklysz/Lombyte">
