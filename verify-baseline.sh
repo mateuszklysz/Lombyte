@@ -91,19 +91,21 @@ set +e
 ninja -C config/us
 BUILD_STATUS=$?
 set -e
-tools/objdiff/objdiff-cli report generate -p config/us/ -o config/us/report.json -f json
 if [[ "$BUILD_STATUS" -ne 0 ]]; then
-    printf 'baseline build failed with status %s; objdiff report was still generated\n' "$BUILD_STATUS" >&2
+    printf 'baseline build failed with status %s; no PASS receipt produced\n' "$BUILD_STATUS" >&2
     exit "$BUILD_STATUS"
 fi
+tools/objdiff/objdiff-cli report generate -p config/us/ -o config/us/report.json -f json
 python3 <<'PY'
 import hashlib, json, pathlib
-elf = pathlib.Path("config/us/SCUS_971.99")
-retail = pathlib.Path("config/us/retail")  # not used; retail SHA is pinned below
+elf = pathlib.Path("config/us/build/SCUS_971.99")
+retail = pathlib.Path("config/us/SCUS_971.99")
 built_sha = hashlib.sha256(elf.read_bytes()).hexdigest()
 expected = "e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9"
 print("built SHA-256:", built_sha)
-if built_sha != expected:
+if hashlib.sha256(retail.read_bytes()).hexdigest() != expected:
+    raise SystemExit("retail input does not match pinned SHA-256")
+if built_sha != expected or elf.read_bytes() != retail.read_bytes():
     raise SystemExit("rebuilt ELF does not match retail SHA-256")
 print("PASS: reconstructed boot ELF matches retail")
 PY
