@@ -1,16 +1,13 @@
 #include "types.h"
-#include "asm.h"
 
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/view/init_view_context/FUN_001f2c60.s", FUN_001f2c60);
-#else
-#include "types.h"
-struct Display { u8 pad[0x150]; s16 w; s16 h; };
+struct Display { u8 pad0[0x150]; s16 w; s16 h; };
 struct Screen { s32 w; s32 h; s32 hw; s32 hh; s32 x0; s32 y0; s32 x1; s32 y1; };
 struct View {
     u8 pad0[0xA0]; f32 unkA0; f32 unkA4; u8 padA8[8]; f32 unkB0; u8 padB4[0x14C];
-    f32 hw; f32 hh; f32 sx; f32 sy; u8 pad210[8]; s32 unk218; f32 unk21C; u8 pad220[8]; f32 unk228; s32 unk22C;
+    f32 hw; f32 hh; f32 sx; f32 sy; u8 pad210[8]; s32 unk218; f32 unk21C; u8 pad220[8];
+    f32 unk228; s32 unk22C;
 };
+
 extern struct Display D_00151780;
 extern struct Screen D_0013E500;
 extern struct View D_0018CD00;
@@ -46,4 +43,5 @@ void init_view_context(void) {
     v->unk218 = 0;
     v->unk22C = 0;
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(init_view_context) func_001F2C60 __attribute__((alias("FUN_001f2c60")));

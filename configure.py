@@ -203,6 +203,18 @@ SN_COMPILER_UNITS = {
     # fun_00226670: do-while over a signed s32 byte cursor (retail guards at the
     # bottom with a signed slt) plus two address forms for one symbol
     "textbin/fun_00226670",
+    # draw_ui_frame: Declaring the callee void
+    # func_001F52A0(s32,s32,s32,s32,u64) and mutating the x/y parameters in
+    # place (x += 4; y -= 4) with the remaining offsets inline in the calls
+    # reproduced the retail register allocation exactly.
+    "textbin/ui/frames/draw_ui_frame",
+    # fun_001f2070: exact on the sn route: the 0xA0-byte frame struct (whose
+    # base pointer is the first callee arg) reproduces every
+    # 0x30/0x34/0x38/0x40/0x80/0x8C/0x90-0x9C field offset, the three float args
+    # of func_001FA378 are stored into that struct instead of being passed (so
+    # it takes three pointer args only), D_00186F40.unk140-148 are f32, and
+    # D_0018CF10 as an array extern gives the lui/lwc1 pair retail uses
+    "textbin/fun_001f2070",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -623,6 +635,10 @@ PADLESS_POLICY_UNITS = {
     "snd_send_iop_command_and_wait": "la-gprel",
     # snd_send_iop_command_no_wait: exact on padless with la-gprel
     "snd_send_iop_command_no_wait": "la-gprel",
+    # fun_002028e0: exact on padless with la-gprel
+    "fun_002028e0": "la-gprel",
+    # load_display_text_resource_entry: exact on padless with la-gprel
+    "load_display_text_resource_entry": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -1259,6 +1275,42 @@ GAME_COMPILER_UNITS = {
     # fun_002158a0: start music channel 1 from the 10000-range track table (same
     # shape as fun_00215440)
     "textbin/fun_002158a0",
+    # fun_00214970: Native route is byte-exact when the zero branch stores the
+    # nine globals in the same order as the non-zero branch (ED80, ED60, ED64,
+    # ED68, ED6C, ED70, ED74, ED78, ED7C): the ee-gcc store scheduler then emits
+    # them as ED68, ED70, ED74, ED78, ED7C, ED80, ED60, ED64 with the gp-rel
+    # ED6C in the delay slot, which is retail's order, so the four wrong linked
+    # immediates (two LO16 and one GPREL16 word pairs) become right and
+    # exact=True.
+    "textbin/fun_00214970",
+    # fun_00215970: The six 10000-step track-range thresholds as a plain else-if
+    # chain plus the D_0013A664 + track*0x250 + D_0015ED88*4 lookup, and the
+    # D_001516D0 field stores in the same order as the already-exact siblings
+    # (unk50 first), made the whole dispatcher byte-exact.
+    "textbin/fun_00215970",
+    # memcard_prepare_data: Declaring the block pointer copy and the -4 align
+    # mask inside the `if (blk->base != 0)` block (so the copy lands in the loop
+    # preheader and is not coalesced with a2) and keeping an explicit `u8 *src`
+    # temp for `block->base + slot * block->size` before the two header stores
+    # gave s0=block/s1=p and byte-exact .text.
+    "textbin/storage/memory_card/data/memcard_prepare_data",
+    # music_preseek_track: retail keeps the music table address UNSPLIT (lui +
+    # addiu +0x7b80 + addiu +0x2AA8): the base in one local and the 0x2AA8
+    # offset in a SEPARATE s32 make it a register term, so legitimize_address
+    # splits the address into two registers and the offset stays in the
+    # instruction stream
+    "textbin/audio/music/music_preseek_track",
+    # music_start_track: retail keeps the music table address UNSPLIT (lui +
+    # addiu +0x7b80 + addiu +0x2AA8): holding the base in one local and the
+    # 0x2AA8 offset in a SEPARATE s32 makes it a register term, so
+    # legitimize_address splits the address into two registers and the offset
+    # stays in the instruction stream
+    "textbin/audio/music/music_start_track",
+    # stash_send_data: the tail needs four post-call locals: the counter
+    # reloaded into n, an index copy i, the old cur in a local, and next = cur +
+    # bytes computed before the counter update, with the counter store and the
+    # three entry writes after it
+    "textbin/world/data/stash_send_data",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1308,6 +1360,10 @@ GAME_COMPILER_FLAG_UNITS = {
     "snd_reset_state_and_flush_commands": "-mastra-r5900-extern-buffer",
     "fun_00225490": "-fno-schedule-insns",
     "fun_0022c7e8": "-fno-schedule-insns",
+    # measured: retail never uses gp/small data here - float literals are
+    # lui/ori/mtc1 and byte globals lui/addiu/lb - so the small-data sections
+    # must be off. 97.65 with -G0 against 88.46 without it.
+    "textbin/fun_00221f58": "-G0",
 }
 
 SN_FLAG_UNITS = {
@@ -1358,6 +1414,17 @@ SN_FLAG_UNITS = {
     # addiu v0,v0,-0x1ab0` with the 0x70 stride in v1.  100/100/100 + patha
     # byte-equal with -mno-split-addresses (pipeline-2026-09-15-16 worker c).
     "allocate_voice_for_bank_entry": "-mno-split-addresses",
+    # measured: same -G0 requirement as fun_00221f58 - retail's float literals
+    # are lui/ori/mtc1, not wlc1 from .lit4. 96.32 with -G0 against 94.04
+    # without.
+    "textbin/fun_00213f38": "-G0",
+    # measured: the flag keeps the scalar extern of D_0015EE8C as lui+lw instead
+    # of %gp_rel and stops cc1 merging the loads; 99.58 with it, 88.22 without.
+    "textbin/fun_001f7888": "-fno-expensive-optimizations",
+    # measured: de-gp-relativises the scalar globals (lui+%lo in the same
+    # register) and stops cc1 merging loads of different widths. 77.50 with it,
+    # 62.29 without.
+    "textbin/rendering/effects/get_effect_texture": "-fno-expensive-optimizations",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
@@ -1623,6 +1690,43 @@ PADLESS_ASM_UNITS = {
     # snd_send_iop_command_no_wait: append a sound command to the current batch
     # (send immediately when idle), waiting for batch space
     "textbin/audio/rpc/snd_send_iop_command_no_wait",
+    # fun_001f4fb8: Byte-exact on the padless route (both none and la-gprel
+    # policies) with the mask as 0xFF000000FFULL, a local s32 temp for each
+    # tested field so the test and the 5th u64 arg share one load, an s64 mask
+    # local for the loop, and the 5th arg written as (u64)((s64)x << 0x20) >>
+    # 0x20 to force the dsll32/dsrl32 sign-extension; native/sn top out at 97.5
+    # because their assembler expands dli differently.
+    "textbin/fun_001f4fb8",
+    # fun_002028e0: Plain-C rewrite: the 8-byte sprite clear must be a struct
+    # s64 field store (not a cast-pointer store) so reload.c coalesces the
+    # post-call %hi/%lo reload into the loop-carried base copy, a separate index
+    # variable for the group loop pins f->s3/i->s4, and `f->loaded = 1` before
+    # the relocation stores fixes their schedule.
+    "textbin/fun_002028e0",
+    # fun_00206710: a src pointer variable for the 0x70000000 base keeps
+    # retail's constant in s3 and its base+index add order, `s = i % 0x10` in
+    # its own variable reproduces the divmod copy (daddu v0,v1,zero) and
+    # retail's add destinations, and (u32) casts on the nibble shift/and give
+    # srl plus a bnel for `if (t != 0)`
+    "textbin/fun_00206710",
+    # init_view_context: Plain-C rewrite of the public NON_MATCHING body is
+    # byte-exact on the padless route: the Display/Screen/View structs, the s16
+    # half-width shifts, the float literals (32.0f, 745472.0f, 0.63f, 0.5f,
+    # 4.0f, 524288.0f, 255.0f) and the two func_001FA6C0 calls reproduce every
+    # store in retail order; only the padless assembler drops the single nop the
+    # native route inserts after the 255.0f mtc1, so the source is already
+    # optimal and the route is the only lever
+    "textbin/rendering/view/init_view_context",
+    # load_display_text_resource_entry: A 0x20-byte local whose tail half is a
+    # union with a mode(TI) member gives the por+sq zero store, and an explicit
+    # f32 scale local that is live across the middle call forces the f20
+    # callee-saved save/restore and the 0x50 frame.
+    "textbin/ui/text/load_display_text_resource_entry",
+    # set_up_vis_gif_viewer: Registered route is padless+none (native scores
+    # only 87.8): the packet high word is (u64)(u32)n << 32 taken from the 2nd
+    # argument instead of w1 >> 32, and 0x20 is OR-ed with (w1 & 0x1C) in the
+    # mode>=0 branch but with (prim << 6) in the two negative branches.
+    "textbin/rendering/set_up_vis_gif_viewer",
 }
 
 
