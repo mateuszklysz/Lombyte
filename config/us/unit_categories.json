@@ -240,6 +240,9 @@
     "assembly/sdk/library/memmove",
     "assembly/sdk/library/strchr",
     "assembly/sdk/dma/dma_ref_image",
-    "assembly/sdk/dma/sce_gs_set_def_load_image"
+    "assembly/sdk/dma/sce_gs_set_def_load_image",
+    "assembly/textbin/fun_001f99c8",
+    "assembly/textbin/fun_001f99d0",
+    "assembly/textbin/fun_001f99e8"
   ]
 }
