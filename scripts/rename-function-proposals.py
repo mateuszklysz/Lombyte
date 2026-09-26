@@ -676,6 +676,40 @@ def build_candidates(
     return result
 
 
+def find_stale_route_tables(
+    root: Path, candidates: list[Candidate]
+) -> dict[str, list[tuple[str, str]]]:
+    """Path-keyed unit sets in configure.py that a planned move invalidates.
+
+    configure.py holds hand-curated sets of linker-config owners - the compile
+    rule, the flag sets, the origin sets - and the owner's *path* is the key. A
+    rename that moves a unit out of textbin/ therefore drops it out of whichever
+    set it belonged to, and the unit gets rebuilt by a different compiler. The
+    bytes change and the gate fails, with nothing in this tool's output naming
+    the cause. These sets carry per-unit comments explaining why each unit is
+    there, so they are reported rather than rewritten: the caller knows the new
+    name and the reasoning does not survive an automatic edit.
+    """
+    path = root / "configure.py"
+    if not path.is_file():
+        return {}
+    text = path.read_text(encoding="utf-8", errors="replace")
+    renames = {
+        c.old_owner: c.new_owner
+        for c in candidates
+        if not c.error and not c.already_applied and c.old_owner != c.new_owner
+    }
+    if not renames:
+        return {}
+    stale: dict[str, list[tuple[str, str]]] = {}
+    for match in re.finditer(r"(?m)^([A-Z][A-Z0-9_]*) = \{(.*?)^\}", text, re.S):
+        set_name, body = match.group(1), match.group(2)
+        for owner in re.findall(r'"([^"]+)"', body):
+            if owner in renames:
+                stale.setdefault(set_name, []).append((owner, renames[owner]))
+    return stale
+
+
 def collect_symbol_definitions(
     src_root: Path,
 ) -> tuple[
@@ -1172,6 +1206,18 @@ def main() -> int:
         f"{reference_declaration_count} asm-labeled declarations, "
         f"{reference_file_count} files."
     )
+    stale_route_tables = find_stale_route_tables(root, active)
+    if stale_route_tables:
+        print()
+        print("UNITS MOVED OUT OF A PATH-KEYED SET IN configure.py - update it by hand:")
+        for set_name, owners in stale_route_tables.items():
+            print(f"  {set_name}: {len(owners)} owner(s) still named by their old path")
+            for old_owner, new_owner in owners:
+                print(f"    {old_owner} -> {new_owner}")
+        print(
+            "  These sets decide the compile rule by owner. An owner that leaves one "
+            "silently changes compiler, and the baseline gate fails on the bytes."
+        )
     print()
 
     for candidate in active:
