@@ -208,12 +208,11 @@ SN_COMPILER_UNITS = {
     # place (x += 4; y -= 4) with the remaining offsets inline in the calls
     # reproduced the retail register allocation exactly.
     "textbin/ui/frames/draw_ui_frame",
-    # fun_001f2070: exact on the sn route: the 0xA0-byte frame struct (whose
-    # base pointer is the first callee arg) reproduces every
-    # 0x30/0x34/0x38/0x40/0x80/0x8C/0x90-0x9C field offset, the three float args
-    # of func_001FA378 are stored into that struct instead of being passed (so
-    # it takes three pointer args only), D_00186F40.unk140-148 are f32, and
-    # D_0018CF10 as an array extern gives the lui/lwc1 pair retail uses
+    # fun_00208030: expand a 4bpp coverage map through the 16-entry weight table
+    # into a 1bpp threshold mask (4 source rows per output row)
+    "textbin/fun_00208030",
+    # fun_001f2070: project the camera-relative point through the view matrix
+    # into GS screen coordinates and depth
     "textbin/fun_001f2070",
 }
 
@@ -1319,6 +1318,15 @@ GAME_COMPILER_UNITS = {
     # cc rule takes no per-unit flags, so the public score could not reproduce
     # it
     "assembly/textbin/fun_00221f58",
+    # fun_00203120: upload a list of texture/CLUT images to VRAM from the
+    # D_0015EE8C page cursor (PSMT8/PSMCT32/PSMCT16 sizes)
+    "textbin/fun_00203120",
+    # obtain_all_gold_weapons_menu: draw the two-line "obtained all gold
+    # weapons" message box with its icons
+    "textbin/ui/menus/weapons/obtain_all_gold_weapons_menu",
+    # fun_00206860: decode one row of 4bpp run-length packed pixels (12-bit
+    # count/colour codes) into a nibble buffer
+    "textbin/fun_00206860",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1372,6 +1380,14 @@ GAME_COMPILER_FLAG_UNITS = {
     "fun_001f33b8": "-fno-schedule-insns",
     # fun_00221f58: exact-route compiler flags
     "fun_00221f58": "-G0",
+    # measured: textbin/fun_001f33b8 needs '-fno-schedule-insns' for its public
+    # score; the bank receipt carries it, configure.py did not, and the public
+    # harness reads only configure.py
+    "textbin/fun_001f33b8": "-fno-schedule-insns",
+    # measured: textbin/fun_00221f58 needs '-G0' for its public score; the bank
+    # receipt carries it, configure.py did not, and the public harness reads
+    # only configure.py
+    "textbin/fun_00221f58": "-G0",
 }
 
 SN_FLAG_UNITS = {
@@ -1422,6 +1438,8 @@ SN_FLAG_UNITS = {
     # addiu v0,v0,-0x1ab0` with the 0x70 stride in v1.  100/100/100 + patha
     # byte-equal with -mno-split-addresses (pipeline-2026-09-15-16 worker c).
     "allocate_voice_for_bank_entry": "-mno-split-addresses",
+    # fun_001f2070: exact-route compiler flags
+    "fun_001f2070": "-Wa,-mips4",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
@@ -1724,6 +1742,12 @@ PADLESS_ASM_UNITS = {
     # argument instead of w1 >> 32, and 0x20 is OR-ed with (w1 & 0x1C) in the
     # mode>=0 branch but with (prim << 6) in the two negative branches.
     "textbin/rendering/set_up_vis_gif_viewer",
+    # fun_001ffc30: queue a textured sprite GIF packet (TEX0 from the texture
+    # bank, RGBAQ alpha, UV/XYZ corners) on the DMA tag list
+    "textbin/fun_001ffc30",
+    # fun_001ffe18: queue a textured quad as a 4-vertex triangle strip GIF
+    # packet (same texture bank lookup as fun_001ffc30)
+    "textbin/fun_001ffe18",
 }
 
 

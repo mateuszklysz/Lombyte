@@ -5,142 +5,99 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/storage/memory_card/data/memcard_restore_data/FUN_0020af20.s", FUN_0020af20);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern void *SearchData(void *a, void *b, int c);
-extern void cModel_setTextureExchange(void *self, void *tex, int tbl, int n);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
+struct SaveEntry {
+    u8 *data;
+    s32 size;
+    s32 id;
+    s32 status;
+};
 
-/* sn-2.95.3-136 matched TU. */
+struct SaveBlock {
+    s32 id;
+    s32 size;
+    u8 data[1];
+};
 
+struct CardSlot {
+    u8 pad0[0xAC];
+    s32 errors;
+    u8 padB0[8];
+};
 
+struct CardState {
+    struct CardSlot slot[1];
+    u8 padB8[0xC];
+    s32 cur;
+};
 
+extern struct CardState D_0013D290;
+extern s32 D_0015FE90;
+extern s32 func_0020AD38(u8 *buf, s32 slot, struct SaveEntry *tbl);
+extern s32 memcmp(const void *, const void *, s32);
+extern void func_001F9838(void *, void *, s32);
+extern s32 GetDmaPacketSpanBytes(struct SaveEntry *tbl);
 
+s32 memcard_restore_data(u8 *buf, s32 slot, struct SaveEntry *tbl) __asm__("FUN_0020af20");
 
+s32 memcard_restore_data(u8 *buf, s32 slot, struct SaveEntry *tbl) {
+    struct SaveBlock *blk;
+    struct SaveEntry *e;
+    s32 errors;
+    s32 total;
+    s32 i;
+    s32 n;
+    u8 *dst;
 
-__attribute__((section(".text.cObjSimple__SetTexChange")))
-void memcard_restore_data(void *a0, int a1) __asm__("FUN_0020af20");
-
-void memcard_restore_data(void *a0, int a1) {
-    char *s0 = (char *)a0;
-    int s1 = a1;
-    void *m;
-    int val;
-
-    if (*(unsigned char *)(s0 + 0x4D0) == 0) {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, 0);
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, 0);
+    if (func_0020AD38(buf, slot, tbl) == 0) {
+        return 1;
+    }
+    blk = (struct SaveBlock *)(buf + 8);
+    errors = 0;
+    total = 8;
+    for (e = tbl; e->data != 0; e++) {
+        e->status = 0;
+    }
+    while (blk->id != -1) {
+        for (i = 0; tbl[i].data != 0; i++) {
+            if (tbl[i].id == blk->id) {
+                break;
+            }
         }
-    } else {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, *(int *)(s0 + 0x4D4));
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, *(int *)(s0 + 0x4D4));
+        e = &tbl[i];
+        if (e->data != 0) {
+            dst = e->data + slot * e->size;
+            if (blk->size == e->size) {
+                n = e->size;
+                e->status = 1;
+            } else if (blk->size < e->size) {
+                n = blk->size;
+                e->status = -1;
+            } else {
+                n = e->size;
+                e->status = -2;
+            }
+            if (memcmp(dst, blk->data, n) != 0) {
+                D_0015FE90++;
+            }
+            func_001F9838(dst, blk->data, n);
+            total += ((n + 3) & ~3) + 8;
+        } else {
+            errors++;
         }
+        blk = (struct SaveBlock *)((u8 *)blk + ((blk->size + 3) & ~3) + 8);
     }
-    switch (*(unsigned short *)(s0 + 0x2FE)) {
-    case 0x227: {
-        char *p0 = *(char **)(s0 + 0x304);
-        int f0 = *(int *)(p0 + 0x44);
-        val = f0 + (int)p0;
-        break;
+    total += 8;
+    if (total != GetDmaPacketSpanBytes(tbl)) {
+        errors++;
     }
-    case 0x228: {
-        char *p1 = *(char **)(s0 + 0x304);
-        int f1 = *(int *)(p1 + 0x48);
-        val = f1 + (int)p1;
-        break;
-    }
-    case 0x229: {
-        char *p2 = *(char **)(s0 + 0x304);
-        int f2 = *(int *)(p2 + 0x4C);
-        val = f2 + (int)p2;
-        break;
-    }
-    case 0x22A: {
-        char *p3 = *(char **)(s0 + 0x304);
-        int f3 = *(int *)(p3 + 0x50);
-        val = f3 + (int)p3;
-        break;
-    }
-    case 0x22B: {
-        char *p4 = *(char **)(s0 + 0x304);
-        int f4 = *(int *)(p4 + 0x54);
-        val = f4 + (int)p4;
-        break;
-    }
-    case 0x22C: {
-        char *p5 = *(char **)(s0 + 0x304);
-        int f5 = *(int *)(p5 + 0x58);
-        val = f5 + (int)p5;
-        break;
-    }
-    case 0x22D: {
-        char *p6 = *(char **)(s0 + 0x304);
-        int f6 = *(int *)(p6 + 0x78);
-        val = f6 + (int)p6;
-        break;
-    }
-    case 0x22E: {
-        char *p7 = *(char **)(s0 + 0x304);
-        int f7 = *(int *)(p7 + 0x70);
-        val = f7 + (int)p7;
-        break;
-    }
-    case 0x243: {
-        char *p8 = *(char **)(s0 + 0x304);
-        int f8 = *(int *)(p8 + 0x80);
-        val = f8 + (int)p8;
-        break;
-    }
-    case 0x24A: {
-        char *p9 = *(char **)(s0 + 0x304);
-        int f9 = *(int *)(p9 + 0x64);
-        val = f9 + (int)p9;
-        break;
-    }
-    case 0x24B: {
-        char *p10 = *(char **)(s0 + 0x304);
-        int f10 = *(int *)(p10 + 0x6C);
-        val = f10 + (int)p10;
-        break;
-    }
-    case 0x24C: {
-        char *p11 = *(char **)(s0 + 0x304);
-        int f11 = *(int *)(p11 + 0x74);
-        val = f11 + (int)p11;
-        break;
-    }
-    case 0x24D: {
-        char *p12 = *(char **)(s0 + 0x304);
-        int f12 = *(int *)(p12 + 0x7C);
-        val = f12 + (int)p12;
-        break;
-    }
-    case 0x24E: {
-        char *p13 = *(char **)(s0 + 0x304);
-        int f13 = *(int *)(p13 + 0x88);
-        val = f13 + (int)p13;
-        break;
-    }
-    case 0x271:
-    case 0x272:
-    case 0x273: {
-        char *p14 = *(char **)(s0 + 0x304);
-        int f14 = *(int *)(p14 + 0x5C);
-        val = f14 + (int)p14;
-        break;
-    }
-    default:
-        val = 0;
-        break;
-    }
-    if (m != 0) {
-        if (val != 0) {
-            *(int *)(s0 + 0x254) = *(int *)(s0 + 0x254) | 0x10000000;
-            cModel_setTextureExchange(s0, m, val, s1);
+    blk = (struct SaveBlock *)((u8 *)blk + 8);
+    for (e = tbl; e->data != 0 && e->id != blk->id; e++) {
+        if (e->status <= 0) {
+            errors++;
         }
     }
+    D_0013D290.slot[D_0013D290.cur].errors = errors;
+    return errors;
 }
 #endif /* NON_MATCHING */

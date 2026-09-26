@@ -6,162 +6,130 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/sceRead/sceRead.s", sceRead);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern void *D_003C4030[16];
-extern char D_0045C110[];
-extern char D_0045C118[];
-extern char D_0045C120[];
-extern void func_003863B8(void *);
-extern void func_00386520(void *, char *);
-extern void func_0037EDA8(void *);
-extern void func_0037E908(void *);
-extern void func_0037F0E0(void *);
-extern void func_0037F4F8(void *);
+struct FsIob {
+    s32 fd;
+    s32 mode;
+    s32 pad8;
+    s32 padC;
+};
 
-/* sn-2.95.3-136 matched TU. */
+struct FsCall {
+    s32 sema;
+    void *result;
+    s32 result_size;
+    s32 fd;
+    void *buf;
+    s32 size;
+    s32 unk18;
+    s32 iob;
+};
 
-typedef unsigned int size_t;
+struct SemaParam {
+    s32 count;
+    s32 max_count;
+    s32 init_count;
+    s32 wait_threads;
+    u32 attr;
+    u32 option;
+};
 
-typedef struct Rep {
-    size_t len;
-    size_t res;
-    size_t ref;
-    int selfish;
-} Rep;
+extern struct FsCall D_00156880;
+extern s32 D_0012FC10[];
+extern s32 D_0012FC94[];
+extern s32 D_0012FCA4[];
+extern u8 D_001574C0[];
+extern struct FsIob D_00157D80[];
+struct SifClient {
+    u8 pad[0x28];
+};
 
-typedef struct String {
-    char *dat;
-    unsigned char flag;
-} String;
+extern struct SifClient D_00157F80;
+extern struct FsIob *get_iob(s32 fd);
+extern void _sceFsWaitS(s32);
+extern s32 ReadQueueStatus(void);
+extern s32 CreateSema(struct SemaParam *);
+extern s32 DeleteSema(s32);
+extern s32 WaitSema(s32);
+extern s32 SignalSema(s32);
+extern void sceSifWriteBackDCache(void *, s32);
+extern s32 sceSifCallRpc(void *, s32, s32, void *, s32, void *, s32, void *, void *);
 
+s32 sceRead(s32 fd, void *buf, s32 size) {
+    struct FsCall *call;
+    struct FsIob *iob;
+    struct SemaParam sp;
+    s32 result;
+    s32 mode;
+    s32 sema;
+    s32 i;
+    s32 *rpc;
+    s32 *slot;
+    s32 ret;
 
-
-
-
-extern char D_0045C208[];   /* "" */
-
-extern char *func_003BB058(void *);                    /* Rep::clone */
-extern void UpdateGlobalPtrWithParam_3A7CC0(void *);   /* free */
-
-
-
-
-
-
-
-
-
-
-__attribute__((section(".text.func_0037E670")))
-void func_0037E670(char *self)
-{
-    String tmp;
-    String *e;
-    char *cs;
-
-    if (func_00386640(*(void **)(self + 0x10)) != 0 && *(int *)(self + 0xC) == 0) {
-        func_003863B8(*(void **)(self + 0x10));
-        if (func_0037E8D8(self)) {
-            *(char *)(self + 2) = 12;
-        }
-        return;
+    call = &D_00156880;
+    iob = get_iob(fd);
+    _sceFsWaitS(2);
+    if (D_0012FC94[0] == 0) {
+        ReadQueueStatus();
+        return -1;
     }
-
-    e = &((String *)*(char **)(*(char **)(self + 0x10) + 0x14))[*(int *)(self + 0xC)];
-    {
-        char *dat = e->dat;
-        Rep *rp = (Rep *)(dat - 16);
-        char *held;
-        if (rp->selfish) {
-            held = func_003BB058(rp);
-        } else {
-            held = dat;
-            rp->ref = rp->ref + 1;
-        }
-        tmp.dat = held;
+    if (iob == 0 || (mode = iob->mode) == 0) {
+        ReadQueueStatus();
+        return -9;
     }
-    tmp.flag = e->flag;
-
-    if (tmp.flag) {
-        if (((Rep *)(tmp.dat - 16))->len == 0) {
-            cs = D_0045C208;
+    call->fd = iob->fd;
+    sp.max_count = 1;
+    call->iob = iob - D_00157D80;
+    call->buf = buf;
+    call->size = size;
+    sp.init_count = 0;
+    sp.option = 0;
+    sema = CreateSema(&sp);
+    call->result = &result;
+    call->result_size = 4;
+    D_00156880.sema = sema;
+    if ((s16)mode & 0x8000) {
+        i = 0;
+        WaitSema(D_0012FCA4[0]);
+        if (D_0012FC10[i] == -1) {
+            D_0012FC10[i] = D_00156880.sema;
+            D_00156880.sema = -D_00156880.sema;
         } else {
-            tmp.dat[((Rep *)(tmp.dat - 16))->len] = 0;
-            cs = tmp.dat;
-        }
-        func_00386520(*(void **)(self + 0x10), cs);
-        if (func_0037E8D8(self)) {
-            *(char *)(self + 2) = 12;
-        }
-        {
-            char *odat = tmp.dat;
-            Rep *orep = (Rep *)(odat - 16);
-            if (--orep->ref == 0) {
-                size_t dn = orep->res + 16;
-                if (dn > 128) {
-                    UpdateGlobalPtrWithParam_3A7CC0(orep);
-                } else {
-                    size_t di;
-                    void **dfl;
-                    di = (dn + 7) / 8;
-                    di = di - 1;
-                    dfl = D_003C4030 + di;
-                    *(char **)(odat - 16) = (char *)*dfl;
-                    *dfl = orep;
+        loop:
+            i++;
+            if (i < 0x20) {
+                slot = &D_0012FC10[i];
+                if (*slot != -1) {
+                    goto loop;
                 }
+                *slot = call->sema;
+                call->sema = -call->sema;
             }
         }
-    } else {
-        if (((Rep *)(tmp.dat - 16))->len == 0) {
-            cs = D_0045C208;
-        } else {
-            tmp.dat[((Rep *)(tmp.dat - 16))->len] = 0;
-            cs = tmp.dat;
-        }
-        if (func_003866B8(*(void **)(self + 0x10), cs, D_0045C118)) {
-            func_0037EDA8(self);
-        } else {
-            if (((Rep *)(tmp.dat - 16))->len == 0) {
-                cs = D_0045C208;
-            } else {
-                tmp.dat[((Rep *)(tmp.dat - 16))->len] = 0;
-                cs = tmp.dat;
-            }
-            if (func_003866B8(*(void **)(self + 0x10), cs, D_0045C110)) {
-                func_0037E908(self);
-            } else {
-                if (((Rep *)(tmp.dat - 16))->len == 0) {
-                    cs = D_0045C208;
-                } else {
-                    tmp.dat[((Rep *)(tmp.dat - 16))->len] = 0;
-                    cs = tmp.dat;
-                }
-                if (func_003866B8(*(void **)(self + 0x10), cs, D_0045C120)) {
-                    func_0037F0E0(self);
-                } else {
-                    func_0037F4F8(self);
-                }
-            }
-        }
-        {
-            char *odat = tmp.dat;
-            Rep *orep = (Rep *)(odat - 16);
-            if (--orep->ref == 0) {
-                size_t dn = orep->res + 16;
-                if (dn > 128) {
-                    UpdateGlobalPtrWithParam_3A7CC0(orep);
-                } else {
-                    size_t di;
-                    void **dfl;
-                    di = (dn + 7) / 8;
-                    di = di - 1;
-                    dfl = D_003C4030 + di;
-                    *(char **)(odat - 16) = (char *)*dfl;
-                    *dfl = orep;
-                }
-            }
-        }
+        SignalSema(D_0012FCA4[0]);
     }
+    if (!(mode & 0x20000000)) {
+        sceSifWriteBackDCache(buf, size);
+    }
+    sceSifWriteBackDCache(call, 0x20);
+    if (sceSifCallRpc(&D_00157F80, 2, 0, &D_00156880, 0x20, D_001574C0, 4, 0, 0) < 0) {
+        DeleteSema(sema);
+        ReadQueueStatus();
+        return -11;
+    }
+    ret = *(s32 *)((u32)D_001574C0 | 0x20000000);
+    ReadQueueStatus();
+    if (ret == 0) {
+        DeleteSema(sema);
+        return -11;
+    }
+    if (mode & 0x8000) {
+        DeleteSema(sema);
+        return 0;
+    }
+    WaitSema(sema);
+    DeleteSema(sema);
+    return result;
 }
 #endif /* NON_MATCHING */

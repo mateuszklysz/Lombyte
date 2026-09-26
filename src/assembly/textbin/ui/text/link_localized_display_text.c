@@ -5,60 +5,65 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/ui/text/link_localized_display_text/FUN_001fdd58.s", FUN_001fdd58);
 #else
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
 
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-extern int D_00747A30;
-extern unsigned char D_0044A920[];
-extern unsigned char D_0044A940[];
-extern unsigned char D_0044A958[];
-extern unsigned char D_005E8640[];
-extern void cRelSys_unlinkNoFree(void *a0, int a1);
-extern void func_00297660(void);
-extern void cEventConfig_setEventNo(void *a0, int a1);
-extern unsigned char D_00586B30[];
+struct TextBox {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+    s32 unk1C;
+    s32 unk20;
+};
 
-__attribute__((section(".text.LoadDisplayText_297450")))
-void link_localized_display_text(void *a0) __asm__("FUN_001fdd58");
+struct TextEntry {
+    void *text;
+    s32 pad[3];
+};
 
-void link_localized_display_text(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    char buf[0x40];
-    unsigned long b = *(unsigned char *)(s0 + 8);
-    int a1;
-    if ((b >> 7) == 0) {
-        if (D_00747A30 & 0x400) {
-            func_003A6C58(buf, D_0044A920, D_0044A940);
-        } else {
-            func_003A6C58(buf, D_0044A958, D_0044A940);
-        }
-        a1 = *(int *)(s0 + 0x10);
-        if (a1 != 0) {
-            cRelSys_linkNoAlloc(D_005E8640, a1, buf, 2);
-            *(int *)(s0 + 8) = *(int *)(s0 + 8) | 0x80;
-        }
+extern struct TextBox D_001996D0;
+extern u8 D_0015EE1C;
+extern u8 D_0015EE1D;
+extern struct TextEntry *D_0015F6A0;
+extern s32 D_0013E504;
+extern void func_0022DB10(s32, s32, s32);
+extern void InitializeDmaPacket(u16 *packet, u16 w0, u16 w1, u16 w2, u16 w3, u16 w4, u16 w5, u16 w6, u32 w7);
+extern void func_001F75F0(void *, u64, void *, s32);
+
+void link_localized_display_text(void) __asm__("FUN_001fdd58");
+
+void link_localized_display_text(void) {
+    struct TextBox *box;
+    s16 pkt[16];
+    void *text;
+    s32 h;
+    s32 half;
+    s32 y;
+    s32 w;
+
+    D_001996D0.unk0 = 1;
+    D_001996D0.unk4 = 0;
+    if (D_0015EE1D != 0 || D_0015EE1C != 0) {
+        func_0022DB10(0, 1, 0);
     }
-}
-
-__attribute__((section(".text.ClearDisplayText_2974F0")))
-void ClearDisplayText_2974F0(void *a0) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long v0 = *(unsigned char *)(s0 + 8);
-    if (v0 >> 7) {
-        cRelSys_unlinkNoFree(D_005E8640, 2);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) & -0x81;
-    }
-}
-
-__attribute__((section(".text.InitSubState_2975F8")))
-void InitSubState_2975F8(void *a0, int a1) {
-    unsigned char *s0 = (unsigned char *)a0;
-    unsigned long t = *(int *)(s0 + 8);
-    if (((t >> 1) & 1) == 0) {
-        func_00297660();
-        *(int *)(s0 + 0x18) = a1;
-        cEventConfig_setEventNo(D_00586B30, a1);
-        *(int *)(s0 + 8) = *(int *)(s0 + 8) | 2;
+    box = &D_001996D0;
+    text = D_0015F6A0[box->unk20].text;
+    InitializeDmaPacket((u16 *)pkt, 0xF0, 0x1E0, 0x2C, 0x1D4, 0x100, 0x168, 0x10, 7);
+    func_001F75F0(pkt, 0x80FFA888, text, -1);
+    h = D_0013E504;
+    half = pkt[7] >> 1;
+    y = h - 0x3C;
+    w = half + 5;
+    box->unk8 = (pkt[6] >> 1) + 10;
+    box->unk10 = 0x100;
+    box->unk1C = 8;
+    box->unkC = w;
+    box->unk18 = 8;
+    box->unk14 = y;
+    if (h - 0xC < y + w) {
+        box->unk14 = h - (w + 0xC);
     }
 }
 #endif /* NON_MATCHING */
