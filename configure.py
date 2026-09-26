@@ -1360,10 +1360,6 @@ GAME_COMPILER_FLAG_UNITS = {
     "snd_reset_state_and_flush_commands": "-mastra-r5900-extern-buffer",
     "fun_00225490": "-fno-schedule-insns",
     "fun_0022c7e8": "-fno-schedule-insns",
-    # measured: retail never uses gp/small data here - float literals are
-    # lui/ori/mtc1 and byte globals lui/addiu/lb - so the small-data sections
-    # must be off. 97.65 with -G0 against 88.46 without it.
-    "textbin/fun_00221f58": "-G0",
 }
 
 SN_FLAG_UNITS = {
@@ -1414,17 +1410,6 @@ SN_FLAG_UNITS = {
     # addiu v0,v0,-0x1ab0` with the 0x70 stride in v1.  100/100/100 + patha
     # byte-equal with -mno-split-addresses (pipeline-2026-09-15-16 worker c).
     "allocate_voice_for_bank_entry": "-mno-split-addresses",
-    # measured: same -G0 requirement as fun_00221f58 - retail's float literals
-    # are lui/ori/mtc1, not wlc1 from .lit4. 96.32 with -G0 against 94.04
-    # without.
-    "textbin/fun_00213f38": "-G0",
-    # measured: the flag keeps the scalar extern of D_0015EE8C as lui+lw instead
-    # of %gp_rel and stops cc1 merging the loads; 99.58 with it, 88.22 without.
-    "textbin/fun_001f7888": "-fno-expensive-optimizations",
-    # measured: de-gp-relativises the scalar globals (lui+%lo in the same
-    # register) and stops cc1 merging loads of different widths. 77.50 with it,
-    # 62.29 without.
-    "textbin/rendering/effects/get_effect_texture": "-fno-expensive-optimizations",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
