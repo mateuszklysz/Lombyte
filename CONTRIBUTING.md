@@ -139,7 +139,7 @@ contributor-run gate (see above); CI does not run it for you.
 
 The `progress` job in
 [`.github/workflows/progress.yml`](.github/workflows/progress.yml) feeds
-[decomp.dev](https://decomp.dev). It does not build the game and uses no
+[decomp.dev](https://decomp.dev/mateuszklysz/Lombyte). It does not build the game and uses no
 secrets: it checks that the committed `progress/report.json` matches the
 repository (`scripts/gen_progress_report.py --check`), validates it with
 objdiff, and uploads it as the `SCUS_971.99_report` artifact. The report is

@@ -3,15 +3,15 @@
 </p>
 
 <p align="center">
-  <a href="https://decomp.dev"><img src="https://img.shields.io/badge/decomp.dev-progress-dd8b30?style=flat-square&labelColor=0d1117" alt="decomp.dev progress"></a>
+  <a href="https://decomp.dev/mateuszklysz/Lombyte"><img src="https://img.shields.io/badge/decomp.dev-progress-dd8b30?style=flat-square&labelColor=0d1117" alt="decomp.dev progress"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributing-guide-c3cbd8?style=flat-square&labelColor=0d1117" alt="Contributing guide"></a>
 </p>
 
 ---
 
 <p align="center">
-  A work-in-progress, byte-matching decompilation of <strong>Ratchet &amp; Clank (2002)</strong> for PlayStation 2.<br>
-  Lombyte reconstructs the original Emotion Engine executable as readable C, with a native PC runtime as the long-term goal.
+  A work-in-progress, byte-matching decompilation of Ratchet &amp; Clank (2002) for PlayStation 2.<br>
+  Reconstructing the original executable in readable C, with a native PC port as the long-term goal.
 </p>
 
 > [!WARNING]
@@ -20,7 +20,7 @@
 ---
 
 <p align="center">
-  <a href="https://decomp.dev">
+  <a href="https://decomp.dev/mateuszklysz/Lombyte">
     <img src="assets/decomp_map.svg" alt="Lombyte decompilation progress" width="100%">
   </a>
 </p>

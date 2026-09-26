@@ -13,7 +13,7 @@ and executables elsewhere on the disc are out of scope.
 This document deliberately carries **no percentages**: they are regenerated from
 the build and would be stale the moment they were written down. Read the current
 figures from `assets/decomp_map.svg`, from `progress/report.json`, or from
-[decomp.dev](https://decomp.dev) — never from prose.
+[decomp.dev](https://decomp.dev/mateuszklysz/Lombyte) — never from prose.
 
 ## 100 % is not the same as exact
 
@@ -51,7 +51,7 @@ steel** groups contain pending C.
 
 Pass `--workspace build/baseline` to also measure the pending C bodies and report
 C_FUZZY alongside C_EXACT. The same progress is published on
-[decomp.dev](https://decomp.dev) from the committed objdiff-format report
+[decomp.dev](https://decomp.dev/mateuszklysz/Lombyte) from the committed objdiff-format report
 `progress/report.json`; regenerate it with `make progress` after `make elf`. The
 `progress` workflow only checks, validates and uploads that file — it never
 builds the game.
