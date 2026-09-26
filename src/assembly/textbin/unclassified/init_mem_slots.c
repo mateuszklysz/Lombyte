@@ -22,7 +22,9 @@ struct M2c_D_001940C0 {
 extern s32 D_00160F0C;
 extern struct M2c_D_001940C0 D_001940C0;
 extern u8 D_24135F[];
-void FUN_002015d8(void) {
+void init_mem_slots(void) __asm__("FUN_002015d8");
+
+void init_mem_slots(void) {
     s32 temp_11_12;
     s32 temp_4_10;
     s32 temp_5_17;
