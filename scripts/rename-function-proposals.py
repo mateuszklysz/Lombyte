@@ -1248,7 +1248,10 @@ def main() -> int:
     deletes: set[Path] = set()
     for move in moves:
         writes[move.candidate.new_source] = (move.content, move.mode)
-        deletes.add(move.candidate.old_source)
+        # A rename in place (the file keeps its path) must not delete the
+        # file it has just written.
+        if move.candidate.old_source != move.candidate.new_source:
+            deletes.add(move.candidate.old_source)
     for edit in reference_edits:
         writes[edit.path] = (edit.content, edit.mode)
     if updated_yaml != yaml_text:

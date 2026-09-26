@@ -48,7 +48,9 @@ extern s32 func_0012E548();
 extern s32 printf();
 extern s32 sceSifBindRpc();
 extern s32 sceSifInitRpc();
-void FUN_0012da28(void) {
+void snd_start_sound_system(void) __asm__("FUN_0012da28");
+
+void snd_start_sound_system(void) {
 u8 sp_slot[0xB0];    s32 var_2_121;
     s32 var_2_70;
 

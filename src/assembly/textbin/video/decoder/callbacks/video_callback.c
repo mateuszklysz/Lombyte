@@ -26,7 +26,9 @@ extern s32 func_0023B810();
 extern s32 func_0023CBF0();
 extern s32 func_0023CC10();
 extern s32 func_0023CC98();
-s32 FUN_0023b5f0(s32 arg0, struct M2c_arg1 *arg1, struct M2c_arg2 *arg2) {    s32 sp0;
+s32 video_callback(s32 arg0, struct M2c_arg1 *arg1, struct M2c_arg2 *arg2) __asm__("FUN_0023b5f0");
+
+s32 video_callback(s32 arg0, struct M2c_arg1 *arg1, struct M2c_arg2 *arg2) {    s32 sp0;
 u8 sp_slot[0x80];    s32 sp4;
     s32 sp8;
     s32 spC;
