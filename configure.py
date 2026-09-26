@@ -189,15 +189,20 @@ SN_COMPILER_UNITS = {
     # fun_00213358: build a direction from two random angles and a computed
     # pitch
     "textbin/fun_00213358",
-    # cam_interp_values: damped spring step toward a target, velocity clamped to
-    # max and to the remaining distance
-    "textbin/gameplay/camera/cam_interp_values",
     # fun_0020baf0: is an unlock condition met (kind 0-9 switch over the
     # progress tables)
     "textbin/fun_0020baf0",
     # snd_send_current_batch: send the current sound command batch over SIF RPC
     # and flip to the other buffer
     "textbin/audio/rpc/snd_send_current_batch",
+    # fun_001ed360: verified exact on the registered route
+    "textbin/fun_001ed360",
+    # fun_00209168: gp-rel defeated with a >8-byte struct wrapper for D_0013D290
+    # so retail's lui/%hi+%lo form is reproduced
+    "textbin/fun_00209168",
+    # fun_00226670: do-while over a signed s32 byte cursor (retail guards at the
+    # bottom with a signed slt) plus two address forms for one symbol
+    "textbin/fun_00226670",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -644,6 +649,9 @@ SDK_COMPILER_UNITS = {
     # reset_gs_registers_pr: reset the privileged GS display registers to the
     # stored mode
     "textbin/rendering/state/reset_gs_registers_pr",
+    # fun_00120a28: the table walk matches when the cursor is a named local and
+    # the two 8-byte globals are read through their own struct wrappers
+    "textbin/fun_00120a28",
 }
 
 # Recovered C units that own the small .rodata retail kept inside the
@@ -1186,6 +1194,52 @@ GAME_COMPILER_UNITS = {
     # link_hud_bank: relocate a HUD texture bank's two entry tables to its
     # aligned VRAM base
     "textbin/ui/hud/link_hud_bank",
+    # calculate_dma_transfer_address: address arithmetic matches on the native
+    # route once the DMA descriptor fields are read as one struct
+    "runtime/dma/calculate_dma_transfer_address",
+    # enqueue_voice_request: the address must be an integer add with the index
+    # on the left: i * 0x90 + (s32)handlers; pointer indexing yields base-first
+    "textbin/audio/voices/enqueue_voice_request",
+    # create_moby: the third vararg DebugPrint(..., oclass) pins oclass in a2
+    # and frees a0 for the moby state temp; 11 ARG_MISMATCH rows become 0
+    "textbin/gameplay/entities/create_moby",
+    # draw_tfrag: one address-taken 0x40 struct Locals keeps the dead
+    # sp+0x3C=1.0f store and the 0x70 frame; callees void with prototypes from
+    # the promoted definitions
+    "textbin/rendering/draw_tfrag",
+    # setup_sky_gif_paging: paging setup matches once the page count is derived
+    # from the packed struct field rather than recomputed
+    "textbin/rendering/sky/setup_sky_gif_paging",
+    # fade_to_black: the transition ramp matches with the two 64-bit halves
+    # assigned in retail's order
+    "textbin/rendering/transitions/fade_to_black",
+    # update_fog: the fog-source selector must be read as struct field 0x2D4
+    # into D_00187000, not as a scalar extern
+    "textbin/rendering/update_fog",
+    # vu1_send_chain: the bnezl + delay-slot pair is defeated by writing the
+    # compare as a separate == 0 pair, which pulls the sw up to the subu
+    "textbin/rendering/vu1_send_chain",
+    # video_callback: the callback table is walked with a named cursor so the
+    # index and the base keep retail's addend order
+    "textbin/video/decoder/callbacks/video_callback",
+    # fun_001f6060: the audio callback dispatch matches once every callee
+    # prototype is taken from the promoted definitions
+    "textbin/fun_001f6060",
+    # fun_00204ef8: hoisting the two array bases into named s32 *locals flips
+    # both indexed addu to retail's index-then-base order
+    "textbin/fun_00204ef8",
+    # fun_00215440: byte arithmetic for the D_0013D290 stride, a >8-byte struct
+    # wrapper so the store stays gp-relative, and an explicit if/return chain
+    "textbin/fun_00215440",
+    # fun_00215600: same family shape as fun_00215440; the store order is what
+    # fixes it, not the constant
+    "textbin/fun_00215600",
+    # fun_0021c7a0: real % modulo (EE-GCC expands smod as slt+movn), the unk50
+    # base in its own surviving variable, and the byte cursor as a signed s32
+    "textbin/fun_0021c7a0",
+    # cam_interp_values: native route preserves the retail floating-point
+    # compare interlock nop; linked bytes verified
+    "textbin/gameplay/camera/cam_interp_values",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1501,6 +1555,20 @@ PADLESS_ASM_UNITS = {
     # fun_00232d00: bind the stash RPC server, read its IOP buffer and reset the
     # stash slots
     "textbin/fun_00232d00",
+    # snd_bank_load_by_loc: padless route with no policy: the bank load resolves
+    # once the sub-record pointer is a named local
+    "textbin/audio/banks/snd_bank_load_by_loc",
+    # saving_data_menu: byte arithmetic for the D_0013D290 entry, array/scalar
+    # extern choices that keep the store in retail order, and a packed one-field
+    # struct for the unaligned 64-bit copy
+    "textbin/ui/menus/save_data/saving_data_menu",
+    # fun_00205278: separate s64 max/delta locals with a distinct s32 loop-1
+    # index, and plain array indexing so EE-GCC merges both arrays into one
+    # induction variable
+    "textbin/fun_00205278",
+    # fun_002135f0: padless route: the block header fields are read through one
+    # struct so the scale stays in the load
+    "textbin/fun_002135f0",
 }
 
 

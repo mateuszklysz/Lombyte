@@ -1,10 +1,4 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/gameplay/entities/create_moby/FUN_0020c4f8.s", FUN_0020c4f8);
-#else
-#include "types.h"
 struct Moby {
     u8 pad0[0x20]; u8 state; u8 pad21[0x17]; u64 spawn_frame; u8 pad40[0x38];
     u8 *pvars; u8 pad7C[0x84];
@@ -37,7 +31,8 @@ struct Moby *create_moby(s32 oclass) {
             return m;
         }
     }
-    DebugPrint(D_001E83C0, D_0015F60C);
+    DebugPrint(D_001E83C0, D_0015F60C, oclass);
     return 0;
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(create_moby) func_0020C4F8 __attribute__((alias("FUN_0020c4f8")));
