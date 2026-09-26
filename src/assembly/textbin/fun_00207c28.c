@@ -4,150 +4,91 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00207c28/FUN_00207c28.s", FUN_00207c28);
 #else
-#include "rnc/assembly_textbin_fun_00207c28_types.h"
 #include "types.h"
 
+extern void func_001F97E8(void *, s32, s32);
+extern void func_001F98D0(void *, void *, s32);
 
+void FUN_00207c28(u8 *destination, u8 *bit_source, u8 *run_source) {
+    u8 *destination_end;
+    u8 *expanded;
+    u8 *chunk_end;
+    u8 *read;
+    volatile u8 *write;
+    u8 *copy_read;
+    u8 *copy_write;
+    u8 state;
+    s32 run_length;
+    u8 value;
+    u32 bit_count;
+    u32 packed;
 
+    destination_end = destination + 0x8000;
+    expanded = (u8 *)0x6FFFE000;
+    state = 1;
+    bit_count = *bit_source >> 1;
+    bit_source++;
+    func_001F97E8((void *)0x70000000, 0, 0x2400);
 
+    for (;;) {
+        chunk_end = destination + 0x400;
+        do {
+            expanded += *run_source++;
+            run_length = *run_source++;
+            if (run_length != 0) {
+                do {
+                    run_length--;
+                    if (bit_count == 0) {
+                        do {
+                            bit_count = *bit_source++;
+                            state = state == 0;
+                        } while (bit_count == 0);
+                    }
+                    *expanded++ = state;
+                    bit_count--;
+                } while (run_length != 0);
+            }
+        } while (expanded < (u8 *)0x70002000);
 
+        read = (u8 *)0x70000000;
+        write = (u8 *)0x70000000;
+        while (read < (u8 *)0x70002000) {
+            packed = *read++;
+            *write = packed;
+            packed |= (u32)*read++ << 1;
+            *write = packed;
+            packed |= (u32)*read++ << 2;
+            *write = packed;
+            packed |= (u32)*read++ << 3;
+            *write = packed;
+            packed |= (u32)*read++ << 4;
+            *write = packed;
+            packed |= (u32)*read++ << 5;
+            *write = packed;
+            packed |= (u32)*read++ << 6;
+            *write = packed;
+            packed |= (u32)*read++ << 7;
+            *write = packed;
+            write++;
+        }
 
+        func_001F98D0(destination, (void *)0x70000000, 0x400);
+        destination = chunk_end;
+        if (destination == destination_end) {
+            return;
+        }
 
-
-
-
-
-
-
-
-
-
-extern s32 func_001F97E8();
-extern s32 func_001F98D0();
-void FUN_00207c28(s32 arg0, u8 *arg1, s32 *arg2) {
-    s32 temp_20_34;
-    s32 temp_30_12;
-    s32 temp_4_109;
-    s32 var_23_10;
-    s8 *var_18_28;
-    s8 var_22_26;
-    u32 var_16_31;
-    u8 *var_19_29;
-    u8 *var_4_124;
-    u8 *var_5_121;
-    u8 *var_6_66;
-    u8 temp_2_127;
-    u8 temp_3_68;
-    u8 temp_3_74;
-    u8 temp_3_79;
-    u8 temp_3_84;
-    u8 temp_3_89;
-    u8 temp_3_94;
-    u8 temp_3_99;
-    u8 var_3_38;
-    struct M2c_temp_5_69 *temp_5_69;
-    struct M2c_temp_5_72 *temp_5_72;
-    struct M2c_temp_5_77 *temp_5_77;
-    struct M2c_temp_5_82 *temp_5_82;
-    struct M2c_temp_5_87 *temp_5_87;
-    struct M2c_temp_5_92 *temp_5_92;
-    struct M2c_var_17_20 *var_17_20;
-    struct M2c_var_5_65 *var_5_65;
-
-    var_23_10 = arg0;
-    temp_30_12 = var_23_10 + 0x8000;
-    var_17_20 = arg2;
-    var_22_26 = 1;
-    var_18_28 = (s8 *)0x70000000;
-    var_19_29 = arg1 + 1;
-    var_16_31 = (u8) *arg1 >> 1;
-    func_001F97E8(0x70000000, 0, 0x2400);
-loop_1:
-    temp_20_34 = var_23_10 + 0x400;
-loop_2:
-    var_3_38 = var_17_20->unk1;
-    var_18_28 += var_17_20->unk0;
-    var_17_20 = ((u8 *)var_17_20 + (1 ))+ 1;
-    if (var_3_38 == 0) {
-        goto block_8;
+        func_001F97E8((void *)0x70000000, 0, 0x2000);
+        copy_read = (u8 *)0x70002000;
+        copy_write = (u8 *)0x70000000;
+        if (expanded > (u8 *)0x70002000) {
+            while (copy_read < expanded) {
+                value = *copy_read++;
+                *copy_write++ = value;
+            }
+        }
+        func_001F97E8((void *)0x70002000, 0, 0x400);
+        expanded -= 0x2000;
     }
-loop_4:
-    var_3_38 -= 1;
-    if (var_16_31 != 0) {
-        goto block_7;
-    }
-loop_6:
-    var_16_31 = (u32) *var_19_29;
-    var_22_26 = var_22_26 == 0;
-    var_19_29 += 1;
-    if (var_16_31 == 0) {
-        goto loop_6;
-    }
-block_7:
-    *var_18_28 = var_22_26;
-    var_16_31 -= 1;
-    var_18_28 += 1;
-    if (var_3_38 != 0) {
-        goto loop_4;
-    }
-block_8:
-    if ((u32) var_18_28 < 0x70002000U) {
-        goto loop_2;
-    }
-    var_5_65 = (void *)0x70000000;
-    var_6_66 = (u8 *)0x70000000;
-loop_10:
-    temp_3_68 = var_5_65->unk0;
-    temp_5_69 = ((u8 *)var_5_65 + (1));
-    *var_6_66 = temp_3_68;
-    temp_5_72 = ((u8 *)temp_5_69 + (1));
-    temp_3_74 = temp_3_68 | (var_5_65->unk1 * 2);
-    *var_6_66 = temp_3_74;
-    temp_5_77 = ((u8 *)temp_5_72 + (1));
-    temp_3_79 = temp_3_74 | (temp_5_69->unk1 * 4);
-    *var_6_66 = temp_3_79;
-    temp_5_82 = ((u8 *)temp_5_77 + (1));
-    temp_3_84 = temp_3_79 | (temp_5_72->unk1 * 8);
-    *var_6_66 = temp_3_84;
-    temp_5_87 = ((u8 *)temp_5_82 + (1));
-    temp_3_89 = temp_3_84 | (temp_5_77->unk1 * 0x10);
-    *var_6_66 = temp_3_89;
-    temp_5_92 = ((u8 *)temp_5_87 + (1));
-    temp_3_94 = temp_3_89 | (temp_5_82->unk1 << 5);
-    *var_6_66 = temp_3_94;
-    temp_3_99 = temp_3_94 | (temp_5_87->unk1 << 6);
-    *var_6_66 = temp_3_99;
-    var_5_65 = ((u8 *)temp_5_92 + (1 ))+ 1;
-    *var_6_66 = temp_3_99 | (temp_5_92->unk1 << 7);
-    var_6_66 += 1;
-    if ((u32) var_5_65 < 0x70002000U) {
-        goto loop_10;
-    }
-    temp_4_109 = var_23_10;
-    var_23_10 = temp_20_34;
-    func_001F98D0(temp_4_109, 0x70000000, 0x400);
-    if (temp_20_34 == temp_30_12) {
-        goto block_16;
-    }
-    func_001F97E8(0x70000000, 0, 0x2000);
-    var_5_121 = (u8 *)0x70000000;
-    var_4_124 = (u8 *)0x70002000;
-    if ((u32) var_18_28 <= 0x70002000U) {
-        goto block_15;
-    }
-loop_14:
-    temp_2_127 = *var_4_124;
-    var_4_124 += 1;
-    *var_5_121 = temp_2_127;
-    var_5_121 += 1;
-    if ((u32) var_4_124 < (u32) var_18_28) {
-        goto loop_14;
-    }
-block_15:
-    func_001F97E8(0x70002000, 0, 0x400);
-    var_18_28 -= 0x2000;
-    goto loop_1;
-block_16:
-    return;
 }
 #endif /* NON_MATCHING */

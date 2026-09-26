@@ -4,62 +4,79 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00239d60/FUN_00239d60.s", FUN_00239d60);
 #else
-#include "rnc/assembly_textbin_fun_00239d60_types.h"
 #include "types.h"
 
+struct Fun239d60_Box {
+    s32 x;
+    s32 y;
+    s32 z;
+    u16 width;
+    u16 height;
+};
 
+struct Fun239d60_Auxiliary {
+    f32 x;
+    f32 y;
+    u8 pad_8[0x16];
+    u16 mask;
+};
 
+struct Fun239d60_Config {
+    u8 pad_0[0x8];
+    f32 x;
+    f32 y;
+    f32 x_scale;
+    f32 y_scale;
+};
 
+extern struct Fun239d60_Box *D_00161194;
+extern u8 *D_00161190;
+extern s32 D_00161198_gp __asm__("D_00161198");
+__asm__(".extern D_00161198, 4");
+extern struct Fun239d60_Config D_001E66E0;
+extern s32 FUN_001FA6D0(f32 value) __asm__("FUN_001FA6D0");
 
+s32 FUN_00239d60(f32 x, f32 y, f32 z) {
+    s32 grid_x;
+    s32 grid_y;
+    s32 grid_z;
+    s32 index;
+    s32 stride;
+    s32 cell_x;
+    s32 cell_y;
+    u8 bit;
+    u32 bit_mask;
+    struct Fun239d60_Box *box;
+    struct Fun239d60_Auxiliary *aux;
 
-extern s32 D_00161190;
-extern s32 D_00161194;
-extern s32 D_00161198[];
-extern struct M2c_D_001E66E0 D_001E66E0;
-extern s32 func_001FA6D0();
-s32 FUN_00239d60(f32 fparg0, f32 fparg1, f32 fparg2) {
-    s32 temp_16_76;
-    s32 temp_21_32;
-    s32 temp_22_31;
-    s32 temp_23_28;
-    s32 temp_2_45;
-    s32 temp_3_42;
-    s32 temp_4_46;
-    s32 temp_5_50;
-    s32 var_19_19;
-    s32 var_2_92;
-    s32 var_30_38;
-    struct M2c_temp_17_68 *temp_17_68;
-    struct M2c_var_18_36 *var_18_36;
-
-    var_19_19 = 0;
-    temp_23_28 = func_001FA6D0(fparg0 * 1024.0f);
-    temp_22_31 = func_001FA6D0(fparg1 * 1024.0f);
-    temp_21_32 = func_001FA6D0(fparg2 * 1024.0f);
-    var_18_36 = D_00161194;
-    if (D_00161198[0] > 0) {
-        var_30_38 = 0;
-loop_2:
-        temp_3_42 = var_18_36->unk0;
-        temp_2_45 = D_00161198[0];
-        if ((temp_23_28 >= temp_3_42) && (temp_4_46 = var_18_36->unk4, ((temp_22_31 < temp_4_46) == 0)) && (temp_5_50 = var_18_36->unk8, ((temp_21_32 < temp_5_50) == 0)) && (temp_23_28 < (temp_3_42 + var_18_36->unkC))) {
-            if ((temp_22_31 >= (temp_4_46 + var_18_36->unkE)) || (temp_21_32 >= (temp_5_50 + 0x800)) || (temp_17_68 = D_00161190 + var_30_38, temp_16_76 = func_001FA6D0((f32) temp_4_46, temp_5_50, (fparg0 - (temp_17_68->unk0 + D_001E66E0.unk8)) / D_001E66E0.unk10), var_2_92 = var_19_19, ((temp_17_68->unk1E & (1 << (((temp_16_76 >> 2) & 3) | (func_001FA6D0((fparg1 - (temp_17_68->unk4 + D_001E66E0.unkC)) / D_001E66E0.unk14) & 0xC)))) == 0))) {
-                goto block_10;
+    index = 0;
+    grid_x = FUN_001FA6D0(x * 1024.0f);
+    grid_y = FUN_001FA6D0(y * 1024.0f);
+    grid_z = FUN_001FA6D0(z * 1024.0f);
+    box = D_00161194;
+    if (*(s32 *)0x00161198 > 0) {
+        stride = 0;
+        do {
+            if (grid_x >= box->x && grid_y >= box->y && grid_z >= box->z &&
+                grid_x < box->x + box->width &&
+                grid_y < box->y + box->height &&
+                grid_z < box->z + 0x800) {
+                aux = (struct Fun239d60_Auxiliary *)(D_00161190 + stride);
+                cell_x = FUN_001FA6D0((x - (aux->x + D_001E66E0.x)) /
+                                      D_001E66E0.x_scale);
+                cell_y = FUN_001FA6D0((y - (aux->y + D_001E66E0.y)) /
+                                      D_001E66E0.y_scale);
+                bit = ((cell_x >> 2) & 3) | (cell_y & 0xC);
+                bit_mask = 1U << bit;
+                if (((u32)aux->mask & bit_mask) != 0U) {
+                    return index;
+                }
             }
-        } else {
-block_10:
-            var_19_19 += 1;
-            var_30_38 += 0x1190;
-            var_18_36 += 0x10;
-            if (var_19_19 >= temp_2_45) {
-                goto block_11;
-            }
-            goto loop_2;
-        }
-    } else {
-block_11:
-        var_2_92 = -1;
+            index++;
+            stride += 0x1190;
+            box++;
+        } while (index < D_00161198_gp);
     }
-    return var_2_92;
+    return -1;
 }
 #endif /* NON_MATCHING */

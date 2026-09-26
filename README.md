@@ -3,18 +3,18 @@
 </p>
 
 <p align="center">
-  <a href="https://decomp.dev/mateuszklysz/Lombyte"><img src="https://img.shields.io/badge/decomp.dev-progress-dd8b30?style=flat-square&labelColor=0d1117" alt="decomp.dev progress"></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributing-guide-c3cbd8?style=flat-square&labelColor=0d1117" alt="Contributing guide"></a>
+  <a href="https://decomp.dev/mateuszklysz/Lombyte"><img src="https://img.shields.io/badge/decomp.dev-Progress-dd8b30?style=flat-square&logo=hackthebox&logoColor=dd8b30&labelColor=0d1117" alt="decomp.dev progress"></a>
+  <a href="docs/building.md"><img src="https://img.shields.io/badge/Build-Guide-c3cbd8?style=flat-square&logo=gnubash&logoColor=c3cbd8&labelColor=0d1117" alt="Build guide"></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/Contributing-Guide-c3cbd8?style=flat-square&logo=github&logoColor=c3cbd8&labelColor=0d1117" alt="Contributing guide"></a>
 </p>
 
 <p align="center">
-  A work-in-progress, byte-matching decompilation of Ratchet &amp; Clank (2002) for PlayStation 2.<br>
-  Reconstructing the original executable in readable C, with a native PC port as the long-term goal.
+  <sub>
+    A work-in-progress, byte-matching decompilation of Ratchet &amp; Clank (2002) for PlayStation 2.<br>
+    Reconstructing the original executable in readable C, with a native PC port as the long-term goal.
+  </sub>
 </p>
-
-> [!WARNING]
-> Lombyte does not include game data, executables, disc images, or proprietary toolchains.<br>
-> A legitimately obtained copy of the **USA / NTSC-U** release (`SCUS_971.99`) is required.
+<br>
 
 <p align="center">
   <a href="https://decomp.dev/mateuszklysz/Lombyte">
@@ -23,6 +23,10 @@
 </p>
 
 <h3>Supported version</h3>
+
+> [!WARNING]
+> Lombyte does not include game data, executables, disc images, or proprietary toolchains.<br>
+> A legitimately obtained copy of the **USA / NTSC-U** release (`SCUS_971.99`) is required.
 
 | Game                   | Platform      | Region       | Boot executable |
 | ---------------------- | ------------- | ------------ | --------------- |
@@ -41,14 +45,6 @@ Only this release is currently targeted. PAL, NTSC-J, and the PlayStation 3 rema
 Contributions to matching C, recovered names, types, and documentation are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the workflow and verification requirements.
 
 Work-in-progress C is also welcome when it preserves the matching baseline. Do not submit game images, extracted game data, or proprietary compiler binaries.
-
-<h3>Documentation</h3>
-
-| Document                                             | Contents                                                                 |
-| :--------------------------------------------------- | :----------------------------------------------------------------------- |
-| [docs/building.md](docs/building.md)                 | Toolchain, game files, `make elf`, the gate, `make iso`, build overrides |
-| [docs/progress-metrics.md](docs/progress-metrics.md) | What C_EXACT and C_FUZZY mean, and why 100 % is not exact                |
-| [CONTRIBUTING.md](CONTRIBUTING.md)                   | Per-unit workflow, from picking a target to a pull request               |
 
 <h3>Credits</h3>
 

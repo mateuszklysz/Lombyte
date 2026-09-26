@@ -4,68 +4,57 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001fb740/FUN_001fb740.s", FUN_001fb740);
 #else
-#include "rnc/assembly_textbin_fun_001fb740_types.h"
 #include "types.h"
 
+struct DmaTag {
+    u32 w0;
+    u32 addr;
+    u32 w2;
+    u32 w3;
+};
 
+struct TagPtr {
+    struct DmaTag *p;
+};
 
+extern struct TagPtr D_00160F00;
+extern void func_00233980(s32, u64);
 
+void FUN_001fb740(s32 w, s32 h) {
+    struct DmaTag *tag;
+    u64 *q;
+    u64 *c;
+    s32 n;
+    s32 i;
 
-
-
-
-extern struct M2c_D_00160F00 *D_00160F00;
-extern s32 func_00233980();
-void FUN_001fb740(s32 arg0, s32 arg1) {
-    s32 temp_16_15;
-    s32 temp_2_76;
-    s32 temp_3_81;
-    s32 temp_4_24;
-    s32 var_14_56;
-    s32 var_4_86;
-    s32 var_6_85;
-    s64 temp_3_91;
-    struct M2c_temp_15_61 *temp_15_61;
-    struct M2c_temp_2_62 *temp_2_62;
-    struct M2c_var_5_87 *var_5_87;
-
-    temp_16_15 = (s32) ((arg0 > -1) ? arg0 : (arg0 + 0x1F)) >> 5;
-    func_00233980(0x42, (0x8000 << 0x18) | 0x4A);
-    temp_4_24 = temp_16_15 + 5;
-    D_00160F00->unk4 = 0;
-    D_00160F00->unk8 = 0;
-    D_00160F00->unkC = (s32) (temp_4_24 | 0x50000000);
-    var_14_56 = 0;
-    D_00160F00->unk0 = (s32) (temp_4_24 | 0x10000000);
-    temp_15_61 = D_00160F00;
-    temp_2_62 = ((u8 *)temp_15_61 + (0x10));
-    D_00160F00 = temp_2_62;
-    temp_15_61->unk10 = (s64) ((0x8000 << 0x2D) | 1);
-    temp_2_62->unk48 = 0x44;
-    temp_2_62->unk8 = 0xE;
-    temp_2_62->unk10 = 0x32003;
-    temp_2_62->unk18 = 0x47;
-    temp_2_62->unk20 = (s64) ((0x9000 << 0x2E) | 1);
-    temp_2_62->unk28 = 0x10;
-    temp_2_62->unk30 = 0x146;
-    temp_2_62->unk38 = (s64) ((0x8000 << 0x10) | 0x8080);
-    temp_2_62->unk40 = (s64) (temp_16_15 | 0x8000 | (0x9000 << 0x2E));
-    if (temp_16_15 > 0) {
-        temp_2_76 = arg1 * 8;
-        temp_3_81 = 0 - (arg0 * 8);
-        var_6_85 = temp_3_81 + 0x8000;
-        var_4_86 = temp_3_81 + 0x8200;
-        var_5_87 = ((u8 *)temp_15_61 + (0x60));
+    n = w / 32;
+    func_00233980(0x42, 0x800000004AULL);
+    D_00160F00.p->w0 = (n + 5) | 0x10000000;
+    D_00160F00.p->addr = 0;
+    D_00160F00.p->w2 = 0;
+    D_00160F00.p->w3 = (n + 5) | 0x50000000;
+    tag = D_00160F00.p;
+    q = (u64 *)(tag + 1);
+    D_00160F00.p = tag + 1;
+    q[0] = 0x1000000000000001;
+    q[1] = 0xE;
+    q[2] = 0x32003;
+    q[3] = 0x47;
+    q[4] = 0x2400000000000001;
+    q[5] = 0x10;
+    q[6] = 0x146;
+    q[7] = 0x80008080;
+    q[8] = (n | 0x8000) | 0x2400000000000000;
+    q[9] = 0x44;
+    i = 0;
+    if (n > 0) {
+        c = (u64 *)((u8 *)tag + 0x60);
         do {
-            temp_3_91 = var_4_86 | ((temp_2_76 + 0x7FF0) << 0x10);
-            var_5_87->unk0 = (s64) (var_6_85 | ((0x8000 - temp_2_76) << 0x10));
-            var_14_56 += 1;
-            var_4_86 += 0x200;
-            var_5_87->unk8 = temp_3_91;
-            var_6_85 += 0x200;
-            var_5_87 = ((u8 *)var_5_87 + (8 ))+ 8;
-        } while (var_14_56 < temp_16_15);
+            *c++ = (0x8000 - w * 8 + i * 0x200) | ((u64)(0x8000 - h * 8) << 16);
+            *c++ = (0x8200 - w * 8 + i * 0x200) | ((u64)(h * 8 + 0x7FF0) << 16);
+            i++;
+        } while (i < n);
     }
-    D_00160F00 += (temp_16_15 * 0x10) + 0x50;
+    D_00160F00.p = D_00160F00.p + (n + 5);
 }
 #endif /* NON_MATCHING */

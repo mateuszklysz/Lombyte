@@ -4,69 +4,87 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00208508/FUN_00208508.s", FUN_00208508);
 #else
-#include "rnc/assembly_textbin_fun_00208508_types.h"
 #include "types.h"
 
+struct Entry {
+    f32 x;
+    f32 y;
+    s32 unk8;
+    u32 unkC;
+};
 
+struct Global9A3E8 {
+    u8 pad_0[0x20];
+    s32 tab;
+    s32 rows;
+};
 
+struct GlobalA00F0 {
+    u8 pad_0[0x1C];
+    struct Entry *entries;
+    u8 pad_20[0x90];
+    s32 count;
+    u8 pad_B4[0x170];
+    s32 idx;
+};
 
-
-
-
-
+extern struct Global9A3E8 D_0019A3E8;
+extern struct GlobalA00F0 D_001A00F0;
 extern s32 D_0015ED84;
 extern s32 D_0015FDB0;
-extern struct M2c_D_0019A3E8 D_0019A3E8;
-extern struct M2c_D_001A00F0 D_001A00F0;
-extern u8 D_001A01A4[];
-extern s32 func_001FF960();
-extern s32 func_00200080();
-extern s32 func_00200E08();
-extern s32 func_00208408();
-extern void sp4();
-void FUN_00208508(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {    s32 sp0;
-u8 sp_slot[0xB0];    f32 sp4;
-    s32 sp8;
-    s32 spC;
-    f32 temp_f0_108;
-    f32 temp_f4_127;
-    s32 temp_17_55;
-    s32 temp_18_58;
-    s32 temp_2_80;
-    s32 temp_4_67;
-    s32 temp_6_30;
-    s32 var_19_22;
-    u8 temp_3_106;
-    struct M2c_temp_2_103 *temp_2_103;
-    struct M2c_var_16_24 *var_16_24;
+extern f32 D_001A01A4[];
+extern void func_00208408(s32 *, s32 *, s32, f32, f32);
+extern s32 func_001FF960(s32, u32);
+extern void func_00200E08(s32, s32, s32, s32, u32, s32);
+extern void func_00200080(s32, s32, s32, s32, s32, s32);
 
-    sp8 = arg2;
-    spC = arg3;
-    var_19_22 = D_001A00F0.unkB0 - 1;
-    var_16_24 = D_001A00F0.unk1C;
-    if (var_19_22 != -1) {
-        temp_6_30 = D_0015ED84;
-loop_2:
-        func_00208408(sp_slot, &sp4, temp_6_30, var_16_24->unk0, var_16_24->unk4);
-        temp_17_55 = arg0 + (s32)(u32) sp4;
-        temp_18_58 = arg1 + (s32)(u32) ((f32) (sp8 - arg0) * sp0);
-        if ((temp_17_55 >= -0x199) && (temp_18_58 >= -0x199) && (temp_17_55 < 0x219A) && (temp_18_58 < 0x1B9A)) {
-            temp_4_67 = var_16_24->unk8;
-            if (temp_4_67 == -1) {
-                func_00200E08(temp_17_55 - D_0015FDB0, temp_18_58 - D_0015FDB0, temp_17_55 + D_0015FDB0, temp_18_58 + D_0015FDB0, var_16_24->unkC, 1);
+__asm__(".extern D_0015FDB0, 4");
+
+void FUN_00208508(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    struct Entry *p;
+    s32 res0;
+    s32 res1;
+    s32 ix;
+    s32 iy;
+    s32 x;
+    s32 y;
+    s32 i;
+    s32 r;
+    s32 one;
+    s16 *tab;
+    u8 *row;
+    u8 h;
+    u8 w;
+
+    i = D_001A00F0.count - 1;
+    one = 1;
+    p = D_001A00F0.entries;
+    {
+        for (; i != -1; i--) {
+            func_00208408(&res0, &res1, D_0015ED84, p->x, p->y);
+            ix = (s32)(((f32)(arg3 - arg1)) * (*(f32 *)&res0));
+            iy = (s32)(((f32)(arg2 - arg0)) * (*(f32 *)&res1));
+            x = arg0 + ix;
+            y = arg1 + iy;
+            if (x < -0x199 || y < -0x199 || x >= 0x219a || y >= 0x1b9a) {
+            } else if (p->unk8 == -1) {
+                func_00200E08(x - D_0015FDB0, y - D_0015FDB0,
+                              x + D_0015FDB0, y + D_0015FDB0, p->unkC, 1);
             } else {
-                temp_2_80 = func_001FF960(temp_4_67, var_16_24->unkC);
-                temp_2_103 = D_0019A3E8.unk24 + (*(s32 *)((u8 *)((temp_2_80 * 4) + D_0019A3E8.unk20) + 0x2) * 8);
-                temp_3_106 = temp_2_103->unk6;
-                temp_f0_108 = ((2.0f * *((D_001A00F0.unk224 * 4) + D_001A01A4)) + 5.0f) / 13.0f;
-                temp_f4_127 = (f32) (1 << (temp_3_106 + 4));
-                func_00200080(temp_2_80, temp_17_55 - (s32)(u32) temp_f4_127, temp_18_58 - (s32)(u32) (temp_f0_108 * (f32) (1 << (temp_3_106 + 3))), temp_f0_108 * (f32) (1 << (temp_2_103->unk7 + 3)), temp_f0_108 * temp_f4_127, 0x80);
+                f32 scale;
+
+                r = func_001FF960(p->unk8, p->unkC);
+                tab = (s16 *)D_0019A3E8.tab;
+                row = (u8 *)D_0019A3E8.rows + tab[r * 2 + 1] * 8;
+                h = row[6];
+                w = row[7];
+                scale = (2.0f * D_001A01A4[D_001A00F0.idx] + 5.0f) / 13.0f;
+                func_00200080(r, x - (s32)(scale * (f32)(one << (h + 3))),
+                                  y - (s32)(scale * (f32)(one << (w + 3))),
+                                  (s32)(scale * (f32)(one << (h + 4))),
+                                  (s32)(scale * (f32)(one << (w + 4))), 0x80);
             }
-        }
-        var_16_24 += 1;
-        var_19_22 -= 1;
-        if (var_19_22 != -1) {
-            goto loop_2;
+            p++;
         }
     }
 }

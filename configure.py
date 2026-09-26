@@ -638,6 +638,12 @@ PADLESS_POLICY_UNITS = {
     "fun_002028e0": "la-gprel",
     # load_display_text_resource_entry: exact on padless with la-gprel
     "load_display_text_resource_entry": "la-gprel",
+    # fun_00212ed8: exact on padless with la-gprel
+    "fun_00212ed8": "la-gprel",
+    # parse_particle_textures: exact on padless with la-gprel
+    "parse_particle_textures": "la-gprel",
+    # fun_00221460: exact on padless with la-gprel
+    "fun_00221460": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -1327,6 +1333,22 @@ GAME_COMPILER_UNITS = {
     # fun_00206860: decode one row of 4bpp run-length packed pixels (12-bit
     # count/colour codes) into a nibble buffer
     "textbin/fun_00206860",
+    # music_start_track_50000: The shared request-record setup is byte-exact;
+    # selecting the per-track handle as h[track - 50000][D_0015ED88] reproduces
+    # the retail row addressing.
+    "textbin/audio/music/music_start_track_50000",
+    # do_sky_gif_paging: Declaring the paging flag as an array extern routes its
+    # address through a register, so cc1 emits the lui as its own instruction at
+    # the top of the body and the load as a separate 3-operand lw at the branch,
+    # which is retail shape; the previously recorded blocker said no flag or
+    # local could do this.
+    "textbin/rendering/sky/do_sky_gif_paging",
+    # fun_00207e58: Letting GCC strength-reduce mask[i] itself moves the cursor
+    # init out of the prologue where a register pin had hoisted it, and a
+    # counted for-loop makes the second loop's counter a reload that sorts after
+    # the base load; this also corrects the bank, which counted 0x40 and wrote
+    # 256 bytes into the 64-byte buffer retail counts 0xF into.
+    "textbin/fun_00207e58",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1440,6 +1462,12 @@ SN_FLAG_UNITS = {
     "allocate_voice_for_bank_entry": "-mno-split-addresses",
     # fun_001f2070: exact-route compiler flags
     "fun_001f2070": "-Wa,-mips4",
+    # fun_0021b6d8: exact-route compiler flags
+    "fun_0021b6d8": "-ffixed-4 -ffixed-5 -ffixed-6 -ffixed-7",
+    # measured: textbin/fun_001f2070 needs '-Wa,-mips4' for its public score;
+    # the bank receipt carries it, configure.py did not, and the public harness
+    # reads only configure.py
+    "textbin/fun_001f2070": "-Wa,-mips4",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
@@ -1748,6 +1776,39 @@ PADLESS_ASM_UNITS = {
     # fun_001ffe18: queue a textured quad as a 4-vertex triangle strip GIF
     # packet (same texture bank lookup as fun_001ffc30)
     "textbin/fun_001ffe18",
+    # fun_00200600: Decoding the listing dsll32 as a shift by N+32 on the R5900
+    # (both packet 64-bit constants come out of the ori/dsll/ori chains),
+    # assigning pos.x/pos.y first so f12/f13 stay out of extra callee-saves, and
+    # keeping the two size args s32 to avoid the zero-extend pair, reproduced
+    # retail exactly on the padless route; the registered sn route is 99.38.
+    "textbin/fun_00200600",
+    # fun_00212ed8: Pinning the three live pseudos to retail hard registers with
+    # GCC register variables (anims $4, n $5, v $2) - the idiom already promoted
+    # 145 times in the game tree - reproduces the retail lw v0 / lbu a1 pair
+    # exactly; the four residual rows were a reload-allocator choice no source
+    # shape could move.
+    "textbin/fun_00212ed8",
+    # parse_particle_textures: The a1/a3 induction-pointer swap was the ORDER OF
+    # INCREMENTS: p is a walked front-end pointer read through *p, p = p + 1
+    # sits in the for-increment clause after i = i + 1 so the loop bottom RTL
+    # orders [counter][p walk], and the table stays indexed so its base
+    # materialises in the preheader. 45 earlier shapes had missed it.
+    "textbin/rendering/texture/parse_particle_textures",
+    # fun_00221460: A dead `p = m->items;` statement that cc1 deletes still
+    # perturbs the local hard-register order into retail's, and declaring
+    # func_001F6530 void removes the unused-return pseudo so its argument copies
+    # emit in retail's order a2<-s0, a3<-v0, a1<-s2. NOTE:
+    # src/assembly/textbin/fun_001fd748.c still declares that callee as s32 in
+    # another translation unit.
+    "textbin/fun_00221460",
+    # fun_0021b6d8: Byte-exact only with per-unit -ffixed flags: local_alloc
+    # ranks argument registers above v1/v0 for short-lived pseudos, so the two
+    # != -1 condition pseudos land in a3 and v1 where retail uses v1 and v0. 70
+    # source shapes and all seven cc1 builds leave the pseudo set unchanged, and
+    # a register-variable equivalent fails because cc1 splits a single-use
+    # temporary out of its pinned variable. NOTE: promotion writes an
+    # SN_FLAG_UNITS entry in the game configure.py.
+    "textbin/fun_0021b6d8",
 }
 
 

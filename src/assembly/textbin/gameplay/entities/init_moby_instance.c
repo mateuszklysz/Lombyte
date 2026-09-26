@@ -5,21 +5,46 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/gameplay/entities/init_moby_instance/FUN_0020c5f0.s", FUN_0020c5f0);
 #else
 #include "types.h"
-struct M2c_arg0 {
+
+struct MobyAnimationInfo {
+    u8 pad_0[0x10];
+    u8 mode;
+    s8 direction;
+};
+
+struct MobyClass {
+    u8 pad_0[0x6];
+    u8 unk6;
+    u8 pad_7[0x5];
+    u8 unkC;
+    u8 pad_D;
+    u8 unkE;
+    u8 unkF;
+    s32 unk10;
+    u8 pad_14[0x10];
+    f32 unk24;
+    u8 pad_28[0x18];
+    s32 unk40;
+    u16 unk44;
+    u8 pad_46[0x2];
+    struct MobyAnimationInfo *animation;
+};
+
+struct MobyInstance {
     u8 pad_0[0x21];
     u8 unk21;
-    u8 unk22;
+    u8 type;
     u8 unk23;
-    struct M2c_arg0_unk24 * unk24;
+    struct MobyClass *class;
     u8 pad_28[0x4];
-    s32 unk2C;
+    f32 scale;
     u8 pad_30[0x4];
-    u16 unk34;
+    u16 flags;
     u16 unk36;
-    s32 unk38;
-    u8 pad_3C[0x1C];
-    s32 unk58;
-    s32 unk5C;
+    s64 transfer;
+    u8 pad_40[0x18];
+    f32 unk58;
+    f32 unk5C;
     u8 pad_60[0x11];
     u8 unk71;
     u8 unk72;
@@ -29,8 +54,8 @@ struct M2c_arg0 {
     u8 unk7C;
     u8 unk7D;
     u8 unk7E;
-    s32 unk7F;
-    u8 pad_83[0x1];
+    u8 unk7F;
+    u8 pad_80[0x4];
     s32 unk84;
     s32 unk88;
     u8 pad_8C[0x4];
@@ -41,147 +66,101 @@ struct M2c_arg0 {
     u8 unkA1;
     u8 unkA2;
     u8 unkA3;
-    u16 unkA4;
+    u8 unkA4;
+    u8 pad_A5;
     u16 unkA6;
     s32 unkA8;
     s32 unkAC;
     u8 pad_B0[0xD];
-    s32 unkBD;
-};
-
-struct M2c_arg0_unk24 {
-    u8 pad_0[0x6];
-    s32 unk6;
-    u8 pad_A[0x5];
-    s32 unkF;
-    u8 pad_13[0x35];
-    struct M2c_arg0_unk24_unk48 * unk48;
-};
-
-struct M2c_arg0_unk24_unk48 {
-    u8 pad_0[0x10];
-    s32 unk10;
-};
-
-struct M2c_temp_4_122 {
-    u8 pad_0[0xC];
-    s32 unkC;
-    u8 pad_10[0x38];
-    struct M2c_temp_4_122_unk48 * unk48;
-};
-
-struct M2c_temp_4_122_unk48 {
-    u8 pad_0[0x10];
-    u8 unk10;
-    s32 unk11;
-};
-
-struct M2c_temp_5_64 {
-    u8 pad_0[0xE];
-    u16 unkE;
-    s32 unk10;
-    u8 pad_14[0x10];
-    s32 unk24;
-    u8 pad_28[0x18];
-    s32 unk40;
-    s32 unk44;
-};
-
-struct M2c_unk48 {
-    u8 pad_0[0x10];
-    s32 unk10;
+    u8 unkBD;
 };
 
 extern s32 D_0015FF18;
-extern u8 D_001B3200[];
-extern u8 D_001B3580[];
+extern struct MobyClass *D_001B3200[];
+extern s32 D_001B3580[];
 extern u8 D_001B3AC0[];
-extern s32 FillTransferWords();
-extern void func_0020C880();
-void init_moby_instance(struct M2c_arg0 *arg0, s16 arg1) __asm__("FUN_0020c5f0");
+extern void FillTransferWords(void *, s32, s32);
+extern void update_moby_animation_state(struct MobyInstance *) __asm__("FUN_0020c880");
 
-void init_moby_instance(struct M2c_arg0 *arg0, s16 arg1) {
-    s32 temp_2_40;
-    s32 temp_2_52;
-    s64 temp_8_22;
-    u16 temp_4_74;
-    u16 var_2_140;
-    u8 temp_3_18;
-    struct M2c_temp_4_122 *temp_4_122;
-    struct M2c_temp_5_64 *temp_5_64;
+void init_moby_instance(struct MobyInstance *moby, s32 class_id) __asm__("FUN_0020c5f0");
 
-    FillTransferWords(0, 0x100);
-    temp_3_18 = *(arg1 + D_001B3AC0);
-    temp_8_22 = ((0x8080 << 0x10) | 0x8000) << 0x17;
-    arg0->unk23 = 0x80;
-    arg0->unk22 = temp_3_18;
-    arg0->unkA4 = 0xFF;
-    arg0->unk21 = 0xFF;
-    arg0->unk71 = 0xFF;
-    arg0->unk72 = 0xFFU;
-    arg0->unkA6 = arg1;
-    arg0->unk38 = temp_8_22;
-    temp_2_40 = (s32) (((u8 *)arg0) - D_0015FF18) >> 8;
-    arg0->unk36 = 0x7F80;
-    arg0->unkAC = temp_2_40;
-    arg0->unkA8 = (s32) (temp_2_40 << 0x10);
-    arg0->unk7D = 0xFF;
-    arg0->unkA1 = 0x7F;
-    arg0->unkA3 = 0x80;
-    arg0->unk7E = 0;
-    arg0->unk7C = 0xFF;
-    arg0->unkA0 = 0x7F;
-    arg0->unkA2 = 0x80;
-    temp_2_52 = *(((temp_3_18 & 0xFF) * 4) + D_001B3580);
-    arg0->unk74 = temp_2_52;
-    if (temp_2_52 == 0) {
-        arg0->unk34 = (u16) (arg0->unk34 | 2);
+void init_moby_instance(struct MobyInstance *moby, s32 class_id) {
+    s32 relative_index;
+    s32 high_index;
+    s32 transfer_words;
+    s64 transfer_value;
+    u16 flags;
+    u8 type;
+    struct MobyClass *moby_class;
+
+    FillTransferWords(moby, 0, 0x100);
+    type = D_001B3AC0[class_id];
+    transfer_value = (((s64)0x8080 << 16) | 0x8000) << 23;
+    moby->unk23 = 0x80;
+    moby->type = type;
+    moby->unkA4 = 0xFF;
+    moby->unk21 = 0xFF;
+    moby->unk71 = 0xFF;
+    moby->unk72 = 0xFF;
+    relative_index = (s32)((u8 *)moby - (u8 *)D_0015FF18) >> 8;
+    moby->transfer = transfer_value;
+    moby->unkA6 = (u16)class_id;
+    moby->unk36 = 0x7F80;
+    high_index = relative_index << 16;
+    moby->unkAC = relative_index;
+    moby->unkA8 = high_index;
+    moby->unk7E = 0;
+    moby->unk7C = 0xFF;
+    moby->unkA0 = 0x7F;
+    moby->unkA2 = 0x80;
+    moby->unk7D = 0xFF;
+    moby->unkA1 = 0x7F;
+    moby->unkA3 = 0x80;
+    transfer_words = D_001B3580[type];
+    moby->unk74 = transfer_words;
+    if (transfer_words == 0) {
+        moby->flags |= 2;
     }
-    temp_5_64 = *((arg0->unk22 * 4) + D_001B3200);
-    if (temp_5_64 == NULL) {
-        arg0->unk94 = 0;
-        var_2_140 = arg0->unk34 | 5;
-        arg0->unk24 = NULL;
-        goto block_19;
-    }
-    arg0->unk24 = temp_5_64;
-    arg0->unk72 = (u8) temp_5_64->unkE;
-    temp_4_74 = arg0->unk34 | temp_5_64->unk44;
-    arg0->unk34 = temp_4_74;
-    arg0->unk94 = (s32) temp_5_64->unk10;
-    arg0->unk5C = 1.0f;
-    arg0->unk2C = (f32) temp_5_64->unk24;
-    arg0->unk58 = 0x3F800000;
-    if (temp_5_64->unk40 != 0) {
-        arg0->unk34 = (u16) (temp_4_74 | 0x10);
-        arg0->unk90 = (s32) temp_5_64->unk40;
-    }
-    if (arg0->unk24->unkF != 0) {
-        arg0->unk7F = 0x18;
-        arg0->unk84 = 0;
-        arg0->unk34 = (u16) (arg0->unk34 | 0x400);
-        arg0->unk88 = 0;
-        arg0->unkBD = 0;
-    }
-    if (arg0->unk24->unk6 != 0) {
-        arg0->unk73 = 0x18;
-    }
-    if (arg0->unk24->unk48 != NULL) {
-        func_0020C880(arg0, temp_5_64, 0xFF, 0x80, temp_8_22, 0x7F80, 0x7F);
-        if ((u8) arg0->unk24->unk48->unk10 >= 2U) {
-            arg0->unk34 = (u16) (arg0->unk34 & 0xFFFD);
+    moby_class = D_001B3200[moby->type];
+    if (moby_class != 0) {
+        moby->class = moby_class;
+        moby->unk72 = moby_class->unkE;
+        flags = moby->flags | moby_class->unk44;
+        moby->flags = flags;
+        moby->unk94 = moby_class->unk10;
+        moby->scale = moby_class->unk24;
+        moby->unk58 = 1.0f;
+        moby->unk5C = 1.0f;
+        if (moby_class->unk40 != 0) {
+            moby->flags = flags | 0x10;
+            moby->unk90 = moby_class->unk40;
         }
-        temp_4_122 = arg0->unk24;
-        if ((temp_4_122->unkC == 1) && ((u8) temp_4_122->unk48->unk10 < 2U)) {
-            arg0->unk58 = 0;
-            if (temp_4_122->unk48->unk11 < 0) {
-                var_2_140 = arg0->unk34 | 0x40;
-block_19:
-                arg0->unk34 = var_2_140;
+        if (moby->class->unkF != 0) {
+            moby->unk7F = 0x18;
+            moby->unk84 = 0;
+            moby->flags |= 0x400;
+            moby->unk88 = 0;
+            moby->unkBD = 0;
+        }
+        if (moby->class->unk6 != 0) {
+            moby->unk73 = 0x18;
+        }
+        if (moby->class->animation != 0) {
+            update_moby_animation_state(moby);
+            if (moby->class->animation->mode >= 2) {
+                moby->flags &= 0xFFFD;
+            }
+            if (moby->class->unkC == 1 && moby->class->animation->mode < 2) {
+                moby->unk58 = 0.0f;
+                if (moby->class->animation->direction < 0) {
+                    moby->flags |= 0x40;
+                }
             }
         }
+    } else {
+        moby->class = 0;
+        moby->flags |= 5;
+        moby->unk94 = 0;
     }
 }
-
-extern void func_0020C5F0(struct M2c_arg0 *arg0, s16 arg1) __attribute__((alias("FUN_0020c5f0")));
 #endif /* NON_MATCHING */

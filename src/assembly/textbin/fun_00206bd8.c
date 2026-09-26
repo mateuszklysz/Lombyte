@@ -48,9 +48,10 @@ s32 FUN_00206bd8(s32 a0, s32 a1, f32 x, f32 y, f32 z) {
         if (func_001F9B80(&p, &q) <= 7.0f) {
             return 1;
         }
-        if (func_00208818(a0, a1, 0x142, 0x12A, 0x173, 0xFC) && D_001A03B0[0]) {
-            return 1;
+        if (func_00208818(a0, a1, 0x142, 0x12A, 0x173, 0xFC) == 0) {
+            return 0;
         }
+        return D_001A03B0[0] != 0;
     } else {
         ok = 0;
         if ((u32)(D_0013F350.unk208C - 0x11) < 2 || D_0013F350.unk12E4 == 1) {

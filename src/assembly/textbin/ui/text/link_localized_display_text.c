@@ -27,7 +27,7 @@ extern struct TextBox D_001996D0;
 extern u8 D_0015EE1C;
 extern u8 D_0015EE1D;
 extern struct TextEntry *D_0015F6A0;
-extern s32 D_0013E504;
+extern s32 D_0013E504[];
 extern void func_0022DB10(s32, s32, s32);
 extern void InitializeDmaPacket(u16 *packet, u16 w0, u16 w1, u16 w2, u16 w3, u16 w4, u16 w5, u16 w6, u32 w7);
 extern void func_001F75F0(void *, u64, void *, s32);
@@ -52,7 +52,7 @@ void link_localized_display_text(void) {
     text = D_0015F6A0[box->unk20].text;
     InitializeDmaPacket((u16 *)pkt, 0xF0, 0x1E0, 0x2C, 0x1D4, 0x100, 0x168, 0x10, 7);
     func_001F75F0(pkt, 0x80FFA888, text, -1);
-    h = D_0013E504;
+    h = D_0013E504[0];
     half = pkt[7] >> 1;
     y = h - 0x3C;
     w = half + 5;
@@ -62,8 +62,8 @@ void link_localized_display_text(void) {
     box->unkC = w;
     box->unk18 = 8;
     box->unk14 = y;
-    if (h - 0xC < y + w) {
-        box->unk14 = h - (w + 0xC);
+    if (y > h - w - 0xC) {
+        box->unk14 = h - (half + 0x11);
     }
 }
 #endif /* NON_MATCHING */

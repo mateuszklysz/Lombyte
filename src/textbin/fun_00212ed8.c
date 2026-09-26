@@ -1,10 +1,4 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00212ed8/FUN_00212ed8.s", FUN_00212ed8);
-#else
-#include "types.h"
 struct Anim { u8 pad0[0x10]; u8 count; };
 struct AnimSet { u8 pad0[0x48]; struct Anim *anims[1]; };
 struct Obj {
@@ -15,9 +9,11 @@ extern void func_0020C880(struct Obj *);
 
 void FUN_00212ed8(struct Obj *o, s32 sel, s32 idx) {
     struct Anim **slot;
-    struct Anim **anims;
-    s32 n;
-    s32 v;
+    /* retail register file: a0 = &anims[sel], v0 = anim pointer / o->cur,
+       a1 = count / o->next */
+    register struct Anim **anims __asm__("$4");
+    register s32 n __asm__("$5");
+    register s32 v __asm__("$2");
 
     anims = o->set->anims;
     slot = &anims[sel];
@@ -40,4 +36,5 @@ void FUN_00212ed8(struct Obj *o, s32 sel, s32 idx) {
     o->time = *o->start;
     o->flags &= ~2;
 }
-#endif /* NON_MATCHING */
+
+extern __typeof__(FUN_00212ed8) func_00212ED8 __attribute__((alias("FUN_00212ed8")));

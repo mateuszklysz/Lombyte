@@ -33,7 +33,8 @@ struct CardState {
 
 extern struct CardState D_0013D290;
 extern s32 D_0015FE90;
-extern s32 func_0020AD38(u8 *buf, s32 slot, struct SaveEntry *tbl);
+__asm__(".extern D_0015FE90, 4");
+extern s32 func_0020AD38(s32 *header);
 extern s32 memcmp(const void *, const void *, s32);
 extern void func_001F9838(void *, void *, s32);
 extern s32 GetDmaPacketSpanBytes(struct SaveEntry *tbl);
@@ -41,7 +42,6 @@ extern s32 GetDmaPacketSpanBytes(struct SaveEntry *tbl);
 s32 memcard_restore_data(u8 *buf, s32 slot, struct SaveEntry *tbl) __asm__("FUN_0020af20");
 
 s32 memcard_restore_data(u8 *buf, s32 slot, struct SaveEntry *tbl) {
-    struct SaveBlock *blk;
     struct SaveEntry *e;
     s32 errors;
     s32 total;
@@ -49,50 +49,50 @@ s32 memcard_restore_data(u8 *buf, s32 slot, struct SaveEntry *tbl) {
     s32 n;
     u8 *dst;
 
-    if (func_0020AD38(buf, slot, tbl) == 0) {
+    if (func_0020AD38((s32 *)buf) == 0) {
         return 1;
     }
-    blk = (struct SaveBlock *)(buf + 8);
+    buf += 8;
     errors = 0;
     total = 8;
-    for (e = tbl; e->data != 0; e++) {
-        e->status = 0;
+    for (i = 0; tbl[i].data != 0; i++) {
+        tbl[i].status = 0;
     }
-    while (blk->id != -1) {
+    while (((struct SaveBlock *)buf)->id != -1) {
         for (i = 0; tbl[i].data != 0; i++) {
-            if (tbl[i].id == blk->id) {
+            if (tbl[i].id == ((struct SaveBlock *)buf)->id) {
                 break;
             }
         }
-        e = &tbl[i];
+        e = (struct SaveEntry *)(((u32)i << 4) + (u32)tbl);
         if (e->data != 0) {
             dst = e->data + slot * e->size;
-            if (blk->size == e->size) {
+            if (e->size == ((struct SaveBlock *)buf)->size) {
                 n = e->size;
                 e->status = 1;
-            } else if (blk->size < e->size) {
-                n = blk->size;
+            } else if (e->size > ((struct SaveBlock *)buf)->size) {
+                n = ((struct SaveBlock *)buf)->size;
                 e->status = -1;
             } else {
                 n = e->size;
                 e->status = -2;
             }
-            if (memcmp(dst, blk->data, n) != 0) {
+            if (memcmp(dst, ((struct SaveBlock *)buf)->data, n) != 0) {
                 D_0015FE90++;
             }
-            func_001F9838(dst, blk->data, n);
+            func_001F9838(dst, ((struct SaveBlock *)buf)->data, n);
             total += ((n + 3) & ~3) + 8;
         } else {
             errors++;
         }
-        blk = (struct SaveBlock *)((u8 *)blk + ((blk->size + 3) & ~3) + 8);
+        buf += ((((struct SaveBlock *)buf)->size + 3) & ~3) + 8;
     }
     total += 8;
     if (total != GetDmaPacketSpanBytes(tbl)) {
         errors++;
     }
-    blk = (struct SaveBlock *)((u8 *)blk + 8);
-    for (e = tbl; e->data != 0 && e->id != blk->id; e++) {
+    buf += 8;
+    for (e = tbl; e->data != 0 && e->id != ((struct SaveBlock *)buf)->id; e++) {
         if (e->status <= 0) {
             errors++;
         }
