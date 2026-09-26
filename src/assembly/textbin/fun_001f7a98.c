@@ -4,14 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f7a98/FUN_001f7a98.s", FUN_001f7a98);
 #else
-#include "types.h"
-/* cygnus-2.96 matched TU. */
-
-__attribute__((section(".text.func_003373A0")))
-void FUN_001f7a98(int a, int *p) {
-    int n;
-    if (p == 0) { for (;;) { } }
-    n = *p;
-    if (n > 0) { do { n--; } while (n != 0); }
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

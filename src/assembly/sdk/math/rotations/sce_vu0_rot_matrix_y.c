@@ -6,10 +6,7 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/math/rotations/sce_vu0_rot_matrix_y/SceVu0RotMatrixY.s", SceVu0RotMatrixY);
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/math/rotations/sce_vu0_rot_matrix_y/SceVu0RotMatrixYBody.s", SceVu0RotMatrixYBody);
 #else
-#include "types.h"
-/* func_00273EB8 — return (+0x1720 float) <= 0, via early-return on 0<x.  sn-2.95.3-136. */
-__attribute__((section(".text.func_00273EB8")))
-int SceVu0RotMatrixY(void *a0){
-    if (!(0.0f < *(float *)((char *)a0 + 0x1720))) return 1; return 0;
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

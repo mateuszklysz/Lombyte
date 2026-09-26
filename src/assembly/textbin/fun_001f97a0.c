@@ -4,12 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f97a0/FUN_001f97a0.s", FUN_001f97a0);
 #else
-#include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
-
-void FUN_001f97a0(void *a0) {
-    if (*(int*)((char*)a0+0x90) != 0) {
-        *(int*)((char*)a0+0x90) = 0;
-    }
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

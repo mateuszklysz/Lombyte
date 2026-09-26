@@ -4,15 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f9958/FUN_001f9958.s", FUN_001f9958);
 #else
-#include "types.h"
-
-s32 FUN_001f9958(s32 arg0) {
-    /* m2c-unknown:  unknown instruction: lqc2 $vf1, ($a0)  */
-    /* m2c-unknown:  unknown instruction: vnop  */
-    /* m2c-unknown:  unknown instruction: vnop  */
-    /* m2c-unknown:  unknown instruction: vnop  */
-    /* m2c-unknown:  unknown instruction: vnop  */
-    /* m2c-unknown:  unknown instruction: vnop  */
-    return 0 /*  unknown instruction: cfc2.ni $v0, $vi18  */ & 0x3F;
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

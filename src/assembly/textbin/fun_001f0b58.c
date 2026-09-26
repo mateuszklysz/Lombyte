@@ -4,18 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f0b58/FUN_001f0b58.s", FUN_001f0b58);
 #else
-#include "rnc/assembly_textbin_fun_001f0b58_types.h"
-#include "types.h"
-
-
-extern struct M2c_D_00194100 D_00194100;
-s32 FUN_001f0b58(void) {
-    s32 temp_2_10;
-
-    temp_2_10 = D_00194100.unk1C & 0x1F;
-    if ((D_00194100.unk1C >= 0) && (temp_2_10 != 0x1F)) {
-        return temp_2_10;
-    }
-    return -1;
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

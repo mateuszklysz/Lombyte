@@ -4,13 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f98f8/FUN_001f98f8.s", FUN_001f98f8);
 #else
-#include "types.h"
-/* Tramp_MMI_COPY3Q_VADD_30A508 -- copy three quadwords (0x0/0x10/0x20) from a1 to a0 via MMI
- * lq/sq, and store a0.0x30 = a1.0x30 + a2 (vadd.xyz).  Single hardware-
- * intrinsic block; see godhand/mmi.h. */
-
-__attribute__((section(".text.Tramp_MMI_COPY3Q_VADD_30A508")))
-void FUN_001f98f8(void *a0, void *a1, void *a2) {
-    MMI_COPY3Q_VADD(a0, a1, a2);
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

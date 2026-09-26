@@ -4,21 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/write_setup_block/FUN_001f82e4.s", FUN_001f82e4);
 #else
-#include "types.h"
-/* ee-2.9-991111 matched TU. */
-
-/* clone */
-
-
-
-__attribute__((section(".text.setD4_CHCR")))
-void FUN_001f82e4(int a0) {
-    volatile int r = func_003B63A0();
-    *(volatile unsigned int *)0x1000F590 = *(volatile unsigned int *)0x1000F520 | 0x10000;
-    *(volatile unsigned int *)0x1000B000 = a0;
-    *(volatile unsigned int *)0x1000F590 = *(volatile unsigned int *)0x1000F520 & 0xFFFEFFFF;
-    if (r != 0) {
-        func_003B63F0();
-    }
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

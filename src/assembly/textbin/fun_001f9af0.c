@@ -4,21 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f9af0/FUN_001f9af0.s", FUN_001f9af0);
 #else
-#include "types.h"
-/* sceVu0InnerProduct — VU0 3D dot product: returns dot(*a0, *a1) as a float
- * (vmul.xyz then horizontal add via vaddy/vaddz, result moved out through
- * qmfc2/mtc1). */
-
-float FUN_001f9af0(void *a0, void *a1) {
-    float r;
-    int t;
-    VU0_LQC2(4, a0, 0);
-    VU0_LQC2(5, a1, 0);
-    VU0_VMUL_XYZ(5, 4, 5);
-    VU0_VADDY_X(5, 5);
-    VU0_VADDZ_X(5, 5, 5);
-    VU0_QMFC2_NI_F(t, 5);
-    VU0_MTC1(r, t);
-    return r;
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

@@ -4,6 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f83a4/FUN_001f83a4.s", FUN_001f83a4);
 #else
-#include "types.h"
-s32 FUN_001f83a4(void) { return 0; }
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

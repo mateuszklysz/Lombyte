@@ -4,20 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f9ff8/FUN_001f9ff8.s", FUN_001f9ff8);
 #else
-#include "types.h"
-
-void FUN_001f9ff8(s32 arg0, f32 fparg0) {
-    /* m2c-unknown:  unknown instruction: qmtc2.ni $at, $vf5  */
-    /* m2c-unknown:  unknown instruction: vmulx.xyzw $vf1, $vf0, $vf0x  */
-    /* m2c-unknown:  unknown instruction: vmulx.xyzw $vf2, $vf0, $vf0x  */
-    /* m2c-unknown:  unknown instruction: vmulx.xyzw $vf3, $vf0, $vf0x  */
-    /* m2c-unknown:  unknown instruction: vmove.xyzw $vf4, $vf0  */
-    /* m2c-unknown:  unknown instruction: vaddx.x $vf1, $vf1, $vf5x  */
-    /* m2c-unknown:  unknown instruction: vaddx.y $vf2, $vf2, $vf5x  */
-    /* m2c-unknown:  unknown instruction: vaddx.z $vf3, $vf3, $vf5x  */
-    /* m2c-unknown:  unknown instruction: sqc2 $vf1, ($a0)  */
-    /* m2c-unknown:  unknown instruction: sqc2 $vf2, 0x10($a0)  */
-    /* m2c-unknown:  unknown instruction: sqc2 $vf3, 0x20($a0)  */
-    /* m2c-unknown:  unknown instruction: sqc2 $vf4, 0x30($a0)  */
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

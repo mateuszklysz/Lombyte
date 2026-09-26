@@ -4,21 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f9770/FUN_001f9770.s", FUN_001f9770);
 #else
-#include "types.h"
-
-s32 FUN_001f9770(s16 *arg0) {
-    s16 temp_1_9;
-    s32 var_2_6;
-
-    var_2_6 = 1;
-    if (*arg0 != 0) {
-        temp_1_9 = 0 /*  unknown instruction: pmaxw $at, $at, $v0  */ - 1;
-        var_2_6 = 0;
-        *arg0 = temp_1_9;
-        if (temp_1_9 <= 0) {
-            var_2_6 = 2;
-        }
-    }
-    return var_2_6;
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

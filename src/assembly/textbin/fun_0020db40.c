@@ -4,32 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0020db40/FUN_0020db40.s", FUN_0020db40);
 #else
-#include "types.h"
-extern u8 D_001C76E0[];
-void FUN_0020db40(u32 arg0, s32 arg1) {
-    s32 temp_6_15;
-    s32 var_5_0;
-    u32 var_4_0;
-    u8 *temp_7_12;
-    u8 temp_6_18;
-    u8 temp_8_14;
-
-    var_4_0 = arg0;
-    var_5_0 = arg1;
-loop_1:
-    temp_7_12 = (var_4_0 >> 3) + D_001C76E0;
-    temp_8_14 = *temp_7_12;
-    temp_6_15 = (1 << (var_4_0 & 7)) ^ -1;
-    var_4_0 += 1;
-    var_5_0 -= 1;
-    temp_6_18 = temp_8_14 & temp_6_15;
-    if (temp_6_18 != temp_8_14) {
-        *temp_7_12 = temp_6_18;
-        if (var_5_0 <= 0) {
-            return;
-        }
-        goto loop_1;
-    }
-    M2C_TRAP_IF(0 == 0);
-}
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

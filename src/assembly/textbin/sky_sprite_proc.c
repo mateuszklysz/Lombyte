@@ -4,6 +4,7 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/sky_sprite_proc/FUN_0022bba0.s", FUN_0022bba0);
 #else
-#include "types.h"
-s32 FUN_0022bba0(void) { return 0; }
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */

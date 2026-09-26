@@ -28,5 +28,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/domc_mmi/func_00127060.
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/domc_mmi/func_00127178.s", func_00127178);
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/domc_mmi/func_001271D8.s", func_001271D8);
 #else
-/* No generic-C fallback exists for the MMI kernels. */
+/* No C body on purpose: this unit is intentional low-level assembly
+   (config/us/unit_categories.json), so it has no C goal and no public
+   fuzzy score. The assembly oracle above is the whole unit. */
 #endif /* NON_MATCHING */
