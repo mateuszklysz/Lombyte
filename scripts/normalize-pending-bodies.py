@@ -72,6 +72,10 @@ def parse_args(argv=None):
     parser.add_argument("--check", action="store_true",
                         help="report only; never write (default unless --apply)")
     parser.add_argument("--apply", action="store_true", help="write the changes")
+    parser.add_argument("--strip-intentional-c", action="store_true",
+                        help="empty the #else C branch of an intentional-asm unit "
+                             "(it has no C goal and can never be measured or staged); "
+                             "the INCLUDE_ASM oracle and the guards stay untouched")
     parser.add_argument("--reconcile-names", action="store_true",
                         help="rewrite one unambiguous definition to the expected symbol "
                              "(single --unit only)")
@@ -262,6 +266,44 @@ def categories(repo: Path) -> tuple[set[str], set[str]]:
     return rnc_units.load_categories(repo / rnc_units.CATEGORY_PATH)
 
 
+INTENTIONAL_NOTE = (
+    "/* No C body on purpose: this unit is intentional low-level assembly\n"
+    "   (config/us/unit_categories.json), so it has no C goal and no public\n"
+    "   fuzzy score. The assembly oracle above is the whole unit. */"
+)
+
+
+def strip_c_body(text: str) -> dict:
+    """Empty the ``#else`` branch of a pending wrapper, keeping the oracle.
+
+    An intentional-asm unit is excluded from the C goal, and ``check-unit.py``
+    refuses it by design, so a C body there can never be measured, never be
+    staged and never be promoted. It is also the ideal hiding place for a wrong
+    body: nothing ever looks at it. Four of the dozen wrong public bodies found
+    this way were intentional-asm units.
+
+    The guard pair and the ``INCLUDE_ASM`` line are left exactly as they are, so
+    the file still preprocesses to the same oracle and the ELF is unchanged; only
+    the C branch is replaced by a note saying why it is empty.
+    """
+    plan = {"changed": False, "removed_lines": 0, "new_text": None,
+            "attributes_removed": 0}
+    lines = text.splitlines(keepends=True)
+    try:
+        start = next(i for i, line in enumerate(lines) if line.strip() == "#else")
+        end = next(i for i in range(len(lines) - 1, start, -1)
+                   if lines[i].strip().startswith("#endif"))
+    except StopIteration:
+        return plan
+    body = "".join(lines[start + 1:end])
+    if not body.strip():
+        return plan
+    plan["changed"] = True
+    plan["removed_lines"] = end - start - 1
+    plan["new_text"] = "".join(lines[: start + 1]) + INTENTIONAL_NOTE + "\n" + "".join(lines[end:])
+    return plan
+
+
 def main(argv=None) -> int:
     args = parse_args(argv)
     apply = args.apply
@@ -280,8 +322,15 @@ def main(argv=None) -> int:
               file=sys.stderr)
 
     if args.all:
-        all_units = rnc_units.classify_units(ROOT)
-        units = [unit["owner"] for unit in all_units if unit["category"] == "pending"]
+        if args.strip_intentional_c:
+            # The intentional set is not part of the "pending" category, so
+            # classify_units() would never reach these units. When the caller
+            # asks for the strip, walk the category itself.
+            units = sorted(unit for unit in intentional
+                           if rnc_units.unit_source(ROOT, unit).is_file())
+        else:
+            all_units = rnc_units.classify_units(ROOT)
+            units = [unit["owner"] for unit in all_units if unit["category"] == "pending"]
     else:
         units = []
         for raw in args.unit:
@@ -302,8 +351,25 @@ def main(argv=None) -> int:
 
     results = []
     for unit in units:
-        if unit in intentional:
+        if unit in intentional and not args.strip_intentional_c:
             results.append({"unit": unit, "skipped": "intentional-asm"})
+            continue
+        if unit in intentional:
+            source = rnc_units.unit_source(ROOT, unit)
+            if not source.is_file():
+                results.append({"unit": unit, "skipped": "missing-source"})
+                continue
+            plan = strip_c_body(source.read_text(errors="replace"))
+            plan["unit"] = unit
+            try:
+                plan["source"] = str(source.relative_to(ROOT))
+            except ValueError:
+                pass
+            if apply and plan.get("changed"):
+                write_unit(source, plan["new_text"])
+                plan["applied"] = True
+            plan.pop("new_text", None)
+            results.append(plan)
             continue
         if unit in exact:
             results.append({"unit": unit, "skipped": "c-exact-under-assembly"})
