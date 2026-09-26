@@ -208,13 +208,6 @@ SN_COMPILER_UNITS = {
     # place (x += 4; y -= 4) with the remaining offsets inline in the calls
     # reproduced the retail register allocation exactly.
     "textbin/ui/frames/draw_ui_frame",
-    # fun_001f2070: exact on the sn route: the 0xA0-byte frame struct (whose
-    # base pointer is the first callee arg) reproduces every
-    # 0x30/0x34/0x38/0x40/0x80/0x8C/0x90-0x9C field offset, the three float args
-    # of func_001FA378 are stored into that struct instead of being passed (so
-    # it takes three pointer args only), D_00186F40.unk140-148 are f32, and
-    # D_0018CF10 as an array extern gives the lui/lwc1 pair retail uses
-    "textbin/fun_001f2070",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.

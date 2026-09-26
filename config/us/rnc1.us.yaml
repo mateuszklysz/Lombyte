@@ -952,7 +952,7 @@ segments:
           - [0xf1bc4, textbin, text_gap_001f0c44_before_fun_001f0c50]
           - [0xf1bd0, c, textbin/fun_001f0c50]
           - [0xf1c5c, textbin, text_gap_001f0cdc_after_fun_001f0c50]
-          - [0xf2ff0, c, textbin/fun_001f2070]
+          - [0xf2ff0, c, assembly/textbin/fun_001f2070]
           - [0xf3124, textbin, text_gap_001f21a4_after_fun_001f2070]
           - [0xf3130, c, runtime/callbacks/noop_core_callback]
           - [0xf3138, c, runtime/callbacks/noop_core_callback_secondary]
