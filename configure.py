@@ -1311,6 +1311,14 @@ GAME_COMPILER_UNITS = {
     # bytes computed before the counter update, with the counter store and the
     # three entry writes after it
     "textbin/world/data/stash_send_data",
+    # fun_001f33b8: textbin/fun_001f33b8: banked on native at 81.61; the default
+    # cc rule takes no per-unit flags, so the public score could not reproduce
+    # it
+    "assembly/textbin/fun_001f33b8",
+    # fun_00221f58: textbin/fun_00221f58: banked on native at 97.65; the default
+    # cc rule takes no per-unit flags, so the public score could not reproduce
+    # it
+    "assembly/textbin/fun_00221f58",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1360,6 +1368,10 @@ GAME_COMPILER_FLAG_UNITS = {
     "snd_reset_state_and_flush_commands": "-mastra-r5900-extern-buffer",
     "fun_00225490": "-fno-schedule-insns",
     "fun_0022c7e8": "-fno-schedule-insns",
+    # fun_001f33b8: exact-route compiler flags
+    "fun_001f33b8": "-fno-schedule-insns",
+    # fun_00221f58: exact-route compiler flags
+    "fun_00221f58": "-G0",
 }
 
 SN_FLAG_UNITS = {
