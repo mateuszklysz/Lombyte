@@ -5,27 +5,25 @@
 /* Minimal single-byte multibyte-to-wide-character conversion veneer. */
 INCLUDE_ASM("config/us/expected/asm/assembly/runtime/encoding/convert_multibyte_character/ConvertMultibyteCharacter.s", ConvertMultibyteCharacter);
 #else
-#include "rnc/assembly_core_convert_multibyte_character_types.h"
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern unsigned char D_005FEA60[];
+int ConvertMultibyteCharacter(void *state, s32 *out, const u8 *str, u32 count)
+    __asm__("ConvertMultibyteCharacter");
 
+int ConvertMultibyteCharacter(void *state, s32 *out, const u8 *str, u32 count) {
+    s32 c;
+    s32 *dest = &c;
 
-
-
-__attribute__((section(".text.func_002C2418")))
-int ConvertMultibyteCharacter(char *a0, int flags) {
-    if (((S002C2418 *)D_005FEA60)->f70 == 0) {
-        if (flags & 0x10) {
-            ((S002C2418 *)D_005FEA60)->f70 = a0 + 0x5C;
-            ((S002C2418 *)D_005FEA60)->f64 = *(unsigned char *)(a0 + 0x7C);
-        } else if (flags & 0x20) {
-            ((S002C2418 *)D_005FEA60)->f64 = *(unsigned char *)(a0 + 0x7D);
-        } else {
-            ((S002C2418 *)D_005FEA60)->f70 = a0 + 0x5C;
-        }
+    if (out != 0) {
+        dest = out;
     }
-    return 0;
+    if (count == 0) {
+        return -1;
+    }
+    if (str == 0) {
+        return 0;
+    }
+    *dest = str[0];
+    return str[0] != 0;
 }
 #endif /* NON_MATCHING */

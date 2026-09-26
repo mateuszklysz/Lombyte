@@ -4,115 +4,77 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0020bc00/FUN_0020bc00.s", FUN_0020bc00);
 #else
-#include "rnc/assembly_textbin_fun_0020bc00_types.h"
 #include "types.h"
 
+struct entry {
+    s16 unk0;
+    u8 pad_2[0xE];
+    u16 unk10;
+    s16 unk12;
+    s16 unk14[8];
+    s16 unk24;
+    s16 unk26;
+};
 
 extern s32 D_001A2C20[];
-s32 FUN_0020bc00(s32 *arg0, s32 *arg1, s32 *arg2, s32 arg3) {
-    s16 var_2_48;
-    s16 var_8_24;
-    s32 *var_4_0;
-    s32 *var_6_0;
-    s32 var_11_4;
-    s32 var_12_6;
-    u16 temp_3_28;
-    struct M2c_var_9_5 *var_9_5;
 
-    var_4_0 = arg0;
-    var_6_0 = arg2;
-    var_11_4 = 0;
-    var_9_5 = D_001A2C20[0];
-    var_12_6 = 1;
-    *var_4_0 = 0;
-    if (arg1 == NULL) {
-        goto block_2;
+s32 FUN_0020bc00(s32 *arg0, s32 *arg1, s32 *arg2, s32 arg3) {
+    struct entry *p;
+    s32 *out;
+    s16 prev_type;
+    s16 val;
+    s32 count;
+    s32 flag;
+    u16 flags;
+
+    p = (struct entry *)D_001A2C20[0];
+    count = 0;
+    flag = 1;
+    *arg0 = 0;
+    if (arg1 != 0) {
+        *arg1 = 0;
     }
-    *arg1 = 0;
-block_2:
-    if (var_6_0 == NULL) {
-        goto block_4;
+    if (arg2 != 0) {
+        *arg2 = -1;
     }
-    *var_6_0 = -1;
-block_4:
-    if (var_9_5 == NULL) {
-        goto block_6;
+    if (p == 0) {
+        return 0;
     }
-    goto block_8;
-block_6:
-    return 0;
-block_8:
-    if (var_9_5->unk0 == 0) {
-        goto block_31;
+    while (p->unk0 != 0) {
+        prev_type = p->unk24;
+        flags = p->unk10;
+        if (prev_type != 2) {
+            flag = (flags & 2) ? flag : 0;
+        }
+        if (!(flags & 2) && prev_type != 0) {
+            out = arg0;
+            val = p->unk0;
+            if ((flags & 1) != 0 && prev_type == 2) {
+                p++;
+                continue;
+            }
+            *arg0 = p->unk0;
+            if (arg3 != 0) {
+                val = (p->unk24 == 2) ? 0x523E : p->unk14[p->unk26];
+                *out = val;
+            }
+            if (arg1 != 0 && p->unk24 == 2) {
+                *arg1 |= 1 << count;
+            }
+            arg0++;
+            if (arg2 != 0) {
+                *arg2 = p->unk12 + p->unk26;
+                arg2++;
+            }
+            count++;
+        }
+        p++;
     }
-    var_8_24 = var_9_5->unk24;
-loop_10:
-    temp_3_28 = var_9_5->unk10;
-    if (var_8_24 == 2) {
-        goto block_12;
+    if (arg1 != 0) {
+        if (flag != 0) {
+            *arg1 |= 0x80000000;
+        }
     }
-    var_12_6 = !(temp_3_28 & 2) ? 0 : var_12_6;
-block_12:
-    if (temp_3_28 & 2) {
-        goto block_28;
-    }
-    if (var_8_24 == 0) {
-        goto block_28;
-    }
-    if (!(temp_3_28 & 1)) {
-        goto block_16;
-    }
-    if (var_8_24 == 2) {
-        goto block_28;
-    }
-block_16:
-    *var_4_0 = (s32) var_9_5->unk0;
-    if (arg3 == 0) {
-        goto block_22;
-    }
-    if (var_9_5->unk24 != 2) {
-        goto block_19;
-    }
-    var_2_48 = 0x523E;
-    goto block_21;
-block_19:
-    var_2_48 = *(s32 *)((u8 *)(((u8 *)var_9_5 + ((var_9_5->unk26 * 2)))) + 0x14);
-block_21:
-    *var_4_0 = (s32) var_2_48;
-block_22:
-    if (arg1 == NULL) {
-        goto block_25;
-    }
-    if (var_9_5->unk24 != 2) {
-        goto block_25;
-    }
-    *arg1 |= 1 << var_11_4;
-block_25:
-    var_4_0 += 1;
-    if (var_6_0 == NULL) {
-        goto block_27;
-    }
-    *var_6_0 = var_9_5->unk12 + var_9_5->unk26;
-    var_6_0 += 4;
-block_27:
-    var_11_4 += 1;
-block_28:
-    var_9_5 += 0x28;
-    if (var_9_5->unk0 == 0) {
-        goto block_30;
-    }
-    var_8_24 = var_9_5->unk24;
-    goto loop_10;
-block_30:
-block_31:
-    if (arg1 == NULL) {
-        goto block_34;
-    }
-    if (var_12_6 == 0) {
-        goto block_34;
-    }
-    *arg1 |= 0x80000000;
-block_34:
-    return var_11_4;
+    return count;
 }
 #endif /* NON_MATCHING */

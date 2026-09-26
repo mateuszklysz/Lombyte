@@ -4,103 +4,121 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022df40/FUN_0022df40.s", FUN_0022df40);
 #else
-#include "rnc/assembly_textbin_fun_0022df40_types.h"
 #include "types.h"
 
+struct M2c_D_0013E030 {
+    u8 pad_0[0x20];
+    s32 unk20;
+    s16 unk24;
+    s16 unk26;
+    u8 pad_28[2];
+};
 
+struct Arg {
+    u8 pad_0[0x18];
+    f32 unk18;
+    u8 pad_1C[0xA4];
+};
 
+struct Rec {
+    s32 unk0;
+    s32 unk4;
+    f32 unk8;
+    s32 unkC;
+};
 
-
+struct Locals {
+    u8 pad00[0x10];
+    struct Rec rec[3];
+    u8 pad40[0x10];
+    s32 v50;
+    u8 pad54[0xC];
+    u8 v60[0x20];
+    s64 v80;
+    s64 v88;
+    s64 v90;
+    s64 v98;
+    s32 vA0;
+    u8 padA4[0xC];
+    s32 vB0;
+    u8 padB4[0xC];
+};
 
 extern struct M2c_D_0013E030 D_0013E030;
 extern s32 D_0015F604;
 extern u8 D_001D97B0[];
 extern u8 D_001D97D0[];
-extern s32 func_001F44B8();
-extern s32 func_001F7D30();
-extern s32 func_001F96F8();
-extern s32 func_001F98D0();
-extern s32 func_001F9A10();
-extern s32 func_001F9A68();
-extern s32 func_001F9A80();
-extern s32 func_001F9CF8();
-extern s32 func_001FA820();
-extern s32 func_00213508();
-void FUN_0022df40(struct M2c_arg0 *arg0) {
-u8 sp_slot[0x170];    s32 sp10;
-    s32 sp50;
-    s32 sp60;
-    s64 sp80;
-    s64 sp88;
-    s64 sp90;
-    s64 sp98;
-    s32 spA0;
-    s32 spB0;
-    struct M2c_var_16_101 *var_16_101;
-    s32 *var_20_99;
-    f32 var_f20_85;
-    s16 temp_16_38;
-    s32 *var_17_102;
-    s32 temp_4_50;
-    s32 var_19_103;
-    s64 temp_2_57;
-    s32 *temp_21_59;
-    s32 *temp_5_115;
+extern void func_001F7D30(void *, s32, s32);
+extern s64 func_001F44B8(s32);
+extern s32 func_001F96F8(s32);
+extern void func_001F98D0(void *, void *, s32);
+extern void func_001F9A10(void *, void *, void *);
+extern void func_001F9A68(void *, void *, f32);
+extern void func_001F9A80(void *, void *, f32);
+extern void func_001F9CF8(void *, void *, void *);
+extern s32 func_001FA820(void *, s32 *, f32);
+extern f32 func_00213508(void *, s32, f32);
+void FUN_0022df40(struct Arg *arg0);
 
-    spB0 = 0;
-    func_001F9A80(sp_slot, arg0, 0x3A800000);
-    if (func_001FA820(sp_slot, &spB0, 0x42000000) < 0) {
-        goto block_10;
+void FUN_0022df40(struct Arg *arg0) {
+    struct Locals L;
+    struct Rec *rec;
+    struct Rec *base;
+    s32 *w;
+    u8 *p20;
+    u8 *p21;
+    u8 *p22;
+    s32 i;
+    s32 t;
+    s16 n;
+    f32 sum;
+    f32 tenth;
+
+    L.vB0 = 0;
+    func_001F9A80(&L, arg0, 0.0009765625f);
+    if (func_001FA820(&L, &L.vB0, 32.0f) < 0) {
+        return;
     }
-    if (D_0015F604 != 6) {
-        goto block_5;
+    if (D_0015F604 == 6) {
+        if (D_0013E030.unk20 == 3) {
+            n = D_0013E030.unk24;
+            if (func_001F96F8(0x96) < n) {
+                t = func_001F96F8(0x96);
+                L.vB0 = L.vB0 - ((D_0013E030.unk24 - t) * 4);
+                if (L.vB0 <= 0) {
+                    return;
+                }
+            }
+        }
     }
-    if (D_0013E030.unk20 != 3) {
-        goto block_5;
+    tenth = 0.1f;
+    L.v88 = func_001F44B8(0);
+    p21 = (u8 *)arg0 + 0x10;
+    L.v90 = 0xFF9000000260;
+    L.v98 = ((s64)0x8000 << 32) | 0x44;
+    L.v80 = 0;
+    func_001F98D0(&L.v60, D_001D97B0, 0x20);
+    func_001F9A68(&L.vA0, arg0, 0.0009765625f);
+    sum = arg0->unk18 + tenth;
+    if (D_0015F604 == 6) {
+        sum = func_00213508(p21, 0, 0.5f) + tenth;
     }
-    temp_16_38 = D_0013E030.unk24;
-    if (func_001F96F8(0x96) >= temp_16_38) {
-        goto block_5;
-    }
-    temp_4_50 = spB0 - ((D_0013E030.unk24 - func_001F96F8(0x96)) * 4);
-    spB0 = temp_4_50;
-    if (temp_4_50 <= 0) {
-        goto block_10;
-    }
-block_5:
-    temp_2_57 = func_001F44B8(0);
-    temp_21_59 = ((u8 *)arg0 + (0x10));
-    sp98 = (0x8000 << 0x18) | 0x44;
-    sp88 = temp_2_57;
-    sp90 = (0xFF90 << 0x20) | 0x260;
-    sp80 = 0;
-    func_001F98D0(&sp60, D_001D97B0, 0x20);
-    func_001F9A68(&spA0, arg0, 0x3A800000);
-    var_f20_85 = arg0->unk18 + 0.1f;
-    if (D_0015F604 != 6) {
-        goto block_7;
-    }
-    var_f20_85 = func_00213508(temp_21_59, 0, 0x3F000000) + 0.1f;
-block_7:
-    var_20_99 = D_001D97D0;
-    var_16_101 = &sp10;
-    var_17_102 = &sp50;
-    var_19_103 = 3;
-loop_8:
-    var_19_103 -= 1;
-    temp_5_115 = (D_0013E030.unk26 << 6) + var_20_99;
-    *var_17_102 = ((spB0 >> 1) << 0x18) | 0x808080;
-    var_20_99 += 0x10;
-    func_001F9CF8(var_16_101, temp_5_115, ((u8 *)arg0 + (0xC0)));
-    var_17_102 += 4;
-    func_001F9A10(var_16_101, var_16_101, temp_21_59);
-    var_16_101->unk8 = var_f20_85;
-    var_16_101 += 0x10;
-    if (var_19_103 >= 0) {
-        goto loop_8;
-    }
-    func_001F7D30(&sp10, 0, 0);
-block_10:
-    return;
+    p22 = (u8 *)arg0 + 0xC0;
+    base = &L.rec[0];
+    rec = &L.rec[0];
+    w = &L.v50;
+    p20 = D_001D97D0;
+    i = 3;
+    do {
+        *w = ((L.vB0 >> 1) << 24) | 0x808080;
+        func_001F9CF8(rec, (D_0013E030.unk26 << 6) + (s32)p20, p22);
+        w += 1;
+        func_001F9A10(rec, rec, p21);
+        rec->unk8 = sum;
+        p20 += 0x10;
+        rec += 1;
+        i -= 1;
+    } while (i >= 0);
+    func_001F7D30(base, 0, 0);
 }
 #endif /* NON_MATCHING */

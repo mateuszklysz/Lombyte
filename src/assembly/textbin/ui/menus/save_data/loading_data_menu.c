@@ -91,7 +91,7 @@ extern s32 D_0015EDEC;
 extern s32 D_0015EDF0;
 extern s32 D_0015EE34;
 extern s32 D_0015EEB0;
-extern s32 D_0015EEB4[];
+extern s32 D_0015EEB4;
 extern struct M2c_D_001D5BF0 D_001D5BF0;
 extern s32 InitializeGlobalStateEntry();
 extern s32 func_001FBAB8();
@@ -114,7 +114,7 @@ s32 FUN_002232d8(struct M2c_arg0 *arg0)
       D_001D5BF0.unk128 = 0;
       if (D_0013D290.unkE4 != 0)
       {
-        D_0015EEB4[0] |= 0x100;
+        D_0015EEB4 |= 0x100;
         func_001FBAB8(3, D_001D5BF0.unk4);
         return 0;
       }

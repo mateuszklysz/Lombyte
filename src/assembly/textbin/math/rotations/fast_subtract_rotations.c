@@ -5,21 +5,17 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/math/rotations/fast_subtract_rotations/FUN_001fa5c8.s", FUN_001fa5c8);
 #else
 #include "types.h"
-
-f32 fast_subtract_rotations(f32 fparg0, f32 fparg1) __asm__("FUN_001fa5c8");
-
-f32 fast_subtract_rotations(f32 fparg0, f32 fparg1) {
-    f32 var_f0_5;
-    s32 temp_cond_14;
-
-    var_f0_5 = fparg0 - fparg1;
-    temp_cond_14 = var_f0_5 < -3.1415927f;
-    if (!(var_f0_5 < 3.1415927f)) {
-        var_f0_5 = (var_f0_5 - 3.1415927f) - 3.1415927f;
+#define PI 3.1415927f
+f32 fast_subtract_rotations(f32 a, f32 b) __asm__("FUN_001fa5c8");
+f32 fast_subtract_rotations(f32 a, f32 b) {
+    f32 d;
+    d = a - b;
+    if (!(d < PI)) {
+        d = (d - PI) - PI;
     }
-    if (temp_cond_14) {
-        var_f0_5 = var_f0_5 + 3.1415927f + 3.1415927f;
+    if (d < -PI) {
+        d = (d + PI) + PI;
     }
-    return var_f0_5;
+    return d;
 }
 #endif /* NON_MATCHING */

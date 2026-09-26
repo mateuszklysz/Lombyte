@@ -5,22 +5,25 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/math/rotations/fast_normalize_angle/FUN_001fa610.s", FUN_001fa610);
 #else
 #include "types.h"
-
-void fast_normalize_angle(f32 fparg0) __asm__("FUN_001fa610");
-
-void fast_normalize_angle(f32 fparg0) {
-    f32 var_f0_5;
-
-    var_f0_5 = fparg0;
-    if (!(var_f0_5 < 3.1415927f)) {
+#define PI 3.1415927f
+f32 fast_normalize_angle(f32 a) __asm__("FUN_001fa610");
+f32 fast_normalize_angle(f32 a) {
+    f32 v;
+    f32 pi;
+    f32 mpi;
+    pi = PI;
+    mpi = -PI;
+    v = a;
+    if (!(v < pi)) {
         do {
-            var_f0_5 = (var_f0_5 - 3.1415927f) - 3.1415927f;
-        } while (!(var_f0_5 < 3.1415927f));
+            v = (v - pi) - pi;
+        } while (!(v < pi));
     }
-    if (var_f0_5 < -3.1415927f) {
+    if (v < mpi) {
         do {
-            var_f0_5 = var_f0_5 + 3.1415927f + 3.1415927f;
-        } while (var_f0_5 < -3.1415927f);
+            v = (v + pi) + pi;
+        } while (v < mpi);
     }
+    return v;
 }
 #endif /* NON_MATCHING */

@@ -4,85 +4,71 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00120d40/FUN_00120d40.s", FUN_00120d40);
 #else
-#include "rnc/assembly_textbin_fun_00120d40_types.h"
 #include "types.h"
 
+struct M2c_D_00132D08 {
+    u8 pad_0[0x24];
+    s32 unk24;
+};
 
-extern s32 D_001312D0;
-extern s32 D_001312D8;
-extern s32 D_001312EC;
-extern s32 D_00131308;
+extern s32 D_001312D0[];
+extern s32 D_001312D8[];
+extern volatile s32 D_001312EC[];
+extern s32 D_00131308[];
 extern struct M2c_D_00132D08 D_00132D08;
-extern u8 D_00152F10[];
-extern u8 D_00152F38[];
-extern s32 D_00159750;
-extern u8 D_00159758[];
-extern u8 D_FFFFF[];
-extern s32 PollSema();
-extern void ReferThreadStatus();
-extern void SignalSema();
-extern void cmd_sem_init();
-extern s32 sceCdSyncS();
-extern void scePrintf();
-extern s32 sceSifBindRpc();
-extern void sceSifInitRpc();
+extern char D_00152F10[];
+extern char D_00152F38[];
+extern s32 D_00159750[];
+extern char D_00159758[];
+extern s32 PollSema(s32);
+extern void ReferThreadStatus(s32, char *);
+extern void SignalSema(s32);
+extern void cmd_sem_init(void);
+extern s32 sceCdSyncS(s32);
+extern int scePrintf(const char *, ...);
+extern s32 sceSifBindRpc(struct M2c_D_00132D08 *, u32, s32);
+extern void sceSifInitRpc(u32);
+
 s32 FUN_00120d40(s32 arg0) {
-    s32 *var_2_55;
-    s32 *var_2_78;
+    s32 i;
+
     cmd_sem_init();
-    if (*(s32 *)0x1312EC == PollSema(*(s32 *)0x1312EC)) {
-        goto block_3;
+    if (D_001312EC[0] != PollSema(D_001312EC[0])) {
+        if (D_001312D0[0] > 0) {
+            scePrintf(D_00152F10, arg0, D_001312D8[0]);
+        }
+    } else {
+        D_001312D8[0] = arg0;
+        ReferThreadStatus(D_00159750[0], D_00159758);
+        if (sceCdSyncS(1) != 0) {
+            SignalSema(D_001312EC[0]);
+        } else {
+            sceSifInitRpc(0);
+            if (D_00131308[0] < 0) {
+                goto bind;
+    delay1:
+                for (i = 0x100000; i != -1; i--) {
+                }
+    bind:
+                for (;;) {
+                    if (sceSifBindRpc(&D_00132D08, 0x80000593, 0) < 0) {
+                        if (*(s32 *)0x001312D0 > 0) {
+                            scePrintf(D_00152F38);
+                        }
+                        for (i = 0x100000; i != -1; i--) {
+                        }
+                        continue;
+                    }
+                    if (D_00132D08.unk24 != 0) {
+                        D_00131308[0] = 0;
+                        return 1;
+                    }
+                    goto delay1;
+                }
+            }
+            return 1;
+        }
     }
-    if (D_001312D0 <= 0) {
-        goto block_5;
-    }
-    scePrintf(D_00152F10, arg0, D_001312D8);
     return 0;
-block_3:
-    *(s32 *)0x1312D8 = arg0;
-    ReferThreadStatus(*(s32 *)0x159750, D_00159758);
-    if (sceCdSyncS(1) == 0) {
-        goto block_6;
-    }
-    SignalSema(*(s32 *)0x1312EC);
-block_5:
-    return 0;
-block_6:
-    sceSifInitRpc(0);
-    if (D_00131308 >= 0) {
-        goto block_21;
-    }
-    goto loop_11;
-block_9:
-    var_2_55 = D_FFFFF;
-loop_10:
-    if (var_2_55 != (void *)-1) {
-        goto loop_10;
-    }
-loop_11:
-    if (sceSifBindRpc(&D_00132D08, 0x80000593, 0) < 0) {
-        goto block_13;
-    }
-    goto block_19;
-block_13:
-    var_2_78 = D_FFFFF;
-    if (D_001312D0 <= 0) {
-        goto block_16;
-    }
-    scePrintf(D_00152F38);
-    var_2_78 = (void *)0x100000;
-block_16:
-loop_17:
-    if (var_2_78 != (void *)-1) {
-        goto loop_17;
-    }
-    goto loop_11;
-block_19:
-    if (D_00132D08.unk24 == 0) {
-        goto block_9;
-    }
-    D_00131308 = 0;
-block_21:
-    return 1;
 }
 #endif /* NON_MATCHING */

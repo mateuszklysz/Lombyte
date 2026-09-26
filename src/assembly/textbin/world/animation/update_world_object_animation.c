@@ -5,126 +5,166 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/world/animation/update_world_object_animation/FUN_00204790.s", FUN_00204790);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern void cIDBase_restartAnim(void *a0);
-extern void cIDBase_move(void *a0);
+struct PartList {
+    u8 pad00[6];
+    u8 flag;          /* 0x06 */
+    u8 pad07[5];
+    u8 used;          /* 0x0C */
+    u8 pad0D[0x3B];
+    s32 entries[1];   /* 0x48 */
+};
 
-/* sn-2.95.3-136 matched TU. */
+struct ColorSrc {
+    u8 pad00[0x38];
+    u64 color;        /* 0x38 */
+};
 
+struct RenderGlobals {
+    u8 pad00[0x2080];
+    struct ColorSrc *color_src;  /* 0x2080 */
+};
 
+struct GlobalIndex {
+    u8 pad00[0x26];
+    s16 slot;         /* 0x26 */
+};
 
+struct Moby {
+    u8 pad00[0x24];
+    struct PartList *parts;  /* 0x24 */
+    u8 pad28[0xA];
+    u16 unk32;        /* 0x32 */
+    u16 unk34;        /* 0x34 */
+    u8 pad36[2];
+    u64 color;        /* 0x38 */
+    u8 pad40[8];
+    s32 attach;       /* 0x48 */
+    u8 pad4C[6];
+    u8 idx;           /* 0x52 */
+    u8 slot;          /* 0x53 */
+    u8 pad54[0x1E];
+    u8 flag72;        /* 0x72 */
+    u8 flag73;        /* 0x73 */
+    u8 pad74[4];
+    s32 model;        /* 0x78 */
+    u8 pad7C[0x18];
+    s32 unk94;        /* 0x94 */
+};
 
-__attribute__((section(".text.func_001471F0")))
-void update_world_object_animation(char *s0) __asm__("FUN_00204790");
+struct ModelRec {
+    u16 flags;        /* 0x00 */
+    u8 pad02[2];
+    s32 part_count;   /* 0x04 */
+    u16 pad08;
+    u8 pad0A[2];
+    u16 num_parts;    /* 0x0C */
+    u8 pad0E[2];
+    s32 end_off;      /* 0x10 */
+    s32 part_off[1];  /* 0x14 */
+};
 
-void update_world_object_animation(char *s0) {
-    char st;
+struct TransferState {
+    u8 pad00[0x38];
+    s32 unk38;        /* 0x38 */
+    u8 pad3C[4];
+    u16 unk40;        /* 0x40 */
+    u8 pad42[2];
+    s16 num_parts;    /* 0x44 */
+    u8 pad46[2];
+    u16 unk48;        /* 0x48 */
+    s32 unk4C;        /* 0x4C */
+    s32 unk50;        /* 0x50 */
+    s32 unk54;        /* 0x54 */
+    struct ModelRec *rec;     /* 0x58 */
+    s32 unk5C;        /* 0x5C */
+    u8 pad60[0x118];
+    struct Moby *slots[1];    /* 0x178 */
+};
 
-    if (*(int *)(s0 + 0xB0) != 0) {
-        st = *(unsigned char *)(s0 + 0xB8) - 1;
-        switch (st) {
-        case 0:
-            cIDBase_restartAnim(s0);
-            s0[0x1C] = 1;
-            s0[0xB8] = 2;
-        case 1:
-            {
-            char *p1 = *(char **)(s0 + 0x90);
-            char *p2;
-            char *p3;
-            char *q;
-            *(float *)(p1 + 0x40) = *(float *)(p1 + 0x40) + 0.1f;
-            p2 = *(char **)(s0 + 0x90);
-            *(float *)(p2 + 0x44) = *(float *)(p2 + 0x44) + 0.1f;
-            p3 = *(char **)(s0 + 0x90);
-            q = *(char **)(p3 + 0x1C);
-            if (*(float *)(q + 0x28) < *(float *)(p3 + 0x40)) {
-                char *r;
-                char *rq;
-                char *t1;
-                char *t2;
-                *(float *)(p3 + 0x40) = *(float *)(q + 0x28);
-                r = *(char **)(s0 + 0x90);
-                rq = *(char **)(r + 0x1C);
-                *(float *)(r + 0x44) = *(float *)(rq + 0x2C);
-                t1 = *(char **)(s0 + 0x94);
-                *(unsigned short *)(t1 + 0x90) = *(unsigned short *)(s0 + 0xAC);
-                t2 = *(char **)(s0 + 0x98);
-                *(unsigned short *)(t2 + 0x90) = *(unsigned short *)(s0 + 0xAC);
-                s0[0xB8] = 3;
-            }
-            }
-            break;
-        case 2:
-            {
-            char *a = *(char **)(s0 + 0x94);
-            char *b;
-            *(int *)(a + 0x2C) = *(int *)(a + 0x2C) & 0xF7FFFFFFU;
-            b = *(char **)(s0 + 0x98);
-            *(int *)(b + 0x2C) = *(int *)(b + 0x2C) & 0xF7FFFFFFU;
-            switch (*(unsigned short *)(s0 + 0xAC)) {
-            case 0x2000:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2006;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2006;
-                *(int *)(*(char **)(s0 + 0xA4) + 0x2C) =
-                    *(int *)(*(char **)(s0 + 0xA4) + 0x2C) & 0xF7FFFFFFU;
-                break;
-            case 0x2001:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2007;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2007;
-                break;
-            case 0x2002:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2008;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2008;
-                break;
-            case 0x2003:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x2009;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x2009;
-                break;
-            case 0x2004:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x200A;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x200A;
-                *(int *)(*(char **)(s0 + 0xA8) + 0x2C) =
-                    *(int *)(*(char **)(s0 + 0xA8) + 0x2C) & 0xF7FFFFFFU;
-                break;
-            case 0x2005:
-                *(short *)(*(char **)(s0 + 0x9C) + 0x90) = 0x200B;
-                *(short *)(*(char **)(s0 + 0xA0) + 0x90) = 0x200B;
-                break;
-            }
-            }
-            break;
-        case 3:
-            {
-            char *c = *(char **)(s0 + 0x94);
-            char *d;
-            char *e1;
-            char *e2;
-            char *e3;
-            *(int *)(c + 0x2C) = *(int *)(c + 0x2C) | 0x8000000;
-            d = *(char **)(s0 + 0x98);
-            *(int *)(d + 0x2C) = *(int *)(d + 0x2C) | 0x8000000;
-            e1 = *(char **)(s0 + 0x90);
-            *(float *)(e1 + 0x40) = *(float *)(e1 + 0x40) - 0.1f;
-            e2 = *(char **)(s0 + 0x90);
-            *(float *)(e2 + 0x44) = *(float *)(e2 + 0x44) - 0.1f;
-            e3 = *(char **)(s0 + 0x90);
-            if (*(float *)(e3 + 0x40) < 0.0f) {
-                char *f1;
-                *(float *)(e3 + 0x40) = 0.0f;
-                f1 = *(char **)(s0 + 0x90);
-                *(float *)(f1 + 0x44) = 0.0f;
-                s0[0xB8] = 5;
-            }
-            }
-            break;
-        case 4:
-            s0[0xB8] = 0;
-            *(unsigned short *)(s0 + 0xAC) = 0xFFFF;
-            break;
+extern struct TransferState D_0018CB20;
+extern struct GlobalIndex D_0013E030;
+extern struct RenderGlobals D_0013F350;
+extern s32 D_0015F604;
+extern s32 D_00160488[];
+extern void FlushCache(s32);
+extern s32 func_0020B618(s32, s32);
+extern struct Moby *func_0020C4F8(s32);
+
+void update_world_object_animation(void *arg0) __asm__("FUN_00204790");
+
+void update_world_object_animation(void *arg0) {
+    struct ModelRec *rec;
+    struct Moby *mob;
+    s32 *cp;
+    s32 *sp;
+    s32 *wp;
+    s32 i;
+    s32 k;
+    s32 idx;
+    s32 id;
+    s32 off;
+    s32 endp;
+
+    FlushCache(0);
+    func_0020B618(D_0018CB20.unk5C, (s32)D_0018CB20.rec);
+    FlushCache(0);
+
+    rec = D_0018CB20.rec;
+    D_0018CB20.unk38 = 0;
+    cp = rec->part_off;
+    D_0018CB20.unk40 = rec->flags;
+    D_0018CB20.unk48 = rec->pad08;
+    D_0018CB20.num_parts = rec->num_parts;
+    D_0018CB20.unk54 = (s32)rec + rec->end_off;
+    if (rec->part_count < 0x400) {
+        D_0018CB20.unk4C = 0;
+    } else {
+        D_0018CB20.unk4C = (s32)rec + rec->part_count;
+    }
+
+    for (i = 0; i < D_0018CB20.num_parts; i++) {
+        off = *cp++;
+        sp = (s32 *)((u8 *)rec + off);
+        id = sp[0];
+        sp = (s32 *)((u8 *)sp + 0xC);
+        endp = (s32)rec + sp[0];
+        sp = (s32 *)((u8 *)sp + 4);
+        if (D_0015F604 == 6 && i == 0 && id == 0x215) {
+            id = D_00160488[D_0013E030.slot];
         }
-        cIDBase_move(s0);
+        mob = D_0018CB20.slots[i];
+        if (mob == 0) {
+            mob = func_0020C4F8(id);
+            idx = mob->parts->used;
+            mob->parts->used = idx + 1;
+            mob->slot = idx;
+            mob->idx = idx;
+            mob->unk32 = 0x1FF;
+            mob->unk34 |= 6;
+            mob->flag72 = 0xFF;
+            mob->unk94 = 0;
+            if (D_0013F350.color_src != 0) {
+                mob->color = D_0013F350.color_src->color;
+            } else {
+                mob->color = 0x38383800000000;
+            }
+            if (mob->parts->flag) {
+                mob->flag73 = 0x18;
+            }
+            D_0018CB20.slots[i] = mob;
+        }
+        mob->model = endp;
+        mob->parts->entries[mob->idx] = sp;
+        if (((u8 *)sp)[0x10] != 0) {
+            wp = (s32 *)((u8 *)sp + 0x1C);
+            k = 0;
+            while (k < ((u8 *)sp)[0x10]) {
+                *wp = (s32)sp + *wp;
+                k++;
+                wp++;
+            }
+        }
     }
 }
 #endif /* NON_MATCHING */

@@ -30,7 +30,7 @@ extern s32 D_0015ED84;
 extern s32 D_0015ED98;
 extern s32 D_0015EE20;
 extern s32 D_0015EE24;
-extern u8 D_0015EE98[];
+extern s64 D_0015EE98;
 extern s32 D_0015EEB4[];
 extern u8 D_001A04C0[];
 extern u8 D_001A07C0[];
@@ -44,14 +44,14 @@ s32 FUN_0020b178(s32 arg0, s32 arg1) {
     u8 *temp_3_70;
     u8 var_18_63;
 
-    sceCdReadClock(D_0015EE98);
-    sceScfGetLocalTimefromRTC(D_0015EE98);
+    sceCdReadClock(&D_0015EE98);
+    sceScfGetLocalTimefromRTC(&D_0015EE98);
     func_00208770();
     func_00207B08((D_0015ED84 << 0xB) + D_00141EC0);
     if (D_0013D290.unkC0 == -1) {
         goto block_4;
     }
-    if (*(s32 *)((u8 *)((D_0013D290.unkC0 * 0xB8) + &D_0013D290) + 0x14) < 0) {
+    if (*(s32 *)((u8 *)&D_0013D290 + D_0013D290.unkC0 * 0xB8 + 0x14) < 0) {
         goto block_3;
     }
     goto block_5;
@@ -89,15 +89,14 @@ block_8:
     *temp_3_70 = 1;
 block_13:
 block_14:
-    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x24) = (s32) D_0015ED98;
-    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x20) = (s32) D_0015ED84;
-    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x2C) = (s32) *(s32 *)0x15EE24;
+    *(s32 *)((u8 *)&D_0013D290 + D_0013D290.unk14 * 0x1C + 0x24) = (s32) D_0015ED98;
+    *(s32 *)((u8 *)&D_0013D290 + D_0013D290.unk14 * 0x1C + 0x20) = (s32) D_0015ED84;
+    *(s32 *)((u8 *)&D_0013D290 + D_0013D290.unk14 * 0x1C + 0x2C) = (s32) *(s32 *)0x15EE24;
     /* m2c-unknown:  unknown instruction: ldl $v1, 0x7($a6)  */
     /* m2c-unknown:  unknown instruction: ldr $v1, ($a6)  */
-    /* m2c-unknown:  unknown instruction: sdl $v1, 0x7($v0)  */
-    /* m2c-unknown:  unknown instruction: sdr $v1, ($v0)  */
-    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x28) = (s32) D_0015EE20;
-    func_0020AD78(D_0014EED0, 0, D_001A04C0, 0x1C, D_0015ED98, D_0015ED84, D_0015EE98, D_0015EE20);
+    *(s64 *)((u8 *)&D_0013D290 + 0x30 + D_0013D290.unk14 * 0x1C) = D_0015EE98;
+    *(s32 *)((u8 *)&D_0013D290 + D_0013D290.unk14 * 0x1C + 0x28) = (s32) D_0015EE20;
+    func_0020AD78(D_0014EED0, 0, D_001A04C0, 0x1C, D_0015ED98, D_0015ED84, &D_0015EE98, D_0015EE20);
     func_0020AD78(D_001506D0, D_0013D290.unkC8, D_001A07C0);
     if (arg1 < 0) {
         goto block_16;

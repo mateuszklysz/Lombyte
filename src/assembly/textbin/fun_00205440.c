@@ -4,87 +4,75 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00205440/FUN_00205440.s", FUN_00205440);
 #else
-#include "rnc/assembly_textbin_fun_00205440_types.h"
 #include "types.h"
 
+struct M2c_D_0013C940 {
+    u8 pad_0[0x104];
+    f32 unk104;
+    f32 unk108;
+    f32 unk10C;
+    u8 pad_110[0x94];
+    s32 unk1A4;
+};
 
-
+struct M2c_D_001A00F0 {
+    u8 pad_0[0x24];
+    s32 unk24;
+    u8 pad_28[0x8C];
+    f32 level[0x14];
+    s32 acc0[0x14];
+    s32 acc1[0x35];
+    s32 unk228;
+};
 
 extern struct M2c_D_0013C940 D_0013C940;
 extern struct M2c_D_001A00F0 D_001A00F0;
-extern s32 func_00208810();
+extern void func_00208810(void);
+
 s32 FUN_00205440(void) {
-    f32 *temp_2_38;
-    f32 *temp_2_50;
-    f32 *temp_3_28;
-    f32 temp_f0_94;
-    f32 temp_f1_71;
-    s32 *temp_2_111;
-    s32 *temp_2_119;
-    s32 *temp_2_127;
-    s32 *temp_2_68;
-    s32 *temp_4_85;
-    s32 *temp_6_91;
-    s32 temp_2_63;
-    s32 temp_3_102;
-    s32 temp_3_90;
-    s32 temp_5_101;
-    s32 temp_7_106;
-    s32 temp_9_103;
-    s32 var_2_12;
-    s32 *temp_10_58;
-    s32 *temp_11_62;
-    s32 *temp_9_22;
+    s32 lo0;
+    s32 lo1;
+    s32 hi0;
+    s32 hi1;
+    f32 scale;
 
     func_00208810();
-    var_2_12 = 1;
-    if (!(D_0013C940.unk1A4 & 0x500)) {
-        var_2_12 = 0;
-        if ((D_001A00F0.unk24 != 0) && (D_001A00F0.unk228 >= 0)) {
-            temp_9_22 = ((u8 *)&D_001A00F0 + 0xB4);
-            temp_3_28 = (D_001A00F0.unk228 * 4) + temp_9_22;
-            *temp_3_28 *= 1.0f - (D_0013C940.unk104 * 0.02f);
-            temp_2_38 = (D_001A00F0.unk228 * 4) + temp_9_22;
-            if (*temp_2_38 > 4.0f) {
-                *temp_2_38 = 4.0f;
-            }
-            temp_2_50 = (D_001A00F0.unk228 * 4) + temp_9_22;
-            if (*temp_2_50 < 0.65f) {
-                *temp_2_50 = 0.65f;
-            }
-            temp_10_58 = ((u8 *)&D_001A00F0 + 0x104);
-            temp_11_62 = ((u8 *)&D_001A00F0 + 0x154);
-            temp_2_63 = D_001A00F0.unk228 * 4;
-            temp_2_68 = temp_2_63 + temp_10_58;
-            temp_f1_71 = 3000000.0f / *(temp_2_63 + temp_9_22);
-            *temp_2_68 += (s32) temp_f1_71;
-            temp_4_85 = (D_001A00F0.unk228 * 4) + temp_11_62;
-            *temp_4_85 += (s32) temp_f1_71;
-            temp_3_90 = D_001A00F0.unk228 * 4;
-            temp_6_91 = temp_3_90 + temp_10_58;
-            temp_f0_94 = *(temp_3_90 + temp_9_22);
-            temp_5_101 = (s32) temp_f0_94 << 0xF;
-            temp_3_102 = (s32) temp_f0_94 << 0xF;
-            temp_9_103 = 0x10000000 - temp_5_101;
-            temp_7_106 = 0x10000000 - temp_3_102;
-            if (*temp_6_91 < temp_3_102) {
-                *temp_6_91 = temp_3_102;
-            }
-            temp_2_111 = (D_001A00F0.unk228 * 4) + temp_10_58;
-            if (temp_7_106 < *temp_2_111) {
-                *temp_2_111 = temp_7_106;
-            }
-            temp_2_119 = (D_001A00F0.unk228 * 4) + temp_11_62;
-            if (*temp_2_119 < temp_5_101) {
-                *temp_2_119 = temp_5_101;
-            }
-            temp_2_127 = (D_001A00F0.unk228 * 4) + temp_11_62;
-            if (temp_9_103 < *temp_2_127) {
-                *temp_2_127 = temp_9_103;
-            }
-            var_2_12 = 0;
-        }
+    if (D_0013C940.unk1A4 & 0x500) {
+        return 1;
     }
-    return var_2_12;
+    if (D_001A00F0.unk24 == 0) {
+        return 0;
+    }
+    if (D_001A00F0.unk228 < 0) {
+        return 0;
+    }
+    D_001A00F0.level[D_001A00F0.unk228] *= 1.0f - D_0013C940.unk104 * 0.02f;
+    if (D_001A00F0.level[D_001A00F0.unk228] > 4.0f) {
+        D_001A00F0.level[D_001A00F0.unk228] = 4.0f;
+    }
+    if (D_001A00F0.level[D_001A00F0.unk228] < 0.65f) {
+        D_001A00F0.level[D_001A00F0.unk228] = 0.65f;
+    }
+    scale = 3000000.0f / D_001A00F0.level[D_001A00F0.unk228];
+    D_001A00F0.acc0[D_001A00F0.unk228] += (s32) (D_0013C940.unk108 * scale);
+    D_001A00F0.acc1[D_001A00F0.unk228] += (s32) (D_0013C940.unk10C * scale);
+    lo0 = (s32) (0.0f / D_001A00F0.level[D_001A00F0.unk228]) << 15;
+    lo1 = (s32) (1280.0f / D_001A00F0.level[D_001A00F0.unk228]) << 15;
+    hi0 = 0x10000000;
+    hi1 = 0x10000000 - lo1;
+    if (D_001A00F0.acc0[D_001A00F0.unk228] < lo0) {
+        D_001A00F0.acc0[D_001A00F0.unk228] = lo0;
+        hi0 = 0x10000000 - lo0;
+    }
+    if (D_001A00F0.acc0[D_001A00F0.unk228] > hi0) {
+        D_001A00F0.acc0[D_001A00F0.unk228] = hi0;
+    }
+    if (D_001A00F0.acc1[D_001A00F0.unk228] < lo1) {
+        D_001A00F0.acc1[D_001A00F0.unk228] = lo1;
+    }
+    if (D_001A00F0.acc1[D_001A00F0.unk228] > hi1) {
+        D_001A00F0.acc1[D_001A00F0.unk228] = hi1;
+    }
+    return 0;
 }
 #endif /* NON_MATCHING */
