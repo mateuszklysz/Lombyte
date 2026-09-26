@@ -47,15 +47,11 @@ Work-in-progress C is also welcome when it preserves the matching baseline. Do n
 
 ## Documentation
 
-The front page stays short on purpose. Everything it used to carry is in [`docs/`](docs/):
-
-| Document | Contents |
-| :------- | :------- |
-| [`docs/about.md`](docs/about.md) | What the project is, and the long-term goal |
-| [`docs/progress-metrics.md`](docs/progress-metrics.md) | What the progress map and the decomp.dev numbers mean |
-| [`docs/building.md`](docs/building.md) | Toolchain, game files, `make elf`, `make iso`, build overrides |
-| [`docs/repository-layout.md`](docs/repository-layout.md) | What lives in each top-level directory |
-| [`docs/readme-details.md`](docs/readme-details.md) | The contributing walkthrough, reporting guidance and license scope |
+| Document                                             | Contents                                                                 |
+| :--------------------------------------------------- | :----------------------------------------------------------------------- |
+| [docs/building.md](docs/building.md)                 | Toolchain, game files, `make elf`, the gate, `make iso`, build overrides |
+| [docs/progress-metrics.md](docs/progress-metrics.md) | What C_EXACT and C_FUZZY mean, and why 100 % is not exact                |
+| [CONTRIBUTING.md](CONTRIBUTING.md)                   | Per-unit workflow, from picking a target to a pull request               |
 
 ## Credits
 

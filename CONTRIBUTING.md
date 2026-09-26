@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping decompile *Ratchet & Clank*! The goal is to turn the
+Thanks for helping decompile _Ratchet & Clank_! The goal is to turn the
 assembly-backed units under [`src/assembly/`](src/assembly/) into C that
 compiles to the exact retail bytes. Writing C, recovering names, improving
 types, and fixing docs all help.
@@ -47,7 +47,7 @@ name.
 ### 3. Read the source and the retail assembly
 
 Open the unit's source, e.g. `src/assembly/math/subtract_integer_with_clamp.c`.
-While a unit is pending, it keeps the retail assembly as an *oracle* and the
+While a unit is pending, it keeps the retail assembly as an _oracle_ and the
 readable C body as a fallback:
 
 ```c
@@ -110,8 +110,8 @@ Once the unit matches, make the C the only compiled code:
    `git mv src/assembly/<path>.c src/<path>.c`.
 3. In [`config/us/rnc1.us.yaml`](config/us/rnc1.us.yaml), change that unit's
    owner from `assembly/<path>` to `<path>`.
-The file location plus the linker-config owner are the whole promotion: no
-per-file metadata is written.
+   The file location plus the linker-config owner are the whole promotion: no
+   per-file metadata is written.
 
 4. Run `make elf` again; it must end with `PASS`.
 5. Regenerate the decomp.dev progress report with `make progress` and commit

@@ -1,35 +1,36 @@
-> Moved verbatim from README.md when the front page was simplified.
-> Paths, commands and links below are relative to the repository root, as they
-> were in README.md; read them from the checkout root.
+# Building
 
-## Building
+The verified environment is **Linux/WSL**. The SN compiler is a Windows
+executable and has to be runnable, so a plain Linux setup is not enough by
+itself. Compiler versions matter for matching: preserve the directory layouts and
+the executable permissions, and expect the toolchain binaries to be installed by
+you — nothing here is downloaded.
 
-### 1. Prepare the build tools
+Everything below is run from the checkout root, and `RNC_GAME_ROOT` in the
+sibling tooling repository points at this checkout.
 
-The verified environment is Linux/WSL: the SN compiler is a Windows executable and must be runnable, so a plain Linux setup is not enough by itself.
+## 1. Build tools
 
-Install Git, Make, Bash, Python 3 with virtual-environment support, and the following tools:
+| Tool                                                | Required location                                                                 |
+| :-------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| EE-GCC `2.9-ee-991111-01`                           | `tools/compilers/ee-gcc2.9-991111-01/`                                            |
+| SN EE-GCC `2.95.2`                                  | `tools/compilers/ee-gcc-2.95.2/` (with `bin/ee-gcc.exe` and its supporting tools) |
+| R5900 binutils                                      | the `mips-ps2-decompals-*` executables; set `BINUTILS_ROOT` to their directory    |
+| [objdiff CLI](https://github.com/encounter/objdiff) | `tools/objdiff/objdiff-cli`                                                       |
+| Ninja, Python dependencies                          | installed into `.venv` below                                                      |
 
-| Tool                                                | Required location or configuration                                                     |
-| :-------------------------------------------------- | :------------------------------------------------------------------------------------- |
-| EE-GCC `2.9-ee-991111-01`                           | `tools/compilers/ee-gcc2.9-991111-01/`                                                 |
-| SN EE-GCC `2.95.2`                                  | `tools/compilers/ee-gcc-2.95.2/` (including `bin/ee-gcc.exe` and its supporting tools) |
-| R5900 binutils                                      | `mips-ps2-decompals-*` executables; set `BINUTILS_ROOT` to their directory             |
-| [objdiff CLI](https://github.com/encounter/objdiff) | `tools/objdiff/objdiff-cli`                                                            |
-| Ninja and Python build dependencies                 | Installed into `.venv` below                                                           |
-
-Compiler versions matter for matching. Preserve the directory layouts and executable permissions; toolchain binaries are not downloaded.
-
-A few units were matched with an optional patched EE-GCC profile. `make elf` does not need it — those units fall back to the retail oracle — but install it to work on their C:
+A few units were matched with an optional patched EE-GCC profile. `make elf` does
+not need it — those units fall back to the retail oracle — but install it to work
+on their C:
 
 ```sh
 python3 scripts/build-patched-toolchain.py
 export EE_GCC_PATCHED_ROOT="$PWD/tools/ee-gcc2.9-991111-01-patched"
 ```
 
-See [docs/patched-toolchain.md](../docs/patched-toolchain.md).
+See [patched-toolchain.md](patched-toolchain.md).
 
-From your checkout, for example `~/Lombyte`:
+## 2. Python environment
 
 ```sh
 cd ~/Lombyte
@@ -40,38 +41,40 @@ python3 -m venv .venv
 export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
 ```
 
-Use the versions in [requirements.txt](../requirements.txt); spimdisasm is pinned to match the expected disassembly.
+Use the versions pinned in [requirements.txt](../requirements.txt); `spimdisasm`
+is pinned to match the expected disassembly.
 
-### 2. Supply the original game files
+## 3. Original game files
 
-Extract `SCUS_971.99` from the root of your USA disc image and place it at:
-
-```text
-config/us/SCUS_971.99
-```
-
-Verify it against the hash in [Supported version](#supported-version):
+Extract `SCUS_971.99` from the root of your USA disc image and place it at
+`config/us/SCUS_971.99`, then verify it against the hash in the front page:
 
 ```sh
 sha256sum config/us/SCUS_971.99
 ```
 
-For an ISO rebuild, also place your original disc image at `dumps/game.iso` (create `dumps/` if needed). These inputs are ignored by Git.
+For an ISO rebuild, also place your original disc image at `dumps/game.iso`
+(create `dumps/` if needed). Both inputs are ignored by Git.
 
-### 3. Build the executable
+## 4. Build the executable
 
 ```sh
 make elf
 ```
 
-The build stages the sources, splits the reference executable, prepares assembly-backed units, compiles and links the code, generates an objdiff report, and verifies the reconstructed executable against retail.
+The build stages the sources, splits the reference executable, materialises the
+assembly-backed units' oracles, compiles and links, generates an objdiff report,
+and verifies the reconstructed executable against retail.
 
-The default staging directory is `build/baseline` inside the checkout. **It is recreated on each run.** If the checkout is on a Windows-mounted drive (`/mnt/c/...`), set `BASELINE_ROOT` to a native Linux directory such as `$HOME/rnc-baseline` so the frozen 32-bit compiler works on a local filesystem.
+The staging directory defaults to `build/baseline` inside the checkout and is
+**recreated on every run**. If the checkout lives on a Windows-mounted drive
+(`/mnt/c/...`), point `BASELINE_ROOT` at a native Linux directory such as
+`$HOME/rnc-baseline` so the frozen 32-bit compiler works on a local filesystem.
 
-| Output                   | Default location                                  |
-| :----------------------- | :------------------------------------------------ |
-| Reconstructed boot ELF   | `build/baseline/config/us/build/SCUS_971.99`      |
-| Object comparison report | `build/baseline/config/us/report.json`            |
+| Output                   | Default location                             |
+| :----------------------- | :------------------------------------------- |
+| Reconstructed boot ELF   | `build/baseline/config/us/build/SCUS_971.99` |
+| Object comparison report | `build/baseline/config/us/report.json`       |
 
 A successful run ends with:
 
@@ -80,46 +83,31 @@ PASS: reconstructed boot ELF matches retail
 baseline build OK
 ```
 
-### 4. Rebuild a disc image
+## 5. The gate
+
+```sh
+./verify-baseline.sh
+```
+
+This is the acceptance check, not a convenience wrapper: it rebuilds the
+baseline and compares the SHA-256 of the **built** ELF with the one in the front
+page. On failure it prints `baseline build failed with status N; no PASS receipt
+produced` and exits non-zero, so a green run is evidence and a red one is not
+quietly ignored. Run it before proposing a promotion and before committing.
+
+## 6. Disc image
 
 ```sh
 make iso
 ```
 
-This rebuilds the executable, then patches it into a copy of the first `dumps/*.iso` found. Keep one input ISO in that directory to make selection unambiguous.
+Rebuilds the executable, then patches it into a copy of the first `dumps/*.iso`
+found — keep exactly one input ISO there so the selection is unambiguous. The
+original is preserved, and with a byte-identical boot ELF the rebuilt image
+matches your own. The output is
+`build/Ratchet & Clank (USA) - rebuilt.iso`; `make clean-iso` removes it.
 
-The output is written to:
-
-```text
-build/Ratchet & Clank (USA) - rebuilt.iso
-```
-
-The original disc image is preserved. With a byte-identical boot ELF, the rebuilt image matches your original.
-
-<details>
-<summary><strong>Build configuration</strong></summary>
-
-The build and ISO scripts support these environment overrides. Use absolute paths for custom tool and staging locations.
-
-| Variable              | Default / usage                                                          |
-| :-------------------- | :----------------------------------------------------------------------- |
-| `VENV`                | `.venv` in the checkout                                                  |
-| `BASELINE_ROOT`       | `build/baseline` in the checkout; disposable staging directory           |
-| `BINUTILS_ROOT`       | Set to the directory containing your `mips-ps2-decompals-*` tools        |
-| `EE_GCC_PATCHED_ROOT` | Optional patched EE-GCC profile                                          |
-| `COMPILER_ROOT`       | `tools/compilers` in the checkout                                        |
-| `SN_TOOLCHAIN_ROOT`   | `tools/compilers/ee-gcc-2.95.2` in the checkout                          |
-
-For example:
-
-```sh
-# Override only when the checkout is on a Windows-mounted drive.
-export BASELINE_ROOT="$HOME/rnc-baseline"
-export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
-make elf
-```
-
-To patch an already-built ELF with explicit input and output paths:
+To patch an already-built ELF with explicit paths:
 
 ```sh
 python3 rebuild-iso.py \
@@ -128,4 +116,37 @@ python3 rebuild-iso.py \
   --out build/rebuilt.iso
 ```
 
-</details>
+## Other targets and overrides
+
+| Target           | Effect                                                          |
+| :--------------- | :-------------------------------------------------------------- |
+| `make check`     | the public CI checks (tests, script parse) without a full build |
+| `make progress`  | regenerate `progress/report.json` after `make elf`              |
+| `make clean-iso` | remove the rebuilt ISO                                          |
+
+| Variable              | Default / usage                                     |
+| :-------------------- | :-------------------------------------------------- |
+| `VENV`                | `.venv` in the checkout                             |
+| `BASELINE_ROOT`       | `build/baseline`; disposable staging directory      |
+| `BINUTILS_ROOT`       | directory holding your `mips-ps2-decompals-*` tools |
+| `EE_GCC_PATCHED_ROOT` | optional patched EE-GCC profile                     |
+| `COMPILER_ROOT`       | `tools/compilers` in the checkout                   |
+| `SN_TOOLCHAIN_ROOT`   | `tools/compilers/ee-gcc-2.95.2` in the checkout     |
+
+```sh
+# Override only when the checkout is on a Windows-mounted drive.
+export BASELINE_ROOT="$HOME/rnc-baseline"
+export BINUTILS_ROOT="$HOME/tools/binutils-mips-ps2-decompals"
+make elf
+```
+
+## Generated, not stored
+
+`config/us/build.ninja`, `config/us/expected/asm/` and `build/` are produced
+during a build from your own retail executable and are ignored by Git. The
+repository stores no oracle and no extracted game data, which is why a build
+cannot start before step 3.
+
+The layout of both repositories is mapped in `docs/project-map.md` in the
+sibling tooling checkout, together with the compiler inventory and which route
+owns which unit.
