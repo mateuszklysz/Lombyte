@@ -90,6 +90,8 @@ def parse_args(argv=None):
     parser.add_argument("--report", type=Path, default=None, help="write a JSON report")
     parser.add_argument("--limit", type=int, default=0, help="stop after N units (0 = all)")
     parser.add_argument("--json", action="store_true", help="print the report as JSON")
+    parser.add_argument("--verbose", action="store_true",
+                        help="also report helper definitions that have no oracle counterpart")
     return parser.parse_args(argv)
 
 
@@ -235,19 +237,35 @@ def unit_plan(unit: str, source: Path, text: str, workspace: Path | None,
     plan["attributes_removed"] = count
     plan["defined"] = defined_functions(stripped)
     plan["expected"] = expected_symbols(workspace, unit, text)
-    expected_set = set(plan["expected"])
-    plan["unpaired"] = [
-        name for name in plan["defined"]
-        if assembler_symbol(stripped, name) not in expected_set
-    ]
+    # The oracle and the registry each pick their own spelling of a FUN_ hex
+    # tail, so pair case-insensitively; the emitted symbol is still the exact
+    # name, this only decides whether the unit's own function is accounted for.
+    expected_set = {name.lower() for name in plan["expected"]}
+    paired, unpaired = [], []
+    for name in plan["defined"]:
+        symbol = assembler_symbol(stripped, name)
+        (paired if symbol.lower() in expected_set else unpaired).append(name)
+    plan["unpaired"] = unpaired
+    # A helper with no oracle counterpart is not a defect: inline_fn, IsInRegion
+    # and friends are part of the body. The defect is a body that emits NONE of
+    # the unit's expected symbols, which is what a wrong-function body does -
+    # reporting the helpers as "unpaired" is what made an audit of 298 units come
+    # back with eleven false alarms.
+    plan["missing_symbol"] = not paired
 
-    if reconcile and len(plan["defined"]) == 1 and len(plan["expected"]) == 1:
-        old, new = plan["defined"][0], plan["expected"][0]
-        if old != new and assembler_symbol(stripped, old) != new:
+    if reconcile and plan["missing_symbol"] and len(plan["expected"]) == 1:
+        # Only an unambiguous candidate: a definition that carries no asm label
+        # of its own, when the oracle names exactly one symbol.
+        candidates = [name for name in plan["defined"]
+                      if assembler_symbol(stripped, name) == name]
+        new = plan["expected"][0]
+        if len(candidates) == 1 and candidates[0] != new:
+            old = candidates[0]
             stripped = rename_definition(stripped, old, new)
             plan["renamed"] = {"from": old, "to": new}
-            plan["defined"] = [new]
-            plan["unpaired"] = []
+            plan["defined"] = [name for name in plan["defined"] if name != old] + [new]
+            plan["unpaired"] = [name for name in plan["unpaired"] if name != old]
+            plan["missing_symbol"] = False
     if stripped != body:
         new_text = text.replace(body, stripped, 1)
         plan["new_text"] = new_text
@@ -405,6 +423,7 @@ def main(argv=None) -> int:
             "skipped": sum(1 for row in results if row.get("skipped")),
             "renamed": sum(1 for row in results if row.get("renamed")),
             "unpaired": sum(1 for row in results if row.get("unpaired")),
+            "missing_symbol": sum(1 for row in results if row.get("missing_symbol")),
         },
         "units": results,
     }
@@ -417,9 +436,12 @@ def main(argv=None) -> int:
                       + (f", renamed {row['renamed']['from']} -> {row['renamed']['to']}"
                          if row.get("renamed") else "")
                       + ")")
-            if row.get("unpaired"):
-                print(f"name mismatch: {row['unit']} unpaired {row['unpaired']} "
-                      f"expected {row['expected']}")
+            if row.get("missing_symbol"):
+                print(f"name mismatch: {row['unit']} emits none of {row['expected']} "
+                      f"(defined {row['defined']})")
+            elif row.get("unpaired") and args.verbose:
+                print(f"note: {row['unit']} has {len(row['unpaired'])} helper definition(s) "
+                      f"with no oracle counterpart: {', '.join(row['unpaired'])}")
             if row.get("skipped"):
                 print(f"skip ({row['skipped']}): {row['unit']}")
     if args.report:
