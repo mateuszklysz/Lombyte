@@ -5,21 +5,16 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/math/rotations/fast_add_rotations/FUN_001fa580.s", FUN_001fa580);
 #else
 #include "types.h"
+f32 FUN_001fa580(f32 a, f32 b) {
+    f32 r;
 
-f32 fast_add_rotations(f32 fparg0, f32 fparg1) __asm__("FUN_001fa580");
-
-f32 fast_add_rotations(f32 fparg0, f32 fparg1) {
-    f32 var_f0_5;
-    s32 temp_cond_14;
-
-    var_f0_5 = fparg0 + fparg1;
-    temp_cond_14 = var_f0_5 < -3.1415927f;
-    if (!(var_f0_5 < 3.1415927f)) {
-        var_f0_5 = (var_f0_5 - 3.1415927f) - 3.1415927f;
+    r = a + b;
+    if (!(r < 3.1415927f)) {
+        r = r - 3.1415927f - 3.1415927f;
     }
-    if (temp_cond_14) {
-        var_f0_5 = var_f0_5 + 3.1415927f + 3.1415927f;
+    if (r < -3.1415927f) {
+        r = r + 3.1415927f + 3.1415927f;
     }
-    return var_f0_5;
+    return r;
 }
 #endif /* NON_MATCHING */

@@ -5,31 +5,44 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/texture/parse_particle_textures/FUN_002026c8.s", FUN_002026c8);
 #else
 #include "types.h"
-/* cygnus-2.96 matched TU. */
+struct ParticleHdr { s32 count; s32 pad4; s32 data_offset; s32 data_size; u32 ptrs[1]; };
+struct ParticleTex { s32 tex0; s32 tex1; };
+extern s32 D_001600C0;
+extern u8 D_001CE180[];
+extern u32 D_001CDF80[];
+extern struct ParticleTex D_001CD980[];
+extern void func_001F9838(void *, void *, s32);
+extern s32 func_001F97A0(s32);
+void FUN_002026c8(struct ParticleHdr *hdr, s32 base, s32 *src, s32 count) {
+    s32 n;
+    s32 offset;
+    s32 size;
+    s32 i;
+    u32 *p;
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 d;
 
-extern unsigned int D_00766BA8[];
-extern int D_00766BD0[];
-extern int D_00766BD8[];
-
-__attribute__((section(".text.func_003549A8")))
-    int i;
-int parse_particle_textures(void) __asm__("FUN_002026c8");
-
-int parse_particle_textures(void) {
-    if ((unsigned int)(D_00766BA8[7] - 1) < 0x10) goto ok;
-err:
-    return -1;
-ok:
-    if (D_00766BA8[4] != 0) {
-        if (D_00766BA8[8] != 0) goto ret0;
+    p = hdr->ptrs;
+    n = hdr->count;
+    offset = hdr->data_offset;
+    size = hdr->data_size;
+    for (i = 0; i < n; i++) {
+        if (p[i] == 0) {
+            D_001CDF80[i] = (u32)D_001CE180;
+        } else {
+            D_001CDF80[i] = p[i] - (offset - (u32)D_001CE180);
+        }
     }
-    for (i = 0; i < 2; i++) {
-        if (D_00766BD0[i] == 0) goto err;
+    func_001F9838(D_001CE180, (u8 *)hdr + offset, size);
+    for (D_001600C0 = 0; D_001600C0 < count; D_001600C0++) {
+        a = base + *src++;
+        b = *src++;
+        c = base + *src++;
+        d = *src++;
+        D_001CD980[D_001600C0].tex0 = (a << 4) + b;
+        D_001CD980[D_001600C0].tex1 = (c << 4) + func_001F97A0(d);
     }
-    for (i = 0; i < D_00766BA8[7]; i++) {
-        if (D_00766BD8[i] == 0) goto err;
-    }
-ret0:
-    return 0;
 }
 #endif /* NON_MATCHING */

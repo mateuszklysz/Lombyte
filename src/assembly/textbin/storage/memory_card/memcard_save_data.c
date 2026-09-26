@@ -4,9 +4,22 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/storage/memory_card/memcard_save_data/FUN_0020b178.s", FUN_0020b178);
 #else
-#include "rnc/assembly_textbin_fun_0020b178_types.h"
 #include "types.h"
-
+struct M2c_D_0013D290 {
+    u8 pad_0[0x14];
+    s32 unk14;
+    u8 pad_18[0xA8];
+    s32 unkC0;
+    u8 pad_C4[0x4];
+    s32 unkC8;
+    u8 pad_CC[0x8];
+    s32 unkD4;
+    u8 pad_D8[0x4];
+    s32 unkDC;
+    s32 unkE0;
+    u8 pad_E4[0x10];
+    s32 unkF4;
+};
 
 extern struct M2c_D_0013D290 D_0013D290;
 extern u8 D_0013DD58[];
@@ -21,14 +34,12 @@ extern u8 D_0015EE98[];
 extern s32 D_0015EEB4[];
 extern u8 D_001A04C0[];
 extern u8 D_001A07C0[];
-extern void func_00207B08();
-extern void func_00208770();
-extern void func_0020AD78();
-extern void sceCdReadClock();
-extern void sceScfGetLocalTimefromRTC();
-s32 memcard_save_data(s32 arg0, s32 arg1) __asm__("FUN_0020b178");
-
-s32 memcard_save_data(s32 arg0, s32 arg1) {
+extern s32 func_00207B08();
+extern s32 func_00208770();
+extern s32 func_0020AD78();
+extern s32 sceCdReadClock();
+extern s32 sceScfGetLocalTimefromRTC();
+s32 FUN_0020b178(s32 arg0, s32 arg1) {
     s32 temp_2_43;
     u8 *temp_3_70;
     u8 var_18_63;
@@ -69,7 +80,7 @@ block_8:
     if (arg1 < 0) {
         goto block_13;
     }
-    D_0015ED84 = arg1;
+    *(s32 *)0x15ED84 = arg1;
     temp_3_70 = arg1 + D_0013DD58;
     var_18_63 = *temp_3_70;
     if (var_18_63 != 0) {
@@ -80,7 +91,7 @@ block_13:
 block_14:
     *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x24) = (s32) D_0015ED98;
     *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x20) = (s32) D_0015ED84;
-    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x2C) = (s32) D_0015EE24;
+    *(s32 *)((u8 *)((D_0013D290.unk14 * 0x1C) + &D_0013D290) + 0x2C) = (s32) *(s32 *)0x15EE24;
     /* m2c-unknown:  unknown instruction: ldl $v1, 0x7($a6)  */
     /* m2c-unknown:  unknown instruction: ldr $v1, ($a6)  */
     /* m2c-unknown:  unknown instruction: sdl $v1, 0x7($v0)  */

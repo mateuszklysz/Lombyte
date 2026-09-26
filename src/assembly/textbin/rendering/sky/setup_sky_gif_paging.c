@@ -5,33 +5,31 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/sky/setup_sky_gif_paging/FUN_0022b4c8.s", FUN_0022b4c8);
 #else
 #include "types.h"
-/* SN ProDG ee-gcc 2.95.3 matched TU. */
+struct DmaTag { u32 w0; u32 addr; u32 w2; u32 w3; };
+struct Point { u64 flags; u8 pad8[8]; };
+struct PointList { u8 pad0[0xC]; s16 count; u8 padE[2]; struct Point *points; };
+extern struct DmaTag *D_00160F00;
+extern struct DmaTag *D_00160470;
+extern u8 D_00160450[];
+extern struct PointList *D_0016045C;
+extern s32 D_0015EE74;
+extern s32 D_0015EE78;
+extern s32 D_0015F458;
+extern void func_001F21B8(void *, s32);
+void FUN_0022b4c8(void) {
+    struct DmaTag *tag;
+    struct PointList *list;
+    s32 i;
 
-extern unsigned int D_00747A84;
-extern int D_00586B34;
-extern char D_00747470[];
-extern int D_00747A30;
-extern char D_0044A920[];
-extern char D_0044A940[];
-extern char D_0044A958[];
-extern char D_00583F20[];
-extern int D_003C3CF0;
-extern void func_003A6C58(void *a0, void *a1, void *a2);
-
-__attribute__((section(".text.LoadResourceEntry_297378")))
-void setup_sky_gif_paging(void *a0) __asm__("FUN_0022b4c8");
-
-void setup_sky_gif_paging(void *a0) {
-    char *s = (char*)a0;
-    unsigned long b = *(unsigned char*)(s + 8);
-    int buf[16];
-    if ((b >> 7) != 0) return;
-    if ((D_00747A30 & 0x400) != 0) {
-        func_003A6C58(buf, D_0044A920, D_0044A940);
-    } else {
-        func_003A6C58(buf, D_0044A958, D_0044A940);
+    tag = D_00160F00;
+    D_00160470 = tag;
+    D_00160F00 = tag + 1;
+    func_001F21B8(D_00160450, 1);
+    list = D_0016045C;
+    D_0015EE74 = D_0015EE78;
+    D_0015F458 = 0;
+    for (i = 0; i < list->count; i++) {
+        list->points[i].flags = 0;
     }
-    *(int*)(s + 0x10) = 0;
-    *(int*)(s + 0xC) = cDvd_ReadAlloc(D_00583F20, buf, s + 0x10, D_003C3CF0, 0, 0, 0, 0);
 }
 #endif /* NON_MATCHING */

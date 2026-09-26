@@ -4,17 +4,51 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/sky/update_sky_effects/FUN_0022ae70.s", FUN_0022ae70);
 #else
-#include "rnc/assembly_textbin_fun_0022ae70_types.h"
 #include "types.h"
+struct M2c_D_0016045C {
+    u8 pad_0[0x4];
+    s32 unk4;
+    s32 unk8;
+    u8 pad_C[0x10];
+    s32 unk1C;
+};
 
+struct M2c_temp_16_172 {
+    u8 pad_0[0x2];
+    u16 unk2;
+};
 
+struct M2c_temp_17_169 {
+    s32 unk0;
+    s32 unk4;
+    u8 pad_8[0x4];
+    u16 unkC;
+    u8 pad_E[0x2];
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+};
 
+struct M2c_temp_17_53 {
+    u16 unk0;
+    u8 unk2;
+    u8 unk3;
+    u8 pad_4[0x4];
+    s32 unk8;
+    s16 unkC;
+    u8 pad_E[0x2];
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+    s32 unk1C;
+};
 
-
-
-
-
-
+struct M2c_temp_3_28 {
+    u8 pad_0[0x8];
+    s32 unk8;
+    u8 pad_C[0x10];
+    s32 unk1C;
+};
 
 extern struct M2c_D_0016045C *D_0016045C[];
 extern u8 D_001D96E0[];
@@ -31,9 +65,7 @@ extern s32 func_0022B690();
 extern s32 func_0022BBA0();
 extern s32 func_00233980();
 extern s32 rand();
-void update_sky_effects(void) __asm__("FUN_0022ae70");
-
-void update_sky_effects(void) {
+void FUN_0022ae70(void) {
     f32 temp_f20_107;
     f32 temp_f20_115;
     f32 temp_f20_191;
@@ -91,6 +123,7 @@ loop_3:
                 temp_17_53->unk8 = func_00213308();
                 temp_17_53->unk1C = (f32) (func_001FA6C0(func_00213260(0x18) + 0x20) * 0.00390625f);
                 temp_f22_96 = func_001FA580(0xC0400000, func_00213308() * 0.2f);
+    __asm__ volatile ("" : "+r" (temp_f22_96));
                 temp_f21_106 = (func_00213308() * 0.09f) + 1.2f;
                 temp_f20_107 = func_001F9DC8(temp_f22_96);
                 temp_17_53->unk10 = (f32) (temp_f20_107 * func_001F9DE0(temp_f21_106) * 50.0f);

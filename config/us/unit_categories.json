@@ -235,6 +235,11 @@
     "assembly/textbin/tfrag_proc",
     "assembly/textbin/vblank_handler",
     "assembly/textbin/write_gs_header",
-    "assembly/textbin/write_setup_block"
+    "assembly/textbin/write_setup_block",
+    "assembly/sdk/library/memcmp",
+    "assembly/sdk/library/memmove",
+    "assembly/sdk/library/strchr",
+    "assembly/sdk/dma/dma_ref_image",
+    "assembly/sdk/dma/sce_gs_set_def_load_image"
   ]
 }
