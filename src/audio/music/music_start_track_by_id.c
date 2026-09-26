@@ -8,28 +8,30 @@ extern s32 D_0015ED88;
 extern u8 D_002169C0[];
 extern struct M2c_D_001516D0 D_001516D0;
 extern s32 func_0012EC08();
-extern void FUN_00215440(s32, s32, s32);
-extern void FUN_00215518(s32, s32, s32);
-extern void FUN_00215600(s32, s32, s32);
-extern void FUN_002156d8(s32, s32, s32);
-extern void FUN_002157d0(s32, s32, s32);
-extern void FUN_002158a0(s32, s32, s32);
+extern void music_start_track_60000(s32, s32, s32) __asm__("FUN_00215440");
+extern void music_start_track_50000(s32, s32, s32) __asm__("FUN_00215518");
+extern void music_start_track_40000(s32, s32, s32) __asm__("FUN_00215600");
+extern void music_start_track_30000(s32, s32, s32) __asm__("FUN_002156d8");
+extern void music_start_track_20000(s32, s32, s32) __asm__("FUN_002157d0");
+extern void music_start_track_10000(s32, s32, s32) __asm__("FUN_002158a0");
 
-void FUN_00215970(s32 arg0, s32 arg1, s32 arg2) {
+void music_start_track_by_id(s32 arg0, s32 arg1, s32 arg2) __asm__("FUN_00215970");
+
+void music_start_track_by_id(s32 arg0, s32 arg1, s32 arg2) {
     s32 handle;
 
     if (arg0 > 0xEA5F) {
-        FUN_00215440(arg0, arg1, arg2);
+        music_start_track_60000(arg0, arg1, arg2);
     } else if (arg0 > 0xC34F) {
-        FUN_00215518(arg0, arg1, arg2);
+        music_start_track_50000(arg0, arg1, arg2);
     } else if (arg0 > 0x9C3F) {
-        FUN_00215600(arg0, arg1, arg2);
+        music_start_track_40000(arg0, arg1, arg2);
     } else if (arg0 >= 0x7530) {
-        FUN_002156d8(arg0, arg1, arg2);
+        music_start_track_30000(arg0, arg1, arg2);
     } else if (arg0 >= 0x4E20) {
-        FUN_002157d0(arg0, arg1, arg2);
+        music_start_track_20000(arg0, arg1, arg2);
     } else if (arg0 >= 0x2710) {
-        FUN_002158a0(arg0, arg1, arg2);
+        music_start_track_10000(arg0, arg1, arg2);
     } else {
         handle = *((s32 *)((u8 *)D_0013A664 + arg0 * 0x250) + D_0015ED88);
         if (handle != 0) {
@@ -48,4 +50,4 @@ void FUN_00215970(s32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
-extern __typeof__(FUN_00215970) func_00215970 __attribute__((alias("FUN_00215970")));
+extern __typeof__(music_start_track_by_id) func_00215970 __attribute__((alias("FUN_00215970")));

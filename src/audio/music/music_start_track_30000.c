@@ -7,7 +7,9 @@ extern struct M2c_D_001516D0 D_001516D0;
 extern u8 D_00151720[];
 extern void func_002169C0();
 extern void func_0012EC08(s32, s32, s32, s32, s16, s32, s32, s32, s32, void (*)(), u64);
-void FUN_002156d8(s32 track, s32 arg1, s32 arg2) {
+void music_start_track_30000(s32 track, s32 arg1, s32 arg2) __asm__("FUN_002156d8");
+
+void music_start_track_30000(s32 track, s32 arg1, s32 arg2) {
     s32 *entry;
 
     entry = (s32 *)((u8 *)D_0011C178 + (track * 4 + D_0015ED88 * 600));
@@ -24,4 +26,4 @@ void FUN_002156d8(s32 track, s32 arg1, s32 arg2) {
     }
 }
 
-extern __typeof__(FUN_002156d8) func_002156D8 __attribute__((alias("FUN_002156d8")));
+extern __typeof__(music_start_track_30000) func_002156D8 __attribute__((alias("FUN_002156d8")));

@@ -1194,9 +1194,9 @@ GAME_COMPILER_UNITS = {
     # fun_00226e58: unlock menu entries by progress counters (15/30 and 10) and
     # pick their label ids
     "textbin/fun_00226e58",
-    # fun_002156d8: start a music track on channel 1 from the region track table
-    # (stream arg only when D_0015EE1C set)
-    "textbin/fun_002156d8",
+    # music_start_track_30000: start a music track on channel 1 from the region
+    # track table (stream arg only when D_0015EE1C set)
+    "audio/music/music_start_track_30000",
     # fun_00228a30: patch tie class GIF tex words through the texture remap
     # table
     "textbin/fun_00228a30",
@@ -1253,10 +1253,10 @@ GAME_COMPILER_UNITS = {
     "textbin/fun_00204ef8",
     # fun_00215440: byte arithmetic for the D_0013D290 stride, a >8-byte struct
     # wrapper so the store stays gp-relative, and an explicit if/return chain
-    "textbin/fun_00215440",
-    # fun_00215600: same family shape as fun_00215440; the store order is what
-    # fixes it, not the constant
-    "textbin/fun_00215600",
+    "audio/music/music_start_track_60000",
+    # music_start_track_40000: same family shape as music_start_track_60000; the
+    # store order is what fixes it, not the constant
+    "audio/music/music_start_track_40000",
     # fun_0021c7a0: real % modulo (EE-GCC expands smod as slt+movn), the unk50
     # base in its own surviving variable, and the byte cursor as a signed s32
     "textbin/fun_0021c7a0",
@@ -1269,12 +1269,12 @@ GAME_COMPILER_UNITS = {
     # fun_001f0c50: draw text centred on x: sum glyph widths (unknown glyphs use
     # 0x20), then call the left-aligned draw
     "textbin/fun_001f0c50",
-    # fun_002157d0: start music channel 1 from the 20000-range track table (same
-    # shape as fun_00215440)
-    "textbin/fun_002157d0",
-    # fun_002158a0: start music channel 1 from the 10000-range track table (same
-    # shape as fun_00215440)
-    "textbin/fun_002158a0",
+    # music_start_track_20000: start music channel 1 from the 20000-range track
+    # table (same shape as music_start_track_60000)
+    "audio/music/music_start_track_20000",
+    # music_start_track_10000: start music channel 1 from the 10000-range track
+    # table (same shape as music_start_track_60000)
+    "audio/music/music_start_track_10000",
     # fun_00214970: Native route is byte-exact when the zero branch stores the
     # nine globals in the same order as the non-zero branch (ED80, ED60, ED64,
     # ED68, ED6C, ED70, ED74, ED78, ED7C): the ee-gcc store scheduler then emits
@@ -1287,7 +1287,7 @@ GAME_COMPILER_UNITS = {
     # chain plus the D_0013A664 + track*0x250 + D_0015ED88*4 lookup, and the
     # D_001516D0 field stores in the same order as the already-exact siblings
     # (unk50 first), made the whole dispatcher byte-exact.
-    "textbin/fun_00215970",
+    "audio/music/music_start_track_by_id",
     # memcard_prepare_data: Declaring the block pointer copy and the -4 align
     # mask inside the `if (blk->base != 0)` block (so the copy lands in the loop
     # preheader and is not coalesced with a2) and keeping an explicit `u8 *src`

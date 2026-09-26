@@ -10592,8 +10592,8 @@
         "logical_group_confidence": "high"
       },
       {
-        "unit": "textbin/fun_00215440",
-        "source_path": "src/assembly/textbin/fun_00215440.c",
+        "unit": "audio/music/music_start_track_60000",
+        "source_path": "src/audio/music/music_start_track_60000.c",
         "address": "0x00215440",
         "current_name": "FUN_00215440",
         "proposed_name": null,
@@ -10604,20 +10604,25 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/fun_00215518",
-        "source_path": "src/assembly/textbin/fun_00215518.c",
+        "unit": "textbin/audio/music/music_start_track_50000",
+        "source_path": "src/assembly/textbin/audio/music/music_start_track_50000.c",
         "address": "0x00215518",
         "current_name": "FUN_00215518",
-        "proposed_name": null,
-        "logical_group": "unclassified",
-        "status": "unresolved",
-        "confidence": "unresolved",
-        "evidence": [],
+        "proposed_name": "music_start_track_50000",
+        "logical_group": "audio/music",
+        "status": "proposed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "kind": "source_analysis",
+            "note": "Same operation as the already-named music_start_track: read a handle for a track id out of the global table D_00137B80, and if it is non-zero and the shared request record D_001516D0 is idle, fill that record (volume 48000, priority 10, parameter 0x21) and call func_0012EC08, the retail track-start entry. The units differ only in the constant the id is biased by, which is what names them. Table index is `track - 50000` into a six-wide per-region table: ids 50000-59999."
+          }
+        ],
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/fun_00215600",
-        "source_path": "src/assembly/textbin/fun_00215600.c",
+        "unit": "audio/music/music_start_track_40000",
+        "source_path": "src/audio/music/music_start_track_40000.c",
         "address": "0x00215600",
         "current_name": "FUN_00215600",
         "proposed_name": null,
@@ -10628,8 +10633,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/fun_002156d8",
-        "source_path": "src/assembly/textbin/fun_002156d8.c",
+        "unit": "audio/music/music_start_track_30000",
+        "source_path": "src/audio/music/music_start_track_30000.c",
         "address": "0x002156d8",
         "current_name": "FUN_002156d8",
         "proposed_name": null,
@@ -10646,8 +10651,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/fun_002157d0",
-        "source_path": "src/assembly/textbin/fun_002157d0.c",
+        "unit": "audio/music/music_start_track_20000",
+        "source_path": "src/audio/music/music_start_track_20000.c",
         "address": "0x002157d0",
         "current_name": "FUN_002157d0",
         "proposed_name": null,
@@ -10658,8 +10663,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/fun_002158a0",
-        "source_path": "src/assembly/textbin/fun_002158a0.c",
+        "unit": "audio/music/music_start_track_10000",
+        "source_path": "src/audio/music/music_start_track_10000.c",
         "address": "0x002158a0",
         "current_name": "FUN_002158a0",
         "proposed_name": null,
@@ -10670,8 +10675,8 @@
         "logical_group_confidence": "unresolved"
       },
       {
-        "unit": "textbin/fun_00215970",
-        "source_path": "src/assembly/textbin/fun_00215970.c",
+        "unit": "audio/music/music_start_track_by_id",
+        "source_path": "src/audio/music/music_start_track_by_id.c",
         "address": "0x00215970",
         "current_name": "FUN_00215970",
         "proposed_name": null,
@@ -16375,6 +16380,102 @@
           }
         ],
         "logical_group_confidence": "medium"
+      },
+      {
+        "unit": "audio/music/music_start_track_10000",
+        "source_path": "src/audio/music/music_start_track_10000.c",
+        "address": "0x002158a0",
+        "current_name": "FUN_002158a0",
+        "proposed_name": "music_start_track_10000",
+        "logical_group": "audio/music",
+        "status": "proposed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "kind": "source_analysis",
+            "note": "Same operation as the already-named music_start_track: read a handle for a track id out of the global table D_00137B80, and if it is non-zero and the shared request record D_001516D0 is idle, fill that record (volume 48000, priority 10, parameter 0x21) and call func_0012EC08, the retail track-start entry. The units differ only in the constant the id is biased by, which is what names them. Table index is `arg0 - 10000`: ids 10000-19999."
+          }
+        ]
+      },
+      {
+        "unit": "audio/music/music_start_track_20000",
+        "source_path": "src/audio/music/music_start_track_20000.c",
+        "address": "0x002157d0",
+        "current_name": "FUN_002157d0",
+        "proposed_name": "music_start_track_20000",
+        "logical_group": "audio/music",
+        "status": "proposed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "kind": "source_analysis",
+            "note": "Same operation as the already-named music_start_track: read a handle for a track id out of the global table D_00137B80, and if it is non-zero and the shared request record D_001516D0 is idle, fill that record (volume 48000, priority 10, parameter 0x21) and call func_0012EC08, the retail track-start entry. The units differ only in the constant the id is biased by, which is what names them. Table index is `arg0 - 20000`: ids 20000-29999."
+          }
+        ]
+      },
+      {
+        "unit": "audio/music/music_start_track_30000",
+        "source_path": "src/audio/music/music_start_track_30000.c",
+        "address": "0x002156d8",
+        "current_name": "FUN_002156d8",
+        "proposed_name": "music_start_track_30000",
+        "logical_group": "audio/music",
+        "status": "proposed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "kind": "source_analysis",
+            "note": "Same operation as the already-named music_start_track: read a handle for a track id out of the global table D_00137B80, and if it is non-zero and the shared request record D_001516D0 is idle, fill that record (volume 48000, priority 10, parameter 0x21) and call func_0012EC08, the retail track-start entry. The units differ only in the constant the id is biased by, which is what names them. No id bias: the handle comes from the region table D_0011C178, so the dispatcher sends it ids 30000-39999, the range above the 20000 one and below 40000."
+          }
+        ]
+      },
+      {
+        "unit": "audio/music/music_start_track_40000",
+        "source_path": "src/audio/music/music_start_track_40000.c",
+        "address": "0x00215600",
+        "current_name": "FUN_00215600",
+        "proposed_name": "music_start_track_40000",
+        "logical_group": "audio/music",
+        "status": "proposed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "kind": "source_analysis",
+            "note": "Same operation as the already-named music_start_track: read a handle for a track id out of the global table D_00137B80, and if it is non-zero and the shared request record D_001516D0 is idle, fill that record (volume 48000, priority 10, parameter 0x21) and call func_0012EC08, the retail track-start entry. The units differ only in the constant the id is biased by, which is what names them. Table index is `arg0 - 40000`: ids 40000-49999."
+          }
+        ]
+      },
+      {
+        "unit": "audio/music/music_start_track_60000",
+        "source_path": "src/audio/music/music_start_track_60000.c",
+        "address": "0x00215440",
+        "current_name": "FUN_00215440",
+        "proposed_name": "music_start_track_60000",
+        "logical_group": "audio/music",
+        "status": "proposed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "kind": "source_analysis",
+            "note": "Same operation as the already-named music_start_track: read a handle for a track id out of the global table D_00137B80, and if it is non-zero and the shared request record D_001516D0 is idle, fill that record (volume 48000, priority 10, parameter 0x21) and call func_0012EC08, the retail track-start entry. The units differ only in the constant the id is biased by, which is what names them. Table index is `arg0 - 60000`: ids 60000 and up."
+          }
+        ]
+      },
+      {
+        "unit": "audio/music/music_start_track_by_id",
+        "source_path": "src/audio/music/music_start_track_by_id.c",
+        "address": "0x00215970",
+        "current_name": "FUN_00215970",
+        "proposed_name": "music_start_track_by_id",
+        "logical_group": "audio/music",
+        "status": "proposed",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "source_analysis",
+            "note": "Range dispatcher over the six track-start units, as an if/else-if chain on thresholds 0x2710, 0x4E20, 0x7530, 0x9C3F, 0xC34F and 0xEA5F, with ids below 10000 served from D_0013A664 indexed by id * 0x250. The six thresholds are the only thing that distinguishes the units it calls, so the names carry the range."
+          }
+        ]
       }
     ]
   }
