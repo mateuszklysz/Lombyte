@@ -138,7 +138,9 @@ extern s32 func_00225C18();
 extern s32 func_00225CD8();
 extern s32 func_0022DA68();
 extern s32 func_00232F20();
-s32 FUN_0021be60(struct M2c_arg0 *arg0)
+s32 draw_map_screen(struct M2c_arg0 *arg0) __asm__("FUN_0021be60");
+
+s32 draw_map_screen(struct M2c_arg0 *arg0)
 {
   u8 *new_var4;
   s32 *var_2_339;

@@ -46,7 +46,9 @@ extern struct World D_0013F350;
 extern u8 D_0013F3D0[];
 extern s32 func_00214720(void *, s32);
 
-s32 FUN_001ec210(struct Camera *c, struct Camera *other) {
+s32 camera_activation_check_priority(struct Camera *c, struct Camera *other) __asm__("FUN_001ec210");
+
+s32 camera_activation_check_priority(struct Camera *c, struct Camera *other) {
     s32 (*check)(struct Camera *, struct Camera *);
     struct CamFlags *f;
     struct PathTarget *t;

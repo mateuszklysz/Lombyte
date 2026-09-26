@@ -65,7 +65,9 @@ extern s32 func_0022B690();
 extern s32 func_0022BBA0();
 extern s32 func_00233980();
 extern s32 rand();
-void FUN_0022ae70(void) {
+void update_sky_effects(void) __asm__("FUN_0022ae70");
+
+void update_sky_effects(void) {
     f32 temp_f20_107;
     f32 temp_f20_115;
     f32 temp_f20_191;

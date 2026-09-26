@@ -12,7 +12,9 @@ extern struct TexTable D_0019A3E8;
 extern s32 D_0015EE88[];
 extern void func_001FEFC0(s32);
 extern void func_00200B10(u32, s32, s32, s32, s32, s32);
-void FUN_001ff128(s32 bank, s32 unused, s32 arg2) {
+void hud_send_resident_bank(s32 bank, s32 unused, s32 arg2) __asm__("FUN_001ff128");
+
+void hud_send_resident_bank(s32 bank, s32 unused, s32 arg2) {
     s32 addr;
     s32 i;
     s32 end;

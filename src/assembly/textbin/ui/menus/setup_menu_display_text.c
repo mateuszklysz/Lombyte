@@ -53,7 +53,9 @@ extern s32 func_001FDD10();
 extern void func_0020D330();
 extern void sprintf();
 
-s32 FUN_0021ef78(struct G_arg0 *arg0) {
+s32 setup_menu_display_text(struct G_arg0 *arg0) __asm__("FUN_0021ef78");
+
+s32 setup_menu_display_text(struct G_arg0 *arg0) {
     u8 sp_slot[0x100];
     struct G_vec3 *temp_3_17;
     s32 var_19_39;

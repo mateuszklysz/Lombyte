@@ -18,7 +18,9 @@ extern s32 SignalSema(s32);
 static inline s32 IsInRegion(s32 tgt, s32 start, s32 len, s32 size) {
     return (tgt + size - start) % size < len;
 }
-s32 FUN_0023c920(ViBuf *f, TimeStamp *ts) {
+s32 vi_buf_get_ts(ViBuf *f, TimeStamp *ts) __asm__("FUN_0023c920");
+
+s32 vi_buf_get_ts(ViBuf *f, TimeStamp *ts) {
     u32 d4madr;
     u32 ipubp;
     s32 fifo;

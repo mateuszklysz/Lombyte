@@ -13,7 +13,9 @@ extern u32 D_001CDF80[];
 extern struct ParticleTex D_001CD980[];
 extern void func_001F9838(void *, void *, s32);
 extern s32 func_001F97A0(s32);
-void FUN_002026c8(struct ParticleHdr *hdr, s32 base, s32 *src, s32 count) {
+void parse_particle_textures(struct ParticleHdr *hdr, s32 base, s32 *src, s32 count) __asm__("FUN_002026c8");
+
+void parse_particle_textures(struct ParticleHdr *hdr, s32 base, s32 *src, s32 count) {
     s32 n;
     s32 offset;
     s32 size;

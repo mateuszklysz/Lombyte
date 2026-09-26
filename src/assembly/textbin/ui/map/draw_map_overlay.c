@@ -267,7 +267,9 @@ extern void func_00208408(void *, f32 *, s32, f32, f32);
 extern void func_00208508(s32, s32, s32, s32);
 extern void func_00233980(s32, s64);
 extern void *memset(void *, s32, u32);
-void FUN_00205640(void)
+void draw_map_overlay(void) __asm__("FUN_00205640");
+
+void draw_map_overlay(void)
 {
   struct M2c_D_001A00F0 *p;
   union M2c_slot sp_slot;

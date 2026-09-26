@@ -24,7 +24,9 @@ extern s32 func_001FDD10();
 extern s32 func_001FF960();
 extern s32 func_00200958();
 extern s32 func_00200E08();
-s32 FUN_0021ce00(struct M2c_arg0 *arg0) {
+s32 draw_sound_menu(struct M2c_arg0 *arg0) __asm__("FUN_0021ce00");
+
+s32 draw_sound_menu(struct M2c_arg0 *arg0) {
     s32 sp10;
     s32 sp14;
     s32 sp18;

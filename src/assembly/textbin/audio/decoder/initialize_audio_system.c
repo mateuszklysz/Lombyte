@@ -35,7 +35,9 @@ extern void func_0023B3D8();
 extern void func_0023B5F0();
 extern void func_0023B728();
 extern void func_0023CE28();
-s32 FUN_0023a7c0(s32 arg0, s32 arg1, s32 arg2) {
+s32 initialize_audio_system(s32 arg0, s32 arg1, s32 arg2) __asm__("FUN_0023a7c0");
+
+s32 initialize_audio_system(s32 arg0, s32 arg1, s32 arg2) {
 u8 sp_slot[0x80];    s32 temp_2_115;
     s32 var_17_133;
 

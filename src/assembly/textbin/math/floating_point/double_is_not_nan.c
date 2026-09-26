@@ -6,7 +6,9 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/math/floating_point/double_
 #else
 #include "types.h"
 typedef union { f64 value; struct { u32 lsw; u32 msw; } parts; } ieee_double_shape_type;
-s32 FUN_00116168(f64 x) {
+s32 double_is_not_nan(f64 x) __asm__("FUN_00116168");
+
+s32 double_is_not_nan(f64 x) {
     s32 hx;
     s32 lx;
     ieee_double_shape_type ew_u;

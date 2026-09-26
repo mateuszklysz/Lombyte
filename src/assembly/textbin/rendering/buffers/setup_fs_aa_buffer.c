@@ -212,7 +212,9 @@ extern s32 D_0015EE88;
 extern struct M2c_D_0015EEB8 *D_0015EEB8[];
 extern void sceGsSetDefDispEnv();
 extern s32 sceGsSetDefDrawEnv();
-void FUN_001fa978(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5) {
+void setup_fs_aa_buffer(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5) __asm__("FUN_001fa978");
+
+void setup_fs_aa_buffer(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5) {
     s16 temp_4_234;
     s16 temp_5_209;
     register s32 temp_10_15 asm("s7");

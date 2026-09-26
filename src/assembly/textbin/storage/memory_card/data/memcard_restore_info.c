@@ -23,7 +23,9 @@ struct Info {
     s32 empty;
 };
 
-void FUN_0020ae60(struct SaveSrc *src, s32 slot, s32 idx) {
+void memcard_restore_info(struct SaveSrc *src, s32 slot, s32 idx) __asm__("FUN_0020ae60");
+
+void memcard_restore_info(struct SaveSrc *src, s32 slot, s32 idx) {
     s32 r;
     s32 *a;
     s32 *b;

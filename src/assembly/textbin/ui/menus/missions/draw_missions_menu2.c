@@ -45,7 +45,9 @@ extern s32 func_0020BC00();
 extern void func_0021F8E8(s32, s32, s32);
 extern void func_00233980(s32, s32);
 
-s32 FUN_0021f688(struct M2c_arg0 *arg0) {
+s32 draw_missions_menu2(struct M2c_arg0 *arg0) __asm__("FUN_0021f688");
+
+s32 draw_missions_menu2(struct M2c_arg0 *arg0) {
     struct M2c_18 dst;
     struct M2c_18 src;
     s32 sp40;

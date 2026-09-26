@@ -39,7 +39,9 @@ extern s32 func_00208770();
 extern s32 func_0020AD78();
 extern s32 sceCdReadClock();
 extern s32 sceScfGetLocalTimefromRTC();
-s32 FUN_0020b178(s32 arg0, s32 arg1) {
+s32 memcard_save_data(s32 arg0, s32 arg1) __asm__("FUN_0020b178");
+
+s32 memcard_save_data(s32 arg0, s32 arg1) {
     s32 temp_2_43;
     u8 *temp_3_70;
     u8 var_18_63;
