@@ -4,43 +4,200 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/buffers/setup_fs_aa_buffer/FUN_001fa978.s", FUN_001fa978);
 #else
-#include "rnc/assembly_textbin_fun_001fa978_types.h"
 #include "types.h"
+struct M2c_D_00151780 {
+    u8 pad_0[0x150];
+    s16 unk150;
+    u16 unk152;
+    s16 unk154;
+    s16 unk156;
+    s16 unk158;
+    s16 unk15A;
+    u16 unk15C;
+    s16 unk15E;
+    u8 pad_160[0x4];
+    s32 unk164;
+    u16 unk168;
+    u16 unk16A;
+    s16 unk16C;
+    s16 unk16E;
+    s32 unk170;
+};
 
+struct M2c_D_00151900 {
+    s64 unk0;
+    s32 unk8;
+    u8 pad_C[0x4];
+    s32 unk10;
+    u8 pad_14[0x4];
+    s32 unk18;
+    u8 pad_1C[0x4];
+    s32 unk20;
+    u8 pad_24[0x4];
+    s32 unk28;
+    u8 pad_2C[0x4];
+    s64 unk30;
+    f32 unk38;
+    u8 pad_3C[0x4];
+    s64 unk40;
+    s32 unk48;
+    u8 pad_4C[0x4];
+    s64 unk50;
+    s32 unk58;
+};
 
+struct M2c_D_00151B60 {
+    s64 unk0;
+    s32 unk8;
+    u8 pad_C[0x4];
+    s32 unk10;
+    u8 pad_14[0x4];
+    f32 unk18;
+    u8 pad_1C[0x4];
+    s32 unk20;
+    u8 pad_24[0x4];
+    s32 unk28;
+    u8 pad_2C[0x4];
+    s64 unk30;
+    s32 unk38;
+    u8 pad_3C[0x4];
+    s64 unk40;
+    s32 unk48;
+    u8 pad_4C[0x4];
+    s64 unk50;
+    s32 unk58;
+    u8 pad_5C[0x204];
+    s64 unk260;
+    f32 unk268;
+    u8 pad_26C[0x4];
+    s32 unk270;
+    u8 pad_274[0x4];
+    s64 unk278;
+    s64 unk280;
+    s64 unk288;
+};
 
+struct M2c_D_00151DF0 {
+    s64 unk0;
+    s32 unk8;
+    u8 pad_C[0x4];
+    s32 unk10;
+    u8 pad_14[0x4];
+    s32 unk18;
+    u8 pad_1C[0x4];
+    s64 unk20;
+    s32 unk28;
+    u8 pad_2C[0x4];
+    s64 unk30;
+    s32 unk38;
+    u8 pad_3C[0x4];
+    s64 unk40;
+    f32 unk48;
+};
 
+struct M2c_D_00152040 {
+    s64 unk0;
+    s32 unk8;
+    u8 pad_C[0x4];
+    s32 unk10;
+    u8 pad_14[0x4];
+    s32 unk18;
+    u8 pad_1C[0x4];
+    s64 unk20;
+    s32 unk28;
+    u8 pad_2C[0x4];
+    s32 unk30;
+    u8 pad_34[0x4];
+    s64 unk38;
+    s64 unk40;
+    s32 unk48;
+};
 
+struct M2c_D_0015EEB8 {
+    u8 pad_0[0x10];
+    s64 unk10;
+    u8 pad_18[0x18];
+    s64 unk30;
+    s64 unk38;
+    s64 unk40;
+    u8 pad_48[0x8];
+    s64 unk50;
+    u8 pad_58[0x68];
+    s64 unkC0;
+    s64 unkC8;
+    s64 unkD0;
+    u8 pad_D8[0x8];
+    s64 unkE0;
+    u8 pad_E8[0x68];
+    s16 unk150;
+    s16 unk152;
+    s16 unk154;
+    s16 unk156;
+    s16 unk158;
+    s16 unk15A;
+    u8 pad_15C[0x2];
+};
 
+struct M2c_temp_15_206 {
+    u8 pad_0[0x8];
+    s64 unk8;
+};
 
+struct M2c_temp_15_222 {
+    u8 pad_0[0x8];
+    s64 unk8;
+};
 
+struct M2c_temp_6_421 {
+    u8 pad_0[0x8];
+    s64 unk8;
+};
 
+struct M2c_temp_6_432 {
+    u8 pad_0[0x8];
+    s64 unk8;
+};
 
+struct M2c_temp_7_333 {
+    u8 pad_0[0x8];
+    s64 unk8;
+};
 
+struct M2c_temp_7_343 {
+    u8 pad_0[0x8];
+    s64 unk8;
+};
 
+struct M2c_var_11_475 {
+    s64 unk0;
+    s64 unk8;
+};
 
+struct M2c_var_15_176 {
+    s64 unk0;
+    s64 unk8;
+};
 
+struct M2c_var_6_392 {
+    s64 unk0;
+    s64 unk8;
+};
 
+struct M2c_var_6_516 {
+    s64 unk0;
+    s64 unk8;
+};
 
+struct M2c_var_6_547 {
+    s64 unk0;
+    s64 unk8;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+struct M2c_var_7_302 {
+    s32 unk0;
+    u8 pad_4[0x4];
+    s64 unk8;
+};
 
 extern u8 D_0013CC90[];
 extern u8 D_0013CDD0[];
@@ -53,33 +210,31 @@ extern s32 D_0015EE80;
 extern s32 D_0015EE84[];
 extern s32 D_0015EE88;
 extern struct M2c_D_0015EEB8 *D_0015EEB8[];
-extern s32 sceGsSetDefDispEnv();
+extern void sceGsSetDefDispEnv();
 extern s32 sceGsSetDefDrawEnv();
-void setup_fs_aa_buffer(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5) __asm__("FUN_001fa978");
-
-void setup_fs_aa_buffer(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5) {
+void FUN_001fa978(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 arg5) {
     s16 temp_4_234;
     s16 temp_5_209;
-    s32 temp_10_15;
+    register s32 temp_10_15 asm("s7");
     s32 temp_11_17;
-    s32 temp_3_211;
+    register s32 temp_3_211 asm("s4");
     s32 temp_4_327;
-    s32 temp_6_202;
+    register s32 temp_6_202 asm("s4");
     s32 var_12_481;
     s32 var_13_399;
-    s32 var_13_477;
+    u32 var_13_477;
     s32 var_14_396;
     s32 var_16_281;
-    s32 var_18_289;
+    register s32 var_18_289 asm("s2");
     s32 var_19_174;
-    s32 var_19_287;
-    s32 var_5_483;
-    s32 var_5_518;
-    s32 var_5_549;
+    register s32 var_19_287 asm("s3");
+    register s32 var_5_483 asm("s0");
+    register s32 var_5_518 asm("s0");
+    register s32 var_5_549 asm("s0");
     s32 var_7_394;
     s32 var_7_517;
     s32 var_7_548;
-    s32 var_8_400;
+    register s32 var_8_400 asm("s0");
     s32 var_8_513;
     s32 var_8_544;
     s64 temp_21_66;
@@ -95,8 +250,8 @@ void setup_fs_aa_buffer(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 ar
     struct M2c_var_15_176 *var_15_176;
     struct M2c_var_6_392 *var_6_392;
     struct M2c_var_6_516 *var_6_516;
-    struct M2c_var_6_547 *var_6_547;
-    struct M2c_var_7_302 *var_7_302;
+    register struct M2c_var_6_547 * var_6_547 asm("s0");
+    register struct M2c_var_7_302 * var_7_302 asm("s0");
 
     temp_10_15 = (s32) D_0015EE84[0] >> 0xD;
     temp_11_17 = (s32) D_0015EE88 >> 0xD;
@@ -131,20 +286,20 @@ void setup_fs_aa_buffer(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s16 ar
     D_0015EEB8[0]->unkC0 = (s64) /* m2c-unknown:  unknown instruction: por $v1, $zero, $zero  */
     D_0015EEB8[0]->unkC8 = (s64) ((D_0015EEB8[0]->unkC8 & ~0xF) | 0xE);
     D_0015EEB8[0]->unkC0 = (s64) (((((s64) D_0015EEB8[0]->unkC0 & ~0x7FFF) | 8 | 0x8000) & temp_30_59) | temp_21_66);
-    D_00151B60.unk0 = (s64) ((((0x8116 << 0x10) | 0x8000) << 0x1F) | 1);
-    D_00151B60.unk8 = 0xEEEE;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk0 = (s64) ((((0x8116 << 0x10) | 0x8000) << 0x1F) | 1);
+    (*(struct M2c_D_00151B60 *)0x151B60).unk8 = 0xEEEE;
     var_19_174 = 0;
-    D_00151B60.unk10 = 0x30000;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk10 = 0x30000;
     var_15_176 = ((u8 *)&D_00151B60 + 0x60);
-    D_00151B60.unk18 = 0x47;
-    D_00151B60.unk20 = 5;
-    D_00151B60.unk28 = 8;
-    D_00151B60.unk30 = (s64) ((0x8000 << 0x11) | 0x261);
-    D_00151B60.unk38 = 0x14;
-    D_00151B60.unk48 = 6;
-    D_00151B60.unk50 = (s64) ((0x8800 << 0x2F) | 0x8010);
-    D_00151B60.unk58 = 0x5353;
-    D_00151B60.unk40 = (s64) (((s64) D_0015EEB8[0]->unk156 << 5) | ((((u16) D_0015EEB8[0]->unk150 >> 6) & 0x3F) << 0xE) | ((s64) D_0015EEB8[0]->unk154 << 0x14) | (0xEA80 << 0x14));
+    (*(struct M2c_D_00151B60 *)0x151B60).unk18 = 0x47;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk20 = 5;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk28 = 8;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk30 = (s64) ((0x8000 << 0x11) | 0x261);
+    (*(struct M2c_D_00151B60 *)0x151B60).unk38 = 0x14;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk48 = 6;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk50 = (s64) ((0x8800 << 0x2F) | 0x8010);
+    (*(struct M2c_D_00151B60 *)0x151B60).unk58 = 0x5353;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk40 = (s64) (((s64) D_0015EEB8[0]->unk156 << 5) | ((((u16) D_0015EEB8[0]->unk150 >> 6) & 0x3F) << 0xE) | ((s64) D_0015EEB8[0]->unk154 << 0x14) | (0xEA80 << 0x14));
 loop_1:
     temp_6_202 = var_19_174 + 1;
     var_15_176->unk0 = (s64) (var_19_174 * (s16) D_0015EEB8[0]->unk150);
@@ -161,15 +316,15 @@ loop_1:
     if (var_19_174 < 0x10) {
         goto loop_1;
     }
-    D_00151B60.unk270 = 0x181;
-    D_00151B60.unk278 = (s64) (0x8000 << 0x10);
-    D_00151B60.unk260 = (s64) ((0x8800 << 0x2F) | 0x8001);
-    D_00151B60.unk268 = 0x4410;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk270 = 0x181;
+    (*(struct M2c_D_00151B60 *)0x151B60).unk278 = (s64) (0x8000 << 0x10);
+    (*(struct M2c_D_00151B60 *)0x151B60).unk260 = (s64) ((0x8800 << 0x2F) | 0x8001);
+    (*(struct M2c_D_00151B60 *)0x151B60).unk268 = 0x4410;
     var_16_281 = 0;
     var_19_287 = 0x71F8;
-    D_00151B60.unk280 = (s64) (((0x7FF8 - (D_0015EEB8[0]->unk15A * 8)) << 0x10) | 0x6FF8);
+    (*(struct M2c_D_00151B60 *)0x151B60).unk280 = (s64) (((0x7FF8 - (D_0015EEB8[0]->unk15A * 8)) << 0x10) | 0x6FF8);
     var_18_289 = 0x6FF8;
-    D_00151B60.unk288 = (s64) ((((D_0015EEB8[0]->unk15A * 8) + 0x7FF8) << 0x10) | 0x6FF8);
+    (*(struct M2c_D_00151B60 *)0x151B60).unk288 = (s64) ((((D_0015EEB8[0]->unk15A * 8) + 0x7FF8) << 0x10) | 0x6FF8);
     D_00151DF0.unk0 = (s64) ((0xC22D << 0x2E) | 1);
     D_00151DF0.unk8 = 0xEEE;
     var_7_302 = ((u8 *)&D_00151DF0 + 0x50);

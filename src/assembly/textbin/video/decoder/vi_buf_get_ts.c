@@ -5,80 +5,57 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/video/decoder/vi_buf_get_ts/FUN_0023c920.s", FUN_0023c920);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+#include "eetypes.h"
+#define DGET(a) (*(volatile u32 *)(a))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+typedef struct { s64 pts; s64 dts; s32 pos; s32 len; } TimeStamp;
+typedef struct {
+    u128 *data; u128 *tag; s32 n; s32 dmaStart; s32 dmaN; s32 readBytes; s32 buffSize; u8 pad1C[0x1C];
+    s32 x38; u8 pad3C[4]; s32 sema; s32 isActive; s64 totalBytes; TimeStamp *ts; s32 n_ts; s32 count_ts; s32 wt_ts;
+} ViBuf;
+extern s32 WaitSema(s32);
+extern s32 SignalSema(s32);
+static inline s32 IsInRegion(s32 tgt, s32 start, s32 len, s32 size) {
+    return (tgt + size - start) % size < len;
+}
+s32 FUN_0023c920(ViBuf *f, TimeStamp *ts) {
+    u32 d4madr;
+    u32 ipubp;
+    s32 fifo;
+    s32 bp;
+    s32 datasize;
+    u32 pos;
+    s32 i;
+    s32 rd;
+    s32 isEnd;
+    s32 start;
+    s32 count;
 
-extern int AddActiveEntry_1FECE0(void *a0, int a1, int a2);
-extern char D_005864E0[];
-
-/* sn-2.95.3-136 matched TU. */
-
-
-
-
-
-__attribute__((section(".text.func_0028CED8")))
-void vi_buf_get_ts(void *a0) __asm__("FUN_0023c920");
-
-void vi_buf_get_ts(void *a0) {
-    char *s1 = (char *)a0;
-    switch (*(int *)(s1 + 0x564)) {
-    case 0x279: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x27A, *(int *)(v + 0x6C) + v);
-    }
-    /* fallthrough */
-    case 0x252: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x253, *(int *)(v + 0x5C) + v);
-        {
-            int w = *(int *)(s1 + 0x304);
-            AddActiveEntry_1FECE0(D_005864E0, 0x369, *(int *)(w + 0x60) + w);
+    d4madr = DGET(0x1000B410);
+    ipubp = DGET(0x10002020);
+    bp = f->x38 & 0x7F;
+    fifo = ((ipubp >> 16) & 0x3) + ((ipubp >> 8) & 0xF);
+    datasize = f->n << 11;
+    isEnd = 0;
+    d4madr -= fifo << 4;
+    WaitSema(f->sema);
+    ts->pts = -1;
+    ts->dts = -1;
+    pos = (d4madr + (bp >> 3) + datasize - (u32)f->data) % datasize;
+    count = f->count_ts;
+    start = f->wt_ts - count;
+    for (i = 0; i < count && !isEnd; i++) {
+        rd = (start + f->n_ts + i) % f->n_ts;
+        if (IsInRegion(pos, f->ts[rd].pos, f->ts[rd].len, datasize)) {
+            isEnd = 1;
+            ts->pts = f->ts[rd].pts;
+            ts->dts = f->ts[rd].dts;
+            f->ts[rd].pts = -1;
+            f->ts[rd].dts = -1;
+            f->count_ts -= MIN(1, f->count_ts);
         }
-        break;
     }
-    case 0x256: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x257, *(int *)(v + 0x58) + v);
-        break;
-    }
-    case 0x21E: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x36C, *(int *)(v + 0x70) + v);
-        break;
-    }
-    case 0x213:
-    case 0x217: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x36F, *(int *)(v + 0x64) + v);
-        {
-            int w = *(int *)(s1 + 0x304);
-            AddActiveEntry_1FECE0(D_005864E0, 0x37A, *(int *)(w + 0x64) + w);
-        }
-        break;
-    }
-    case 0x22F: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x370, *(int *)(v + 0x74) + v);
-        break;
-    }
-    case 0x21B: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x37F, *(int *)(v + 0x78) + v);
-        break;
-    }
-    case 0x22D: {
-        int v = *(int *)(s1 + 0x304);
-        AddActiveEntry_1FECE0(D_005864E0, 0x37F, *(int *)(v + 0x78) + v);
-        break;
-    }
-    case 0x208:
-    case 0x20A:
-    case 0x20C:
-    case 0x20E:
-    case 0x210:
-    case 0x215:
-    default:
-        break;
-    }
+    SignalSema(f->sema);
+    return 1;
 }
 #endif /* NON_MATCHING */

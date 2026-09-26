@@ -5,15 +5,18 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/math/floating_point/double_is_not_nan/FUN_00116168.s", FUN_00116168);
 #else
 #include "types.h"
+typedef union { f64 value; struct { u32 lsw; u32 msw; } parts; } ieee_double_shape_type;
+s32 FUN_00116168(f64 x) {
+    s32 hx;
+    s32 lx;
+    ieee_double_shape_type ew_u;
 
-s32 double_is_not_nan(s64 arg0) __asm__("FUN_00116168");
-
-s32 double_is_not_nan(s64 arg0) {
-    s32 temp_4_16;
-    s64 temp_2_6;
-
-    temp_2_6 = (s64) (arg0 << 0x20) >> 0x20;
-    temp_4_16 = 0x7FF00000 - (((arg0 >> 0x20) & 0x7FFFFFFF) | ((u32) (temp_2_6 | (0 - temp_2_6)) >> 0x1F));
-    return 1 - ((u32) (temp_4_16 | (0 - temp_4_16)) >> 0x1F);
+    ew_u.value = x;
+    hx = ew_u.parts.msw;
+    lx = ew_u.parts.lsw;
+    hx &= 0x7fffffff;
+    hx |= (u32)(lx | (-lx)) >> 31;
+    hx = 0x7ff00000 - hx;
+    return 1 - (s32)(((u32)(hx | (-hx))) >> 31);
 }
 #endif /* NON_MATCHING */

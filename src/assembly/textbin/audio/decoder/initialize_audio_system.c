@@ -5,135 +5,62 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/audio/decoder/initialize_audio_system/FUN_0023a7c0.s", FUN_0023a7c0);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+struct M2c_D_0016120C {
+    u8 pad_0[0xD90F8];
+    s32 unkD90F8;
+    s32 unkD90FC;
+};
 
-extern void func_002CA798(void *a0);
-extern int cDvd_ReadAlloc(void *a0, void *a1, void *a2, void *a3, int t0, int t1, int t2, int t3);
-extern void func_00201108(void *a0, int a1);
-extern void FileNameFromObjId(char *buf, int id);
-extern int EnsureInitThenForward_2A9538_30EE08(void *, int, void *);
-extern int cCoreSave_getCostumeNo(void *a0);
-extern void func_0030D8E0(int a0);
-extern void cTaskWork_exit(int a0);
-extern int D_00747A24;
-extern char D_005FEE00[];
-extern int D_003C3BC8[];
-extern char D_00583F20[];
-extern char D_00754200[];
-extern int *D_003C3CC4;
-extern char D_00752C38[];
-extern char D_00752C00[];
-extern char D_00569B70[];
+extern s32 D_00161208;
+extern struct M2c_D_0016120C *D_0016120C;
+extern s32 D_00161210;
+extern u8 D_00166C00[];
+extern u8 D_001E8AF0[];
+extern u8 D_0023B540[];
+extern s32 AddDmacHandler();
+extern s32 AddIntcHandler();
+extern s32 CreateThread();
+extern s32 DebugPrint();
+extern s32 _StartThread();
+extern s32 func_00119090();
+extern s32 func_00119160();
+extern s32 func_0023ABD0();
+extern s32 func_0023B940();
+extern s32 func_0023BA48();
+extern s32 func_0023CAC8();
+extern s32 func_0023CBD0();
+extern void func_0023D190();
+extern s32 sceMpegInit();
+extern void func_0023B3D8();
+extern void func_0023B5F0();
+extern void func_0023B728();
+extern void func_0023CE28();
+s32 FUN_0023a7c0(s32 arg0, s32 arg1, s32 arg2) {
+u8 sp_slot[0x80];    s32 temp_2_115;
+    s32 var_17_133;
 
-/* sn-2.95.3-136 matched TU. */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void initialize_audio_system(void) __asm__("FUN_0023a7c0");
-
-void initialize_audio_system(void) {
-    char buf[16];
-    int h;
-    int v;
-    int i;
-    int *p;
-
-    {
-        int a = D_00747A24;
-        a |= 0x4000;
-        D_00747A24 = a;
-        if ((a & 0x40000) == 0) {
-            func_002CA798(D_005FEE00);
-        }
+    *(s32 *)0x1000E000 |= 3;
+    *(s32 *)0x1000E010 = 4;
+    func_0023B940(D_0016120C, 0x1000E010, 4);
+    sceMpegInit();
+    func_0023CAC8(D_0016120C + 0xD9048, D_00161208 + 0x1C85C0, 0xEB768, D_0016120C + 0x52040, D_00161208 + 0x1C7180, 0x100, D_0016120C + 0xD6040, 0x200);
+    func_0023ABD0(D_0016120C + 0xD9100, D_0016120C + 0x50040, 0x2000, D_00161208 + 0x1C8190);
+    func_0023CBD0(D_0016120C + 0xD9048, 0, 0, &func_0023B5F0, D_0016120C);
+    func_0023CBD0(D_0016120C + 0xD9048, 3, arg2, &func_0023B728, D_0016120C);
+    func_0023D190(D_0016120C + 0xD9168, (D_00161208 & 0x0FFFFFFF) | 0x20000000, D_00161208 + 0x1A0000, 2);
+    temp_2_115 = CreateThread(sp_slot, 1, D_00166C00, &func_0023CE28, D_0016120C + 0xD2040, 0x4000, D_00166C00, 1, 0);
+    __asm__ volatile ("" : "+r" (temp_2_115));
+    *(s32 *)0x161210 = temp_2_115;
+    _StartThread(temp_2_115, D_0016120C + 0xD9048);
+    var_17_133 = 1;
+    if (func_0023BA48(D_0016120C + 0xD9040, arg0, arg1) == 0) {
+        var_17_133 = 0;
+        DebugPrint(D_001E8AF0);
     }
-    {
-        int b = D_00747A24;
-        D_00747A24 = b & 0xFFFBFFFF;
-        h = 0;
-        if ((b & 0x2000) == 0) {
-        h = cDvd_ReadAlloc(D_00583F20, (void *)D_003C3BC8[1],
-                           (char *)&D_00747A24 - 0x34, D_00754200, 0, 0, 0, 0);
-        func_00201108(D_00583F20, h);
-        func_00201108(D_00583F20, h);
-        h = cDvd_ReadAlloc(D_00583F20, (void *)D_003C3BC8[10],
-                           (char *)&D_00747A24 + 0x20, D_00754200, h, 0, 0, 0);
-        }
-    }
-    {
-        int c = D_00747A24;
-        c |= 0x2000;
-        D_00747A24 = c;
-        if ((c & 0x400) == 0) {
-        p = D_003C3CC4;
-        i = 0;
-        if (p[0] != 0xFFFF) {
-            do {
-                func_00201108(D_00583F20, h);
-                i++;
-                FileNameFromObjId(buf, p[0]);
-                h = cDvd_ReadAlloc(D_00583F20, buf, D_00752C38 + (p[1] << 2),
-                                   D_00754200, h, 0, 0, 0);
-                p = D_003C3CC4 + i * 2;
-            } while (p[0] != 0xFFFF);
-        }
-        func_00201108(D_00583F20, h);
-        }
-    }
-    if ((D_00747A24 & 0x10000) == 0) {
-        *(int *)D_00752C38 = EnsureInitThenForward_2A9538_30EE08((void *)0x1E6800, 0x40, D_00754200);
-        *(int *)(D_00752C38 + 4) = EnsureInitThenForward_2A9538_30EE08((void *)0x19800, 0x40, D_00754200);
-        switch (cCoreSave_getCostumeNo(D_00569B70)) {
-        case 0:
-        default:
-            func_0030D8E0(0x100);
-            break;
-        case 1:
-            func_0030D8E0(0x102);
-            break;
-        case 2:
-            func_0030D8E0(0x105);
-            break;
-        case 3:
-            func_0030D8E0(0x10F);
-            break;
-        case 4:
-            func_0030D8E0(0x107);
-            break;
-        case 5:
-            func_0030D8E0(0x110);
-            break;
-        case 6:
-            func_0030D8E0(0x10E);
-            break;
-        case 7:
-            func_0030D8E0(0x111);
-            break;
-        }
-    }
-    v = D_00747A24;
-    v |= 0x10400;
-    v &= ~0x4000;
-    D_00747A24 = v;
-    {
-        int *r = (int *)D_00752C00;
-        cTaskWork_exit(r[1]);
-    }
+    D_0016120C->unkD90FC = AddIntcHandler(2, &func_0023B3D8, 0);
+    func_00119090(2);
+    D_0016120C->unkD90F8 = AddDmacHandler(2, D_0023B540, 0);
+    func_00119160(2);
+    return var_17_133;
 }
 #endif /* NON_MATCHING */

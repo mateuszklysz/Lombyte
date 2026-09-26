@@ -4,52 +4,38 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/ui/hud/hud_send_resident_bank/FUN_001ff128.s", FUN_001ff128);
 #else
-#include "rnc/assembly_textbin_fun_001ff128_types.h"
 #include "types.h"
+struct TexEntry { u32 data; s16 page; u8 log_w; u8 log_h; };
+struct TexCounts { u8 pad0[0x34]; s32 ends[16]; s32 loaded[16]; };
+struct TexTable { u8 pad0[0x18]; struct TexCounts *counts; u8 pad1C[8]; struct TexEntry *entries; };
+extern struct TexTable D_0019A3E8;
+extern s32 D_0015EE88[];
+extern void func_001FEFC0(s32);
+extern void func_00200B10(u32, s32, s32, s32, s32, s32);
+void FUN_001ff128(s32 bank, s32 unused, s32 arg2) {
+    s32 addr;
+    s32 i;
+    s32 end;
+    s32 page;
+    s32 start;
+    s32 w;
+    s32 size;
+    struct TexEntry *e;
 
-
-
-
-extern s32 D_0015EE88;
-extern struct M2c_D_0019A3E8 D_0019A3E8;
-extern void func_001FEFC0();
-extern void func_00200B10();
-void hud_send_resident_bank(s32 arg1, s32 arg0, s32 arg2) __asm__("FUN_001ff128");
-
-void hud_send_resident_bank(s32 arg1, s32 arg0, s32 arg2) {
-    struct M2c_temp_2_57 *temp_2_57;
-    s32 temp_17_54;
-    s32 temp_18_55;
-    s32 temp_21_47;
-    s32 var_19_43;
-    s32 var_20_30;
-    s32 var_2_39;
-    u8 temp_16_59;
-    u8 temp_8_61;
-
-    if (*(s32 *)((u8 *)(D_0019A3E8.unk18 + (arg0 * 4)) + 0x74) == 0) {
+    if (D_0019A3E8.counts->loaded[bank] == 0) {
         func_001FEFC0(0);
     }
-    var_20_30 = D_0015EE88;
-    if (arg0 != 0) {
-        var_2_39 = *(s32 *)((u8 *)(D_0019A3E8.unk18 + ((arg0 - 1) * 4)) + 0x34);
-    } else {
-        var_2_39 = 0;
-    }
-    var_19_43 = var_2_39;
-    temp_21_47 = *(s32 *)((u8 *)(D_0019A3E8.unk18 + (arg0 * 4)) + 0x34);
-    if (var_19_43 < temp_21_47) {
-        do {
-            temp_17_54 = var_19_43 * 8;
-            temp_18_55 = var_20_30 >> 8;
-            temp_2_57 = temp_17_54 + D_0019A3E8.unk24;
-            temp_16_59 = temp_2_57->unk6;
-            temp_8_61 = temp_2_57->unk7;
-            var_19_43 += 1;
-            func_00200B10(temp_2_57->unk0, temp_18_55, 0x1B, temp_16_59, temp_8_61, arg2);
-            var_20_30 += (1 << (temp_16_59 + temp_8_61)) * 4;
-            *(s32 *)((u8 *)(temp_17_54 + D_0019A3E8.unk24) + 0x4) = (s16) temp_18_55;
-        } while (var_19_43 < temp_21_47);
+    addr = D_0015EE88[0];
+    start = bank != 0 ? D_0019A3E8.counts->ends[bank - 1] : 0;
+    end = D_0019A3E8.counts->ends[bank];
+    for (i = start; i < end; i++) {
+        e = &D_0019A3E8.entries[i];
+        page = addr >> 8;
+        w = e->log_w;
+        size = 1 << (w + e->log_h);
+        func_00200B10(e->data, page, 0x1B, w, e->log_h, arg2);
+        addr += size * 4;
+        D_0019A3E8.entries[i].page = page;
     }
 }
 #endif /* NON_MATCHING */
