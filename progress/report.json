@@ -1,16 +1,16 @@
 {
   "measures": {
-    "fuzzy_match_percent": 67.338161,
+    "fuzzy_match_percent": 68.193385,
     "total_code": "340608",
-    "matched_code": "129664",
-    "matched_code_percent": 38.068395,
+    "matched_code": "132144",
+    "matched_code_percent": 38.796505,
     "total_functions": 1094,
-    "matched_functions": 790,
-    "matched_functions_percent": 72.212066,
-    "complete_code": "129664",
-    "complete_code_percent": 38.068395,
+    "matched_functions": 796,
+    "matched_functions_percent": 72.760512,
+    "complete_code": "132144",
+    "complete_code_percent": 38.796505,
     "total_units": 109,
-    "complete_units": 57
+    "complete_units": 58
   },
   "units": [
     {
@@ -229,15 +229,15 @@
     {
       "name": "sdk/library",
       "measures": {
-        "fuzzy_match_percent": 94.254859,
+        "fuzzy_match_percent": 94.833873,
         "total_code": "56648",
-        "matched_code": "43288",
-        "matched_code_percent": 76.41576,
+        "matched_code": "43692",
+        "matched_code_percent": 77.128937,
         "total_functions": 164,
-        "matched_functions": 144,
-        "matched_functions_percent": 87.804878,
-        "complete_code": "43288",
-        "complete_code_percent": 76.41576,
+        "matched_functions": 146,
+        "matched_functions_percent": 89.02439,
+        "complete_code": "43692",
+        "complete_code_percent": 77.128937,
         "total_units": 1,
         "complete_units": 0
       },
@@ -506,7 +506,7 @@
         {
           "name": "FindSubstring",
           "size": "108",
-          "fuzzy_match_percent": 70.3704,
+          "fuzzy_match_percent": 100.0,
           "address": "17952",
           "metadata": {
             "virtual_address": "96584"
@@ -1370,7 +1370,7 @@
         {
           "name": "_extensionAndUserData",
           "size": "296",
-          "fuzzy_match_percent": 0.0,
+          "fuzzy_match_percent": 100.0,
           "address": "92544",
           "metadata": {
             "virtual_address": "171176"
@@ -2425,7 +2425,7 @@
     {
       "name": "game/unclassified",
       "measures": {
-        "fuzzy_match_percent": 52.39532,
+        "fuzzy_match_percent": 53.192621,
         "total_code": "114732",
         "matched_code": "22680",
         "matched_code_percent": 19.767807,
@@ -2747,7 +2747,7 @@
         {
           "name": "FUN_001f4be0",
           "size": "440",
-          "fuzzy_match_percent": 0.0,
+          "fuzzy_match_percent": 74.4909,
           "address": "908856",
           "metadata": {
             "virtual_address": "1006432"
@@ -3062,7 +3062,7 @@
         {
           "name": "FUN_002028e0",
           "size": "440",
-          "fuzzy_match_percent": 0.0,
+          "fuzzy_match_percent": 2.0818,
           "address": "965432",
           "metadata": {
             "virtual_address": "1063008"
@@ -3566,7 +3566,7 @@
         {
           "name": "FUN_00214a98",
           "size": "296",
-          "fuzzy_match_percent": 63.4459,
+          "fuzzy_match_percent": 77.2838,
           "address": "1039600",
           "metadata": {
             "virtual_address": "1137176"
@@ -3845,7 +3845,7 @@
         {
           "name": "FUN_0021d338",
           "size": "364",
-          "fuzzy_match_percent": 0.0,
+          "fuzzy_match_percent": 75.7472,
           "address": "1074576",
           "metadata": {
             "virtual_address": "1172152"
@@ -4007,7 +4007,7 @@
         {
           "name": "FUN_00221460",
           "size": "404",
-          "fuzzy_match_percent": 0.0,
+          "fuzzy_match_percent": 64.6436,
           "address": "1091256",
           "metadata": {
             "virtual_address": "1188832"
@@ -6007,15 +6007,15 @@
     {
       "name": "sdk/dma",
       "measures": {
-        "fuzzy_match_percent": 77.942663,
+        "fuzzy_match_percent": 88.847854,
         "total_code": "8860",
-        "matched_code": "5512",
-        "matched_code_percent": 62.21219,
+        "matched_code": "6884",
+        "matched_code_percent": 77.697517,
         "total_functions": 35,
-        "matched_functions": 29,
-        "matched_functions_percent": 82.857143,
-        "complete_code": "5512",
-        "complete_code_percent": 62.21219,
+        "matched_functions": 32,
+        "matched_functions_percent": 91.428571,
+        "complete_code": "6884",
+        "complete_code_percent": 77.697517,
         "total_units": 1,
         "complete_units": 0
       },
@@ -6077,7 +6077,7 @@
         {
           "name": "sceGsExecLoadImage",
           "size": "380",
-          "fuzzy_match_percent": 50.8842,
+          "fuzzy_match_percent": 100.0,
           "address": "3552",
           "metadata": {
             "virtual_address": "144856"
@@ -6122,7 +6122,7 @@
         {
           "name": "sceDmaPutEnv",
           "size": "472",
-          "fuzzy_match_percent": 45.0085,
+          "fuzzy_match_percent": 100.0,
           "address": "6256",
           "metadata": {
             "virtual_address": "147560"
@@ -6239,7 +6239,7 @@
         {
           "name": "sceMpegCreate",
           "size": "520",
-          "fuzzy_match_percent": 0.0,
+          "fuzzy_match_percent": 100.0,
           "address": "40800",
           "metadata": {
             "virtual_address": "182104"
@@ -7357,17 +7357,17 @@
     {
       "name": "game/audio/rpc",
       "measures": {
-        "fuzzy_match_percent": 52.173913,
+        "fuzzy_match_percent": 100.0,
         "total_code": "1472",
-        "matched_code": "768",
-        "matched_code_percent": 52.173913,
+        "matched_code": "1472",
+        "matched_code_percent": 100.0,
         "total_functions": 5,
-        "matched_functions": 4,
-        "matched_functions_percent": 80.0,
-        "complete_code": "768",
-        "complete_code_percent": 52.173913,
+        "matched_functions": 5,
+        "matched_functions_percent": 100.0,
+        "complete_code": "1472",
+        "complete_code_percent": 100.0,
         "total_units": 1,
-        "complete_units": 0
+        "complete_units": 1
       },
       "functions": [
         {
@@ -7382,7 +7382,7 @@
         {
           "name": "snd_send_iop_command_no_wait",
           "size": "704",
-          "fuzzy_match_percent": 0.0,
+          "fuzzy_match_percent": 100.0,
           "address": "408",
           "metadata": {
             "virtual_address": "194144"
@@ -7417,7 +7417,7 @@
         }
       ],
       "metadata": {
-        "complete": false,
+        "complete": true,
         "progress_categories": [
           "game"
         ]
@@ -12482,32 +12482,32 @@
       "id": "game",
       "name": "Game",
       "measures": {
-        "fuzzy_match_percent": 59.378858,
+        "fuzzy_match_percent": 60.004761,
         "total_code": "258628",
-        "matched_code": "67648",
-        "matched_code_percent": 26.156487,
+        "matched_code": "68352",
+        "matched_code_percent": 26.428693,
         "total_functions": 799,
-        "matched_functions": 526,
-        "matched_functions_percent": 65.83229,
-        "complete_code": "67648",
-        "complete_code_percent": 26.156487,
+        "matched_functions": 527,
+        "matched_functions_percent": 65.957447,
+        "complete_code": "68352",
+        "complete_code_percent": 26.428693,
         "total_units": 99,
-        "complete_units": 51
+        "complete_units": 52
       }
     },
     {
       "id": "sdk",
       "name": "Sony SDK",
       "measures": {
-        "fuzzy_match_percent": 92.447929,
+        "fuzzy_match_percent": 94.026607,
         "total_code": "81980",
-        "matched_code": "62016",
-        "matched_code_percent": 75.647719,
+        "matched_code": "63792",
+        "matched_code_percent": 77.814101,
         "total_functions": 295,
-        "matched_functions": 264,
-        "matched_functions_percent": 89.491525,
-        "complete_code": "62016",
-        "complete_code_percent": 75.647719,
+        "matched_functions": 269,
+        "matched_functions_percent": 91.186441,
+        "complete_code": "63792",
+        "complete_code_percent": 77.814101,
         "total_units": 10,
         "complete_units": 6
       }
