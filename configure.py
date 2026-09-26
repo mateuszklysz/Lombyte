@@ -211,6 +211,9 @@ SN_COMPILER_UNITS = {
     # fun_00208030: expand a 4bpp coverage map through the 16-entry weight table
     # into a 1bpp threshold mask (4 source rows per output row)
     "textbin/fun_00208030",
+    # fun_001f2070: project the camera-relative point through the view matrix
+    # into GS screen coordinates and depth
+    "textbin/fun_001f2070",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -1435,6 +1438,8 @@ SN_FLAG_UNITS = {
     # addiu v0,v0,-0x1ab0` with the 0x70 stride in v1.  100/100/100 + patha
     # byte-equal with -mno-split-addresses (pipeline-2026-09-15-16 worker c).
     "allocate_voice_for_bank_entry": "-mno-split-addresses",
+    # fun_001f2070: exact-route compiler flags
+    "fun_001f2070": "-Wa,-mips4",
 }
 
 # Units whose retail objects carry compiler-emitted hazard NOPs that the
