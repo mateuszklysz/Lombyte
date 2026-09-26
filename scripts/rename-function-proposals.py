@@ -693,6 +693,13 @@ def collect_symbol_definitions(
         for match in FUNC_DEF_RE.finditer(text):
             definitions.setdefault(match.group("name"), []).append(path)
         for match in ASM_DECL_RE.finditer(text):
+            # An extern declaration with an asm label is a *reference* to the
+            # symbol, not a second emitter of it. A promoted sibling that calls
+            # a still-pending unit declares the unit's retail symbol this way,
+            # so counting it as a duplicate would refuse every rename the tree
+            # layout makes legitimate.
+            if re.match(r"(?m)extern\b", match.group(0)):
+                continue
             asm_labels.setdefault(match.group("label"), []).append(path)
         for line in text.splitlines():
             if "alias" not in line:
