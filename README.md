@@ -22,7 +22,7 @@
   </a>
 </p>
 
-## Supported version
+<h3>Supported version</h3>
 
 | Game                   | Platform      | Region       | Boot executable |
 | ---------------------- | ------------- | ------------ | --------------- |
@@ -36,13 +36,13 @@ e050581032e4bb3f20341307da5b69b76f1574910519155380ea771e55c3c0c9
 
 Only this release is currently targeted. PAL, NTSC-J, and the PlayStation 3 remaster are not supported.
 
-## Contributing
+<h3>Contributing</h3>
 
 Contributions to matching C, recovered names, types, and documentation are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the workflow and verification requirements.
 
 Work-in-progress C is also welcome when it preserves the matching baseline. Do not submit game images, extracted game data, or proprietary compiler binaries.
 
-## Documentation
+<h3>Documentation</h3>
 
 | Document                                             | Contents                                                                 |
 | :--------------------------------------------------- | :----------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ Work-in-progress C is also welcome when it preserves the matching baseline. Do n
 | [docs/progress-metrics.md](docs/progress-metrics.md) | What C_EXACT and C_FUZZY mean, and why 100 % is not exact                |
 | [CONTRIBUTING.md](CONTRIBUTING.md)                   | Per-unit workflow, from picking a target to a pull request               |
 
-## Credits
+<h3>Credits</h3>
 
 - [Himuro](https://github.com/Mikompilation/Himuro) — PS2 decompilation research and reference EE-GCC toolchain work used by Lombyte's matching compiler profiles.
 - [bordplate/RC1](https://codeberg.org/bordplate/RC1) — an earlier matching-decompilation skeleton for the same game; recovered symbol names and structure were used as reference with attribution.
@@ -58,7 +58,7 @@ Work-in-progress C is also welcome when it preserves the matching baseline. Do n
 - [objdiff](https://github.com/encounter/objdiff) — object-level comparison.
 - The PS2 reverse-engineering and decompilation communities for the tools and research that make matching projects possible.
 
-## License
+<h3>License</h3>
 
 Repository code is distributed under the [MIT License](LICENSE). Code reconstructed from third-party binaries remains the intellectual property of the respective copyright holders; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
