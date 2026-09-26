@@ -195,6 +195,9 @@ SN_COMPILER_UNITS = {
     # fun_0020baf0: is an unlock condition met (kind 0-9 switch over the
     # progress tables)
     "textbin/fun_0020baf0",
+    # snd_send_current_batch: send the current sound command batch over SIF RPC
+    # and flip to the other buffer
+    "textbin/audio/rpc/snd_send_current_batch",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -596,6 +599,18 @@ PADLESS_POLICY_UNITS = {
     "update_all_cameras": "la-gprel",
     # vi_buf_put_ts: exact on padless with la-gprel
     "vi_buf_put_ts": "la-gprel",
+    # vo_buf_inc_count: exact on padless with la-gprel
+    "vo_buf_inc_count": "la-gprel",
+    # fun_0021c420: exact on padless with la-gprel
+    "fun_0021c420": "la-gprel",
+    # patch_tfrag_gifs: exact on padless with la-gprel
+    "patch_tfrag_gifs": "la-gprel",
+    # vi_buf_reset: exact on padless with la-gprel
+    "vi_buf_reset": "la-gprel",
+    # fun_00208280: exact on padless with la-gprel
+    "fun_00208280": "la-gprel",
+    # fun_0020b950: exact on padless with la-gprel
+    "fun_0020b950": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -646,6 +661,7 @@ RODATA_OVERLAYS = {
     "_getpic": (0x153AA0, 0x54A20),
     "dispatch_game_state_update": (0x1E8960, 0xE98E0),  # retail switch table
     "fun_0020baf0": (0x1E8390, 0xE9310),  # unlock-condition switch table
+    "fun_0021ddf8": (0x1E87A0, 0xE9720),  # item-handle release switch table
 }
 
 # Per-unit extra compiler flags for the native EE-GCC 2.9 units whose
@@ -1158,6 +1174,18 @@ GAME_COMPILER_UNITS = {
     # fun_00232f20: read stash slot data back from the IOP in 0xFFFF-qword RPC
     # chunks
     "textbin/fun_00232f20",
+    # memcard_get_name: build the memory card save name from the header and copy
+    # it to the six name slots
+    "textbin/storage/memory_card/memcard_get_name",
+    # hud_send_texture: upload a HUD texture through sceGsSetDefLoadImage,
+    # queued in the packet or sent immediately
+    "textbin/ui/hud/hud_send_texture",
+    # vi_buf_modify_pts: ViBuf: trim queued timestamps overlapped by new data
+    # (IsInRegion helper)
+    "textbin/video/decoder/vi_buf_modify_pts",
+    # link_hud_bank: relocate a HUD texture bank's two entry tables to its
+    # aligned VRAM base
+    "textbin/ui/hud/link_hud_bank",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1437,6 +1465,42 @@ PADLESS_ASM_UNITS = {
     # vi_buf_stop_dma: ViBuf: stop the IPU DMA, save D4/D3 channel and IPU
     # registers after the FIFO drains
     "textbin/video/decoder/vi_buf_stop_dma",
+    # vo_buf_inc_count: VoBuf: mark the write slot full, advance the ring under
+    # DI/EI (volatile write/count)
+    "textbin/video/decoder/vo_buf_inc_count",
+    # fun_0021c420: reload the scratchpad lighting words for the object's
+    # current slot
+    "textbin/fun_0021c420",
+    # patch_tfrag_gifs: patch tfrag GIF tex words through the texture remap
+    # table
+    "textbin/rendering/patch_tfrag_gifs",
+    # dma_shrub_textures: chain the shrub texture DMA refs, track the peak
+    # upload size
+    "textbin/rendering/texture/dma_shrub_textures",
+    # dma_tie_textures: chain the tie texture DMA refs, track the peak upload
+    # size
+    "textbin/rendering/texture/dma_tie_textures",
+    # dma_tfrag_textures: chain the tfrag texture DMA refs, track the peak
+    # upload size
+    "textbin/rendering/texture/dma_tfrag_textures",
+    # fun_0021ddf8: release the owner's unheld item handles, keeping some while
+    # a 0x9999 tag is in range
+    "textbin/fun_0021ddf8",
+    # fun_0020d060: chain the GIF paging refs (or a NOP ref when paging is off)
+    # around the texture upload
+    "textbin/fun_0020d060",
+    # vi_buf_reset: ViBuf: reset counters and timestamps, rebuild the D4 ref
+    # chain and restart the DMA channel
+    "textbin/video/decoder/vi_buf_reset",
+    # fun_00208280: format a menu text entry, substituting %b with the entry's
+    # weapon name
+    "textbin/fun_00208280",
+    # fun_0020b950: evaluate the level's menu entries (unlock conditions,
+    # callbacks) and count the available ones
+    "textbin/fun_0020b950",
+    # fun_00232d00: bind the stash RPC server, read its IOP buffer and reset the
+    # stash slots
+    "textbin/fun_00232d00",
 }
 
 
