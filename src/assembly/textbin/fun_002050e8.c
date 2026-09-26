@@ -4,72 +4,61 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_002050e8/FUN_002050e8.s", FUN_002050e8);
 #else
-#include "rnc/assembly_textbin_fun_002050e8_types.h"
 #include "types.h"
 
+struct M2c_D_001A00F0 {
+    u8 pad_0[0x224];
+    s32 unk224;
+};
 
-extern u32 D_0013D4E1[];
-extern u8 D_001601E0[];
+extern u8 D_0013D4E1[];
+extern s32 *D_001601E0;
 extern struct M2c_D_001A00F0 D_001A00F0;
 extern s32 func_002050A0();
 s32 FUN_002050e8(void) {
-    s32 *var_3_39;
-    s32 temp_16_21;
-    s32 temp_16_65;
-    s32 temp_19_20;
-    s32 temp_2_62;
-    s32 var_17_49;
-    s32 var_18_32;
-    s32 var_2_69;
-    s32 var_4_54;
-    s32 var_4_64;
+    s32 ofs;
+    s32 id;
+    s32 n;
+    s32 i;
+    s32 idx;
+    s32 *p;
 
-    temp_19_20 = (D_0013D4E1[0] == 0) ? 0 : 0x100;
-    temp_16_21 = D_001A00F0.unk224 + temp_19_20;
-    if (func_002050A0(temp_16_21) != -1) {
-        var_18_32 = 0;
+    ofs = (D_0013D4E1[0] == 0) ? 0 : 0x100;
+    id = D_001A00F0.unk224 + ofs;
+    if (func_002050A0(id) >= 0) {
+        n = 0;
         if (D_001A00F0.unk224 < 0x14) {
-            if (*D_001601E0 != D_001A00F0.unk224) {
-                var_3_39 = *(s32 *)D_001601E0;
-                do {
-                    var_3_39 += 4;
-                    var_18_32 += 1;
-                } while (*var_3_39 != D_001A00F0.unk224);
+            p = D_001601E0;
+            n = 0;
+            while (p[n] != D_001A00F0.unk224) {
+                n++;
             }
-        }
-        var_17_49 = 1;
-        var_4_54 = var_18_32 + 1;
-loop_9:
-        if (var_4_54 >= 0) {
-            if (var_4_54 < 0x14) {
-                temp_2_62 = D_001601E0[var_4_54];
-                var_4_64 = var_17_49 < 1;
-                if (temp_2_62 != 0) {
-                    temp_16_65 = temp_2_62 + temp_19_20;
-                    var_2_69 = temp_16_65;
-                    if (func_002050A0(temp_16_65) != -1) {
-                        goto block_13;
-                    }
-                } else {
-                    goto block_14;
-                }
-            } else {
-                goto block_13;
-            }
+            i = 1;
         } else {
-block_13:
-            var_4_64 = var_17_49 < 1;
-block_14:
-            var_17_49 = (var_4_64 != 0) ? (1 - var_17_49) : (0 - var_17_49);
-            var_4_54 = var_18_32 + var_17_49;
-            if (var_17_49 == 4) {
-                var_2_69 = -1;
-            } else {
-                goto loop_9;
+            i = 1;
+        }
+        for (;;) {
+            idx = n + i;
+            if (idx >= 0) {
+                s32 e;
+
+                if (idx < 0x14) {
+                    e = D_001601E0[idx];
+                    if (e != 0) {
+                        id = e + ofs;
+                        if (func_002050A0(id) == -1) {
+                            return id;
+                        }
+                    }
+                }
+            }
+            i = (i > 0) ? (0 - i) : (1 - i);
+            idx = n + i;
+            if (i == 4) {
+                return -1;
             }
         }
-        return var_2_69;
     }
-    return temp_16_21;
+    return id;
 }
 #endif /* NON_MATCHING */

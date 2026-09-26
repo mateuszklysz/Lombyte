@@ -5,61 +5,57 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ee4b0/FUN_001ee4b0.s", FUN_001ee4b0);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern void func_002E1468(void *a0, void *a1, void *a2, void *a3, float f0, float f1, float f2);
+extern u8 D_0015F484;
+extern u8 D_0015F485;
+extern u8 D_0015F486;
+extern f32 D_0015F488;
+extern f32 D_0015F48C;
+extern f32 D_0015F490;
+extern f32 D_0015F494;
 
-/* sn-2.95.3-136 matched TU. */
+struct M2c_D_0019ADC0 {
+    u8 pad_0[0x50];
+    s32 unk50;
+    s32 unk54;
+    s32 unk58;
+    f32 unk5C;
+    f32 unk60;
+    f32 unk64;
+    f32 unk68;
+    f32 unk6C;
+    f32 unk70;
+    f32 unk74;
+    f32 unk78;
+    u8 pad_7C[4];
+};
 
+extern struct M2c_D_0019ADC0 D_0019ADC0[];
+extern s32 func_00212C28(void *a0, f32 *a1, s32 *a2);
+extern s32 FUN_001FA6D0(f32 fparg0);
 
+void FUN_001ee4b0(void *arg0) {
+    f32 f;
+    s32 idx;
+    s32 q;
+    s32 w;
+    struct M2c_D_0019ADC0 *pal;
 
-
-void FUN_001ee4b0(void *arg) {
-    char *s0 = (char *)arg;
-    float buf[16];
-    float *p;
-    float r;
-
-    if (*(unsigned char *)(s0 + 0x74) != 0) {
+    if (func_00212C28(arg0, &f, &idx) == 0) {
         return;
     }
-    if (*(unsigned char *)(s0 + 0x75) == 0) {
+    pal = &D_0019ADC0[idx];
+    if ((pal->unk50 & 2) == 0) {
         return;
     }
-    if (*(unsigned char *)(s0 + 0x76) != 0) {
-        int t;
-
-        t = *(unsigned short *)(s0 + 0x72);
-        t = t + 1;
-        *(short *)(s0 + 0x72) = t;
-        if (*(short *)(s0 + 0x70) < (short)t) {
-            *(short *)(s0 + 0x72) = *(unsigned short *)(s0 + 0x70);
-            *(unsigned char *)(s0 + 0x75) = 0;
-        }
-    } else {
-        int t;
-
-        t = *(unsigned short *)(s0 + 0x72);
-        t = t - 1;
-        *(short *)(s0 + 0x72) = t;
-        if ((short)t < 0) {
-            *(short *)(s0 + 0x72) = 0;
-            *(unsigned char *)(s0 + 0x75) = 0;
-        }
-    }
-    r = (float)*(short *)(s0 + 0x72) / (float)*(short *)(s0 + 0x70);
-    buf[0] = 0.0f;
-    buf[1] = 0.0f;
-    buf[2] = 0.0f;
-    buf[3] = 1.0f;
-    buf[4] = *(float *)(s0 + 0x58) - *(float *)(s0 + 0x50);
-    buf[5] = *(float *)(s0 + 0x5C) - *(float *)(s0 + 0x54);
-    buf[6] = 0.0f;
-    p = buf + 4;
-    p[3] = 1.0f;
-    VU0_SQC2_VF0(buf, 0x20);
-    func_002E1468(&buf[12], &buf[8], &buf[0], p, r, 0.0f, 0.0f);
-    *(float *)(s0 + 0x60) = buf[8];
-    *(float *)(s0 + 0x64) = buf[9];
+    q = FUN_001FA6D0(f * 255.0f);
+    w = 255 - q;
+    D_0015F486 = (u8)(((((pal->unk58 >> 16) & 0xFF) * q) + (((pal->unk54 >> 16) & 0xFF) * w)) >> 8);
+    D_0015F484 = (u8)((((pal->unk58 & 0xFF) * q) + ((pal->unk54 & 0xFF) * w)) >> 8);
+    D_0015F485 = (u8)(((((pal->unk58 >> 8) & 0xFF) * q) + (((pal->unk54 >> 8) & 0xFF) * w)) >> 8);
+    D_0015F488 = (pal->unk6C * f + pal->unk5C * (1.0f - f)) * 1024.0f;
+    D_0015F48C = ((pal->unk74 * f + pal->unk64 * (1.0f - f)) + 1024.0f) * 1024.0f;
+    D_0015F490 = 255.0f - ((pal->unk70 * f + pal->unk60 * (1.0f - f)) * 255.0f);
+    D_0015F494 = 255.0f - ((pal->unk78 * f + pal->unk68 * (1.0f - f)) * 255.0f);
 }
 #endif /* NON_MATCHING */

@@ -5,88 +5,105 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00222768/FUN_00222768.s", FUN_00222768);
 #else
 #include "types.h"
-struct M2c_arg0 {
-    u8 pad_0[0x18];
-    s32 unk18;
-    s32 unk1C;
-    u8 pad_20[0x4];
-    s32 unk24;
-    u8 pad_28[0xC];
-    s32 unk34;
-    u8 pad_38[0x4];
-    s32 unk3C;
-    u8 pad_40[0x10];
-    s32 unk50;
-    s32 unk54;
+
+struct Desc {
+    u16 f00;
+    u16 f02;
+    u16 f04;
+    u16 f06;
+    u16 f08;
+    u16 f0A;
+    u16 f0C;
+    u16 f0E;
+    u16 f10;
+    u16 f12;
+    u16 f14;
+    u16 f16;
 };
 
-extern void PackImageDescriptor();
-extern void func_001F4280();
+struct Item {
+    u8 pad00[0x18];
+    s32 f18;
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    u8 pad28[0xC];
+    s32 *f34;
+    u8 pad38[4];
+    s32 f3C;
+    u8 pad40[0x10];
+    s32 f50;
+    s32 f54;
+};
+
+extern void func_00233980(s32, u64);
+extern void func_001F4280(s32);
+extern void PackImageDescriptor(struct Desc *, struct Item *);
+extern void func_001F7580(struct Desc *, u64, s32, s32);
+extern u8 *func_001FDD10(s32);
 extern void func_001F4398();
-extern void func_001F7580();
-extern s32 func_001FDD10();
-extern void func_00233980();
-s32 FUN_00222768(struct M2c_arg0 *arg0) {    u16 spE;
-    u8 sp_slot[0x70]; s16 sp12;
-    s16 sp14;
-    s16 sp16;
-    s32 temp_3_68;
-    s32 temp_9_36;
-    s32 var_18_55;
-    u16 var_16_63;
-    u32 temp_10_32;
+
+s32 FUN_00222768(struct Item *item) {
+    struct Desc desc;
+    s32 pos;
+    s32 i;
+    s32 t;
+
     func_00233980(0x47, 0x30000);
-    func_00233980(0x42, (0x8000 << 0x18) | 0x44);
+    func_00233980(0x42, 0x80000044);
     func_001F4280(0);
-    PackImageDescriptor(sp_slot, arg0);
-    temp_10_32 = arg0->unk50;
-    temp_9_36 = temp_10_32 < 0x14U;
-    sp12 = 9;
-    sp14 = 0;
-    sp16 = 0;
-    if (temp_9_36 != 0) {
-        switch (temp_10_32) {
-        case 1:
-        case 2:
-        case 3:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 12:
-        case 13:
-        case 14:
-        case 16:
-        case 17:
-        case 18:
-            var_18_55 = 0;
-            var_16_63 = (s32) arg0->unk1C - (((s32) arg0->unk3C >> 4) - 4);
-            if (*(s32 *)arg0->unk34 != -1) {
-                do {
-                    temp_3_68 = var_18_55 * 4;
-                    var_18_55 += 1;
-                    sp16 = (s16) ((u64) (u8) arg0->unk3C >> 4);
-                    func_001F7580(sp_slot, (0x80FF << 0x10) | 0xA888, func_001FDD10(*(s32 *)(temp_3_68 + arg0->unk34), var_16_63), -1);
-                    var_16_63 = var_16_63 + (s16) spE + 0xA;
-                } while (*(s32 *)((var_18_55 * 4) + arg0->unk34) != -1);
-            }
-            if ((var_16_63 + 0x18) < ((s32) arg0->unk1C + (s32) arg0->unk24)) {
-                arg0->unk54 = 1;
-            }
-            break;
-        case 4:
-        case 11:
-        case 15:
-        case 19:
-            func_001F7580(sp_slot, (0x80FF << 0x10) | 0xA888, func_001FDD10(arg0->unk34, arg0->unk18, arg0->unk24, arg0->unk1C + 4, 9, temp_9_36, temp_10_32, arg0->unk1C + 0x20), -1);
-            break;
+    PackImageDescriptor(&desc, item);
+    desc.f00 = (u16)item->f1C + 4;
+    desc.f02 = (u16)item->f1C + (u16)item->f24 - 4;
+    desc.f04 = (u16)item->f18;
+    desc.f06 = (u16)item->f18 + (u16)item->f20;
+    desc.f08 = (u16)item->f18 + (item->f20 >> 1);
+    desc.f12 = 9;
+    desc.f14 = 0;
+    desc.f16 = 0;
+    switch (item->f50) {
+    case 0:
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 12:
+    case 13:
+    case 14:
+    case 16:
+    case 17:
+    case 18:
+        t = item->f3C >> 4;
+        pos = item->f1C - (t - 4);
+        i = 0;
+        if (*item->f34 != -1) {
+            do {
+                desc.f0A = pos;
+                desc.f16 = ((u64)(u8)item->f3C) >> 4;
+                func_001F7580(&desc, ((u64)0x80FF << 16) | 0xA888, func_001FDD10(item->f34[i]), -1);
+                i++;
+                pos = pos + (s16)desc.f0E + 0xA;
+            } while (item->f34[i] != -1);
         }
+        if (pos + 0x18 < item->f1C + item->f24) {
+            item->f54 = 1;
+        }
+        break;
+    case 4:
+    case 11:
+    case 15:
+    case 19:
+        desc.f0A = desc.f0E + 0x20;
+        func_001F7580(&desc, ((u64)0x80FF << 16) | 0xA888, func_001FDD10(item->f34), -1);
+        break;
     }
     func_001F4398();
     return 2;
 }
-
-extern s32 func_00222768(struct M2c_arg0 *arg0) __attribute__((alias("FUN_00222768")));
 #endif /* NON_MATCHING */

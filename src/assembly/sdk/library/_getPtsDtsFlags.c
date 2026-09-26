@@ -5,7 +5,6 @@
 /* Exact SDK/library unit _getPtsDtsFlags; symbolic expected assembly retained pending source recovery. */
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/_getPtsDtsFlags/_getPtsDtsFlags.s", _getPtsDtsFlags);
 #else
-
 #include "types.h"
 
 struct M2c_arg0 {
@@ -39,27 +38,25 @@ extern s64 __muldi3(s64 a, s64 b);
 
 void _getPtsDtsFlags(struct M2c_arg0 *arg0, struct M2c_arg1 *arg1, s64 *arg2, s64 *arg3, s64 *arg4)
 {
-    s64 *sp0;
     s32 t80;
     s32 t90;
     s64 t88b;
     s64 t88;
     s32 t41;
+    s32 t88s;
     s32 tH;
     s64 tv;
     s64 u1, u2, u3;
 
-    sp0 = arg4;
     if (arg0->unk70 != 0) {
         if ((arg1->unk18 < 0) && (t80 = arg0->unk80, (t80 >= 0))) {
-            /* two-step assignment: one statement folds to lw+daddu, the pair keeps ld+dsll32+dsra32 */
             t88b = arg0->unk88;
-            t88 = (s64) (s32) t88b;
-            /* t90 read here (not before) keeps the 0x90 load in its natural slot */
-            t41 = (s32) __muldi3(__muldi3(t88 & 1, arg0->unk78 & 1), (t90 = arg0->unk90, t90 & 1));
-            tH = ((s64) (__muldi3(arg0->unk78, t88) << 0x1F)) >> 0x20;
+            t88s = (s32) t88b;
+            t88 = t88s;
+            t41 = (s32) __muldi3(__muldi3((s64) t88s & 1, arg0->unk78 & 1), (t90 = arg0->unk90, t90 & 1));
+            tH = (s32) (__muldi3(arg0->unk78, t88) << 0x1F);
             *arg2 = t80 + (s32) (tH + t41);
-            if (__muldi3(t88 & 1, arg0->unk78 & 1) != 0) {
+            if (__muldi3((s64) t88s & 1, arg0->unk78 & 1) != 0) {
                 arg0->unk90 = (t90 + 1);
             }
         } else {
@@ -80,6 +77,6 @@ void _getPtsDtsFlags(struct M2c_arg0 *arg0, struct M2c_arg1 *arg1, s64 *arg2, s6
     u1 = ((s64) arg1->unk40 << 5) | ((s64) arg1->unk3C << 6);
     u2 = ((s64) arg1->unk34 << 8) | arg1->unk2C;
     u3 = ((s64) arg1->unk38 << 7) | ((s64) arg1->unk30 << 3);
-    *sp0 = (u2 | u1) | u3;
+    *arg4 = (u2 | u1) | u3;
 }
 #endif /* NON_MATCHING */

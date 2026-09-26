@@ -5,63 +5,67 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0022e8c8/FUN_0022e8c8.s", FUN_0022e8c8);
 #else
 #include "types.h"
+
+struct Block {
+    u8 pad0[0x40];
+    s32 color;
+    u8 pad1[0x0C];
+    s32 flag;
+    u8 pad2[0x1C];
+    s64 v0;
+    s64 v1;
+    s64 v2;
+    s64 v3;
+};
+
 extern s32 D_0015ED84[];
-extern u8 D_001604F0[];
-extern s32 D_00160580;
-extern u8 D_001D97B0[];
+extern f32 D_001D9A90[];
 extern u8 D_001D9A50[];
-extern u8 D_001D9A90[];
-extern s32 func_001F7D30();
-extern s32 func_001F98D0();
-extern s32 func_001F9A10();
-extern s32 func_001F9A68();
-extern void func_00233980(s32, s64);
+extern u64 D_00160580;
+extern u8 D_001D97B0[];
+extern u8 D_001604F0;
+
+__asm__(".extern D_001604F0, 4");
+
+extern void func_00233980(s32, u64);
+extern void func_001F98D0(void *, u8 *, s32);
+extern void func_001F9A68(void *, u8 *, f32);
+extern void func_001F9A10(void *, void *, u8 *);
+extern void func_001F7D30(void *, s32, s32);
+
 void FUN_0022e8c8(void) {
-u8 sp_slot[0x100];    s32 sp40;
-    s32 sp50;
-    s64 sp70;
-    s64 sp78;
-    s64 sp80;
-    s64 sp88;
-    s32 *var_20_46;
-    f32 var_f20_16;
-    s32 *var_17_49;
-    s32 var_19_50;
-    s32 *temp_4_59;
-    s32 *temp_5_60;
-    s32 *var_16_48;
+    struct Block b;
+    f32 f;
+    u8 *pp;
+    u8 *bp;
+    s32 *cp;
+    s32 i;
 
     func_00233980(0x47, 0x31801);
-    var_f20_16 = 1.0f;
-    sp88 = (0x8000 << 0x18) | 0x44;
-    sp78 = D_00160580;
-    sp80 = (0xFF90 << 0x20) | 0x260;
-    sp70 = 0;
-    func_001F98D0(&sp50, D_001D97B0, 0x20);
-    if ((u32) D_0015ED84[0] >= 0x13U) {
-        goto block_2;
+    f = 1.0f;
+    b.v1 = D_00160580;
+    b.v3 = 0x8000 << 24 | 0x44;
+    b.v2 = 0xFF90 << 32 | 0x260;
+    b.v0 = 0;
+    func_001F98D0(&b.flag, D_001D97B0, 0x20);
+    if ((u32)D_0015ED84[0] < 0x13) {
+        f = D_001D9A90[D_0015ED84[0]];
     }
-    var_f20_16 = *((D_0015ED84[0] * 4) + D_001D9A90);
-block_2:
-    var_20_46 = D_001D9A50;
-    var_16_48 = sp_slot;
-    var_17_49 = &sp40;
-    var_19_50 = 3;
-loop_3:
-    *var_17_49 = 0x80808080;
-    func_001F9A68(var_16_48, var_20_46, var_f20_16);
-    var_20_46 += 0x10;
-    temp_4_59 = var_16_48;
-    temp_5_60 = var_16_48;
-    var_16_48 += 0x10;
-    func_001F9A10(temp_4_59, temp_5_60, D_001604F0);
-    var_19_50 -= 1;
-    var_17_49 += 4;
-    if (var_19_50 >= 0) {
-        goto loop_3;
-    }
-    func_001F7D30(sp_slot, 0, 0);
+    pp = D_001D9A50;
+    bp = b.pad0;
+    cp = &b.color;
+    i = 3;
+    do {
+        *cp = 0x80808080;
+        func_001F9A68(bp, pp, f);
+        pp += 0x10;
+        func_001F9A10(bp, bp, (u8 *)&D_001604F0);
+        bp += 0x10;
+        cp += 4;
+        i -= 1;
+    } while (i >= 0);
+
+    func_001F7D30(b.pad0, 0, 0);
     func_00233980(0x47, 0x5360B);
-    return;
 }
 #endif /* NON_MATCHING */

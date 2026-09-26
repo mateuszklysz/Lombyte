@@ -5,108 +5,89 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/sub_001ebb00/sub_001ebb00.s", sub_001ebb00);
 #else
 #include "types.h"
-/* TU: BlackJack [casino] - recovered C++ class. */
 
+/* Mid-function chunk of FUN_001eb798 (transition_do_transition).
+ * Retail range 0x001EBB00..0x001EBBF7: no prologue, no epilogue.  The
+ * prologue is in assembly/textbin/gameplay/state/transition_do_transition
+ * (0x001EB798) and the epilogue in assembly/textbin/sub_001ebc08 (0x001EBC08).
+ * $16/$19/$20/$21/$23/$30 are live across the chunk, so this body is only
+ * reproducible as part of the whole function. */
 
-extern char D_003BDF58[];
-extern int D_00569B70;
-extern void func_001D0CE8();
-extern void func_001D0DF8();
-extern void func_001D5780();
-extern int GetTimerValue_1FA710();
-extern void BlackJackId_Move();
-extern void BlackJackId__Trans();
+extern s32 D_0015F604;
+extern u8 D_0016034C[];
+extern s32 D_0015ED80;
+extern f32 D_0015F43C;
+extern s32 D_0015EF50;
+extern s32 D_0015EF54;
+extern s32 D_0015EF58;
+extern s32 D_0015EE78;
+extern s32 D_0015F5B0;
+extern s32 *D_0015F938;
 
-__attribute__((section(".text.BlackJack_Release")))
-void sub_001ebb00(void) {
-    func_001D4F48();
-}
+void transition_default_draw();
+s32 func_001F96F8(s32 arg0);
+void func_001E9488(s32 arg0);
+void parse_space_scene_chunk(s32 index);
+void vu1_init_chain(void);
+void fade_to_black(s32 n);
+void func_001204B8(void);
+void sceGsResetGraph(s32 a0, s32 a1, s32 a2, s32 a3);
+void set_pal_mode(void);
 
-extern char D_00463050[];
+void sub_001ebb00(s32 arg0, s32 arg1, s32 *arg2) __asm__("sub_001ebb00");
 
+void sub_001ebb00(s32 arg0, s32 arg1, s32 *arg2) {
+    s32 v0;
+    s32 t0;
+    s32 t1;
+    s32 s0;
+    f32 f;
 
-__attribute__((section(".text.BlackJack_Main")))
-void BlackJack_Main(int a0)
-{
-    int s1;
-    int *s0;
-    int *s3;
-    int i = *(int *)(a0 + 0x1804);
-    short off = *(short *)(D_003BDF58 + i * 8);
-    void (*fn)() = *(void (**)())(D_003BDF58 + i * 8 + 4);
-    fn(a0 + off);
-
-    s3 = (int *)(a0 + 0x17D4);
-    s1 = 4;
-    s0 = s3;
-    do {
-        if (*s0 != 0) {
-            func_001D0CE8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    s3 = (int *)(a0 + 0x17E8);
-    do {
-        if (*s0 != 0) {
-            func_001D0DF8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    do {
-        if (*s0 != 0) {
-            func_001D0CE8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    s0 = s3;
-    s1 = 4;
-    do {
-        if (*s0 != 0) {
-            func_001D0DF8(*s0);
-        }
-        s1 = s1 - 1;
-        s0 = s0 + 1;
-    } while (s1 >= 0);
-
-    func_001D5780(a0, GetTimerValue_1FA710(&D_00569B70));
-    BlackJackId_Move(a0);
-    BlackJackId__Trans(a0);
-}
-
-__attribute__((section(".text.BlackJack_SetBlackJackCamera")))
-void BlackJack_SetBlackJackCamera(int a0, float *a1, float *a2) {
-    float *dst1;
-    float *dst2;
-
-    cCamManager_setSubScrCamera(D_00463050, 0);
-    *(int *)(a0 + 0x181C) = (int)(D_00463050 + 0xC90);
-    dst1 = (float *)(D_00463050 + 0xEA0);
-    if (a1 != dst1) {
-        dst1[0] = a1[0];
-        dst1[1] = a1[1];
-        dst1[2] = a1[2];
+    transition_default_draw();
+    v0 = D_0015F604;
+    if (v0 != 0) {
+        goto skip;
     }
-    dst2 = (float *)(*(int *)(a0 + 0x181C) + 0x200);
-    if (dst2 != a2) {
-        dst2[0] = a2[0];
-        dst2[1] = a2[1];
-        dst2[2] = a2[2];
+    t1 = 0;
+    func_001F96F8(0x5DC);
+    t1++;
+    if (t1 < v0) {
+        goto tail;
     }
-}
-
-
-__attribute__((section(".text.BlackJack_ClearBlackJackCamera")))
-void BlackJack_ClearBlackJackCamera(void) {
-    cCamManager_setPlCamera(D_00463050, 0);
+    func_001E9488(arg0);
+    t1 = 0;
+    t0 = arg1 < arg0 + 1;
+    f = f;
+    D_0015F43C = f;
+    v0 = arg0 + 4;
+    if (t0) {
+        v0 = arg0 + 1;
+    }
+    arg2[13] = 0;
+    arg0 = v0 >> 2;
+    arg2[15] = 0;
+    v0 = arg0 << 2;
+    parse_space_scene_chunk(0);
+    arg0 = arg0 + 1 - v0;
+    D_0015EF50 = 0;
+    D_0015EF54 = 0;
+    vu1_init_chain();
+    D_0015EF58 = 0;
+    return;
+skip:
+    v0 = D_0016034C[0];
+tail:
+    t0 = D_0015ED80;
+    if (v0 == t0) {
+        return;
+    }
+    D_0015ED80 = t0 < 1;
+    fade_to_black(4);
+    func_001204B8();
+    sceGsResetGraph(0, 1, D_0015ED80 ? 3 : 2, 0);
+    s0 = D_0015EE78;
+    set_pal_mode();
+    D_0015F43C = f;
+    D_0015EE78 = s0;
 }
 #endif /* NON_MATCHING */

@@ -4,66 +4,79 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00239160/FUN_00239160.s", FUN_00239160);
 #else
-#include "rnc/assembly_textbin_fun_00239160_types.h"
 #include "types.h"
 
+struct M2c_D_001E63C0 {
+    u8 pad_0[0x40];
+    s32 unk40;
+    u8 pad_44[0x14];
+    s32 unk58;
+    s32 unk5C;
+};
 
-extern u8 D_0013D428[];
-extern s32 D_0013D4E3;
+struct Item { s32 a0; s32 a4; u16 a8; u16 aA; u16 aC; u16 aE; u8 pad_10[8]; };
+
+extern struct Item D_001DFFB0[];
+extern s32 D_0013D428[];
+extern u8 D_0013D4E3[];
 extern s32 D_0015ED98[];
-extern u8 D_001DFFB0[];
 extern struct M2c_D_001E63C0 D_001E63C0;
-extern s32 func_001F6B88();
-extern s32 func_001FB8F0();
-extern s32 func_001FDD10();
+extern void func_001FB8F0();
+extern s32 func_001FDD10(s32);
+extern s32 func_001F6B88(s32, s32, u64, s32, s32);
+
 void FUN_00239160(void) {
-    s32 var_4_66;
-    s32 *temp_3_45;
-    s32 temp_2_28;
-    s32 temp_6_21;
-    s32 temp_9_23;
-    s32 var_3_79;
-    u16 var_3_51;
-    s32 *temp_8_20;
+    s32 offs;
+    s32 flag;
+    s32 i;
+    u8 *rows;
+    u16 v;
+    s32 w;
+    s32 id;
 
     func_001FB8F0(0, 0, 0x200, 0x80, 0x200, 0x80, 0);
     if (D_001E63C0.unk5C != 0) {
-        temp_8_20 = ((u8 *)&D_001E63C0 + 0xD0);
-        temp_6_21 = D_001E63C0.unk58 * 0x14;
-        temp_9_23 = *(s32 *)((u8 *)(((u8 *)&D_001E63C0 + temp_6_21)) + 0xD4);
-        if (temp_9_23 == 1) {
-            temp_2_28 = *(temp_6_21 + temp_8_20);
-            if (*((temp_2_28 * 4) + D_0013D428) < (s32) *(s32 *)((u8 *)((temp_2_28 * 0x18) + D_001DFFB0) + 0xE)) {
-                if (temp_9_23 == 1) {
-                    temp_3_45 = temp_6_21 + temp_8_20;
+        offs = D_001E63C0.unk58 * 0x14;
+        rows = (u8 *)&D_001E63C0 + 0xD0;
+        flag = *(s32 *)((u8 *)&D_001E63C0 + offs + 0xD4);
+        if (flag == 1) {
+            i = *(volatile s32 *)(rows + offs);
+            if (D_0013D428[i] < (s32)D_001DFFB0[i].aE) {
+                if (flag == 1) {
                     if (D_001E63C0.unk40 != 0) {
-                        var_3_51 = *(s32 *)((u8 *)((*temp_3_45 * 0x18) + D_001DFFB0) + 0xA);
+                        v = D_001DFFB0[*(volatile s32 *)(rows + offs)].aA;
                     } else {
-                        var_3_51 = *(s32 *)((u8 *)((*temp_3_45 * 0x18) + D_001DFFB0) + 0x8);
+                        v = D_001DFFB0[*(volatile s32 *)(rows + offs)].a8;
                     }
-                    if (D_0015ED98[0] >= (s32) var_3_51) {
-                        var_4_66 = 0x4EE0;
-                        goto block_15;
+                    if (D_0015ED98[0] >= (s32)v) {
+                        id = 0x4EE0;
+                    } else {
+                        return;
                     }
                 } else {
-                    goto block_10;
+                    goto not1;
                 }
+            } else {
+                return;
             }
         } else {
-block_10:
-            if (D_0013D4E3 != 0) {
-                var_3_79 = *(s32 *)((u8 *)(D_001DFFB0 + (*(temp_6_21 + temp_8_20) * 0x18)) + 0x4);
+not1:
+            if (D_0013D4E3[0] != 0) {
+                w = D_001DFFB0[*(volatile s32 *)(rows + offs)].a4;
             } else {
-                var_3_79 = *((*(temp_6_21 + temp_8_20) * 0x18) + D_001DFFB0);
+                w = D_001DFFB0[*(volatile s32 *)(rows + offs)].a0;
             }
-            if (D_0015ED98[0] >= var_3_79) {
-                var_4_66 = 0x524B;
-block_15:
-                func_001F6B88(0x28, 0x14, (0x80F0 << 0x10) | 0xF0F0, func_001FDD10(var_4_66, 0x18, temp_6_21, &D_001E63C0, temp_8_20, temp_9_23, D_001DFFB0, 1), -1);
+            if (D_0015ED98[0] < w) {
+                return;
             }
+            id = 0x524B;
         }
     } else {
-        func_001F6B88(0x28, 0x14, (0x80F0 << 0x10) | 0xF0F0, func_001FDD10(0x4EE0), -1);
+        goto early;
     }
+    func_001F6B88(0x28, 0x14, 0x80F0F0F0, func_001FDD10(id), -1);
+    return;
+early:
+    func_001F6B88(0x28, 0x14, 0x80F0F0F0, func_001FDD10(0x4EE0), -1);
 }
 #endif /* NON_MATCHING */

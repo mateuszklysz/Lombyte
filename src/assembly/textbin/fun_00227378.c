@@ -4,81 +4,109 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00227378/FUN_00227378.s", FUN_00227378);
 #else
-#include "rnc/assembly_textbin_fun_00227378_types.h"
 #include "types.h"
 
+struct Src {
+    u8 pad_0[0x150];
+    s16 unk150;
+    s16 unk152;
+};
 
+struct Tag {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    s64 unk10;
+    s64 unk18;
+    s64 unk20;
+    s64 unk28;
+    s64 unk30;
+    s64 unk38;
+    s64 unk40;
+    s64 unk48;
+    s64 unk50;
+    s64 unk58;
+};
 
+struct LoopTag {
+    s64 unk0;
+    s64 unk8;
+};
 
+extern struct Src D_00151780;
+extern struct Tag *D_00160F00[1];
 
-
-
-
-
-
-extern struct M2c_D_00151780 D_00151780;
-extern struct M2c_D_00160F00 *D_00160F00[];
 void FUN_00227378(s64 arg0) {
-    struct M2c_temp_24_51 *temp_24_51;
-    struct M2c_temp_2_52 *temp_2_52;
-    s32 *temp_3_97;
-    struct M2c_var_5_77 *var_5_77;
-    s32 temp_25_18;
-    s32 temp_2_66;
-    s32 temp_3_71;
-    register s32 temp_5_21 asm("a1");
-    s32 var_15_45;
-    s32 var_6_76;
-    s32 var_7_73;
-    s64 temp_3_81;
+    struct Tag *base;
+    struct Tag *p;
+    struct LoopTag *lt;
+    struct Src *src;
+    s32 rows;
+    s32 width;
+    s32 height;
+    s32 count;
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 d;
+    s32 neg;
+    s32 h;
+    s64 b64;
+    s64 d64;
+    s64 hi;
+    s64 lo;
 
-    temp_25_18 = (s16) ((D_00151780.unk150 > -1) ? D_00151780.unk150 : (D_00151780.unk150 + 0x1F)) >> 5;
-    temp_5_21 = temp_25_18 + 5;
-    D_00160F00[0]->unk0 = temp_5_21 | 0x10000000;
+    src = &D_00151780;
+    height = src->unk150;
+    width = src->unk152;
+    h = (height > -1) ? height : (height + 0x1F);
+    rows = h >> 5;
+    D_00160F00[0]->unk0 = (rows + 5) | 0x10000000;
     D_00160F00[0]->unk4 = 0;
-    var_15_45 = 0;
     D_00160F00[0]->unk8 = 0;
-    D_00160F00[0]->unkC = (s32) (temp_5_21 | 0x50000000);
-    temp_24_51 = D_00160F00[0];
-    temp_2_52 = ((u8 *)temp_24_51 + (0x10));
-    D_00160F00[0] = temp_2_52;
-    temp_24_51->unk10 = (s64) ((0x8000 << 0x2D) | 1);
-    temp_2_52->unk48 = 0x44;
-    temp_2_52->unk8 = 0xE;
-    temp_2_52->unk10 = 0x3D801;
-    temp_2_52->unk18 = 0x47;
-    temp_2_52->unk20 = (s64) ((0x9000 << 0x2E) | 1);
-    temp_2_52->unk28 = 0x10;
-    temp_2_52->unk30 = 0x146;
-    temp_2_52->unk38 = arg0;
-    temp_2_52->unk40 = (s64) (temp_25_18 | 0x8000 | (0x9000 << 0x2E));
-    if (temp_25_18 <= 0) {
-        goto block_3;
+    D_00160F00[0]->unkC = (rows + 5) | 0x50000000;
+    base = D_00160F00[0];
+    p = (struct Tag *)((u8 *)base + 0x10);
+    D_00160F00[0] = p;
+    base->unk10 = 0x1000000000000001;
+    p->unk18 = 0xE;
+    p->unk20 = 0x3D801;
+    p->unk28 = 0x47;
+    p->unk30 = 0x2400000000000001;
+    p->unk38 = 0x10;
+    p->unk40 = 0x146;
+    p->unk48 = arg0;
+    p->unk50 = (s64)(rows | 0x8000) | 0x2400000000000000;
+    p->unk58 = 0x44;
+    if (rows > 0) {
+        d = width * 8 + 0x7FF0;
+        b = 0x8000 - width * 8;
+        neg = -(height * 8);
+        b64 = (s64)b << 16;
+        a = neg + 0x8000;
+        c = neg + 0x8200;
+        d64 = (s64)d << 16;
+        count = 0;
+        lt = (struct LoopTag *)((u8 *)base + 0x60);
+        do {
+            hi = (s64)a | b64;
+            lo = (s64)c | d64;
+            lt->unk0 = hi;
+            count += 1;
+            lt = (struct LoopTag *)((u8 *)lt + 8);
+            c += 0x200;
+            lt->unk8 = lo;
+            a += 0x200;
+            lt = (struct LoopTag *)((u8 *)lt + 8);
+        } while (count < rows);
     }
-    temp_2_66 = D_00151780.unk152 * 8;
-    temp_3_71 = -(D_00151780.unk150 * 8);
-    var_7_73 = temp_3_71 + 0x8000;
-    var_6_76 = temp_3_71 + 0x8200;
-    var_5_77 = ((u8 *)temp_24_51 + (0x60));
-loop_2:
-    temp_3_81 = var_6_76 | ((temp_2_66 + 0x7FF0) << 0x10);
-    var_5_77->unk0 = (s64) (var_7_73 | ((0x8000 - temp_2_66) << 0x10));
-    var_15_45 += 1;
-    var_6_76 += 0x200;
-    var_5_77->unk8 = temp_3_81;
-    var_7_73 += 0x200;
-    var_5_77 = ((u8 *)var_5_77 + (8 ))+ 8;
-    if (var_15_45 < temp_25_18) {
-        goto loop_2;
-    }
-block_3:
-    temp_3_97 = D_00160F00[0] + ((temp_25_18 * 0x10) + 0x50);
-    D_00160F00[0] = temp_3_97;
-    *temp_3_97 = 0x10000000;
+    p = (struct Tag *)((u8 *)D_00160F00[0] + rows * 0x10 + 0x50);
+    D_00160F00[0] = p;
+    p->unk0 = 0x10000000;
     D_00160F00[0]->unk4 = 0;
     D_00160F00[0]->unk8 = 0x13000000;
     D_00160F00[0]->unkC = 0;
-    D_00160F00[0] += 0x10;
-    return;
+    D_00160F00[0] = (struct Tag *)((u8 *)D_00160F00[0] + 0x10);
 }
 #endif /* NON_MATCHING */

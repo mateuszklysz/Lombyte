@@ -6,6 +6,7 @@ INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_0021d338/FUN_0021d338.s
 #else
 #include "types.h"
 #include "rnc/d_001516d0.h"
+
 struct Loader { u8 pad0[0x10]; s32 flags; u8 pad14[0x24]; s32 saved_count; u8 pad3c[0x14]; s32 state; s32 saved_buf; };
 struct LevelFiles { u8 pad0[0x1528]; s32 sector; s32 size; };
 struct LevelData { u8 pad0[0x108]; u8 *buf; };
@@ -13,7 +14,7 @@ struct Anims { u8 pad0[0x2C]; s32 count; };
 struct Entry { s32 offset; u8 pad4[0xC]; };
 extern struct M2c_D_001516D0 D_001516D0;
 extern struct LevelFiles D_00137B80;
-extern s32 D_001D5CF8;
+extern s32 D_001D5CF8[];
 extern struct LevelData D_001D5BF0;
 extern s32 D_0015ED88;
 extern u8 *D_0015F6A0;
@@ -34,7 +35,7 @@ s32 FUN_0021d338(struct Loader *o) {
         if (D_001516D0.unk8 != 0) {
             break;
         }
-        if (func_00216788(D_001D5CF8, D_00137B80.sector, D_00137B80.size) != 0) {
+        if (func_00216788(D_001D5CF8[0], D_00137B80.sector, D_00137B80.size) != 0) {
             o->state = 1;
         } else {
             o->state = 3;
@@ -55,7 +56,7 @@ s32 FUN_0021d338(struct Loader *o) {
         D_0015F6A0 = D_001D5BF0.buf;
         e = (struct Entry *)D_0015F6A0;
         for (i = 0; i < D_001996D0.count; i++) {
-            e->offset += (s32)(D_0015F6A0 - 8);
+            e->offset = e->offset - 8 + (s32)D_0015F6A0;
             e++;
         }
         o->flags &= ~4;

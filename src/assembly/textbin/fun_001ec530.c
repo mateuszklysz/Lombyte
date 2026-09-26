@@ -4,56 +4,66 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001ec530/FUN_001ec530.s", FUN_001ec530);
 #else
-#include "rnc/assembly_textbin_fun_001ec530_types.h"
 #include "types.h"
 
+struct Vec4 {
+    f32 x;
+    f32 y;
+    f32 z;
+    f32 w;
+};
 
-extern s32 func_001F9A28();
-extern s32 func_001F9AB0();
-extern s32 func_001F9AF0();
-extern s32 func_001F9BF8();
-extern s32 func_001F9DF8();
-extern s32 func_00214890();
-void FUN_001ec530(s32 arg1, s32 arg2, struct M2c_arg0 *arg0, s32 *arg3, s32 *arg4, s32 *arg5) {
-u8 sp_slot[0xF0];    s32 sp10;
-    s32 sp20;
-    s32 sp30;
-    s32 sp40;
-    f32 temp_f20_41;
-    f32 temp_f20_83;
-    f32 temp_f21_96;
-    f32 var_f0_42;
-    f32 var_f0_84;
-    f32 var_f20_107;
-    f32 var_f20_60;
+struct Euler {
+    f32 unk0;
+    f32 unk4;
+    f32 unk8;
+};
 
-    func_001F9A28(sp_slot);
-    func_001F9BF8(&sp10, arg5, func_001F9AB0(sp_slot, arg5));
-    func_001F9A28(&sp20, sp_slot, &sp10);
-    temp_f20_41 = func_001F9AB0(arg3, &sp20);
-    var_f0_42 = func_001F9AF0(&sp20);
-    if (var_f0_42 == 0.0f) {
-        var_f0_42 = 0.0001f;
+extern void func_001F9A28();
+extern f32 func_001F9AB0(struct Vec4 *, struct Vec4 *);
+extern f32 func_001F9AF0(struct Vec4 *);
+extern f32 func_001F9BF8(struct Vec4 *, struct Vec4 *, f32);
+extern f32 func_001F9DF8(f32);
+extern void func_00214890(void *, void *, void *, f32);
+
+void FUN_001ec530(struct Euler *arg0, s32 arg1, s32 arg2, struct Vec4 *arg3,
+                  struct Vec4 *arg4, struct Vec4 *arg5) {
+    struct Vec4 v0;
+    struct Vec4 v1;
+    struct Vec4 v2;
+    struct Vec4 v3;
+    struct Vec4 v4;
+    f32 dot;
+    f32 len;
+    f32 a;
+    f32 b;
+
+    func_001F9A28(&v0);
+    dot = func_001F9AB0(&v0, arg5);
+    func_001F9BF8(&v1, arg5, dot);
+    func_001F9A28(&v2, &v0, &v1);
+    dot = func_001F9AB0(arg3, &v2);
+    len = func_001F9AF0(&v2);
+    if (len == 0.0f) {
+        len = 0.0001f;
     }
-    var_f20_60 = 1.5707964f - func_001F9DF8(temp_f20_41 / var_f0_42);
-    func_001F9BF8(&sp30, &sp20, 1.0f);
-    if (func_001F9AB0(arg4, &sp30) < 0.0f) {
-        var_f20_60 = -var_f20_60;
+    a = 1.5707964f - func_001F9DF8(dot / len);
+    func_001F9BF8(&v3, &v2, 1.0f);
+    a = -a;
+    if (func_001F9AB0(arg4, &v3) < 0.0f) {
+        a = -a;
     }
-    arg0->unk4 = var_f20_107;
-    func_00214890(&sp40, arg3, arg5, var_f20_60);
-    temp_f20_83 = func_001F9AB0(&sp40, sp_slot);
-    var_f0_84 = func_001F9AF0(sp_slot);
-    if (var_f0_84 == 0.0f) {
-        var_f0_84 = 0.0001f;
+    arg0->unk0 = a;
+    func_00214890(&v4, arg3, arg5, a);
+    dot = func_001F9AB0(&v4, &v0);
+    len = func_001F9AF0(&v0);
+    if (len == 0.0f) {
+        len = 0.0001f;
     }
-    temp_f21_96 = 1.5707964f - func_001F9DF8(temp_f20_83 / var_f0_84);
-    func_001F9BF8(&sp30, sp_slot, 1.0f);
-    var_f20_107 = -temp_f21_96;
-    if (func_001F9AB0(arg5, &sp30) < 0.0f) {
-        var_f20_107 = temp_f21_96;
-    }
-    arg0->unk0 = var_f20_60;
-    arg0->unk8 = func_001F9AF0(sp_slot);
+    b = 1.5707964f - func_001F9DF8(dot / len);
+    func_001F9BF8(&v3, &v0, 1.0f);
+    b = (func_001F9AB0(arg5, &v3) < 0.0f) ? b : -b;
+    arg0->unk4 = b;
+    arg0->unk8 = func_001F9AF0(&v0);
 }
 #endif /* NON_MATCHING */
