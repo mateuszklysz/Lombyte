@@ -5,74 +5,53 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_001f4be0/FUN_001f4be0.s", FUN_001f4be0);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
+struct TextBox { u8 pad0[0xA]; s16 y; s16 w; s16 h; u8 pad10[2]; u16 flags; u8 pad14[0xC]; };
+struct Subtitle { s16 start; s16 end; s16 text[6]; };
+struct Subtitles { u8 pad0[0x34]; s32 frame; u8 pad38[0x14]; u8 *data; };
+struct Screen { s32 w; s32 h; u8 pad8[0x18]; };
+extern struct Subtitles D_0018CB20;
+extern struct Screen D_0013E500;
+extern s32 D_0015ED88;
+extern void InitializeDmaPacket(struct TextBox *, s32, s32, s32, s32, s32, s32, s32, s32);
+extern void func_001F7580(struct TextBox *, u64, u8 *, s32);
+extern void func_001F5F18(s32, s32, s32, s32, s32);
 
-extern void *SearchData(void *a, void *b, int c);
-extern int cModel_setupModel(void *a, void *b, void *c, int d, int e);
-extern void cObjBase_KageInit(void *a, void *b, void *c);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
-extern char D_0044B4B8[];
-extern char D_003C3F58[];
-extern char D_003C3F68[];
-extern char D_003C3FB0[];
+void FUN_001f4be0(void) {
+    struct TextBox box;
+    struct Subtitles *s = &D_0018CB20;
+    struct Screen *scr = &D_0013E500;
+    struct Subtitle *e;
+    s16 *text;
+    s32 lang;
+    s32 hh;
+    s32 hw;
 
-/* sn-2.95.3-136 matched TU. */
-
-
-
-
-
-
-
-
-
-
-
-
-__attribute__((section(".text.func_002B6768")))
-int FUN_001f4be0(char *a0) {
-    void *m1;
-    void *m2;
-    int n;
-
-    if (*(unsigned char *)(a0 + 0x4D0) == 0) {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, 0);
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, 0);
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, 0);
-        }
+    if (s->data == 0) {
+        return;
+    }
+    if (D_0015ED88 >= 2 && D_0015ED88 <= 5) {
+        lang = D_0015ED88 - 1;
     } else {
-        m1 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B8, *(int *)(a0 + 0x4D4));
-        m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4A8, *(int *)(a0 + 0x4D4));
-        if (m2 == 0) {
-            m2 = SearchData(*(void **)(a0 + 0x304), &D_0044B4B0, *(int *)(a0 + 0x4D4));
+        lang = 0;
+    }
+    e = (struct Subtitle *)s->data;
+    text = &e->text[lang];
+    for (; e->start >= 0; e++, text += 8) {
+        if (s->frame < e->start || e->end < s->frame) {
+            continue;
         }
+        InitializeDmaPacket(&box, 0xC8, 0x208, 0x28, 0x1D8, 0x100, scr->h - 0x38, 0x12, 7);
+        func_001F7580(&box, ((u64)0x80B0 << 16) | 0xB0B0, s->data + *text, -1);
+        hh = (box.h >> 1) + 5;
+        hw = (box.w >> 1) + 0xA;
+        box.y = (u16)scr->h - 0x3C;
+        if (scr->h - 0x14 < box.y + hh) {
+            box.y = (u16)scr->h - ((box.h >> 1) + 0x19);
+        }
+        func_001F5F18(box.y - hh, box.y + hh, 0x100 - hw, (box.w >> 1) + 0x10A, 0x60);
+        box.flags &= ~4;
+        func_001F7580(&box, ((u64)0x80B0 << 16) | 0xB0B0, s->data + *text, -1);
+        return;
     }
-    n = func_002B6688(*(unsigned short *)(a0 + 0x2FE));
-    *(int *)(a0 + 0x4DC) = n;
-    switch (n) {
-    case 1:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        break;
-    case 2:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F58);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x40000000;
-        break;
-    case 3:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3F68);
-        *(int *)(a0 + 0x4A8) = *(int *)(a0 + 0x4A8) | 0x20000000;
-        break;
-    case 4:
-        cObjBase_KageInit(a0, a0 + 0x4F0, &D_003C3FB0);
-        break;
-    case 0:
-        break;
-    }
-    *(int *)(a0 + 0x254) = *(int *)(a0 + 0x254) | 0x8000000;
-    if (m1 == 0) {
-        return 0;
-    }
-    return cModel_setupModel(a0, m1, m2, 0, 0);
 }
 #endif /* NON_MATCHING */
