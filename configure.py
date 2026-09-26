@@ -208,6 +208,9 @@ SN_COMPILER_UNITS = {
     # place (x += 4; y -= 4) with the remaining offsets inline in the calls
     # reproduced the retail register allocation exactly.
     "textbin/ui/frames/draw_ui_frame",
+    # fun_00208030: expand a 4bpp coverage map through the 16-entry weight table
+    # into a 1bpp threshold mask (4 source rows per output row)
+    "textbin/fun_00208030",
 }
 
 # C units relocated from src/textbin/<module> to semantic source roots.
@@ -1312,6 +1315,15 @@ GAME_COMPILER_UNITS = {
     # cc rule takes no per-unit flags, so the public score could not reproduce
     # it
     "assembly/textbin/fun_00221f58",
+    # fun_00203120: upload a list of texture/CLUT images to VRAM from the
+    # D_0015EE8C page cursor (PSMT8/PSMCT32/PSMCT16 sizes)
+    "textbin/fun_00203120",
+    # obtain_all_gold_weapons_menu: draw the two-line "obtained all gold
+    # weapons" message box with its icons
+    "textbin/ui/menus/weapons/obtain_all_gold_weapons_menu",
+    # fun_00206860: decode one row of 4bpp run-length packed pixels (12-bit
+    # count/colour codes) into a nibble buffer
+    "textbin/fun_00206860",
 }
 
 # Per-unit extra flags for GAME_COMPILER_UNITS (suffix match, as SN_FLAG_UNITS).
@@ -1717,6 +1729,12 @@ PADLESS_ASM_UNITS = {
     # argument instead of w1 >> 32, and 0x20 is OR-ed with (w1 & 0x1C) in the
     # mode>=0 branch but with (prim << 6) in the two negative branches.
     "textbin/rendering/set_up_vis_gif_viewer",
+    # fun_001ffc30: queue a textured sprite GIF packet (TEX0 from the texture
+    # bank, RGBAQ alpha, UV/XYZ corners) on the DMA tag list
+    "textbin/fun_001ffc30",
+    # fun_001ffe18: queue a textured quad as a 4-vertex triangle strip GIF
+    # packet (same texture bank lookup as fun_001ffc30)
+    "textbin/fun_001ffe18",
 }
 
 
