@@ -1377,6 +1377,14 @@ GAME_COMPILER_FLAG_UNITS = {
     "fun_001f33b8": "-fno-schedule-insns",
     # fun_00221f58: exact-route compiler flags
     "fun_00221f58": "-G0",
+    # measured: textbin/fun_001f33b8 needs '-fno-schedule-insns' for its public
+    # score; the bank receipt carries it, configure.py did not, and the public
+    # harness reads only configure.py
+    "textbin/fun_001f33b8": "-fno-schedule-insns",
+    # measured: textbin/fun_00221f58 needs '-G0' for its public score; the bank
+    # receipt carries it, configure.py did not, and the public harness reads
+    # only configure.py
+    "textbin/fun_00221f58": "-G0",
 }
 
 SN_FLAG_UNITS = {

@@ -5,197 +5,148 @@
 /* Exact SDK/library unit sceWrite; symbolic expected assembly retained pending source recovery. */
 INCLUDE_ASM("config/us/expected/asm/assembly/sdk/library/scewrite/sceWrite.s", sceWrite);
 #else
-
 #include "types.h"
 
-/* D_00156880: the 0x30-byte request block handed to the IOP.
-   unk0  sema id (negated while queued)   unk4  &loc[8] (CreateSema out)
-   unk8  4                                  unkC  iob->unk0
-   unk10 buffer (arg1)                      unk14 length (arg2)
-   unk18 clamped transfer length            unk2C (iob - D_00157D80) >> 4
-   0x1C..0x2B payload staging area (16 bytes)                            */
-struct M2c_D_00156880 {
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-    s32 unk10;
-    s32 unk14;
-    s32 unk18;
-    u8 pad_1C[0x10];
-    s32 unk2C;
+struct FsIob {
+    s32 fd;
+    s32 mode;
+    s32 pad8;
+    s32 padC;
 };
 
-/* get_iob() result: the IOP buffer descriptor, unk4 is the mode/flag word */
-struct M2c_temp_16_19 {
-    s32 unk0;
-    s32 unk4;
+struct FsCall {
+    s32 sema;
+    void *result;
+    s32 result_size;
+    s32 fd;
+    void *buf;
+    s32 size;
+    s32 head;
+    u8 hbuf[0x10];
+    s32 iob;
 };
 
-extern u8 D_0012FC10[];                 /* 0x20-entry IOP queue                */
-extern u8 D_0012FC94[];                 /* wait for the file-system thread     */
-extern u8 D_0012FCA4[];                 /* queue mutex sema id                 */
-extern struct M2c_D_00156880 D_00156880;
-extern u8 D_001574C0[];                 /* non-queued completion slot          */
-extern u8 D_00157D80[];                 /* iob pool base                       */
-extern u8 D_00157F80[];                 /* sceSifCallRpc packet buffer         */
-extern s32 CreateSema();
-extern s32 DeleteSema();
-extern s32 ReadQueueStatus();
-extern s32 SignalSema();
-extern s32 WaitSema();
-extern void _sceFsWaitS();
-extern struct M2c_temp_16_19 *get_iob();
-extern s32 sceSifCallRpc();
-extern s32 sceSifWriteBackDCache();
+struct SemaParam {
+    s32 count;
+    s32 max_count;
+    s32 init_count;
+    s32 wait_threads;
+    u32 attr;
+    u32 option;
+};
 
-s32 sceWrite(s32 arg0, u32 arg1, s32 arg2) {
-    struct M2c_D_00156880 *st;          /* &D_00156880, live in s2 all function */
-    s32 loc[9];                         /* CreateSema block; loc[8] is its out  */
-    s32 *var_30_74;                     /* completion slot (s8)                */
-    s32 *temp_5_88;                     /* queue slot cursor                   */
-    s32 t;                              /* arg1 - 0x10                         */
-    s32 *locp;                          /* &loc[8]                             */
-    s32 temp_16_119;                    /* clamped transfer length             */
-    s32 temp_16_163;                    /* IOP completion word                 */
-    s32 temp_20_56;                     /* sema id (s3)                        */
-    s32 temp_22_33;                     /* iob flags (s4)                      */
-    s32 var_16_109;                     /* 0x10 - (arg1 & 0xF)                 */
-    s32 var_16_72;                      /* arg1 & 0xF                          */
-    s32 var_5_127;                      /* staging cursor                      */
-    s32 var_6_82;                       /* queue index                         */
-    u8 *temp_4_132;                     /* &st->pad_1C[0]                      */
-    u8 temp_3_133;                      /* staging byte                        */
-    struct M2c_temp_16_19 *temp_16_19;  /* get_iob() result (s0)               */
+extern struct FsCall D_00156880;
+extern s32 D_0012FC10[];
+extern s32 D_0012FC94[];
+extern s32 D_0012FCA4[];
+extern u8 D_001574C0[];
+extern struct FsIob D_00157D80[];
+struct SifClient {
+    u8 pad[0x28];
+};
 
-    st = &D_00156880;
-    temp_16_19 = get_iob();
+extern struct SifClient D_00157F80;
+extern struct FsIob *get_iob(s32 fd);
+extern void _sceFsWaitS(s32);
+extern s32 ReadQueueStatus(void);
+extern s32 CreateSema(struct SemaParam *);
+extern s32 DeleteSema(s32);
+extern s32 WaitSema(s32);
+extern s32 SignalSema(s32);
+extern void sceSifWriteBackDCache(void *, s32);
+extern s32 sceSifCallRpc(void *, s32, s32, void *, s32, void *, s32, void *, void *);
+
+s32 sceWrite(s32 fd, u8 *buf, s32 size) {
+    struct FsCall *call;
+    struct FsIob *iob;
+    struct SemaParam sp;
+    s32 result;
+    s32 mode;
+    s32 sema;
+    s32 i;
+    s32 *slot;
+    s32 ret;
+    s32 head;
+    s32 j;
+    u32 tmp;
+
+    call = &D_00156880;
+    iob = get_iob(fd);
     _sceFsWaitS(3);
-    if (*(s32 *)D_0012FC94 != 0) {
-        goto block_2;
+    if (D_0012FC94[0] == 0) {
+        ReadQueueStatus();
+        return -1;
     }
-    ReadQueueStatus();
-    return -1;
-block_2:
-    if (temp_16_19 == NULL) {
-        goto block_6;
+    if (iob == 0 || (mode = iob->mode) == 0) {
+        ReadQueueStatus();
+        return -9;
     }
-    temp_22_33 = temp_16_19->unk4;
-    if (temp_22_33 == 0) {
-        goto block_5;
+    call->fd = iob->fd;
+    sp.max_count = 1;
+    call->iob = iob - D_00157D80;
+    call->size = size;
+    call->buf = buf;
+    sp.init_count = 0;
+    sp.option = 0;
+    sema = CreateSema(&sp);
+    call->result = &result;
+    call->result_size = 4;
+    D_00156880.sema = sema;
+    if ((s16)mode & 0x8000) {
+        WaitSema(D_0012FCA4[0]);
+        i = 0;
+        if (D_0012FC10[i] == -1) {
+            D_0012FC10[i] = D_00156880.sema;
+            D_00156880.sema = -D_00156880.sema;
+        } else {
+        loop:
+            i++;
+            if (i < 0x20) {
+                slot = &D_0012FC10[i];
+                if (*slot != -1) {
+                    goto loop;
+                }
+                *slot = call->sema;
+                call->sema = -call->sema;
+            }
+        }
+        SignalSema(D_0012FCA4[0]);
     }
-    goto block_7;
-block_5:
-block_6:
-    ReadQueueStatus();
-    return -9;
-block_7:
-    st->unkC = (s32) temp_16_19->unk0;
-    loc[1] = 1;
-    st->unk2C = (s32) ((s32) (((u8 *)temp_16_19 - (u8 *)D_00157D80)) >> 4);
-    st->unk14 = arg2;
-    st->unk10 = arg1;
-    loc[2] = 0;
-    loc[5] = 0;
-    temp_20_56 = CreateSema(loc);
-    locp = &loc[8];
-    st->unk8 = 4;
-    st->unk4 = (s32) locp;
-    st->unk0 = temp_20_56;
-    if (!(temp_22_33 & 0x8000)) {
-        goto block_16;
-    }
-    WaitSema(*(s32 *)D_0012FCA4);
-    var_16_72 = arg1 & 0xF;
-    if (*(s32 *)D_0012FC10 != -1) {
-        goto block_11;
-    }
-    var_30_74 = (s32 *)D_001574C0;
-    *(s32 *)D_0012FC10 = st->unk0;
-    st->unk0 = (s32) -st->unk0;
-    goto block_15;
-block_11:
-    var_30_74 = (s32 *)D_001574C0;
-    var_6_82 = 1;
-loop_12:
-    if (var_6_82 >= 0x20) {
-        goto block_15;
-    }
-    temp_5_88 = ((s32 *)D_0012FC10 + var_6_82);
-    var_6_82 += 1;
-    if (*temp_5_88 != -1) {
-        goto loop_12;
-    }
-    *temp_5_88 = st->unk0;
-    st->unk0 = (s32) -st->unk0;
-block_15:
-    SignalSema(*(s32 *)D_0012FCA4);
-    goto block_17;
-block_16:
-    var_16_72 = arg1 & 0xF;
-    var_30_74 = (s32 *)D_001574C0;
-block_17:
-    if (var_16_72 != 0) {
-        goto block_19;
-    }
-    var_16_109 = 0;
-    goto block_20;
-block_19:
-    t = arg1 - 0x10;
-    var_16_109 = ((arg1 >> 4) * 0x10) - t;
-block_20:
-    if (arg2 >= var_16_109) {
-        temp_16_119 = var_16_109;
+    head = (u32)buf & 0xF;
+    if (head == 0) {
+        head = 0;
     } else {
-        temp_16_119 = arg2;
+        tmp = (u32)buf - 0x10;
+        head = (((u32)buf >> 4) << 4) - tmp;
     }
-    if (temp_22_33 & 0x20000000) {
-        goto block_22;
+    if (size < head) {
+        head = size;
     }
-    sceSifWriteBackDCache(arg1, arg2);
-block_22:
-    st->unk18 = temp_16_119;
-    var_5_127 = 0;
-    temp_4_132 = (u8 *)st + 0x1C;
-    if (temp_16_119 <= 0) {
-        goto block_25;
+    if (!(mode & 0x20000000)) {
+        sceSifWriteBackDCache(buf, size);
     }
-loop_24:
-    temp_3_133 = *(volatile u8 *)((arg1 | 0x20000000) + var_5_127);
-    *temp_4_132 = temp_3_133;
-    temp_4_132 += 1;
-    var_5_127 += 1;
-    if (var_5_127 < temp_16_119) {
-        goto loop_24;
+    buf = (u8 *)((u32)buf | 0x20000000);
+    call->head = head;
+    for (j = 0; j < head; j++) {
+        call->hbuf[j] = buf[j];
     }
-    
-block_25:
-    if (sceSifCallRpc(D_00157F80, 3, 0, &D_00156880, 0x30, (s32) var_30_74, 4, 0, 0) >= 0) {
-        goto block_27;
+    if (sceSifCallRpc(&D_00157F80, 3, 0, &D_00156880, 0x30, D_001574C0, 4, 0, 0) < 0) {
+        DeleteSema(sema);
+        ReadQueueStatus();
+        return -11;
     }
-    DeleteSema(temp_20_56);
+    ret = *(s32 *)((u32)D_001574C0 | 0x20000000);
     ReadQueueStatus();
-    return -0xB;
-block_27:
-    /* Keep the retail's two separate (recomputed) flags & 0x8000 tests: the
-       barrier stops GCC 2.9 from CSE-ing the mask into one long-lived value. */
-    __asm__ volatile ("" : "+r" (temp_22_33));
-    temp_16_163 = *(volatile u32 *)((u32) var_30_74 | 0x20000000);
-    ReadQueueStatus();
-    if (temp_16_163 != 0) {
-        goto block_29;
+    if (ret == 0) {
+        DeleteSema(sema);
+        return -11;
     }
-    DeleteSema(temp_20_56);
-    return -0xB;
-block_29:
-    if (!(temp_22_33 & 0x8000)) {
-        goto block_31;
+    if (mode & 0x8000) {
+        DeleteSema(sema);
+        return 0;
     }
-    DeleteSema(temp_20_56);
-    return 0;
-block_31:
-    WaitSema(temp_20_56);
-    DeleteSema(temp_20_56);
-    return loc[8];
+    WaitSema(sema);
+    DeleteSema(sema);
+    return result;
 }
 #endif /* NON_MATCHING */

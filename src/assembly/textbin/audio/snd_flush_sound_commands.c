@@ -5,142 +5,91 @@
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/audio/snd_flush_sound_commands/FUN_0012dc80.s", FUN_0012dc80);
 #else
 #include "types.h"
-/* sn-2.95.3-136 matched TU. */
 
-extern void *SearchData(void *a, void *b, int c);
-extern void cModel_setTextureExchange(void *self, void *tex, int tbl, int n);
-extern char D_0044B4A8[];
-extern char D_0044B4B0[];
+typedef void (*SndCallback)(s32, u64);
 
-/* sn-2.95.3-136 matched TU. */
+struct SndCommand {
+    SndCallback fn;
+    s32 pad4;
+    u64 arg;
+};
 
+extern s32 D_0015EC80;
+extern void (*D_0015EC90)(s32);
+extern s32 D_0015EC94;
+extern s32 D_0015EC98;
+extern s32 D_0015EC9C;
+extern s32 *D_0015ECA0[2];
+extern struct SndCommand *D_0015ECB0[2];
+extern s32 *D_0015ECB8[2];
+extern s32 D_0015ECC0;
+extern s32 D_0015ECC4;
+extern s32 D_0015ECC8;
+extern SndCallback D_0015ECD0;
+extern u64 D_0015ECD8[];
+extern SndCallback D_0015ECE0;
+extern u64 D_0015ECE8;
+extern s32 D_0015ED00[];
+extern s32 D_00133104[];
+extern s32 func_0012DE70(void);
+extern void func_0012E9D8(void);
+extern void func_0012EE08(s32);
+extern void FlushCache(s32);
 
+s32 snd_flush_sound_commands(void) __asm__("FUN_0012dc80");
 
+s32 snd_flush_sound_commands(void) {
+    s32 i;
+    s32 idx;
+    SndCallback fn;
+    u64 arg;
 
-
-
-__attribute__((section(".text.cObjSimple__SetTexChange")))
-void snd_flush_sound_commands(void *a0, int a1) __asm__("FUN_0012dc80");
-
-void snd_flush_sound_commands(void *a0, int a1) {
-    char *s0 = (char *)a0;
-    int s1 = a1;
-    void *m;
-    int val;
-
-    if (*(unsigned char *)(s0 + 0x4D0) == 0) {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, 0);
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, 0);
-        }
-    } else {
-        m = SearchData(*(void **)(s0 + 0x304), &D_0044B4A8, *(int *)(s0 + 0x4D4));
-        if (m == 0) {
-            m = SearchData(*(void **)(s0 + 0x304), &D_0044B4B0, *(int *)(s0 + 0x4D4));
-        }
-    }
-    switch (*(unsigned short *)(s0 + 0x2FE)) {
-    case 0x227: {
-        char *p0 = *(char **)(s0 + 0x304);
-        int f0 = *(int *)(p0 + 0x44);
-        val = f0 + (int)p0;
-        break;
-    }
-    case 0x228: {
-        char *p1 = *(char **)(s0 + 0x304);
-        int f1 = *(int *)(p1 + 0x48);
-        val = f1 + (int)p1;
-        break;
-    }
-    case 0x229: {
-        char *p2 = *(char **)(s0 + 0x304);
-        int f2 = *(int *)(p2 + 0x4C);
-        val = f2 + (int)p2;
-        break;
-    }
-    case 0x22A: {
-        char *p3 = *(char **)(s0 + 0x304);
-        int f3 = *(int *)(p3 + 0x50);
-        val = f3 + (int)p3;
-        break;
-    }
-    case 0x22B: {
-        char *p4 = *(char **)(s0 + 0x304);
-        int f4 = *(int *)(p4 + 0x54);
-        val = f4 + (int)p4;
-        break;
-    }
-    case 0x22C: {
-        char *p5 = *(char **)(s0 + 0x304);
-        int f5 = *(int *)(p5 + 0x58);
-        val = f5 + (int)p5;
-        break;
-    }
-    case 0x22D: {
-        char *p6 = *(char **)(s0 + 0x304);
-        int f6 = *(int *)(p6 + 0x78);
-        val = f6 + (int)p6;
-        break;
-    }
-    case 0x22E: {
-        char *p7 = *(char **)(s0 + 0x304);
-        int f7 = *(int *)(p7 + 0x70);
-        val = f7 + (int)p7;
-        break;
-    }
-    case 0x243: {
-        char *p8 = *(char **)(s0 + 0x304);
-        int f8 = *(int *)(p8 + 0x80);
-        val = f8 + (int)p8;
-        break;
-    }
-    case 0x24A: {
-        char *p9 = *(char **)(s0 + 0x304);
-        int f9 = *(int *)(p9 + 0x64);
-        val = f9 + (int)p9;
-        break;
-    }
-    case 0x24B: {
-        char *p10 = *(char **)(s0 + 0x304);
-        int f10 = *(int *)(p10 + 0x6C);
-        val = f10 + (int)p10;
-        break;
-    }
-    case 0x24C: {
-        char *p11 = *(char **)(s0 + 0x304);
-        int f11 = *(int *)(p11 + 0x74);
-        val = f11 + (int)p11;
-        break;
-    }
-    case 0x24D: {
-        char *p12 = *(char **)(s0 + 0x304);
-        int f12 = *(int *)(p12 + 0x7C);
-        val = f12 + (int)p12;
-        break;
-    }
-    case 0x24E: {
-        char *p13 = *(char **)(s0 + 0x304);
-        int f13 = *(int *)(p13 + 0x88);
-        val = f13 + (int)p13;
-        break;
-    }
-    case 0x271:
-    case 0x272:
-    case 0x273: {
-        char *p14 = *(char **)(s0 + 0x304);
-        int f14 = *(int *)(p14 + 0x5C);
-        val = f14 + (int)p14;
-        break;
-    }
-    default:
-        val = 0;
-        break;
-    }
-    if (m != 0) {
-        if (val != 0) {
-            *(int *)(s0 + 0x254) = *(int *)(s0 + 0x254) | 0x10000000;
-            cModel_setTextureExchange(s0, m, val, s1);
+    if (D_0015EC80 != 0 && func_0012DE70() != 0) {
+        if (D_0015EC9C != 0) {
+            if (D_0015ECE0 != 0) {
+                D_0015ECE0(D_00133104[0], D_0015ECE8);
+            }
+            D_0015ECE0 = 0;
+            D_0015EC9C = 0;
+        } else {
+            idx = D_0015ECC0 != 1;
+            for (i = 0; i < *D_0015ECA0[idx]; i++) {
+                struct SndCommand *c = &D_0015ECB0[idx][i];
+                if (c->fn != 0) {
+                    c->fn(D_0015ECB8[idx][i + 1], c->arg);
+                }
+            }
         }
     }
+    if (D_0015ECC8 != 0) {
+        FlushCache(0);
+        if (D_0015ED00[0] != -1) {
+            if (D_0015ECD0 != 0) {
+                arg = D_0015ECD8[0];
+                fn = D_0015ECD0;
+                D_0015ECD0 = 0;
+                D_0015ECD8[0] = 0;
+                fn(D_0015ED00[0], arg);
+            }
+            D_0015ED00[0] = 0;
+            D_0015ECC8 = 0;
+        }
+    }
+    if (D_0015EC80 == 0) {
+        if (*D_0015ECA0[D_0015ECC0] != 0 && D_0015ECC4 == 0) {
+            func_0012E9D8();
+        }
+    }
+    if (D_0015EC94 != 0) {
+        func_0012EE08(1);
+        if (D_0015EC98 != 0) {
+            D_0015EC94 = 0;
+            D_0015EC98 = 0;
+            if (D_0015EC90 != 0) {
+                D_0015EC90(1);
+            }
+        }
+    }
+    return D_0015EC80 != 0 || D_0015ECC8 != 0;
 }
 #endif /* NON_MATCHING */
