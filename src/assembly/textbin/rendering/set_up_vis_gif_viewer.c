@@ -4,55 +4,47 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/rendering/set_up_vis_gif_viewer/FUN_00202fd0.s", FUN_00202fd0);
 #else
-#include "rnc/assembly_textbin_fun_00202fd0_types.h"
 #include "types.h"
+extern u64 D_0019E540[];
+extern u64 D_0019E6C0[];
+extern u64 D_0019E6D8[];
 
+void set_up_vis_gif_viewer(u64 *q, s32 nloop, s32 prim, s32 a3, s32 t0, s32 mode) __asm__("FUN_00202fd0");
 
+void set_up_vis_gif_viewer(u64 *q, s32 nloop, s32 prim, s32 a3, s32 t0, s32 mode) {
+    u64 w0;
+    u64 w1;
+    u64 w2;
+    u64 *src;
 
-
-
-
-
-
-
-
-extern u8 D_0019E540[];
-extern u8 D_0019E6C0[];
-extern u8 D_0019E6D8[];
-void set_up_vis_gif_viewer(struct M2c_arg0 *arg0, s64 arg1, s64 arg2, s32 arg3, s64 arg4, s64 arg5) __asm__("FUN_00202fd0");
-
-void set_up_vis_gif_viewer(struct M2c_arg0 *arg0, s64 arg1, s64 arg2, s32 arg3, s64 arg4, s64 arg5) {
-    struct M2c_var_7_51 *var_7_51;
-    s32 temp_2_9;
-    struct M2c_temp_11_38 *temp_11_38;
-    struct M2c_temp_11_63 *temp_11_63;
-    struct M2c_temp_11_85 *temp_11_85;
-
-    temp_2_9 = arg5 * 3;
-    if (arg5 >= 0) {
-        arg0->unk0 = (s64) ((*(((temp_2_9 + 1) * 8) + D_0019E540) & 0x1C) | ((arg2 << 6) | 0x20) | (arg1 << 0x20));
-        temp_11_38 = ((u8 *)arg0 + (0x10));
-        arg0->unk10 = (s64) (arg3 | (arg4 * 4) | (arg5 << 0x18));
-        *(s32 *)((u8 *)(((u8 *)temp_11_38 + (0x10))) + 0x10) = (s64) *(((temp_2_9 + 2) * 8) + D_0019E540);
-        temp_11_38->unk10 = (s64) *((arg5 * 0x18) + D_0019E540);
-        return;
-    }
-    if (arg5 < -1) {
-        var_7_51 = D_0019E6C0;
-        if (arg5 == -3) {
-            var_7_51 = D_0019E6D8;
+    w0 = D_0019E540[mode * 3];
+    w1 = D_0019E540[mode * 3 + 1];
+    w2 = D_0019E540[mode * 3 + 2];
+    if (mode >= 0) {
+        q[0] = (w1 & 0x1C) | ((u64)prim << 6 | 0x20) | (u64)nloop << 32;
+        q += 2;
+        q[0] = (a3 | ((u64)t0 << 2)) | ((u64)mode << 24);
+        q += 2;
+        q[0] = w0;
+        q[2] = w2;
+    } else if (mode < -1) {
+        src = D_0019E6C0;
+        if (mode == -3) {
+            src = D_0019E6D8;
         }
-        arg0->unk0 = (s64) ((arg2 << 6) | ((arg1 << 0x20) | 0x20));
-        temp_11_63 = ((u8 *)arg0 + (0x10));
-        arg0->unk10 = 5;
-        temp_11_63->unk10 = (s64) var_7_51->unk0;
-        *(s32 *)((u8 *)(((u8 *)temp_11_63 + (0x10))) + 0x10) = (s64) var_7_51->unk10;
-        return;
+        q[0] = ((u64)nloop << 32 | 0x20) | (u64)prim << 6;
+        q += 2;
+        q[0] = 5;
+        q += 2;
+        q[0] = src[0];
+        q[2] = src[2];
+    } else {
+        q[0] = ((u64)nloop << 32 | 0x20) | (u64)prim << 6;
+        q += 2;
+        q[0] = 5;
+        q += 2;
+        q[0] = ((u64)0x8000 << 29 | 0x9980) << 19 | 0x7FFB;
+        q[2] = 0;
     }
-    arg0->unk0 = (s64) ((arg2 << 6) | ((arg1 << 0x20) | 0x20));
-    temp_11_85 = ((u8 *)arg0 + (0x10));
-    arg0->unk10 = 5;
-    temp_11_85->unk10 = (s64) ((((0x8000 << 0x1D) | 0x9980) << 0x13) | 0x7FFB);
-    *(s32 *)((u8 *)(((u8 *)temp_11_85 + (0x10))) + 0x10) = 0;
 }
 #endif /* NON_MATCHING */

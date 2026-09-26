@@ -4,34 +4,35 @@
 #ifndef NON_MATCHING
 INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00204e30/FUN_00204e30.s", FUN_00204e30);
 #else
-#include "rnc/assembly_textbin_fun_00204e30_types.h"
 #include "types.h"
-
-
+struct TexEntry { s32 data; s16 flags; s16 cbp; s32 clut; u8 tw; u8 th; s16 tbp; };
 extern s32 D_0015F458;
-extern u8 D_0018D040[];
-s32 FUN_00204e30(s64 arg0, s64 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
-    s32 temp_2_7;
-    s32 temp_4_38;
-    s32 temp_8_21;
-    s32 temp_9_12;
-    struct M2c_temp_2_41 *temp_2_41;
+extern struct TexEntry D_0018D040[];
 
-    temp_2_7 = arg0 - 6;
-    temp_9_12 = arg5 >> 8;
-    temp_8_21 = arg4 >> 8;
-    if (D_0015F458 < 0x40) {
-        temp_4_38 = D_0015F458 * 0x10;
-        temp_2_41 = temp_4_38 + D_0018D040;
-        temp_2_41->unk0 = arg2;
-        temp_2_41->unk6 = (s16) temp_8_21;
-        temp_2_41->unk4 = 0;
-        *(s32 *)((u8 *)(D_0018D040 + temp_4_38) + 0x8) = arg3;
-        temp_2_41->unkE = (s16) temp_9_12;
-        temp_2_41->unkC = (s8) arg0;
-        temp_2_41->unkD = (s8) arg1;
-        D_0015F458 += 1;
+u64 FUN_00204e30(s32 tw, s32 th, s32 data, s32 clut, s32 cbp, s32 tbp) {
+    s32 shift;
+    u64 tex0;
+    s32 n;
+
+    cbp >>= 8;
+    tbp >>= 8;
+    shift = tw - 6;
+    if (shift < 0) {
+        shift = 0;
     }
-    return temp_9_12 | ((1 << ((temp_2_7 <= -1) ? 0 : temp_2_7)) << 0xE) | ((arg0 << 0x1A) | 0x01300000) | (arg1 << 0x1E) | (((s64) temp_8_21 << 0x25) | (0x8000 << 0x13)) | (-1 << 0x3F);
+    tex0 = tbp | ((u64)(1 << shift) << 14) | ((u64)tw << 26 | 0x1300000) | ((u64)th << 30)
+         | ((u64)cbp << 37 | (u64)1 << 34) | (u64)1 << 63;
+    n = D_0015F458;
+    if (n < 0x40) {
+        D_0018D040[n].data = data;
+        D_0018D040[n].cbp = cbp;
+        D_0018D040[n].flags = 0;
+        D_0018D040[n].clut = clut;
+        D_0018D040[n].tbp = tbp;
+        D_0018D040[n].tw = tw;
+        D_0018D040[n].th = th;
+        D_0015F458 = n + 1;
+    }
+    return tex0;
 }
 #endif /* NON_MATCHING */
