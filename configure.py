@@ -518,6 +518,9 @@ EE_GCC_PATCHED_UNITS = {
     # fun_001fecc8: find an id in the 150-entry pair table and return its
     # partner
     "textbin/fun_001fecc8",
+    # sce_dma_put_env: libdma sceDmaPutEnv: validate the env, program
+    # D_CTRL/PCR/SQWC/RBOR/RBSR and keep a copy
+    "sdk/dma/sce_dma_put_env",
 }
 
 # Per-unit extra flags for the patched 991111 profile.  Every -mastra-* option
@@ -618,6 +621,8 @@ PADLESS_POLICY_UNITS = {
     "fun_0020b950": "la-gprel",
     # snd_send_iop_command_and_wait: exact on padless with la-gprel
     "snd_send_iop_command_and_wait": "la-gprel",
+    # snd_send_iop_command_no_wait: exact on padless with la-gprel
+    "snd_send_iop_command_no_wait": "la-gprel",
 }
 
 SDK_COMPILER_UNITS = {
@@ -1615,6 +1620,9 @@ PADLESS_ASM_UNITS = {
     # snd_send_iop_command_and_wait: copy the command payload, wait for the IOP,
     # call the sound RPC and poll for completion (wait loop entered at its test)
     "textbin/audio/rpc/snd_send_iop_command_and_wait",
+    # snd_send_iop_command_no_wait: append a sound command to the current batch
+    # (send immediately when idle), waiting for batch space
+    "textbin/audio/rpc/snd_send_iop_command_no_wait",
 }
 
 
