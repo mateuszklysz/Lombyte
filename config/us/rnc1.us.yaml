@@ -1288,7 +1288,7 @@ segments:
           - [0x103c8c, textbin, text_gap_00202d0c_before_fun_00202d10]
           - [0x103c90, c, ui/hud/load_compressed_hud_bank]
           - [0x103cf4, textbin, text_gap_00202d74_after_fun_00202d10]
-          - [0x103cf8, c, assembly/textbin/fun_00202d78]
+          - [0x103cf8, c, rendering/build_indexed_resident_render_packet]
           - [0x103f50, c, rendering/set_up_vis_gif_viewer]
           - [0x10409c, textbin, text_gap_0020311c_before_fun_00203120]
           - [0x1040a0, c, world/loaders/upload_texture_images]

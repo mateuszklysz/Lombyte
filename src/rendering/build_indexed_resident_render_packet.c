@@ -1,10 +1,4 @@
 #include "types.h"
-#include "asm.h"
-
-#ifndef NON_MATCHING
-INCLUDE_ASM("config/us/expected/asm/assembly/textbin/fun_00202d78/FUN_00202d78.s", FUN_00202d78);
-#else
-#include "types.h"
 #include "rnc/rendering/resident_class.h"
 
 extern s32 gs_texture_allocation_base __asm__("D_0015EE8C");
@@ -24,7 +18,7 @@ void build_indexed_resident_render_packet(u64 *packet,
     s32 width_units_128;
     s32 width_units_64;
     s32 width_log2;
-    s64 height_log2;
+    s32 height_log2;
     s32 gs_block_base;
     s32 texture_block;
     s32 mip_block_1;
@@ -36,6 +30,8 @@ void build_indexed_resident_render_packet(u64 *packet,
     u64 mip_word;
     u64 mip_address_word;
     s32 draw_control_count;
+    u64 filter;
+    u64 format;
 
     width_units_64 = texture->width >> 6;
     width_units_128 = texture->width >> 7;
@@ -54,27 +50,24 @@ void build_indexed_resident_render_packet(u64 *packet,
     /* Preserve sparse writes: every other 64-bit packet word is untouched. */
     draw_control_count = texture->draw_control_count;
     if (material_index >= 0) {
-        draw_control_word = (u64)draw_shift;
-        draw_control_word <<= 6;
-        draw_control_word |= 0x20;
-        draw_control_word |= ((u64)(draw_control_count - 1) << 2);
+        filter = ((u64)draw_shift << 6) | 0x20;
+        draw_control_word = ((u64)(draw_control_count - 1) << 2) | filter;
         draw_control_word |= (u64)draw_high << 32;
         packet[0] = draw_control_word;
         packet += 2;
         packet[0] = material_base | ((u64)material_shift << 2) | ((u64)material_index << 24);
         packet += 2;
-        texture_word = ((u64)width_log2 << 26) | 0x1300000;
-        texture_word = ((u64)width_units_64 << 14) | texture_word;
-        texture_word |= (u64)height_log2 << 30;
+        format = ((u64)width_log2 << 26) | 0x1300000;
+        texture_word = (((u64)width_units_64 << 14) | format) | ((u64)height_log2 << 30);
         texture_address_word = ((u64)0x8000 << 19) | ((u64)texture_block << 37);
-        texture_word |= texture_address_word;
-        texture_word |= (u64)-1 << 63;
         mip_word = ((u64)width_units_128 << 14) | ((u64)mip_block_0 << 20);
         mip_address_word = ((u64)mip_block_1 << 40) | ((u64)0x8000 << 19);
         mip_word |= mip_address_word;
+        texture_word |= texture_address_word;
+        texture_word |= (u64)-1 << 63;
         mip_word |= (u64)0x8000 << 39;
-        packet[2] = mip_word;
         packet[0] = texture_word;
+        packet[2] = mip_word;
     } else if (material_index < -1) {
         fallback_packet = special_material_template;
         if (material_index == -3) {
@@ -87,8 +80,7 @@ void build_indexed_resident_render_packet(u64 *packet,
         packet[0] = fallback_packet[0];
         packet[2] = fallback_packet[2];
     } else {
-        draw_control_word = ((u64)draw_shift << 6) | 0x20 | ((u64)draw_high << 32);
-        packet[0] = draw_control_word;
+        packet[0] = ((u64)draw_shift << 6) | 0x20 | ((u64)draw_high << 32);
         packet += 2;
         packet[0] = 5;
         packet += 2;
@@ -100,4 +92,3 @@ void build_indexed_resident_render_packet(u64 *packet,
 extern __typeof__(build_indexed_resident_render_packet) func_00202D78
     __attribute__((alias("FUN_00202d78")));
 
-#endif /* NON_MATCHING */
